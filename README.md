@@ -28,10 +28,12 @@ Instead of falling for getting things done quickly, "Programming in D" focuses o
  1. 将自己负责的章节（`*.d`，`*.cozum.d`）由 `ddili/src/ders/d.en/` 拷贝至 `ddili/src/ders/d.cn/`，若需要可以翻译章节名称，但文件名必需保持一致
  2. 第一次 `commit`，消息格式：`Initial commit`
  3. 进行翻译，可 `commit` 多次，消息格式：`Update 中文修改原因`
- 4. 翻译完成，消息格式：`Final commit: \文件名`，并应及时通知指定的审核人员进行审核
+ 4. 翻译完成，消息格式：`Final commit`，并应及时通知指定的审核人员进行审核
  5. 审核完成，在 `ddili/src/ders/d.cn/Makefile.in` 中去除注释标记，消息格式：`Done`
 
 ## TODO 现行计划
- - [Get everthing ready for translation 准备待翻译文件及编译文件]
- - [Assign translation tasks to individuals 分派翻译任务到个人]
- - [Seeking for more contributors 寻求更多有兴趣及时间的人参与到项目中来]
+- [Get everthing ready for translation 准备待翻译文件及编译文件] 
+
+- [Assign translation tasks to individuals 分派翻译任务到个人] 
+
+- [Seeking for more contributors 寻求更多有兴趣及时间的人参与到项目中来] 
