@@ -8,7 +8,7 @@ Instead of falling for getting things done quickly, "Programming in D" focuses o
 
 本书注重于如何恰到好处地使用D语言将任务处理得当，而非快速地完成一切却有失于代码质量，这使得它的读者能够长久受益。 ——大A
 
-# How to join us 怎样加入我们
+## How to join us 怎样加入我们
 ### Tencent QQ
 	* 爱好群: 531010036
 	* 译者群: 54520002
