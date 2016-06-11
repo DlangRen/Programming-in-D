@@ -31,7 +31,7 @@ $(IX gdc) $(IX ldc) At the time of writing this chapter, there are three D compi
 )
 
 $(P
-$(IX dmd) $(C dmd) is the D compiler that has been used during the design and development of the language over the years. All of the examples in this book have been tested with $(C dmd). For that reason, it would be the easiest for you to start with $(C dmd) and try other compilers only if you have a specific need to. The code samples in this book were compiled with $(C dmd) version 2.071.
+$(IX dmd) $(C dmd) is the D compiler that has been used during the design and development of the language over the years. All of the examples in this book have been tested with $(C dmd). For that reason, it would be the easiest for you to start with $(C dmd) and try other compilers only if you have a specific need to. The code samples in this book were compiled with $(C dmd) version 2.069.
 )
 
 $(P

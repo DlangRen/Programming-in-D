@@ -34,6 +34,10 @@ $(BR)Türkçe)
 <div class="kitaplar">
 $(LINK2 /ders/d.en/index.html, <img style="border-width:0; float:left; margin:0 2em 1em 1em;" src="$(ROOT_DIR)/ders/d.en/cover_thumb.png" height="180"/>$(BR)English)
 </div>
+
+<div class="kitaplar">
+$(LINK2 /ders/d.en/index.html, <img style="border-width:0; float:left; margin:0 2em 1em 1em;" src="$(ROOT_DIR)/ders/d.cn/cover_thumb.png" height="180"/>$(BR)Chinese)
+</div>
 </div>
 
 $(H4 $(LINK2 /ders/index.html, Bütün kitaplar))

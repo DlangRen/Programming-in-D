@@ -10,8 +10,8 @@ Instead of falling for getting things done quickly, "Programming in D" focuses o
 
 ## How to join us 怎样加入我们
 ### Tencent QQ
-	* 爱好群: 531010036
-	* 译者群: 54520002
+ - 爱好群: 531010036
+ - 译者群: 54520002
 
 ##License 版权许可 [![LICENSE][license-badge]][license-url]
 

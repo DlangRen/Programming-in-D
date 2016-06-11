@@ -123,6 +123,7 @@ include ders/d/Makefile.in
 include ders/gtkd/Makefile.in
 include ders/sdl/Makefile.in
 include ders/d.en/Makefile.in
+include ders/d.cn/Makefile.in
 #include ders/d.de/Makefile.in
 
 

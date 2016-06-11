@@ -4,9 +4,9 @@ SUB_AUTHOR=Ali Çehreli
 LANG=en
 LANGUAGE=english
 
-HORIZNAV_CONTENT_DERSE_OZEL=$(LINK2 /ders/d.en/rss.xml, RSS&nbsp;<img src="$(ROOT_DIR)/image/rss-icon.png" border="0" width="16" height="16" alt="Programming in D RSS Feed"/>)
+HORIZNAV_CONTENT_DERSE_OZEL=$(LINK2 /ders/d.de/rss.xml, RSS&nbsp;<img src="$(ROOT_DIR)/image/rss-icon.png" border="0" width="16" height="16" alt="Programming in D RSS Feed"/>)
 $(BR)
-$(LINK2 /ders/d.en/index.html,
+$(LINK2 /ders/d.de/index.html,
 Download or buy $(IMG book.png))
 
 DUSEY_NAVIGASYON=

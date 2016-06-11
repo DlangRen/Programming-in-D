@@ -4,7 +4,7 @@ $(B)
 $(H4 The End)
 
 $(P
-You can use $(LINK2 /ders/d.en/rss.xml, the RSS feed) to be notified about new chapters.
+You can use $(LINK2 /ders/d.de/rss.xml, the RSS feed) to be notified about new chapters.
 )
 
 Macros:

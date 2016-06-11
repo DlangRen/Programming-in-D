@@ -130,6 +130,34 @@ class TurkishAlphabet : Alphabet
     }
 }
 
+class ChineseAlphabet : Alphabet
+{
+	bool is_less(dchar lhs, dchar rhs)
+	{
+		return lhs < rhs;
+	}
+	
+	bool is_less(string lhs, string rhs)
+	{
+		return lhs < rhs;
+	}
+	
+	bool is_greater(dchar lhs, dchar rhs)
+	{
+		return lhs > rhs;
+	}
+	
+	string toLower(string s)
+	{
+		return s;
+	}
+	
+	dchar toUpper(dchar d)
+	{
+		return s;
+	}
+}
+
 Alphabet makeAlphabet(string alphabetName)
 {
     Alphabet result;
@@ -145,7 +173,11 @@ Alphabet makeAlphabet(string alphabetName)
 
     case "german":
         result = new EnglishAlphabet();
-        break;
+		break;
+
+	case "chinese":
+		result = new ChineseAlphabet();
+		break;
 
     default:
         throw new Exception(format("Unsupported alphabet: %s", alphabetName));

@@ -87,14 +87,18 @@ Other ebook versions are generated with Calibre
 )
 $(BR)
 $(P
-ISBNs:
+Printed by IngramSpark
 )
-<ul class="no_bullet">
-<li>978-0-692-59943-3 hardcover by IngramSpark</li>
-<li>978-0-692-52957-7 paperback by IngramSpark</li>
-<li>978-1-515-07460-1 paperback by CreateSpace</li>
-<li>978-1-519-95441-1 ePUB by Draft2Digital</li>
-</ul>
+$(P
+ISBN 978-0-692-52957-7
+)
+$(BR)
+$(P
+or by CreateSpace
+)
+$(P
+ISBN 978-1515074601
+)
 
 </div>
 
