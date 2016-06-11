@@ -154,7 +154,7 @@ class ChineseAlphabet : Alphabet
 	
 	dchar toUpper(dchar d)
 	{
-		return s;
+		return d;
 	}
 }
 

@@ -22,14 +22,14 @@ Instead of falling for getting things done quickly, "Programming in D" focuses o
 ## Translation 翻译
 ### Precautions 注意事项
 - 译者必须严格遵循 [中文文案排版指北](https://github.com/sparanoid/chinese-copywriting-guidelines) 中所述的排版规范。
-- 所有翻译相关 `commit` 消息必须精确后缀文件名（去除扩展名）：` ~ 相应文件名` ，多个文件务必多次 `commit` 以便于浏览
+- 所有翻译相关 `commit` 消息必须精确后缀文件名：` ~ 相应文件名` ，多个文件务必多次 `commit` 以便于浏览
 
 ### Steps 步骤
- 1. 将自己负责的章节（`*.d`，`*.cozum.d`）由 `ddili/src/ders/d.en/` 拷贝至 `ddili/src/ders/d.cn/`，若需要可以翻译章节名称，但文件名必需保持一致
- 2. 第一次 `commit`，消息格式：`Initial commit`
- 3. 进行翻译，可 `commit` 多次，消息格式：`Update 中文修改原因`
- 4. 翻译完成，消息格式：`Final commit`，并应及时通知指定的审核人员进行审核
- 5. 审核完成，在 `ddili/src/ders/d.cn/Makefile.in` 中去除注释标记，消息格式：`Done`
+ 1. `Fork`
+ 2. 进行翻译，可 `commit` 多次，消息格式：`Update 中文修改原因`
+ 3. 翻译完成，消息格式：`Final commit`，并应及时通知指定的审核人员进行审核（发起 `Pull request`）
+ 4. 审核完成，在 `ddili/src/ders/d.cn/Makefile.in` 中去除注释标记，并在 `ddili/src/ders/d.cn/index.d` 中做相应修改以匹配章节名称，消息格式：`Done`
+ 5. `Merge`
 
 ## TODO 现行计划
 - Get everthing ready for translation 准备待翻译文件及编译文件
