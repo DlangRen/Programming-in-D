@@ -24,11 +24,11 @@ Instead of falling for getting things done quickly, "Programming in D" focuses o
 译者必须严格遵循 [中文文案排版指北](https://github.com/sparanoid/chinese-copywriting-guidelines) 中所述的排版规范。
 
 ### Steps 步骤
- 1. 将自己负责的章节由 `ddili/src/ders/d.en/` 拷贝至 `ddili/src/ders/d.cn`，若需要可以翻译章节名称
- 2. 第一次 `commit` ，消息格式： `Initial commit: 原章节名称`
- 3. 进行翻译，可有多次 `commit` ，消息内容应指示翻译进度
+ 1. 将自己负责的章节由 `ddili/src/ders/d.en/` 拷贝至 `ddili/src/ders/d.cn/`，若需要可以翻译章节名称
+ 2. 第一次 `commit`，消息格式：`Initial commit: 原章节名称`
+ 3. 进行翻译，可有多次 `commit`，消息格式：`Update: 原章节名称`
  4. 翻译完成应及时通知指定的审核人员进行审核
- 5. 审核完成，加入目录 `ddili/src/ders/d.cn/Makefile.in`
+ 5. 审核完成，加入编译目录 `ddili/src/ders/d.cn/Makefile.in`，消息格式：`Done: 原章节名称`
 
 ## TODO 现行计划
  1. Get everthing ready for tranlation 准备待翻译文件及编译文件
