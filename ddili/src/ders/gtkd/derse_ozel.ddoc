@@ -1,0 +1,12 @@
+MAIN_TITLE=GtkD ile Görsel Programlama
+SUB_MAIN_TITLE_DERSE_OZEL=
+SUB_AUTHOR=Mengü Kağan ve Can Alpay Çiftçi
+LANG=tr
+LANGUAGE=turkish
+
+HORIZNAV_CONTENT_DERSE_OZEL=$(LINK2 /ders/gtkd/rss.xml, GtkD&nbsp;RSS&nbsp;<img src="$(ROOT_DIR)/image/rss-icon.png" border="0" width="16" height="16" alt="GtkD Dersleri RSS Beslemesi"/>)
+$(BR)
+$(LINK2 /ders/gtkd/Gtkd_ile_Programlama.pdf,
+PDF&nbsp;Olarak&nbsp;$(IMG pdficon_small.gif))
+
+MINI_SOZLUK=

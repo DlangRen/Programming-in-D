@@ -1,0 +1,23 @@
+MAIN_TITLE=SDL ile Oyun Programlama
+SUB_MAIN_TITLE_DERSE_OZEL=
+SUB_AUTHOR=Faruk Erdem Öncel
+LANG=tr
+LANGUAGE=turkish
+
+HORIZNAV_CONTENT_DERSE_OZEL=$(LINK2 /ders/sdl/rss.xml, SDL&nbsp;RSS&nbsp;<img src="$(ROOT_DIR)/image/rss-icon.png" border="0" width="16" height="16" alt="SDL Dersleri RSS Beslemesi"/>)
+$(BR)
+$(LINK2 /ders/sdl/SDL_ile_Oyun_Programlama.pdf,
+PDF&nbsp;Olarak&nbsp;$(IMG pdficon_small.gif))
+
+
+MINIBASLIK = <h7 style="color:limegreen; font-family: Verdana, Geneva, Arial, Helvetica, sans-serif; font-weight:normal;">$0</h7>
+
+
+BASLIK = <h4>$0</h4>
+
+ALTBASLIK = <h5 style="margin-bottom:0px; padding-bottom: 0px; margin-top: 5px; padding-top: 0px;">$0</h5>
+
+
+MINI_SOZLUK=
+
+KODLAR=$(ROOT_DIR)/ders/sdl/src

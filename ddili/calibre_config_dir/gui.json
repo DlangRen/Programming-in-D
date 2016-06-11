@@ -1,0 +1,261 @@
+{
+  "custom_colors_for_color_dialog": [
+    [
+      255, 
+      255, 
+      255, 
+      255
+    ], 
+    [
+      255, 
+      255, 
+      255, 
+      255
+    ], 
+    [
+      255, 
+      255, 
+      255, 
+      255
+    ], 
+    [
+      255, 
+      255, 
+      255, 
+      255
+    ], 
+    [
+      255, 
+      255, 
+      255, 
+      255
+    ], 
+    [
+      255, 
+      255, 
+      255, 
+      255
+    ], 
+    [
+      255, 
+      255, 
+      255, 
+      255
+    ], 
+    [
+      255, 
+      255, 
+      255, 
+      255
+    ], 
+    [
+      255, 
+      255, 
+      255, 
+      255
+    ], 
+    [
+      255, 
+      255, 
+      255, 
+      255
+    ], 
+    [
+      255, 
+      255, 
+      255, 
+      255
+    ], 
+    [
+      255, 
+      255, 
+      255, 
+      255
+    ], 
+    [
+      255, 
+      255, 
+      255, 
+      255
+    ], 
+    [
+      255, 
+      255, 
+      255, 
+      255
+    ], 
+    [
+      255, 
+      255, 
+      255, 
+      255
+    ], 
+    [
+      255, 
+      255, 
+      255, 
+      255
+    ]
+  ], 
+  "config_widget_dialog_geometry_Sharing_Metadata download": {
+    "__class__": "bytearray", 
+    "__value__": "AdnQywABAAAAAADzAAAAPAAAA+IAAAJ6AAAA9AAAAFAAAAPhAAACdQAAAAAAAA=="
+  }, 
+  "toolbar_icon_size": "small", 
+  "card_a_view books view state": {
+    "hidden_columns": [], 
+    "column_positions": {
+      "authors": 2, 
+      "timestamp": 3, 
+      "inlibrary": 0, 
+      "collections": 5, 
+      "size": 4, 
+      "title": 1
+    }, 
+    "last_modified_injected": true, 
+    "sort_history": [
+      [
+        "timestamp", 
+        false
+      ]
+    ], 
+    "column_alignment": {
+      "timestamp": "center", 
+      "size": "center"
+    }, 
+    "languages_injected": true, 
+    "column_sizes": {
+      "authors": 97, 
+      "timestamp": 74, 
+      "inlibrary": 99, 
+      "collections": 108, 
+      "size": 58, 
+      "title": 60
+    }
+  }, 
+  "library_usage_stats": {
+    "/home/ali/calibre_library": 10
+  }, 
+  "cover_grid_texture": null, 
+  "show_emblems": false, 
+  "metasingle_window_geometry3": {
+    "__class__": "bytearray", 
+    "__value__": "AdnQywABAAAAAAB7AAAAAAAABFoAAAK2AAAAfAAAABQAAARZAAACsQAAAAAAAA=="
+  }, 
+  "card_b_view books view state": {
+    "hidden_columns": [], 
+    "column_positions": {
+      "authors": 2, 
+      "timestamp": 3, 
+      "inlibrary": 0, 
+      "collections": 5, 
+      "size": 4, 
+      "title": 1
+    }, 
+    "last_modified_injected": true, 
+    "sort_history": [
+      [
+        "timestamp", 
+        false
+      ]
+    ], 
+    "column_alignment": {
+      "timestamp": "center", 
+      "size": "center"
+    }, 
+    "languages_injected": true, 
+    "column_sizes": {
+      "authors": 97, 
+      "timestamp": 74, 
+      "inlibrary": 99, 
+      "collections": 108, 
+      "size": 58, 
+      "title": 60
+    }
+  }, 
+  "jobs view column layout3": {
+    "__class__": "bytearray", 
+    "__value__": "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAkQAAAAFAQEBAAAAAAAAAAAAAAAAAGT/////AAAAhAAAAAAAAAAFAAAAsgAAAAEAAAAAAAAAZgAAAAEAAAAAAAAAZAAAAAEAAAAAAAAAZAAAAAEAAAAAAAAAZAAAAAEAAAAAAAAD6A=="
+  }, 
+  "replace_scene_breaks_history": [
+    "", 
+    "<hr />", 
+    "\u2217 \u2217 \u2217", 
+    "\u2022 \u2022 \u2022", 
+    "\u2666 \u2666 \u2666", 
+    "\u2020 \u2020", 
+    "\u2021 \u2021 \u2021", 
+    "\u221e \u221e \u221e", 
+    "\u00a4 \u00a4 \u00a4"
+  ], 
+  "book_details_splitter_horizontal_state": [
+    true, 
+    200
+  ], 
+  "cover_browser_splitter_vertical_state": [
+    false, 
+    300
+  ], 
+  "convert_single_dialog_geom": {
+    "__class__": "bytearray", 
+    "__value__": "AdnQywACAAAAAABKAAAAAAAABI8AAALSAAAASwAAABQAAASOAAACzQAAAAAAAAAABN4="
+  }, 
+  "preferences dialog geometry": {
+    "__class__": "bytearray", 
+    "__value__": "AdnQywACAAAAAAAcAAAAAAAAA78AAALTAAAAHQAAABQAAAO+AAACzgAAAAAAAAAABN4="
+  }, 
+  "cover_grid_color": [
+    80, 
+    80, 
+    80
+  ], 
+  "memory_view books view state": {
+    "hidden_columns": [], 
+    "column_positions": {
+      "authors": 2, 
+      "timestamp": 3, 
+      "inlibrary": 0, 
+      "collections": 5, 
+      "size": 4, 
+      "title": 1
+    }, 
+    "last_modified_injected": true, 
+    "sort_history": [
+      [
+        "timestamp", 
+        false
+      ]
+    ], 
+    "column_alignment": {
+      "timestamp": "center", 
+      "size": "center"
+    }, 
+    "languages_injected": true, 
+    "column_sizes": {
+      "authors": 97, 
+      "timestamp": 74, 
+      "inlibrary": 99, 
+      "collections": 108, 
+      "size": 58, 
+      "title": 60
+    }
+  }, 
+  "preferences_window_geometry": {
+    "__class__": "bytearray", 
+    "__value__": "AdnQywABAAD////f////5gAABAAAAAJ3////4P////oAAAP/AAACcgAAAAAAAA=="
+  }, 
+  "grid view visible": false, 
+  "jobs_dialog_geometry": {
+    "__class__": "bytearray", 
+    "__value__": "AdnQywACAAAAAACwAAAAPgAAAyoAAAJ0AAAAsQAAAFIAAAMpAAACbwAAAAAAAAAABN4="
+  }, 
+  "duplicates-question-dialog-geometry": {
+    "__class__": "bytearray", 
+    "__value__": "AdnQywACAAAAAADoAAAAigAAAwcAAAIdAAAA6QAAAJ4AAAMGAAACGAAAAAAAAAAABN4="
+  }, 
+  "tag_browser_splitter_horizontal_state": [
+    true, 
+    200
+  ], 
+  "quick_start_guide_added": true
+}

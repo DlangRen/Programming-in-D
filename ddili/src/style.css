@@ -1,0 +1,534 @@
+/* reset */
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td
+{
+margin: 0;
+padding: 0;
+border: 0;
+outline: 0;
+font-size: 100%;
+vertical-align: baseline;
+background: transparent;
+}
+
+table, tbody, tfoot, thead, tr, th, td, caption, pre {
+       margin: 1em 1em 1em 1em;
+       border: dotted 1px #c0c0c0;
+       outline: 1;
+       font-family: monospace;
+}
+
+th, caption {
+  font-family: sans-serif;
+  padding: 0 .1em 0 .1em;
+  margin-top: 0;
+}
+
+tr, td {
+  font-size: .9em;
+}
+
+td.serif {
+  font-family: serif;
+}
+
+table.full {
+  width: auto;
+}
+
+table.wide {
+  width: 95%;
+}
+
+table.medium {
+  width: 50%;
+}
+
+table.narrow {
+  width: 30%;
+}
+
+table.centered {
+    text-align:center;
+}
+
+caption {
+        border: none;
+        font-weight:bold;
+}
+
+sup {
+  font-size:.65em;
+  vertical-align:top;
+}
+
+sub {
+  font-size:.65em;
+  vertical-align:bottom;
+}
+
+hr.thin {
+    color: #000000;
+    background-color: #000000;
+    height: 1px;
+    border: 0;
+    width: 100%;
+}
+
+body
+{
+  line-height: 1.1;
+}
+
+ol, ul
+{
+  font-family: serif;
+  margin: 1em 0 .75em 1.5em;
+}
+
+/* standart baglanti renkleri */
+a:link {color: blue;}
+a:visited {color: purple;}
+a:hover {color: red;}
+a:active {color: purple;}
+
+a:link .d_inline{color: blue;}
+a:visited .d_inline {color: purple;}
+a:hover .d_inline {color: red;}
+a:active .d_inline {color: purple;}
+
+a {
+	color:#000000;
+	text-decoration:none;
+	}
+
+body {
+	background-color:#cccccc;
+        font-size: 1em;
+	}
+
+#container {
+        max-width:55em;
+	height:auto;
+	margin:auto;
+	}
+
+#container_cozum {
+	max-width:55em;
+	height:auto;
+	margin:auto;
+	}
+
+#header {
+        font-family: sans-serif;
+        height:5em;
+        background-color:#222266;
+}
+
+#header_ders {
+        font-family: sans-serif;
+        height:5em;
+        background-color:#222266;
+}
+
+#header_cozum {
+        font-family: sans-serif;
+	width:74%;
+        height:4em;
+        background-color:#226622;
+        float:right;
+}
+
+#header1 {
+        color:#ffffff;
+        font-family: sans-serif;
+        font-size:1.75em;
+        width:70%;
+        margin: .5em 0 0 1em;
+        float:left;
+	}
+
+#header1_cozum {
+        color:#ffffff;
+        font-size:2em;
+        width:550px;
+        margin: .5em 0 0 1em;
+        float:left;
+	}
+
+#headersecondary {
+        color:#999999;
+        margin: .5em .5em 0 0;
+        float:right;
+        width:25%;
+        text-align:right;
+        line-height:160%;
+}
+
+
+#headersecondary a{
+	text-decoration:none;
+	color:#e0e0e0;
+	margin: 0 0 0 .5em;
+	}
+
+#headersecondary a:hover {
+	border-bottom: 3px solid #999999;
+	}
+
+#headersecondary a:active {
+	color:#e0e0e0;
+	border-bottom: 3px solid #CCCCCC;
+	}
+
+#vertinav {
+        font-family: sans-serif;
+	background-color:#f0f0f0;
+	width:25%;
+        float:left;
+	}
+
+#vertinav ul {
+        font-family: sans-serif;
+	list-style: none;
+	display:inline;
+	}
+#vertinav li a{
+        font-family: sans-serif;
+	margin:0 0 0 12px;
+	color:#333333;
+	text-decoration:none;
+	}
+
+#vertinav li a:link {
+        font-family: sans-serif;
+	color: blue;
+	}
+
+#vertinav li a:visited {
+        font-family: sans-serif;
+	color: purple;
+	}
+
+#vertinav li a:hover {
+        font-family: sans-serif;
+	color: red;
+	}
+
+#vertinav li a:active {
+        font-family: sans-serif;
+	color: purple;
+	}
+
+.vertinavheader {
+	color:#000000;
+	margin:0 0 -.5em .5em;
+	}
+
+#vertinavcontent {
+        font-family: sans-serif;
+	margin-left:16px;
+	color:#666666;
+}
+
+#content {
+	background-color:#fafafa;
+        float:right;
+	width:74%;
+        line-height:1.2;
+	}
+
+#resume_content {
+	font-family: serif;
+	background-color:#fcfcfc;
+	float:right;
+	width:90%;
+        line-height:1.2;
+	}
+
+#resume_content li {
+        margin: .2em 0 0 1em;
+	}
+
+#resume_content ol, ul {
+        margin: .5em 1em 1em 1em;
+        }
+
+
+#content li {
+        margin: 0.5em 0 0 1em;
+	}
+
+#breadcrumbs {
+        background-color:#e0e0e0;
+        font-size:.9em;
+        }
+
+#resume_breadcrumbs {
+        float:right;
+        width:90%;
+        background-color:#e0e0e0;
+        font-size:.9em;
+        }
+
+#breadcrumbs_ders {
+        font-family: sans-serif;
+        float:left;
+        font-size:.9em;
+        }
+
+#ders_nav_bas {
+        font-family: sans-serif;
+        float:right;
+        font-size:.9em;
+        text-align:right;
+        margin-right:1em;
+        }
+
+#ders_nav_son {
+        font-family: sans-serif;
+        float:right;
+        font-size:.9em;
+        text-align:right;
+        margin-right:1em;
+        }
+
+#footer {
+	float:right;
+	width:100px;
+        font-size:.5em;
+	}
+
+h1,h2,h3,h4,h5,h6 {
+	font-family: sans-serif;
+        font-weight:bold;
+	color:#000033;
+	margin: 1.5em .5em .5em .5em;
+	}
+
+h1 {
+	font-size: 3em;
+	}
+
+h2 {
+	font-size:2.5em;
+	}
+
+h3 {
+	font-size:2em;
+	}
+
+h4 {
+	font-size:1.5em;
+	}
+
+h5 {
+	font-size:1.1em;
+	}
+
+h5.fark {
+        margin-top: .5em;
+}
+
+h6 {
+	font-size:1em;
+	}
+
+p {
+	color:#000000;
+        font-family: serif;
+	margin: 0.75em 1em 0.75em 1em;
+	}
+
+li p {
+   margin-left: 0em;
+}
+
+/* Style applied to preformated text used to show examples. */
+pre.d_code, pre.c_code, div.quote, pre.mono, pre.mono_nobold, pre.shell, pre.shell_small
+{
+	background-color: #ffffff;
+        border: dotted 1px #c0c0c0;
+        padding: .5em .5em .5em .5em;
+	margin: .5em 1em 0.75em 1em;
+        overflow: auto;
+        max-height: 40em;
+}
+
+li pre.d_code, li pre.c_code, li div.quote, li pre.mono, li pre.mono_nobold, li pre.shell, li pre.shell_small {
+	margin-left: 0em;
+	}
+
+li li pre.d_code, li li pre.c_code, li li div.quote, li li pre.mono, li li pre.mono_nobold, li li pre.shell, li li pre.shell_small {
+     margin-right: 0em;
+}
+
+pre.mono_nobold
+{
+        font-weight:bold;
+	background-color: #e0e0e0;
+}
+
+pre.c_code
+{
+        background-color: #f0f0e0;
+}
+
+/* Style applied to preformated text for shell commands. */
+pre.shell, pre.shell_small
+{
+        font-weight:bold;
+	background-color: #e0e0e0;
+}
+
+pre.shell_small
+{
+        font-size: 1em;
+}
+
+.hilite {
+  background-color:#ffff88;
+}
+
+.shell_note {
+  color: blue;
+}
+
+.shell_note_wrong, .code_note_wrong {
+    color: red;
+}
+
+.shell_observed {
+    color: #404040;
+}
+
+.unordered_false {
+    color: darkred;
+}
+
+.unordered_true {
+    color: green;
+}
+
+.unordered_no {
+    color: red;
+}
+
+.unordered_yes {
+    color: gray;
+}
+
+div.quote {
+        background-color:#e0e0e0;
+}
+
+div.haber {
+        background-color:#ffffff;
+}
+
+/* Elements of D source code text */
+.d_comment { color: green; }
+.d_string { color: red; }
+p .d_string {
+    font-family: monospace;
+}
+ol .d_string {
+    font-family: monospace;
+}
+ul .d_string {
+    font-family: monospace;
+}
+
+.d_keyword { color: blue; }
+.d_psymbol { text-decoration: underline; }
+.d_param { font-style: italic; }
+
+.d_inline {
+        font-family: monospace;
+        font-weight:bold;
+        color:#002222;
+}
+
+h4 .d_inline { font-size: 1em; }
+h5 .d_inline { font-size: 1em; }
+h6 .d_inline { font-size: 1em; }
+
+.d_inline_index {
+        font-size: .7em;
+        color:#888888;
+}
+
+.d_hata {
+        background-color:#ff4040;
+        color:#000000;
+}
+
+.steps li{
+	margin:0 0 1.5em .5em;
+	text-decoration:none;
+	}
+
+ul.fark {
+      margin-left:4em;
+}
+
+.on_ust {
+     width:100%;
+}
+
+img.d_harfi {
+      float:right;
+      margin:1em 1em .5em .5em ;
+}
+
+.d_harfi_yan {
+     float:left;
+     margin:1em 1em .5em .5em ;
+}
+
+.main_page_content {
+     float:left;
+     width:100%;
+     margin:auto;
+}
+
+div.mini_sozluk_sozcuk {
+    margin-bottom: 4px;
+}
+
+div.sozcuk {
+    margin: 10px 10px 10px 10px;
+}
+
+.mini_sozluk {
+    background-color:#fcf4f4;
+    border: dotted 1px #c0c0c0;
+    font-size: .8em;
+    margin: 0 8px 0 8px;
+    padding: 2px;
+}
+
+.butun_sozluk {
+	font-size:.8em;
+        margin: 0 4px 0 8px;
+        text-align:right;
+	}
+
+.foreword_by {
+  font-size: .75em;
+  font-weight:normal;
+}
+
+ul.index_section {
+  list-style-type: none;
+  padding: 0 0 0 2em;
+  text-indent: -2em;
+  line-height: 1;
+}
+
+div.web_index_section {
+  margin-left: 2em;
+}
+
+h5.web_index_section {
+  margin-left: -1em;
+}

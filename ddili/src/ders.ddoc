@@ -1,0 +1,57 @@
+
+MAIN_TITLE=D.ershane
+
+SUB_MAIN_TITLE=$(SUB_MAIN_TITLE_DERSE_OZEL)
+
+HEADER_ID=header_ders
+
+BREADCRUMBS_ID=breadcrumbs_ders
+
+CONTAINER_ID=container
+
+PROBLEM= $(LI $0)
+
+IX=<a id="ix_$(TITLE).$0" content="$0"></a>
+
+GERI_METIN=Geri
+ILERI_METIN=İleri
+PROBLEM_METIN=Problem
+PROBLEM_COK_METIN=Problemler
+PROBLEM_TEK_COZUMSUZ_METIN=çözümü sonra gelecek
+PROBLEM_COK_COZUMSUZ_METIN=çözümler sonra gelecek
+COZUM_METIN=çözüm
+COZUMLER_METIN=çözümler
+
+PROBLEM_TEK_IMPL=$(H5 $(PROBLEM_METIN))
+    $+ $1
+
+PROBLEM_TEK=$(PROBLEM_TEK_IMPL $(DIV_CLASS cozum_link_tek, $(P $(LINK_TARGET ddili_cozum, $(COZUM_HTML), $(I ... $(COZUM_METIN))))), $0)
+PROBLEM_TEK_COZUMSUZ=$(PROBLEM_TEK_IMPL $(P $(I ($(PROBLEM_TEK_COZUMSUZ_METIN ...)))), $0)
+
+
+PROBLEM_COK_IMPL=$(H5 $(PROBLEM_COK_METIN))
+    $(OL $+) $1
+
+PROBLEM_COK=$(PROBLEM_COK_IMPL $(DIV_CLASS cozum_link_cok, $(P $(LINK_TARGET ddili_cozum, $(COZUM_HTML), $(I ... $(COZUMLER_METIN))))), $0)
+
+PROBLEM_COK_COZUMSUZ=$(PROBLEM_COK_IMPL $(P $(I ($(PROBLEM_COK_COZUMSUZ_METIN ...)))), $0)
+
+
+VERTINAV_CONTENT=$(MINI_SOZLUK $(SOZLER))
+                 $(DUSEY_NAVIGASYON)
+
+HORIZNAV_CONTENT=$(HORIZNAV_CONTENT_DERSE_OZEL)
+
+DERS_NAV_BAS=<div id="ders_nav_bas">
+         $(DERS_NAV_GERI)&nbsp;&nbsp;&nbsp;$(DERS_NAV_ILERI)
+         </div>
+
+DERS_NAV_SON=<div id="ders_nav_son">
+         $(DERS_NAV_GERI)&nbsp;&nbsp;&nbsp;$(DERS_NAV_ILERI)
+         </div>
+
+MINI_SOZLUK=<div class="mini_sozluk">$0</div>
+            <span class="butun_sozluk">$(I $(LINK_TARGET ddili_sozluk, $(ROOT_DIR)/sozluk.html, ...&nbsp;bütün&nbsp;sözlük))</span>
+$(BR)$(BR)
+
+DERSHANE_LINK2=<span style="margin:0 0 0 12px">$2</span>

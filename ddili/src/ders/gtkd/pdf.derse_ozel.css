@@ -1,0 +1,12 @@
+a.xref:after {
+  content: " (sayfa " target-counter(attr(href, url), page) ")";
+}
+
+body
+{
+  counter-reset: h4 -1;
+}
+
+ul.toc a.index {
+  content: "Dizin";
+}

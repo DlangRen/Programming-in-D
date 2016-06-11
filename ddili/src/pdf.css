@@ -1,0 +1,1220 @@
+/* reset */
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td
+{
+margin: 0;
+padding: 0;
+border: 0;
+outline: 0;
+font-size: 100%;
+vertical-align: baseline;
+background: transparent;
+}
+
+table, tbody, tfoot, thead, tr, th, td, caption {
+/*       margin: 1em 1em 1em 1em; */
+       padding: 0px 2px 0px 2px;
+       border: 1px solid black;
+       border-collapse: collapse;
+       outline: 0;
+       font-family: monospace;
+       font-size: .9em;
+}
+
+th, caption {
+  font-family: sans-serif;
+  padding: 0 .1em 0 .1em;
+  margin-top: 0;
+}
+
+td.serif {
+  font-family: serif;
+}
+
+table.full {
+  width: 100%;
+}
+
+table.wide {
+  width: 80%;
+}
+
+table.medium {
+  width: 40%;
+}
+
+table.narrow {
+  width: 25%;
+}
+
+table.centered {
+    text-align:center;
+}
+
+table {
+       margin: .75em 0 .75em 0;
+}
+
+caption {
+        border: none;
+        font-weight:bold;
+}
+
+sup {
+font-size:.65em;
+vertical-align:top;
+}
+
+sub {
+font-size:.65em;
+vertical-align:bottom;
+}
+
+hr.thin {
+    color: #000000;
+    background-color: #000000;
+    height: 1px;
+    border: 0;
+    width: 100%;
+}
+
+body
+{
+  line-height: 1.2;
+}
+
+ol, ul
+{
+margin: .75em 0 .75em 1.5em;
+}
+
+/* Default bullets were 2022 25e6 25aa */
+ul > li::marker { content: "\2219" }
+li ul > li::marker { content: "\2218" }
+li li ul > li::marker { content: "\2022" }
+
+ul.font_list li::marker { content: none }
+ul.no_bullet li::marker { content: none }
+
+li {
+  margin-top: .25em;
+}
+
+/* standart baglanti renkleri */
+a:link {color: blue;}
+a:visited {color: purple;}
+a:hover {color: red;}
+a:active {color: purple;}
+
+a:link .d_inline{color: blue;}
+a:visited .d_inline {color: purple;}
+a:hover .d_inline {color: red;}
+a:active .d_inline {color: purple;}
+
+a {
+	color:#000000;
+	text-decoration:none;
+	}
+
+@page { margin: .75in 1in .75in 1in }
+@page { size: 7in 10in }
+
+@page cover {
+  margin: 0;
+  padding: 0;
+}
+div.frontcover { page: cover; }
+
+h4 { string-set: bolumismi content() }
+
+body {
+    display: block;
+    page: main;
+}
+
+@page :right {
+    margin: .75in .75in .688in 1.25in;
+    @top-right {
+	content: string(bolumismi);
+        font-size:9pt;
+        font-family: serif;
+        font-style:italic;
+    }
+    @bottom-right {
+        content: counter(page);
+        font-size:9pt;
+        font-family: serif;
+        width:40px;
+    }
+}
+
+@page :left {
+    margin: .75in 1.25in .688in .75in;
+    @top-left {
+	content: string(bolumismi);
+        font-size:9pt;
+        font-family: serif;
+        font-style:italic;
+    }
+    @bottom-left {
+        content: counter(page);
+        font-size:9pt;
+        font-family: serif;
+        width:40px;
+    }
+}
+
+@page chapter:first:left {
+    @top-right {
+	content: "";
+        font-family: serif;
+    }
+    @top-left {
+	content: "";
+        font-family: serif;
+    }
+    @bottom-left {
+        content: counter(page);
+        font-size:9pt;
+        font-family: serif;
+        width:40px;
+    }
+}
+
+@page chapter:first:right {
+    @top-right {
+	content: "";
+        font-family: serif;
+    }
+    @top-left {
+	content: "";
+        font-family: serif;
+    }
+    @bottom-right {
+        content: counter(page);
+        font-size:9pt;
+        font-family: serif;
+        width:40px;
+    }
+}
+
+.chapter {
+  page: chapter;
+  prince-page-group: start;
+}
+
+@page:first {
+    @bottom-left { content: normal }
+    @bottom-center { content: normal }
+    @bottom-right { content: normal }
+}
+
+@page { orphans:2; widows:2; }
+
+h1 { counter-increment: h1 }
+h2 { counter-increment: h2 }
+h3 { counter-increment: h3 }
+h4 { counter-reset: h5 }
+h5 { counter-increment: h5 }
+h5 { counter-reset: h6 }
+h6 { counter-increment: h6 }
+
+div.chapter {
+  counter-increment: chapter_counter;
+}
+
+h4.chapter, h4.solution {
+  counter-reset: h5;
+}
+
+h4::before {
+    content: counter(chapter_counter);
+    padding: 0 .5em 0 0;
+    float: left;
+}
+
+div.imprint h4::before {
+  content: normal;
+}
+
+h5::before {
+  content: counter(chapter_counter) "." counter(h5);
+  color: black;
+  float: left;
+  padding: 0 .5em 0 0;
+}
+
+h5.chapter {
+  counter-increment: h5;
+}
+
+h5.solution_subsection:before {
+  content: normal;
+}
+
+h4 { page-break-before: always }
+h5 { page-break-after: avoid }
+h6 { page-break-after: avoid }
+
+body {
+	background-color:#ffffff;
+	font-family: serif;
+        font-size: 10pt;
+	}
+
+#kitap_baslik, #kitap_baslik_d, #kitap_baslik_gtkd, #kitap_baslik_sdl, #kitap_alt_baslik, #kitap_yazar, #kitap_seri {
+    color:#000040;
+    font-family: sans-serif;
+    text-align: center;
+    font-weight:bold;
+}
+
+#kitap_baslik_d {
+    font-size:160pt;
+}
+
+#kitap_baslik {
+   padding-top: 1em;
+    font-size:100pt;
+}
+
+#kitap_baslik_gtkd {
+    font-size:100pt;
+}
+
+#kitap_baslik_sdl {
+    font-size:80pt;
+}
+
+#kitap_baslik_2 {
+    margin-right: .25em;
+    font-size:32pt;
+}
+
+#kitap_surum {
+    font-size:8pt;
+    text-align:left;
+}
+
+#kitap_alt_baslik {
+    font-family: serif;
+    font-size:14pt;
+    font-style:italic;
+}
+
+#kitap_yazar {
+    margin: 2em 2em 0 0;
+    font-size:20pt;
+    text-align:right;
+    float:right;
+}
+
+#kitap_seri {
+    margin:4em 0 0 2em;
+    font-size:12pt;
+    text-align: left;
+    text-align: bottom;
+    float:left;
+
+}
+
+div.frontcover {
+  height: 10in;
+  width: 7in;
+  background-color:#ffffff;
+  page-break-before: right;
+}
+
+div.halftitle, div.title, div.imprint, div.dedication {
+  page: blank
+}
+
+div.toc_header, div.foreword, div.preface, div.frontmatter {
+  page: frontmatter;
+}
+
+div.solution {
+  counter-increment: chapter_counter;
+}
+
+h4.frontmatter:before, h4.index:before, h4.sozluk:before, h4.solution:before {
+  content: normal;
+}
+
+div.toc_header h4:before {
+  content: normal;
+}
+
+@page frontmatter :left {
+  @top-left {
+    content: "";
+    font-family: serif;
+  }
+  @top-right {
+    content: "";
+    font-family: serif;
+  }
+  @bottom-left {
+    content: counter(page, lower-roman);
+    font-family: serif;
+  }
+}
+
+@page frontmatter :right {
+  @top-left {
+    content: "";
+    font-family: serif;
+  }
+  @top-right {
+    content: "";
+    font-family: serif;
+  }
+  @bottom-right {
+    content: counter(page, lower-roman);
+    font-family: serif;
+  }
+}
+
+@page blank :left {
+  @top-left {
+    content: normal;
+    font-family: serif;
+  }
+  @bottom-left {
+    content: normal;
+    font-family: serif;
+  }
+}
+
+@page blank :right {
+  @top-right {
+    content: normal;
+    font-family: serif;
+  }
+  @bottom-right {
+    content: normal;
+    font-family: serif;
+  }
+}
+
+div.cozum_link {
+  page-break-before: avoid
+}
+
+#container {
+	width:713px;
+	height:auto;
+	margin:auto;
+	}
+
+#container_cozum {
+	width:600px;
+	height:auto;
+	margin:auto;
+	}
+
+#header {
+        width:713px;
+        height:76px;
+        background-color:#003366;
+}
+
+#header_ders {
+        width:713px;
+        height:76px;
+        background-color:#663366;
+}
+
+#header_cozum {
+        width:600px;
+        height:60px;
+        background-color:#336633;
+        float:right;
+}
+
+#header1 {
+        color:#e0e0e0;
+        font-size:2.75em;
+        font-weight:bold;
+        width:550px;
+        margin: 12px 0 0 24px;
+        float:left;
+	}
+
+#header1_cozum {
+        color:#e0e0e0;
+        font-size:2em;
+        font-weight:bold;
+        width:550px;
+        margin: 12px 0 0 24px;
+        float:left;
+	}
+
+#headersecondary {
+        color:#999999;
+        font-weight:bold;
+        margin: 12px 12px 8px 8px;
+        float:right;
+        width:113px;
+        text-align:right;
+        line-height:160%;
+}
+
+
+#headersecondary a{
+	text-decoration:none;
+	color:#e0e0e0;
+	margin: 0 0 0 .5em;
+	}
+
+#headersecondary a:hover {
+	border-bottom: 3px solid #999999;
+	}
+
+#headersecondary a:active {
+	color:#999999;
+	border-bottom: 3px solid #CCCCCC;
+	}
+
+#vertinav {
+	background-color:#e0e0e0;
+	width:113px;
+	float:left;
+	}
+
+#vertinav ul {
+	list-style: none;
+	display:inline;
+	}
+#vertinav li a{
+	margin:0 0 0 12px;
+	color:#333333;
+	text-decoration:none;
+	}
+
+#vertinav li a:link {
+	color: blue;
+	}
+
+#vertinav li a:visited {
+	color: purple;
+	}
+
+#vertinav li a:hover {
+	color: red;
+	}
+
+#vertinav li a:active {
+	color: purple;
+	}
+
+.vertinavheader {
+	color:#000000;
+	margin-left:8px;
+	}
+
+#vertinavcontent {
+	margin-left:16px;
+	color:#666666;
+}
+
+#content {
+	background-color:#ffffff;
+	float:right;
+	width:713px;
+        line-height:1.1;
+	}
+
+#content li {
+        margin: 0 0 4px 0;
+	}
+
+#breadcrumbs {
+        float:right;
+        width:600px;
+        background-color:#e0e0e0;
+        font-size:.9em;
+        }
+
+#breadcrumbs_ders {
+        float:left;
+        width:420px;
+        background-color:#e0e0e0;
+        font-size:.9em;
+        }
+
+#ders_nav_bas {
+        float:right;
+        width:180px;
+        font-size:.9em;
+        text-align:center;
+        }
+
+#ders_nav_son {
+        float:right;
+        width:180px;
+        font-size:.9em;
+        text-align:center;
+        }
+
+#footer {
+	background-color:#e0e0e0;
+	float:right;
+	width:100px;
+        font-size:.5em;
+	}
+
+h1,h2,h3,h4,h5,h6 {
+        font-family: sans-serif;
+        font-weight:bold;
+	}
+
+h1 {
+	font-size: 3em;
+        prince-bookmark-level: 1
+	}
+
+h2 {
+	font-size:2.5em;
+        prince-bookmark-level: 2
+	}
+
+h3 {
+	font-size:2em;
+        prince-bookmark-level: 3
+	}
+
+h4 {
+        background-color: black;
+        color: #ffffff;
+        margin: 0 0 .75em 0;
+        padding: .1em 0 .1em .5em;
+        /* .d_inline_h4 unutulmasin! */
+	font-size:1.25em;
+        prince-bookmark-level: 4;
+	}
+
+h5 {
+        margin: .75em 0 0 0;
+	font-size:1.1em;
+        prince-bookmark-level: 5
+	}
+
+h5.solution_subsection {
+  margin-top: 1em;
+}
+
+h5.index_section:before {
+    content: normal;
+}
+
+h5.index_section {
+  margin-bottom: -.5em;
+  padding-bottom: 0;
+}
+
+h5.fark {
+        margin-top: .5em;
+}
+
+h6 {
+        padding: .5em 0 0 0;
+	font-size:1em;
+        prince-bookmark-level: 6
+	}
+
+p {
+  color:#000000;
+/*  margin-top: .75em; */
+/*  margin-bottom: .75em; */
+  text-indent: 1em;
+}
+
+h4+p, h5+p, h6+p, pre+p, table+p, ul+p, ol+p {
+  text-indent: 0em;
+}
+
+/* Style applied to preformatted text used to show examples. */
+pre.d_code, pre.c_code, div.quote, pre.mono, pre.mono_nobold
+{
+        border-left: dotted 1px #808080;
+        border-right: dotted 1px #808080;
+	background-color: #ffffff;
+        padding: .5em .5em .5em .5em;
+        margin: .75em 0 .75em 0;
+        font-family: monospace;
+        font-size: .75em;
+        line-height: 1.1;
+}
+
+pre::before, pre::after {
+  border-top: dotted 1px #808080;
+  content: '';
+  position:absolute;
+  z-index:100;
+  width: 47.8em;
+}
+
+li > pre::before, li > pre::after {
+  width: 45.8em;
+}
+
+
+li li > pre::before, li li > pre::after {
+  width: 43.8em;
+}
+
+li li li > pre::before, li li li > pre::after {
+  width: 41.8em;
+}
+
+li li li li > pre::before, li li li li > pre::after {
+  width: 39.8em;
+}
+
+pre::before {
+  margin: -.5em;
+}
+
+pre:after {
+  margin: .5em .5em 0 -.5em;
+}
+
+pre.mono_nobold
+{
+	background-color: #e0e0e0;
+}
+
+pre.c_code
+{
+        background-color: #f0f0e0;
+}
+
+/* Style applied to preformated text for shell commands. */
+pre.shell, pre.shell_small
+{
+        margin: .5em 0 .5em 0;
+        padding: .5em .5em .5em .5em;
+        font-family: monospace;
+        font-weight:bold;
+        border-left: dotted 1px #808080;
+        border-right: dotted 1px #808080;
+	background-color: #e0e0e0;
+        font-size: .75em;
+        line-height: 1.1;
+}
+
+pre.shell_small
+{
+/*        font-size: .9em; */
+}
+
+div.quote {
+        background-color:#e0e0e0;
+}
+
+div.foreword h4:before {
+  content: normal;
+}
+
+h4 .foreword_by {
+  font-size: .75em;
+  font-weight:normal;
+}
+
+div.preface h4::before {
+  content: normal;
+}
+
+div.preface h5::before {
+  content: normal;
+}
+
+.shell_observed {
+    color: #404040;
+}
+
+div.halftitle, div.title {
+  padding-top: 4in;
+  font-family: sans-serif;
+  text-align:right;
+}
+
+@page frontispiece {
+    margin: .5in;
+    padding: 0;
+}
+
+@page frontispiece:left {
+    margin: .5in 1in .5in .5in;
+    @top-left {
+	content: normal;
+    }
+    @bottom-left {
+        content: normal;
+    }
+}
+
+div.frontispiece {
+  page: frontispiece;
+}
+
+.title .editors {
+  font-size: 14pt;
+}
+
+.halftitle {
+  font-size: 30pt;
+}
+
+.halftitle_sub {
+  font-size: 20pt;
+}
+
+.title {
+  font-size: 16pt;
+}
+
+div.imprint {
+/*  padding-top: 1in; */
+}
+
+.copyright_title {
+  font-size: 12pt;
+  font-family: sans-serif;
+}
+
+.page_one {
+  counter-reset: page 1;
+}
+
+ul.toc { page-break-before: avoid }
+
+.foreword, .preface {
+  page-break-before: right;
+}
+
+.d_comment, .d_string, .d_keyword, .d_inline, .d_inline_h4, .d_hata, .shell_note, .shell_note_wrong, .code_note_wrong {
+        font-family: monospace;
+}
+
+@media screen {
+
+/* Style applied to preformated text used to show examples. */
+pre.d_code, pre.c_code, div.quote, pre.mono
+{
+	background-color: #ffffff;
+}
+
+pre.d_code {
+  background-color: #f8f8f8;
+}
+
+/* Elements of D source code text */
+.d_comment { color: green; }
+.d_string { color: red; }
+.d_keyword { color: blue; }
+
+.d_inline, .d_inline_h4 {
+        color:black;
+        font-size: .9em;
+}
+
+h1 .d_inline { color:#000000; }
+h2 .d_inline { color:#000000; }
+h3 .d_inline { color:#000000; }
+h4 .d_inline { color:#ffffff; }
+h5 .d_inline { color:#000000; }
+h6 .d_inline { color:#000000; }
+
+h4 .d_inline, h5 .d_inline, h6 .d_inline {
+    font-size: 1em;
+}
+
+.d_inline_index {
+        font-size:.9em;
+        color:#888888;
+}
+
+.d_hata {
+        background-color:#ff4040;
+        color:#000000;
+}
+
+.hilite {
+  background-color:#ffff88;
+}
+
+.shell_note {
+  color: blue;
+}
+
+.shell_note_wrong, .code_note_wrong {
+  color: red;
+}
+
+.unordered_false {
+    color: darkred;
+}
+
+.unordered_true {
+    color: green;
+}
+
+.unordered_no {
+    color: red;
+}
+
+.unordered_yes {
+    color: gray;
+}
+
+p.kapak_author {
+    font-size: 16pt;
+}
+
+} /* media screen */
+
+
+.steps li{
+	margin:0 0 1.5em .5em;
+	text-decoration:none;
+	}
+
+ul.fark {
+      margin-left:4em;
+}
+
+.on_ust {
+     height:180px;
+     width:600px;
+}
+
+img.d_harfi {
+      height:180px;
+      width:180px;
+      float:right;
+      margin:16px 16px 8px 16px;
+}
+
+.d_harfi_yan {
+     float:left;
+     width:380px;
+     height:150px;
+     margin:8px 0 0 0;
+}
+
+div.mini_sozluk_sozcuk {
+    margin-bottom: 4px;
+}
+
+div.sozluk {
+    margin:0;
+    padding: 0;
+    column-count: 2;
+    column-gap: 10px;
+}
+
+div.sozcuk {
+    margin: 0;
+}
+
+.mini_sozluk {
+    background-color:#ffe8ff;
+    border: dotted 1px #c0c0c0;
+    font-size: .8em;
+    margin: 0 8px 0 8px;
+    padding: 2px;
+}
+
+.butun_sozluk {
+        margin: 0 4px 0 8px;
+        text-align:right;
+	}
+
+div.problem {
+    border: dotted 1px #c0c0c0;
+    background-color:#ffeeee;
+    margin: 0 1em 0.75em 16px;
+    padding: .5em;
+}
+
+div.cozum, div.odev {
+/*    margin: 0 1em 0.75em 16px;*/
+}
+
+/* TOC */
+
+ul.toc li {
+  margin: 0;
+}
+
+ul.toc li::marker, ul.toc ul li::marker {
+  content: none;
+}
+
+ul.toc, ul.toc ul {
+  list-style-type: none;
+  margin: 0; padding: 0;
+}
+ul.toc ul {
+  margin-left: 3em;
+  font-weight: normal;
+}
+ul.toc .d_inline {
+    font-weight: normal;
+}
+ul.toc a.toc:after {
+  content: leader('.') target-counter(attr(href), page);
+  font-style: normal;
+}
+
+ul.toc a.subsection:after, a.solution_subsection:after {
+  content: leader('.') target-counter(attr(href), page);
+  font-style: normal;
+}
+
+ul.toc a.chapter:before {
+  content: target-counter(attr(href), chapter_counter) ". ";
+  font-weight: bold;
+}
+
+ul.toc a.chapter, a.solution, a.index, a.sozluk, a.foreword, a.preface, a.frontmatter {
+  line-height: 1.1;
+  font-weight: bold;
+  font-style: normal;
+  vertical-align: text-bottom;
+}
+
+ul.toc a.chapter:after, a.solution:after, a.index:after, a.sozluk:after {
+  content: leader(' ') target-counter(attr(href), page);
+  font-style: normal;
+}
+
+ul.toc a.foreword:after, a.preface:after {
+  content: leader(' ') target-counter(attr(href), page, lower-roman);
+  font-style: normal;
+}
+
+ul.toc a.frontmatter {
+  font-weight: normal;
+}
+
+ul.toc a.frontmatter:after {
+  content: leader('.') target-counter(attr(href), page, lower-roman);
+  font-style: normal;
+  font-weight: normal;
+}
+
+ul.index_section {
+  list-style-type: none;
+  padding: 0 0 0 1em;
+  text-indent: -1em;
+  line-height: 1;
+}
+
+ul.index_section > li::marker, ul.index_section > ul > li::marker {
+  content: none;
+}
+
+h5.index_section {
+   margin-top: 1em;
+}
+
+ul.index_section a {
+  content: target-counter(attr(href), page);
+}
+
+div.index_section {
+  margin: 0 0 0 -1em;
+  column-count: 2;
+  column-gap: 1em;
+  page-break-before: avoid;
+}
+
+html {
+  counter-reset: chapter_counter -4;
+}
+
+@page {
+    @footnotes {
+	border-top: solid black thin;
+	padding-top: .5em;
+        padding-left: 1em;
+        margin-top: .5em;
+    }
+}
+
+a[href]:after::footnote-marker {
+  margin-right: .5em;
+}
+
+a[href^="http"]:after {
+  float: footnote;
+  content: " " attr(href);
+  text-indent: 0em;
+  font-size: .8em;
+  font-weight:none;
+  font-style:normal;
+}
+
+a[href^="mailto"]:after {
+  float: footnote;
+  content: " " attr(href);
+  text-indent: 0em;
+  font-size: .8em;
+  font-weight:none;
+  font-style:normal;
+}
+
+@page {
+  counter-reset: footnote
+}
+
+@media print {
+
+div.toc_header, div.foreword, div.preface, div.frontmatter, div.first_chapter, div.index {
+  page-break-before: right;
+}
+
+.d_comment {
+  color: #222222;
+}
+.d_string { color: black; }
+.d_keyword {
+  color: black;
+  font-weight:bold;
+}
+
+.d_inline, .d_inline_h4 {
+        color:black;
+        font-size: .9em;
+}
+
+h1 .d_inline { color:black; }
+h2 .d_inline { color:black; }
+h3 .d_inline { color:black; }
+h4 .d_inline { color:white; }
+h5 .d_inline { color:black; }
+h6 .d_inline { color:black; }
+
+h4 .d_inline, h5 .d_inline, h6 .d_inline {
+    font-size: 1em;
+}
+
+.d_inline_index {
+        font-size:.9em;
+        color:#888888;
+}
+
+.d_hata {
+  color: white;
+  background-color: #202020;
+  padding: 0 .25em 0 .25em;
+  font-weight:normal;
+}
+
+.hilite {
+  background-color:#c0c0c0;
+}
+
+.shell_note {
+  background-color: #c0c0c0;
+  font-style:italic;
+  padding: 0 .25em .1em .25em;
+  font-weight:normal;
+}
+
+.shell_note_wrong, .code_note_wrong {
+  color: white;
+  background-color: #202020;
+  font-style:italic;
+  padding: 0 .25em .1em .25em;
+  font-weight:normal;
+}
+
+pre.c_code
+{
+    color: black;
+    background-color: #f0f0f0;
+}
+
+a:link {color: black;}
+a:visited {color: black;}
+a:hover {color: black;}
+a:active {color: black;}
+
+a:link .d_inline{color: black;}
+a:visited .d_inline {color: black;}
+a:hover .d_inline {color: black;}
+a:active .d_inline {color: black;}
+
+h5::before {
+  color: black;
+}
+
+#kitap_baslik, #kitap_baslik_d, #kitap_baslik_gtkd, #kitap_baslik_sdl, #kitap_alt_baslik, #kitap_surum, #kitap_yazar, #kitap_seri {
+    color: black;
+}
+
+h4 {
+        color: white;
+	}
+
+pre.d_code, pre.c_code, div.quote, pre.mono
+{
+  background-color: #ffffff;
+  color: black;
+}
+
+pre.d_code {
+  background-color: #f0f0f0;
+}
+
+pre.mono_nobold
+{
+	background-color: #e0e0e0;
+}
+
+pre.c_code
+{
+        background-color: #e0e0e0;
+}
+
+pre.shell, pre.shell_small
+{
+  background-color: #e0e0e0;
+}
+
+.unordered_false {
+    color: normal;
+}
+
+.unordered_true {
+    color: normal;
+}
+
+.unordered_no {
+    color: normal;
+}
+
+.unordered_yes {
+    color: normal;
+}
+
+p.kapak_author {
+    content: none;
+}
+
+.title {
+  page-break-before: right;
+}
+
+div.toc {
+  page-break-before: always;
+}
+
+.mono {
+  page-break-inside: avoid
+}
+
+} /* media print */

@@ -1,0 +1,15 @@
+DERS_SON_D=devami_gelecek.d
+
+DERS_D_BOLUMLER= \
+  pdf_indir.d \
+  hosgeldiniz.d \
+  hareket.d \
+
+DERS_D_KAYNAK= \
+  index.d \
+  $(DERS_D_BOLUMLER) \
+
+COZUM_D_KAYNAK= \
+
+include Makefile.ders.in
+$(eval $(call derse_ozel,sdl,SDL_ile_Oyun_Programlama,turkish))

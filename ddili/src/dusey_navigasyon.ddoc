@@ -1,0 +1,39 @@
+
+GOOGLE_TRANSLATE=<script src="http://www.gmodules.com/ig/ifr?url=http://www.google.com/ig/modules/translatemypage.xml&up_source_language=tr&w=160&h=60&title=&border=&output=js"></script>
+
+
+DUSEY_NAVIGASYON =
+$(UL
+$(LI $(LINK2 $(ROOT_DIR)/ders/, $(IMG book.png) Kitaplar))
+$(LI $(LINK2 /forum/, $(IMG forum.png) Forum))
+$(XXX $(LI $(LINK2 /wiki/, $(IMG pencil.png) Wiki)))
+$(XXX $(LI $(LINK2 /wiki/index.php?title=Ddili_Projeleri, $(IMG d_source.png) Projeler)))
+$(BR)
+$(LI $(LINK2 $(ROOT_DIR)/tanitim/, $(IMG bullet_black.png) Tanıtım))
+$(LI $(LINK2 $(ROOT_DIR)/makale/, $(IMG bullet_black.png) Makaleler))
+$(LI $(LINK2 $(ROOT_DIR)/sunum/, $(IMG bullet_black.png) Sunumlar))
+$(LI $(LINK2 $(ROOT_DIR)/kurulum/, $(IMG bullet_black.png) Kurulum))
+)
+$(BR)
+$(BR)
+<div class="vertinavheader">İngilizce Kaynaklar</div>
+$(UL
+$(LI $(LINK2 http://www.dlang.org/, $(IMG bullet_black.png) Digital Mars))
+$(LI $(LINK2 http://forum.dlang.org/, $(IMG bullet_black.png) Newsgroups))
+$(LI $(LINK2 $(ROOT_DIR)/ders/d.en/, $(IMG bullet_black.png) Programming in D))
+$(LI $(LINK2 http://wiki.dlang.org/Books, $(IMG bullet_black.png) Books))
+)
+$(BR)
+$(BR)
+
+<div class="vertinavheader">Diğer</div>
+$(UL
+$(LI $(LINK2 http://ddili.org/rss.xml, $(IMG rss-icon.png) RSS Beslemesi))
+$(LI $(LINK2 $(ROOT_DIR)/iletisim.html, $(IMG email.png) İletişim))
+$(LI $(LINK2 $(ROOT_DIR)/copyright.html, $(IMG cc_80x15.png) Hakları))
+)
+$(BR)
+$(GOOGLE_TRANSLATE)
+$(BR)
+$(BR)
+$(FOOTER_DIV)

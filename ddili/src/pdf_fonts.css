@@ -1,0 +1,85 @@
+/* Prince does not support WOFF fonts. */
+
+@font-face {
+    font-family: sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    src: url("fonts/opensans/OpenSans-Regular.ttf")
+}
+
+@font-face {
+    font-family: sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    src: url("fonts/opensans/OpenSans-Bold.ttf")
+}
+
+@font-face {
+    font-family: sans-serif;
+    font-style: italic;
+    font-weight: normal;
+    src: url("fonts/opensans/OpenSans-Italic.ttf")
+}
+
+@font-face {
+    font-family: sans-serif;
+    font-style: italic;
+    font-weight: bold;
+    src: url("fonts/opensans/OpenSans-BoldItalic.ttf")
+}
+
+@font-face {
+    font-family: serif;
+    font-style: normal;
+    font-weight: normal;
+    src: url("fonts/andada/Andada-Regular.ttf")
+}
+
+@font-face {
+    font-family: serif;
+    font-style: normal;
+    font-weight: bold;
+    src: url("fonts/andada/Andada-Bold.ttf")
+}
+
+@font-face {
+    font-family: serif;
+    font-style: italic;
+    font-weight: normal;
+    src: url("fonts/andada/Andada-Italic.ttf")
+}
+
+@font-face {
+    font-family: serif;
+    font-style: italic;
+    font-weight: bold;
+    src: url("fonts/andada/Andada-BoldItalic.ttf")
+}
+
+@font-face {
+    font-family: monospace;
+    font-style: normal;
+    font-weight: normal;
+    src: url("fonts/dejavu/DejaVuSansMono-webfont.ttf")
+}
+
+@font-face {
+    font-family: monospace;
+    font-style: normal;
+    font-weight: bold;
+    src: url("fonts/dejavu/DejaVuSansMono-Bold-webfont.ttf")
+}
+
+@font-face {
+    font-family: monospace;
+    font-style: italic;
+    font-weight: normal;
+    src: url("fonts/dejavu/DejaVuSansMono-Oblique-webfont.ttf")
+}
+
+@font-face {
+    font-family: monospace;
+    font-style: italic;
+    font-weight: bold;
+    src: url("fonts/dejavu/DejaVuSansMono-BoldOblique-webfont.ttf")
+}

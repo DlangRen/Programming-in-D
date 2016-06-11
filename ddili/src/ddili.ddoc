@@ -1,0 +1,50 @@
+BODY_DIV=$(BODY)
+
+DDOC = $(DOCTYPE)
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="$(LANG)">
+
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="content-language" content="$(LANG)" />
+    <meta http-equiv="last-modified" content="$(LAST_MODIFIED)" />
+    <meta name="language" content="$(LANGUAGE)" />
+    <meta name="description" content="$(DESCRIPTION)" />
+    <meta name="keywords" content="$(KEYWORDS)" />
+    <title>$(MAIN_TITLE) - $(SUBTITLE)</title>
+    <link href="$(ROOT_DIR)/style.css" rel="stylesheet" type="text/css" />
+    <link rel="icon" type="image/png" href="/image/favicon.png" />
+    <link rel="alternate" type="application/rss+xml" href="http://ddili.org/rss.xml" title="D Programlama Dili RSS Beslemesi" />
+  </head>
+
+  <body>
+
+    <div id="$(CONTAINER_ID)">
+
+      <div id="$(HEADER_ID)">
+        <div id="$(HEADER1_ID)">
+          $(MAIN_TITLE)
+          <span style="font-size:.6em">$(I $(SUB_MAIN_TITLE))</span>
+          <br/>
+          <span style="font-size:.75em">$(SUB_AUTHOR)</span>
+        </div>
+
+        $(HEADER_SECONDARY_DIV)
+      </div>
+
+      $(VERTINAV_DIV)
+
+      <div id="content">
+        $(BREADCRUMBS_DIV)
+
+        $(DERS_NAV_BAS)
+        $(BODY_DIV)
+        $(DERS_NAV_SON)
+
+      </div>
+
+    </div>
+
+  </body>
+
+</html>

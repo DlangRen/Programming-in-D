@@ -1,0 +1,35 @@
+a.xref:after {
+  content: " (sayfa " target-counter(attr(href, url), page) ")";
+}
+
+div.cozum_link_cok a.xref {
+  content: "Çözümler: Sayfa " target-counter(attr(href, url), page);
+  font-style:italic;
+}
+
+div.cozum_link_cok a.xref:after {
+  content: normal;
+}
+
+div.cozum_link_tek a.xref {
+  content: "Çözüm: Sayfa " target-counter(attr(href, url), page);
+  font-style:italic;
+}
+
+div.cozum_link_tek a.xref:after {
+  content: normal;
+}
+
+div.cozum_link_cok, div.cozum_link_tek {
+  padding-top: .1em;
+  page-break-before: avoid;
+}
+
+body
+{
+  counter-reset: h4 -2;
+}
+
+ul.toc a.index {
+  content: "Dizin";
+}

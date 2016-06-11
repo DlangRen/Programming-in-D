@@ -1,0 +1,14 @@
+    <item href="fonts/opensans/OpenSans-Regular.ttf" id="font1" media-type="application/x-font-truetype"/>
+    <item href="fonts/opensans/OpenSans-Bold.ttf" id="font2" media-type="application/x-font-truetype"/>
+    <item href="fonts/opensans/OpenSans-Italic.ttf" id="font3" media-type="application/x-font-truetype"/>
+    <item href="fonts/opensans/OpenSans-BoldItalic.ttf" id="font4" media-type="application/x-font-truetype"/>
+    <item href="fonts/andada/Andada-Regular.ttf" id="font5" media-type="application/x-font-truetype"/>
+    <item href="fonts/andada/Andada-Bold.ttf" id="font6" media-type="application/x-font-truetype"/>
+    <item href="fonts/andada/Andada-Italic.ttf" id="font7" media-type="application/x-font-truetype"/>
+    <item href="fonts/andada/Andada-BoldItalic.ttf" id="font8" media-type="application/x-font-truetype"/>
+    <item href="fonts/andada/OFL.txt" id="ofl1" media-type="text/plain"/>
+    <item href="fonts/dejavu/DejaVuSansMono-webfont.ttf" id="font9" media-type="application/x-font-truetype"/>
+    <item href="fonts/dejavu/DejaVuSansMono-Bold-webfont.ttf" id="font10" media-type="application/x-font-truetype"/>
+    <item href="fonts/dejavu/DejaVuSansMono-Oblique-webfont.ttf" id="font11" media-type="application/x-font-truetype"/>
+    <item href="fonts/dejavu/DejaVuSansMono-BoldOblique-webfont.ttf" id="font12" media-type="application/x-font-truetype"/>
+    <item href="image/by-nc-sa.png" id="img1" media-type="image/png"/>

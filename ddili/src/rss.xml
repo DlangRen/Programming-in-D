@@ -1,0 +1,316 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0">
+
+<channel>
+  <title>D Programlama Dili</title>
+  <link>http://ddili.org</link>
+  <description>D programlama dili ile ilgili belgeler, makaleler, kod örnekleri, yardımcı bilgiler, forum, vs.</description>
+  <language>tr</language>
+  <category>D Programlama Dili</category>
+
+  <item>
+    <title>Zafer Çelenk'in "DUB ile Tanışalım" makalesi</title>
+    <link>http://ddili.org/makale/dub_tanisma.html</link>
+    <description>Proje ve paket yönetim programı olan DUB'ın kullanımı.</description>
+     <category>Makale</category>
+     <pubDate>Sat, 02 Apr 2016 23:30</pubDate>
+  </item>
+
+  <item>
+    <title>David Nadlinger'ın "D'nin Saflık Kavramı" makalesi</title>
+    <link>http://ddili.org/makale/saflik.html</link>
+    <description>Fonksiyonel programlamanın önemli kavramlarından olan saflık kavramının D'deki gerçekleştirmesi ve pure anahtar sözcüğünün diğer dil olanakları ile nasıl etkileştiği.</description>
+     <category>Makale</category>
+     <pubDate>Thu, 17 Oct 2013 22:15</pubDate>
+  </item>
+
+  <item>
+    <title>Sunumlar Bölümü</title>
+    <link>http://ddili.org/sunum/index.html</link>
+    <description>D diliyle ilgili sunumlar.</description>
+     <category>Tanıtım</category>
+     <pubDate>Fri, 13 Jul 2012 16:30</pubDate>
+  </item>
+
+  <item>
+    <title>Zafer Çelenk'in "D Dilindeki Tipleri Anlamak" makalesi</title>
+    <link>http://ddili.org/makale/d_tipleri.html</link>
+    <description>D'nin temel tipleri ve bitlerle nasıl gerçekleştirildikleri.</description>
+     <category>Makale</category>
+     <pubDate>Wed, 7 Mar 2012 10:45</pubDate>
+  </item>
+
+  <item>
+    <title>SDL ile Oyun Programlama dersleri</title>
+    <link>http://ddili.org/ders/sdl/</link>
+    <description>SDL kütüphanesini kullanarak D ile oyun programları yazma</description>
+     <category>Eğitsel</category>
+     <pubDate>Wed, 15 Jun 2011 14:30</pubDate>
+  </item>
+
+  <item>
+    <title>Steven Schveighoffer'ın "D Dilimleri" makalesi</title>
+    <link>http://ddili.org/makale/d_dilimleri.html</link>
+    <description>D'nin çok kullanışlı, çok hızlı ve güvenli olanaklarından olan dilimlerin tanıtılmaları ve bazı işlemlerinin perde arkasında nasıl gerçekleştirildiklerinin gösterilmesi</description>
+     <category>Makale</category>
+     <pubDate>Wed, 31 May 2011 23:50</pubDate>
+  </item>
+
+  <item>
+    <title>D Programlama Dili güncellendi</title>
+    <link>http://ddili.org/ders/d/</link>
+    <description>D Programlama Dili dersleri ve program örnekleri, D'deki gelişmeler doğrultusunda güncellendi</description>
+     <category>Eğitsel</category>
+     <pubDate>21 Mar 2011 23:00</pubDate>
+  </item>
+
+  <item>
+    <title>Andrei Alexandrescu'nun "Eleman Erişimi Üzerine" makalesi</title>
+    <link>http://ddili.org/makale/eleman_erisimi_uzerine.html</link>
+    <description>Erişici kavramından daha güçlü olduğu gösterilen aralık (range) kavramı</description>
+     <category>Makale</category>
+     <pubDate>Mon, 17 Jan 2011 01:30</pubDate>
+  </item>
+
+  <item>
+    <title>Programming in D kitabı artık pdf</title>
+    <link>http://ddili.org/ders/d.en/index.html</link>
+    <description>İngilizce D kitabının hepsini birden PDF olarak bölüm başlıklarındaki bağlantısından indirebilirsiniz.</description>
+    <category>News</category>
+    <pubDate>21 Jan 2012 18:00</pubDate>
+  </item>
+
+  <item>
+    <title>GtkD kitabı artık pdf</title>
+    <link>http://ddili.org/ders/gtkd/index.html</link>
+    <description>GtkD kitabının hepsini birden PDF olarak bölüm başlıklarındaki bağlantısından indirebilirsiniz.</description>
+     <category>Haber</category>
+     <pubDate>21 Jan 2012 18:00</pubDate>
+  </item>
+
+  <item>
+    <title>SDL kitabı artık pdf</title>
+    <link>http://ddili.org/ders/sdl/index.html</link>
+    <description>SDL kitabının tamamını PDF olarak bölüm başlıklarındaki bağlantısından indirebilirsiniz.</description>
+     <category>Haber</category>
+     <pubDate>21 Jan 2012 18:00</pubDate>
+  </item>
+
+  <item>
+    <title>D Programlama Dili dersleri artık pdf</title>
+    <link>http://ddili.org/ders/d/pdf_indir.html</link>
+    <description>D Programlama Dili derslerinin hepsini birden tek bir pdf olarak indirebilirsiniz</description>
+     <category>Eğitsel</category>
+     <pubDate>02 Apr 2010 01:40</pubDate>
+  </item>
+
+  <item>
+    <title>D.ershane'ye şablonlar (template) da eklendi</title>
+    <link>http://ddili.org/ders/d/</link>
+    <description>D dersleri artık şablonları (template) da kapsıyor</description>
+     <category>Eğitsel</category>
+     <pubDate>18 Feb 2010 01:00</pubDate>
+  </item>
+
+  <item>
+    <title>"shared'e Geçiş" isimli makale</title>
+    <link>http://ddili.org/makale/shared.html</link>
+    <description>D'nin bellek erişimini güvenli hale getirmek için evrensel [global] değişkenleri normalde iş parçacığına özel alana [thread local storage, (TLS)] yerleştirmesi, ve bununla ilgili olanakları</description>
+     <category>Makale</category>
+     <pubDate>Mon, 14 Dec 2009 10:30</pubDate>
+  </item>
+
+  <item>
+    <title>Projeler</title>
+    <link>http://ddili.org/wiki/index.php?title=Ddili_Projeleri</link>
+    <description>Ddili topluluğunun ortaklaşa geliştirmekte olduğu projelere başlandı</description>
+     <category>Haber</category>
+     <pubDate>17 Sep 2009 12:00</pubDate>
+  </item>
+
+  <item>
+    <title>D.ershane</title>
+    <link>http://ddili.org/ders/d/</link>
+    <description>Temelden başlayarak adım adım D programcılığı öğrenebileceğiniz bir bölüm</description>
+     <category>Eğitsel</category>
+     <pubDate>01 Sep 2009 18:15</pubDate>
+  </item>
+
+  <item>
+    <title>Ddili Wiki</title>
+    <link>http://ddili.org/wiki/</link>
+    <description>Türkçe belgeler ve program örnekleri bulabileceğiniz, ve katkılarınızla geliştireceğiniz bir paylaşım alanı</description>
+     <category>Eğitsel</category>
+     <pubDate>01 Sep 2009 18:15</pubDate>
+  </item>
+
+  <item>
+    <title>Geliştirme ortamı SciTE'ın Linux'ta kurulması</title>
+    <link>http://ddili.org/kurulum/scite.html</link>
+    <description>Son derece basit bir geliştirme ortamı olan SciTE'ın Linux ortamında kurulması.</description>
+     <category>Eğitsel</category>
+     <pubDate>Mon, 20 Jul 2009 00:05</pubDate>
+  </item>
+
+  <item>
+    <title>"Düzenli İfadeler [Regular Expressions]" isimli makale</title>
+    <link>http://ddili.org/makale/duzenli_ifadeler.html</link>
+    <description>Düzenli ifadelerin D'de Ruby'deki kadar güçlü oldukları ve ondan ne farklılıklar gösterdikleri.</description>
+     <category>Makale</category>
+     <pubDate>Tue, 14 Jul 2009 17:45</pubDate>
+  </item>
+
+  <item>
+    <title>"Bellek Yönetimi" isimli makale</title>
+    <link>http://ddili.org/makale/bellek.html</link>
+    <description>D'de bellek yönetimi için kullanılan yöntemler.</description>
+     <category>Makale</category>
+     <pubDate>Tue, 14 Jul 2009 14:50</pubDate>
+  </item>
+
+  <item>
+    <title>"const ve immutable Kavramları" isimli makale</title>
+    <link>http://ddili.org/makale/degismez.html</link>
+    <description>D'deki değişmezlik kavramlarının tanıtılmaları ve const ve immutable anahtar sözcüklerinin kullanımları.</description>
+     <category>Makale</category>
+     <pubDate>Mon, 13 Jul 2009 13:10</pubDate>
+  </item>
+
+  <item>
+    <title>"Dizgi Katmaları [mixin]" isimli makale</title>
+    <link>http://ddili.org/makale/katma.html</link>
+    <description>Derleme zamanında oluşturulan dizgilerin nasıl koda dönüştürüldüklerini gösteren kısa bir yazı.</description>
+     <category>Makale</category>
+     <pubDate>Sat, 11 Jul 2009 22:20</pubDate>
+  </item>
+
+  <item>
+    <title>Walter Bright'ın "Fonksiyon Argümanlarında Tembel Değerlendirmeler" isimli makalesi</title>
+    <link>http://ddili.org/makale/tembel_hesap.html</link>
+    <description>Tembel değerlendirme [lazy evaluation], bir ifadenin işletilmesinin ancak gerçekten gerek duyulana kadar geciktirilmesidir. Bu makalede D'de fonksiyon argümanlarının tembel olarak işletilebilme olanağının fonksiyonların ifade yeteneklerini ne kadar arttırdığı anlatılmaktadır.</description>
+     <category>Makale</category>
+     <pubDate>Fri, 10 Jul 2009 22:00</pubDate>
+  </item>
+
+  <item>
+    <title>Karmaşık sayı türleri ve C++'nın std::complex'i</title>
+    <link>http://ddili.org/tanitim/fark_karmasik.html</link>
+    <description>D'nin karmaşık sayı türlerinin tanıtılması ve C++'ın std::complex türüyle karşılaştırılması</description>
+     <category>Tanıtım</category>
+     <pubDate>Thu, 09 Jul 2009 17:20</pubDate>
+  </item>
+
+  <item>
+    <title>Olanakların dil içinde veya kütüphanelerde gerçekleştirilmeleri</title>
+    <link>http://ddili.org/tanitim/dil_kutuphane.html</link>
+    <description>Bazı veri yapılarının neden kütüphane türleri yerine D dilinin iç olanakları olarak sunulmuş oldukları</description>
+     <category>Tanıtım</category>
+     <pubDate>Thu, 09 Jul 2009 15:15</pubDate>
+  </item>
+
+  <item>
+    <title>D olanaklarının C önişlemcisiyle [preprocessor] karşılaştırılması</title>
+    <link>http://ddili.org/tanitim/fark_onislemci.html</link>
+    <description>C'nin önişlemcisi ile D'nin sunduğu olanakların farkları</description>
+     <category>Tanıtım</category>
+     <pubDate>Tue, 07 Jul 2009 23:30</pubDate>
+  </item>
+
+  <item>
+    <title>Dizgilerin [string] C++ dizgileri ile karşılaştırılması</title>
+    <link>http://ddili.org/tanitim/fark_dizgi.html</link>
+    <description>C++ dilindeki dizgilerle D dilindeki dizgilerin farkları</description>
+     <category>Tanıtım</category>
+     <pubDate>Tue, 07 Jul 2009 00:30</pubDate>
+  </item>
+
+  <item>
+    <title>D dilinin C++ dili ile karşılaştırılması</title>
+    <link>http://ddili.org/tanitim/fark_cpp.html</link>
+    <description>C++ dilindeki nesne yönelimli programlama ve şablonlar gibi bazı işlemlerin D dilinde nasıl yapıldıkları</description>
+     <category>Tanıtım</category>
+     <pubDate>Mon, 06 Jul 2009 00:10</pubDate>
+  </item>
+
+  <item>
+    <title>D diline genel bakış</title>
+    <link>http://ddili.org/tanitim/genel.html</link>
+    <description>D'nin ana özellikleri</description>
+     <category>Tanıtım</category>
+     <pubDate>Sat, 04 Jul 2009 01:00</pubDate>
+  </item>
+
+  <item>
+    <title>D dilinin C dili ile karşılaştırılması</title>
+    <link>http://ddili.org/tanitim/fark_c.html</link>
+    <description>C dilindeki bazı işlemlerin D dilinde nasıl yapıldıkları</description>
+     <category>Tanıtım</category>
+     <pubDate>Sat, 04 Jul 2009 01:00</pubDate>
+  </item>
+
+  <item>
+    <title>D Derleyicisi dmd'nin Code::Blocks'la kullanımı</title>
+    <link>http://ddili.org/kurulum/</link>
+    <description>Digital Mars derleyicisi dmd'nin Code::Blocks geliştirme ortamına eklenmesi</description>
+     <category>Eğitsel</category>
+     <pubDate>Tue, 30 Jun 2009 15:00</pubDate>
+  </item>
+
+  <item>
+    <title>D Derleyicisi dmd'nin Windows'da kurulması</title>
+    <link>http://ddili.org/kurulum/</link>
+    <description>Digital Mars derleyicisi dmd'nin Windows'da kurulması</description>
+     <category>Eğitsel</category>
+     <pubDate>Tue, 30 Jun 2009 15:00</pubDate>
+  </item>
+
+  <item>
+    <title>Kod örnekleri</title>
+    <link>http://ddili.org/ornek_kod/</link>
+    <description>D'nin bazı özelliklerini gösteren küçük D programları.</description>
+     <category>Eğitsel</category>
+     <pubDate>Sat, 27 Jun 2009 19:40</pubDate>
+  </item>
+
+  <item>
+    <title>D Derleyicisi kurulumu</title>
+    <link>http://ddili.org/kurulum/</link>
+    <description>Digital Mars derleyicisi dmd'nin ve GNU derleyicisi gdc'nin Linux ortamında kurulması.</description>
+     <category>Eğitsel</category>
+     <pubDate>Mon, 22 Jun 2009 01:40</pubDate>
+  </item>
+
+  <item>
+    <title>Ddili Forumu Açıldı</title>
+    <link>http://ddili.org/forum/</link>
+    <description>D diliyle ilgili her türlü konuyu tartışabileceğimiz Ddili Forumu açıldı.</description>
+    <category>Haber</category>
+    <pubDate>Sat, 20 Jun 2009</pubDate>
+  </item>
+
+  <item>
+    <title>Andrei Alexandrescu'nun yeni makalesi: Neden D</title>
+    <link>http://ddili.org/makale/neden_d.html</link>
+    <description>C++'nın en büyük ustalarından olan Andrei Alexandrescu, şimdilerde enerjisini Walter Bright tarafından tasarlanmış olan D programlama dilini geliştirmeye harcıyor. Alexandrescu, çeşitli nedenlerle C++'ya eklenemeyen çoğu dil olanağının D'ye eklenmesine yardım ederek, bir anlamda D'yi C++'nın olmayı başaramadığı dil haline getiriyor.</description>
+     <category>Makale</category>
+     <pubDate>Tue, 16 Jun 2009</pubDate>
+  </item>
+
+  <item>
+    <title>Emacs'e d-mode eklemek</title>
+    <link>http://ddili.org/kurulum/emacs_d-mode.html</link>
+    <description>Emacs altında D programı yazarken işe yarayan d-mode modunun Emacs'e eklenmesi.</description>
+    <category>Eğitsel</category>
+    <pubDate>Tue, 16 Jun 2009</pubDate>
+  </item>
+
+  <item>
+    <title>D Programlama Dili sitesi ddili.org açıldı</title>
+    <link>http://ddili.org/</link>
+    <description>Bütünüyle D programlama diline odaklı site ddili.org</description>
+    <category>Haber</category>
+    <pubDate>Mon, 15 Jun 2009</pubDate>
+  </item>
+
+</channel>
+</rss>

@@ -1,0 +1,34 @@
+/* These formats make index anchors visible in a hacky way. */
+
+a[name^="ix_"]:after {
+    position: absolute;
+    float: footnote;
+    content: attr(content);
+    color: red;
+    line-height: 0;
+    z-index:2;
+}
+
+a[name^="ix_"]:after::footnote-call {
+    color: red;
+    position: relative;
+    left: -5em;
+    width: 60px;
+    padding: 0;
+    margin: 0;
+    border: 0;
+/*    margin-left: -3em; */
+    content: attr(content);
+    font-size: 60%;
+    vertical-align: super;
+    line-height: 0;
+}
+
+a[name^="ix_"]:after::footnote-marker {
+    color: red;
+    float: left;
+    content: none;/*counter(footnote);*/
+    font-size: 1em;
+    vertical-align: super;
+    line-height: 0.1;
+}

@@ -1,0 +1,451 @@
+acikca_elle_yapilan | açıkça elle yapılan | explicit | programcı tarafından açık olarak yapılan
+
+aciklama | açıklama satırı | comment | programı açıklamak için programın içine yazılan satır
+
+adres | adres | address | değişkenin (veya nesnenin) bellekte bulunduğu yer
+
+akim | akım | stream | nesnelerin art arda erişildiği giriş çıkış birimi
+
+algoritma | algoritma | algorithm | verilerin işlenme adımları, işlev
+
+alt_duzey | alt düzey | low level | donanıma yakın olanak
+
+alt_sinif | alt sınıf | subclass | başka sınıftan türetilen sınıf
+
+anahtar_sozcuk | anahtar sözcük | keyword | dilin kendisi için ayırmış olduğu ve iç olanakları için kullandığı sözcük
+
+aralik | aralık | range | belirli biçimde erişilen bir grup eleman
+
+arayuz | arayüz | interface | yapının, sınıfın, veya modülün sunduğu işlevler
+
+arttirma | arttırma | increment | değerini bir arttırmak
+
+atama | atama | assign | değişkene yeni bir değer vermek
+
+ayni_isimde_tanim_iceren | aynı isimde tanım içeren | eponymous | kendisiyle aynı isimde tanım içeren şablon
+
+azaltma | azaltma | decrement | değerini bir azaltmak
+
+baglam_degistirme | bağlam değiştirme | context switching | başka iş parçacığına geçilmesi
+
+baglanim | bağlanım | linkage | derlenen koddaki özgün ismi belirleyen kurallar vs.
+
+baglayici | bağlayıcı | linker | derleyicinin oluşturduğu program parçalarını bir araya getiren program
+
+bagli_liste | bağlı liste | linked list | her elemanı bir sonraki elemanı gösteren veri yapısı
+
+belirsiz_sayida_parametre | belirsiz sayıda parametre | variadic | aynı işlevi (veya şablonu) farklı sayıda parametre ile çağırabilme olanağı
+
+bellek_sizintisi | bellek sızıntısı | memory leak | artık kullanılmasa bile bellek bölgesinin geri verilmemesi
+
+betik | betik | script | terminal komutlarından oluşan program
+
+bayrak | bayrak | flag | bir işlemin veya sonucun geçerli olup olmadığını bildiren bit
+
+bayt | bayt | byte | 8 bitlik tür
+
+bayt_sirasi | bayt sırası | endianness | veriyi oluşturan baytların bellekte sıralanma düzeni
+
+bildirim | bildirim | declare | tanımını vermeden belirtmek
+
+birim_testi | birim testi | unit test | programın alt birimlerinin bağımsız olarak denetlenmeleri
+
+birlik | birlik | union | birden fazla değişkeni aynı bellek bölgesinde depolayan veri yapısı
+
+bit | bit | bit | 0 ve 1 değerlerini alabilen en temel bilgi birimi
+
+blok | blok | block | küme parantezleriyle gruplanmış ifadelerin tümü
+
+bom | BOM | BOM, byte order mark | dosyanın en başına yazılan Unicode kodlama belirteci
+
+buyuk_soncul | büyük soncul | big endian | değerin üst bitlerini oluşturan baytın bellekte önceki adreste bulunduğu işlemci mimarisi
+
+ctfe | CTFE | Compile Time Function Execution | derleme zamanında işlev işletme
+
+cagri_yigiti | çağrı yığıtı | call stack | belleğin kısa ömürlü değişkenler ve işlev çağrıları için kullanılan bölgesi
+
+calisma_ortami | çalışma ortamı | runtime | çalışma zamanında dil desteği veren ve her programa otomatik olarak eklenmiş olan program parçası
+
+cerceve | çerçeve | frame | işlev çağrısının yerel durumunu barındıran alan
+
+cikarsama | çıkarsama | deduction, inference | derleyicinin kendiliğinden anlaması
+
+cikis_kosulu | çıkış koşulu | postcondition | işlevin garanti ettiği sonuç
+
+cikti | çıktı | output | programın bilgi olarak ürettiği herşey
+
+cok_paradigmali | çok paradigmalı | multi-paradigm | çeşitli programlama yöntemlerini destekleyen
+
+cok_sekillilik | çok şekillilik | polymorphism | başka bir tür gibi davranabilmek
+
+coklu_gorev | çoklu görev | multi-tasking | birden fazla görevin etkin olması
+
+cokuzlu | çokuzlu | tuple | bir kaç parçanın diziye benzer biçimde bir araya gelmesinden oluşan yapı
+
+cokme | çökme | crash | programın hata ile sonlanması
+
+cop_toplayici | çöp toplayıcı | garbage collector | işi biten nesneleri sonlandıran düzenek
+
+deger | değer | value | ay adedi 12 gibi isimsiz bir büyüklük
+
+deger_turu | değer türü | value type | değer taşıyan tür
+
+degisken | değişken | variable | kavramları temsil eden veya sınıf nesnesine erişim sağlayan program yapısı
+
+degismez | değişmez | immutable | programın çalışması süresince kesinlikle değişmeyen
+
+derleyici | derleyici | compiler | programlama dili kodunu bilgisayarın anladığı makine koduna çeviren program
+
+deyim | deyim | statement | ifadelerin işletilmelerini ve sıralarını etkileyen program yapısı
+
+dilim | dilim | slice | başka bir dizinin bir bölümüne erişim sağlayan yapı
+
+dinamik | dinamik | dynamic | çalışma zamanında değişebilen
+
+dizgi | dizgi | string | "merhaba" gibi bir karakter dizisi
+
+dizi | dizi | array | elemanları yan yana duran ve indeksle erişilen topluluk
+
+doldurma_bayti | doldurma baytı | padding byte | değişkenleri hizalamak için aralarına gelen baytlar
+
+dongu | döngü | loop | tekrarlanan program yapısı
+
+dongu_acilimi | döngü açılımı | loop unrolling | döngü içeriğinin her eleman için art arda tekrarlanması
+
+donus_degeri | dönüş değeri | return value | işlevin üreterek döndürdüğü değer
+
+duyarlik | duyarlık | precision | sayının belirgin hane sayısı
+
+duzen | düzen | format | bilginin giriş ve çıkışta nasıl düzenlendiği
+
+eleman | eleman | element | topluluktaki verilerin her biri
+
+emekli | emekliye ayrılan | deprecated | hâlâ kullanılan ama yakında geçersiz olacak olanak
+
+emirli_programlama | emirli programlama | imperative programming | işlemlerin deyimler halinde adım adım belirlendikleri programlama yöntemi
+
+eniyilestirme | eniyileştirme | optimization | kodun daha hızlı çalışacak biçimde davranışı bozulmadan değiştirilmesi
+
+erisici | erişici | iterator | elemanlara erişim sağlayan yapı
+
+esleme_tablosu | eşleme tablosu | associative array | elemanlarına tamsayı olmayan indekslerle de erişilebilen veri yapısı (bir 'hash table' gerçekleştirmesi)
+
+es_zamanli | eş zamanlı programlama | concurrency | iş parçacıklarının birbirlerine bağımlı olarak işlemeleri
+
+etiket | etiket | label | kod satırlarına isimler vermeye yarayan olanak
+
+evrensel | evrensel | global | modül düzeyinde tanımlanmış
+
+fonksiyonel_programlama | fonksiyonel programlama | functional programming | yan etki üretmeme ilkesine dayalı programlama yöntemi
+
+gecici | geçici | temporary | bir işlem için geçici olarak oluşturulan ve yaşamı kısa süren değişken veya nesne
+
+gecisli_coklu_gorev | geçişli çoklu görev | preemptive multi-tasking | görevlerin bilinmeyen zamanlarda duraksatıldığı çoklu görev yöntemi
+
+gelistirme_ortami | geliştirme ortamı | IDE | program yazmayı kolaylaştıran program
+
+genel_erisim | genel erişim | public | herkese açık erişim
+
+gerceklestirme | gerçekleştirme | implementation | kodun oluşturulması
+
+giris_cikisa_bagli | giriş/çıkış'a bağlı | I/O bound | zamanının çoğunu giriş/çıkış işlemlerini bekleyerek geçiren
+
+giris_kosulu | giriş koşulu | precondition | işlevin gerektirdiği koşul
+
+gorev | görev | task | programın geri kalanıyla koşut işletilebilen işlem birimi
+
+gosterge | gösterge | pointer | bir değişkeni gösteren değişken
+
+hata | hata | exception | devam edilemeyen işlemden atılan nesne
+
+hata_atma | hata atma | throw exception | işlemin devam edilemeyeceği için sonlandırılması
+
+hata_ayiklama | hata ayıklama | debug | programın hatalarını bulma ve giderme
+
+hazir_deger | hazır değer | literal | kod içinde hazır olarak yazılan değerler
+
+hevesli | hevesli | eager | işlemlerin, ürettikleri sonuçların kullanılacaklarından emin olunmadan gerçekleştirilmeleri
+
+hizalama | hizalama birimi | alignment | bir türün değişkenlerinin bulunabileceği adres adımı
+
+ic_olanak | iç olanak | core feature | dilin kütüphane gerektirmeyen bir olanağı
+
+ic_tanim | iç tanım | nested definition | iç kapsamda tanımlanmış olan
+
+ifade | ifade | expression | programın değer oluşturan veya yan etki üreten bir bölümü
+
+ikili_sistem | ikili sayı sistemi | binary system | iki rakamdan oluşan sayı sistemi
+
+ikincil_hata | ikincil hata | collateral exception | hata atılması sırasında atılan başka hata
+
+ilinti | ilinti | binding | yabancı kütüphanenin olanaklarını D söz dizimiyle bildiren dosya
+
+ilklemek | ilklemek | initialize | ilk değerini vermek
+
+indeks | indeks | index | topluluk elemanlarına erişmek için kullanılan bilgi
+
+infinity | infinity | infinity | sonsuzluk
+
+isim_alani | isim alanı | name scope | ismin geçerli olduğu kapsam
+
+isim_gizleme | isim gizleme | name hiding | üst sınıfın aynı isimli üyelerinin alt sınıftakiler tarafından gizlenmeleri
+
+isimli_ilklendirici | isimli ilklendirici | designated initializer | yapı üyelerinin isimle ilklendirilmeleri
+
+isimsiz_islev | isimsiz işlev | lambda | çoğunlukla işlevlere parametre değeri olarak gönderilen kısa ve isimsiz işlev
+
+istemci | istemci | client | sunucu programın hizmetlerinden yararlanan program
+
+isaretli_tur | işaretli tür | signed type | eksi ve artı değer alabilen tür
+
+isaretsiz_tur | işaretsiz tür | unsigned type | yalnızca artı değer alabilen tür
+
+isbirlikli_coklu_gorev | işbirlikli çoklu görev | cooperative multi-tasking | görevlerin kendilerini duraksattıkları çoklu görev yöntemi
+
+islec | işleç | operator | bir veya daha fazla ifadeyle iş yapan özel işaret (+, -, =, [], vs.)
+
+islec_birlesimi | işleç birleşimi | operator associativity | aynı önceliğe sahip işleçlerden soldakinin mi sağdakinin mi önce işletileceği
+
+islev | işlev | function | programdaki bir kaç adımı bir araya getiren program parçası
+
+is_parcacigi | iş parçacığı | thread | işletim sisteminin program işletme birimi
+
+kalan | kalan | modulus | bölme işleminin kalan değeri
+
+kalitim | kalıtım | inheritance | başka bir türün üyelerini türeme yoluyla edinmek
+
+kapama | kapama | closure | işlemi ve işlediği kapsamı bir arada saklayan program yapısı
+
+kapsam | kapsam | scope | küme parantezleriyle belirlenen bir alan
+
+karakter | karakter | character | 'a', '€', '\n', gibi en alt düzey metin parçası
+
+karakter_kodlamasi | karakter kodlaması | character encoding | karakter kodlarının ifade edilme yöntemi
+
+katma | katma | mixin | program içine otomatik olarak kod yerleştirme
+
+kayan_noktali | kayan noktalı sayı | floating point | kesirli sayı
+
+kaynak_dosya | kaynak dosya | source file | programcının yazdığı kodu içeren dosya
+
+kesintisiz_islem | kesintisiz işlem | atomic operation | bir iş parçacığı tarafından kesintiye uğramadan işletilen işlem
+
+kirpilma | kırpılma | truncate | sayının virgülden sonrasının kaybedilmesi
+
+kisitlama | kısıtlama | constraint | şablon parametrelerinin uyması gereken koşulların belirlenmesi
+
+kilitsiz_veri_yapisi | kilitsiz veri yapısı | lock-free data structure | kilit nesnesi gerektirmeden eş zamanlı programlamada doğru işleyen veri yapısı
+
+klasor | klasör | directory | dosyaları barındıran dosya sistemi yapısı, "dizin"
+
+kod_birimi | kod birimi | code unit | UTF kodlaması kod değeri
+
+kod_ici_islev | kod içi işlev | inline function | işlevin çağrılması yerine içeriğinin çağrıldığı noktaya yerleştirilmesi
+
+kod_noktasi | kod noktası | code point | Unicode'un tanımlamış olduğu harf, im, vs.
+
+kod_sismesi | kod şişmesi | code bloat | şablon için çok sayıda kod üretilmesi
+
+kod_tablosu | kod tablosu | code page | 127'den büyük karakter değerlerinin bir dünya dili için tanımlanmaları
+
+kod_uretmeli | kod üretmeli | generative | kod üreten kodlar kullanan
+
+kontrol_karakteri | kontrol karakteri | control character | yeni satır açan $(C '\n'), yatay sekme karakteri $(C '\t'), gibi özel karakterler
+
+kopya_sonrasi | kopya sonrası | post blit | üyelerin kopyalanmalarından sonraki işlemler
+
+kopyalama | kopyalama | copy construct | nesneyi başka bir nesnenin kopyası olarak kurmak
+
+korumali_birlik | korumalı birlik | discriminated union | yalnızca geçerli üyesine eriştiren birlik
+
+korumali_erisim | korumalı erişim | protected | belirli ölçüde korumalı erişim
+
+kosut_islemler | koşut işlemler | parallelization | bağımsız işlemlerin aynı anda işletilmeleri
+
+kurma | kurma | construct | yapı veya sınıf nesnesini kullanılabilir duruma getirmek
+
+kurucu_islev | kurucu işlev | constructor | nesneyi kuran işlev
+
+kucuk_soncul | küçük soncul | little endian | değerin alt bitlerini oluşturan baytın bellekte önceki adreste bulunduğu işlemci mimarisi
+
+kutuphane | kütüphane | library | belirli bir konuda çözüm getiren tür tanımlarının ve işlevlerin bir araya gelmesi
+
+makine_kodu | makine kodu | machine code | mikro işlemcinin dili
+
+mantiksal_ifade | mantıksal ifade | logical expression | değeri false veya true olan ifade
+
+mesajlasma | mesajlaşma | message passing | iş parçacıklarının birbirlerine mesaj göndermeleri
+
+metin_duzenleyici | metin düzenleyici | text editor | metin yazmaya yarayan program
+
+mikro_islemci | mikro işlemci | CPU | bilgisayarın beyni
+
+mikro_islemciye_bagli | mikro işlemciye bağlı | CPU bound | zamanının çoğunu mikro işlemciyi işleterek geçiren
+
+mikro_islemci_cekirdegi | mikro işlemci çekirdeği | CPU core | başlı başına mikro işlemci olarak kullanılabilen işlemci birimi
+
+modul | modül | module | programın veya kütüphanenin işlev ve tür tanımlarından oluşan bir alt birimi
+
+mutlak_degismez | mutlak değişmez | invariant | nesnenin tutarlılığı açısından her zaman için doğru olan
+
+nesne | nesne | object | belirli bir sınıf veya yapı türünden olan değişken
+
+nesne_yonelimli | nesne yönelimli | object oriented | işlemlerin ilgili oldukları tür üzerinde tanımlanmaları
+
+nitelik | nitelik | property, attribute | bir türün veya nesnenin bir özelliği
+
+on_altili_sistem | on altılı sayı sistemi | hexadecimal system | on altı rakamdan oluşan sayı sistemi
+
+ortak_islev | ortak işlev | coroutine | aynı zamanda işletilen görevlerden birisi
+
+ortam_degiskeni | ortam değişkeni | environment variable | programı başlatan ortamın sunduğu PATH gibi değişken
+
+otomatik | otomatik | implicit | derleyici tarafından otomatik olarak yapılan
+
+onbellek | ön bellek | cache | hızlı veri veya kod erişimi için kullanılan mikro işlemci iç belleği
+
+onceki_degerli_arttirma | önceki değerli arttırma | post-increment | sayıyı arttıran ama önceki değerini üreten işleç
+
+onceki_degerli_azaltma | önceki değerli azaltma | post-decrement | sayıyı azaltan ama önceki değerini üreten işleç
+
+oncelik | öncelik | precedence | işleçlerin hangi sırada işletilecekleri
+
+ordek_tipleme | ördek tipleme | duck typing | türün değil, davranışın önemli olması
+
+ozel_erisim | özel erişim | private | başkalarına kapalı erişim
+
+ozelleme | özelleme | specialization | şablonun bir özel tanımı
+
+ozgun_isim_uretme | özgün isim üretme | name mangling | bağlayıcı tanıyabilsin diye programdaki isimlerin özgünleştirilmeleri
+
+ozyineleme | özyineleme | recursion | bir işlevin doğrudan veya dolaylı olarak kendisini çağırması
+
+paket | paket | package | aynı klasörde bulunan modüller
+
+parametre | parametre | parameter | işleve işini yapması için verilen bilgi
+
+parametre_degeri | parametre değeri | argument | işleve parametre olarak verilen bir değer
+
+phobos | Phobos | Phobos | D dilinin standart kütüphanesi
+
+program | program | program | bilgisayara yapacağı işleri bildiren bir dizi ifade
+
+referans | referans | reference | asıl nesneye, onun takma ismi gibi erişim sağlayan program yapısı
+
+referans_turu | referans türü | reference type | başka bir nesneye erişim sağlayan tür
+
+sabit | sabit | const | bir bağlamda değiştirilmeyen
+
+sag_deger | sağ değer | rvalue | adresi alınamayan değer
+
+sanal_islev | sanal işlev | virtual function | tanımı alt sınıfta değiştirilebilen işlev
+
+sanal_islev_tablosu | sanal işlev tablosu | virtual function table, vtbl | sınıfın sanal işlev göstergelerinden oluşan tablo
+
+sanal_sayi | sanal sayı | imaginary number | salt sanal değerden oluşan karmaşık sayı
+
+sarma | sarma | encapsulation | üyelere dışarıdan erişimi kısıtlamak
+
+sekme | sekme | tab | çıktı düzeni için kullanılan hayali sütunlar
+
+siga | sığa | capacity | yeni elemanlar için önceden ayrılmış olan yer
+
+siraduzen | sıradüzen | hierarchy | sınıfların türeyerek oluşturdukları aile ağacı
+
+sirasizlik | sırasızlık | unordered | sıra ilişkisi olmama durumu
+
+sinif | sınıf | class | kendi üzerinde kullanılan işlevleri de tanımlayan veri yapısı
+
+sihirli_sabit | sihirli sabit | magic constant | ne anlama geldiği anlaşılmayan sabit değer
+
+sol_deger | sol değer | lvalue | adresi alınabilen değer
+
+soyut | soyut | abstract | somut gerçekleştirmesi verilmemiş olan
+
+soz_dizimi | söz dizimi | syntax | dilin yazım ile ilgili olan kuralları
+
+standart_cikis | standart çıkış | standard output | program çıktısının normalde gönderildiği akım
+
+standart_giris | standart giriş | standard input | program girişinin normalde okunduğu akım
+
+statik | statik | static | derleme zamanında belirli olan
+
+sonek_islec | sonek işleç | postfix operator | $(C i++)'da olduğu gibi ifadenin sonuna eklenen işleç
+
+sonlandirma | sonlandırma | destruct | nesneyi kullanımdan kaldırırken gereken işlemleri yapmak
+
+sonlandirici_islev | sonlandırıcı işlev | destructor | nesneyi sonlandıran işlev
+
+sozlesmeli_programlama | sözleşmeli programlama | contract programming | işlevlerin giriş çıkış koşullarını ve nesnelerin tutarlılığını denetleyen dil olanağı
+
+sunucu | sunucu | server | başka programlara hizmet eden program
+
+surum | sürüm | version | programın, olanaklarına göre farklar içeren hali
+
+sablon | şablon | template | derleyicinin örneğin 'türden bağımsız programlama' için kod üretme düzeneği
+
+takma_isim | takma isim | alias | var olan bir olanağın başka bir ismi
+
+tanim | tanım | definition | bir ismin neyi ifade ettiğinin belirtilmesi
+
+tanimsiz_davranis | tanımsız davranış | undefined behavior | programın ne yapacağının dil tarafından tanımlanmamış olması
+
+tasma | taşma; üstten veya alttan | overflow veya underflow | değerin bir türe sığamayacak kadar büyük veya küçük olması
+
+tasima | taşıma | move | bir yerden bir yere kopyalamadan aktarma
+
+tembel_degerlendirme | tembel değerlendirme | lazy evaluation | işlemlerin gerçekten gerekene kadar geciktirilmesi
+
+temsilci | temsilci | delegate | oluşturulduğu ortamdaki değişkenlere erişebilen isimsiz işlev
+
+topluluk | topluluk | container | aynı türden birden fazla veriyi bir araya getiren veri yapısı
+
+tur_donusumu | tür dönüşümü | type conversion | bir değeri kullanarak başka bir türden değer elde etmek
+
+tur_nitelendirici | tür nitelendirici | type qualifier | const, immutable, shared, ve inout
+
+turden_bagimsiz | türden bağımsız | generic | belirli türlere bağlı olmayan veri yapıları ve algoritmalar
+
+turetmek | türetmek | inherit | bir sınıfı başka sınıfın alt türü olarak tanımlamak
+
+uc_birim | uç birim | terminal | bilgisayar sistemlerinin kullanıcıyla etkileşen giriş/çıkış birimi; "konsol", "komut satırı", "cmd penceresi", "DOS ekranı", vs.
+
+uclu_islec | üçlü işleç | ternary operator | ifadenin değerine göre ya birinci, ya da ikinci değeri üreten işleç
+
+ust_duzey | üst düzey | high level | donanımdan bağımsız kavramları temsil etmeye elverişli
+
+ust_sinif | üst sınıf | super class | kendisinden sınıf türetilen sınıf
+
+uye | üye | member | yapı veya sınıfın özel değişkenleri ve nesneleri
+
+uye_islev | üye işlev | member function | yapı veya sınıfın kendi tanımladığı işlemleri
+
+varsayilan | varsayılan | default | özellikle belirtilmediğinde kullanılan
+
+vekil | vekil | proxy | başka nesne yerine kullanılan nesne
+
+veri_yapilari | veri yapıları | data structures | verilerin bilgisayar biliminin tanımladığı biçimde saklanmaları ve işlenmeleri
+
+ve | ve (mantıksal) | and (logical) | iki ifadenin her ikisinin doğru olduğunu denetleyen işleç
+
+veya | veya (mantıksal) | or (logical) | iki ifadenin en az birisinin doğru olduğunu denetleyen işleç
+
+ya_da | ya da (mantıksal) | xor (exclusive or) (logical) | iki ifadenin tekinin doğru olduğunu denetleyen işleç
+
+yan_etki | yan etki | side effect | bir ifadenin, ürettiği değer dışındaki etkisi
+
+yapi | yapı | struct | başka verileri bir araya getiren veri yapısı
+
+yaris_hali | yarış hali | race condition | verinin yazılma ve okunma sırasının kesin olmaması
+
+yasam_sureci | yaşam süreci | object lifetime | bir değişkenin veya nesnenin tanımlanmasından işinin bitmesine kadar geçen süre
+
+yazmac | yazmaç | register | mikro işlemcinin en temel iç depolama ve işlem birimi
+
+yeniden_tanimlama | yeniden tanımlama | override | üye işlevin alt sınıf tarafından yeniden tanımlanması
+
+yigit_cozulmesi | yığıt çözülmesi | stack unwinding | atılan hata nedeniyle çerçevelerin çağrı yığıtından çıkartılmaları
+
+yukleme | yükleme | overloading | aynı isimde birden çok işlev tanımlama
+
+zaman_uyumsuz | zaman uyumsuz | asynchronous | önceden bilinmeyen zaman aralıklarında gerçekleşen

@@ -1,0 +1,91 @@
+(Bu dosyanın Türkçesi: BENIOKU)
+
+This project produces the site ddili.org.
+
+Required tools:
+
+  dmd: Can be obtained at dlang.org. The earliest required version is 2.067.
+
+  make: GNU make that comes with most Linux distributions. Last used version
+        was 3.81 but it is likely that other versions will work as well.
+
+  prince: (Not needed for the 'test' target.) A tool that converts from html
+          to pdf: http://princexml.com.
+
+To generate the site:
+
+  make -C src
+
+Issues:
+
+- If you receive "unexpected operator" errors from make, it may be because
+  /bin/sh is linked to /bin/dash. To see whether that is the case:
+
+  ll /bin/sh
+
+  If you see 'dash' at the end of the line,
+
+  ... /bin/sh -> dash
+
+  you must change it to 'bash':
+
+  sudo rm /bin/sh
+  sudo ln -s /bin/bash /bin/sh
+
+- If you don't see the right fonts in Firefox with the 'test' target during
+  development, you may have to set "security.fileuri.strict_origin_policy" to
+  false in the about:config page.
+
+The outputs of the make process:
+
+  public_html: The directory that contains all of the files of the site.
+
+  public_html.tar.gz: The tarred and zipped version of that directory.
+
+To produce files that are somewhat suitable to open in a browser locally:
+
+  make -C src test
+
+The test output:
+
+  public_html_test: Files that are somewhat more suitable to open locally.
+
+Creating a single pdf:
+
+  There are two copies of each book: The color version (*.pdf) and the
+  black-and-white print version (*.print.pdf). You can build these targets
+  individually. Unconventionally, they are built inside their respective
+  source directories:
+
+  make -C src ders/d.en/Programming_in_D.print.pdf
+  make -C src ders/d.en/Programming_in_D.pdf
+  make -C src ders/d/D_Programlama_Dili.print.pdf
+  make -C src ders/d/D_Programlama_Dili.pdf
+  etc.
+
+Creating the ebook version:
+
+1) Make the 'ebook' target
+
+  make -C src ebook
+
+That will produce a tarball that includes all the files for ebook creation:
+
+  ebook_transfer.tar.gz
+
+2) Untar the files where you want to generate the ebooks:
+
+  mkdir ebook_gen
+  cd ebook_gen
+  tar zxvf ebook_transfer.tar.gz
+
+  The 'ders' directory contains several ebook sources inside separate
+  directories. For example, the complete HTML file and the ebook CSS for
+  "Programming in D" is under ders/d.en:
+
+  cover_ebook.png
+  ebook.css
+  ebook_source.d.en.html
+
+3) One of the untarred files is README.ebook. Please continue with the
+instructions that are in that file.

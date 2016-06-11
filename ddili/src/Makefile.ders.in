@@ -1,0 +1,292 @@
+#
+# Bu dosya, src/ders/ altindaki derslerin Makefile.in dosyalarinin en
+# sonunda "include edilmelidir".
+#
+# Ders Makefile.in dosyalari, bu dosyayi eklemeden once su degiskenleri
+# tanimlamis olmalidirlar:
+#
+# DERS_SON_D: Dersin sonuncu sayfasi; ornegin devami_gelecek.d
+#
+# DERS_D_KAYNAK: Dersleri olusturan kaynak .d dosyalari; ornegin
+#                index.d tanitim.d tesekkur.d ...
+#
+# COZUM_D_KAYNAK: problem cozumu dosyalari; ornegin
+#                 merhaba_dunya.cozum.d writeln.cozum.d ...
+#
+
+define derse_ozel
+
+DERS_ORTAK_$(1)= \
+  $$(ANA) \
+  $$(ORTAK) \
+  ders.ddoc \
+  sozluk.ddoc \
+
+COZUM_ORTAK_$(1)= \
+  $$(ANA) \
+  common.ddoc \
+  cozum.ddoc \
+  ders/$(1)/derse_ozel.ddoc \
+  ders/$(1)/cozum_ozel.ddoc \
+
+DERS_SON_D_$(1)=ders/$(1)/$(DERS_SON_D)
+
+DERS_D_$(1)=$(DERS_D_KAYNAK:%=ders/$(1)/%)
+
+COZUM_D_$(1)=$(COZUM_D_KAYNAK:%=ders/$(1)/%)
+
+PDF_FILE_$(1)=ders/$(1)/$(2).pdf
+PDF_FILE_$(1)_FOR_PRINT=ders/$(1)/$(2).print.pdf
+EBOOK_FILE_$(1)=ders/$(1)/ebook_source.$(1).html
+
+KAYNAKLAR+= \
+  $$(DERS_D_$(1)) \
+  $$(DERS_SON_D_$(1)) \
+  $$(COZUM_D_$(1)) \
+
+CODETEST_BOLUMLER_$(1)= \
+  $(DERS_D_KAYNAK) \
+  $(COZUM_D_KAYNAK) \
+
+CODESAMPLE_ENTRIES_$(1)= \
+  $$(CODESAMPLE_DIR_$(1))/*.d \
+
+ifeq "$(strip $(3))" "english"
+  # Example: Programming_in_D_code_samples
+  CODESAMPLE_DIR_$(1)=$(2)_code_samples
+  CODESAMPLE_ENTRIES_$(1)+=$$(CODESAMPLE_DIR_$(1))/README
+else
+  CODESAMPLE_DIR_$(1)=$(2)_kod_ornekleri
+  CODESAMPLE_ENTRIES_$(1)+=$$(CODESAMPLE_DIR_$(1))/BENIOKU
+endif
+
+# Example: ders/d.en/Programming_in_D_code_samples.zip
+CODESAMPLE_ZIP_FILE_$(1)=ders/$(1)/$$(CODESAMPLE_DIR_$(1)).zip
+
+COVER_THUMB_$(1)=ders/$(1)/cover_thumb.png
+COVER_EBOOK_$(1)=ders/$(1)/cover_ebook.png
+
+ifneq ($$(wildcard $$(COVER_THUMB_$(1))),)
+  EK_DOSYALAR+=$$(COVER_THUMB_$(1))
+endif
+
+ifneq ($$(wildcard $$(COVER_EBOOK_$(1))),)
+  FILES_FOR_EBOOK+=$$(COVER_EBOOK_$(1))
+endif
+
+EK_DOSYALAR+= \
+  ders/$(1)/rss.xml \
+
+ifeq "$(strip $$(TEST_DEFS))" ""
+  EK_DOSYALAR+=$$(PDF_FILE_$(1))
+  EK_DOSYALAR+=$$(CODESAMPLE_ZIP_FILE_$(1))
+endif
+
+BUTUN_DERS_LINKS_$(1)= \
+  $$(DERS_D_$(1):%.d=/%.html) \
+  $$(DERS_SON_D_$(1):%.d=/%.html) \
+
+BUTUN_DERS_MACROS_$(1)= \
+  $$(DERS_D_$(1):%.d=%.d.macros.ddoc) \
+  $$(COZUM_D_$(1):%.d=%.d.macros.ddoc) \
+  $$(DERS_SON_D_$(1):%.d=%.d.macros.ddoc) \
+
+SILINECEK_DOSYALAR+= \
+  $$(BUTUN_DERS_MACROS_$(1)) \
+
+$$(BUTUN_DERS_MACROS_$(1)): Makefile Makefile.ders.in ders/$(1)/Makefile.in make_ders_macros.sh
+	./make_ders_macros.sh '$$(BUTUN_DERS_MACROS_$(1))' \
+			      '$$(DERS_ROOT_LINK)$$(BUTUN_DERS_LINKS_$(1))'
+
+ders/$(1)/%.d.last_modified.ddoc: ders/$(1)/%.d Makefile.ders
+	echo LAST_MODIFIED=$$$$(TZ=GMT date -R --date="`git log -n1 --date=rfc $$< | sed -n -e 's/Date:   //p'`" | sed -n -e 's/+0000/GMT/p') > $$@
+
+$(CIKIS)/ders/$(1)/%.cozum.html: ders/$(1)/%.cozum.d $$(BUTUN_DERS_MACROS_$(1)) $$(COZUM_ORTAK_$(1)) Makefile Makefile.ders.in ders/$(1)/breadcrumbs.ddoc ders/$(1)/%.cozum.d.last_modified.ddoc
+	@$$(call validate_d, $$<, $$(strip $$(@F)))
+	dmd $$(COZUM_ORTAK_$(1)) $$(TEST_DEFS) $$(<D)/breadcrumbs.ddoc $$<.last_modified.ddoc $$< -Df$$@
+	$$(call validate_all_ddoc_expanded, $$@) || (rm $$@; false)
+
+$(CIKIS)/ders/$(1)/%.html: ders/$(1)/%.d $$(BUTUN_DERS_MACROS_$(1)) $$(DERS_ORTAK_$(1)) ders/$(1)/derse_ozel.ddoc Makefile Makefile.ders.in ders/$(1)/breadcrumbs.ddoc ders/$(1)/%.d.last_modified.ddoc
+	@$$(call validate_d, $$<, $$(strip $$(@F)))
+	dmd $$(DERS_ORTAK_$(1)) ders/$(1)/derse_ozel.ddoc $$<.macros.ddoc $$(TEST_DEFS) $$(<D)/breadcrumbs.ddoc $$<.last_modified.ddoc $$< -Df$$@
+	$$(call validate_all_ddoc_expanded, $$@) || (rm $$@; false)
+
+ders/$(1)/%.cozum.pdf_icin.html: ders/$(1)/%.cozum.d $$(BUTUN_DERS_MACROS_$(1)) pdf.ddoc pdf_local.ddoc $$(COZUM_ORTAK_$(1)) ders/$(1)/derse_ozel.ddoc Makefile Makefile.ders.in
+	dmd $$(COZUM_ORTAK_$(1)) pdf.ddoc pdf_local.ddoc ders/$(1)/derse_ozel.ddoc $$< -Df$$@
+
+ders/$(1)/%.pdf_icin.html: ders/$(1)/%.d sozluk_body.ddoc sozluk.ddoc ders.ddoc common.ddoc pdf.ddoc pdf_local.ddoc ders/$(1)/derse_ozel.ddoc Makefile Makefile.ders.in
+	dmd sozluk_body.ddoc sozluk.ddoc ders.ddoc common.ddoc pdf.ddoc pdf_local.ddoc ders/$(1)/derse_ozel.ddoc $$< -Df$$@
+
+PDF_ICIN_D_$(1)_x=$$(filter-out ders/$(1)/index.d,$$(DERS_D_$(1)))
+# We want the pdf_indir chapter go before the TOC section.
+PDF_ICIN_D_$(1)=$$(filter-out ders/$(1)/pdf_indir.d,$$(PDF_ICIN_D_$(1)_x))
+
+PDF_ICIN_HTML_$(1)=$$(PDF_ICIN_D_$(1):%.d=%.pdf_icin.html)
+
+ifneq "$(strip $$(COZUM_D_$(1)))" ""
+  PDF_ICIN_HTML_$(1)+=\
+      ders/$(1)/pdf_cozum_head.html \
+      $$(COZUM_D_$(1):%.d=%.pdf_icin.html) \
+      ders/$(1)/pdf_cozum_tail.html
+endif
+
+ifeq "$(strip $(1))" "d"
+ders/d/sozluk.pdf_icin.html: ders/d/sozluk.d sozluk.ddoc ders.ddoc common.ddoc ders/$(1)/derse_ozel.ddoc pdf.ddoc Makefile Makefile.ders.in
+	dmd sozluk_body.ddoc ders.ddoc common.ddoc sozluk.ddoc ders/$(1)/derse_ozel.ddoc pdf.ddoc $$< -Df$$@
+
+  SOZLUK_DOSYALARI+=ders/$(1)/sozluk.d
+  PDF_ICIN_HTML_$(1)+=ders/$(1)/pdf_sozluk_head.html ders/$(1)/sozluk.pdf_icin.html ders/$(1)/pdf_sozluk_tail.html
+  SILINECEK_DOSYALAR+=ders/$(1)/sozluk.pdf_icin.html
+endif
+
+PDF_ICIN_BIR_ARADA_$(1)=ders/$(1)/pdf_icin_bir_arada
+
+SILINECEK_DOSYALAR+=$$(DERS_D_$(1):%.d=%.pdf_icin.html)
+SILINECEK_DOSYALAR+=$$(COZUM_D_$(1):%.d=%.pdf_icin.html)
+SILINECEK_DOSYALAR+=ders/$(1)/pdf_cozum_head.pdf_icin.html
+SILINECEK_DOSYALAR+=$$(PDF_FILE_$(1)) $$(PDF_ICIN_BIR_ARADA_$(1))
+SILINECEK_DOSYALAR+=$$(PDF_FILE_$(1)_FOR_PRINT)
+SILINECEK_DOSYALAR+=ders/$(1)/copyright.pdf_icin.html
+SILINECEK_DOSYALAR+=ders/$(1)/frontispiece.pdf_icin.html
+
+PDF_ICIN_PRE_ANCHORS_$(1)=$$(PDF_ICIN_BIR_ARADA_$(1)).pre_anchors.html
+PDF_ICIN_POST_ANCHORS_$(1)=$$(PDF_ICIN_BIR_ARADA_$(1)).post_anchors.html
+
+CODE_DIR_$(1)=ders/$(1)/code
+
+$$(CODE_DIR_$(1))/%.code_tested: ders/$(1)/%.d codetester
+	./codetester $$(<F) $$(<D) $$(CODE_DIR_$(1)) $(3)
+	touch $$@
+
+CODE_TESTED_$(1)=$$(CODETEST_BOLUMLER_$(1):%.d=$$(CODE_DIR_$(1))/%.code_tested)
+
+ders/$(1)/$$(CODESAMPLE_DIR_$(1)):
+	ln -s code $$@
+
+$$(CODESAMPLE_ZIP_FILE_$(1)): $$(CODE_TESTED_$(1)) ders/$(1)/$$(CODESAMPLE_DIR_$(1))
+	cd ders/$(1) && zip $$(@F) $$(CODESAMPLE_ENTRIES_$(1))
+
+SILINECEK_DOSYALAR+= \
+  ders/$(1)/$$(CODESAMPLE_DIR_$(1)) \
+  $$(CODESAMPLE_ZIP_FILE_$(1)) \
+  $$(CODE_DIR_$(1))/*.code_tested \
+  $$(CODE_DIR_$(1))/*[0-9]\.d \
+
+$$(PDF_ICIN_PRE_ANCHORS_$(1)): $$(PDF_ICIN_HTML_$(1))
+	cat $$(PDF_ICIN_HTML_$(1)) > $$@
+
+SILINECEK_DOSYALAR+=$$(PDF_ICIN_PRE_ANCHORS_$(1))
+
+TOC_$(1)=ders/$(1)/toc.html
+INDEX_SECTION_$(1)=ders/$(1)/index_section.html
+INDEX_FOR_WEB_KAYNAK_$(1)=ders/$(1)/ix.d
+INDEX_FOR_WEB_$(1)=$(CIKIS)/ders/$(1)/ix.html
+INDEX_FOR_WEB_MACROS_$(1)=$$(INDEX_FOR_WEB_KAYNAK_$(1)).macros.ddoc
+
+$$(TOC_$(1)) $$(INDEX_SECTION_$(1)) $$(PDF_ICIN_POST_ANCHORS_$(1)) $$(INDEX_FOR_WEB_MACROS_$(1)): $$(PDF_ICIN_PRE_ANCHORS_$(1)) anchorgen
+	./anchorgen $$(PDF_ICIN_PRE_ANCHORS_$(1)) \
+            $$(PDF_ICIN_POST_ANCHORS_$(1)) $$(TOC_$(1)) $$(INDEX_SECTION_$(1)) \
+            $$(INDEX_FOR_WEB_MACROS_$(1)) \
+            $(3)
+SILINECEK_DOSYALAR+=$$(TOC_$(1)) $$(INDEX_SECTION_$(1))
+SILINECEK_DOSYALAR+=$$(PDF_ICIN_POST_ANCHORS_$(1))
+
+SILINECEK_DOSYALAR+=$$(INDEX_FOR_WEB_$(1))
+SILINECEK_DOSYALAR+=$$(INDEX_FOR_WEB_MACROS_$(1))
+SILINECEK_DOSYALAR+=$$(INDEX_FOR_WEB_BODY_$(1))
+
+KAYNAKLAR+=$$(INDEX_FOR_WEB_$(1))
+
+$$(INDEX_FOR_WEB_$(1)): $$(INDEX_FOR_WEB_KAYNAK_$(1)) $$(INDEX_FOR_WEB_MACROS_$(1)) $$(DERS_ORTAK_$(1)) ders/$(1)/derse_ozel.ddoc Makefile Makefile.ders.in ders/$(1)/breadcrumbs.ddoc ders/$(1)/ix.d.last_modified.ddoc
+	@$$(call validate_d, $$<, $$(strip $$(@F)))
+	dmd $$(DERS_ORTAK_$(1)) ders/$(1)/derse_ozel.ddoc \
+            $$(<D)/breadcrumbs.ddoc $$<.last_modified.ddoc $$< \
+            $$<.macros.ddoc $$(TEST_DEFS) -Df$$@
+	$$(call validate_all_ddoc_expanded, $$@) || (rm $$@; false)
+
+BEFORE_TOC_$(1) = \
+    ders/$(1)/title.html \
+    ders/$(1)/copyright.pdf_icin.html \
+
+AFTER_TOC_$(1) = \
+    $$(PDF_ICIN_POST_ANCHORS_$(1)) \
+    ders/$(1)/index_section_head.html \
+    $$(INDEX_SECTION_$(1)) \
+    ders/$(1)/index_section_tail.html \
+
+PDF_ICIN_PAGES_$(1)= \
+    ders/$(1)/halftitle.html \
+    ders/$(1)/frontispiece.pdf_icin.html \
+    $$(BEFORE_TOC_$(1)) \
+    ders/$(1)/toc_head.html \
+    $$(TOC_$(1)) \
+    ders/$(1)/toc_tail.html \
+    $$(AFTER_TOC_$(1)) \
+
+PDF_ICIN_BIR_ARADA_KAYNAK_$(1)= \
+    ders/$(1)/pdf_html_head.html \
+    $$(PDF_ICIN_PAGES_$(1)) \
+    ders/$(1)/pdf_html_tail.html \
+
+PDF_SURUM_$(1)=ders/$(1)/pdf_surum.txt
+
+# Bazi dosyalarin surumu degistirmesini istemiyoruz
+PDF_SURUM_ICIN_D_$(1)=$(filter-out ders/$(1)/pdf_indir.d,$$(PDF_ICIN_D_$(1)))
+
+PDF_SURUM_TARIH_$(1)=`git log -n1 --date=short -- $$(PDF_SURUM_ICIN_D_$(1)) | sed -n -e 's/Date:   //p'`
+
+$$(PDF_SURUM_$(1)): $$(PDF_SURUM_ICIN_D_$(1)) Makefile Makefile.ders.in
+	echo $$(PDF_SURUM_TARIH_$(1)) > $$@
+
+SILINECEK_DOSYALAR+=$$(PDF_SURUM_$(1))
+
+$$(PDF_ICIN_BIR_ARADA_$(1)): $$(PDF_ICIN_BIR_ARADA_KAYNAK_$(1)) $$(PDF_SURUM_$(1)) Makefile Makefile.ders.in $$(CODE_TESTED_$(1))
+	cat $$(PDF_ICIN_BIR_ARADA_KAYNAK_$(1)) > $$@
+	$$(call validate_no_back_tick, $$@) || (rm $$@; false)
+
+PRINCE_COMMON_DEPS_$(1) = pdf_fonts.css pdf.css ders/$(1)/pdf.derse_ozel.css
+
+PRINCE_COMMON_OPTIONS_$(1) = \
+        --no-artificial-fonts \
+        --disallow-modify --style=pdf_fonts.css --style=pdf.css \
+        --style=ders/$(1)/pdf.derse_ozel.css --output=$$@ \
+
+ifneq "$(strip $$(REVEAL_IX))" ""
+  PRINCE_COMMON_OPTIONS_$(1)+= --style=reveal_ix.css
+endif
+
+$$(PDF_FILE_$(1)): $$(PDF_ICIN_BIR_ARADA_$(1)) $$(PRINCE_COMMON_DEPS_$(1))
+	prince $$(PDF_ICIN_BIR_ARADA_$(1)) \
+            $$(PRINCE_COMMON_OPTIONS_$(1)) --media=screen \
+
+PDF_FILES_FOR_PRINT+=$$(PDF_FILE_$(1)_FOR_PRINT)
+
+$$(PDF_FILE_$(1)_FOR_PRINT): $$(PDF_ICIN_BIR_ARADA_$(1)) $$(PRINCE_COMMON_DEPS_$(1))
+	prince $$(PDF_ICIN_BIR_ARADA_$(1)) \
+            $$(PRINCE_COMMON_OPTIONS_$(1)) --media=print \
+
+EBOOK_PAGES_$(1) = \
+    $$(BEFORE_TOC_$(1)) \
+    $$(AFTER_TOC_$(1)) \
+
+$$(EBOOK_FILE_$(1)).unsanitized: $$(EBOOK_PAGES_$(1)) Makefile Makefile.ders.in
+	cat $$(EBOOK_PAGES_$(1)) > $$@
+	sed -i -- 's|<xi:include href="pdf_surum.txt" parse="text"/>|'$$(PDF_SURUM_TARIH_$(1))'|g' $$@
+
+$$(EBOOK_FILE_$(1)): $$(EBOOK_FILE_$(1)).unsanitized ebooksanitizer
+	./ebooksanitizer < $$< > $$@
+
+EBOOK_CSS_$(1)=ders/$(1)/ebook.css
+
+$$(EBOOK_CSS_$(1)): pdf_fonts.css pdf.css ders/$(1)/pdf.derse_ozel.css ebook_override.css
+	cat pdf_fonts.css pdf.css ders/$(1)/pdf.derse_ozel.css ebook_override.css > $$@
+
+SILINECEK_DOSYALAR+=$$(EBOOK_FILE_$(1)).unsanitized
+SILINECEK_DOSYALAR+=$$(EBOOK_FILE_$(1))
+SILINECEK_DOSYALAR+=$$(EBOOK_CSS_$(1))
+
+FILES_FOR_EBOOK+= \
+    $$(EBOOK_FILE_$(1)) \
+    $$(EBOOK_CSS_$(1)) \
+
+endef
