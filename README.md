@@ -21,8 +21,8 @@ Instead of falling for getting things done quickly, "Programming in D" focuses o
 
 ## Translation 翻译
 ### Precautions 注意事项
- - 译者必须严格遵循 [中文文案排版指北](https://github.com/sparanoid/chinese-copywriting-guidelines) 中所述的排版规范。
- - 所有翻译相关 `commit` 消息必须精确后缀文件名（去除扩展名）：` ~ 相应文件名` ，多个文件务必多次 `commit` 以便于浏览
+- 译者必须严格遵循 [中文文案排版指北](https://github.com/sparanoid/chinese-copywriting-guidelines) 中所述的排版规范。
+- 所有翻译相关 `commit` 消息必须精确后缀文件名（去除扩展名）：` ~ 相应文件名` ，多个文件务必多次 `commit` 以便于浏览
 
 ### Steps 步骤
  1. 将自己负责的章节（`*.d`，`*.cozum.d`）由 `ddili/src/ders/d.en/` 拷贝至 `ddili/src/ders/d.cn/`，若需要可以翻译章节名称，但文件名必需保持一致
@@ -32,8 +32,6 @@ Instead of falling for getting things done quickly, "Programming in D" focuses o
  5. 审核完成，在 `ddili/src/ders/d.cn/Makefile.in` 中去除注释标记，消息格式：`Done`
 
 ## TODO 现行计划
-- [Get everthing ready for translation 准备待翻译文件及编译文件] 
-
-- [Assign translation tasks to individuals 分派翻译任务到个人] 
-
-- [Seeking for more contributors 寻求更多有兴趣及时间的人参与到项目中来] 
+- Get everthing ready for translation 准备待翻译文件及编译文件
+- Assign translation tasks to individuals 分派翻译任务到个人
+- Seeking for more contributors 寻求更多有兴趣及时间的人参与到项目中来
