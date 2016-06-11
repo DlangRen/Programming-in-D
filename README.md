@@ -13,8 +13,7 @@ Instead of falling for getting things done quickly, "Programming in D" focuses o
 	* 爱好群: 531010036
 	* 译者群: 54520002
 
-##License 版权许可
-[![LICENSE][license-badge]][license-url]
+##License 版权许可 [![LICENSE][license-badge]][license-url]
 
 [license-badge]: http://ddili.org/image/cc_88x31.png
 [license-url]: http://creativecommons.org/licenses/by-nc-sa/3.0/us/
