@@ -40,6 +40,7 @@ Instead of falling for getting things done quickly, "Programming in D" focuses o
 ## Progress 进度
 ### Translated 已完成翻译
 - [编译](src/ders/d.cn/compiler.d) By Lucifer & meatatt
+
 ### Outdated 旧项目待更新
 - [The Hello World Program](ddili/src/ders/d.cn/helloworld.d) By Lucifer
 - [writeln and write](ddili/src/ders/d.cn/writeln.d) By Lucifer
@@ -52,8 +53,10 @@ Instead of falling for getting things done quickly, "Programming in D" focuses o
 - [Strings](ddili/src/ders/d.cn/strings.d) By 大处着手小处着眼
 - [scope](ddili/src/ders/d.cn/scope.d) By 大处着手小处着眼
 - [auto and typeof](ddili/src/ders/d.cn/auto.d) By 小马哥[̲̅V̲̅I̲̅P̲̅]
+
 ### Adopted 已被领取
 - [Lifetimes and Fundamental Operations](ddili/src/ders/d.cn/lifetimes.d) By 渡世白玉
+
 ### Orphans 待领取
 - [Arrays](ddili/src/ders/d.cn/arrays.d)
 - [Reading from the Standard Input](ddili/src/ders/d.cn/input.d)
