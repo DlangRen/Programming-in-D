@@ -57,6 +57,7 @@ Instead of falling for getting things done quickly, "Programming in D" focuses o
 
 ### Adopted 已被领取
 - [Lifetimes and Fundamental Operations](ddili/src/ders/d.cn/lifetimes.d) By 渡世白玉
+- [Tuples](ddili/src/ders/d.cn/tuples.d) By meatatt
 
 ### Orphans 待领取
 - [Foreword by Andrei Alexandrescu](ddili/src/ders/d.cn/foreword2.d)
@@ -123,7 +124,6 @@ Instead of falling for getting things done quickly, "Programming in D" focuses o
 - [Nested Functions, Structs, and Classes](ddili/src/ders/d.cn/nested.d)
 - [Unions](ddili/src/ders/d.cn/union.d)
 - [Labels and goto](ddili/src/ders/d.cn/goto.d)
-- [Tuples](ddili/src/ders/d.cn/tuples.d)
 - [More Templates](ddili/src/ders/d.cn/templates_more.d)
 - [More Functions](ddili/src/ders/d.cn/functions_more.d)
 - [Mixins](ddili/src/ders/d.cn/mixin.d)
