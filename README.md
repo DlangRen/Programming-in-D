@@ -39,10 +39,10 @@ Instead of falling for getting things done quickly, "Programming in D" focuses o
 
 ## Progress 进度
 ### Translated 已完成翻译
-- [编译](src/ders/d.cn/compiler.d) By Lucifer & meatatt
+- [编译](ddili/src/ders/d.cn/compiler.d) By Lucifer & meatatt
 
 ### Outdated 旧项目待更新
-- [The Hello World Program](ddili/src/ders/d.cn/helloworld.d) By Lucifer
+- [The Hello World Program](ddili/src/ders/d.cn/hello_world.d) By Lucifer
 - [writeln and write](ddili/src/ders/d.cn/writeln.d) By Lucifer
 - [Fundamental Types](ddili/src/ders/d.cn/types.d) By Lucifer
 - [Assignment and Order of Evaluation](ddili/src/ders/d.cn/assignment.d) By Lucifer
