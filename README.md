@@ -54,17 +54,18 @@ Instead of falling for getting things done quickly, "Programming in D" focuses o
 - [scope](ddili/src/ders/d.cn/scope.d) By 大处着手小处着眼
 - [auto and typeof](ddili/src/ders/d.cn/auto_and_typeof.d) By 小马哥[̲̅V̲̅I̲̅P̲̅]
 - [Preface（合并自：Acknowledgments，Introduction）](ddili/src/ders/d.cn/preface.d) By IceNature
+- [Files](ddili/src/ders/d.cn/files.d) By Lucifer
+- [if Statement](ddili/src/ders/d.cn/if.d) By IceNature
 
 ### Adopted 已被领取
 - [Lifetimes and Fundamental Operations](ddili/src/ders/d.cn/lifetimes.d) By 渡世白玉
 - [Tuples](ddili/src/ders/d.cn/tuples.d) By meatatt
-- [Files](ddili/src/ders/d.cn/files.d) By 大处着手小处着眼
+- [Object](ddili/src/ders/d.cn/object.d) By 大处着手小处着眼
 
 ### Orphans 待领取
 - [Foreword by Andrei Alexandrescu](ddili/src/ders/d.cn/foreword2.d)
 - [Reading from the Standard Input](ddili/src/ders/d.cn/input.d)
 - [Logical Expressions](ddili/src/ders/d.cn/logical_expressions.d)
-- [if Statement](ddili/src/ders/d.cn/if.d)
 - [while Loop](ddili/src/ders/d.cn/while.d)
 - [Integers and Arithmetic Operations](ddili/src/ders/d.cn/arithmetic.d)
 - [Floating Point Types](ddili/src/ders/d.cn/floating_point.d)
