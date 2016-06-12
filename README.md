@@ -58,6 +58,7 @@ Instead of falling for getting things done quickly, "Programming in D" focuses o
 ### Adopted 已被领取
 - [Lifetimes and Fundamental Operations](ddili/src/ders/d.cn/lifetimes.d) By 渡世白玉
 - [Tuples](ddili/src/ders/d.cn/tuples.d) By meatatt
+- [Files](ddili/src/ders/d.cn/files.d) By 大处着手小处着眼
 
 ### Orphans 待领取
 - [Foreword by Andrei Alexandrescu](ddili/src/ders/d.cn/foreword2.d)
@@ -71,7 +72,6 @@ Instead of falling for getting things done quickly, "Programming in D" focuses o
 - [Characters](ddili/src/ders/d.cn/characters.d)
 - [Slices and Other Array Features](ddili/src/ders/d.cn/slices.d)
 - [Redirecting Standard Input and Output Streams](ddili/src/ders/d.cn/stream_redirect.d)
-- [Files](ddili/src/ders/d.cn/files.d)
 - [Name Scope](ddili/src/ders/d.cn/name_space.d)
 - [for Loop](ddili/src/ders/d.cn/for.d)
 - [Ternary Operator ?:](ddili/src/ders/d.cn/ternary.d)
