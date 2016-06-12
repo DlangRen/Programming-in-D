@@ -30,7 +30,7 @@ Instead of falling for getting things done quickly, "Programming in D" focuses o
 - 所有翻译相关 `commit` 消息必须精确后缀文件名：` ~ 相应文件名` ，多个文件务必多次 `commit` 以便于浏览
 
 ### Steps 步骤
- 1. 在 `UntranslatedChapters.md` 中选择自己心水的章节并发布Issue以领取，格式：`名字 章节文件名`
+ 1. 在 `Orphans 待领取` 中选择自己心水的章节并发布Issue以领取，格式：`领取人-章节英文名`
  2. `Fork`，需翻译的文件（`*.d`，`*.cozum.d`）在 `ddili/src/ders/d.cn/` 下
  3. 进行翻译，可 `commit` 多次，消息格式：`Update 中文修改原因`
  4. 翻译完成，消息格式：`Final commit`，发起 `Pull request` 以通知审核人员进行审核
@@ -39,7 +39,7 @@ Instead of falling for getting things done quickly, "Programming in D" focuses o
 
 ## Progress 进度
 ### Translated 已完成翻译
-- [编译](ddili/src/ders/d.cn/compiler.d) By Lucifer & meatatt
+- [编译 Compilation](ddili/src/ders/d.cn/compiler.d) By Lucifer & meatatt
 
 ### Outdated 旧项目待更新
 - [The Hello World Program](ddili/src/ders/d.cn/hello_world.d) By Lucifer
@@ -52,7 +52,7 @@ Instead of falling for getting things done quickly, "Programming in D" focuses o
 - [Associative Arrays](ddili/src/ders/d.cn/aa.d) By 大处着手小处着眼
 - [Strings](ddili/src/ders/d.cn/strings.d) By 大处着手小处着眼
 - [scope](ddili/src/ders/d.cn/scope.d) By 大处着手小处着眼
-- [auto and typeof](ddili/src/ders/d.cn/auto.d) By 小马哥[̲̅V̲̅I̲̅P̲̅]
+- [auto and typeof](ddili/src/ders/d.cn/auto_and_typeof.d) By 小马哥[̲̅V̲̅I̲̅P̲̅]
 
 ### Adopted 已被领取
 - [Lifetimes and Fundamental Operations](ddili/src/ders/d.cn/lifetimes.d) By 渡世白玉
