@@ -25,9 +25,9 @@ Instead of falling for getting things done quickly, "Programming in D" focuses o
 - 所有翻译相关 `commit` 消息必须精确后缀文件名：` ~ 相应文件名` ，多个文件务必多次 `commit` 以便于浏览
 
 ### Steps 步骤
- 1. `Fork`
+ 1. `Fork`，需翻译的文件（`*.d`，`*.cozum.d`）在 `ddili/src/ders/d.cn/` 下
  2. 进行翻译，可 `commit` 多次，消息格式：`Update 中文修改原因`
- 3. 翻译完成，消息格式：`Final commit`，并应及时通知指定的审核人员进行审核（发起 `Pull request`）
+ 3. 翻译完成，消息格式：`Final commit`，发起 `Pull request` 以通知指定的审核人员进行审核
  4. 审核完成，在 `ddili/src/ders/d.cn/Makefile.in` 中去除注释标记，并在 `ddili/src/ders/d.cn/index.d` 中做相应修改以匹配章节名称，消息格式：`Done`
  5. `Merge`
 
