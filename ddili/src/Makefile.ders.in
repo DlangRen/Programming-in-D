@@ -22,6 +22,14 @@ DERS_ORTAK_$(1)= \
   ders.ddoc \
   sozluk.ddoc \
 
+# Overwrite for Chinese
+DERS_ORTAK_d.cn= \
+  $$(ANA) \
+  $$(ORTAK) \
+  ders.ddoc \
+  sozluk.ddoc \
+  chinese.ddoc \
+
 COZUM_ORTAK_$(1)= \
   $$(ANA) \
   common.ddoc \

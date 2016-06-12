@@ -1,6 +1,6 @@
-MAIN_TITLE=D.ershane Solutions
+MAIN_TITLE=D语言教室
 CLASS=solution
 COZUM_BOLUMU = $(H4 $0)
-LANG=en
-LANGUAGE=english
+LANG=zh-cn
+LANGUAGE=chinese
 SUB_AUTHOR=

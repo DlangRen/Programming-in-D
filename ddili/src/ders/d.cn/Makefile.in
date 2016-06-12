@@ -8,7 +8,7 @@ DERS_D_BOLUMLER= \
 #  preface.d \
 #  hello_world.d \
 #  writeln.d \
-#  compiler.d \
+  compiler.d \
 #  types.d \
 #  assignment.d \
 #  variables.d \
