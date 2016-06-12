@@ -30,7 +30,7 @@ Instead of falling for getting things done quickly, "Programming in D" focuses o
 - 所有翻译相关 `commit` 消息必须精确后缀文件名：` ~ 相应文件名` ，多个文件务必多次 `commit` 以便于浏览
 
 ### Steps 步骤
- 1. 在 `Orphans 待领取` 中选择自己心水的章节并发布Issue以领取，格式：`领取人 - 章节原名`
+ 1. 在 `Orphans 待领取` 中选择自己心水的章节并发布Issue以领取，格式：`[领取] 章节原名 By 领取人`
  2. `Fork`，需翻译的文件（`*.d`，`*.cozum.d`）在 `ddili/src/ders/d.cn/` 下
  3. 进行翻译，可 `commit` 多次，消息格式：`Update 中文修改原因`
  4. 翻译完成，消息格式：`Final commit`，发起 `Pull request` 以通知审核人员进行审核
