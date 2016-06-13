@@ -1,23 +1,23 @@
 Ddoc
 
-$(DERS_BOLUMU $(IX tuple) $(IX Tuple, std.typecons) Tuples)
+$(DERS_BOLUMU $(IX tuple) $(IX Tuple, std.typecons) 元组)
 
 $(P
-Tuples are for combining multiple values to be used as a single object. They are implemented as a library feature by the $(C Tuple) template from the $(C std.typecons) module.
+元组是用来合并多值并将其作为一个单一对象使用的。这是一个标准库所提供的功能，即模块 $(C std.typecons) 中的 $(C Tuple) 模板。
 )
 
 $(P
-$(C Tuple) makes use of $(C AliasSeq) from the $(C std.meta) module for some of its operations.
+$(C Tuple) 凭借模块 $(C std.meta) 中的 $(C AliasSeq) 来实现它的一部分功能。
 )
 
 $(P
-This chapter covers only the more common operations of tuples. For more information on tuples and templates see $(LINK2 https://github.com/PhilippeSigaud/D-templates-tutorial, Philippe Sigaud's $(I D Templates: A Tutorial)).
+这一章只涵盖了元组较为常见的操作。更多有关元组及模板的信息详见 $(LINK2 https://github.com/PhilippeSigaud/D-templates-tutorial, Philippe Sigaud's $(I D Templates: A Tutorial))。
 )
 
-$(H5 $(C Tuple) and $(C tuple()))
+$(H5 $(C Tuple) 与 $(C tuple()))
 
 $(P
-Tuples are usually constructed by the convenience function $(C tuple()):
+元组常常用便捷的 $(C tuple()) 函数来构建：
 )
 
 ---
@@ -31,7 +31,7 @@ void main() {
 ---
 
 $(P
-The $(C tuple) call above constructs an object that consists of the $(C int) value 42 and the $(C string) value $(STRING "hello"). The output of the program includes the type of the tuple object and its members:
+上面对 $(C tuple) 的调用构造了一个包含值为 42 的 $(C int) 与值为 $(STRING "hello") 的 $(C string) 的对象。上述程序的输出包括该元组对象的类型与它的成员：
 )
 
 $(SHELL
@@ -39,11 +39,11 @@ Tuple!(int, string)(42, "hello")
 )
 
 $(P
-The tuple type above is the equivalent of the following pseudo $(C struct) definition and likely have been implemented in exactly the same way:
+上面的元组类型与下面 $(C struct) 的定义是等价的，而事实上也几乎是这样实现的：
 )
 
 ---
-// The equivalent of Tuple!(int, string)
+// 与 Tuple!(int, string) 等价
 struct __Tuple_int_string {
     int __member_0;
     string __member_1;
@@ -51,7 +51,7 @@ struct __Tuple_int_string {
 ---
 
 $(P
-The members of a tuple are normally accessed by their index values. That syntax suggests that tuples can be seen as arrays consisting of different types of elements:
+元组成员通常使用索引来访问。这种语法暗示了元组可以被视为包含不同类型元素的数组。
 )
 
 ---
@@ -60,7 +60,7 @@ The members of a tuple are normally accessed by their index values. That syntax 
 ---
 
 $(P
-The output:
+输出为：
 )
 
 $(SHELL
@@ -68,10 +68,10 @@ $(SHELL
 hello
 )
 
-$(H6 Member properties )
+$(H6 成员属性)
 
 $(P
-It is possible to access the members by properties if the tuple is constructed directly by the $(C Tuple) template instead of the $(C tuple()) function. The type and the name of each member are specified as two consecutive template parameters:
+如果元组直接由 $(C Tuple) 模板构建而非调用 $(C tuple()) 函数，那么便可能以相应的成员属性来访问成员。成员的类型与名称可以以模板参数的方式来指定：
 )
 
 ---
@@ -80,7 +80,7 @@ It is possible to access the members by properties if the tuple is constructed d
 ---
 
 $(P
-The definition above allows accessing the members by $(C .number) and $(C .message) properties as well:
+上述的定义使 $(C .number) 与 $(C .message) 也可以访问相应的成员：
 )
 
 ---
@@ -91,7 +91,7 @@ The definition above allows accessing the members by $(C .number) and $(C .messa
 ---
 
 $(P
-The output:
+输出为:
 )
 
 $(SHELL
@@ -101,10 +101,10 @@ by index 1 : hello
 by .message: hello
 )
 
-$(H6 $(IX .expand) Expanding the members as a list of values)
+$(H6 $(IX .expand) 展开成员为列表)
 
 $(P
-Tuple members can be expanded as a list of values that can be used e.g. as an argument list when calling a function. The members can be expanded either by the $(C .expand) property or by slicing:
+元组成员能被展开为一列值，举例来说，这能被用作调用函数时的参数列表。元组的 $(C .expand) 属性或是切片操作都可以用来展开成员：
 )
 
 ---
@@ -122,22 +122,21 @@ void bar(int i, double d, char c) {
 void main() {
     auto t = tuple(1, "2", 3.3, '4');
 
-    // Both of the following lines are equivalents of
-    // foo(1, "2", 3.3, '4'):
+    // 下面的两行都等价于 foo(1, "2", 3.3, '4')：
     foo(t$(HILITE .expand));
     foo(t$(HILITE []));
 
-    // The equivalent of bar(1, 3.3, '4'):
+    // 与 bar(1, 3.3, '4') 等价：
     bar(t$(HILITE [0]), t$(HILITE [$-2..$]));
 }
 ---
 
 $(P
-The tuple above consists of four values of $(C int), $(C string), $(C double), and $(C char). Since those types match the parameter list of $(C foo()), an expansion of its members can be used as arguments to $(C foo()). When calling $(C bar()), a matching argument list is made up of the first member and the last two members of the tuple.
+上面的元组包含四个类型分别为 $(C int)、$(C string)、$(C double) 与 $(C char) 的值。由于这些类型与 $(C foo()) 的参数列表相匹配，它成员的展开能够被用作 $(C foo()) 的参数。当调用 $(C bar()) 时，一个匹配的参数列表由该元组的第一个与最后两个成员构成。
 )
 
 $(P
-As long as the members are compatible to be elements of the same array, the expansion of a tuple can be used as the element values of an array literal as well:
+只要元组成员能够兼容成为同一个数组的元素，那么其成员的展开就可以作为一个数组字面量的元素：
 )
 
 ---
@@ -152,17 +151,17 @@ void main() {
 ---
 
 $(P
-The array literal above is initialized by expanding the same tuple twice:
+上述数组字面量根据同一个元组的两次展开初始化而成：
 )
 
 $(SHELL
 [1, 2, 3, 1, 2, 3]
 )
 
-$(H6 $(IX foreach, compile-time) $(IX compile-time foreach) Compile-time $(C foreach))
+$(H6 $(IX foreach, 编译期) $(IX 编译期 foreach) 编译期 $(C foreach))
 
 $(P
-Because their values can be expanded, tuples can be used with the $(C foreach) statement as well:
+因为元组包含的值可以被展开，所以它们也可以被用于 $(C foreach) 语句中：
 )
 
 ---
@@ -174,7 +173,7 @@ Because their values can be expanded, tuples can be used with the $(C foreach) s
 ---
 
 $(P
-The output:
+输出为：
 )
 
 $(SHELL
@@ -184,8 +183,8 @@ $(SHELL
 )
 
 $(P
-$(IX unroll)
-The $(C foreach) statement above may give a false impression: It may be thought of being a loop that gets executed at run time. That is not the case. Rather, a $(C foreach) statement that operates on the members of a tuple is an $(I unrolling) of the loop body for each member. The $(C foreach) statement above is the equivalent of the following code:
+$(IX 展开)
+上述 $(C foreach) 语句或许会给人以一个错误的印象——被当成一个运行时的循环体。事实并非如此。一个基于元组的 $(C foreach) 语句会针对每一个元组成员进行$(I 展开)。由是，上述 $(C foreach) 语句等价于如下代码：
 )
 
 ---
@@ -207,13 +206,13 @@ The $(C foreach) statement above may give a false impression: It may be thought 
 ---
 
 $(P
-The reason for the unrolling is the fact that when the tuple members are of different types, the $(C foreach) body has to be compiled differently for each type.
+进行展开的根本原因在于元组的成员可能具有不同的类型， $(C foreach) 语句块必须根据每一个类型以不同的方式被编译。
 )
 
-$(H6 Returning multiple values from functions)
+$(H6 从函数中返回多个值)
 
 $(P
-$(IX findSplit, std.algorithm) Tuples can be a simple solution to the limitation of functions having to return a single value. An example of this is $(C std.algorithm.findSplit). $(C findSplit()) searches for a range inside another range and produces a result consisting of three pieces: the part before the found range, the found range, and the part after the found range:
+$(IX findSplit, std.algorithm) 元组可以作为一个对函数必须返回单一值这一限制的简单解决方式。这样的一个例子是 $(C std.algorithm.findSplit)。$(C findSplit()) 在一个区间中搜索另一个区间并生成一个包含三个片段的结果，即在子区间之前的部分、找到的子区间、以及子区间之后的部分：
 )
 
 ---
@@ -232,7 +231,7 @@ import std.algorithm;
 ---
 
 $(P
-The output:
+输出为：
 )
 
 $(SHELL
@@ -242,7 +241,7 @@ after : o
 )
 
 $(P
-Another option for returning multiple values from a function is to return a $(C struct) object:
+从函数中返回多个值的另一种选择是返回一个 $(C struct) 对象：
 )
 
 ---
@@ -258,45 +257,45 @@ $(HILITE Result) foo() {
 $(H5 $(IX AliasSeq, std.meta) $(C AliasSeq))
 
 $(P
-$(C AliasSeq) is defined in the $(C std.meta) module. It is used for representing a concept that is normally used by the compiler but otherwise not available to the programmer as an entity: A comma-separated list of values, types, and symbols (i.e. $(C alias) template arguments). The following are three examples of such lists:
+$(C AliasSeq) 定义于 $(C std.meta) 模块中。它用于表示一个通常情况下属于编译器的概念，换句话说，不是一个能被程序员掌控的实体：一个以逗号分隔的由值、类型、符号（即 $(C alias) 模板参数）组成的列表。下面是三个这种列表的例子：
 )
 
 $(UL
-$(LI Function argument list)
-$(LI Template argument list)
-$(LI Array literal element list)
+$(LI 函数参数列表)
+$(LI 模板参数列表)
+$(LI 数组字面量元素列表)
 )
 
 $(P
-The following three lines of code are examples of those lists in the same order:
+如下三行代码依次是上述列表的实例：
 )
 
 ---
-    foo($(HILITE 1, "hello", 2.5));         // function arguments
-    auto o = Bar!($(HILITE char, long))();  // template arguments
-    auto a = [ $(HILITE 1, 2, 3, 4) ];      // array literal elements
+    foo($(HILITE 1, "hello", 2.5));         // 函数参数
+    auto o = Bar!($(HILITE char, long))();  // 模板参数
+    auto a = [ $(HILITE 1, 2, 3, 4) ];      // 数组字面量元素
 ---
 
 $(P
-$(C Tuple) takes advantage of $(C AliasSeq) when expanding its members.
+$(C Tuple) 的展开就是对 $(C AliasSeq) 的充分利用。
 )
 
 $(P
-$(IX TypeTuple, std.typetuple) The name $(C AliasSeq) comes from "alias sequence" and it can contain types, values, and symbols. ($(C AliasSeq) and $(C std.meta) used to be called $(C TypeTuple) and $(C std.typetuple), respectively.)
+$(IX TypeTuple, std.typetuple) $(C AliasSeq) 的名称来源于“alias sequence”即“别名序列”，它可以包含类型、值与符号。（$(C AliasSeq) 与 $(C std.meta) 曾经分别被称为 $(C TypeTuple) 与 $(C std.typetuple)）
 )
 
 $(P
-This chapter includes $(C AliasSeq) examples that consist only of types or only of values. Examples of its use with both types and values will appear in the next chapter. $(C AliasSeq) is especially useful with variadic templates, which we will see in the next chapter as well.
+本章只举出了完全由值或是完全由类型组成的 $(C AliasSeq) 之实例。同时包含了类型与值的例子将会在下一章中出现。$(C AliasSeq) 对于可变参数模板特别有用，这我们亦会在下一章中看到。
 )
 
-$(H6 $(C AliasSeq) consisting of values)
+$(H6 由值组成的 $(C AliasSeq))
 
 $(P
-The values that an $(C AliasSeq) represents are specified as its template arguments.
+$(C AliasSeq) 所表示的值是通过模板参数的方式来指定的。
 )
 
 $(P
-Let's imagine a function that takes three parameters:
+想象一个接受三个参数的函数：
 )
 
 ---
@@ -308,7 +307,7 @@ void foo($(HILITE int i, string s, double d)) {
 ---
 
 $(P
-That function would normally be called with three arguments:
+这个函数通常需用三个参数进行调用：
 )
 
 ---
@@ -316,7 +315,7 @@ That function would normally be called with three arguments:
 ---
 
 $(P
-$(C AliasSeq) can combine those arguments as a single entity and can automatically be expanded when calling functions:
+而 $(C AliasSeq) 能够合并这些参数为一个单一的实体，而且这个实体可以自动在调用函数的时候展开：
 )
 
 ---
@@ -329,7 +328,7 @@ import std.meta;
 ---
 
 $(P
-Although it looks like the function is now being called with a single argument, the $(C foo()) call above is the equivalent of the previous one. As a result, both calls produce the same output:
+尽管看起来调用该函数只用了一个参数，上面对 $(C foo()) 的调用与之前那个相等价。因此，两者都产生相同的输出：
 )
 
 $(SHELL
@@ -337,11 +336,11 @@ foo is called with 1, hello, and 2.5.
 )
 
 $(P
-Also note that $(C arguments) is not defined as a variable, e.g. with $(C auto). Rather, it is an $(C alias) of a specific $(C AliasSeq) instance. Although it is possible to define variables of $(C AliasSeq)s as well, the examples in this chapter will use them only as aliases.
+还需注意的是 $(C arguments) 并非作为变量被定义，比如说以 $(C auto) 的形式。恰恰相反，它是一个特定 $(C AliasSeq) 模板实现的 $(C alias)。尽管定义 $(C AliasSeq) 的变量亦是可能的，本章中的例子只会将其作为别名使用。
 )
 
 $(P
-As we have seen above with $(C Tuple), when the values are compatible to be elements of the same array, an $(C AliasSeq) can be used to initialize an array literal as well:
+如我们之前对 $(C Tuple) 的了解一样，当一个 $(C AliasSeq) 所有包含的值能够兼容成为同一个数组的元素，那么它就亦可以用于初始化数组字面量：
 )
 
 ---
@@ -350,10 +349,10 @@ As we have seen above with $(C Tuple), when the values are compatible to be elem
     assert(arr == [ 1, 2, 3, 4 ]);
 ---
 
-$(H6 Indexing and slicing)
+$(H6 索引与切片)
 
 $(P
-Same with $(C Tuple), the members of an $(C AliasSeq) can be accessed by indexes and slices:
+与 $(C Tuple) 一样，$(C AliasSeq) 的成员可以通过索引与切片访问：
 )
 
 ---
@@ -364,7 +363,7 @@ Same with $(C Tuple), the members of an $(C AliasSeq) can be accessed by indexes
 ---
 
 $(P
-Let's assume there is a function with parameters matching the last two members of the $(C AliasSeq) above. That function can be called with a slice of just the last two members of the $(C AliasSeq):
+若有一个函数的参数与上述 $(C AliasSeq) 的最后两个成员相匹配，那么这个函数便可以用该 $(C AliasSeq) 的一个切片调用：
 )
 
 ---
@@ -377,14 +376,14 @@ void bar(string s, double d) {
     bar(arguments$(HILITE [$-2 .. $]));
 ---
 
-$(H6 $(C AliasSeq) consisting of types)
+$(H6 由类型组成的 $(C AliasSeq))
 
 $(P
-Members of an $(C AliasSeq) can consist of types. In other words, not a specific value of a specific type but a type like $(C int) itself. An $(C AliasSeq) consisting of types can represent template arguments.
+$(C AliasSeq) 可以包含类型。换句话说，不是一个特定类型的特定值，而是一个如 $(C int) 本身的类型。一个由类型组成的 $(C AliasSeq) 能用以表示一系列模板参数。
 )
 
 $(P
-Let's use an $(C AliasSeq) with a $(C struct) template that has two parameters. The first parameter of this template determines the element type of a member array and the second parameter determines the return value of a member function:
+这里我们将一个 $(C AliasSeq) 用于一个有两个参数的 $(C struct) 模板。第一个参数决定其数组成员的元素类型，第二个参数决定其函数成员的返回值：
 )
 
 ---
@@ -405,7 +404,7 @@ void main() {
 ---
 
 $(P
-In the code above, we see that the template is instantiated with $(C (double, int)). An $(C AliasSeq) can represent the same argument list as well:
+在上述代码中，我们看到模板使用 $(C (double, int)) 进行实例化。而一个 $(C AliasSeq) 也可以用来表示同样的参数列表：
 )
 
 ---
@@ -418,21 +417,21 @@ import std.meta;
 ---
 
 $(P
-Although it appears to be a single template argument, $(C Types) gets expanded automatically and the template instantiation becomes $(C S!(double,&nbsp;int)) as before.
+尽管这看起来像是一个单一的模板参数，但由于 $(C Types) 会自动展开，模板实例如之前一样变为 $(C S!(double,&nbsp;int))。
 )
 
 $(P
-$(C AliasSeq) is especially useful in $(I variadic templates). We will see examples of this in the next chapter.
+$(C AliasSeq) 在$(I 可变参数模板)中特别有用。我们将会在下一章中看到这样的例子。
 )
 
-$(H6 $(C foreach) with $(C AliasSeq))
+$(H6 将 $(C AliasSeq) 用于 $(C foreach))
 
 $(P
-Same with $(C Tuple), the $(C foreach) statement operating on an $(C AliasSeq) is not a run time loop. Rather, it is the unrolling of the loop body for each member.
+与 $(C Tuple) 一样，基于 $(C AliasSeq) 的 $(C foreach) 语句并非一个运行时的循环，它会针对每一个成员展开循环体。
 )
 
 $(P
-Let's see an example of this with a unit test written for the $(C S) struct that was defined above. The following code tests $(C S) for element types $(C int), $(C long), and $(C float) ($(C ResultT) is always $(C size_t) in this example):
+这是一个相应的例子，一个为上面定义的 $(C S) 结构所写的单元测试。如下代码以 $(C int)、$(C long) 与 $(C float) 作为元素类型来测试 $(C S)（这个例子中 $(C ResultT) 始终是 $(C size_t)）：
 )
 
 ---
@@ -447,7 +446,7 @@ unittest {
 ---
 
 $(P
-The $(C foreach) variable $(C Type) corresponds to $(C int), $(C long), and $(C float), in that order. As a result, the $(C foreach) statement gets compiled as the equivalent of the code below:
+$(C foreach) 变量 $(C Type) 依次对应 $(C int)、$(C long) 及 $(C float)。由是，该 $(C foreach) 语句将与如下语句等价地被编译：
 )
 
 ---
@@ -465,10 +464,10 @@ The $(C foreach) variable $(C Type) corresponds to $(C int), $(C long), and $(C 
     }
 ---
 
-$(H5 $(IX .tupleof) $(C .tupleof) property)
+$(H5 $(IX .tupleof) $(C .tupleof) 属性)
 
 $(P
-$(C .tupleof) represents the members of a type or an object. When applied to a user-defined type, $(C .tupleof) provides access to the definitions of the members of that type:
+$(C .tupleof) 表示一个类型或对象的全部成员。当被用于一个用户定义的类型时，$(C .tupleof) 提供对该类型成员定义的访问：
 )
 
 ---
@@ -492,7 +491,7 @@ void main() {
 ---
 
 $(P
-$(C S.tupleof) appears in two places in the program. First, the types of the elements are obtained by applying $(C typeof) to $(C .tupleof) so that each type appears as the $(C MemberType) variable. Second, the name of the member is obtained by $(C S.tupleof[i].stringof).
+$(C S.tupleof) 在此程序中出现了两次。首先，所有元素的类型由将 $(C typeof) 加于 $(C .tupleof) 取得，因而每一个类型都依次表现为变量 $(C MemberType)。其次，每个元素的名称由 $(C S.tupleof[i].stringof) 分别取得。
 )
 
 $(SHELL
@@ -508,7 +507,7 @@ Member 2:
 )
 
 $(P
-$(C .tupleof) can be applied to an object as well. In that case, it produces a tuple consisting of the values of the members of the object:
+$(C .tupleof) 也可以用于一个具体的对象。在这种情况下，它将生成一个包含该对象所有成员的值的元组：
 )
 
 ---
@@ -522,7 +521,7 @@ $(C .tupleof) can be applied to an object as well. In that case, it produces a t
 ---
 
 $(P
-The $(C foreach) variable $(C member) represents each member of the object:
+$(C foreach) 变量 $(C member) 表示该对象的每一个成员：
 )
 
 $(SHELL
@@ -538,34 +537,34 @@ Member 2:
 )
 
 $(P
-Here, an important point to make is that the tuple that $(C .tupleof) returns consists of the members of the object themselves, not their copies. In other words, the tuple members are references to the actual object members.
+此处很重要的一点是由 $(C .tupleof) 返回的元组包含的是对象成员自身，而非其拷贝。换言之，该元组的成员是对实际对象成员的引用。
 )
 
-$(H5 Summary)
+$(H5 总结)
 
 $(UL
 
-$(LI $(C tuple()) combines different types of values similar to a $(C struct) object.)
+$(LI $(C tuple()) 合并不同类型的值，类似于一个 $(C struct) 对象。)
 
-$(LI Explicit use of $(C Tuple) allows accessing the members by properties.)
+$(LI 直接使用 $(C Tuple) 能够以成员属性访问成员。)
 
-$(LI The members can be expanded as a value list by $(C .expand) or by slicing.)
+$(LI 元组能用 $(C .expand) 或切片操作被展开为值列表。)
 
-$(LI $(C foreach) with a tuple is not a run time loop; rather, it is a loop unrolling.)
+$(LI 基于元组的 $(C foreach) 不是运行时循环，而是将循环体进行展开。)
 
-$(LI $(C AliasSeq) represents concepts like function argument list, template argument list, array literal element list, etc.)
+$(LI $(C AliasSeq) 表示诸如函数参数列表、模板参数列表、数组字面量元素列表之类的概念。)
 
-$(LI $(C AliasSeq) can consist of values and types.)
+$(LI $(C AliasSeq) 能够包含值和类型。)
 
-$(LI Tuples support indexing and slicing.)
+$(LI 元组支持索引与切片。)
 
-$(LI $(C .tupleof) provides information about the members of types and objects.)
+$(LI $(C .tupleof) 提供有关类型、对象之成员的信息。)
 
 )
 
 macros:
-        SUBTITLE=Tuples
+        SUBTITLE=元组
 
-        DESCRIPTION=Combining values and types to be able to access them as members of the same object.
+        DESCRIPTION=合并值与类型，并以访问同一个对象成员的方式访问它们。
 
-        KEYWORDS=d programming language tutorial book Tuple AliasSeq tuple
+        KEYWORDS=D 编程语言教程 Tuple AliasSeq tuple
