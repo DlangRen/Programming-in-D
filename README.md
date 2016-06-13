@@ -62,10 +62,10 @@ Instead of falling for getting things done quickly, "Programming in D" focuses o
 - [Lifetimes and Fundamental Operations](ddili/src/ders/d.cn/lifetimes.d) By 渡世白玉
 - [Object](ddili/src/ders/d.cn/object.d) By 大处着手小处着眼
 - [is Expression](ddili/src/ders/d.cn/is_expr.d) By meatatt
+- [Reading from the Standard Input](ddili/src/ders/d.cn/input.d) By Lucifer
 
 ### Orphans 待领取
 - [Foreword by Andrei Alexandrescu](ddili/src/ders/d.cn/foreword2.d)
-- [Reading from the Standard Input](ddili/src/ders/d.cn/input.d)
 - [Logical Expressions](ddili/src/ders/d.cn/logical_expressions.d)
 - [while Loop](ddili/src/ders/d.cn/while.d)
 - [Integers and Arithmetic Operations](ddili/src/ders/d.cn/arithmetic.d)
@@ -105,7 +105,6 @@ Instead of falling for getting things done quickly, "Programming in D" focuses o
 - [Constructor and Other Special Functions](ddili/src/ders/d.cn/special_functions.d)
 - [Operator Overloading](ddili/src/ders/d.cn/operator_overloading.d)
 - [Inheritance](ddili/src/ders/d.cn/inheritance.d)
-- [Object](ddili/src/ders/d.cn/object.d)
 - [Interfaces](ddili/src/ders/d.cn/interface.d)
 - [destroy and scoped](ddili/src/ders/d.cn/destroy.d)
 - [Modules and Libraries](ddili/src/ders/d.cn/modules.d)
