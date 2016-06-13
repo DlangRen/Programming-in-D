@@ -35,7 +35,7 @@ Instead of falling for getting things done quickly, "Programming in D" focuses o
  3. 进行翻译，可 `commit` 多次，消息格式：`Update 中文修改原因`
  4. 翻译完成，发起 `Pull request` 以通知审核人员进行审核，格式：`[审核] 章节原名 By 领取人`
  5. 审核完成，在 `ddili/src/ders/d.cn/index.d` 中做相应修改以匹配章节名称，消息格式：`Translated`
- 6. `Merge`
+ 6. `Merge`，`Close Issue`，在 `README.md` 中更新进度
 
 ## Progress 进度
 ### Translated 已完成翻译
