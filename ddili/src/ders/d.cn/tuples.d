@@ -336,7 +336,7 @@ foo is called with 1, hello, and 2.5.
 )
 
 $(P
-还需注意的是 $(C arguments) 并非作为变量被定义，比如说以 $(C auto) 的形式。相对地，它是一个特定 $(C AliasSeq) 模板实现的 $(C alias)。尽管定义 $(C AliasSeq) 的变量亦是可能的，本章中的例子只会将其作为别名使用。
+还需注意的是 $(C arguments) 并非作为变量被定义，比如说以 $(C auto) 的形式。恰恰相反，它是一个特定 $(C AliasSeq) 模板实现的 $(C alias)。尽管定义 $(C AliasSeq) 的变量亦是可能的，本章中的例子只会将其作为别名使用。
 )
 
 $(P
