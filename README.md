@@ -40,6 +40,7 @@ Instead of falling for getting things done quickly, "Programming in D" focuses o
 ## Progress 进度
 ### Translated 已完成翻译
 - [编译 Compilation](ddili/src/ders/d.cn/compiler.d) By Lucifer & meatatt
+- [元组 Tuples](ddili/src/ders/d.cn/tuples.d) By meatatt
 
 ### Outdated 旧项目待更新
 - [The Hello World Program](ddili/src/ders/d.cn/hello_world.d) By Lucifer
@@ -59,8 +60,8 @@ Instead of falling for getting things done quickly, "Programming in D" focuses o
 
 ### Adopted 已被领取
 - [Lifetimes and Fundamental Operations](ddili/src/ders/d.cn/lifetimes.d) By 渡世白玉
-- [Tuples](ddili/src/ders/d.cn/tuples.d) By meatatt
 - [Object](ddili/src/ders/d.cn/object.d) By 大处着手小处着眼
+- [is Expression](ddili/src/ders/d.cn/is_expr.d) By meatatt
 
 ### Orphans 待领取
 - [Foreword by Andrei Alexandrescu](ddili/src/ders/d.cn/foreword2.d)
@@ -119,7 +120,6 @@ Instead of falling for getting things done quickly, "Programming in D" focuses o
 - [Pointers](ddili/src/ders/d.cn/pointers.d)
 - [Bit Operations](ddili/src/ders/d.cn/bit_operations.d)
 - [Conditional Compilation](ddili/src/ders/d.cn/cond_comp.d)
-- [is Expression](ddili/src/ders/d.cn/is_expr.d)
 - [Function Pointers, Delegates, and Lambdas](ddili/src/ders/d.cn/lambda.d)
 - [foreach with Structs and Classes](ddili/src/ders/d.cn/foreach_opapply.d)
 - [Nested Functions, Structs, and Classes](ddili/src/ders/d.cn/nested.d)
