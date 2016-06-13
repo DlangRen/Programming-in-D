@@ -33,8 +33,8 @@ Instead of falling for getting things done quickly, "Programming in D" focuses o
  1. 在 `Orphans 待领取` 中选择自己心水的章节并发布Issue以领取，格式：`[领取] 章节原名 By 领取人`
  2. `Fork`，需翻译的文件（`*.d`，`*.cozum.d`）在 `ddili/src/ders/d.cn/` 下
  3. 进行翻译，可 `commit` 多次，消息格式：`Update 中文修改原因`
- 4. 翻译完成，消息格式：`Final commit`，发起 `Pull request` 以通知审核人员进行审核
- 5. 审核完成，在 `ddili/src/ders/d.cn/index.d` 中做相应修改以匹配章节名称，消息格式：`Done`
+ 4. 翻译完成，发起 `Pull request` 以通知审核人员进行审核，格式：`[审核] 章节原名 By 领取人`
+ 5. 审核完成，在 `ddili/src/ders/d.cn/index.d` 中做相应修改以匹配章节名称，消息格式：`Translated`
  6. `Merge`
 
 ## Progress 进度
