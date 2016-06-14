@@ -1,33 +1,33 @@
 Ddoc
 
-$(DERS_BOLUMU $(IX is, expression) $(CH4 is) Expression)
+$(DERS_BOLUMU $(IX is, 表达式) $(CH4 is) 表达式)
 
 $(P
-The $(C is) $(I expression) is not related to the $(C is) $(I operator) that we have seen in $(LINK2 /ders/d.en/null_is.html, The $(CH4 null) Value and the $(CH4 is) Operator chapter), neither syntactically nor semantically:
+$(C is) $(I 表达式)与我们之前在 $(LINK2 /ders/d.en/null_is.html, $(CH4 null) 值与 $(CH4 is) 操作符) 一章中所见的 $(C is) $(I 操作符)在语法或语义上均无任何关联：
 )
 
 ---
-    a is b            // is operator, which we have seen before
+    a is b            // 这是一个操作符，如我们之前所见过的一样
 
-    is (/* ... */)    // is expression
+    is (/* ... */)    // 这是一个表达式
 ---
 
 $(P
-The $(C is) expression is evaluated at compile time. It produces an $(C int) value, either 0 or 1 depending on the expression specified in parentheses. Although the expression that it takes is not a logical expression, the $(C is) expression itself is used as a compile time logical expression. It is especially useful in $(C static if) conditionals and template constraints.
+$(C is) 表达式是在编译时进行计算的。它生成一个取决于括号中表达式的为0或1的 $(C int) 值。尽管这其中的表达式并非一个逻辑表达式，$(C is) 表达式自身却被用作一个编译期的逻辑表达式。这在被用于 $(C static if) 条件语句或模板约束时特别有用。
 )
 
 $(P
-The condition that it takes is always about types, which must be written in one of several syntaxes.
+它接受的条件总是关乎类型，这些条件必须以几种语法中的一种来书写。
 )
 
 $(H5 $(C is ($(I T))))
 
 $(P
-Determines whether $(C T) is valid as a type.
+确定 $(C T) 是否是一个有效的类型。
 )
 
 $(P
-It is difficult to come up with examples for this use at this point. We will take advantage of it in later chapters with template parameters.
+当前举出这个用法的例子是比较困难的。而在之后有关模板参数的章节里它会被充分利用。
 )
 
 ---
@@ -40,7 +40,7 @@ It is difficult to come up with examples for this use at this point. We will tak
 ---
 
 $(P
-$(C int) above is a valid type:
+上面的 $(C int) 是一个有效的类型：
 )
 
 $(SHELL_SMALL
@@ -48,7 +48,7 @@ valid
 )
 
 $(P
-As another example, because $(C void) is not valid as the key type of an associative array, the $(C else) block would be enabled below:
+另一个例子中，由于 $(C void) 不能作为关联数组键值的类型，下面的 $(C else) 语句块即被启用：
 )
 
 ---
@@ -61,7 +61,7 @@ As another example, because $(C void) is not valid as the key type of an associa
 ---
 
 $(P
-The output:
+输出为：
 )
 
 $(SHELL_SMALL
@@ -72,13 +72,13 @@ invalid
 $(H5 $(C is ($(I T Alias))))
 
 $(P
-Works in the same way as the previous syntax. Additionally, defines $(C Alias) as an alias of $(C T):
+与上一种语法效果相同，并附带着将 $(C NewAlias) 定义为了 $(C T) 的别名：
 )
 
 ---
     static if (is (int NewAlias)) {
         writeln("valid");
-        NewAlias var = 42; // int and NewAlias are the same
+        NewAlias var = 42; // int 与 NewAlias 相一致
 
     } else {
         writeln("invalid");
@@ -86,17 +86,17 @@ Works in the same way as the previous syntax. Additionally, defines $(C Alias) a
 ---
 
 $(P
-Such aliases are useful especially in more complex $(C is) expressions as we will see below.
+正如下面我们将看到的，像这样的别名在更复杂的 $(C is) 表达式中特别有用。
 )
 
 $(H5 $(C is ($(I T) : $(I OtherT))))
 
 $(P
-Determines whether $(C T) can automatically be converted to $(C OtherT).
+判别 $(C T) 是否能自动转换为 $(C OtherT)。
 )
 
 $(P
-It is used for detecting automatic type conversions which we have seen in $(LINK2 /ders/d.en/cast.html, the Type Conversions chapter), as well as relationships like "this type is of that type", which we have seen in $(LINK2 /ders/d.en/inheritance.html, the Inheritance chapter).
+这在之前 $(LINK2 /ders/d.en/cast.html, 类型转换) 一章中被用于检测自动类型转换，亦可用于判别之前 $(LINK2 /ders/d.en/inheritance.html, 继承) 一章中“这个类型根本上是那个类型”一类的关系。
 )
 
 ---
@@ -114,7 +114,7 @@ class AlarmClock : Clock {
 
 void myFunction(T)(T parameter) {
     static if ($(HILITE is (T : Clock))) {
-        // If we are here then T can be used as a Clock
+        // 如果可以执行到此，那么 T 便能像 Clock 一样使用
         writeln("This is a Clock; we can tell the time");
         parameter.tellTime();
 
@@ -131,7 +131,7 @@ void main() {
 ---
 
 $(P
-When the $(C myFunction()) template is instantiated for a type that can be used like a $(C Clock), then the $(C tellTime()) member function is called on its parameter. Otherwise, the $(C else) clause gets compiled:
+若 $(C myFunction()) 以一个能像 $(C Clock) 一样使用的类型实例化，参数的成员函数 $(C tellTime()) 即被调用，否则就编译 $(C else) 语句块：
 )
 
 $(SHELL_SMALL
@@ -143,19 +143,19 @@ This is not a Clock                    $(SHELL_NOTE for int)
 $(H5 $(C is ($(I T Alias) : $(I OtherT))))
 
 $(P
-Works in the same way as the previous syntax. Additionally, defines $(C Alias) as an alias of $(C T).
+与上一种语法效果相同，并附带着将 $(C Alias) 定义为了 $(C T) 的别名。
 )
 
 $(H5 $(C is ($(I T) == $(I Specifier))))
 
 $(P
-Determines whether $(C T) $(I is the same type) as $(C Specifier) or whether $(C T) $(I matches that specifier).
+判断 $(C T) 是否与 $(C Specifier) $(I 是同一个类型)或与这个限定符相匹配。
 )
 
-$(H6 Whether the same type)
+$(H6 是否为同一个类型)
 
 $(P
-When we change the previous example to use $(C ==) instead of $(C :), the condition would not be satisfied for $(C AlarmClock):
+如果我们在前一个例子中使用 $(C ==) 而非 $(C :)，那么 $(C AlarmClock) 将不再能满足条件：
 )
 
 ---
@@ -169,7 +169,7 @@ When we change the previous example to use $(C ==) instead of $(C :), the condit
 ---
 
 $(P
-Although $(C AlarmClock) $(I is a) $(C Clock), it is not exactly the same type as $(C Clock). For that reason, now the condition is invalid for both $(C AlarmClock) and $(C int):
+尽管 $(C AlarmClock) $(I 是一个) $(C Clock)，但是它并不完全与 $(C Clock) 相同。因此，现在 $(C AlarmClock) 和 $(C int) 都不满足条件：
 )
 
 $(SHELL_SMALL
@@ -177,23 +177,23 @@ This is not a Clock
 This is not a Clock
 )
 
-$(H6 Whether matches the same specifier)
+$(H6 是否与相同的限定符相匹配)
 
 $(P
-When $(C Specifier) is one of the following keywords, this use of $(C is) determines whether the type matches that specifier (we will see some of these keywords in later chapters):
+若 $(C Specifier) 是如下关键字之一，那么这种对 $(C is) 的运用便是在判断类型是否与该限定符相匹配（其中一些关键字我们在以后的章节中才会遇到）：
 )
 
 $(UL
-$(LI $(IX struct, is expression) $(C struct))
-$(LI $(IX union, is expression) $(C union))
-$(LI $(IX class, is expression) $(C class))
-$(LI $(IX interface, is expression) $(C interface))
-$(LI $(IX enum, is expression) $(C enum))
-$(LI $(IX function, is expression) $(C function))
-$(LI $(IX delegate, is expression) $(C delegate))
-$(LI $(IX const, is expression) $(C const))
-$(LI $(IX immutable, is expression) $(C immutable))
-$(LI $(IX shared, is expression) $(C shared))
+$(LI $(IX struct, is 表达式) $(C struct))
+$(LI $(IX union, is 表达式) $(C union))
+$(LI $(IX class, is 表达式) $(C class))
+$(LI $(IX interface, is 表达式) $(C interface))
+$(LI $(IX enum, is 表达式) $(C enum))
+$(LI $(IX function, is 表达式) $(C function))
+$(LI $(IX delegate, is 表达式) $(C delegate))
+$(LI $(IX const, is 表达式) $(C const))
+$(LI $(IX immutable, is 表达式) $(C immutable))
+$(LI $(IX shared, is 表达式) $(C shared))
 )
 
 ---
@@ -214,14 +214,14 @@ void myFunction(T)(T parameter) {
 ---
 
 $(P
-Function templates can take advantage of such information to behave differently depending on the type that the template is instantiated with. The following code demonstrates how different blocks of the template above get compiled for different types:
+函数模板能利用此类信息以做出取决于用于实例化该模板的不同类型的不同表现。如下代码演示了上述的模板中的不同代码块是如何针对不同类型进行编译的：
 )
 
 ---
     auto var = new AlarmClock;
     myFunction(var);
 
-    // (enum WeekDays will be defined below for another example)
+    // （枚举 WeekDays 定义于下面的例子中）
     myFunction(WeekDays.Monday);
 
     const double number = 1.2;
@@ -231,7 +231,7 @@ Function templates can take advantage of such information to behave differently 
 ---
 
 $(P
-The output:
+输出为：
 )
 
 $(SHELL_SMALL
@@ -244,74 +244,74 @@ This is some other type
 $(H5 $(C is ($(I T identifier) == $(I Specifier))))
 
 $(P
-$(IX super, is expression)
-$(IX return, is expression)
-$(IX __parameters, is expression)
-Works in the same way as the previous syntax. $(C identifier) is either an alias of the type; or some other information depending on $(C Specifier):
+$(IX super, is 表达式)
+$(IX return, is 表达式)
+$(IX __parameters, is 表达式)
+与上一种语法效果相同。而 $(C identifier) 要么是此类型的一个别名，要么是取决于 $(C Specifier) 的某些信息：
 )
 
 <table class="wide" border="1" cellpadding="4" cellspacing="0">
 <tr>	<th  style="padding-left:1em; padding-right:1em;" scope="col">$(C Specifier)</th>
-<th scope="col">The meaning of $(C identifier)</th>
+<th scope="col">$(C identifier) 的含义</th>
 
 </tr>
 
 <tr>	<td>$(C struct)</td>
-<td>alias of the type that satisfied the condition</td>
+<td>满足条件类型的别名</td>
 </tr>
 
 <tr>	<td>$(C union)</td>
-<td>alias of the type that satisfied the condition</td>
+<td>满足条件类型的别名</td>
 </tr>
 
 <tr>	<td>$(C class)</td>
-<td>alias of the type that satisfied the condition</td>
+<td>满足条件类型的别名</td>
 </tr>
 
 <tr>	<td>$(C interface)</td>
-<td>alias of the type that satisfied the condition</td>
+<td>满足条件类型的别名</td>
 </tr>
 
 <tr>	<td>$(C super)</td>
-<td>a $(I tuple) consisting of the base classes and the interfaces</td>
+<td>一个包含了所有基类与界面的$(I 元组)</td>
 </tr>
 
 <tr>	<td>$(C enum)</td>
-<td>the actual implementation type of the $(C enum)</td>
+<td>枚举的实际实现类型</td>
 </tr>
 
 <tr>	<td>$(C function)</td>
-<td>a $(I tuple) consisting of the function parameters</td>
+<td>一个包含了函数所有参数的$(I 元组)</td>
 </tr>
 
 <tr>	<td>$(C delegate)</td>
-<td>the type of the $(C delegate)</td>
+<td>$(C delegate) 的类型</td>
 </tr>
 
 <tr>	<td>$(C return)</td>
-<td>the return type of the regular function, the $(C delegate), or the function pointer</td>
+<td>普通函数、函数指针或 $(C delegate) 返回值的类型</td>
 </tr>
 
 <tr>	<td>$(C __parameters)</td>
-<td>a $(I tuple) consisting of the parameters of the regular function, the $(C delegate), or the function pointer</td>
+<td>一个包含普通函数、函数指针或 $(C delegate) 所有参数的$(I 元组)</td>
 </tr>
 
 <tr>	<td>$(C const)</td>
-<td>alias of the type that satisfied the condition</td>
+<td>满足条件类型的别名</td>
 </tr>
 
 <tr>	<td>$(C immutable)</td>
-<td>alias of the type that satisfied the condition</td>
+<td>满足条件类型的别名</td>
 </tr>
 
 <tr>	<td>$(C shared)</td>
-<td>alias of the type that satisfied the condition</td>
+<td>满足条件类型的别名</td>
 </tr>
 
 </table>
 
 $(P
-Let's first define various types before experimenting with this syntax:
+让我们在试验这个语法之前先定义一系列的类型：
 )
 
 ---
@@ -338,16 +338,15 @@ char foo(double d, int i, Clock c) {
 ---
 
 $(P
-The following function template uses different specifiers with this syntax of the $(C is) expression:
+如下函数模板以不同的限定符来运用 $(C is) 表达式的这种语法：
 )
 
 ---
 void myFunction(T)(T parameter) {
     static if (is (T LocalAlias == struct)) {
         writefln("\n--- struct ---");
-        // LocalAlias is the same as T. 'parameter' is the
-        // struct object that has been passed to this
-        // function.
+        // LocalAlias 与 T 一样。
+        // “parameter”是传入本函数的 struct 对象。
 
         writefln("Constructing a new %s object by copying it.",
                  LocalAlias.stringof);
@@ -356,9 +355,8 @@ void myFunction(T)(T parameter) {
 
     static if (is (T baseTypes == super)) {
         writeln("\n--- super ---");
-        // The 'baseTypes' tuple contains all of the base
-        // types of T. 'parameter' is the class variable that
-        // has been passed to this function.
+        // “baseTypes”元组包含了所有 T 的基类。
+        // “parameter”是传入本函数的 class 变量。
 
         writefln("class %s has %s base types.",
                  T.stringof, baseTypes.length);
@@ -369,9 +367,8 @@ void myFunction(T)(T parameter) {
 
     static if (is (T ImplT == enum)) {
         writeln("\n--- enum ---");
-        // 'ImplT' is the actual implementation type of this
-        //  enum type. 'parameter' is the enum value that has
-        //  been passed to this function.
+        // “ImplT”是该枚举类型的实际实现类型。
+        // “parameter”是传入本函数的枚举值。
 
         writefln("The implementation type of enum %s is %s",
                  T.stringof, ImplT.stringof);
@@ -379,16 +376,14 @@ void myFunction(T)(T parameter) {
 
     static if (is (T ReturnT == return)) {
         writeln("\n--- return ---");
-        // 'ReturnT' is the return type of the function
-        // pointer that has been passed to this function.
+        // “ReturnT”是传入本函数的函数指针的返回值类型。
 
         writefln("This is a function with a return type of %s:",
                  ReturnT.stringof);
         writeln("    ", T.stringof);
         write("calling it... ");
 
-        // Note: Function pointers can be called like
-        // functions
+        // 注：调用函数指针的方式与调用函数一样
         ReturnT result = parameter(1.5, 42, new AlarmClock);
         writefln("and the result is '%s'", result);
     }
@@ -396,25 +391,25 @@ void myFunction(T)(T parameter) {
 ---
 
 $(P
-Let's now call that function template with various types that we have defined above:
+现在以我们上面定义的类型来调用这个函数模板：
 )
 
 ---
-    // Calling with a struct object
+    // 用 struct 对象调用
     myFunction(Point());
 
-    // Calling with a class reference
+    // 用 class 引用调用
     myFunction(new AlarmClock);
 
-    // Calling with an enum value
+    // 用枚举值调用
     myFunction(WeekDays.Monday);
 
-    // Calling with a function pointer
+    // 用函数指针调用
     myFunction(&foo);
 ---
 
 $(P
-The output:
+输出为：
 )
 
 $(SHELL_SMALL
@@ -438,7 +433,7 @@ calling it... and the result is 'a'
 $(H5 $(C is (/* ... */ $(I Specifier), $(I TemplateParamList))))
 
 $(P
-There are four different syntaxes of the $(C is) expression that uses a template parameter list:
+共有四种使用模板参数列表的 $(C is) 表达式语法：
 )
 
 $(UL
@@ -454,19 +449,19 @@ $(LI $(C is ($(I T identifier) == $(I Specifier), $(I TemplateParamList))))
 )
 
 $(P
-These syntaxes allow for more complex cases.
+这些语法允许了更复杂的情况。
 )
 
 $(P
-$(C identifier), $(C Specifier), $(C :), and $(C ==) all have the same meanings as described above.
+这里的 $(C identifier)、$(C Specifier)、$(C :) 以及 $(C ==) 都和上面所描述的含义一样。
 )
 
 $(P
-$(C TemplateParamList) is both a part of the condition that needs to be satisfied and a facility to define additional aliases if the condition is indeed satisfied. It works in the same way as template type deduction.
+$(C TemplateParamList) 均是需要被满足的条件的一部分，亦是在条件完全被满足时定义附加别名的措施。它与推导模板类型的方式是一样的。
 )
 
 $(P
-As a simple example, let's assume that an $(C is) expression needs to match associative arrays that have keys of type $(C string):
+作为一个简单的例子，让我们假定一个 $(C is) 表达式需要与键值类型为 $(C string) 的关联数组相匹配：
 )
 
 ---
@@ -476,21 +471,21 @@ As a simple example, let's assume that an $(C is) expression needs to match asso
 ---
 
 $(P
-That condition can be explained in three parts where the last two are parts of the $(C TemplateParamList):
+这个条件可以分为三个部分来阐释，而后两个部分就是 $(C TemplateParamList) 的一部分：
 )
 
 $(OL
-$(LI If $(C T) matches the syntax of $(C Value[Key]))
-$(LI If $(C Value) is a type)
-$(LI If $(C Key) is $(C string) (remember $(LINK2 /ders/d.en/templates.html, template specialization syntax)))
+$(LI 若 $(C T) 匹配于语法 $(C Value[Key]))
+$(LI 若 $(C Value) 是一个类型)
+$(LI 若 $(C Key) 是 $(C string)（想想 $(LINK2 /ders/d.en/templates.html, 模板专一化语法)）)
 )
 
 $(P
-Having $(C Value[Key]) as the $(C Specifier) requires that $(C T) is an associative array. Leaving $(C Value) $(I as is) means that it can be any type. Additionally, the key type of the associative array must be $(C string). As a result, the previous $(C is) expression means "if $(C T) is an associative array where the key type is $(C string)."
+以 $(C Value[Key]) 作为 $(C Specifier) 要求 $(C T) 是一个关联数组。让 $(C Value) 单独出现则意味着它可以是任何类型。并且该关联数组键值的类型必须为 $(C string)。由是，之前的那个 $(C is) 表达式便表示“$(C T) 是否为一个键值类型为 $(C string) 的关联数组”。
 )
 
 $(P
-The following program tests that $(C is) expression with four different types:
+如下的程序用四个不同的类型来测试该 $(C is) 表达式：
 )
 
 ---
@@ -529,7 +524,7 @@ void main() {
 ---
 
 $(P
-The condition is satisfied only if the key type is $(C string):
+当且仅当键值类型为 $(C string) 时满足条件：
 )
 
 $(SHELL_SMALL
@@ -551,8 +546,8 @@ No, the condition has not been satisfied.
 )
 
 Macros:
-        SUBTITLE=is Expression
+        SUBTITLE=is 表达式
 
-        DESCRIPTION=The is expression, one of the introspection features of the D programming language.
+        DESCRIPTION=is 表达式是D语言的自检功能之一。
 
-        KEYWORDS=d programming language tutorial book is expression
+        KEYWORDS=D 编程语言教程 is 表达式
