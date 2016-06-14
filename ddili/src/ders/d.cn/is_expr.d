@@ -78,7 +78,7 @@ $(P
 ---
     static if (is (int NewAlias)) {
         writeln("valid");
-        NewAlias var = 42; // int and NewAlias are the same
+        NewAlias var = 42; // int 与 NewAlias 相一致
 
     } else {
         writeln("invalid");
@@ -114,7 +114,7 @@ class AlarmClock : Clock {
 
 void myFunction(T)(T parameter) {
     static if ($(HILITE is (T : Clock))) {
-        // If we are here then T can be used as a Clock
+        // 如果可以执行到此，那么 T 便能像 Clock 一样使用
         writeln("This is a Clock; we can tell the time");
         parameter.tellTime();
 
@@ -131,7 +131,7 @@ void main() {
 ---
 
 $(P
-若 $(C myFunction()) 以一个能像 $(C Clock) 一样使用的类型实例化，参数的成员函数 $(C tellTime()) 即被调用，否则编译 $(C else) 语句块：
+若 $(C myFunction()) 以一个能像 $(C Clock) 一样使用的类型实例化，参数的成员函数 $(C tellTime()) 即被调用，否则就编译 $(C else) 语句块：
 )
 
 $(SHELL_SMALL
@@ -155,7 +155,7 @@ $(P
 $(H6 是否为同一个类型)
 
 $(P
-如果我们在前一个例子中使用 $(C ==) 而非 $(C :)，那么 $(C AlarmClock) 将不再满足条件：
+如果我们在前一个例子中使用 $(C ==) 而非 $(C :)，那么 $(C AlarmClock) 将不再能满足条件：
 )
 
 ---
@@ -169,7 +169,7 @@ $(P
 ---
 
 $(P
-尽管 $(C AlarmClock) $(I 是一个) $(C Clock)，但是它不与 $(C Clock) 完全相同。因此，现在 $(C AlarmClock) 和 $(C int) 都不满足条件：
+尽管 $(C AlarmClock) $(I 是一个) $(C Clock)，但是它并不完全与 $(C Clock) 相同。因此，现在 $(C AlarmClock) 和 $(C int) 都不满足条件：
 )
 
 $(SHELL_SMALL
@@ -180,7 +180,7 @@ This is not a Clock
 $(H6 是否与相同的限定符相匹配)
 
 $(P
-若 $(C Specifier) 是如下关键字之一，那么这种对 $(C is) 的运用便是在判断类型是否与该限定符相匹配（我们将在之后的章节中见到其中的一些关键字）：
+若 $(C Specifier) 是如下关键字之一，那么这种对 $(C is) 的运用便是在判断类型是否与该限定符相匹配（其中一些关键字我们在以后的章节中才会遇到）：
 )
 
 $(UL
@@ -221,7 +221,7 @@ $(P
     auto var = new AlarmClock;
     myFunction(var);
 
-    // （枚举 WeekDays 将在下面的例子中被定义）
+    // （枚举 WeekDays 定义于下面的例子中）
     myFunction(WeekDays.Monday);
 
     const double number = 1.2;
@@ -289,11 +289,11 @@ $(IX __parameters, is 表达式)
 </tr>
 
 <tr>	<td>$(C return)</td>
-<td>普通函数、函数指针或$(C delegate) 返回值的类型</td>
+<td>普通函数、函数指针或 $(C delegate) 返回值的类型</td>
 </tr>
 
 <tr>	<td>$(C __parameters)</td>
-<td>一个包含普通函数、函数指针或$(C delegate) 所有参数的$(I 元组)</td>
+<td>一个包含普通函数、函数指针或 $(C delegate) 所有参数的$(I 元组)</td>
 </tr>
 
 <tr>	<td>$(C const)</td>
@@ -367,7 +367,7 @@ void myFunction(T)(T parameter) {
 
     static if (is (T ImplT == enum)) {
         writeln("\n--- enum ---");
-        // “ImplT”是该枚举类型的实际实现类型。 is the actual implementation type of this
+        // “ImplT”是该枚举类型的实际实现类型。
         // “parameter”是传入本函数的枚举值。
 
         writefln("The implementation type of enum %s is %s",
@@ -433,7 +433,7 @@ calling it... and the result is 'a'
 $(H5 $(C is (/* ... */ $(I Specifier), $(I TemplateParamList))))
 
 $(P
-有四种使用模板参数列表的 $(C is) 表达式语法：
+共有四种使用模板参数列表的 $(C is) 表达式语法：
 )
 
 $(UL
@@ -477,15 +477,15 @@ $(P
 $(OL
 $(LI 若 $(C T) 匹配于语法 $(C Value[Key]))
 $(LI 若 $(C Value) 是一个类型)
-$(LI 若 $(C Key) 是 $(C string)（想想 $(LINK2 /ders/d.en/templates.html, 模板专一化的语法)）)
+$(LI 若 $(C Key) 是 $(C string)（想想 $(LINK2 /ders/d.en/templates.html, 模板专一化语法)）)
 )
 
 $(P
-以 $(C Value[Key]) 作为 $(C Specifier) 要求 $(C T) 是一个关联数组。让 $(C Value) 单独出现意味着它可以是任何类型。并且，该关联数组键值的类型必须为 $(C string)。由是，之前的那个 $(C is) 表达式表示“$(C T) 是否为一个键值类型为 $(C string) 的关联数组”。
+以 $(C Value[Key]) 作为 $(C Specifier) 要求 $(C T) 是一个关联数组。让 $(C Value) 单独出现则意味着它可以是任何类型。并且该关联数组键值的类型必须为 $(C string)。由是，之前的那个 $(C is) 表达式便表示“$(C T) 是否为一个键值类型为 $(C string) 的关联数组”。
 )
 
 $(P
-如下的程序用四种不同的类型来测试这个 $(C is) 表达式：
+如下的程序用四个不同的类型来测试该 $(C is) 表达式：
 )
 
 ---
