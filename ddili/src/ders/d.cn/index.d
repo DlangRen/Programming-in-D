@@ -113,7 +113,7 @@ $(LI $(LINK2 /ders/d.cn/alias_this.html, alias this) $(INDEX_KEYWORDS alias this
 $(LI $(LINK2 /ders/d.cn/pointers.html, Pointers) $(INDEX_KEYWORDS * &))
 $(LI $(LINK2 /ders/d.cn/bit_operations.html, Bit Operations) $(INDEX_KEYWORDS ~ & | ^ >> >>> <<))
 $(LI $(LINK2 /ders/d.cn/cond_comp.html, Conditional Compilation) $(INDEX_KEYWORDS debug, version, static if, static assert, __traits))
-$(LI $(LINK2 /ders/d.cn/is_expr.html, is Expression) $(INDEX_KEYWORDS is()))
+$(LI $(LINK2 /ders/d.cn/is_expr.html, is 表达式) $(INDEX_KEYWORDS is()))
 $(LI $(LINK2 /ders/d.cn/lambda.html, Function Pointers, Delegates, and Lambdas) $(INDEX_KEYWORDS function delegate => toString))
 $(LI $(LINK2 /ders/d.cn/foreach_opapply.html, foreach with Structs and Classes) $(INDEX_KEYWORDS opApply empty popFront front (and more)))
 $(LI $(LINK2 /ders/d.cn/nested.html, Nested Functions, Structs, and Classes) $(INDEX_KEYWORDS static))
