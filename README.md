@@ -63,6 +63,7 @@ Instead of falling for getting things done quickly, "Programming in D" focuses o
 - [Object](ddili/src/ders/d.cn/object.d) By 大处着手小处着眼
 - [is Expression](ddili/src/ders/d.cn/is_expr.d) By meatatt
 - [Reading from the Standard Input](ddili/src/ders/d.cn/input.d) By Lucifer
+- [Name Scope](ddili/src/ders/d.cn/name_space.d) By LinGo
 
 ### Orphans 待领取
 - [Foreword by Andrei Alexandrescu](ddili/src/ders/d.cn/foreword2.d)
@@ -74,7 +75,6 @@ Instead of falling for getting things done quickly, "Programming in D" focuses o
 - [Characters](ddili/src/ders/d.cn/characters.d)
 - [Slices and Other Array Features](ddili/src/ders/d.cn/slices.d)
 - [Redirecting Standard Input and Output Streams](ddili/src/ders/d.cn/stream_redirect.d)
-- [Name Scope](ddili/src/ders/d.cn/name_space.d)
 - [for Loop](ddili/src/ders/d.cn/for.d)
 - [Ternary Operator ?:](ddili/src/ders/d.cn/ternary.d)
 - [Literals](ddili/src/ders/d.cn/literals.d)
