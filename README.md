@@ -67,6 +67,7 @@ Instead of falling for getting things done quickly, "Programming in D" focuses o
 - [Reading from the Standard Input](ddili/src/ders/d.cn/input.d) By Lucifer
 - [Name Scope](ddili/src/ders/d.cn/name_space.d) By LinGo
 - [Templates](ddili/src/ders/d.cn/templates.d) By meatatt
+- [do-while Loop](ddili/src/ders/d.cn/do_while.d) By mogucpp
 
 ### Orphans 待领取
 - [Foreword by Andrei Alexandrescu](ddili/src/ders/d.cn/foreword2.d)
@@ -83,7 +84,6 @@ Instead of falling for getting things done quickly, "Programming in D" focuses o
 - [Literals](ddili/src/ders/d.cn/literals.d)
 - [Formatted Output](ddili/src/ders/d.cn/formatted_output.d)
 - [Formatted Input](ddili/src/ders/d.cn/formatted_input.d)
-- [do-while Loop](ddili/src/ders/d.cn/do_while.d)
 - [foreach Loop](ddili/src/ders/d.cn/foreach.d)
 - [switch and case](ddili/src/ders/d.cn/switch_case.d)
 - [enum](ddili/src/ders/d.cn/enum.d)
