@@ -1,36 +1,36 @@
 Ddoc
 
-$(DERS_BOLUMU $(IX name scope) Name Scope)
+$(DERS_BOLUMU $(IX name scope) 命名作用域)
 
 $(P
-Any name is accessible from the point where it has been defined at to the point where its scope ends, as well as in all of the scopes that its scope includes. In this regard, every scope defines a $(I name scope).
+任何命名，从定义它开始，到它作用域结束之前，包括其所包含的作用域在内，都是可以访问它的。从这一方面来说，每个作用域都定义了一个$(I 命名作用域)。
 )
 
 $(P
-Names are not available beyond the end of their scope:
+然而命名在其作用域结束之后，就不能被访问了：
 )
 
 ---
 void main() {
     int outer;
 
-    if (aCondition) $(HILITE {)  // ← curly bracket starts a new scope
+    if (aCondition) $(HILITE {)  // ← 大括号新建了一个作用域
         int inner = 1;
-        outer = 2;     // ← 'outer' is available here
+        outer = 2;     // ← 'outer' 是可以被访问的
 
-    $(HILITE }) // ← 'inner' is not available beyond this point
+    $(HILITE }) // ← 从这里开始 'inner' 就不能被访问了
 
     inner = 3;  $(DERLEME_HATASI)
-                //   'inner' is not available in the outer scope
+                //   在 'inner' 的作用域之外，就不能访问它了
 }
 ---
 
 $(P
-Because $(C inner) is defined within the scope of the $(C if) condition it is available only in that scope. On the other hand, $(C outer) is available in both the outer scope and the inner scope.
+因为 $(C inner) 是在 $(C if) 判断的作用域内定义的，所以只能在这里访问到它。还有一点就是，在 outer 和 inner 的作用域内 $(C outer) 都是可以访问到的。
 )
 
 $(P
-It is not legal to define the same name in an inner scope:
+在一个内部作用域，不允许定义相同的命名：
 )
 
 ---
@@ -41,30 +41,30 @@ It is not legal to define the same name in an inner scope:
     }
 ---
 
-$(H5 Defining names closest to their first use)
+$(H5 定义命名，要在距第一次使用最近的地方)
 
 $(P
-As we have been doing in all of the programs so far, variables must be defined before their first use:
+就像我们以往写过的程序那样，变量必须被定义在第一次使用之前：
 )
 
 ---
     writeln(number);     $(DERLEME_HATASI)
-                         //   number is not known yet
+                         //   number 还没有被定义
     int number = 42;
 ---
 
 $(P
-For that code to be acceptable by the compiler, $(C number) must be defined before it is used with $(C writeln). Although there is no restriction on how many lines earlier it should be defined, it is accepted as good programming practice that variables be defined closest to where they are first used.
+为了让上面的代码通过编译，$(C number) 必须在 $(C writeln) 调用之前被定义。虽然没有限制，让你把它定义到之前的哪个地方，但是有一个普遍觉得良好的习惯，就是把变量定义在，距它们第一次被使用最近的地方。
 )
 
 $(P
-Let's see this in a program that prints the average of the numbers that it takes from the user. Programmers who are experienced in some other programming languages may be used to defining variables at tops of scopes:
+我们来看一个这样的程序，它接收用户输入的一些数字，然后输出它们的平均值。一些有经验的开发人员，会把变量定义在作用域最上面的地方：
 )
 
 ---
-    int count;                                 // ← HERE
-    int[] numbers;                             // ← HERE
-    double averageValue;                       // ← HERE
+    int count;                                 // ← 比如这里
+    int[] numbers;                             // ← 还有这里
+    double averageValue;                       // ← 最后还有这个地方
 
     write("How many numbers are there? ");
 
@@ -73,7 +73,7 @@ Let's see this in a program that prints the average of the numbers that it takes
     if (count >= 1) {
         numbers.length = count;
 
-        // ... assume the calculation is here ...
+        // ... 假设计算的部分在这里 ...
 
     } else {
         writeln("ERROR: You must enter at least one number!");
@@ -81,22 +81,22 @@ Let's see this in a program that prints the average of the numbers that it takes
 ---
 
 $(P
-Contrast the code above to the one below that defines the variables later, as each variable actually starts taking part in the program:
+我们把下面的程序跟上面的比较一下，上面的每个变量都应用到了这个程序中：
 )
 
 ---
     write("How many numbers are there? ");
 
-    int count;                                 // ← HERE
+    int count;                                 // ← 比如这里
     readf(" %s", &count);
 
     if (count >= 1) {
-        int[] numbers;                         // ← HERE
+        int[] numbers;                         // ← 还有这里
         numbers.length = count;
 
-        double averageValue;                   // ← HERE
-
-        // ... assume that the calculation is here ...
+        double averageValue;                   // ← 最后还有这个地方
+        
+        // ... 假设计算的部分在这里 ...
 
     } else {
         writeln("ERROR: You must enter at least one number!");
@@ -104,31 +104,31 @@ Contrast the code above to the one below that defines the variables later, as ea
 ---
 
 $(P
-Although defining all of the variables at the top may look better structurally, there are several benefits of defining them as late as possible:
+尽管把变量定义在最上面，在结构上看起来更好些，不过尽可能晚些定义变量有如下几点好处：
 )
 
 $(UL
-$(LI $(B Speed:) Every variable definition tends to add a small speed cost to the program. As every variable is initialized in D, defining variables at the top will result in them always being initialized, even if they are only sometimes used later, wasting resources.
+$(LI $(B 性能：)每个变量在被定义的时候，都会对程序造成少量的开销。由于 D 语言里面，每个变量都会被初始化，在顶部定义变量，会导致它们始终都被初始化，甚至它们只是在之后的某些时间才会被使用，这样的话就浪费了资源。
 )
 
-$(LI $(B Risk of mistakes:) Every line between the definition and use of a variable carries a higher risk of programming mistakes. As an example of this, consider a variable using the common name $(C length). It is possible to confuse that variable with some other length and use it inadvertently before reaching the line of its first intended use. When that line is finally reached the variable may no longer have the desired value.
+$(LI $(B 出错的风险：)对于定义和使用变量来说，每行代码都会带来一些出错的风险。比如，一个变量的名字使用了一个常见的命名 $(C length)。我们很容易把它跟其它的 length 变量混淆，有可能在我们打算第一次使用它之前，就已经不经意地使用了它。然后当程序使用这个变量的时候，它的值早已不是我们所期望的了。
 )
 
-$(LI $(B Readability:) As the number of lines in a scope increase, it becomes more likely that the definition of a variable is too far up in the source code, forcing the programmer to scroll back in order to look at its definition.
+$(LI $(B 可读性：)随着作用域内的代码行数增加，我们所定义的变量可能就会离得越来越远，这样的话就会避免强制开发人员，为了查看变量的定义就要回滚到开始的地方。
 )
 
-$(LI $(B Code maintenance:) Source code is in constant modification and improvement: new features are added, old features are removed, bugs are fixed, etc. These changes sometimes make it necessary to extract a group of lines altogether into a new function.
+$(LI $(B 代码维护：)源代码都会被持续地进行调整和改进：添加新的、移除旧的特性，修复 bug 等等。对于这些改动来说，有的时候把一些代码封装到一个函数中是很有必要的。
 
 $(P
-When that happens, having all of the variables defined close to the lines that use them makes it easier to move them as a coherent bunch.
-)
-
-$(P
-For example, in the latter code above that followed this guideline, all of the lines within the $(C if) statement can be moved to a new function in the program.
+如果是这种情况的话，在行内定义变量就会让这些工作实施得更加容易和清晰。
 )
 
 $(P
-On the other hand, when the variables are always defined at the top, if some lines ever need to be moved, the variables that are used in those lines must be identified one by one.
+比如，在上文提到的后续代码中，在这个程序里面，$(C if) 判断内部的所有代码，都可以被封装到一个新的函数中。
+)
+
+$(P
+另外，在最上面声明变量的时候，如果某些代码需要被移走，那么这里涉及到的变量每一个都需要确认和检查。
 )
 
 )
@@ -136,8 +136,8 @@ On the other hand, when the variables are always defined at the top, if some lin
 )
 
 Macros:
-        SUBTITLE=Name Scope
+        SUBTITLE=命名作用域
 
-        DESCRIPTION=The scopes in the program where names are valid and accessible, and the benefits of defining variables closest to their first use in the program.
+        DESCRIPTION=程序当中，有效命名且可访问的作用域，以及把命名定义在，距第一次使用最近地方的好处。
 
-        KEYWORDS=d programming language tutorial book name scopes
+        KEYWORDS=d 编程语言教程 name scopes
