@@ -44,6 +44,7 @@ Instead of falling for getting things done quickly, "Programming in D" focuses o
 - [编译 Compilation](ddili/src/ders/d.cn/compiler.d) By Lucifer & meatatt
 - [元组 Tuples](ddili/src/ders/d.cn/tuples.d) By meatatt
 - [is 表达式 is Expression](ddili/src/ders/d.cn/is_expr.d) By meatatt
+- [命名作用域 Name Scope](ddili/src/ders/d.cn/name_space.d) By LinGo
 
 ### Outdated 旧项目待更新
 - [The Hello World Program](ddili/src/ders/d.cn/hello_world.d) By Lucifer
@@ -65,7 +66,6 @@ Instead of falling for getting things done quickly, "Programming in D" focuses o
 - [Lifetimes and Fundamental Operations](ddili/src/ders/d.cn/lifetimes.d) By 渡世白玉
 - [Object](ddili/src/ders/d.cn/object.d) By 大处着手小处着眼
 - [Reading from the Standard Input](ddili/src/ders/d.cn/input.d) By Lucifer
-- [Name Scope](ddili/src/ders/d.cn/name_space.d) By LinGo
 - [Templates](ddili/src/ders/d.cn/templates.d) By meatatt
 - [do-while Loop](ddili/src/ders/d.cn/do_while.d) By mogucpp
 
