@@ -1,7 +1,7 @@
 # Programming in D
-The Chinese Translation Project of "Programming in D".
+The Chinese Translation Project of [Programming in D](http://ddili.org/ders/d.en/index.html).
 
-这里是《Programming in D》的中文翻译项目。
+这里是 [《Programming in D》](http://ddili.org/ders/d.en/index.html) 的中文翻译项目。
 
 ## Why "Programming in D"? 为什么选择此书？
 Instead of falling for getting things done quickly, "Programming in D" focuses on getting things done properly, to the lasting benefit of its reader. -Andrei Alexandrescu
@@ -45,6 +45,7 @@ Instead of falling for getting things done quickly, "Programming in D" focuses o
 - [元组 Tuples](ddili/src/ders/d.cn/tuples.d) By meatatt
 - [is 表达式 is Expression](ddili/src/ders/d.cn/is_expr.d) By meatatt
 - [命名作用域 Name Scope](ddili/src/ders/d.cn/name_space.d) By LinGo
+- [从标准输入中读取数据 Reading from the Standard Input](ddili/src/ders/d.cn/input.d) By Lucifer
 
 ### Outdated 旧项目待更新
 - [The Hello World Program](ddili/src/ders/d.cn/hello_world.d) By Lucifer
@@ -65,9 +66,9 @@ Instead of falling for getting things done quickly, "Programming in D" focuses o
 ### Adopted 已被领取
 - [Lifetimes and Fundamental Operations](ddili/src/ders/d.cn/lifetimes.d) By 渡世白玉
 - [Object](ddili/src/ders/d.cn/object.d) By 大处着手小处着眼
-- [Reading from the Standard Input](ddili/src/ders/d.cn/input.d) By Lucifer
 - [Templates](ddili/src/ders/d.cn/templates.d) By meatatt
 - [do-while Loop](ddili/src/ders/d.cn/do_while.d) By mogucpp
+- [Ranges](ddili/src/ders/d.cn/ranges.d) By Lucifer
 
 ### Orphans 待领取
 - [Foreword by Andrei Alexandrescu](ddili/src/ders/d.cn/foreword2.d)
@@ -129,7 +130,6 @@ Instead of falling for getting things done quickly, "Programming in D" focuses o
 - [More Templates](ddili/src/ders/d.cn/templates_more.d)
 - [More Functions](ddili/src/ders/d.cn/functions_more.d)
 - [Mixins](ddili/src/ders/d.cn/mixin.d)
-- [Ranges](ddili/src/ders/d.cn/ranges.d)
 - [More Ranges](ddili/src/ders/d.cn/ranges_more.d)
 - [Parallelism](ddili/src/ders/d.cn/parallelism.d)
 - [Message Passing Concurrency](ddili/src/ders/d.cn/concurrency.d)
