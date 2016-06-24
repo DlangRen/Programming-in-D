@@ -13,7 +13,7 @@ $(P
 )
 
 $(P
-如果你想充分发挥本书在你学习 D 语言过程中的作用，你需要先准备好一个编码，编译和运行 D 语言程序的环境。这个 $(I 开发环境) 至少要包括一个文本编辑器和一个 D 语言编译器。我们将会在下一章学习如何安装编译器以及如何编译 D 语言代码。
+如果你想充分发挥本书在你学习 D 语言过程中的作用，你需要先准备好一个编码，编译和运行 D 语言程序的环境。这个$(I 开发环境)至少要包括一个文本编辑器和一个 D 语言编译器。我们将会在下一章学习如何安装编译器以及如何编译 D 语言代码。
 )
 
 $(P
@@ -25,11 +25,11 @@ $(P
 )
 
 $(P
-计算机编程是一个令人愉悦的工作，因为你总是在发现和学习新工具、新技术、新概念。我相信在读完本书后你会和我一样喜欢使用 D 编写程序。与他人一同学习将会使学习过程更简单并富有乐趣。可以利用 $(LINK2 http://forum.dlang.org/group/digitalmars.D.learn/, the D.learn newsgroup) 跟进讨论，提问和回答问题。
+计算机编程是一个令人愉悦的工作，因为你总是在发现和学习新工具、新技术、新概念。我相信在读完本书后你会和我一样喜欢使用 D 编写程序。与他人一同学习将会使学习过程更简单并富有乐趣。可以利用 $(LINK2 http://forum.dlang.org/group/digitalmars.D.learn/, the D.learn 新闻组)跟进讨论，提问和回答问题。
 )
 
 $(P
-本书还有其他语言的翻译，包括 $(LINK2 http://ddili.org/ders/d/, 土耳其语) 和 $(LINK2 http://dlang.unix.cat/programmer-en-d/, 法语)。
+本书还有其他语言的翻译，包括$(LINK2 http://ddili.org/ders/d/, 土耳其语)和$(LINK2 http://dlang.unix.cat/programmer-en-d/, 法语)。
 )
 
 $(H5_FRONTMATTER 致谢)
@@ -59,7 +59,7 @@ $(P
 $(BR)
 $(BR)
 Ali Çehreli$(BR)
-Mountain View， $(I 2016 四月)
+Mountain View，$(I 2016 四月)
 )
 
 )
