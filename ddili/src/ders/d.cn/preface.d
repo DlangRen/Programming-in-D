@@ -29,7 +29,6 @@ $(P
 )
 
 $(P
-This book is available in other languages as well, including $(LINK2 http://ddili.org/ders/d/, Turkish) and $(LINK2 http://dlang.unix.cat/programmer-en-d/, French).
 本书还有其他语言的翻译，包括 $(LINK2 http://ddili.org/ders/d/, 土耳其语) 和 $(LINK2 http://dlang.unix.cat/programmer-en-d/, 法语)。
 )
 
