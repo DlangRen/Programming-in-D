@@ -27,8 +27,8 @@ void main() {
 ---
 
 Macros:
-        SUBTITLE=Files Solutions
+        SUBTITLE=文件练习解答
 
-        DESCRIPTION=Programming in D exercise solutions: basic file operations
+        DESCRIPTION=D 编程语言练习解答：基本文件操作
 
-        KEYWORDS=programming in d tutorial files
+        KEYWORDS=D 编程语言教程 if else 解答

@@ -1,81 +1,82 @@
 Ddoc
 
-$(DERS_BOLUMU $(IX file) Files)
+$(DERS_BOLUMU $(IX file) 文件)
 
 $(P
-We have seen in the previous chapter that the standard input and output streams can be redirected to and from files and other programs with the $(C >), $(C <), and $(C |) operators on the terminal. Despite being very powerful, these tools are not suitable in every situation because in many cases programs can not complete their tasks simply by reading from their input and writing to their output.
+在前面的章节我们了解到标准输入输出流可以通过在终端中使用 $(C >)、$(C <) 或 $(C |) 操作符重定向至文件或另一个程序。虽然管道非常强大，但是它并不适用于所有情况。因为在大多数情况下仅通过简单的读取和输出程序并不能完成任务。
 )
 
 $(P
-For example, a program that deals with student records may use its standard output to display the program menu. Such a program would need to write the student records to an actual file instead of to $(C stdout).
+举个例子：一个处理学生记录的程序可能需要使用标准输出来显示菜单。程序需要将学生记录写入到一个真实存在的文件而不是 $(C stdout)。
 )
 
 $(P
-In this chapter, we will cover reading from and writing to files of file systems.
+本章中，我们将学习读取和写入文件系统中的文件的方法。
 )
 
-$(H5 Fundamental concepts)
+$(H5 基本概念)
 
 $(P
-Files are represented by the $(C File) $(I struct) of the $(C std.stdio) module. Since I haven't introduced structs yet, we will have to accept the syntax of struct construction as is for now.
-)
-
-$(P
-Before getting to code samples we have to go through fundamental concepts about files.
-)
-
-$(H6 The producer and the consumer)
-
-$(P
-Files that are created on one platform may not be readily usable on other platforms. Merely opening a file and writing data to it may not be sufficient for that data to be available on the consumer's side. The producer and the consumer of the data must have already agreed on the format of the data that is in the file. For example, if the producer has written the id and the name of the student records in a certain order, the consumer must read the data back in the same order.
+文件是指 $(C std.stdio) 模块中的 $(C File) $(I 结构体)。因为我还没有介绍结构体，所以我们现在不得不暂且接受结构体的构造语法。
 )
 
 $(P
-Additionally, the code samples below do not write a $(I byte order mark) (BOM) to the beginning of the file. This may make your files incompatible with systems that require a BOM. (The BOM specifies in what order the UTF code units of characters are arranged in a file.)
+在接触代码示例之前我们需要先了解一些有关文件的基本概念。
 )
 
-$(H6 Access rights)
+$(H6 创建者和用户)
 
 $(P
-File systems present files to programs under certain access rights. Access rights are important for both data integrity and performance.
-)
-
-$(P
-When it comes to reading, allowing multiple programs to read from the same file can improve performance, because the programs will not have to wait for each other to perform the read operation. On the other hand, when it comes to writing, it is often beneficial to prevent concurrent accesses to a file, even when only a single program wants to write to it. By locking the file, the operating system can prevent other programs from reading partially written files, from overwriting each other's data and so on.
-)
-
-$(H6 Opening a file)
-
-$(P
-The standard input and output streams $(C stdin) and $(C stdout) are already $(I open) when programs start running. They are ready to be used.
+在某个平台上创建的文件可能无法在其他平台上使用。仅仅是打开文件并向其中写入数据是不够的，我们还需要确保数据能被用户正确获取。数据的创建者和用户必须在文件的数据格式上达成一致。例如，如果创建者将学生记录中的学生 ID 和学生姓名以某种顺序写入文件，那用户必须以相同的顺序读取。
 )
 
 $(P
-On the other hand, normal files must first be opened by specifying the name of the file and the access rights that are needed. As we will see in the examples below, creating a $(C File) object is sufficient to open the file specified by its name:
+除此之外，下面的代码示例并没有在文件开头写入$(I 字节顺序标记（byte order mark）) (BOM)。这可能使你的文件无法兼容需要 BOM 的系统。（BOM 指明文件是以什么样的顺序组织 UTF 字符的代码单元。）
+)
+
+$(H6 访问权限)
+
+$(P
+文件系统在给程序提供文件时会附以特定的权限。访问权限对数据的完整性和操作文件的性能都非常重要。
+)
+
+$(P
+在读取文件时，文件系统可能允许多个程序同时读取一个文件以提高其性能，因为程序不再需要等待其他程序读取完成后再开始读取。而对于写入，即使只有一个程序想要写入文件，禁止并发访问文件也往往是有益的。通过锁定文件，操作系统可以防止其他程序读取到不完整的数据或将彼此的数据覆盖等情况的发生。
+)
+
+$(H6 打开文件)
+
+$(P
+在程序启动时标准输入流 $(C stdin) 和标准输出流 $(C stdout) 就已经被$(I 打开)。你可以随时使用它们。
+)
+
+$(P
+通常情况下，必须先通过指定文件名和访问权限打开文件才能对其进行操作。就像我们在下面这个例子中看到的这样，创建一个 $(C File) 对象来打开指定的文件：
 )
 
 ---
     File file = File("student_records", "r");
 ---
 
-$(H6 Closing a file)
+$(H6 关闭文件)
 
 $(P
-Any file that has been opened by a program must be closed when the program finishes using that file. In most cases the files need not be closed explicitly; they are closed automatically when $(C File) objects are terminated automatically:
+在使用完成后程序必须将其打开的文件关闭。在大多数情况下你不需要手动关闭文件；它们会在 $(C File) 对象被销毁时自动关闭。
+
 )
 
 ---
 if (aCondition) {
 
-    // Assume a File object has been created and used here.
+    // 假设我们在这里创建并使用了一个文件对象。
     // ...
 
-} // ← The actual file would be closed automatically here
-  //   when leaving this scope. No need to close explicitly.
+} // ← 文件将会在离开此作用域时自动关闭
+  //   你不需要显式关闭它。
 ---
 
 $(P
-In some cases a file object may need to be re-opened to access a different file or the same file with different access rights. In such cases the file must be closed and re-opened:
+某些时候你需要重新打开文件对象以访问另一个文件或以不同的权限访问之前的文件。在这种情况下需先将文件关闭然后再重新打开它。
 )
 
 ---
@@ -83,26 +84,26 @@ In some cases a file object may need to be re-opened to access a different file 
     file.open("student_records", "r");
 ---
 
-$(H6 Writing to and reading from files)
+$(H6 写入和读取文件)
 
 $(P
-Since files are character streams, input and output functions $(C writeln), $(C readf), etc. are used exactly the same way with them. The only difference is that the name of the $(C File) variable and a dot must be typed:
+文件的输入输出函数与向控制台输入输出的函数 $(C writeln)、$(C readf) 等的用法相同，因为它们都是字符流。唯一的区别是你需要一个类型为 $(C File) 的变量名和一个点操作符：
 )
 
 ---
-    writeln("hello");        // writes to the standard output
-    stdout.writeln("hello"); // same as above
-    $(HILITE file.)writeln("hello");   // writes to the specified file
+    writeln("hello");        // 写至标准输出
+    stdout.writeln("hello"); // 同上
+    $(HILITE file.)writeln("hello");   // 写入某个文件
 ---
 
-$(H6 $(IX eof) $(C eof()) to determine the end of a file)
+$(H6 $(IX eof) 使用 $(C eof()) 判断是否到达文件末尾)
 
 $(P
-The $(C eof()) member function determines whether the end of a file has been reached while reading from a file. It returns $(C true) if the end of the file has been reached.
+在读取文件时，$(C File) 的成员函数 $(C eof()) 可以用来判断是否已经读取到文件末尾。在到达文件末尾时该函数返回 $(C true)。
 )
 
 $(P
-For example, the following loop will be active until the end of the file:
+例如下面这个循环会一直执行直到文件流到达末尾：
 )
 
 ---
@@ -111,10 +112,10 @@ For example, the following loop will be active until the end of the file:
     }
 ---
 
-$(H6 $(IX std.file) The $(C std.file) module)
+$(H6 $(IX std.file) $(C std.file) 模块)
 
 $(P
-The $(LINK2 http://dlang.org/phobos/std_file.html, $(C std.file) module) contains functions and types that are useful when working with contents of directories. For example, $(C exists) can be used to determine whether a file or a directory exists on the file systems:
+$(LINK2 http://dlang.org/phobos/std_file.html, $(C std.file) 模块)提供了一些用于操作目录内容的实用函数和类型。例如 $(C exists) 可以检测一个文件或目录是否存在于文件系统上：
 )
 
 ---
@@ -123,43 +124,43 @@ import std.file;
 // ...
 
     if (exists(fileName)) {
-        // there is a file or directory under that name
+        // 对应名称的文件或目录存在
 
     } else {
-        // no file or directory under that name
+        // 对应名称的文件或目录不存在
     }
 ---
 
-$(H5 $(IX File) $(C std.stdio.File) struct)
+$(H5 $(IX File) $(C std.stdio.File) 结构体)
 
 $(P
-$(IX mode, file) The $(C File) struct is included in the $(LINK2 http://dlang.org/phobos/std_stdio.html, $(C std.stdio) module). To use it you specify the name of the file you want to open and the desired access rights, or mode. It uses the same mode characters that are used by $(C fopen) of the C programming language:
+$(IX mode, 文件) $(C File) 结构体在 $(LINK2 http://dlang.org/phobos/std_stdio.html, $(C std.stdio) 模块)中。要使用它只需指定要打开的文件名称和访问权限或访问模式。它和 C 语言中的 $(C fopen) 函数的模式字符相同：
 )
 
 <table class="wide" border="1" cellpadding="4" cellspacing="0">
-<tr align="center"><th scope="col">&nbsp;Mode&nbsp;</th> <th scope="col">Definition</th></tr>
+<tr align="center"><th scope="col">&nbsp;模式&nbsp;</th> <th scope="col">说明</th></tr>
 
-<tr><td align="center">r</td><td>$(B read) access$(BR)the file is opened to be read from the beginning</td></tr>
+<tr><td align="center">r</td><td>$(B 读取)权限$(BR)打开文件并从文件开头读取</td></tr>
 
-<tr><td align="center">r+</td><td>$(B read and write) access$(BR)the file is opened to be read from and written at the beginning</td></tr>
+<tr><td align="center">r+</td><td>$(B 读取和写入)权限$(BR)打开文件并从文件开头读取或写入</td></tr>
 
-<tr><td align="center">w</td><td>$(B write) access$(BR)if the file does not exist, it is created as empty$(BR)if the file already exists, its contents are cleared</td></tr>
+<tr><td align="center">w</td><td>$(B 写入)权限$(BR)如果文件不存在，则创建一个空文件$(BR)如果文件存在，则将其内容清空</td></tr>
 
-<tr><td align="center">w+</td><td>$(B read and write) access$(BR)if the file does not exist, it is created as empty$(BR)if the file already exists, its contents are cleared</td></tr>
+<tr><td align="center">w+</td><td>$(B 读取和写入)权限$(BR)如果文件不存在，则创建一个空文件$(BR)如果文件存在，则将其内容清空</td></tr>
 
-<tr><td align="center">a</td><td>$(B append) access$(BR)if the file does not exist, it is created as empty$(BR)if the file already exists, its contents are preserved and it is opened to be written at the end</td></tr>
+<tr><td align="center">a</td><td>$(B 追加)权限$(BR)如果文件不存在，则创建一个空文件$(BR)如果文件存在，则打开文件并在文件末尾写入，同时不会影响原有内容</td></tr>
 
-<tr><td align="center">a+</td><td>$(B read and append) access$(BR)if the file does not exist, it is created as empty$(BR)if the file already exists, its contents are preserved and the file is opened to be read from the beginning and written at the end</td></tr>
+<tr><td align="center">a+</td><td>$(B 读取和追加)权限$(BR)如果文件不存在，则创建一个空文件$(BR)如果文件存在，则打开文件并在文件末尾写入或从其开头读取，同时不会影响原有内容</td></tr>
 </table>
 
 $(P
-A 'b' character may be added to the mode string, as in "rb". This may have an effect on platforms that support the $(I binary mode), but it is ignored on all POSIX systems.
+除此之外，你还可以在模式字符中添加 ’b‘，例如 “rb”。如果平台支持程序将会以$(I 二进制模式)操作文件，但在 POSIX 系统中它将被忽略。
 )
 
-$(H6 Writing to a file)
+$(H6 写入文件)
 
 $(P
-The file must have been opened in one of the write modes first:
+首先，文件必须以一种写入模式打开：
 )
 
 ---
@@ -175,21 +176,21 @@ void main() {
 ---
 
 $(P
-As you remember from the $(LINK2 /ders/d.en/strings.html, Strings chapter), the type of literals like $(STRING "student_records") is $(C string), consisting of immutable characters. For that reason, it is not possible to construct $(C File) objects by using mutable text to specify the file name (e.g. $(C char[])). When needed, call the $(C .idup) property of the mutable string to get an immutable copy.
+就像我们在 $(LINK2 /ders/d.en/strings.html, Strings 一节)中提到的，像 $(STRING "student_records") 这样的指定文件名的字符串的类型是 $(C string)，它包含的是不可变的字符。因此我们不能使用可变的文本（比如 $(C char[])）来指定文件名创建 $(C File) 对象。如果出于某种原因你必须使用可变的文本类型，那你应当使用其 $(C .idup) 属性来获得其不可变字符拷贝。
 )
 
 $(P
-The program above creates or overwrites the contents of a file named $(C student_records) in the directory that it has been started under (in the program's $(I working directory)).
+上面的程序创建或覆盖了一个与其处在相同文件夹（程序的$(I 工作目录)）的名为 $(C student_records) 的文件。
 )
 
 $(P
-$(I $(B Note:) File names can contain any character that is legal for that file system. To be portable, I will use only the commonly supported ASCII characters.)
+$(I $(B 注意：)文件名可以包含任意文件系统认为是合法的字符。为简便我们将只是用常见的 ASCII 字符作文件名。)
 )
 
-$(H6 Reading from a file)
+$(H6 读取文件)
 
 $(P
-To read from a file the file must first have been opened in one of the read modes:
+在读取文件前文件必须以某种读取模式打开：
 )
 
 ---
@@ -207,20 +208,20 @@ void main() {
 ---
 
 $(P
-The program above reads all of the lines of the file named $(C student_records) and prints those lines to its standard output.
+上面的程序读取了名为 $(C student_records) 的文件中的每一行并将其打印至标准输出。
 )
 
 $(PROBLEM_TEK
 
 $(P
-Write a program that takes a file name from the user, opens that file, and writes all of the non-empty lines of that file to another file. The name of the new file can be based on the name of the original file. For example, if the original file is $(C foo.txt), the new file can be $(C foo.txt.out).
+编写一个程序，从用户处获取文件名，打开文件并将其中所有非空行写入到另一个文件。新文件的名称应基于原文件。例如：如果源文件名为 $(C foo.txt)，那新文件名可为 $(C foo.txt.out)。
 )
 
 )
 
 Macros:
-        SUBTITLE=Files
+        SUBTITLE=文件
 
-        DESCRIPTION=Basic file operations.
+        DESCRIPTION=基础文件操作。
 
-        KEYWORDS=d programming language tutorial book file
+        KEYWORDS=D 编程语言教程 file
