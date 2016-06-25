@@ -3,7 +3,7 @@ Ddoc
 $(DERS_BOLUMU $(IX is, 表达式) $(CH4 is) 表达式)
 
 $(P
-$(C is) $(I 表达式)与我们之前在 $(LINK2 /ders/d.en/null_is.html, $(CH4 null) 值与 $(CH4 is) 操作符) 一章中所见的 $(C is) $(I 操作符)在语法或语义上均无任何关联：
+$(C is) $(I 表达式)与我们之前在 $(LINK2 /ders/d.cn/null_is.html, $(CH4 null) 值与 $(CH4 is) 操作符) 一章中所见的 $(C is) $(I 操作符)在语法或语义上均无任何关联：
 )
 
 ---
@@ -96,7 +96,7 @@ $(P
 )
 
 $(P
-这在之前 $(LINK2 /ders/d.en/cast.html, 类型转换) 一章中被用于检测自动类型转换，亦可用于判别之前 $(LINK2 /ders/d.en/inheritance.html, 继承) 一章中“这个类型根本上是那个类型”一类的关系。
+这在之前 $(LINK2 /ders/d.cn/cast.html, 类型转换) 一章中被用于检测自动类型转换，亦可用于判别之前 $(LINK2 /ders/d.cn/inheritance.html, 继承) 一章中“这个类型根本上是那个类型”一类的关系。
 )
 
 ---
@@ -477,7 +477,7 @@ $(P
 $(OL
 $(LI 若 $(C T) 匹配于语法 $(C Value[Key]))
 $(LI 若 $(C Value) 是一个类型)
-$(LI 若 $(C Key) 是 $(C string)（想想 $(LINK2 /ders/d.en/templates.html, 模板专一化语法)）)
+$(LI 若 $(C Key) 是 $(C string)（想想 $(LINK2 /ders/d.cn/templates.html, 模板特化语法)）)
 )
 
 $(P

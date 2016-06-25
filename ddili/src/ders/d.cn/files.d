@@ -176,7 +176,7 @@ void main() {
 ---
 
 $(P
-就像我们在 $(LINK2 /ders/d.en/strings.html, Strings 一节)中提到的，像 $(STRING "student_records") 这样的指定文件名的字符串的类型是 $(C string)，它包含的是不可变的字符。因此我们不能使用可变的文本（比如 $(C char[])）来指定文件名创建 $(C File) 对象。如果出于某种原因你必须使用可变的文本类型，那你应当使用其 $(C .idup) 属性来获得其不可变字符拷贝。
+就像我们在 $(LINK2 /ders/d.en/strings.html, Strings 一节) 中提到的，像 $(STRING "student_records") 这样的指定文件名的字符串的类型是 $(C string)，它包含的是不可变的字符。因此我们不能使用可变的文本（比如 $(C char[])）来指定文件名创建 $(C File) 对象。如果出于某种原因你必须使用可变的文本类型，那你应当使用其 $(C .idup) 属性来获得其不可变字符拷贝。
 )
 
 $(P

@@ -46,6 +46,9 @@ Instead of falling for getting things done quickly, "Programming in D" focuses o
 - [is 表达式 is Expression](ddili/src/ders/d.cn/is_expr.d) By meatatt
 - [命名作用域 Name Scope](ddili/src/ders/d.cn/name_space.d) By LinGo
 - [从标准输入中读取数据 Reading from the Standard Input](ddili/src/ders/d.cn/input.d) By Lucifer
+- [前言 Preface（合并自：Acknowledgments，Introduction）](ddili/src/ders/d.cn/preface.d) By IceNature
+- [文件 Files](ddili/src/ders/d.cn/files.d) By Lucifer
+- [if语句 if Statement](ddili/src/ders/d.cn/if.d) By IceNature
 
 ### Outdated 旧项目待更新
 - [The Hello World Program](ddili/src/ders/d.cn/hello_world.d) By Lucifer
@@ -59,9 +62,6 @@ Instead of falling for getting things done quickly, "Programming in D" focuses o
 - [Strings](ddili/src/ders/d.cn/strings.d) By 大处着手小处着眼
 - [scope](ddili/src/ders/d.cn/scope.d) By 大处着手小处着眼
 - [auto and typeof](ddili/src/ders/d.cn/auto_and_typeof.d) By 小马哥[̲̅V̲̅I̲̅P̲̅]
-- [Preface（合并自：Acknowledgments，Introduction）](ddili/src/ders/d.cn/preface.d) By IceNature
-- [Files](ddili/src/ders/d.cn/files.d) By Lucifer
-- [if Statement](ddili/src/ders/d.cn/if.d) By IceNature
 
 ### Adopted 已被领取
 - [Lifetimes and Fundamental Operations](ddili/src/ders/d.cn/lifetimes.d) By 渡世白玉

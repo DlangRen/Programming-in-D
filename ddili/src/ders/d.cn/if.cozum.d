@@ -105,6 +105,6 @@ $(LI
 Macros:
         SUBTITLE=if 语句习题解答
 
-        DESCRIPTION=D 编程语言练习解答: 'if' 语句和它可选的 'else' 从句
+        DESCRIPTION=D 编程语言练习解答：‘if’语句和它可选的‘else’从句
 
         KEYWORDS=D 编程语言教程 if else 解答

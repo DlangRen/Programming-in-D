@@ -1,14 +1,14 @@
 Ddoc
 
-$(COZUM_BOLUMU Reading from the Standard Input)
+$(COZUM_BOLUMU 从标准输入中读取数据)
 
 $(P
-When the characters cannot be converted to the desired type, $(C stdin) gets in an unusable state. For example, entering "abc" when an $(C int) is expected would make $(C stdin) unusable.
+当字符无法被转换为所求的类型，$(C stdin) 即进入不可用的状态。例如在需求 $(C int) 值时输入“abc”将使得 $(C stdin) 不可用。
 )
 
 Macros:
-        SUBTITLE=Reading from the Standard Input Solutions
+        SUBTITLE=从标准输入中读取数据
 
-        DESCRIPTION=Programming in D exercise solutions: reading from the standard input
+        DESCRIPTION=Programming in D 练习解答：从标准输入中读取数据
 
-        KEYWORDS=programming in d tutorial reading stdin solution
+        KEYWORDS=programming in d 教程 读取 stdin 解答
