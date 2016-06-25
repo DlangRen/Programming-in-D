@@ -3,11 +3,11 @@ Ddoc
 $(DERS_BOLUMU $(IX is, 表达式) $(CH4 is) 表达式)
 
 $(P
-$(C is) $(I 表达式)与我们之前在 $(LINK2 /ders/d.cn/null_is.html, $(CH4 null) 值与 $(CH4 is) 操作符) 一章中所见的 $(C is) $(I 操作符)在语法或语义上均无任何关联：
+$(C is) $(I 表达式)与我们之前在 $(LINK2 /ders/d.cn/null_is.html, $(CH4 null) 值与 $(CH4 is) 运算符) 一章中所见的 $(C is) $(I 运算符)在语法或语义上均无任何关联：
 )
 
 ---
-    a is b            // 这是一个操作符，如我们之前所见过的一样
+    a is b            // 这是一个运算符，如我们之前所见过的一样
 
     is (/* ... */)    // 这是一个表达式
 ---
