@@ -1,45 +1,45 @@
 Ddoc
 
-$(DERS_BOLUMU $(IX if) $(CH4 if) Statement)
+$(DERS_BOLUMU $(IX if) $(CH4 if) 语句)
 
 $(P
-We've learned that the actual work in a program is performed by expressions. All of the expressions of all of the programs that we've seen so far have started with the $(C main()) function and were executed until the end of $(C main).
-)
-
-$(P
-$(IX statement) $(I Statements), on the other hand, are features that affect the execution of expressions. Statements don't produce values and don't have side effects themselves. They determine whether and in what order the expressions are executed. Statements sometimes use logical expressions when making such decisions.
-)
-
-$(P $(I $(B Note:) Other programming languages may have different definitions for expression and statement, while some others may not have a distinction at all.
-)
-)
-
-$(H5 The $(C if) block and its scope)
-
-$(P
-The $(C if) statement determines whether one or more expressions would be executed. It makes this decision by evaluating a logical expression. It has the same meaning as the English word "if", as in the phrase "if there is coffee then I will drink coffee".
+我们已经学习到程序是通过使用表达式来实现具体功能的。至今为止我们见到的所有程序的所有表达式都是从 $(C main()) 函数开始，执行到 $(C main) 结尾。
 )
 
 $(P
-$(C if) takes a logical expression in parentheses. If the value of that logical expression is $(C true), then it executes the expressions that are within the following curly brackets. Conversely, if the logical expression is $(C false), it does not execute the expressions within the curly brackets.
+$(IX statement) 而$(I 语句)是一种能影响表达式执行顺序的特性。语句不产生值，自己也没有副作用。它们通常使用一个逻辑判断表达式来决定接下来要执行哪一条表达式。
+)
+
+$(P $(I $(B 注意：) 其它编程语言也许对表达式或语句有不同的定义，也有一些语言与 D 语言的定义相同。
+)
+)
+
+$(H5 $(C if) 块和它的作用域)
+
+$(P
+$(C if) 语句通过使用一个逻辑表达式来决定了哪条或哪些语句将要被执行。它和英语单词 “if” 有着相同的意思，就想下面这个句子：“if there is coffee then I will drink coffee”。
 )
 
 $(P
-The area within the curly brackets is called a $(I scope) and all of the code that is in that scope is called a $(I block of code).
+$(C if) 用于判断的逻辑表达式应放在 if 后的括号中。如果逻辑表达式的值为 $(C true) 则执行它下方花括号中的表达式；反之如果逻辑表达式的值为 $(C false)，下方花括号中的语句将不会被执行。
 )
 
 $(P
-Here is the syntax of the $(C if) statement:
+花括号中的趋于被称作$(I 作用域)，全部位于作用于中的代码被称作一个$(I 代码块)。
+)
+
+$(P
+下面是 $(C if) 语句的语法：
 )
 
 ---
     if (a_logical_expression) {
-        // ... expression(s) to execute if true
+        // ... 逻辑表达式为 true 时此处表达式将会被执行
     }
 ---
 
 $(P
-For example, the program construct that represents "if there is coffee then drink coffee and wash the cup" can be written as in the following program:
+例如，表示“如果有咖啡，那就喝咖啡并把杯子洗干净”的程序可以像下面这样写：
 )
 
 ---
@@ -56,30 +56,30 @@ void main() {
 ---
 
 $(P
-If the value of $(C existsCoffee) is $(C false), then the expressions that are within the block would be skipped and the program would not print anything.
+如果 $(C existsCoffee) 的值为 $(C false)，程序将跳过 if 块中的语句，什么都不会输出。
 )
 
-$(H5 $(IX else) The $(C else) block and its scope)
+$(H5 $(IX else) $(C else) 块和它的作用域)
 
 $(P
-Sometimes there are operations to execute for when the logical expression of the $(C if) statement is $(C false). For example, there is always an operation to execute in a decision like "if there is coffee I will drink coffee, else I will drink tea".
+有时，我们想在 $(C if) 语句的逻辑表达式为 $(C false) 执行某些操作，即无论怎样总有一些表达式将被执行。例如：如果有咖啡，我就喝咖啡，否则我会喝茶”。
 )
 
 $(P
-The operations to execute in the $(C false) case are placed in a scope after the $(C else) keyword:
+当逻辑表达式为 $(C false) 时要执行的操作应写在 $(C else) 关键字后的作用域中。
 )
 
 ---
     if (a_logical_expression) {
-        // ... expression(s) to execute if true
+        // ... 逻辑表达式为 true 时此处表达式将会被执行
 
     } else {
-        // ... expression(s) to execute if false
+        // ... 逻辑表达式为 false 时此处表达式将会被执行
     }
 ---
 
 $(P
-For example, under the assumption that there is always tea:
+例如，我们假设总是有茶:
 )
 
 ---
@@ -92,21 +92,22 @@ For example, under the assumption that there is always tea:
 ---
 
 $(P
-In that example, either the first or the second string would be printed depending on the value of $(C existsCoffee).
+在上面的例子中，哪一个字符串将被打印取决于 $(C existsCoffee) 的值。
 )
 
 $(P
-$(C else) itself is not a statement but an optional $(I clause) of the $(C if) statement; it cannot be used alone.
+如果只看 $(C else) 的话它并不是一个语句，它只是一个 $(C if) 语句的可选$(I 分句)；它不能被单独使用。
 )
 
 $(P
-Note the placement of curly brackets of the $(C if) and $(C else) blocks above. Although it is $(LINK2 http://dlang.org/dstyle.html, official D style) to place curly brackets on separate lines, this book uses a common style of inline curly brackets throughout.
+注意本书将花括号写在与 $(C if) 和 $(C else) 同一行上。虽然将花括号单独写在一行是 $(LINK2 http://dlang.org/dstyle.html, D 语言官方编程风格)，但本书依旧使用更加普遍的内嵌花括号风格。
+
 )
 
-$(H5 Always use the scope curly brackets)
+$(H5 始终使用作用域花括号)
 
 $(P
-It is not recommended but is actually possible to omit the curly brackets if there is only one statement within a scope. As both the $(C if) and the $(C else) scopes have just one statement above, that code can also be written as the following:
+虽然当作用域中只有一条语句时花括号可以省略，但我们并不推荐这样做。如果 $(C if) 或 $(C else) 的作用域中只有一条语句我们可以将代码写成下面这样：
 )
 
 ---
@@ -118,17 +119,17 @@ It is not recommended but is actually possible to omit the curly brackets if the
 ---
 
 $(P
-Most experienced programmers use curly brackets even for single statements. (One of the exercises of this chapter is about omitting them.) Having said that, I will now show the only case where omitting the curly brackets is actually better.
+即使只有一条语句，大多数有经验的程序员也会使用花括号。（只有本章中的一个练习忽略了它们）不得不说的一点是，我将展示唯一一种省略花括号反而更好的情况。
 )
 
-$(H5 $(IX else if) The "if, else if, else" chain)
+$(H5 $(IX else if) “if, else if, else” 链)
 
 $(P
-One of the powers of statements and expressions is the ability to use them in more complex ways. In addition to expressions, scopes can contain other statements. For example, an $(C else) scope can contain an $(C if) statement. Connecting statements and expressions in different ways allows us to make programs behave intelligently according to their purposes.
+你可以以一种复杂嵌套的方式使用语句和表达式。除了表达式，作用域还可以包含其它语句。例如：在 $(C else) 作用域中包含一个 $(C if) 语句。以不同的方式连接表达式和语句可以使我们程序的行为更加智能。
 )
 
 $(P
-The following is a more complex code written under the agreement that riding to a good coffee shop is preferred over walking to a bad one:
+下面这段更复杂的代码表示的是：优先选择骑车到一个好的咖啡店，如果没有自行车的话则步行至稍差的咖啡店。
 )
 
 ---
@@ -147,11 +148,11 @@ The following is a more complex code written under the agreement that riding to 
 ---
 
 $(P
-The code above represents the phrase "if there is coffee, drink at home; else if there is a bicycle, ride to the good place; otherwise walk to the bad place".
+上面这段代码代表这样一个句子：“如果有咖啡，就在家喝咖啡；如果没有咖啡但有自行车，则骑车去不错的咖啡店；否则步行到一般的咖啡店”。
 )
 
 $(P
-Let's complicate this decision process further: instead of having to walk to the bad place, let's first try the neighbor:
+让我们继续这一复杂的决策过程：在没有自行车的时候先去邻居家问一下邻居是否有咖啡，如果邻居也没有咖啡则再走路到一般的咖啡店：
 )
 
 ---
@@ -176,19 +177,19 @@ Let's complicate this decision process further: instead of having to walk to the
 ---
 
 $(P
-Such decisions like "if this case, else if that other case, else if that even other case, etc." are common in programs. Unfortunately, when the guideline of always using curly brackets is followed obstinately, the code ends up having too much horizontal and vertical space: ignoring the empty lines, the 3 $(C if) statements and the 4 $(C writeln) expressions above occupy a total of 13 lines.
+类似于 "if this case, else if that other case, else if that even other case, etc." 这样的决策在程序中非常常见。而如果一定要使用花括号，代码将会有太多水平和竖直的空白：忽略空行，上面代码中 3 个 $(C if) 语句和 4 个 $(C writeln) 表达式总共占用 13 行。
 )
 
 $(P
-In order to write such constructs in a more compact way, when an $(C else) scope contains only one $(C if) statement, then the curly brackets of that $(C else) scope are omitted as an exception of this guideline.
+为了能以更紧凑的方式书写上面的结构，当 $(C else) 作用域中只有一个 $(C if) 语句时，省略 $(C else) 的花括号。这是本指南的例外情况。
 )
 
 $(P
-I am leaving the following code untidy as an intermediate step before showing the better form of it. No code should be written in such an untidy way.
+在重构至更好的形式之前，我们先看一段凌乱代码。任何代码都不应该写得这么乱。
 )
 
 $(P
-The following is what the code looks like after removing the curly brackets of the two $(C else) scopes that contain just a single $(C if) statement:
+下面这段代码是移除两个只包含一个 $(C else) 语句的 $(C if) 语句大括号后的样子：
 )
 
 ---
@@ -211,7 +212,7 @@ The following is what the code looks like after removing the curly brackets of t
 ---
 
 $(P
-If we now move those $(C if) statements up to the same lines as their enclosing $(C else) clauses and tidy up the code, we end up with the following more readable format:
+如果现在我们将 $(C if) 语句提到与包裹住它的 $(C else) 语句同一行并整理下代码，我们将会得到像下面这样可读性更强的代码：
 )
 
 ---
@@ -230,11 +231,11 @@ If we now move those $(C if) statements up to the same lines as their enclosing 
 ---
 
 $(P
-Removing the curly brackets allows the code to be more compact and lines up all of the expressions for easier readability. The logical expressions, the order that they are evaluated, and the operations that are executed when they are true are now easier to see at a glance.
+移除花括号使得代码更加紧凑并使表达式可读性更强。逻辑表达式、其求值顺序、以及值为 true 时执行的操作都一目了然。
 )
 
 $(P
-This common programming construct is called the "if, else if, else" chain.
+这种常见的编程结构被称为 “if, else if, else” 链。
 )
 
 
@@ -242,7 +243,7 @@ $(PROBLEM_COK
 
 $(PROBLEM
 
-Since the logical expression below is $(C true), we would expect this program to $(I drink lemonade and wash the cup):
+当逻辑表达式的值为 $(C true) 时，我们希望程序$(I 喝柠檬水并将杯子洗干净)：
 
 ---
 import std.stdio;
@@ -260,7 +261,7 @@ void main() {
 }
 ---
 
-But when you run that program you will see that it $(I washes the plate) as well:
+但是当你运行程序时除了我们预期的结果，你还会看到 $(I washes the plate)：
 
 $(SHELL
 Drinking lemonade
@@ -268,11 +269,11 @@ Washing the cup
 Washing the plate
 )
 
-Why? Correct the program to wash the plate only when the logical expression is $(C false).
+为什么会这样呢？修正程序使其只在表达式为 $(C false) 时才清洗盘子。
 )
 
 $(PROBLEM
-Write a program that plays a game with the user (obviously with trust). The user throws a die and enters its value. Either the user or the program wins according to the value of the die:
+写一个可以和用户玩游戏的程序（一个需要用户足够诚实的游戏）。用户将掷骰子得到的数输入程序。之后根据这个值来确定是程序获胜还是用户获胜：
 
 $(MONO
 $(B Value of the die         Output of the program)
@@ -285,7 +286,7 @@ $(B Value of the die         Output of the program)
  Any other value               ERROR: Invalid value
 )
 
-Bonus: Have the program also mention the value when the value is invalid. For example:
+额外任务：让程序考虑输入值的有效性。例如：
 
 $(SHELL
 ERROR: 7 is invalid
@@ -294,16 +295,16 @@ ERROR: 7 is invalid
 )
 
 $(PROBLEM
-Let's change the game by having the user enter a value from 1 to 1000. Now the user wins when the value is in the range 1-500 and the computer wins when the value is in the range 501-1000. Can the previous program be easily modified to work in this way?
+修改下程序让我们可以输入 1 到 1000 的值。当输入的值在 1-500 内时用户获胜，当值在 501-1000 时程序获胜。上一题你写的程序可以经过简单的修改就达到我们的要求吗？
 )
 
 )
 
 Macros:
-        SUBTITLE=if Statement
+        SUBTITLE=if 语句
 
-        DESCRIPTION=The if statement, one of the conditional statements of the D programming language
+        DESCRIPTION=if 语句是 D 语言条件语句之一
 
-        KEYWORDS=d programming language tutorial book if conditional statement
+        KEYWORDS=D 编程语言教程 if 条件语句
 
 MINI_SOZLUK=
