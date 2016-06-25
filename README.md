@@ -13,7 +13,7 @@ Instead of falling for getting things done quickly, "Programming in D" focuses o
  - 爱好群: 531010036
  - 译者群: 54520002
 
-##License 版权许可 [![LICENSE][license-badge]][license-url]
+##License 版权许可 [![CC BY-NC-SA 3.0][license-badge]][license-url]
 
 [license-badge]: http://ddili.org/image/cc_88x31.png
 [license-url]: http://creativecommons.org/licenses/by-nc-sa/3.0/us/
@@ -47,7 +47,7 @@ Instead of falling for getting things done quickly, "Programming in D" focuses o
 - [命名作用域 Name Scope](ddili/src/ders/d.cn/name_space.d) By LinGo
 - [从标准输入中读取数据 Reading from the Standard Input](ddili/src/ders/d.cn/input.d) By Lucifer
 - [前言 Preface（合并自：Acknowledgments，Introduction）](ddili/src/ders/d.cn/preface.d) By IceNature
-- [文件 Files](ddili/src/ders/d.cn/files.d) By Lucifer
+- [文件 Files](ddili/src/ders/d.cn/files.d) By IceNature
 - [if语句 if Statement](ddili/src/ders/d.cn/if.d) By IceNature
 
 ### Outdated 旧项目待更新
