@@ -3,7 +3,7 @@ Ddoc
 $(DERS_BOLUMU $(IX file) 文件)
 
 $(P
-在前面的章节我们了解到标准输入输出流可以通过在终端中使用 $(C >)、$(C <) 或 $(C |) 操作符重定向至文件或另一个程序。虽然管道非常强大，但是它并不是用于所有情况。因为在大多数情况下仅通过简单的读取和输出程序并不能完成任务。
+在前面的章节我们了解到标准输入输出流可以通过在终端中使用 $(C >)、$(C <) 或 $(C |) 操作符重定向至文件或另一个程序。虽然管道非常强大，但是它并不适用于所有情况。因为在大多数情况下仅通过简单的读取和输出程序并不能完成任务。
 )
 
 $(P
@@ -27,7 +27,7 @@ $(P
 $(H6 创建者和用户)
 
 $(P
-在某个平台上创建的文件可能无法在其他平台上使用。仅仅是打开文件并向其中写入数据是不够的，因为我们还需要确保数据能被用户正确获取。数据的创建者和用户必须在文件的数据格式上达成一致。例如，如果创建者将学生记录中的学生 ID 和学生姓名以某种顺序写入文件，那用户必须以相同的顺序读取。
+在某个平台上创建的文件可能无法在其他平台上使用。仅仅是打开文件并向其中写入数据是不够的，我们还需要确保数据能被用户正确获取。数据的创建者和用户必须在文件的数据格式上达成一致。例如，如果创建者将学生记录中的学生 ID 和学生姓名以某种顺序写入文件，那用户必须以相同的顺序读取。
 )
 
 $(P
@@ -37,7 +37,7 @@ $(P
 $(H6 访问权限)
 
 $(P
-文件系统在给程序提供文件时会附以特定的权限。访问权限对数据的完整性和操作文件的程序的性能都非常重要。
+文件系统在给程序提供文件时会附以特定的权限。访问权限对数据的完整性和操作文件的性能都非常重要。
 )
 
 $(P
@@ -154,7 +154,6 @@ $(IX mode, 文件) $(C File) 结构体在 $(LINK2 http://dlang.org/phobos/std_st
 </table>
 
 $(P
-A 'b' character may be added to the mode string, as in "rb". This may have an effect on platforms that support the $(I binary mode), but it is ignored on all POSIX systems.
 除此之外，你还可以在模式字符中添加 ’b‘，例如 “rb”。如果平台支持程序将会以$(I 二进制模式)操作文件，但在 POSIX 系统中它将被忽略。
 )
 
@@ -177,7 +176,7 @@ void main() {
 ---
 
 $(P
-就像我们在 $(LINK2 /ders/d.en/strings.html, Strings 一节)中提到的，像 $(STRING "student_records") 这样的指定文件名的字符串的类型是 $(C string)，它包含的是不可变的字符。因此我们不能使用可变的文本（比如 $(C char[])）来指定文件名创建 $(C File) 对象。如果出于某种原因你必须使用可变的文本类型，那你应当使用 $(C .idup) 属性来获得其不可变字符拷贝。
+就像我们在 $(LINK2 /ders/d.en/strings.html, Strings 一节)中提到的，像 $(STRING "student_records") 这样的指定文件名的字符串的类型是 $(C string)，它包含的是不可变的字符。因此我们不能使用可变的文本（比如 $(C char[])）来指定文件名创建 $(C File) 对象。如果出于某种原因你必须使用可变的文本类型，那你应当使用其 $(C .idup) 属性来获得其不可变字符拷贝。
 )
 
 $(P
@@ -191,7 +190,7 @@ $(I $(B 注意：)文件名可以包含任意文件系统认为是合法的字�
 $(H6 读取文件)
 
 $(P
-在读取文件前文件必须以某种写入模式打开：
+在读取文件前文件必须以某种读取模式打开：
 )
 
 ---
@@ -215,8 +214,7 @@ $(P
 $(PROBLEM_TEK
 
 $(P
-Write a program that takes a file name from the user, opens that file, and writes all of the non-empty lines of that file to another file. The name of the new file can be based on the name of the original file. For example, if the original file is $(C foo.txt), the new file can be $(C foo.txt.out).
-编写一个程序，从用户处获取文件名，打开文件并将其中所有非空行写入到另一个文件。新文件的名称应基于原文件。例如：如果源文件名为 $(C foo.txt)，那新文件可为 $(C foo.txt.out)。
+编写一个程序，从用户处获取文件名，打开文件并将其中所有非空行写入到另一个文件。新文件的名称应基于原文件。例如：如果源文件名为 $(C foo.txt)，那新文件名可为 $(C foo.txt.out)。
 )
 
 )
