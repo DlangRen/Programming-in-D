@@ -69,6 +69,7 @@ Instead of falling for getting things done quickly, "Programming in D" focuses o
 - [Templates](ddili/src/ders/d.cn/templates.d) By meatatt
 - [do-while Loop](ddili/src/ders/d.cn/do_while.d) By mogucpp
 - [Ranges](ddili/src/ders/d.cn/ranges.d) By Lucifer
+- [Parallelism](ddili/src/ders/d.cn/parallelism.d) By IceNature
 
 ### Orphans 待领取
 - [Foreword by Andrei Alexandrescu](ddili/src/ders/d.cn/foreword2.d)
@@ -131,7 +132,6 @@ Instead of falling for getting things done quickly, "Programming in D" focuses o
 - [More Functions](ddili/src/ders/d.cn/functions_more.d)
 - [Mixins](ddili/src/ders/d.cn/mixin.d)
 - [More Ranges](ddili/src/ders/d.cn/ranges_more.d)
-- [Parallelism](ddili/src/ders/d.cn/parallelism.d)
 - [Message Passing Concurrency](ddili/src/ders/d.cn/concurrency.d)
 - [Data Sharing Concurrency](ddili/src/ders/d.cn/concurrency_shared.d)
 - [Fibers](ddili/src/ders/d.cn/fibers.d)
