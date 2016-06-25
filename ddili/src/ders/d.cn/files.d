@@ -115,7 +115,7 @@ $(P
 $(H6 $(IX std.file) $(C std.file) 模块)
 
 $(P
-$(LINK2 http://dlang.org/phobos/std_file.html, $(C std.file) 模块)提供了一些用于操作目录内容的实用函数和类型。例如 $(C exists) 可以检测一个文件或目录是否存在于文件系统上：
+$(LINK2 http://dlang.org/phobos/std_file.html, $(C std.file) 模块) 提供了一些用于操作目录内容的实用函数和类型。例如 $(C exists) 可以检测一个文件或目录是否存在于文件系统上：
 )
 
 ---
@@ -134,7 +134,7 @@ import std.file;
 $(H5 $(IX File) $(C std.stdio.File) 结构体)
 
 $(P
-$(IX mode, 文件) $(C File) 结构体在 $(LINK2 http://dlang.org/phobos/std_stdio.html, $(C std.stdio) 模块)中。要使用它只需指定要打开的文件名称和访问权限或访问模式。它和 C 语言中的 $(C fopen) 函数的模式字符相同：
+$(IX mode, 文件) $(C File) 结构体在 $(LINK2 http://dlang.org/phobos/std_stdio.html, $(C std.stdio) 模块) 中。要使用它只需指定要打开的文件名称和访问权限或访问模式。它和 C 语言中的 $(C fopen) 函数的模式字符相同：
 )
 
 <table class="wide" border="1" cellpadding="4" cellspacing="0">
@@ -176,7 +176,7 @@ void main() {
 ---
 
 $(P
-就像我们在 $(LINK2 /ders/d.en/strings.html, Strings 一节) 中提到的，像 $(STRING "student_records") 这样的指定文件名的字符串的类型是 $(C string)，它包含的是不可变的字符。因此我们不能使用可变的文本（比如 $(C char[])）来指定文件名创建 $(C File) 对象。如果出于某种原因你必须使用可变的文本类型，那你应当使用其 $(C .idup) 属性来获得其不可变字符拷贝。
+就像我们在 $(LINK2 /ders/d.cn/strings.html, Strings 一节) 中提到的，像 $(STRING "student_records") 这样的指定文件名的字符串的类型是 $(C string)，它包含的是不可变的字符。因此我们不能使用可变的文本（比如 $(C char[])）来指定文件名创建 $(C File) 对象。如果出于某种原因你必须使用可变的文本类型，那你应当使用其 $(C .idup) 属性来获得其不可变字符拷贝。
 )
 
 $(P

@@ -25,11 +25,11 @@ $(P
 )
 
 $(P
-计算机编程是一个令人愉悦的工作，因为你总是在发现和学习新工具、新技术、新概念。我相信在读完本书后你会和我一样喜欢使用 D 编写程序。与他人一同学习将会使学习过程更简单并富有乐趣。可以利用 $(LINK2 http://forum.dlang.org/group/digitalmars.D.learn/, the D.learn 新闻组)跟进讨论，提问和回答问题。
+计算机编程是一个令人愉悦的工作，因为你总是在发现和学习新工具、新技术、新概念。我相信在读完本书后你会和我一样喜欢使用 D 编写程序。与他人一同学习将会使学习过程更简单并富有乐趣。可以利用 $(LINK2 http://forum.dlang.org/group/digitalmars.D.learn/, the D.learn 新闻组) 跟进讨论，提问和回答问题。
 )
 
 $(P
-本书还有其他语言的翻译，包括$(LINK2 http://ddili.org/ders/d/, 土耳其语)和$(LINK2 http://dlang.unix.cat/programmer-en-d/, 法语)。
+本书还有其他语言的翻译，包括 $(LINK2 http://ddili.org/ders/d/, 土耳其语) 和 $(LINK2 http://dlang.unix.cat/programmer-en-d/, 法语)。
 )
 
 $(H5_FRONTMATTER 致谢)
