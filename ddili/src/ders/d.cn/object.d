@@ -1,61 +1,61 @@
 Ddoc
 
-$(DERS_BOLUMU $(IX Object) $(CH4 Object))
+$(DERS_BOLUMU $(IX Object) $(CH4 Object)对象)
 
 $(P
-Classes that do not explicitly inherit any class, automatically inherit the $(C Object) class.
+类没有明确继承自任何类，自动继承自 $(C Object) 类。
 )
 
 $(P
-By that definition, the topmost class in any class hierarchy inherits $(C Object):
+根据这一定义, 任何类层次的最顶端的类继承自 $(C Object)：
 )
 
 ---
-// ": Object" is not written; it is automatic
+// ": Object" 没有写; 它是自动的
 class MusicalInstrument $(DEL : Object ) {
     // ...
 }
 
-// Inherits Object indirectly
+// 间接继承自 Object
 class StringInstrument : MusicalInstrument {
     // ...
 }
 ---
 
 $(P
-Since the topmost class inherits $(C Object), every class indirectly inherits $(C Object) as well. In that sense, every class "is an" $(C Object).
+由于顶层类继承自 $(C Object)，每个类也间接继承自 $(C Object)。 从某种意义上来讲， 每个类"是一个" $(C Object)。
 )
 
 $(P
-Every class inherits the following member functions of $(C Object):
+每个类继承 $(C Object) 的成员函数：
 )
 
 $(UL
-$(LI $(C toString): The $(C string) representation of the object.)
-$(LI $(C opEquals): Equality comparison with another object.)
-$(LI $(C opCmp): Sort order comparison with another object.)
-$(LI $(C toHash): Associative array hash value.)
+$(LI $(C toString)：对象的 $(C string) 表示。)
+$(LI $(C opEquals)：与另一对象的相等性比较。)
+$(LI $(C opCmp)： 与另一个对象的排序顺序比较。)
+$(LI $(C toHash)：关联数组的Hash值。)
 )
 
 $(P
-The last three of these functions emphasize the values of objects. They also make a class eligible for being the key type of associative arrays.
+后三个函数强调对象的值。 他们还让一个类有资格作为关联数组的键类型。
 )
 
 $(P
-Because these functions are inherited, their redefinitions for the subclasses require the $(C override) keyword.
+因为这些函数是继承的， 所以子类重新定义的时候需要关键字 $(C override)。
 )
 
-$(P $(I $(B Note:) $(C Object) defines other members as well. This chapter will include only those four member functions of it.)
+$(P $(I $(B Note:) $(C Object) 也定义了别的成员。 这章将只涉及上面所提到的四个成员函数。)
 )
 
-$(H5 $(IX typeid) $(IX TypeInfo) $(C typeid) and $(C TypeInfo))
+$(H5 $(IX typeid) $(IX TypeInfo) $(C typeid) 和 $(C TypeInfo))
 
 $(P
-$(C Object) is defined in the $(LINK2 http://dlang.org/phobos/object.html, $(C object) module) (which is not a part of the $(C std) package). The $(C object) module defines $(C TypeInfo) as well, a class that provides information about types. Every type has a distinct $(C TypeInfo) object. The $(C typeid) $(I expression) provides access to the $(C TypeInfo) object that is associated with a particular type. As we will see later below, the $(C TypeInfo) class can be used for determining whether two types are the same, as well as for accessing special functions of a type ($(C toHash), $(C postblit), etc., most of which are not covered in this book).
+$(C Object) 的定义在文件 $(LINK2 http://dlang.org/phobos/object.html, $(C object) 模块) (它不是 $(C std) 包的一部分)。该 $(C object) 模块定义 $(C TypeInfo) ，它是一个提供有关类型的信息的类。 每个类型具有不同的 $(C TypeInfo) 对象。 $(C typeid) $(I expression) 提供对与特定类型有关联的 $(C TypeInfo) 对象的访问。 随后我们将看到，$(C TypeInfo) 类能用于确定两个类型是否相同， 以及用于访问类型的特殊函数 ($(C toHash)、 $(C postblit) 等等， 其中的大部分本书并不包括)。
 )
 
 $(P
-$(C TypeInfo) is always about the actual run-time type. For example, although both $(C Violin) and $(C Guitar) below inherit $(C StringInstrument) directly and $(C MusicalInstrument) indirectly, the $(C TypeInfo) instances of $(C Violin) and $(C Guitar) are different. They are exactly for $(C Violin) and $(C Guitar) types, respectively:
+$(C TypeInfo) 通常是指实际运行时类型。例如， 虽然 $(C Violin) 和 $(C Guitar) 都直接继承自 $(C StringInstrument)  并间接继承自 $(C MusicalInstrument),  但是 $(C Violin) 和 $(C Guitar) 的$(C TypeInfo) 不一样。它们恰恰是 $(C Violin) 和 $(C Guitar) 类型, 分别为：
 )
 
 ---
@@ -74,13 +74,13 @@ class Guitar : StringInstrument {
 void main() {
     TypeInfo v = $(HILITE typeid)(Violin);
     TypeInfo g = $(HILITE typeid)(Guitar);
-    assert(v != g);    $(CODE_NOTE the two types are not the same)
+    assert(v != g);    $(CODE_NOTE 这两个类型不同)
 }
 ---
 
 $(P
-The $(C typeid) expressions above are being used with $(I types) like $(C Violin) itself. $(C typeid) can take an $(I expression) as well, in which case it returns the $(C TypeInfo) object for the run-time type of that expression. For example, the following function takes two parameters of different but related types:
-)
+   上面的$(C typeid) 表达式用于像 $(C Violin) 这样的 $(I types) 自身。 $(C typeid) 也能带出一个 $(I expression)，这种情况下，它为那个表达式的运行时类型返回 $(C TypeInfo) 对象。 举例来说，下列的函数有两个不同参数但类型相关：
+
 
 ---
 import std.stdio;
@@ -102,7 +102,7 @@ void foo($(HILITE MusicalInstrument) m, $(HILITE StringInstrument) s) {
 ---
 
 $(P
-Since both arguments to $(C foo()) are two $(C Violin) objects for that particular call, $(C foo()) determines that their types are the same:
+虽然 $(C foo())调用的两个参数都是 $(C Violin) 对象， $(C foo()) 决定它们的类型相同：
 )
 
 $(SHELL
@@ -110,7 +110,7 @@ The types of the arguments are $(HILITE the same).
 )
 
 $(P
-Unlike $(C .sizeof) and $(C typeof), which never execute their expressions, $(C typeid) always executes the expression that it receives:
+不像 $(C .sizeof) 和 $(C typeof)， 从来不执行它们的表达式， $(C typeid) 总是执行它接收的表达式：
 )
 
 ---
@@ -122,14 +122,14 @@ int foo(string when) {
 }
 
 void main() {
-    const s = foo("sizeof")$(HILITE .sizeof);     // foo() is not called
-    alias T = $(HILITE typeof)(foo("typeof"));    // foo() is not called
-    auto ti = $(HILITE typeid)(foo("typeid"));    // foo() is called
+    const s = foo("sizeof")$(HILITE .sizeof);     // foo() 不被调用
+    alias T = $(HILITE typeof)(foo("typeof"));    // foo() 不被调用
+    auto ti = $(HILITE typeid)(foo("typeid"));    // foo()  被调用
 }
 ---
 
 $(P
-The output indicates that only the expression of $(C typeid) is executed:
+输出表明只有含$(C typeid)的表达式被执行：
 )
 
 $(SHELL
@@ -137,7 +137,7 @@ Called during 'typeid'.
 )
 
 $(P
-The reason for this difference is because actual run-time types of expressions may not be known until those expressions are executed. For example, the exact return type of the following function would be either $(C Violin) or $(C Guitar) depending on the actual value of the argument:
+不同的原因是表达式的实际运行时类型只在表达式被执行时才能知道。举例来说，下面函数返回的准确类型将是 $(C Violin) 还是 $(C Guitar) 取决于参数的实际值：
 )
 
 ---
@@ -149,16 +149,16 @@ MusicalInstrument foo(int i) {
 $(H5 $(IX toString) $(C toString))
 
 $(P
-Same with structs, $(C toString) enables using class objects as strings:
+跟结构一样， $(C toString) 也能把类对象用作字符串：
 )
 
 ---
     auto clock = new Clock(20, 30, 0);
-    writeln(clock);         // Calls clock.toString()
+    writeln(clock);         // 调用 clock.toString()
 ---
 
 $(P
-The inherited $(C toString()) is usually not useful; it produces just the name of the type:
+继承的 $(C toString()) 通常没用；它只产生类型的名称：
 )
 
 $(SHELL
@@ -166,11 +166,11 @@ deneme.Clock
 )
 
 $(P
-The part before the name of the type is the name of the module. The output above indicates that $(C Clock) has been defined in the $(C deneme) module.
+类型名称的前部是模块名称。 上面的输出表明 $(C Clock) 已被定义在 $(C deneme) 模块。
 )
 
 $(P
-As we have seen in the previous chapter, this function is almost always overridden to produce a more meaningful $(C string) representation:
+在前面的章节我们已经看到，为产生更有意义的$(C string)表达，函数总是被重写：
 )
 
 ---
@@ -200,7 +200,7 @@ class AlarmClock : Clock {
 ---
 
 $(P
-The output:
+输出：
 )
 
 $(SHELL
@@ -210,15 +210,15 @@ $(SHELL
 $(H5 $(IX opEquals) $(C opEquals))
 
 $(P
-As we have seen in the $(LINK2 /ders/d.en/operator_overloading.html, Operator Overloading chapter), this member function is about the behavior of the $(C ==) operator (and the $(C !=) operator indirectly). The return value of the operator must be $(C true) if the objects are considered to be equal and $(C false) otherwise.
+像我们在 $(LINK2 /ders/d.en/operator_overloading.html, 运算符重载章节) 看到的一样，这个成员函数是关于 $(C ==) 运算符 (和 $(C !=) 不等运算符)的行为。如果对象被认为是相等的，运算符的返回值是 $(C true) 否则为 $(C false)。
 )
 
 $(P
-$(B Warning:) The definition of this function must be consistent with $(C opCmp()); for two objects that $(C opEquals()) returns $(C true), $(C opCmp()) must return zero.
+$(B Warning:) 该函数的定义必须符合 $(C opCmp())； 对两个对象 $(C opEquals()) 返回 $(C true)， $(C opCmp()) 一定返回0。
 )
 
 $(P
-Contrary to structs, the compiler does not call $(C a.opEquals(b)) right away when it sees the expression $(C a&nbsp;==&nbsp;b). When two class objects are compared by the $(C ==) operator, a four-step algorithm is executed:
+跟结构相反， 编译器见到 $(C a&nbsp;==&nbsp;b)时不立即调用 $(C a.opEquals(b))。 当两个对象用 $(C ==) 运算符比较时， 将执行一个四步算法：
 )
 
 ---
@@ -232,51 +232,51 @@ bool opEquals(Object a, Object b) {
 
 $(OL
 
-$(LI If the two variables provide access to the same object (or they are both $(C null)), then they are equal.)
+$(LI 如果两个变量提供对同一对象的访问 (或者他们都是 $(C null)), 那么它们相等。)
 
-$(LI Following from the previous check, if only one is $(C null) then they are not equal.)
+$(LI 紧接着前面的检查，如果仅有一个是 $(C null) 那么它们不等。)
 
-$(LI If both of the objects are of the same type, then $(C a.opEquals(b)) is called to determine the equality.)
+$(LI 如何两个对象类型相同, 那么 $(C a.opEquals(b)) 被调用来决定相等。)
 
-$(LI Otherwise, for the two objects to be considered equal, $(C opEquals) must have been defined for both of their types and $(C a.opEquals(b)) and $(C b.opEquals(a)) must agree that the objects are equal.)
+$(LI 另外，对两个被认为相等的对象，一定曾经为它们的类型以及 $(C a.opEquals(b)) 和 $(C b.opEquals(a)) 定义了 $(C opEquals)，一定同意对象是相等的。)
 
 )
 
 $(P
-Accordingly, if $(C opEquals()) is not provided for a class type, then the values of the objects are not considered; rather, equality is determined by checking whether the two class variables provide access to the same object:
+因此， 如果一个类没有提供 $(C opEquals())，那么对象的值就不被考虑；然而，相等性决定于检查两个类变量是否访问同一对象：
 )
 
 ---
     auto variable0 = new Clock(6, 7, 8);
     auto variable1 = new Clock(6, 7, 8);
 
-    assert(variable0 != variable1); // They are not equal
-                                    // because the objects are
-                                    // different
+    assert(variable0 != variable1); // 它们不相等
+                                    // 因为对象
+                                    // 不同
 ---
 
 $(P
-Even though the two objects are constructed by the same arguments above, the variables are not equal because they are not associated with the same object.
+即使这两个对象构造于上面的同一参数，因为不与同一对象关联，所以变量不相等。
 )
 
 $(P
-On the other hand, because the following two variables provide access to the same object, they are $(I equal):
+另一方面，因为下面两个变量访问同一对象，所以它们是 $(I equal)：
 )
 
 ---
     auto partner0 = new Clock(9, 10, 11);
     auto partner1 = partner0;
 
-    assert(partner0 == partner1);   // They are equal because
-                                    // the object is the same
+    assert(partner0 == partner1);   // 它们是相等的，因为
+                                    // 是同一个对象
 ---
 
 $(P
-Sometimes it makes more sense to compare objects by their values instead of their identities. For example, it is conceivable that $(C variable0) and $(C variable1) above compare equal because their values are the same.
+有时它给人更多的感觉是比较对象的值而不是它们的身份。举例来说， 可以想到，上面的 $(C variable0) 和 $(C variable1)  比较的结果是相等的，因为它们的值一样。
 )
 
 $(P
-Different from structs, the type of the parameter of $(C opEquals) for classes is $(C Object):
+与结构不同， $(C opEquals) 对类的参数类型为 $(C Object)：
 )
 
 ---
@@ -290,19 +290,19 @@ class Clock {
 ---
 
 $(P
-As you will see below, the parameter is almost never used directly. For that reason, it should be acceptable to name it simply as $(C o). Most of the time the first thing to do with that parameter is to use it in a type conversion.
+正如您将在下面看到的，该参数几乎从未直接使用。出于这个原因，将它简单的命名为 $(C o)，应该是可以接受的。大部分时间，该参数所做的第一件事是在类型转换中使用它。
 )
 
 $(P
-The parameter of $(C opEquals) is the object that appears on the right-hand side of the $(C ==) operator:
+$(C opEquals) 的参数是在$(C ==) 运算符的右手侧出现的对象：
 )
 
 ---
-    variable0 == variable1;    // o represents variable1
+    variable0 == variable1;    // o 表示 variable1
 ---
 
 $(P
-Since the purpose of $(C opEquals()) is to compare two objects of this class type, the first thing to do is to convert $(C o) to a variable of the same type of this class. Since it would not be appropriate to modify the right-hand side object in an equality comparison, it is also proper to convert the type as $(C const):
+由于 $(C opEquals()) 的目的是比较类类型的两个对象，要做的第一件事是转换 $(C o) 为该类的同类型的一个变量。因为在一个相等性的比较中，修改右手侧的对象是不恰当的，所以转换它的类型为 $(C const) 也是合适的：
 )
 
 ---
@@ -314,7 +314,7 @@ Since the purpose of $(C opEquals()) is to compare two objects of this class typ
 ---
 
 $(P
-As you would remember, $(C rhs) is a common abbreviation for $(I right-hand side). Also, $(C std.conv.to) can be used for the conversion as well:
+正如您所记得的，$(C rhs) 是 $(I right-hand side) 的通用缩写。同时，$(C std.conv.to) 用于转换：
 )
 
 ---
@@ -324,11 +324,11 @@ import std.conv;
 ---
 
 $(P
-If the original object on the right-hand side can be converted to $(C Clock), then $(C rhs) becomes a non-$(C null) class variable. Otherwise, $(C rhs) is set to $(C null), indicating that the objects are not of the same type.
+如果在右手侧上的原始对象可转换为 $(C Clock)，则 $(C rhs) 变为非 $(C null) 类变量。否则，$(C rhs) 被设置为 $(C null)，这表明这俩对象不是同一类型。
 )
 
 $(P
-According to the design of a program, it may make sense to compare objects of two incompatible types. I will assume here that for the comparison to be valid, $(C rhs) must not be $(C null); so, the first logical expression in the following $(C return) statement checks that it is not $(C null). Otherwise, it would be an error to try to access the members of $(C rhs):
+根据程序的设计，它给人的感觉就像比较两个不相干的类型。在这儿我假设比较有效，$(C rhs) 不能是 $(C null); 因此，在下面的第一个逻辑表达式 $(C return) 语句检查，它非 $(C null)。否则，尝试访问 $(C rhs) 的成员将会产生错误：
 )
 
 ---
@@ -351,20 +351,20 @@ class Clock {
 ---
 
 $(P
-With that definition, $(C Clock) objects can now be compared by their values:
+根据定义， $(C Clock) 对象现在能根据它们的值做比较：
 )
 
 ---
     auto variable0 = new Clock(6, 7, 8);
     auto variable1 = new Clock(6, 7, 8);
 
-    assert(variable0 == variable1); // Now they are equal
-                                    // because their values
-                                    // are equal
+    assert(variable0 == variable1); // 现在它们相等
+                                    // 因为它们的值
+                                    // 相等
 ---
 
 $(P
-When defining $(C opEquals) it is important to remember the members of the superclass. For example, when comparing objects of $(C AlarmClock) it would make sense to also consider the inherited members:
+当定义 $(C opEquals) 时一定要记住，超类的成员是非常重要的。 例如，当比较 $(C AlarmClock) 时，给人感觉就是它也考虑到了继承的成员：
 )
 
 ---
@@ -386,25 +386,25 @@ class AlarmClock : Clock {
 ---
 
 $(P
-That expression could be written as $(C super&nbsp;==&nbsp;o) as well. However, that would initiate the four-step algorithm again and as a result, the code might be a little slower.
+表达式将会写成 $(C super&nbsp;==&nbsp;o) 这样。然而，这将再次开始一个四步算法，结果就是代码可能有点慢。
 )
 
 $(H5 $(IX opCmp) $(C opCmp))
 
 $(P
-This operator is used when sorting class objects. $(C opCmp) is the function that gets called behind the scenes for the $(C <), $(C <=), $(C >), and $(C >=).
+这个运算符会在排序类对象时用到。$(C opCmp) 函数将在后面 $(C <), $(C <=), $(C >), and $(C >=) 这些场景中被调用。
 )
 
 $(P
-This operator must return a negative value when the left-hand object is before, a positive value when the left-hand object is after, and zero when both objects have the same sorting order.
+当左手侧对象在前时，该运算符返回负值，在后时，返回正值。当两个对象具有一致的排序顺序时为零。
 )
 
 $(P
-$(B Warning:) The definition of this function must be consistent with $(C opEquals()); for two objects that $(C opEquals()) returns $(C true), $(C opCmp()) must return zero.
+$(B Warning:) 函数的定义一定与 $(C opEquals()) 一致的；对象间的 $(C opEquals()) 返回 $(C true), $(C opCmp()) 一定返回0。
 )
 
 $(P
-Unlike $(C toString) and $(C opEquals), there is no default implementation of this function in $(C Object). If the implementation is not available, comparing objects for sort order causes an exception to be thrown:
+不像 $(C toString) 和 $(C opEquals)，$(C Object) 里没有这个函数的默认实现。如果实现不可用，为排序而比较对象会抛出异常：
 )
 
 ---
@@ -419,7 +419,7 @@ object.Exception: need opCmp for class deneme.Clock
 )
 
 $(P
-It is up to the design of the program what happens when the left-hand and right-hand objects are of different types. One way is to take advantage of the order of types that is maintained by the compiler automatically. This is achieved by calling the $(C opCmp) function on the $(C typeid) values of the two types:
+当左、右手侧对象的类型不同时，它取决于程序的设计怎么做。一种方式是利用编译器自动保持的类型排序。这通过对两个类型的 $(C typeid) 值调用 $(C opCmp) 函数来实现：
 )
 
 ---
@@ -429,15 +429,15 @@ class Clock {
     int second;
 
     override int opCmp(Object o) const {
-        /* Taking advantage of the automatically-maintained
-         * order of the types. */
+        /* 利用自动保持的
+         * 类型排序。 */
         if (typeid(this) != typeid(o)) {
             return typeid(this).opCmp(typeid(o));
         }
 
         auto rhs = cast(const Clock)o;
-        /* No need to check whether rhs is null, because it is
-         * known at this line that it has the same type as o. */
+        /* 没有必要检查 rhs 是 null, 因为已经知道
+         * 它与 o 具有同一类型。*/
 
         if (hour != rhs.hour) {
             return hour - rhs.hour;
@@ -455,7 +455,7 @@ class Clock {
 ---
 
 $(P
-The definition above first checks whether the types of the two objects are the same. If not, it uses the ordering of the types themselves. Otherwise, it compares the objects by the values of their $(C hour), $(C minute), and $(C second) members.
+上面的定义首先检查两个对象的类型是否一致。若不一致，它使用他们自己的类型顺序。否则，它通过它们的 $(C hour), $(C minute), and $(C second) 成员值来比较对象。
 )
 
 $(P
@@ -479,7 +479,7 @@ A chain of ternary operators may also be used:
 ---
 
 $(P
-If important, the comparison of the members of the superclass must also be considered. The following $(C AlarmClock.opCmp) is calling $(C Clock.opCmp) first:
+如果重要，也一定要考虑比较成员的超类。下面 $(C AlarmClock.opCmp) 先被 $(C Clock.opCmp) 调用：
 )
 
 ---
@@ -505,11 +505,11 @@ class AlarmClock : Clock {
 ---
 
 $(P
-Above, if the superclass comparison returns a nonzero value then that result is used because the sort order of the objects is already determined by that value.
+如前，如果超类的比较返回一个非零值，因为对象的排序已经由值决定，那结果就可用。
 )
 
 $(P
-$(C AlarmClock) objects can now be compared for their sort orders:
+$(C AlarmClock) objects 因为它们的排序顺序现在可以比较：
 )
 
 ---
@@ -520,13 +520,13 @@ $(C AlarmClock) objects can now be compared for their sort orders:
 ---
 
 $(P
-$(C opCmp) is used by other language features and libraries as well. For example, the $(C sort()) function takes advantage of $(C opCmp) when sorting elements.
+$(C opCmp) 也被其它语言的特征和库使用。例如，$(C sort()) 函数利用 $(C opCmp) 排序元素。
 )
 
-$(H6 $(C opCmp) for string members)
+$(H6 字符串成员的 $(C opCmp))
 
 $(P
-When some of the members are strings, they can be compared explicitly to return a negative, positive, or zero value:
+当一些成员是字符串时，它们能被明确比较来返回负值，正徝，或零值：
 )
 
 ---
@@ -555,7 +555,7 @@ class Student {
 ---
 
 $(P
-Instead, the existing $(C std.algorithm.cmp) function can be used, which happens to be faster as well:
+另外，也可以使用现有的 $(C std.algorithm.cmp) 函数，这恐怕更快：
 )
 
 ---
@@ -576,35 +576,35 @@ class Student {
 ---
 
 $(P
-Also note that $(C Student) does not support comparing incompatible types by enforcing that the conversion from $(C Object) to $(C Student) is possible.
+注意，$(C Student) 不支持比较不相容的类型，通过执行由 $(C Object) 到 $(C Student) 的转换，那就可以了。
 )
 
 $(H5 $(IX toHash) $(C toHash))
 
 $(P
-This function allows objects of a class type to be used as associative array $(I keys). It does not affect the cases where the type is used as associative array $(I values).
+该函数允许类的类型的对象做为关联数组的 $(I keys)。 它不影响类型用作关联数组的 $(I values)。
 )
 
 $(P
-$(B Warning:) Defining only this function is not sufficient. In order for the class type to be used as associative array keys, consistent definitions of $(C opEquals) and $(C opCmp) must also be defined.
+$(B Warning:) 只定义这个函数是不够的。为了让类类型能被用做关联数组的键，也一定要做 $(C opEquals) 和 $(C opCmp) 的一致性定义。
 )
 
-$(H6 $(IX hash table) Hash table indexes)
+$(H6 $(IX hash table) 哈希表索引)
 
 $(P
-Associative arrays are a hash table implementation. Hash table is a very fast data structure when it comes to searching elements in the table. ($(I Note: Like most other things in software, this speed comes at a cost: Hash tables must keep elements in an unordered way, and they may be taking up space that is more than exactly necessary.))
-)
-
-$(P
-The high speed of hash tables comes from the fact that they first produce integer values for keys. These integers are called $(I hash values). The hash values are then used for indexing into an internal array that is maintained by the table.
+关联数组是一个哈希表实现。哈希表是一个在表中搜索元素时速度非常快的数据结构。($(I Note: 像软件界大部分别的事情一样，速度决定价值：哈希表一定保持元素无序，而且它们占据超过完全必需的空间。))
 )
 
 $(P
-A benefit of this method is that any type that can produce unique integer values for its objects can be used as the key type of associative arrays. $(C toHash) is the function that returns the hash value for an object.
+哈希表的高速来自于它们最初为键产生整数值。这些整数值叫做 $(I hash values). 哈希值被用作索引，放在由表维护的整数数组里。
 )
 
 $(P
-Even $(C Clock) objects can be used as associative array key values:
+这种方法的好处是能为它们的对象产生唯一整数值的任何类型都能用作关联数组的键类型。$(C toHash) 是为对象返回哈希值的函数。
+)
+
+$(P
+甚至 $(C Clock) 对象能被用作关联数组的键值：
 )
 
 ---
@@ -613,11 +613,11 @@ Even $(C Clock) objects can be used as associative array key values:
 ---
 
 $(P
-The default definition of $(C toHash) that is inherited from $(C Clock) produces different hash values for different objects without regard to their values. This is similar to how the default behavior of $(C opEquals) considers different objects as being not equal.
+$(C toHash) 的默认定义是继承自 $(C Clock)，对不同的对象产生不同的哈希值，不涉及它们的值。这个跟 $(C opEquals) 把不同对象视为不相等的默认行为很相似。
 )
 
 $(P
-The code above compiles and runs even when there is no special definition of $(C toHash) for $(C Clock). However, its default behavior is almost never what is desired. To see that default behavior, let's try to access an element by an object that is different from the one that has been used when inserting the element. Although the new $(C Clock) object below has the same value as the $(C Clock) object that has been used when inserting into the associative array above, the value cannot be found:
+对 $(C Clock) 即使没有特殊的 $(C toHash) 定义，上面的代码也编译运行。然而，它的默认行为几乎没有必要。为看到默认行为，当插入元素时，我们来尝试访问一个对象的元素，该对象不同于已有对象。然而，当把下面新的 $(C Clock) 对象插入上面的关联数组时，虽与已有的 $(C Clock) 对象有相同的值，但值还是没找到：
 )
 
 ---
@@ -630,7 +630,7 @@ The code above compiles and runs even when there is no special definition of $(C
 ---
 
 $(P
-According to the $(C in) operator, there is no element in the table that corresponds to the value $(C Clock(12,&nbsp;0,&nbsp;0)):
+由 $(C in) 运算符得知，表中没有元素符合 $(C Clock(12,&nbsp;0,&nbsp;0)) 的值：
 )
 
 $(SHELL
@@ -638,31 +638,31 @@ Missing
 )
 
 $(P
-The reason for this surprising behavior is that the key object that has been used when inserting the element is not the same as the key object that has been used when accessing the element.
+这个让人惊讶的行为的原因是那个插入元素时已有的键对象与访问元素时那个已有的键对象并不相同。
 )
 
-$(H6 Selecting members for $(C toHash))
+$(H6 为 $(C toHash) 选取成员)
 
 $(P
-Although the hash value is calculated from the members of an object, not every member is suitable for this task.
-)
-
-$(P
-The candidates are the members that distinguish objects from each other. For example, the members $(C name) and $(C lastName) of a $(C Student) class would be suitable if those members can be used for identifying objects of that type.
+虽然哈希值计算自对象的成员，但并不是每个成员都适合作这个任务。
 )
 
 $(P
-On the other hand, a $(C grades) array of a $(C Student) class would not be suitable both because many objects may have the same array and also it is likely that the $(C grades) array may change over time.
-)
-
-$(H6 Calculating hash values)
-
-$(P
-The choice of hash values has a direct effect on the performance of associative arrays. Furthermore, a hash calculation that is effective on one type of data may not be as effective on another type of data. As $(I hash algorithms) are beyond the scope of this book, I will give just one guideline here: In general, it is better to produce different hash values for objects that are considered to have different values. However, it is not an error if two objects with different values produce the same index value; it is merely undesirable for performance reasons.
+候选成员应能分清各个对象。例如，$(C Student) 中的 $(C name) 和  $(C lastName) 适合作能识别对象类型的成员。
 )
 
 $(P
-It is conceivable that all of the members of $(C Clock) are significant to distinguish its objects from each other. For that reason, the hash values can be calculated from the values of its three members. $(I The number of seconds since midnight) would be effective hash values for objects that represent different points in time:
+另一方面， $(C Student) 类中的 $(C grades) 数组是不适合的，因为好多对象有一样的数组而且 $(C grades) 数组也有可能随着时间的变化而改变。
+)
+
+$(H6 哈希值的计算)
+
+$(P
+哈希值的选择对关联数组的性能有直接的影响。此外，一个数据类型的哈希计算有效，并不代表另一个同样有效。As $(I hash 算法) 超出了本书的范围，在这儿我将只给一个引导：通常，最好是有不同值的对象产生不同的哈希值。然而，有不同值的对象产生同一索引值并不是一个错误；只是因为性能原因而不受欢迎。
+)
+
+$(P
+可以想到，对于区分不同对象， $(C Clock) 的所有成员都一样。因此，可从三个成员的值来计算哈希值。对于表示不同时间点的对象，$(I 午夜后的秒钟数) 将是有效的哈希值：
 )
 
 ---
@@ -682,11 +682,11 @@ class Clock {
 ---
 
 $(P
-Whenever $(C Clock) is used as the key type of associative arrays, that special definition of $(C toHash) would be used. As a result, even though the two key objects of $(C Clock(12,&nbsp;0,&nbsp;0)) above are distinct, they would now produce the same hash value.
+只要 $(C Clock) 被用作关联数组的键类型， $(C toHash) 的特殊定义就可用。 因此，尽管上面两个 $(C Clock(12,&nbsp;0,&nbsp;0)) 键对象截然不同，它们也将产生同一个哈希值。
 )
 
 $(P
-The new output:
+新的输出：
 )
 
 $(SHELL
@@ -694,7 +694,7 @@ Exists
 )
 
 $(P
-Similar to the other member functions, the superclass may need to be considered as well. For example, $(C AlarmClock.toHash) can take advantage of $(C Clock.toHash) during its index calculation:
+类似于其它成员函数，可能需要考虑一下超类。例如，在索引计算期间， $(C AlarmClock.toHash) 可以利用 $(C Clock.toHash) ：
 )
 
 ---
@@ -711,19 +711,19 @@ class AlarmClock : Clock {
 ---
 
 $(P
-$(I $(B Note:) Take the calculation above just as an example. In general, adding integer values is not an effective way of generating hash values.)
+$(I $(B Note:) 以上所做的计算只是一个例子。一般情况下，填加整数值并不是一种有效的产生哈希值的方式。)
 )
 
 $(P
-There are existing efficient algorithms for calculating hash values for variables of floating point, array, and struct types. These algorithms are available to the programmer as well.
+现有的计算哈希值的高效算法主要是针对浮点变量、数组、结构类型。这些算法对程序员来说是可用的。
+)
+
+$($(P
+$(IX getHash) 所作的就是对每个成员的 $(C typeid) 调用 $(C getHash()) 。这种方法的语法对浮点、数组、类结构都是一样的。
 )
 
 $(P
-$(IX getHash) What needs to be done is to call $(C getHash()) on the $(C typeid) of each member. The syntax of this method is the same for floating point, array, and struct types.
-)
-
-$(P
-For example, hash values of a $(C Student) type can be calculated from its $(C name) member as in the following code:
+例如，在下面的代码中， $(C Student) 类型的哈希值可以使用$(C name) 成员来计算：
 )
 
 ---
@@ -738,20 +738,20 @@ class Student {
 }
 ---
 
-$(H6 Hash values for structs)
+$(H6 结构的哈希值)
 
 $(P
-Since structs are value types, hash values for their objects are calculated automatically by an efficient algorithm. That algorithm takes all of the members of the object into consideration.
+由于结构是值类型，对它们的对象的哈希值通过一个高效算法来自动计算。那个算法把对象的所有成员都考虑进去了。
 )
 
 $(P
-When there is a specific reason like needing to exclude certain members from the hash calculation, $(C toHash()) can be overridden for structs as well.
+特殊情况下，像哈希计算时需要排除某些确定成员，也可重写结构的 $(C toHash()) 。 
 )
 
 $(PROBLEM_COK
 
 $(PROBLEM
-Start with the following class, which represents colored points:
+首先用下面的类表示带颜色的点：
 
 ---
 enum Color { blue, green, red }
@@ -770,22 +770,22 @@ class Point {
 ---
 
 $(P
-Implement $(C opEquals) for this class in a way that ignores colors. When implemented in that way, the following $(C assert) check should pass:
+对该类用忽略颜色的方法实现 $(C opEquals) 。在实现之后，下面的 $(C assert) 检查应该通过：
 )
 
 ---
-    // Different colors
+    // 不同的颜色
     auto bluePoint = new Point(1, 2, Color.blue);
     auto greenPoint = new Point(1, 2, Color.green);
 
-    // They are still equal
+    // 它们仍然相等
     assert(bluePoint == greenPoint);
 ---
 
 )
 
 $(PROBLEM
-Implement $(C opCmp) by considering first $(C x) then $(C y). The following $(C assert) checks should pass:
+通过先考虑$(C x) 然后 $(C y) 来实现 $(C opCmp) 。随后的 $(C assert) 检查应该通过：
 
 ---
     auto redPoint1 = new Point(-1, 10, Color.red);
@@ -795,20 +795,20 @@ Implement $(C opCmp) by considering first $(C x) then $(C y). The following $(C 
     assert(redPoint1 < bluePoint);
     assert(redPoint3 < redPoint2);
 
-    /* Even though blue is before green in enum Color,
-     * because color is being ignored, bluePoint must not be
-     * before greenPoint. */
+    /* 在 enum Color中，即使 蓝色在绿色之前，
+     *因为颜色已被忽略，bluePoint 不一定
+     * 在greenPoint之前。*/
     assert(!(bluePoint < greenPoint));
 ---
 
 $(P
-Like the $(C Student) class above, you can implement $(C opCmp) by excluding incompatible types by the help of $(C enforce).
+像上面的 $(C Student) 类，在 $(C enforce) 的帮助下，通过排除不符合的类型，你能实现 $(C opCmp)。
 )
 
 )
 
 $(PROBLEM
-Consider the following class that combines three $(C Point) objects in an array:
+考虑一下下面的类，在一个数组中有三个 $(C Point)  对象：
 
 ---
 class TriangularArea {
@@ -821,32 +821,32 @@ class TriangularArea {
 ---
 
 $(P
-Implement $(C toHash) for that class. Again, the following $(C assert) checks should pass:
+对该类实现 $(C toHash) 。紧接着 $(C assert) 检查应该再次通过：
 )
 
 ---
-    /* area1 and area2 are constructed by distinct points that
-     * happen to have the same values. (Remember that
-     * bluePoint and greenPoint should be considered equal.) */
+    /* area1 和 area2 由明显不同的点构造
+     * 即使有相同的值。(记得
+     * bluePoint 和 greenPoint 应该被认为是相等的。) */
     auto area1 = new TriangularArea(bluePoint, greenPoint, redPoint1);
     auto area2 = new TriangularArea(greenPoint, bluePoint, redPoint1);
 
-    // The areas should be equal
+    // 它们应该是相等的
     assert(area1 == area2);
 
-    // An associative array
+    // 一个关联数组
     double[TriangularArea] areas;
 
-    // A value is being entered by area1
+    //  由area1存进一个值
     areas[area1] = 1.25;
 
-    // The value is being accessed by area2
+    // area2访问这个值
     assert(area2 in areas);
     assert(areas[area2] == 1.25);
 ---
 
 $(P
-Remember that $(C opEquals) and $(C opCmp) must also be defined when $(C toHash) is defined.
+记住在定义 $(C toHash) 的时候也一定要定义 $(C opEquals) 和 $(C opCmp) 。
 )
 
 )
@@ -854,8 +854,8 @@ Remember that $(C opEquals) and $(C opCmp) must also be defined when $(C toHash)
 )
 
 Macros:
-        SUBTITLE=Object
+        SUBTITLE=对象
 
-        DESCRIPTION=Object, the topmost class in class hierarchies in the D programming language
+        DESCRIPTION=对象， D语言里类层次结构中最顶层的类
 
-        KEYWORDS=d programming lesson book tutorial class Object opEquals opCmp toHash toString
+        KEYWORDS=D 语言编程教程 class Object opEquals opCmp toHash toString
