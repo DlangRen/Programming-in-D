@@ -30,6 +30,9 @@ Instead of falling for getting things done quickly, "Programming in D" focuses o
 - 所有翻译相关 `commit` 消息必须精确后缀文件名：` ~ 相应文件名` ，多个文件务必多次 `commit` 以便于浏览
 - 释义差异一概以张雪平、谭丽娜的译著《D程序设计语言》为准
 - 易于混淆的概念（例如 `property` 与 `attribute`）不译，只需在章节中首次出现时注明字面释义即可，示例：`attribute（属性）`
+- .d 文件中符号 `$(CH4，$(P，$(LI，$(CODE_NOATE，注释//　，/*　*/` 中包含的内容需翻译；符号 `$(IX` 中的内容只译非关键字部分
+- 中文语句中，英文标点`,` `.` `:` 应改为中文标点符号`，` `。` `：`
+- 为保证翻译风格一致约定了部分单词的中文翻译，参见 wiki
 
 ### Steps 步骤
  1. 在 `Orphans 待领取` 中选择自己心水的章节并发布Issue以领取，格式：`[领取] 章节原名 By 领取人`
