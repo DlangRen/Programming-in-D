@@ -101,7 +101,7 @@ class TriangularArea {
 
 
 Macros:
-        SUBTITLE=对象 解答
+        SUBTITLE=对象习题解答
 
         DESCRIPTION=D语言编程 习题解答：对象
 
