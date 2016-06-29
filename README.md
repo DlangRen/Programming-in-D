@@ -31,7 +31,8 @@ Instead of falling for getting things done quickly, "Programming in D" focuses o
 - 释义差异一概以张雪平、谭丽娜的译著《D程序设计语言》为准
 - 易于混淆的概念（例如 `property` 与 `attribute`）不译，只需在章节中首次出现时注明字面释义即可，示例：`attribute（属性）`
 - .d 文件中符号 `$(CH4，$(P，$(LI，$(CODE_NOATE，注释//　，/*　*/` 中包含的内容需翻译；符号 `$(IX` 中的内容只译非关键字部分
-- 中文语句中，英文标点`,` `.` `:` 应改为中文标点符号`，` `。` `：`
+- 中文语句中，英文标点`,` `.` `:` 等等应改为中文标点符号`，` `。` `：`
+- 链接中 'd.en' 都需改为 'd.cn'
 - 为保证翻译风格一致约定了部分单词的中文翻译，参见 wiki
 
 ### Steps 步骤
@@ -52,6 +53,8 @@ Instead of falling for getting things done quickly, "Programming in D" focuses o
 - [前言 Preface（合并自：Acknowledgments，Introduction）](ddili/src/ders/d.cn/preface.d) By IceNature
 - [文件 Files](ddili/src/ders/d.cn/files.d) By IceNature
 - [if语句 if Statement](ddili/src/ders/d.cn/if.d) By IceNature
+- [auto 和 typeof auto and typeof](ddili/src/ders/d.cn/auto_and_typeof.d) By andot
+- [Object](ddili/src/ders/d.cn/object.d) By 大处着手小处着眼
 
 ### Outdated 旧项目待更新
 - [The Hello World Program](ddili/src/ders/d.cn/hello_world.d) By Lucifer
@@ -64,20 +67,18 @@ Instead of falling for getting things done quickly, "Programming in D" focuses o
 - [Associative Arrays](ddili/src/ders/d.cn/aa.d) By 大处着手小处着眼
 - [Strings](ddili/src/ders/d.cn/strings.d) By 大处着手小处着眼
 - [scope](ddili/src/ders/d.cn/scope.d) By 大处着手小处着眼
-- [auto and typeof](ddili/src/ders/d.cn/auto_and_typeof.d) By 小马哥[̲̅V̲̅I̲̅P̲̅]
 
 ### Adopted 已被领取
 - [Lifetimes and Fundamental Operations](ddili/src/ders/d.cn/lifetimes.d) By 渡世白玉
-- [Object](ddili/src/ders/d.cn/object.d) By 大处着手小处着眼
 - [Templates](ddili/src/ders/d.cn/templates.d) By meatatt
 - [do-while Loop](ddili/src/ders/d.cn/do_while.d) By mogucpp
 - [Ranges](ddili/src/ders/d.cn/ranges.d) By Lucifer
 - [Parallelism](ddili/src/ders/d.cn/parallelism.d) By IceNature
+- [while Loop](ddili/src/ders/d.cn/while.d) By KimmyLeo
 
 ### Orphans 待领取
 - [Foreword by Andrei Alexandrescu](ddili/src/ders/d.cn/foreword2.d)
 - [Logical Expressions](ddili/src/ders/d.cn/logical_expressions.d)
-- [while Loop](ddili/src/ders/d.cn/while.d)
 - [Integers and Arithmetic Operations](ddili/src/ders/d.cn/arithmetic.d)
 - [Floating Point Types](ddili/src/ders/d.cn/floating_point.d)
 - [Arrays](ddili/src/ders/d.cn/arrays.d)

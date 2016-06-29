@@ -62,7 +62,7 @@ $(LI $(LINK2 /ders/d.cn/slices.html, Slices and Other Array Features) $(INDEX_KE
 $(LI $(LINK2 /ders/d.cn/strings.html, Strings) $(INDEX_KEYWORDS char[] wchar[] dchar[] string wstring dstring))
 $(LI $(LINK2 /ders/d.cn/stream_redirect.html, Redirecting Standard Input and Output Streams))
 $(LI $(LINK2 /ders/d.cn/files.html, 文件) $(INDEX_KEYWORDS File))
-$(LI $(LINK2 /ders/d.cn/auto_and_typeof.html, auto and typeof) $(INDEX_KEYWORDS auto typeof))
+$(LI $(LINK2 /ders/d.cn/auto_and_typeof.html, auto 和 typeof) $(INDEX_KEYWORDS auto typeof))
 $(LI $(LINK2 /ders/d.cn/name_space.html, 命名作用域))
 $(LI $(LINK2 /ders/d.cn/for.html, for Loop) $(INDEX_KEYWORDS for))
 $(LI $(LINK2 /ders/d.cn/ternary.html, Ternary Operator ?:) $(INDEX_KEYWORDS ?:))

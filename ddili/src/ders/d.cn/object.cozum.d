@@ -1,11 +1,11 @@
 Ddoc
 
-$(COZUM_BOLUMU $(CH4 Object)对象)
+$(COZUM_BOLUMU $(CH4 Object))
 
 $(OL
 
 $(LI
-对于相等性比较， $(C rhs) 属非$(C null) 并且成员相等就足够了：
+对于相等性比较，$(C rhs) 属非 $(C null) 并且成员相等就足够了：
 
 ---
 enum Color { blue, green, red }
@@ -28,7 +28,7 @@ class Point {
 )
 
 $(LI
-当右手侧对象的类型也是 $(C Point)，首页根据 $(C x) 成员的值来比较，然后是 $(C y) 成员的值：
+当右手侧对象的类型也是 $(C Point)，首先根据 $(C x) 成员的值来比较，然后是 $(C y) 成员的值：
 
 ---
 class Point {
@@ -101,8 +101,8 @@ class TriangularArea {
 
 
 Macros:
-        SUBTITLE=对象习题解答
+        SUBTITLE=Object 习题解答
 
-        DESCRIPTION=D语言编程习题解答：对象
+        DESCRIPTION=D语言编程习题解答：Object
 
         KEYWORDS=D语言编程教程 Object

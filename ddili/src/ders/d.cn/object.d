@@ -1,17 +1,17 @@
 Ddoc
 
-$(DERS_BOLUMU $(IX Object) $(CH4 Object)对象)
+$(DERS_BOLUMU $(IX Object) $(CH4 Object))
 
 $(P
-类没有明确继承自任何类，自动继承自 $(C Object) 类。
+没有明确地继承自任何基类的类自动继承自 $(C Object) 类。
 )
 
 $(P
-根据这一定义, 任何类层次的最顶端的类继承自 $(C Object)：
+根据这一定义, 任何类继承结构中的最顶端基类继承自 $(C Object)：
 )
 
 ---
-// ": Object" 没有写; 它是自动的
+// “: Object”没有写；它是自动的
 class MusicalInstrument $(DEL : Object ) {
     // ...
 }
@@ -23,7 +23,7 @@ class StringInstrument : MusicalInstrument {
 ---
 
 $(P
-由于顶层类继承自 $(C Object)，每个类也间接继承自 $(C Object)。 从某种意义上来讲， 每个类"是一个" $(C Object)。
+由于顶端类继承自 $(C Object)，每个类也间接继承自 $(C Object)。 从某种意义上来讲， 每个类“是一个”$(C Object)。
 )
 
 $(P
@@ -45,7 +45,7 @@ $(P
 因为这些函数是继承的， 所以子类重新定义的时候需要关键字 $(C override)。
 )
 
-$(P $(I $(B Note:) $(C Object) 也定义了别的成员。 这章将只涉及上面所提到的四个成员函数。)
+$(P $(I $(B 注：)$(C Object) 也定义了别的成员。 这章将只涉及上面所提到的四个成员函数。)
 )
 
 $(H5 $(IX typeid) $(IX TypeInfo) $(C typeid) 和 $(C TypeInfo))
@@ -79,8 +79,8 @@ void main() {
 ---
 
 $(P
-   上面的$(C typeid) 表达式用于像 $(C Violin) 这样的 $(I types) 自身。 $(C typeid) 也能带出一个 $(I expression)，这种情况下，它为那个表达式的运行时类型返回 $(C TypeInfo) 对象。 举例来说，下列的函数有两个不同参数但类型相关：
-
+上面的$(C typeid) 表达式用于像 $(C Violin) 这样的 $(I types) 自身。 $(C typeid) 也能带出一个 $(I expression)，这种情况下，它为那个表达式的运行时类型返回 $(C TypeInfo) 对象。 举例来说，下列的函数有两个不同参数但类型相关：
+)
 
 ---
 import std.stdio;
@@ -210,11 +210,11 @@ $(SHELL
 $(H5 $(IX opEquals) $(C opEquals))
 
 $(P
-像我们在 $(LINK2 /ders/d.en/operator_overloading.html, 运算符重载章节) 看到的一样，这个成员函数是关于 $(C ==) 运算符 (和 $(C !=) 不等运算符)的行为。如果对象被认为是相等的，运算符的返回值是 $(C true) 否则为 $(C false)。
+如我们在 $(LINK2 /ders/d.cn/operator_overloading.html, 运算符重载) 一章中看到的一样，这个成员函数是关于 $(C ==) 运算符（和 $(C !=) 不等运算符）的行为。如果对象被认为是相等的，运算符的返回值是 $(C true) 否则为 $(C false)。
 )
 
 $(P
-$(B Warning:) 该函数的定义必须符合 $(C opCmp())； 对两个对象 $(C opEquals()) 返回 $(C true)， $(C opCmp()) 一定返回0。
+$(B 注意：)该函数的定义必须符合 $(C opCmp())；对两个对象 $(C opEquals()) 返回 $(C true)， $(C opCmp()) 一定返回0。
 )
 
 $(P
@@ -328,7 +328,7 @@ $(P
 )
 
 $(P
-根据程序的设计，它给人的感觉就像比较两个不相干的类型。在这儿我假设比较有效，$(C rhs) 不能是 $(C null); 因此，在下面的第一个逻辑表达式 $(C return) 语句检查，它非 $(C null)。否则，尝试访问 $(C rhs) 的成员将会产生错误：
+根据程序的设计，它给人的感觉就像比较两个不相干的类型。在这儿我假设比较有效，$(C rhs) 不能是 $(C null)；因此，在下面的第一个逻辑表达式 $(C return) 语句检查，它非 $(C null)。否则，尝试访问 $(C rhs) 的成员将会产生错误：
 )
 
 ---
@@ -400,7 +400,7 @@ $(P
 )
 
 $(P
-$(B Warning:) 函数的定义一定与 $(C opEquals()) 一致的；对象间的 $(C opEquals()) 返回 $(C true), $(C opCmp()) 一定返回0。
+$(B 注意：)函数的定义一定与 $(C opEquals()) 一致的；对象间的 $(C opEquals()) 返回 $(C true), $(C opCmp()) 一定返回0。
 )
 
 $(P
@@ -586,13 +586,13 @@ $(P
 )
 
 $(P
-$(B Warning:) 只定义这个函数是不够的。为了让类类型能被用做关联数组的键，也一定要做 $(C opEquals) 和 $(C opCmp) 的一致性定义。
+$(B 注意：)只定义这个函数是不够的。为了让类类型能被用做关联数组的键，也一定要做 $(C opEquals) 和 $(C opCmp) 的一致性定义。
 )
 
 $(H6 $(IX hash table) 哈希表索引)
 
 $(P
-关联数组是一个哈希表实现。哈希表是一个在表中搜索元素时速度非常快的数据结构。($(I Note: 像软件界大部分别的事情一样，速度决定价值：哈希表一定保持元素无序，而且它们占据超过完全必需的空间。))
+关联数组是一个哈希表实现。哈希表是一个在表中搜索元素时速度非常快的数据结构。($(I 注：像软件界大部分别的事情一样，速度决定价值：哈希表一定保持元素无序，而且它们占据超过完全必需的空间。))
 )
 
 $(P
@@ -711,14 +711,14 @@ class AlarmClock : Clock {
 ---
 
 $(P
-$(I $(B Note:) 以上所做的计算只是一个例子。一般情况下，填加整数值并不是一种有效的产生哈希值的方式。)
+$(I $(B 注：)以上所做的计算只是一个例子。一般情况下，填加整数值并不是一种有效的产生哈希值的方式。)
 )
 
 $(P
 现有的计算哈希值的高效算法主要是针对浮点变量、数组、结构类型。这些算法对程序员来说是可用的。
 )
 
-$($(P
+$(P
 $(IX getHash) 所作的就是对每个成员的 $(C typeid) 调用 $(C getHash()) 。这种方法的语法对浮点、数组、类结构都是一样的。
 )
 
@@ -795,7 +795,7 @@ $(PROBLEM
     assert(redPoint1 < bluePoint);
     assert(redPoint3 < redPoint2);
 
-    /* 在 enum Color中，即使 蓝色在绿色之前，
+    /* 在 enum Color 中，即使 蓝色在绿色之前，
      *因为颜色已被忽略，bluePoint 不一定
      * 在greenPoint之前。*/
     assert(!(bluePoint < greenPoint));
@@ -854,8 +854,8 @@ $(P
 )
 
 Macros:
-        SUBTITLE=对象
+        SUBTITLE=Object
 
-        DESCRIPTION=对象， D语言里类层次结构中最顶层的类
+        DESCRIPTION=Object，D语言里类继承结构中最顶层的类
 
         KEYWORDS=D 语言编程教程 class Object opEquals opCmp toHash toString
