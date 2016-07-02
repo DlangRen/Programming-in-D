@@ -75,6 +75,7 @@ Instead of falling for getting things done quickly, "Programming in D" focuses o
 - [Ranges](ddili/src/ders/d.cn/ranges.d) By Lucifer
 - [Parallelism](ddili/src/ders/d.cn/parallelism.d) By IceNature
 - [while Loop](ddili/src/ders/d.cn/while.d) By KimmyLeo
+- [Exceptions](ddili/src/ders/d.cn/exceptions.d) By xmdqvb
 
 ### Orphans 待领取
 - [Foreword by Andrei Alexandrescu](ddili/src/ders/d.cn/foreword2.d)
@@ -100,7 +101,6 @@ Instead of falling for getting things done quickly, "Programming in D" focuses o
 - [Lvalues and Rvalues](ddili/src/ders/d.cn/lvalue_rvalue.d)
 - [Lazy Operators](ddili/src/ders/d.cn/lazy_operators.d)
 - [Program Environment](ddili/src/ders/d.cn/main.d)
-- [Exceptions](ddili/src/ders/d.cn/exceptions.d)
 - [assert and enforce](ddili/src/ders/d.cn/assert.d)
 - [Unit Testing](ddili/src/ders/d.cn/unit_testing.d)
 - [Contract Programming](ddili/src/ders/d.cn/contracts.d)
