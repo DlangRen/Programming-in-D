@@ -52,7 +52,7 @@ Instead of falling for getting things done quickly, "Programming in D" focuses o
 - [从标准输入中读取数据 Reading from the Standard Input](ddili/src/ders/d.cn/input.d) By Lucifer
 - [前言 Preface（合并自：Acknowledgments，Introduction）](ddili/src/ders/d.cn/preface.d) By IceNature
 - [文件 Files](ddili/src/ders/d.cn/files.d) By IceNature
-- [if语句 if Statement](ddili/src/ders/d.cn/if.d) By IceNature
+- [if 语句 if Statement](ddili/src/ders/d.cn/if.d) By IceNature
 - [auto 和 typeof auto and typeof](ddili/src/ders/d.cn/auto_and_typeof.d) By andot
 - [Object](ddili/src/ders/d.cn/object.d) By 大处着手小处着眼
 
