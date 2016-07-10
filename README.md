@@ -55,6 +55,7 @@ Instead of falling for getting things done quickly, "Programming in D" focuses o
 - [if 语句 if Statement](ddili/src/ders/d.cn/if.d) By IceNature
 - [auto 和 typeof auto and typeof](ddili/src/ders/d.cn/auto_and_typeof.d) By andot
 - [Object](ddili/src/ders/d.cn/object.d) By 大处着手小处着眼
+- [异常 Exceptions](ddili/src/ders/d.cn/exceptions.d) By xmdqvb
 
 ### Outdated 旧项目待更新
 - [The Hello World Program](ddili/src/ders/d.cn/hello_world.d) By Lucifer
@@ -75,7 +76,6 @@ Instead of falling for getting things done quickly, "Programming in D" focuses o
 - [Ranges](ddili/src/ders/d.cn/ranges.d) By Lucifer
 - [Parallelism](ddili/src/ders/d.cn/parallelism.d) By IceNature
 - [while Loop](ddili/src/ders/d.cn/while.d) By KimmyLeo
-- [Exceptions](ddili/src/ders/d.cn/exceptions.d) By xmdqvb
 
 ### Orphans 待领取
 - [Foreword by Andrei Alexandrescu](ddili/src/ders/d.cn/foreword2.d)
