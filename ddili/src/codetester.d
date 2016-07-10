@@ -507,7 +507,7 @@ void removeLeadingTrailingEmptyLines(string fileName)
         // Remove DOS line-endings
         output.writeln(line.filter!(c => c != '\r'));
     }
-	output.close();
+    output.close();
     remove(fileName);
     rename(outFileName, fileName);
 }
