@@ -1,17 +1,17 @@
 Ddoc
 
-$(DERS_BOLUMU $(IX exception) Exceptions)
+$(DERS_BOLUMU $(IX 异常) 异常)
 
 $(P
-Unexpected situations are parts of programs: user mistakes, programming errors, changes in the program environment, etc. Programs must be written in ways to avoid producing incorrect results when faced with such $(I exceptional) conditions.
+意外情况是程序的一部分：用户错误、编程错误、程序运行环境的改变等等。程序面临异常情况时必须以一定的方式来避免生成错误的结果。
 )
 
 $(P
-Some of these conditions may be severe enough to stop the execution of the program. For example, a required piece of information may be missing or invalid, or a device may not be functioning correctly. The exception handling mechanism of D helps with stopping program execution when necessary, and to recover from the unexpected situations when possible.
+这些情况中有些可能严重到足以停止程序的执行。例如，所需的信息可能丢失或无效、或设备可能无法正常工作。D 语言的异常处理机制用以在必要时停止程序的执行，以及在可能时从意外状况中恢复。
 )
 
 $(P
-As an example of a severe condition, we can think of passing an unknown operator to a function that knows only the four arithmetic operators, as we have seen in the exercises of the previous chapter:
+作为一个严重情况的示例，我们可以构想一个将未知操作符传递给只知四个算术操作符的函数，正如我们在之前章节的练习中所看到的那样：
 )
 
 ---
@@ -39,11 +39,11 @@ As an example of a severe condition, we can think of passing an unknown operator
 ---
 
 $(P
-The $(C switch) statement above does not know what to do with operators that are not listed on the $(C case) statements; so throws an exception.
+上方的 $(C switch) 语句不知如何处理那些不在 $(C case) 语句中列出的操作符，所以抛出了异常。
 )
 
 $(P
-There are many examples of thrown exceptions in Phobos. For example, $(C to!int), which can be used to convert a string representation of an integer to an $(C int) value throws an exception when that representation is not valid:
+Phobos 里有很多抛出异常的例子。比如 $(C to!int)，它能将一个整型的字符串表示形式转变为 $(C int) 值，而在该表示形式无效时抛出异常：
 )
 
 ---
@@ -55,7 +55,7 @@ void main() {
 ---
 
 $(P
-The program terminates with an exception that is thrown by $(C to!int):
+该程序以 $(C to!int) 抛出异常而终止：
 )
 
 $(SHELL
@@ -64,35 +64,35 @@ convert value) `hello' of type const(char)[] to type int
 )
 
 $(P
-$(C std.conv.ConvException) at the beginning of the message is the type of the thrown exception object. We can tell from the name that the type is $(C ConvException) that is defined in the $(C std.conv) module.
+信息开头的 $(C std.conv.ConvException) 是抛出的异常对象的类型。我们能由名字来辨认出该类型是定义在 $(C std.conv) 模块的 $(C ConvException)。
 )
 
-$(H5 $(IX throw) The $(C throw) statement to throw exceptions)
+$(H5 $(IX throw) 用以抛出异常的 $(C throw) 语句 )
 
 $(P
-We've seen the $(C throw) statement both in the examples above and in the previous chapters.
-)
-
-$(P
-$(C throw) throws an $(I exception object) and this terminates the current operation of the program. The expressions and statements that are written after the $(C throw) statement are not executed. This behavior is according to the nature of exceptions: they must be thrown when the program cannot continue with its current task.
+我们在上方示例和先前章节中都看到了 $(C throw) 语句。
 )
 
 $(P
-Conversely, if the program could continue then the situation would not warrant throwing an exception. In such cases the function would find a way and continue.
-)
-
-$(H6 $(IX Exception) $(IX Error) $(IX Throwable) The exception types $(C Exception) and $(C Error))
-
-$(P
-Only the types that are inherited from the $(C Throwable) class can be thrown. $(C Throwable) is almost never used directly in programs. The types that are actually thrown are types that are inherited from $(C Exception) or $(C Error), which themselves are the types that are inherited from $(C Throwable). For example, all of the exceptions that Phobos throws are inherited from either $(C Exception) or $(C Error).
+$(C throw) 抛出一个(I 异常对象)并终止当前的程序运行。在 $(C throw) 语句之后的表达式或语句将不会执行。这种行为是出于异常的天性：当程序无法继续执行目前的任务时，它们必须被抛出。
 )
 
 $(P
-$(C Error) represents unrecoverable conditions and is not recommended to be $(I caught). For that reason, most of the exceptions that a program throws are the types that are inherited from $(C Exception). ($(I $(B Note:) Inheritance is a topic related to classes. We will see classes in a later chapter.))
+相反，如果程序能继续执行，那么该情况下不一定会抛出异常。这样的情况下函数会找到一种方式继续下去。
+)
+
+$(H6 $(IX Exception) $(IX Error) $(IX Throwable) 异常类型 $(C Exception) 与 $(C Error))
+
+$(P
+只有从 $(C Throwable) 类继承的类型能被抛出。$(C Throwable) 几乎从不在程序里被直接使用。真正被抛出的类型是那些继承自 $(C Exception) 或 $(C Error) 的类型，因而它们本身也继承自 $(C Throwable)。例如，所有由 Phobos 抛出的异常是从 $(C Exception) 或 $(C Error) 继承的。
 )
 
 $(P
-$(C Exception) objects are constructed with a $(C string) value that represents an error message. You may find it easy to create this message with the $(C format()) function from the $(C std.string) module:
+$(C Error) 代表无法恢复的情况，并且它不建议被$(I 捕捉)。由是，程序所抛出大部分的异常是继承自 $(C Exception) 的类型。($(I $(B 注：) 继承是一个与类相关的主题。我们会在此后的一章中看到类。))
+)
+
+$(P
+$(C Exception) 对象构建自一个代表错误信息的 $(C string) 值。或许你会觉得以 $(C std.string) 模块的 $(C format()) 函数能很容易地创建该信息：
 )
 
 ---
@@ -125,7 +125,7 @@ object.Exception...: Invalid dice count: -5
 )
 
 $(P
-In most cases, instead of creating an exception object explicitly by $(C new) and throwing it explicitly by $(C throw), the $(C enforce()) function is called. For example, the equivalent of the error check above is the following $(C enforce()) call:
+大多数情况下，将会调用 $(C enforce()) 函数，而非由 $(C new) 明确地创建一个异常对象，并由 $(C throw) 直接抛出。例如，上方的错误检查与下方对 $(C enforce()) 的调用等效：
 )
 
 ---
@@ -133,17 +133,17 @@ In most cases, instead of creating an exception object explicitly by $(C new) an
 ---
 
 $(P
-We will see the differences between $(C enforce()) and $(C assert()) in a later chapter.
+我们将在后面章节了解到 $(C enforce()) 和 $(C assert()) 的差异。
 )
 
-$(H6 Thrown exception terminates all scopes)
+$(H6 抛出异常将终结所有作用域)
 
 $(P
-We have seen that the program execution starts from the $(C main) function and branches into other functions from there. This layered execution of going deeper into functions and eventually returning from them can be seen as the branches of a tree.
+我们已经看到，程序从 $(C main) 函数开始执行并从那里分支进入其他函数。这种逐层执行、深入函数并从它们返回的方式可以被看作是树状图的分支。
 )
 
 $(P
-For example, $(C main()) may call a function named $(C makeOmelet), which in turn may call another function named $(C prepareAll), which in turn may call another function named $(C prepareEggs), etc. Assuming that the arrows indicate function calls, the branching of such a program can be shown as in the following function call tree:
+例如，$(C main()) 会调用出一个叫 $(C makeOmelet) 的函数，从而调用出另一个名为 $(C prepareAll) 的函数，接着调用出名为 $(C prepareEggs) 的函数，如此继续下去。假设箭头指向所调用的函数，那么这样一个程序的分支可以以下面的函数调用树状图表示出来：
 )
 
 $(MONO
@@ -164,7 +164,7 @@ main
 )
 
 $(P
-The following program demonstrates the branching above by using different levels of indentation in its output. The program doesn't do anything useful other than producing an output suitable to our purposes:
+下面的程序通过使用不同级别的缩进来实现上方输出中的分支化。该程序除了生成合乎我们目的的输出外并没有起到其他任何作用：
 )
 
 ---
@@ -241,7 +241,7 @@ void preparePan() {
 ---
 
 $(P
-The program produces the following output:
+该程序生成了如下输出：
 )
 
 $(SHELL
@@ -266,11 +266,11 @@ $(SHELL
 )
 
 $(P
-The functions $(C entering) and $(C exiting) are used to indicate the first and last lines of functions with the help of the $(C ▶) and $(C ◁) characters. The program starts with the first line of $(C main()), branches down to other functions, and finally ends with the last line of $(C main).
+$(C entering) 和 $(C exiting) 两个函数通过字符 $(C ▶) 和 $(C ◁) 表示函数的第一行和最后一行。程序由第一行的 $(C main()) 启动，随即分支进入其它函数，并最终由末行的 $(C main) 结束。
 )
 
 $(P
-Let's modify the $(C prepareEggs) function to take the number of eggs as a parameter. Since certain values of this parameter would be an error, let's have this function throw an exception when the number of eggs is less than one:
+我们来修改 $(C prepareEggs) 函数，把鸡蛋的数量作为一个参数。由于这个参数在某些值时会出错，我们让这个函数在鸡蛋数少于一时抛出异常：
 )
 
 ---
@@ -291,7 +291,7 @@ void prepareEggs($(HILITE int count)) {
 ---
 
 $(P
-In order to be able to compile the program, we must modify other lines of the program to be compatible with this change. The number of eggs to take out of the fridge can be handed down from function to function, starting with $(C main()). The parts of the program that need to change are the following. The invalid value of -8 is intentional to show how the output of the program will be different from the previous output when an exception is thrown:
+为了编译该程序，我们必须修改程序的其他行来适应上述变化。冰箱里拿出来的鸡蛋数目可以由 $（C main()） 开始，从一个函数到另一个函数来进行处理。下方是程序中需要更改的部分。-8 这个无效值是有意生成的，用以显示出抛出异常时的程序输出与先前的区别之处：
 )
 
 ---
@@ -326,7 +326,7 @@ void prepareAll($(HILITE int eggCount)) {
 ---
 
 $(P
-When we start the program now, we see that the lines that used to be printed after the point where the exception is thrown are missing:
+我们现在运行程序，便能看到之前在异常抛出点之后的那些输出行丢失了：
 )
 
 $(SHELL
@@ -338,15 +338,15 @@ object.Exception: Cannot take -8 eggs from the fridge
 )
 
 $(P
-When the exception is thrown, the program execution exits the $(C prepareEggs), $(C prepareAll), $(C makeOmelet) and $(C main()) functions in that order, from the bottom level to the top level. No additional steps are executed as the program exits these functions.
+抛出异常时，程序会以从底层到顶层的执行顺序，使 $(C prepareEggs)，$(C prepareAll)，$(C makeOmelet) 和 $(C main()) 三个函数依次逐步退出。当程序从这些函数退出时不会执行其他步骤。
 )
 
 $(P
-The rationale for such a drastic termination is that a failure in a lower level function would mean that the higher level functions that needed its successful completion should also be considered as failed.
+这样即刻终止的原因为：低等级函数的失败表明依赖于它的成功执行的高等级函数也是失败的。
 )
 
 $(P
-The exception object that is thrown from a lower level function is transferred to the higher level functions one level at a time and causes the program to finally exit the $(C main()) function. The path that the exception takes can be shown as the highlighted path in the following tree:
+由较低等级函数抛出的异常对象逐级地转移到较高等级的函数，使得程序最终退出 $(C main()) 函数。该异常采取的路径在下方的树状图中被高亮标出：
 )
 
 $(MONO
@@ -373,56 +373,56 @@ main $(HILITE &nbsp;◀───────────┐)
 )
 
 $(P
-The point of the exception mechanism is precisely this behavior of exiting all of the layers of function calls right away.
+异常处理机制的要点正是立即退出所有的函数调用层。
 )
 
 $(P
-Sometimes it makes sense to $(I catch) the thrown exception to find a way to continue the execution of the program. I will introduce the $(C catch) keyword below.
+有时$(I 捕捉（catch）)抛出的异常以继续程序的执行是有意义的。我会在下面介绍 $(C catch) 这个关键字。
 )
 
-$(H6 When to use $(C throw))
+$(H6 何时使用 $(C throw))
 
 $(P
-Use $(C throw) in situations when it is not possible to continue. For example, a function that reads the number of students from a file may throw an exception if this information is not available or incorrect.
-)
-
-$(P
-On the other hand, if the problem is caused by some user action like entering invalid data, it may make more sense to validate the data instead of throwing an exception. Displaying an error message and asking the user to re-enter the data is more appropriate in many cases.
-)
-
-$(H5 $(IX try) $(IX catch) The $(C try-catch) statement to catch exceptions)
-
-$(P
-As we've seen above, a thrown exception causes the program execution to exit all functions and this finally terminates the whole program.
+在无法继续执行的情况下使用 $(C throw)。例如，从文件里读取学生数的函数在该信息不可获取或错误时会抛出异常。
 )
 
 $(P
-The exception object can be caught by a $(C try-catch) statement at any point on its path as it exits the functions. The $(C try-catch) statement models the phrase "$(I try) to do something, and $(I catch) exceptions that may be thrown." Here is the syntax of $(C try-catch):
+另一方面，如果问题是由像输入无效数据这样的用户行为引发，比起抛出异常，再次确认数据会显得更加有意义。在许多情况下显示错误信息并让用户重新输入数据会更恰当一些。
+)
+
+$(H5 $(IX try) $(IX catch) 捕获异常的 $(C try-catch) 语句)
+
+$(P
+正如我们上方所见，异常抛出导致程序退出了所有函数，并最终终止了整个程序。
+)
+
+$(P
+退出函数时，异常对象会在路径上的任意点被 $(C try-catch) 语句捕获。$(C try-catch) 语句类似于“$(I 尝试（try）) 做这些事情，并 $(I 捕捉（catch）) 其中可能被抛出的异常”这个短句。这是 $(C try-catch) 的语法：
 )
 
 ---
     try {
-        // the code block that is being executed, where an
-        // exception may be thrown
+        // 将被执行的代码块
+        // 其中可能会有异常抛出
 
     } catch ($(I an_exception_type)) {
-        // expressions to execute if an exception of this
-        // type is caught
+        // 若这种类型的异常被捕获
+        // 便要执行的表达式
 
     } catch ($(I another_exception_type)) {
-        // expressions to execute if an exception of this
-        // other type is caught
+        // 若这另一种类型的异常被捕获
+        // 便要执行的表达式
 
-    // ... more catch blocks as appropriate ...
+    // ……更多恰当的 catch 语句块……
 
     } finally {
-        // expressions to execute regardless of whether an
-        // exception is thrown
+        // 无论异常抛出与否
+        // 都要执行的表达式
     }
 ---
 
 $(P
-Let's start with the following program that does not use a $(C try-catch) statement at this state. The program reads the value of a die from a file and prints it to the standard output:
+我们以下面这个暂不使用 $(C try-catch) 语句的程序开始。该程序从文件里读取整型变量 die 的值并将它打印到标准输出里：
 )
 
 ---
@@ -445,11 +445,11 @@ void main() {
 ---
 
 $(P
-Note that the $(C readDieFromFile) function is written in a way that ignores error conditions, expecting that the file and the value that it contains are available. In other words, the function is dealing only with its own task instead of paying attention to error conditions. This is a benefit of exceptions: many functions can be written in ways that focus on their actual tasks, rather than focusing on error conditions.
+注意 $(C readDieFromFile) 函数是以忽略错误情况的方式下编写的，默认了它所求的文件和值是有效的。换句话说，该函数只处理它自己的任务，而非关注错误情况。这是异常的一个好处：比之关注于错误情况，许多函数能以关注实际任务的方式被编写。
 )
 
 $(P
-Let's start the program when $(C the_file_that_contains_the_value) is missing:
+我们在文件 $(C the_file_that_contains_the_value) 不存在时启动程序：
 )
 
 $(SHELL
@@ -459,11 +459,11 @@ file or directory)
 )
 
 $(P
-An exception of type $(C ErrnoException) is thrown and the program terminates without printing "Die&nbsp;value:&nbsp;".
+抛出了一个 $(C ErrnoException) 类型的异常对象，并且程序立即终止，而非打印“Die&nbsp;value:&nbsp;”。
 )
 
 $(P
-Let's add an intermediate function to the program that calls $(C readDieFromFile) from within a $(C try) block and let's have $(C main()) call this new function:
+我们把一个在 $(C try) 语句块中调用 $(C readDieFromFile) 的中间函数添加到该程序里，并让 $(C main()) 调出这个新函数：
 )
 
 ---
@@ -500,7 +500,7 @@ void main() {
 ---
 
 $(P
-When we start the program again when $(C the_file_that_contains_the_value) is still missing, this time the program does not terminate with an exception:
+我们在 $(C the_file_that_contains_the_value) 仍然丢失的状态下再次启动程序，这次该程序就不会因异常而终止。
 )
 
 $(SHELL
@@ -509,26 +509,26 @@ Die value: 1
 )
 
 $(P
-The new program $(I tries) executing $(C readDieFromFile) in a $(C try) block. If that block executes successfully, the function ends normally with the $(C return die;) statement. If the execution of the $(C try) block ends with the specified $(C std.exception.ErrnoException), then the program execution enters the $(C catch) block.
+新程序$(I 尝试（try）)在 $(C try) 语句块里执行 $(C readDieFromFile)。如果那个块成功执行，函数会正常地以 $(C return die;) 语句结束。如果 $(C try) 块的执行以抛出明确指定的 $(C std.exception.ErrnoException) 异常退出，那么程序执行便进入 $(C catch) 语句块。
 )
 
 $(P
-The following is a summary of events when the program is started when the file is missing:
+下面是程序在文件不存在时启动经过的概括：
 )
 
 $(UL
-$(LI like in the previous program, a $(C std.exception.ErrnoException) object is thrown (by $(C File()), not by our code),)
-$(LI this exception is caught by $(C catch),)
-$(LI the value of 1 is assumed during the normal execution of the $(C catch) block,)
-$(LI and the program continues its normal operations.)
+$(LI 像先前程序里一样，$(C std.exception.ErrnoException) 对象被（$(C File()，而非由我们的代码）抛出，)
+$(LI 该异常对象被 $(C catch) 捕获，)
+$(LI 在 $(C catch) 语句块的正常执行中假定值为 1，)
+$(LI 而程序会接着以它的正常路径运行。)
 )
 
 $(P
-$(C catch) is to catch thrown exceptions presumably to find a way to continue executing the program.
+$(C catch) 可能会捕获抛出的异常以求继续执行该程序的方法。
 )
 
 $(P
-As another example, let's go back to the omelet program and add a $(C try-catch) statement to its $(C main()) function:
+作为另一个示例，我们回到煎蛋卷（Omelet）程序并将一个 $(C try-catch) 语句添加到 $(C main()) 函数中：
 )
 
 ---
@@ -550,11 +550,11 @@ $(CODE_XREF makeOmelet_int_etc)void main() {
 ---
 
 $(P
-($(I $(B Note:) The $(C .msg) property will be explained below.))
+($(I $(B 注：)$(C .msg) property（属性）会在下面得到解释。))
 )
 
 $(P
-That $(C try) block contains two lines of code. Any exception thrown from either of those lines would be caught by the $(C catch) block.
+$(C try) 语句块包括两行代码。任何从这些行中抛出的异常均会被 $(C catch) 语句块捕获。
 )
 
 $(SHELL
@@ -568,92 +568,92 @@ Will eat at neighbor's...
 )
 
 $(P
-As can be seen from the output, the program doesn't terminate because of the thrown exception anymore. It recovers from the error condition and continues executing normally till the end of the $(C main()) function.
+正如我们在输出中所见，程序不再因为抛出的异常而终止。它从错误状态中恢复，并继续执行到 $(C main()) 函数的末尾。
 )
 
-$(H6 $(C catch) blocks are considered sequentially)
+$(H6 $(C catch) 语句块的顺次匹配)
 
 $(P
-The type $(C Exception), which we have used so far in the examples is a general exception type. This type merely specifies that an error occurred in the program. It also contains a message that can explain the error further, but it does not contain information about the $(I type) of the error.
-)
-
-$(P
-$(C ConvException) and $(C ErrnoException) that we have seen earlier in this chapter are more specific exception types: the former is about a conversion error, and the latter is about a system error. Like many other exception types in Phobos and as their names suggest, $(C ConvException) and $(C ErrnoException) are both inherited from the $(C Exception) class.
+我们至今为止在示例里用的 $(C Exception) 类型是种一般的异常类型。此类型仅表明程序里发生了错误。尽管它也包含了能更深入解读错误的错误消息，但它不包含关于错误$(I 类型)的信息。
 )
 
 $(P
-$(C Exception) and its sibling $(C Error) are further inherited from $(C Throwable), the most general exception type.
+我们在此章节前面所见的 $(C ConvException) 和 $(C ErrnoException) 是更加特殊的异常类型：前一个关于转换错误，后一个关于系统错误。正如 Phobos 里的许多其他异常类型及它们名称所暗示，$(C ConvException) 和 $(C ErrnoException) 都继承自类 $(C Exception)。
 )
 
 $(P
-Although possible, it is not recommended to catch objects of type $(C Error) and objects of types that are inherited from $(C Error). Since it is more general than $(C Error), it is not recommended to catch $(C Throwable) either. What should normally be caught are the types that are under the $(C Exception) hierarchy, including $(C Exception) itself.
+类 $(C Exception) 和它的兄弟类 $(C Error) 更进一步是继承自类 $(C Throwable) 的，这是最一般的异常类型。
+)
+
+$(P
+虽有可能，但仍不建议捕获 $(C Error) 类型和那些自 $(C Error) 继承而来的类型。由于 $(C Throwable) 比 $(C Error) 更一般，所以也不建议去捕获 此类型。需要被正常捕获的是在 $(C Exception) 继承结构下的类型, 包括 $(C Exception) 自身。
 )
 
 $(MONO
-           Throwable $(I (not recommended to catch))
+           throwable$(I （不建议捕获）)
              ↗   ↖
-    Exception     Error $(I (not recommended to catch))
+    exception     error$(I （不建议捕获）)
      ↗    ↖        ↗    ↖
    ...    ...    ...    ...
 )
 
-$(P $(I $(B Note:) I will explain the hierarchy representations later in $(LINK2 /ders/d.en/inheritance.html, the Inheritance chapter). The tree above indicates that $(C Throwable) is the most general and $(C Exception) and $(C Error) are more specific.)
+$(P $(I $(B 注：) 我会在后面的 $(LINK2 /ders/d.cn/inheritance.html, 继承) 一章中解释层次结构表示形式。上方的树状图表示 $(C Throwable) 最为一般而 $(C Exception) 与 $(C Error) 较为特殊。)
 )
 
 $(P
-It is possible to catch exception objects of a particular type. For example, it is possible to catch an $(C ErrnoException) object specifically to detect and handle a system error.
+捕获特定类型的异常对象是有可能的。例如，专门捕获 $(C ErrnoException) 对象来检查并处理系统错误是可行的。
 )
 
 $(P
-Exceptions are caught only if they match a type that is specified in a $(C catch) block. For example, a catch block that is trying to catch a $(C SpecialExceptionType) would not catch an $(C ErrnoException).
+异常当且仅当它们匹配由 $(C catch) 语句块规定的类型时才会被捕获。例如，尝试捕获 $(C SpecialExceptionType) 的 catch 语句块捕获块不会捕获 $(C ErrnoException)。
 )
 
 $(P
-The type of the exception object that is thrown during the execution of a $(C try) block is matched to the types that are specified by the $(C catch) blocks, in the order in which the $(C catch) blocks are written. If the type of the object matches the type of the $(C catch) block, then the exception is considered to be caught by that $(C catch) block, and the code that is within that block is executed. Once a match is found, the remaining $(C catch) blocks are ignored.
+$(C try) 语句块执行时被抛出的异常对象类型以 $(C catch) 语句块的顺序被依次匹配到由 $(C catch) 语句块所指定的类型。如果该对象匹配 $(C catch) 语句块的指定的类型，那么异常便被看作被 $(C catch) 语句块捕获，同时执行编写在这个语句块里的代码。一旦找到一处匹配，剩下的 $(C catch) 语句块就会被忽略。
 )
 
 $(P
-Because the $(C catch) blocks are matched in order from the first to the last, the $(C catch) blocks must be ordered from the most specific exception types to the most general exception types. Accordingly, and if it makes sense to catch that type of exceptions, the $(C Exception) type must be specified at the last $(C catch) block.
+因为 $(C catch) 语句块的匹配次序为顺序，$(C catch) 语句块必须以从特殊到一般的异常类型顺序排列。因此，如果需要捕获 exception 异常类型，那么类 $(C Exception) 必须被指定在末尾的 $(C catch) 语句块内。
 )
 
 $(P
-For example, a $(C try-catch) statement that is trying to catch several specific types of exceptions about student records must order the $(C catch) blocks from the most specific to the most general as in the following code:
+例如，正尝试捕获关于学生记录的特定类型异常的 $(C try-catch) 语句必须以从特殊到一般的顺序来排列 $(C catch) 语句块，正如下方代码所示：
 )
 
 ---
     try {
-        // operations about student records that may throw ...
+        // 可能抛出的有关学生纪录异常的操作……
 
     } catch (StudentIdDigitException exc) {
 
-        // an exception that is specifically about errors with
-        // the digits of student ids
+        // 特定关于学生 ID
+        // 数字错误的异常
 
     } catch (StudentIdException exc) {
 
-        // a more general exception about student ids but not
-        // necessarily about their digits
+        // 有关学生 ID 的更为一般的异常，
+        // 但是不一定关于他们的数字
 
     } catch (StudentRecordException exc) {
 
-        // even more general exception about student records
+        // 关于学生纪录的更一般的异常
 
     } catch (Exception exc) {
 
-        // the most general exception that may not be related
-        // to student records
+        // 可能和学生纪录无关
+        // 但最为一般的异常
 
     }
 ---
 
-$(H6 $(IX finally) The $(C finally) block)
+$(H6 $(IX finally) $(C finally) 语句块)
 
 $(P
-$(C finally) is an optional block of the $(C try-catch) statement. It includes expressions that should be executed regardless of whether an exception is thrown or not.
+$(C finally) 是 $(C try-catch) 语句的可选块。它包括那些无论异常抛出与否，都一定会执行的表达式。
 )
 
 $(P
-To see how $(C finally) works, let's look at a program that throws an exception 50% of the time:
+为了了解 $(C finally) 是怎样运作的，我们看看这个有一半几率抛出异常的程序：
 )
 
 ---
@@ -674,7 +674,7 @@ void foo() {
         throwsHalfTheTime();
         writeln("the last line of the try block");
 
-    // ... there may be one or more catch blocks here ...
+    // ……这里可能有一个或多个 catch 语句块……
 
     } $(HILITE finally) {
         writeln("the body of the finally block");
@@ -689,7 +689,7 @@ void main() {
 ---
 
 $(P
-The output of the program is the following when the function does not throw:
+函数没有抛出异常时，程序输出如下内容：
 )
 
 $(SHELL
@@ -701,7 +701,7 @@ the last line of foo()
 )
 
 $(P
-The output of the program is the following when the function does throw:
+函数抛出异常时，程序输出如下内容：
 )
 
 $(SHELL
@@ -712,53 +712,53 @@ object.Exception@deneme.d: the error message
 )
 
 $(P
-As can be seen, although "the last line of the try block" and "the last line of foo()" are not printed, the content of the $(C finally) block is still executed when an exception is thrown.
+正如所见到的，尽管 "the last line of the try block" 和 "the last line of foo()" 未被输出，$(C finally) 语句块的内容在有异常抛出时仍然被执行。
 )
 
-$(H6 When to use the $(C try-catch) statement)
+$(H6 何时使用 $(C try-catch) 语句)
 
 $(P
-The $(C try-catch) statement is useful to catch exceptions to do something special about them.
+$(C try-catch) 语句对于捕获异常并做出些特殊处理十分有效。
 )
 
 $(P
-For that reason, the $(C try-catch) statement should be used only when there is something special to be done. Do not catch exceptions otherwise and leave them to higher level functions that may want to catch them.
+因此，$(C try-catch) 语句必须仅在需要执行某些特殊任务时被使用。另外不要捕获异常，而应该让它们去可能会捕获它们的更高等级函数那里。
 )
 
-$(H5 Exception properties)
+$(H5 异常的 property)
 
 $(P
-The information that is automatically printed on the output when the program terminates due to an exception is available as properties of exception objects as well. These properties are provided by the $(C Throwable) interface:
+程序由于异常而终止、从而自动打印在输出中的信息亦可以在异常对象的 property 中取得获取。这些 property 由类 $(C Throwable) 定义：
 )
 
 $(UL
 
-$(LI $(IX .file) $(C .file): The source file where the exception was thrown from)
+$(LI $(IX .file) $(C .file)：抛出异常的源文件名)
 
-$(LI $(IX .line) $(C .line): The line number where the exception was thrown from)
+$(LI $(IX .line) $(C .line)：抛出异常的行数)
 
-$(LI $(IX .msg) $(C .msg): The error message)
+$(LI $(IX .msg) $(C .msg)：错误消息)
 
-$(LI $(IX .info) $(C .info): The state of the program stack when the exception was thrown)
+$(LI $(IX .info) $(C .info)：抛出异常时程序堆栈的状态)
 
-$(LI $(IX .next) $(C .next): The next collateral exception)
+$(LI $(IX .next) $(C .next)：下一个附属异常)
 
 )
 
 $(P
-We saw that $(C finally) blocks are executed when leaving scopes due to exceptions as well. (As we will see in later chapters, the same is true for $(C scope) statements and $(I destructors) as well.)
+我们看到 $(C finally) 语句块在因异常而退出作用域时被执行。（我们会在以后的章节中看到，对于 $(C scope) 语句和$(I 析构函数)也是如此。）
 )
 
 $(P
-$(IX collateral exception) Naturally, such code blocks can throw exceptions as well. Exceptions that are thrown when leaving scopes due to an already thrown exception are called $(I collateral exceptions). Both the main exception and the collateral exceptions are elements of a $(I linked list) data structure, where every exception object is accessible through the $(C .next) property of the previous exception object. The value of the $(C .next) property of the last exception is $(C null). (We will see $(C null) in a later chapter.)
+$(IX 附属异常) 当然，这样的代码块也能抛出异常。由于已抛出的异常而在离开作用域时被抛出的异常叫做$(I 附属异常)。主异常和附属异常都是$(I 链表)数据结构中的元素，每个异常对象都可以通过前一个异常对象的 $(C .next) property进行访问。最后一个异常的 $(C .next) property 值为 $(C null)。（我们在之后的一章中将会看到 $(C null)。)
 )
 
 $(P
-There are three exceptions that are thrown in the example below: The main exception that is thrown in $(C foo()) and the two collateral exceptions that are thrown in the $(C finally) blocks of $(C foo()) and $(C bar()). The program accesses the collateral exceptions through the $(C .next) properties.
+下面例子里有三处异常：主异常在 $(C foo()) 里被抛出，以及在 $(C foo()) 和 $(C bar()) 里的两处 $(C finally) 语句块中被抛出的附属异常。程序通过 $(C .next) property 访问附属异常。
 )
 
 $(P
-Some of the concepts that are used in this program will be explained in later chapters. For example, the continuation condition of the $(C for) loop that consists solely of $(C exc) means $(I as long as $(C exc) is not $(C null)).
+在此程序中使用的一些概念将在之后的章节里作出解释。例如，仅包含 $(C exc) 的 $(C for) 循环持续条件表明$(I 当 $(C exc) 不是 $(C null))就继续循环下去。
 )
 
 ---
@@ -791,7 +791,7 @@ void main() {
     } catch (Exception caughtException) {
 
         for (Throwable exc = caughtException;
-             exc;    // ← Meaning: as long as exc is not 'null'
+             exc;    // ← 表示：当 exc 不是‘ull’
              exc = exc$(HILITE .next)) {
 
             writefln("error message: %s", exc$(HILITE .msg));
@@ -804,7 +804,7 @@ void main() {
 ---
 
 $(P
-The output:
+输出为：
 )
 
 $(SHELL
@@ -821,53 +821,52 @@ source file  : deneme.d
 source line  : 20
 )
 
-$(H5 $(IX error, kinds of) Kinds of errors)
+$(H5 $(IX 错误, 种类) 错误种类)
 
 $(P
-We have seen how useful the exception mechanism is. It enables both the lower and higher level operations to be aborted right away, instead of the program continuing with incorrect or missing data, or behaving in any other incorrect way.
+我们已经见识到异常处理机制是多么有效。比起让程序以错误或丢失的数据或以任何其他错误的状态运行，它使得更低与更高等级的操作立即终止。
 )
 
 $(P
-This does not mean that every error condition warrants throwing an exception. There may be better things to do depending on the kinds of errors.
+但这不意味着每种错误情况都适宜抛出异常。根据错误类型不同也许可以做些更有用的事。
 )
 
-$(H6 User errors)
+$(H6 用户错误)
 
 $(P
-Some of the errors are caused by the user. As we have seen above, the user may have entered a string like "hello" even though the program has been expecting a number. It may be more appropriate to display an error message and ask the user to enter appropriate data again.
-)
-
-$(P
-Even so, it may be fine to accept and use the data directly without validating the data up front; as long as the code that uses the data would throw anyway. What is important is to be able to notify the user why the data is not suitable.
+有些错误由用户导致。正如我们上方所见，即便程序期望输入数字，用户仍可能输入像“hello”这样的字符串。向用户显示错误信息并让他重新输入合适的数据可能更为恰当。
 )
 
 $(P
-For example, let's look at a program that takes a file name from the user. There are at least two ways of dealing with potentially invalid file names:
+即便如此，由于无论如何使用错误数据的代码都会抛出异常，不复验数据而直接接受并使用该数据是可行的。重要的是需要告知用户数据错误的原因。
+)
+
+$(P
+例如，我们看看这个从用户输入获取文件名的程序。这里至少有两种处理潜在错误的文件名的方法：
 )
 
 $(UL
-$(LI $(B Validating the data before use): We can determine whether the file with the given name exists by calling $(C exists()) of the $(C std.file) module:
-
+$(LI $(B 在使用前验证数据)：我们能通过调用 $(C std.file) 模块的 $(C exists()) 来确认文件名对应的文件存在与否：
 ---
     if (exists(fileName)) {
-        // yes, the file exists
+        // 是的，文件存在
 
     } else {
-        // no, the file doesn't exist
+        // 不，文件不存在
     }
 ---
 
 $(P
-This gives us the chance to be able to open the data only if it exists. Unfortunately, it is still possible that the file cannot be opened even if $(C exists()) returns $(C true), if for example another process on the system deletes or renames the file before this program actually opens it.
+这使得我们能够在当且仅当数据存在时打开它。然而，即便 $(C exists()) 返回 $(C true)，如果系统上另一进程在本程序打开它之前将文档删除或重命名，文档仍有可能无法打开。
 )
 
 $(P
-For that reason, the following method may be more useful.
+因此，下列解决方案会更加有用。
 )
 
 )
 
-$(LI $(B Using the data without first validating it): We can assume that the data is valid and start using it right away, because $(C File) would throw an exception if the file cannot be opened anyway.
+$(LI $(B 在没有复验的情况下使用数据)：我们假定该数据有效，并立即使用它，因为在 $(C File) 无法打开文件时无论如何都会抛出异常。
 
 ---
 import std.stdio;
@@ -875,7 +874,7 @@ import std.string;
 
 void useTheFile(string fileName) {
     auto file = File(fileName, "r");
-    // ...
+    // ……
 }
 
 string read_string(in char[] prompt) {
@@ -891,13 +890,13 @@ void main() {
             useTheFile(
                 read_string("Please enter a file name"));
 
-            /* If we are at this line, it means that
-             * useTheFile() function has been completed
-             * successfully. This indicates that the file
-             * name was valid.
-             *
-             * We can now set the value of the loop flag to
-             * terminate the while loop. */
+            /* 如果运行至这一行，这表示
+             * useTheFile() 函数已经成功完成
+             * 即表明文件名有效
+             * 
+             * 我们现在可以将循环标志的值
+             * 设置为终止循环
+             */
             is_fileUsed = true;
             writeln("The file has been used successfully");
 
@@ -912,14 +911,14 @@ void main() {
 
 )
 
-$(H6 Programmer errors)
+$(H6 编程错误)
 
 $(P
-Some errors are caused by programmer mistakes. For example, the programmer may think that a function that has just been written will always be called with a value greater than or equal to zero, and this may be true according to the design of the program. The function having still been called with a value less than zero would indicate either a mistake in the design of the program or in the implementation of that design. Both of these can be thought of as programming errors.
+一些错误由程序员失误而导致。例如，程序员可能认为：一个刚被写入的函数会永远以一个大于或等于零的值调用，根据该程序的设计这是可能成立的。而若它依然被小于零的值调用即指示着在程序设计上或该设计实现上的错误。两者都可以被认为是某种编程错误。
 )
 
 $(P
-It is more appropriate to use $(C assert) instead of the exception mechanism for errors that are caused by programmer mistakes. ($(I $(B Note:) We will cover $(C assert) in $(LINK2 /ders/d.en/assert.html, a later chapter).))
+比起异常处理机制，应对由编程失误导致的错误时使用 $(C assert) 会更加合适。（$(I $(B 注：)我们会在 $(LINK2 /ders/d.cn/assert.html, 之后的一章) 中谈及 $(C assert) 。)）
 )
 
 ---
@@ -934,7 +933,7 @@ void main() {
 ---
 
 $(P
-The program terminates with an $(C assert) failure:
+程序以 $(C assert) 失败终止：
 )
 
 $(SHELL_SMALL
@@ -942,54 +941,54 @@ core.exception.AssertError@$(HILITE deneme.d(3)): Assertion failure
 )
 
 $(P
-$(C assert) validates program state and prints the file name and line number of the validation if it fails. The message above indicates that the assertion at line 3 of deneme.d has failed.
+$(C assert) 验证程序的状态并在失败时输出相关文件名与行数。上方的信息表示文件 deneme.d 第三行的断言失败了。
 )
 
-$(H6 Unexpected situations)
+$(H6 意外情况)
 
 $(P
-For unexpected situations that are outside of the two general cases above, it is still appropriate to throw exceptions. If the program cannot continue its execution, there is nothing else to do but to throw.
+对于除上方两种一般状况之外的意外情况，抛出异常仍然是适宜的。如果程序无法继续执行，那么便只能抛出异常。
 )
 
 $(P
-It is up to the higher layer functions that call this function to decide what to do with thrown exceptions. They may catch the exceptions that we throw to remedy the situation.
+对抛出的异常如何处理取决于调用出该函数的更高层函数。它们会捕获我们为了修复该状况而抛出的异常。
 )
 
-$(H5 Summary)
+$(H5 总结)
 
 $(UL
 
 $(LI
-When faced with a user error either warn the user right away or ensure that an exception is thrown; the exception may be thrown anyway by another function when using incorrect data, or you may throw directly.
+当面临用户错误时立即警告用户或确保异常被抛出。该异常可能是由使用错误数据的另一个函数抛出，或者你可以直接抛出它。
 )
 
 $(LI
-Use $(C assert) to validate program logic and implementation. ($(I $(B Note:) $(C assert) will be explained in a later chapter.))
+使用 $(C assert) 来验证程序逻辑和执行。($(I $(B 注：)$(C assert) 将会在之后的一章作出解释。))
 )
 
 $(LI
-When in doubt, throw an exception with $(C throw) or $(C enforce()). ($(I $(B Note:) $(C enforce()) will be explained in a later chapter.))
+存在疑问时，用 $(C throw) 或 $(C enforce()) 抛出异常。($(I $(B 注：)$(C enforce()) 将会在之后的一章作出解释。))
 )
 
 $(LI
-Catch exceptions if and only if you can do something useful about that exception. Otherwise, do not encapsulate code with a $(C try-catch) statement; instead, leave the exceptions to higher layers of the code that may do something about them.
+当且仅当你能对异常做出些有效处理时将它捕获。否则，不要用 $(C try-catch) 语句封装代码，而要把异常留给或能处理它们的更高层代码。
 )
 
 $(LI
-Order the $(C catch) blocks from the most specific to the most general.
+以从特殊到一般的顺序排布 $(C catch) 语句块。
 )
 
 $(LI
-Put the expressions that must always be executed when leaving a scope, in $(C finally) blocks.
+把所有离开作用域时必须执行的表达式放在 $(C finally) 语句块里。
 )
 
 )
 
 Macros:
-        SUBTITLE=Exceptions
+        SUBTITLE=异常
 
-        DESCRIPTION=The exception mechanism of D, which is used in unexpected situations.
+        DESCRIPTION=D 语言在意外情况下的异常处理机制
 
-        KEYWORDS=d programming language tutorial book exception try catch finally exit failure success
+        KEYWORDS=D 编程语言教程 异常 try catch finally exit failure success
 
 MINI_SOZLUK=
