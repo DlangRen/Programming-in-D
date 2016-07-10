@@ -3,18 +3,18 @@ Ddoc
 $(DERS_BOLUMU $(IX scope(success)) $(IX scope(exit)) $(IX scope(failure)) $(CH4 scope))
 
 $(P
-As we have seen in the previous chapter, expressions that must always be executed are written in the $(C finally) block, and expressions that must be executed when there are error conditions are written in $(C catch) blocks.
+在前面的章节我们已经看到，写在 $(C finally) 块里的表达式一定总被执行。当有错误条件的时候，写在 $(C catch) 块里的表达式总被执行。
 )
 
 $(P
-We can make the following observations about the use of these blocks:
+对于这些块的用法，我们可以作以下观测：
 )
 
 $(UL
 
-$(LI $(C catch) and $(C finally) cannot be used without a $(C try) block.)
+$(LI 没有一个 $(C try) 块，$(C catch) 和 $(C finally) 不能使用。)
 
-$(LI Some of the variables that these blocks need may not be accessible within these blocks:
+$(LI 属于块的某些变量，块范围内有可能访问不到：
 
 ---
 void foo(ref int r) {
@@ -31,34 +31,34 @@ void foo(ref int r) {
 ---
 
 $(P
-That function first modifies the reference parameter and then reverts this modification when an exception is thrown. Unfortunately, $(C addend) is accessible only in the $(C try) block, where it is defined. $(I ($(B Note:) This is related to name scopes, as well as object lifetimes, which will be explained in $(LINK2 /ders/d.en/lifetimes.html, a later chapter.)))
+上面这个函数首先修改引用参数，当出现异常时再恢复修改。不幸的是，$(C addend) 只能在定义它的 $(C try) 块里访问。$(I ($(B 注：)这与命名作用域，以及对象生存期有关，这将在 $(LINK2 /ders/d.cn/lifetimes.html, 后面的一章) 中解释。))
 )
 
 )
 
-$(LI Writing all of potentially unrelated expressions in the single $(C finally) block at the bottom separates those expressions from the actual code that they are related to.
+$(LI 把所有可能无关联的表达式写在底部单独的 $(C finally) 块，就可以分离那些有关联的可执行代码。
 )
 
 )
 
 $(P
-The $(C scope) statements have similar functionality with the $(C catch) and $(C finally) scopes but they are better in many respects. Like $(C finally), the three different $(C scope) statements are about executing expressions when leaving scopes:
+$(C scope) 语句与 $(C catch) 和 $(C finally) 有相似功能，但在许多方面表现的更好。像 $(C finally)，下面三个不同的 $(C scope) 语句就是关于离开作用域时应执行的表达式：
 )
 
 $(UL
-$(LI $(C scope(exit)): the expression is always executed when exiting the scope, regardless of whether successfully or due to an exception)
+$(LI $(C scope(exit))：表达式总是在退出作用域时被执行，无论是否成功或出现异常。)
 
-$(LI $(C scope(success)): the expression is executed only if the scope is being exited successfully)
+$(LI $(C scope(success))：表达式只在成功退出作用域时被执行。)
 
-$(LI $(C scope(failure)): the expression is executed only if the scope is being exited due to an exception)
+$(LI $(C scope(failure))：表达式只在因出现异常而退出作用域时被执行。)
 )
 
 $(P
-Although these statements are closely related to exceptions, they can be used without a $(C try-catch) block.
+虽然这些语句只在特殊情况下使用，但是没有 $(C try-catch) 块也能用。
 )
 
 $(P
-As an example, let's write the function above with a $(C scope(failure)) statement:
+例如，让我们用 $(C scope(failure)) 语句写一下下面的函数：
 )
 
 ---
@@ -73,11 +73,11 @@ void foo(ref int r) {
 ---
 
 $(P
-The $(C scope(failure)) statement above ensures that the $(C r -= addend) expression will be executed if the function's scope is exited due to an exception. A benefit of $(C scope(failure)) is the fact that the expression that reverts another expression is written close to it.
+上面的 $(C scope(failure)) 语句确保 $(C r -= addend) 表达式在因异常退出时被执行。$(C scope(failure)) 的好处是靠近它的表达式可以还原已写的另一个表达式。
 )
 
 $(P
-$(C scope) statements can be specified as blocks as well:
+$(C scope) 语句也可以像块一样使用：
 )
 
 ---
@@ -87,7 +87,7 @@ $(C scope) statements can be specified as blocks as well:
 ---
 
 $(P
-Here is another function that tests all three of these statements:
+这儿是另一个函数，来测试全部三个语句：
 )
 
 ---
@@ -108,7 +108,7 @@ void test() {
 ---
 
 $(P
-If no exception is thrown, the output of the function includes only the $(C scope(exit)) and $(C scope(success)) expressions:
+如果没有抛出异常，函数的输出只包括 $(C scope(exit)) 和 $(C scope(success)) 表达式：
 )
 
 $(SHELL
@@ -119,7 +119,7 @@ when exiting 1
 )
 
 $(P
-If an exception is thrown, the output includes the $(C scope(exit)) and $(C scope(failure)) expressions:
+如果抛出异常，输出包括 $(C scope(exit)) 和 $(C scope(failure)) 表达式：
 )
 
 $(SHELL
@@ -131,12 +131,12 @@ object.Exception@...: the error message
 )
 
 $(P
-As seen in the outputs, the blocks of the $(C scope) statements are executed in reverse order. This is because later code may depend on previous variables. Executing the $(C scope) statements in reverse order enables undoing side effects of earlier expressions in a consistent order.
+在输出中我们看到，$(C scope) 语句块是按相反的顺序执行的。这是因为后边的代码依赖于前边的变量。这样按相反顺序执行 $(C scope) 语句，让程序能按一致的顺序撤消前边表达式的副作用。
 )
 
 Macros:
         SUBTITLE=scope
 
-        DESCRIPTION=The scope(success), scope(failure), and scope(exit) statements that are used for specifying expressions that must be executed when exiting scopes.
+        DESCRIPTION=scope(success)，scope(failure)，和 scope(exit) 语句用于当退出作用域时一定要执行的特殊表达式。
 
-        KEYWORDS=d programming language tutorial book scope
+        KEYWORDS=D 语言编程教程 scope
