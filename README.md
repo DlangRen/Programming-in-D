@@ -56,6 +56,8 @@ Instead of falling for getting things done quickly, "Programming in D" focuses o
 - [auto 和 typeof auto and typeof](ddili/src/ders/d.cn/auto_and_typeof.d) By andot
 - [Object](ddili/src/ders/d.cn/object.d) By 大处着手小处着眼
 - [异常 Exceptions](ddili/src/ders/d.cn/exceptions.d) By xmdqvb
+- [scope](ddili/src/ders/d.cn/scope.d) By 大处着手小处着眼
+- [类 Classes](ddili/src/ders/d.cn/class.d) By 大处着手小处着眼
 
 ### Outdated 旧项目待更新
 - [The Hello World Program](ddili/src/ders/d.cn/hello_world.d) By Lucifer
@@ -64,10 +66,8 @@ Instead of falling for getting things done quickly, "Programming in D" focuses o
 - [Assignment and Order of Evaluation](ddili/src/ders/d.cn/assignment.d) By Lucifer
 - [Variables](ddili/src/ders/d.cn/variables.d) By Lucifer
 - [Standard Input and Output Streams](ddili/src/ders/d.cn/io.d) By Lucifer
-- [Classes](ddili/src/ders/d.cn/class.d) By 大处着手小处着眼
 - [Associative Arrays](ddili/src/ders/d.cn/aa.d) By 大处着手小处着眼
 - [Strings](ddili/src/ders/d.cn/strings.d) By 大处着手小处着眼
-- [scope](ddili/src/ders/d.cn/scope.d) By 大处着手小处着眼
 
 ### Adopted 已被领取
 - [Lifetimes and Fundamental Operations](ddili/src/ders/d.cn/lifetimes.d) By 渡世白玉
