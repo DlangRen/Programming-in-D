@@ -12,7 +12,7 @@ $(P
 
 $(UL
 
-$(LI 没有一个 $(C try) 块， $(C catch) 和 $(C finally) 不能使用。)
+$(LI 没有一个 $(C try) 块，$(C catch) 和 $(C finally) 不能使用。)
 
 $(LI 属于块的某些变量，块范围内有可能访问不到：
 
@@ -31,7 +31,7 @@ void foo(ref int r) {
 ---
 
 $(P
-上面这个函数首先修改引用参数，当出现异常时再恢复修改。不幸的是，$(C addend) 只能在定义它的 $(C try) 块里访问。$(I ($(B 注：) 这与命名作用域，以及对象生存期有关，这将在 $(LINK2 /ders/d.cn/lifetimes.html, 后面的一章) 中解释。))
+上面这个函数首先修改引用参数，当出现异常时再恢复修改。不幸的是，$(C addend) 只能在定义它的 $(C try) 块里访问。$(I ($(B 注：)这与命名作用域，以及对象生存期有关，这将在 $(LINK2 /ders/d.cn/lifetimes.html, 后面的一章) 中解释。))
 )
 
 )
@@ -46,7 +46,7 @@ $(C scope) 语句与 $(C catch) 和 $(C finally) 有相似功能，但在许多�
 )
 
 $(UL
-$(LI $(C scope(exit))：表达式总是在退出作用域时被执行， 无论是否成功或出现异常。)
+$(LI $(C scope(exit))：表达式总是在退出作用域时被执行，无论是否成功或出现异常。)
 
 $(LI $(C scope(success))：表达式只在成功退出作用域时被执行。)
 
@@ -73,7 +73,7 @@ void foo(ref int r) {
 ---
 
 $(P
-上面的 $(C scope(failure)) 确保 $(C r -= addend) 表达式在因异常退出时被执行。$(C scope(failure)) 的好处是靠近它的表达式可以还原已写的另一个表达式。
+上面的 $(C scope(failure)) 语句确保 $(C r -= addend) 表达式在因异常退出时被执行。$(C scope(failure)) 的好处是靠近它的表达式可以还原已写的另一个表达式。
 )
 
 $(P
@@ -108,7 +108,7 @@ void test() {
 ---
 
 $(P
-如果没有抛出异常， 函数的输出只包括 $(C scope(exit)) 和 $(C scope(success)) 表达式：
+如果没有抛出异常，函数的输出只包括 $(C scope(exit)) 和 $(C scope(success)) 表达式：
 )
 
 $(SHELL
@@ -119,7 +119,7 @@ when exiting 1
 )
 
 $(P
-如果抛出异常， 输出包括 $(C scope(exit)) 和 $(C scope(failure)) 表达式：
+如果抛出异常，输出包括 $(C scope(exit)) 和 $(C scope(failure)) 表达式：
 )
 
 $(SHELL
