@@ -20,8 +20,6 @@ Instead of falling for getting things done quickly, "Programming in D" focuses o
 保持与原版相同，本书使用 `CC BY-NC-SA 3.0` 许可，转载请注明地址。
 
 ## TODO 现行计划
-- Get everthing ready for translation 准备待翻译文件及编译文件
-- Assign translation tasks to individuals 分派翻译任务到个人
 - Seeking for more contributors 寻求更多有兴趣及时间的人参与到项目中来
 
 ## Translation 翻译
@@ -58,6 +56,7 @@ Instead of falling for getting things done quickly, "Programming in D" focuses o
 - [异常 Exceptions](ddili/src/ders/d.cn/exceptions.d) By xmdqvb
 - [scope](ddili/src/ders/d.cn/scope.d) By 大处着手小处着眼
 - [类 Classes](ddili/src/ders/d.cn/class.d) By 大处着手小处着眼
+- [并行 Parallelism](ddili/src/ders/d.cn/parallelism.d) By IceNature
 
 ### Outdated 旧项目待更新
 - [The Hello World Program](ddili/src/ders/d.cn/hello_world.d) By Lucifer
@@ -74,7 +73,6 @@ Instead of falling for getting things done quickly, "Programming in D" focuses o
 - [Templates](ddili/src/ders/d.cn/templates.d) By meatatt
 - [do-while Loop](ddili/src/ders/d.cn/do_while.d) By mogucpp
 - [Ranges](ddili/src/ders/d.cn/ranges.d) By Lucifer
-- [Parallelism](ddili/src/ders/d.cn/parallelism.d) By IceNature
 - [while Loop](ddili/src/ders/d.cn/while.d) By KimmyLeo
 
 ### Orphans 待领取
