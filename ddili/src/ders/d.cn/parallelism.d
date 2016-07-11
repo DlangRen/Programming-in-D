@@ -1,6 +1,6 @@
 Ddoc
 
-$(DERS_BOLUMU $(IX parallelism) 并行化)
+$(DERS_BOLUMU $(IX parallelism) 并行)
 
 $(P
 $(IX core) 大多数现代微处理器架构都包含一个以上的$(I 核心)， 而其中的每一个核心都可以作为单独的运算单元使用。它们可在同时执行不同程序的不同片段。灵活使用模块 $(C std.parallelism) 中的功能来尽可能地利用所有核心的运算能力，使程序能以更快的速度运行。
@@ -145,7 +145,7 @@ $(P
 )
 
 $(P
-$(IX foreach, 并行) $(C parallel()) 以并行的方式访问 range 中的元素。它可以在 $(C foreach) 循环中起到非常大的作用。只需要导入 $(C std.parallelism) 模块并将上面代码中的 $(C students) 换为 $(C parallel(students)) 即可充分利用系统中全部核心的运算能力。
+$(IX foreach, parallel) $(IX foreach, 并行) $(C parallel()) 以并行的方式访问 range 中的元素。它可以在 $(C foreach) 循环中起到非常大的作用。只需要导入 $(C std.parallelism) 模块并将上面代码中的 $(C students) 换为 $(C parallel(students)) 即可充分利用系统中全部核心的运算能力。
 )
 
 ---
@@ -179,7 +179,7 @@ sys     0m0.004s)
 )
 
 $(P
-$(I $(B 注意：)在不同的系统上运行上面的程序可能会有不同的执行时间，但大致都是“4 秒除以核心数”这样的结果。)
+$(I $(B 注：)在不同的系统上运行上面的程序可能会有不同的执行时间，但大致都是“4 秒除以核心数”这样的结果。)
 )
 
 $(P
@@ -250,11 +250,11 @@ $(P
 $(H5 $(IX Task) $(C Task))
 
 $(P
-程序中以并行的方式执行的操作被叫做$(I 任务)。标准库中的 $(C std.parallelism.Task) 表示的就是我们所说的任务。
+程序中以并行的方式执行的操作叫做$(I 任务)。标准库中的 $(C std.parallelism.Task) 表示的就是我们所说的任务。
 )
 
 $(P
-实际上，$(C parallel()) 为每个工作线程构建并自动启动了一个 $(C Task)。之后 $(C parallel()) 会等待所有任务都完成后再推出循环。$(C parallel()) 用起来非常方便，因为无论是$(I 构建)、$(I 启动)还是$(I 等待任务执行完成)都是自动进行的。
+实际上，$(C parallel()) 为每个工作线程构建并自动启动了一个 $(C Task)。之后 $(C parallel()) 会等待所有任务都完成后再退出循环。$(C parallel()) 用起来非常方便，因为无论是$(I 构建)、$(I 启动)还是$(I 等待任务执行完成)都是自动进行的。
 )
 
 $(P
@@ -266,7 +266,7 @@ $(P
 )
 
 $(P
-$(IX flush, std.stdio)$(I $(B 注意：)正常情况下向类似 $(C stdout) 这样的输出流直接输出的字符并不会立刻显示出来。它们将会被储存在输出缓冲区中，当缓冲区中累计了完整的一行时，stdout 才会将其显示在屏幕上。因为 $(C write) 并不会输出换行符，而为了能够在下面的程序中观察并行执行的情况，我们使用 $(C stdout.flush()) 使缓冲区中的数据能在未到达行尾时就被发送至 $(C stdout)。)
+$(IX flush, std.stdio)$(I $(B 注：)正常情况下向类似 $(C stdout) 这样的输出流直接输出的字符并不会立刻显示出来。它们将会被储存在输出缓冲区中，当缓冲区中累计了完整的一行时，stdout 才会将其显示在屏幕上。因为 $(C write) 并不会输出换行符，而为了能够在下面的程序中观察并行执行的情况，我们使用 $(C stdout.flush()) 使缓冲区中的数据能在未到达行尾时就被发送至 $(C stdout)。)
 )
 
 ---
@@ -377,7 +377,7 @@ $(C task()) 函数的另一个重载将函数作为其第一个形参：
 ---
 
 $(P
-这种方法并不会导致实例不同类型的 $(C Task) 模版，这样你就可以把它们放在同一个数组里了：
+这种方法并不会产生不同类型的 $(C Task) 模版实例，这样你就可以把它们放在同一个数组里了：
 )
 
 ---
@@ -450,7 +450,7 @@ object.Exception@deneme.d(10): Error message        $(SHELL_NOTE 终止)
 )
 
 $(P
-可以在 $(C try-catch) 块中调用 $(C yieldForce()) 来捕获由 task 抛出的异常。这与单线程有着极大的不同：像本章上面的程序如果写成单线程的话，应该将 $(C try-catch) 包裹住可能会抛出异常的代码。而在多线程中，它只需包裹 $(C yieldForce())：
+可以在 $(C try-catch) 语句块中调用 $(C yieldForce()) 来捕获由 task 抛出的异常。这与单线程有着极大的不同：像本章上面的程序如果写成单线程的话，应该将 $(C try-catch) 包裹住可能会抛出异常的代码。而在多线程中，它只需包裹 $(C yieldForce())：
 )
 
 ---
@@ -597,7 +597,7 @@ sys     0m0.000s)
 )
 
 $(P
-从结果可以看出，元素是被依次求值并使用的。
+从输出可以看出，元素是被依次求值并使用的。
 )
 
 $(P
@@ -638,7 +638,7 @@ Using element 7
 Using element 8
 Using element 9
 
-real    0m6.007s    $(SHELL_NOTE 现在只需 6 秒)
+real    0m6.007s    $(SHELL_NOTE 现在只耗时 6 秒)
 user    0m0.000s
 sys     0m0.004s)
 )
@@ -657,7 +657,7 @@ $(C asyncBuf()) 也可以在 $(C foreach) 外使用。比如下面这个例子�
     writeln($(HILITE asyncRange.front));
 ---
 
-$(H5 $(IX map, 并行) $(C taskPool.map()))
+$(H5 $(IX map, parallel) $(IX map, 并行) $(C taskPool.map()))
 
 $(P
 $(IX map, std.algorithm) 在介绍 $(C taskPool.map()) 之前，先了解一下 $(C std.algorithm) 模块的 $(C map()) 对理解本节的内容是非常有帮助的。在大多数函数式编程语言中你都能找到 $(C std.algorithm.map) 这样的算法。它会对 range 中的每一个元素应用指定的函数，并将函数的返回值组合为 range 返回。这是一个延迟求值的算法，只有在返回的结果被使用时它才会调用指定的函数进行运算。（标准库中还有一个与之相似的 $(C std.algorithm.each)。但不同的是它并不会返回新的 range 来储存结果，而是直接将结果应用到传入的 range 的元素上。）
@@ -762,7 +762,7 @@ double averageGrade(Student student) {
 ---
 
 $(P
-$(I $(B 注意：) 之所以上面的代码需要一个独立的 $(C averageGrade()) 函数是因为像 $(C TaskPool.map) 这样的成员模版函数存在无法使用局部委托的限制。如果不使用独立的函数的话，程序将不能通过编译：
+$(I $(B 注：) 之所以上面的代码需要一个独立的 $(C averageGrade()) 函数是因为像 $(C TaskPool.map) 这样的成员模版函数存在无法使用局部委托的限制。如果不使用独立的函数的话，程序将不能通过编译：
 ))
 
 ---
@@ -910,7 +910,7 @@ $(P
     taskPool.amap!averageGrade(students, 2, $(HILITE results));
 ---
 
-$(H5 $(IX reduce, 并行) $(C taskPool.reduce()))
+$(H5 $(IX reduce, parallel) $(IX reduce, 并行) $(C taskPool.reduce()))
 
 $(P
 $(IX reduce, std.algorithm) 与 $(C map()) 一样，先来了解下 $(C std.algorithm) 模块的 $(C reduce()) 有助于本节的我们讲解的知识。
@@ -1210,7 +1210,7 @@ $(LI 如果需要的话，可以使用 $(C TaskPool) 对象而不是 $(C taskPoo
 )
 
 macros:
-        SUBTITLE=并行化
+        SUBTITLE=并行
 
         DESCRIPTION=并行编程来利用多核心微处理器的运算能力
 
