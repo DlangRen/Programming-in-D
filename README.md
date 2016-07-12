@@ -57,6 +57,7 @@ Instead of falling for getting things done quickly, "Programming in D" focuses o
 - [scope](ddili/src/ders/d.cn/scope.d) By 大处着手小处着眼
 - [类 Classes](ddili/src/ders/d.cn/class.d) By 大处着手小处着眼
 - [并行 Parallelism](ddili/src/ders/d.cn/parallelism.d) By IceNature
+- [关联数组 Associative Arrays](ddili/src/ders/d.cn/aa.d) By 大处着手小处着眼
 
 ### Outdated 旧项目待更新
 - [The Hello World Program](ddili/src/ders/d.cn/hello_world.d) By Lucifer
@@ -65,7 +66,6 @@ Instead of falling for getting things done quickly, "Programming in D" focuses o
 - [Assignment and Order of Evaluation](ddili/src/ders/d.cn/assignment.d) By Lucifer
 - [Variables](ddili/src/ders/d.cn/variables.d) By Lucifer
 - [Standard Input and Output Streams](ddili/src/ders/d.cn/io.d) By Lucifer
-- [Associative Arrays](ddili/src/ders/d.cn/aa.d) By 大处着手小处着眼
 - [Strings](ddili/src/ders/d.cn/strings.d) By 大处着手小处着眼
 
 ### Adopted 已被领取
