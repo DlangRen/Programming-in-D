@@ -221,7 +221,7 @@ $(LI $(IX .byKeyValue) $(C .byKeyValue) 提供对键值对的直接访问。)
 
 $(LI $(IX .rehash) $(C .rehash) 在一些例子中可以让数组更有效率，比如在插入大量的键值对之后。)
 
-$(LI $(IX .sizeof, associative array) $(C .sizeof) 数组$(I 引用)大小（它不影响表中键值对的个数，对全部关联数组来说值是一样的）。)
+$(LI $(IX .sizeof, associative array) $(C .sizeof) 数组$(I 引用)大小（它不受表中键值对个数的影响，对所有的关联数组来说值都是一样的）。)
 
 $(LI $(IX .get) $(C .get) 值存在即返回相应值，否则返回默认值。)
 
