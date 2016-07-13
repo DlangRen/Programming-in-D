@@ -1,22 +1,22 @@
 Ddoc
 
-$(COZUM_BOLUMU The $(C do-while) Loop)
+$(COZUM_BOLUMU $(C do-while) 循环)
 
 $(P
-This program is not directly related to the $(C do-while) loop, as any problem that is solved by the $(C do-while) loop can also be solved by the other loop statements.
+程序并不与 $(C do-while) 循环直接相关，因为任何问题如果能用 $(C do-while) 循环解决也一定可以用其他的循环语句解决。
 )
 
 $(P
-The program can guess the number that the user is thinking of by shortening the candidate range from top or bottom according to the user's answers. For example, if its first guess is 50 and the user's reply is that the secret number is greater, the program would then know that the number must be in the range [51,100]. If the program then guesses another number right in the middle of that range, this time the number would be known to be either in the range [51,75] or in the range [76,100].
+程序可以通过用户回答是小了还是大了来缩小猜数字的范围，例如，如果第一次猜 50 而用户回答是小了，那程序就知道数字的范围是在 [51,100]，然后如果程序再猜该范围正中的数字，这时数字就一定是在 [51,75] 或 [76,100] 范围中。
 )
 
 $(P
-When the size of the range is 1, the program would be sure that it must be the number that the user has guessed.
+如果最后范围的大小为 1，程序就可以确定这个数就是要猜的数。
 )
 
 Macros:
-        SUBTITLE=The do-while Loop Solutions
+        SUBTITLE=do-while 循环解答
 
-        DESCRIPTION=Programming in D exercise solutions: the 'do-while' loop
+        DESCRIPTION=D 编程练习解答：'do-while' 循环
 
-        KEYWORDS=programming in d tutorial do-while solution
+        KEYWORDS=D 编程教程 do-while 解答

@@ -1,45 +1,45 @@
 Ddoc
 
-$(DERS_BOLUMU $(IX do-while) $(IX loop, do-while) $(CH4 do-while) Loop)
+$(DERS_BOLUMU $(IX do-while) $(IX loop, do-while) $(CH4 do-while) 循环)
 
 $(P
-In the $(LINK2 /ders/d.en/for.html, $(C for) Loop chapter) we saw the steps in which the $(LINK2 /ders/d.en/while.html, $(C while) loop) is executed:
+在 $(LINK2 /ders/d.cn/for.html, $(C for) 循环) 一章中，我们已经见过 $(LINK2 /ders/d.cn/while.html, $(C while) 循环) 执行的步骤：
 )
 
 $(MONO
-preparation
+准备
 
-condition check
-actual work
-iteration
+条件检查
+循环体
+迭代
 
-condition check
-actual work
-iteration
+条件检查
+循环体
+迭代
 
 ...
 )
 
 $(P
-The $(C do-while) loop is very similar to the $(C while) loop. The difference is that the $(I condition check) is performed at the end of each iteration of the $(C do-while) loop, so that the $(I actual work) is performed at least once:
+$(C do-while) 循环与 $(C while) 循环十分相似，不同之处在于 $(C do-while) 循环的$(I 条件检查)是在每一次迭代的最后，因此$(I 循环体)至少会被执行一次：
 )
 
 $(MONO
-preparation
+准备
 
-actual work
-iteration
-condition check    $(SHELL_NOTE at the end of the iteration)
+循环体
+迭代
+条件检查    $(SHELL_NOTE 迭代最后)
 
-actual work
-iteration
-condition check    $(SHELL_NOTE at the end of the iteration)
+循环体
+迭代
+条件检查    $(SHELL_NOTE 迭代最后)
 
 ...
 )
 
 $(P
-For example, $(C do-while) may be more natural in the following program where the user guesses a number, as the user must guess at least once so that the number can be compared:
+例如， $(C do-while) 用在下面这个猜数字程序里会更加自然，因为用户至少需要猜一次数字以用作比较：
 )
 
 ---
@@ -72,20 +72,20 @@ void main() {
 ---
 
 $(P
-The function $(C uniform()) that is used in the program is a part of the $(C std.random) module. It returns a random number in the specified range. The way it is used above, the second number is considered to be outside of the range. In other words, $(C uniform()) would not return 101 for that call.
+这个程序用到了函数 $(C uniform()) ，它是 $(C std.random) 模块的一部分，作用是返回一个指定范围内的随机数。使用方法如上所示，但要注意，函数的第二个参数并不在指定范围内，也就是说此例中， $(C uniform()) 永远不会返回 101。
 )
 
 $(PROBLEM_TEK
 
 $(P
-Write a program that plays the same game but have the program do the guessing. If the program is written correctly, it should be able to guess the user's number in at most 7 tries.
+编程实现例子中相同的游戏，但是由程序来猜数字，如果实现正确，最多只需要7次程序就能正确的猜到用户指定的数字。
 )
 
 )
 
 Macros:
-        SUBTITLE=do-while Loop
+        SUBTITLE=do-while 循环
 
-        DESCRIPTION=The do-while loop of the D programming languageh and comparing it to the while loop
+        DESCRIPTION=D 语言中的 do-while 循环，以及与 while 循环的比较
 
-        KEYWORDS=d programming language tutorial book do while loop
+        KEYWORDS=D 编程语言教程 do while 循环
