@@ -15,8 +15,8 @@ $(P
 )
 
 Macros:
-        SUBTITLE=do-while 循环答案
+        SUBTITLE=do-while 循环解答
 
-        DESCRIPTION=D 编程练习答案：'do-while' 循环
+        DESCRIPTION=D 编程练习解答：'do-while' 循环
 
-        KEYWORDS=D 编程教程 do-while 答案
+        KEYWORDS=D 编程教程 do-while 解答
