@@ -3,7 +3,7 @@ Ddoc
 $(DERS_BOLUMU $(IX do-while) $(IX loop, do-while) $(CH4 do-while) 循环)
 
 $(P
-在 $(LINK2 /ders/d.en/for.html, $(C for) 循环章节) 中，我们已经见过 $(LINK2 /ders/d.en/while.html, $(C while) 循环) 执行的步骤：
+在 $(LINK2 /ders/d.cn/for.html, $(C for) 循环) 一章中，我们已经见过 $(LINK2 /ders/d.cn/while.html, $(C while) 循环) 执行的步骤：
 )
 
 $(MONO
@@ -21,7 +21,7 @@ $(MONO
 )
 
 $(P
-$(C do-while) 循环与 $(C while) 循环十分相似，不同之处在于 $(C do-while) 循环的 $(I 条件检查) 是在每一次迭代的最后，因此 $(I 循环体) 至少会被执行一次：
+$(C do-while) 循环与 $(C while) 循环十分相似，不同之处在于 $(C do-while) 循环的$(I 条件检查)是在每一次迭代的最后，因此$(I 循环体)至少会被执行一次：
 )
 
 $(MONO
