@@ -80,6 +80,8 @@ Instead of falling for getting things done quickly, "Programming in D" focuses o
 - [Ranges](ddili/src/ders/d.cn/ranges.d) By Lucifer
 - [while Loop](ddili/src/ders/d.cn/while.d) By KimmyLeo
 - [Message Passing Concurrency](ddili/src/ders/d.cn/concurrency.d) By IceNature
+- [alias and with](ddili/src/ders/d.cn/alias.d) By mogu
+- [alias this](ddili/src/ders/d.cn/alias_this.d) By mogu
 
 ### Orphans 待领取
 - [Foreword by Andrei Alexandrescu](ddili/src/ders/d.cn/foreword2.d)
@@ -126,8 +128,6 @@ Instead of falling for getting things done quickly, "Programming in D" focuses o
 - [Properties](ddili/src/ders/d.cn/property.d)
 - [Contract Programming for Structs and Classes](ddili/src/ders/d.cn/invariant.d)
 - [Pragmas](ddili/src/ders/d.cn/pragma.d)
-- [alias and with](ddili/src/ders/d.cn/alias.d)
-- [alias this](ddili/src/ders/d.cn/alias_this.d)
 - [Pointers](ddili/src/ders/d.cn/pointers.d)
 - [Bit Operations](ddili/src/ders/d.cn/bit_operations.d)
 - [Conditional Compilation](ddili/src/ders/d.cn/cond_comp.d)
