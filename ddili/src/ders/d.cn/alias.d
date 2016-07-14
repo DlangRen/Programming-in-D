@@ -396,7 +396,7 @@ void main() {
 ---
 
 $(P
-允许在括号内创建一个临时对象，这时，这个临时对象是一个 $(LINK2 /ders/d.en/lvalue_rvalue.html, 左值)，一旦离开作用域，生命期就结束：
+允许在括号内创建一个临时对象，这时，这个临时对象是一个 $(LINK2 /ders/d.cn/lvalue_rvalue.html, 左值)，一旦离开作用域，生命期就结束：
 )
 
 ---
