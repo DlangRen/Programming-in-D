@@ -7,7 +7,7 @@ $(P
 )
 
 $(P
-$(IX 自动类型转换) $(IX 类型转换, 自动) $(C alias this) 允许用户自定类型的 $(I 自动类型转换) (通常也作 $(I 隐式类型转换))。 我们已经在 $(LINK2 /ders/d.cn/operator_overloading.html, 运算符重载) 一章中看到另外一种类型转换的方式，即为要转到的类型定义 $(C opCast)。不同之处在于，$(C opCast) 用于显式类型转换，而 $(C alias this) 用于自动类型转换。
+$(IX 自动类型转换) $(IX 类型转换, 自动) $(C alias this) 允许用户自定类型的$(I 自动类型转换)（通常也作$(I 隐式类型转换)）。 我们已经在 $(LINK2 /ders/d.cn/operator_overloading.html, 运算符重载) 一章中看到另外一种类型转换的方式，即为要转到的类型定义 $(C opCast)。不同之处在于，$(C opCast) 用于显式类型转换，而 $(C alias this) 用于自动类型转换。
 )
 
 $(P
@@ -23,7 +23,7 @@ $(C alias this) 允许指定从用户自定义类型到该成员的转换，成�
 )
 
 $(P
-如下的 $(C Fraction) 例子中使用 $(C alias this) 的同时用到了一个 $(I 成员函数)。更下面的 $(C TeachingAssistant) 例子中将使用 $(I 成员变量)。
+如下的 $(C Fraction) 例子中使用 $(C alias this) 的同时用到了一个$(I 成员函数)。更下面的 $(C TeachingAssistant) 例子中将使用 $(I 成员变量)。
 )
 
 $(P
@@ -67,7 +67,7 @@ $(SHELL
 $(H5 $(IX 多重继承) $(IX 继承, 多重) 多重继承)
 
 $(P
-我们已经在 $(LINK2 /ders/d.cn/inheritance.html, 继承) 一章中看到类（class）只能继承自一个 $(C class)。（另一方面，$(C 接口) 继承的数量并没有限制。）一些其他的面向对象语言允许同时继承自多个类，这叫做 $(I 多重继承)。
+我们已经在 $(LINK2 /ders/d.cn/inheritance.html, 继承) 一章中看到类（class）只能继承自一个 $(C class)。（另一方面，$(C interface) 继承的数量并没有限制。）一些其他的面向对象语言允许同时继承自多个类，这叫做 $(I 多重继承)。
 )
 
 $(P
