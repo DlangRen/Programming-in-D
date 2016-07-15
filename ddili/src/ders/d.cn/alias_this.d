@@ -3,31 +3,31 @@ Ddoc
 $(DERS_BOLUMU $(IX alias this) $(CH4 alias this))
 
 $(P
-We have seen the individual meanings of the $(C alias) and the $(C this) keywords in previous chapters. These two keywords have a completely different meaning when used together as $(C alias&nbsp;this).
+在前面的章节中，我们已经看到独立的 $(C alias) 和 $(C this) 关键字的作用，然而，这两个关键字同时使用时，即 $(C alias&nbsp;this)，意思就完全不同了。
 )
 
 $(P
-$(IX automatic type conversion) $(IX type conversion, automatic) $(C alias this) enables $(I automatic type conversions) (also known as $(I implicit type conversions)) of user-defined types. As we have seen in $(LINK2 /ders/d.en/operator_overloading.html, the Operator Overloading chapter), another way of providing type conversions for a type is by defining $(C opCast) for that type. The difference is that, while $(C opCast) is for explicit type conversions, $(C alias this) is for automatic type conversions.
+$(IX 自动类型转换) $(IX 类型转换, 自动) $(C alias this) 允许用户自定类型的 $(I 自动类型转换) (通常也作 $(I 隐式类型转换))。 我们已经在 $(LINK2 /ders/d.cn/operator_overloading.html, 运算符重载) 一章中看到另外一种类型转换的方式，即为要转到的类型定义 $(C opCast)。不同之处在于，$(C opCast) 用于显式类型转换，而 $(C alias this) 用于自动类型转换。
 )
 
 $(P
-The keywords $(C alias) and $(C this) are written separately where the name of a member variable or a member function is specified between them:
+关键字 $(C alias) 和 $(C this) 要分开写，中间指定成员变量或者成员函数：
 )
 
 ---
-    alias $(I member_variable_or_member_function) this;
+    alias $(I 成员变量或成员函数) this;
 ---
 
 $(P
-$(C alias this) enables the specific conversion from the user-defined type to the type of that member. The value of the member becomes the resulting value of the conversion .
+$(C alias this) 允许指定从用户自定义类型到该成员的转换，成员的值即转换的结果。
 )
 
 $(P
-The following $(C Fraction) example uses $(C alias this) with a $(I member function). The $(C TeachingAssistant) example that is further below will use it with $(I member variables).
+如下的 $(C Fraction) 例子中使用 $(C alias this) 的同时用到了一个 $(I 成员函数)。更下面的 $(C TeachingAssistant) 例子中将使用 $(I 成员变量)。
 )
 
 $(P
-Since the return type of $(C value()) below is $(C double), the following $(C alias this) enables automatic conversion of $(C Fraction) objects to $(C double) values:
+因为 $(C value()) 的返回值是 $(C double)，所以下面的 $(C alias this) 允许 $(C Fraction) 对象到 $(C double) 值的自动转换：
 )
 
 ---
@@ -51,35 +51,35 @@ double calculate(double lhs, double rhs) {
 }
 
 void main() {
-    auto fraction = Fraction(1, 4);    // meaning 1/4
+    auto fraction = Fraction(1, 4);    // 表示 1/4
     writeln(calculate($(HILITE fraction), 0.75));
 }
 ---
 
 $(P
-$(C value()) gets called automatically to produce a $(C double) value when $(C Fraction) objects appear in places where a $(C double) value is expected. That is why the variable $(C fraction) can be passed to $(C calculate()) as an argument. $(C value()) returns 0.25 as the value of 1/4 and the program prints the result of 2 * 0.25 + 0.75:
+在 $(C Fraction) 对象出现的地方，如果需要的是一个 $(C double)，$(C value()) 就会被自动调用以产生一个 $(C double) 类型的值。这就是为什么 $(C fraction) 可以作为 $(C calculate()) 的参数的原因。$(C value()) 返回 1/4 的值，即 0.25，程序将会输出 2 * 0.25 + 0.75 的结果：
 )
 
 $(SHELL
 1.25
 )
 
-$(H5 $(IX multiple inheritance) $(IX inheritance, multiple) Multiple inheritance)
+$(H5 $(IX 多重继承) $(IX 继承, 多重) 多重继承)
 
 $(P
-We have seen in $(LINK2 /ders/d.en/inheritance.html, the Inheritance chapter) that classes can inherit from only one $(C class). (On the other hand, there is no limit in the number of $(C interface)s to inherit from.) Some other object oriented languages allow inheriting from multiple classes. This is called $(I multiple inheritance).
+我们已经在 $(LINK2 /ders/d.cn/inheritance.html, 继承) 一章中看到类（class）只能继承自一个 $(C class)。（另一方面，$(C 接口) 继承的数量并没有限制。）一些其他的面向对象语言允许同时继承自多个类，这叫做 $(I 多重继承)。
 )
 
 $(P
-$(C alias this) enables using D classes in designs that could benefit from multiple inheritance. Multiple $(C alias this) declarations enable types to be used in places of multiple different types.
+通过 $(C alias this)，用 D 的 class 也可以做多重继承的设计，多个 $(C alias this) 的声明用于表示多个不同的类型。
 )
 
 $(P
-$(HILITE $(I $(B Note:) dmd 2.071, the compiler that was used last to compile the examples in this chapter, allowed only one $(C alias this) declaration.))
+$(HILITE $(I $(B 注意:) dmd 2.071，编译此章节例子的最新编译器，只允许一个 $(C alias this) 声明。))
 )
 
 $(P
-The following $(C TeachingAssistant) class has two member variables of types $(C Student) and $(C Teacher). The $(C alias this) declarations would allow objects of this type to be used in places of both $(C Student) and $(C Teacher):
+下面的 $(C TeachingAssistant) class 有两个成员成员变量，类型分别为 $(C Student) 和 $(C Teacher)，$(C alias this) 声明将允许这个类型用在任何需要 $(C Student) 或 $(C Teacher) 类型的地方：
 )
 
 ---
@@ -113,11 +113,10 @@ class TeachingAssistant {
         this.teacherIdentity = new Teacher(name, subject);
     }
 
-    /* The following two 'alias this' declarations will enable
-     * this type to be used both as a Student and as a Teacher.
+    /* 下面的两个 ‘alias this’ 声明将允许 this 类型可以同时用作
+     * Student 或 Teacher。
      *
-     * Note: dmd 2.071 did not support multiple 'alias this'
-     *       declarations. */
+     * 注意: dmd 2.071 不支持多个 ‘alias this’ 声明 */
     alias $(HILITE teacherIdentity) this;
     $(CODE_COMMENT_OUT compiler limitation)alias $(HILITE studentIdentity) this;
 }
@@ -142,21 +141,20 @@ void main() {
     auto students = [ new Student("Shelly"),
                       new Student("Stan") ];
 
-    /* An object that can be used both as a Teacher and a
-     * Student: */
+    /* 对象可以同时用作 Teacher 或 Student： */
     auto tim = new TeachingAssistant("Tim", "math");
 
-    // 'tim' is the teacher in the following use:
+    // 'tim' 作为一个 teacher：
     attendClass($(HILITE tim), students);
 
-    // 'tim' is one of the students in the following use:
+    // 'tim' 作为一个 student：
     auto amy = new Teacher("Amy", "physics");
     $(CODE_COMMENT_OUT compiler limitation)attendClass(amy, students ~ $(HILITE tim));
 }
 ---
 
 $(P
-The output of the program shows that the same object has been used as two different types:
+程序输出表明相同的对象被用作两个不同的类型：
 )
 
 $(SHELL
@@ -167,9 +165,9 @@ Amy is teaching physics to the following students: Shelly Stan $(HILITE Tim)
 Macros:
         SUBTITLE=alias this
 
-        DESCRIPTION=Nesnelerin otomatik olarak başka tür olarak kullanılmalarını sağlayan 'alias this'.
+        DESCRIPTION=通过 ‘alias this’ 提供到其他类型的自动转换。
 
-        KEYWORDS=d programlama dili ders dersler öğrenmek tutorial alias takma isim alias this
+        KEYWORDS=d 编程 语言 教程 学习 alias 别名 alias this
 
 SOZLER=
 $(kalitim)
