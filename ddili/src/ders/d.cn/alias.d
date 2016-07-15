@@ -1,17 +1,17 @@
 Ddoc
 
-$(DERS_BOLUMU $(IX alias) $(CH4 alias) and $(CH4 with))
+$(DERS_BOLUMU $(IX alias) $(CH4 alias) 与 $(CH4 with))
 
 $(H5 $(C alias))
 
 $(P
-The $(C alias) keyword assigns aliases to existing names. $(C alias) is different from and unrelated to $(C alias this).
+The $(C alias) 关键字为已有名字生成一个别名。 $(C alias) 与 $(C alias this) 不同，之间没有明确联系。
 )
 
-$(H6 Shortening a long name)
+$(H6 缩短名字)
 
 $(P
-As we have encountered in the previous chapter, some names may become too long to be convenient. Let's consider the following function from that chapter:
+正如我们在前面章节中遇到的，许多名字变得很长而难于使用。如下面这个函数：
 )
 
 ---
@@ -22,26 +22,26 @@ Stack!(Point!double) randomPoints(size_t count) {
 ---
 
 $(P
-Having to type $(C Stack!(Point!double)) explicitly in multiple places in the program has a number of drawbacks:
+多次显式地指定类型 $(C Stack!(Point!double)) 有许多缺点：
 )
 
 $(UL
 $(LI
-Longer names can make the code harder to read.
+名字太长难以阅读。
 )
 
 $(LI
-It is unnecessary to be reminded at every point that the type is the $(C Stack) data structure that contains objects of the $(C double) instantiations of the $(C Point) struct template.
+没必要在所有的地方都说明，该类型是一个由 $(C double) 实例化的 $(C Point) struct 模板对象组成的 $(C Stack) 数据结构。
 )
 
 $(LI
-If the requirements of the program change and e.g. $(C double) needs to be changed to $(C real), this change must be carried out in multiple places.
+如果程序需求变更，比如 $(C double) 改成 $(C real)，那你就需要更改多个位置。
 )
 
 )
 
 $(P
-These drawbacks can be eliminated by giving a new name to $(C Stack!(Point!double)):
+可以给 $(C Stack!(Point!double)) 一个新的名字来消除这些缺点：
 )
 
 ---
@@ -56,7 +56,7 @@ $(HILITE Points) randomPoints(size_t count) {
 ---
 
 $(P
-It may make sense to go further and define two aliases, one taking advantage of the other:
+更进一步，定义两个 alias 可能会更有用，其中一个在另一个基础上定义。
 )
 
 ---
@@ -65,28 +65,28 @@ alias Points = Stack!PrecisePoint;
 ---
 
 $(P
-The syntax of $(C alias) is the following:
+$(C alias) 的语法如下:
 )
 
 ---
-    alias $(I new_name) = $(I existing_name);
+    alias $(I 新名字) = $(I 已有名字);
 ---
 
 $(P
-After that definition, the new name and the existing name become synonymous: They mean the same thing in the program.
+定义之后，新名字和已有名字等同：在程序里是相同的东西。
 )
 
 $(P
-You may encounter the older syntax of this feature in some programs:
+你可能会在一些程序里遇到这个特性的旧语法：
 )
 
 $(MONO
-    // Use of old syntax is discouraged:
-    alias $(I existing_name) $(I new_name);
+    // 不推荐使用旧语法：
+    alias $(I 已有名字) $(I 新名字);
 )
 
 $(P
-$(C alias) is also useful when shortening names which otherwise need to be spelled out along with their module names. Let's assume that the name $(C Queen) appears in two separate modules: $(C chess) and $(C palace). When both modules are imported, typing merely $(C Queen) would cause a compilation error:
+在一些需要讲明模块名字的情况，用 $(C alias) 来缩短名字也会很有用。假定名字 $(C Queen) 同时存在于两个不同的模块： $(C chess) 和 $(C palace)。如果两个模块同时被导入，仅仅输入 $(C Queen) 会导致一个编译错误：
 )
 
 ---
@@ -99,7 +99,7 @@ import palace;
 ---
 
 $(P
-The compiler cannot decide which $(C Queen) has been meant:
+编译器无法判断 $(C Queen) 指的是哪一个：
 )
 
 $(SHELL_SMALL
@@ -108,7 +108,7 @@ $(HILITE palace.Queen) at palace.d(1)
 )
 
 $(P
-A convenient way of resolving this conflict is to assign aliases to one or more of the names:
+要解决这个冲突，一个便利的方式就是给这些名字定义 alias：
 )
 
 ---
@@ -124,7 +124,7 @@ void main() {
 ---
 
 $(P
-$(C alias) works with other names as well. The following code gives a new name to a variable:
+$(C alias) 也可以用于其他地方的名字。下面的代码为变量定义了一个新名字：
 )
 
 ---
@@ -136,10 +136,10 @@ $(C alias) works with other names as well. The following code gives a new name t
     assert(variableWithALongName == 43);
 ---
 
-$(H6 Design flexibility)
+$(H6 设计灵活性)
 
 $(P
-For flexibility, even fundamental types like $(C int) can have aliases:
+为了灵活性，就算是基本类型，比如 $(C int) 都可以有 alias：
 )
 
 ---
@@ -155,15 +155,15 @@ struct Customer {
 ---
 
 $(P
-If the users of this struct always type $(C CustomerNumber) and $(C CompanyName) instead of $(C int) and $(C string), then the design can be changed in the future to some extent, without affecting user code.
+如果这个 struct 的用户一直使用 $(C CustomerNumber) 和 $(C CompanyName) 而不是 $(C int) 和 $(C string)，那将来扩展导致设计变更的时候就不会影响用户的代码了。
 )
 
 $(P
-This helps with the readability of code as well. Having the type of a variable as $(C CustomerNumber) conveys more information about the meaning of that variable than $(C int).
+这也会提高代码的可读性，把变量的类型写做 $(C CustomerNumber) 会比 $(C int) 传递更多变量的信息。
 )
 
 $(P
-Sometimes such type aliases are defined inside structs and classes and become parts of the interfaces of those types. The following class has a $(C weight) property:
+有时候这样的类型会定义在 struct 或 class 中，成为它们的一部分。下面这个 class 有一个叫 $(C weight) 的 property：
 )
 
 ---
@@ -182,7 +182,7 @@ public:
 ---
 
 $(P
-Because the member variable and the property of that class is defined as $(C double), the users would have to use $(C double) as well:
+因为 class 中的成员变量和 property 都定义成了 $(C double)，用户也就必须使用 $(C double)：
 )
 
 ---
@@ -194,7 +194,7 @@ Because the member variable and the property of that class is defined as $(C dou
 ---
 
 $(P
-Let's compare it to another design where the type of $(C weight) is defined as an $(C alias):
+我们来比较一下另外一种设计，把 $(C weight) 定义为一个 alias：
 )
 
 ---
@@ -215,7 +215,7 @@ public:
 ---
 
 $(P
-Now the user code would normally use $(C Weight) as well:
+现在，用户代码可以正常地使用 $(C Weight) 了：
 )
 
 ---
@@ -227,13 +227,13 @@ Now the user code would normally use $(C Weight) as well:
 ---
 
 $(P
-With this design, changing the actual type of $(C Weight) in the future would not affect user code. (That is, if the new type supports the $(C +=) operator as well.)
+这样的设计，将来改变 $(C Weight) 的真实类型就不再会影响用户代码了。（新的类型也要支持 $(C +=) 运算符。)
 )
 
-$(H6 $(IX name hiding) Revealing hidden names of superclasses)
+$(H6 $(IX 名字隐藏) 暴露父类中隐藏的名字)
 
 $(P
-When the same name appears both in the superclass and in the subclass, the matching names that are in the superclass are hidden. Even a single name in the subclass is sufficient to hide all of the names of the superclass that match that name:
+当相同的名字同时出现在父类与子类中时，父类中的名字就会被隐藏，即使只是子类中的一个名字也足以隐藏父类中所有匹配的名字：
 )
 
 ---
@@ -256,7 +256,7 @@ void main() {
 ---
 
 $(P
-Since the argument is 42, an $(C int) value, one might expect that the $(C Super.foo) function that takes an $(C int) would be called for that use. However, even though their parameter lists are different, $(C Sub.foo) $(I hides) $(C Super.foo) and causes a compilation error. The compiler disregards $(C Super.foo) altogether and reports that $(C Sub.foo) cannot be called by an $(C int):
+因为调用参数是整型 42，你可能会认为接受 $(C int) 参数的 $(C Super.foo) 会被调用。然而，$(C Sub.foo) 会 $(I 隐藏) $(C Super.foo) 并导致一个编译错误，虽然他们的参数列表不同。编译器完全忽略了 $(C Super.foo)，并且报告说不能用 $(C int) 去调用 $(C Sub.foo)：
 )
 
 $(SHELL_SMALL
@@ -265,15 +265,15 @@ using argument types $(HILITE (int))
 )
 
 $(P
- Note that this is not the same as overriding a function of the superclass. For that, the function signatures would be the same and the function would be overridden by the $(C override) keyword. (The $(C override) keyword has been explained in $(LINK2 /ders/d.en/inheritance.html, the Inheritance chapter).)
+注意，这与重写父类中的函数不一样。重写要求函数的签名必须完全一样，并且需要使用 $(C override) 关键字。（$(C override) 关键字已经在 $(LINK2 /ders/d.cn/inheritance.html, 继承) 章节中介绍过了。）
 )
 
 $(P
-Here, not overriding, but a language feature called $(I name hiding) is in effect. If there were not name hiding, functions that happen to have the same name $(C foo) that are added to or removed from these classes might silently change the function that would get called. Name hiding prevents such surprises. It is a feature of other OOP languages as well.
+这里并不是重写，而是一个语言特性，叫做$(I 名字隐藏)。如果没有名字隐藏，在这些 class 中添加或者删除名字 $(C foo) 就可能会改变本该调用的函数，名字隐藏阻止了这样的情况发生。这也是其他 OOP 语言中常见的特性。
 )
 
 $(P
-$(C alias) can reveal the hidden names when desired:
+$(C alias) 可以在需要的时候暴露被隐藏的名字：
 )
 
 ---
@@ -293,11 +293,11 @@ class Sub : Super {
 ---
 
 $(P
-The $(C alias) above brings the $(C foo) names from the superclass into the subclass interface. As a result, the code now compiles and $(C Super.foo) gets called.
+如上所示，$(C alias) 将名字 $(C foo) 从父类引入成为子类接口。因此，代码现在能够编译了，$(C Super.foo) 也会被正确调用。
 )
 
 $(P
-When it is more appropriate, it is possible to bring the names under a different name as well:
+若需要，也在可以引入的同时改变名字：
 )
 
 ---
@@ -324,7 +324,7 @@ void main() {
 ---
 
 $(P
-Name hiding affects member variables as well. $(C alias) can bring those names to the subclass interface as well:
+名字隐藏同样也会影响成员变量。当然，$(C alias) 也可以引入这些名字：
 )
 
 ---
@@ -340,7 +340,7 @@ class Sub : Super {
 ---
 
 $(P
-Regardless of one being a member variable and the other a member function, the name $(C city) of the subclass hides the name $(C city) of the superclass:
+虽然一个是成员变量，一个是成员函数，子类中的名字 $(C city) 也会隐藏父类中的名字 $(C city)：
 )
 
 ---
@@ -351,7 +351,7 @@ void main() {
 ---
 
 $(P
-Similarly, the names of the member variables of the superclass can be brought to the subclass interface by $(C alias), possibly under a different name:
+同样的，父类中成员变量的名字可以通过 $(C alias) 引入为子类接口，并改名：
 )
 
 ---
@@ -376,7 +376,7 @@ void main() {
 $(H5 $(IX with) $(C with))
 
 $(P
-$(C with) is for removing repeated references to an object or symbol. It takes an expression or a symbol in parentheses and uses that expression or symbol when looking up other symbols that are used inside the scope of $(C with):
+$(C with) 用于避免重复的引用一个对象或者符号。只用在括号里输入一个表达式或者符号，就可以在 $(C with) 的作用域内通过这个表达式或者符号来查找其他的符号：
 )
 
 ---
@@ -389,29 +389,29 @@ void main() {
     auto s = S();
 
     with ($(HILITE s)) {
-        $(HILITE i) = 1;    // means s.i
-        $(HILITE j) = 2;    // means s.j
+        $(HILITE i) = 1;    // 表示 s.i
+        $(HILITE j) = 2;    // 表示 s.j
     }
 }
 ---
 
 $(P
-It is possible to create a temporary object inside the parentheses. In that case, the temporary object becomes $(LINK2 /ders/d.en/lvalue_rvalue.html, an lvalue), lifetime of which ends upon leaving the scope:
+允许在括号内创建一个临时对象。这时，这个临时对象是一个 $(LINK2 /ders/d.cn/lvalue_rvalue.html, 左值)，一旦离开作用域，生命期就结束：
 )
 
 ---
     with (S()) {
-        i = 1;    // the i member of the temporary object
-        j = 2;    // the j member of the temporary object
+        i = 1;    // 临时对象的 i 成员
+        j = 2;    // 临时对象的 j 成员
     }
 ---
 
 $(P
-As we will see later in $(LINK2 /ders/d.en/pointers.html, the Pointers chapter), it is possible to construct the temporary object with the $(C new) keyword, in which case its lifetime can be extended beyond the scope.
+以后我们将在 $(LINK2 /ders/d.en/pointers.html, 指针) 章节重看到，可以用 $(C new) 创建临时对象，这时对象的生命期就可以超过作用域。
 )
 
 $(P
-$(C with) is especially useful with $(C case) sections for removing repeated references to e.g. an $(C enum) type:
+在 $(C case) 块中，删除重复的引用，比如 $(C enum) 类型时，$(C with) 会特别有用：
 )
 
 ---
@@ -421,27 +421,27 @@ enum Color { red, orange }
 
     final switch (c) $(HILITE with (Color)) {
 
-    case red:       // means Color.red
+    case red:       // 表示 Color.red
         // ...
 
-    case orange:    // means Color.orange
+    case orange:    // 表示 Color.orange
         // ...
     }
 ---
 
-$(H5 Summary)
+$(H5 总结)
 
 $(UL
 
-$(LI $(C alias) assigns aliases to existing names.)
+$(LI $(C alias) 为已有名字取别名。)
 
-$(LI $(C with) removes repeated references to the same object or symbol.)
+$(LI $(C with) 避免重复引用相同的对象或符号。)
 
 )
 
 Macros:
         SUBTITLE=alias
 
-        DESCRIPTION=The alias keyword that enables giving new names to existing names.
+        DESCRIPTION=alias 关键字可以为已有名字创建新的名字。
 
-        KEYWORDS=d programming lesson book tutorial encapsulation
+        KEYWORDS=d 编程 教程 封装
