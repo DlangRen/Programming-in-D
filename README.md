@@ -30,20 +30,20 @@ Instead of falling for getting things done quickly, "Programming in D" focuses o
 
 ### Precautions 注意事项
 - 译者必须严格遵循 [中文文案排版指北](https://github.com/sparanoid/chinese-copywriting-guidelines) 中所述的排版规范。
-- 所有翻译相关 `commit` 消息必须精确后缀文件名：` ~ 相应文件名`
+- 所有翻译相关 `commit` 消息必须精确后缀文件名：` ~ 相应文件名`，应使用钩子来确保正确的提交信息格式和提交文件个数（参见 `Wiki`）
 - 释义差异一概以张雪平、谭丽娜的译著《D程序设计语言》为准
 - 易于混淆的概念（例如 `property` 与 `attribute`）不译，只需在章节中首次出现时注明字面释义即可，示例：`attribute（属性）`
 - .d 文件中符号 `$(CH4，$(P，$(LI，$(CODE_NOTE，注释//　，/*　*/` 中包含的内容需翻译；符号 `$(IX` 中的内容只译非关键字部分
 - 中文语句中，英文标点`,` `.` `:` 等等应改为中文标点符号`，` `。` `：`
 - 链接中 `d.en` 都需改为 `d.cn`
-- 为保证翻译风格一致约定了部分单词的中文翻译，参见 `wiki`
+- 为保证翻译风格一致约定了部分单词的中文翻译，参见 `Wiki`
 
 ### Steps 流程
  1. 在 `Orphans 待领取` 中选择自己心水的章节，发布 `Issue` 以领取：`[领取] 章节原名 By 领取人`
  2. `Fork`，需翻译的文件（`*.d`，`*.cozum.d`）在 `ddili/src/ders/d.cn/` 下
- 3. 进行翻译，参见上示注意事项、参考已译好的章节，commit 消息格式：`Update 中文修改原因`
+ 3. 进行翻译，参见上示注意事项、参考已译好的章节，`commit` 消息格式：`Update 中文修改原因`
  4. 翻译完成，发起 `Pull request` 以通知审核人员进行审核：`[审核] 章节原名 By 领取人`
- 5. 审核相关修正亦将 `Pull request` 到个人分支上，请注意查看，有疑议请就地 `comment` 并 @审核人 做批注修改
+ 5. 审核相关修正亦将 `Pull request` 到个人分支上，请注意查看，有疑议请就地 `comment` 并 @审核人 做批注修改，审核  `Pull request` 应用快进合并，参见 `Wiki`
  6. 审核通过：`Merge` => 更新 [章节目录](ddili/src/ders/d.cn/index.d) => `Close Issue`=> 更新 [本文件](README.md)
 
 ## Progress 进度
@@ -64,6 +64,8 @@ Instead of falling for getting things done quickly, "Programming in D" focuses o
 - [并行 Parallelism](ddili/src/ders/d.cn/parallelism.d) By IceNature
 - [关联数组 Associative Arrays](ddili/src/ders/d.cn/aa.d) By 大处着手小处着眼
 - [do-while 循环 do-while Loop](ddili/src/ders/d.cn/do_while.d) By mogu
+- [alias 与 with alias and with](ddili/src/ders/d.cn/alias.d) By mogu
+- [alias this](ddili/src/ders/d.cn/alias_this.d) By mogu
 
 ### Outdated 旧项目待更新
 - [The Hello World Program](ddili/src/ders/d.cn/hello_world.d) By Lucifer
@@ -80,8 +82,6 @@ Instead of falling for getting things done quickly, "Programming in D" focuses o
 - [Ranges](ddili/src/ders/d.cn/ranges.d) By Lucifer
 - [while Loop](ddili/src/ders/d.cn/while.d) By KimmyLeo
 - [Message Passing Concurrency](ddili/src/ders/d.cn/concurrency.d) By IceNature
-- [alias and with](ddili/src/ders/d.cn/alias.d) By mogu
-- [alias this](ddili/src/ders/d.cn/alias_this.d) By mogu
 
 ### Orphans 待领取
 - [Foreword by Andrei Alexandrescu](ddili/src/ders/d.cn/foreword2.d)
