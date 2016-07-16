@@ -5,7 +5,7 @@ $(COZUM_BOLUMU 字符串)
 $(OL
 
 $(LI
-对于字符串，虽然 Phobos 模块的一些函数易于使用，但库文档通常比教程简短。在这一点上，你会发现 Phobos 的让人迷惑的 ranges 尤其明显。在稍后的一章中我们将看到 Phobos 的 ranges 。
+尽管，Phobos 模块中的一些函数易于处理字符串，但库文档通常要比教程简短。因此此时你或许会非常迷惑，尤其是对于 Phobos 中的 range。在稍后的一章中我们将看到 Phobos 的 range。
 )
 
 $(LI
@@ -58,6 +58,6 @@ void main() {
 Macros:
         SUBTITLE=字符串 习题解答
 
-        DESCRIPTION=D语言编程习题解答：字符串
+        DESCRIPTION=D 语言编程习题解答：字符串
 
         KEYWORDS=D 语言教程 字符串 习题解答
