@@ -7,10 +7,10 @@ $(P
 )
 
 $(P
-这个简单的定义可能是个误导。正如我们在 $(LINK2 /ders/d.cn/characters.html, 字符) 一章中看到的，D具有三种独立的字符类型。这些字符类型的数组导致三种独立的字符串类型，其中一些可能会在一些字符串操作上有出人意料的结果。
+这个简单的定义可能是个误导。正如我们在 $(LINK2 /ders/d.cn/characters.html, 字符) 一章中看到的，D 具有三种独立的字符类型。这些字符类型的数组对应着三种独立的字符串类型，其中一些可能会在一些字符串操作上有出人意料的结果。
 )
 
-$(H5 $(IX readln) $(IX strip) $(C readln) 和 $(C strip)，代替 $(C readf))
+$(H5 $(IX readln) $(IX strip) 使用 $(C readln) 和 $(C strip)，而非 $(C readf))
 
 $(P
 从终端读字符串您会有一些惊奇。
@@ -34,27 +34,27 @@ void main() {
 ---
 
 $(P
-用户在名字之后按的 Enter 键并没有结束输入。$(C readf()) 继续等待新输入的字符添加到字符串：
+用户在名字之后按的 Enter 键并没有结束输入。$(C readf()) 继续等待新输入的字符以添加到字符串：
 )
 
 $(SHELL
-What is your name?Mert
+What is your name? Mert
    $(SHELL_NOTE 虽然按了 Enter 键，但输入没有中断)
-   $(SHELL_NOTE (让我们假设在这儿第二次按了 Enter 键))
+   $(SHELL_NOTE （让我们假设在这儿第二次按了 Enter 键）)
 )
 
 $(P
-在终端结束标准输入流的方法随系统而不同，在 Unix 系统下按 Ctrl-D，在 Windows 系统下按 Ctrl-Z。如果用户最后这样结束输入，我们看到新行符已作为字符串的一部分被读取：
+在终端结束标准输入流的方法随系统而不同，在 Unix 系统下按 Ctrl-D，在 Windows 系统下按 Ctrl-Z。如果用户最后这样结束输入，我们看到换行符已作为字符串的一部分被读取：
 )
 
 $(SHELL
 Hello Mert
-   $(SHELL_NOTE_WRONG 名字之后的新行符)
-!  $(SHELL_NOTE_WRONG (在感叹号前还有一个))
+   $(SHELL_NOTE_WRONG 名字之后的换行符)
+!  $(SHELL_NOTE_WRONG （在感叹号前还有一个）)
 )
 
 $(P
-感叹号出现在了那些字符之后，而不是打印在名字右侧。
+感叹号出现在了那些字符之后，而不是在名字之后立即被输出。
 )
 
 $(P
@@ -75,17 +75,17 @@ void main() {
 ---
 
 $(P
-$(C readln()) 也存储新行符。这就让程序有办法确定输入是否包含一条完整语句或者输入是否已结束： 
+$(C readln()) 也存储换行符。这就让程序有办法确定输入是否包含一条完整语句或者输入是否已结束： 
 )
 
 $(SHELL
 What is your name?Mert
 Hello Mert
-!  $(SHELL_NOTE_WRONG 感叹号前有新行符)
+!  $(SHELL_NOTE_WRONG 感叹号前有换行符)
 )
 
 $(P
-字符串两端的像空白符这样的控制字符能被 $(C std.string.strip) 移除：
+这样的控制字符，就像所有位于字符串两端的空白字符一样，能被 $(C std.string.strip) 移除：
 )
 
 ---
@@ -104,16 +104,16 @@ void main() {
 ---
 
 $(P
-上面的 $(C strip()) 表达式返回一个不包含尾随控制符的新字符串。返回值再赋值给 $(C name)，得到预期的输出：
+上面的 $(C strip()) 表达式返回一个不包含尾部控制符的新字符串。返回值再赋值给 $(C name)，得到预期的输出：
 )
 
 $(SHELL
-What is your name?Mert
-Hello Mert!    $(SHELL_NOTE 没有新行符)
+What is your name? Mert
+Hello Mert!    $(SHELL_NOTE 没有换行符)
 )
 
 $(P
-$(C readln()) 没有参数也可以使用。在这种情况下它$(I 返回) 刚刚读入的行。链接 $(C readln()) 的结果到 $(C strip())，能得到更短且可读性更好的语法：
+$(C readln()) 没有参数也可以使用。在这种情况下它$(I 返回)刚刚读入的行。将 $(C readln()) 的结果放到 $(C strip())中，能得到更短且可读性更好的语法：
 )
 
 ---
@@ -121,13 +121,13 @@ $(C readln()) 没有参数也可以使用。在这种情况下它$(I 返回) 刚
 ---
 
 $(P
-在介绍了下面的 $(C string) 类型之后，我将开始使用格式化。
+在介绍了下面的 $(C string) 类型之后，我们将开始使用这种格式。
 )
 
-$(H5 $(IX formattedRead) $(C formattedRead) 函数可以解析字符串)
+$(H5 $(IX formattedRead) 使用 $(C formattedRead) 函数来解析字符串)
 
 $(P
-一但从输入端或别的任何源处读取了一行，$(C std.format) 模块的 $(C formattedRead()) 函数就有可能去解析并转换分割的数据。它的第一个参数是包含数据的行，剩余的参数可以像 $(C readf()) 那样精确使用：
+一旦从输入流或其他任何来源中读取了一行字符，就可以用 $(C std.format) 模块的 $(C formattedRead()) 函数来解析并转换它所包含的独立数据。它的第一个参数是包含数据的输入行，而其余的参数就与用于 $(C readf()) 中的一模一样：
 )
 
 ---
@@ -156,7 +156,7 @@ Your name is $(HILITE Mert), and your age is $(HILITE 30).
 )
 
 $(P
-$(C readf()) 和 $(C formattedRead()) 函数 都可以成功$(I 返回) 解析及转换的项目个数。该值可与数据项目的期望个数相比较，以便确定输入的有效性。例如，像上面的 $(C formattedRead()) 函数期望去读$(I 两个) 项目(一个 $(C string) 型 name 和一个 $(C int) 型 age)，下面的检查确定它真是这样：
+$(C readf()) 和 $(C formattedRead()) 函数都$(I 返回)它们所能够成功解析及转换的项目个数。该值可与所期望的数据个数相比较，以便确定输入的有效性。例如，像上面的 $(C formattedRead()) 函数期望去读$(I 两个)数据（一个 $(C string) 型 name 和一个 $(C int) 型 age），下面的检查能够确保它确实如此：
 )
 
 ---
@@ -172,7 +172,7 @@ $(C readf()) 和 $(C formattedRead()) 函数 都可以成功$(I 返回) 解析�
 ---
 
 $(P
-当输入不能转换到 $(C name) 和 $(C age) 时，程序打印一个错误：
+当输入不能转换到 $(C name) 和 $(C age) 时，程序将打印一个错误：
 )
 
 $(SHELL
@@ -180,24 +180,24 @@ Please enter your name and age, separated with a space: $(HILITE Mert)
 Error: Unexpected line.
 )
 
-$(H5 $(IX &quot;) 双引号，非单引号)
+$(H5 $(IX &quot;) 使用双引号，而非单引号)
 
 $(P
 我们已经看到单引号用于定义字符字面量。字符串字面量用双引号定义。$(STRING 'a') 是一个字符；$(STRING "a") 是一个包含单字符的字符串。
 )
 
-$(H5 $(IX string) $(IX wstring) $(IX dstring) $(IX char[]) $(IX wchar[]) $(IX dchar[]) $(IX immutable) $(C string)、$(C wstring) 和 $(C dstring) 是不可变的)
+$(H5 $(IX string) $(IX wstring) $(IX dstring) $(IX char[]) $(IX wchar[]) $(IX dchar[]) $(IX immutable) $(C string)、$(C wstring) 和 $(C dstring) 是 immutable（不可变）的)
 
 $(P
-三种字符串类型对应着三种字符类型：$(C char[])、$(C wchar[]) 和 $(C dchar[])。
+对应着三种字符类型，分别存在三种字符串类型：$(C char[])、$(C wchar[]) 和 $(C dchar[])。
 )
 
 $(P
-这些类型的 $(I immutable) 版本有三个$(I 别名)：$(C string)、$(C wstring) 和 $(C dstring)。由这些别名定义的字符变量不可修改。例如，可以修改一个 $(C wchar[]) ，但不可修改一个 $(C wstring) 。(在稍后的章节我们将看到 D 的$(I 不可变性) 概念。)
+这些类型的 $(I immutable) 版本有三个$(I 别名)：$(C string)、$(C wstring) 和 $(C dstring)。由这些别名定义的变量中的字符不可修改。例如，可以修改一个 $(C wchar[]) 中的字符，但不可以修改一个 $(C wstring) 中的字符。（在稍后的章节我们将看到 D 的$(I 不可变性)概念。）
 )
 
 $(P
-例如，下面这段代码尝试着修改$(C 字符串)的首字母为大写，将引发一个编译错误： 
+例如，下面这段代码尝试着修改 $(C string) 的首字母为大写，这将引发一个编译错误： 
 )
 
 ---
@@ -206,7 +206,7 @@ $(P
 ---
 
 $(P
-我们可能想到把变量定义为 $(C char[]) 而不是别名 $(C string)，但也不能通过编译：
+我们可能想到把变量定义为 $(C char[]) 而不是别名 $(C string)，但这也不能通过编译：
 )
 
 ---
@@ -214,13 +214,13 @@ $(P
 ---
 
 $(P
-这次的编译错误是因为两个因素碰了头：
+这次的编译错误是因为两个因素的联合作用：
 )
 
 $(OL
-$(LI 像 $(STRING "hello") 这样的字符串字面量的类型是 $(C string)，而不是 $(C char[])，因此它们不可变。
+$(LI 像 $(STRING "hello") 这样的字符串字面量的类型是 $(C string)，而不是 $(C char[])，因此它们是不可变的。
 )
-$(LI 左手侧的 $(C char[]) 是一个切片，代码编译时，它会访问右手侧的全部字符。
+$(LI 左手侧的 $(C char[]) 是一个切片，这意味着，一旦代码编译成功，它将会提供对右手侧全部字符的访问。
 )
 )
 
@@ -229,7 +229,7 @@ $(P
 )
 
 $(P
-这儿的解决办法是通过 $(C .dup) property（属性）得到一个不可变字符串的副本：
+此处的解决办法是通过 $(C .dup) property（属性）得到一个不可变字符串的副本：
 )
 
 ---
@@ -251,7 +251,7 @@ Hello
 )
 
 $(P
-同样的，$(C char[]) 不能被用到需要 $(C string) 的地方。这种情况下，$(C .idup) property 能被用来从一个可变的 $(C char[]) 变量产生一个不可变的 $(C string) 变量。例如，如果 $(C s) 的变量类型是 $(C char[])，下面这行将编译失败：
+同样的，$(C char[]) 不能被用到需要 $(C string) 的地方。这种情况下，$(C .idup) property 能被用来从一个可变的 $(C char[]) 变量中获取一个不可变的 $(C string) 变量。例如，如果 $(C s) 的变量类型是 $(C char[])，下面这行将编译失败：
 )
 
 ---
@@ -259,7 +259,7 @@ $(P
 ---
 
 $(P
-当 $(C s) 的类型是 $(C char[])，上面右手侧赋值的表达式类型也是 $(C char[])，$(C .idup) 可用来从存在字符串产生不可变的字符串：
+当 $(C s) 的类型是 $(C char[])，上面右手侧赋值的表达式类型即也是 $(C char[])，$(C .idup) 可用来从存在的字符串中生成不可变的字符串：
 )
 
 ---
@@ -336,7 +336,7 @@ $(LI 有一个 $(C d) 在字面量 $(STRING "résumé"d) 的末尾，指定了�
 )
 
 $(P
-无论如何，请记住使用 $(C dchar[]) 和 $(C dstring) 并不能解决所有的操作 Unicode 字符的问题。例如，如果用户输入文本“résumé”，即使是 $(C dchar) 字符串，你和你的程序并不能确保字符串的长度会是6。若这样可能就比较好：如果至少其中一个‘é’字符没有做为单个编码点编码，而是一个‘e’与一个重音符的组合。为避免处理这种以及好多其它的 Unicode 议题，在你的程序里就要考虑使用一个支持 Unicode 的文本处理库。
+无论如何，请记住使用 $(C dchar[]) 和 $(C dstring) 并不能解决所有的操作 Unicode 字符的问题。例如，如果用户输入文本“résumé”，即使使用 $(C dchar) 字符串，你和你的程序仍然不能确保字符串的长度会是 6。如果至少其中一个‘é’字符编码为单个编码单元，而是一个‘e’与一个重音符组合单元的组合，那么它就可能会更长。为避免处理这种以及许多其它的 Unicode 问题，在你的程序里就要考虑使用一个支持 Unicode 的文本处理库。
 )
 
 $(H5 $(IX literal, string) 字符串字面量)
@@ -370,13 +370,13 @@ $(SHELL
 )
 
 $(P
-因为所有的“résumé”的 Unicode 字符都能用单个 $(C wchar) 或者 $(C dchar) 表示，所以最后两个长度与字符个数是一致的。
+因为所有的“résumé”的 Unicode 字符都能用单个 $(C wchar) 或者 $(C dchar) 表示，所以最后两个的长度与字符个数是一致的。
 )
 
-$(H5 $(IX concatenation, string) 字符串串联)
+$(H5 $(IX concatenation, string) 字符串合并)
 
 $(P
-由于它们实际上是数组，所有数组的操作也都能应用到字符串上。$(C ~) 串联两个字符串，$(C ~=) 附加到一个已存在的字符串上：
+由于它们实际上是数组，所有数组的操作也都能应用到字符串上。$(C ~) 可以合并两个字符串，$(C ~=) 则能够附加字符串到一个已存在的字符串上：
 )
 
 ---
@@ -387,7 +387,7 @@ void main() {
     write("What is your name? ");
     string name = strip(readln());
 
-    // 串联：
+    // 合并：
     string greeting = "Hello " ~ name;
 
     // Append:
@@ -409,11 +409,11 @@ Hello Can! Welcome...
 $(H5 比较字符串)
 
 $(P
-$(I $(B 注：)除了 Unicode 编码之外，Unicode 不定义字符排序。因此，下面的输出结果不是你所期望的。)
+$(I $(B 注：)除了 Unicode 编码顺序之外，Unicode 不定义字符的排列顺序。因此，下面的输出结果不是你所期望的那样。)
 )
 
 $(P
-我们以前把比较运算符 $(C <)，$(C >=) 等等用于整型和浮点数值。同样的操作也能用于字符串，但含义不同：字符串按$(I 字典顺序) 排序。这种排序需要在一个假设的大字母表中让每个字符的 Unicode 编码找到它的位置。在这个假设的字母表中，$(I 更少) 和$(I 更多) 的概念就被$(I 之前) 和$(I 之后) 代替：
+我们以前把比较运算符 $(C <)、$(C >=) 等等用于整型和浮点数值。同样的操作也能用于字符串，但含义不同：字符串按$(I 字典顺序)排序。这种排序需要在一个假设的大字母表中让每个字符的 Unicode 编码找到它的位置。在这个假设的字母表中，$(I 更少)和$(I 更多)的概念就被$(I 之前)和$(I 之后)代替：
 )
 
 ---
@@ -449,7 +449,7 @@ void main() {
 ---
 
 $(P
-由于 Unicode 采用来自于 ASCII 表的基本拉丁字母，只包含 ASCII 字母的字符串将会正确排序。
+由于 Unicode 采用来自于 ASCII 表的基本拉丁字母，仅包含 ASCII 字母的字符串将会正确排序。
 )
 
 $(H5 小写与大写不同)
@@ -459,11 +459,11 @@ $(P
 )
 
 $(P
-另外，受 ASCII 编码值的影响，所有拉丁大写字母都排在小写字母的前面。例如，‘B’排在‘a’之前。无论小写大写，$(C std.string) 模块中的 $(C icmp()) 函数可用于字符串比较。在$(LINK2 http://dlang.org/phobos/std_string.html, 它的联机文档) 中你可以看到这个模块的各个函数。
+另外，受 ASCII 编码值的影响，所有拉丁大写字母都排在小写字母的前面。例如，‘B’排在‘a’之前。无论小写大写，$(C std.string) 模块中的 $(C icmp()) 函数可用于字符串比较。在 $(LINK2 http://dlang.org/phobos/std_string.html, 它的在线文档) 中你可以看到这个模块的各个函数。
 )
 
 $(P
-因为字符串是数组(做个推演，$(I ranges))，$(C std.array)、$(C std.algorithm) 和 $(C std.range) 模块中的函数对字符串也都非常有用。
+因为字符串是数组（进一步而言，是 $(I range)），所以 $(C std.array)、$(C std.algorithm) 和 $(C std.range) 模块中的函数对与于字符串也都非常有用。
 )
 
 $(PROBLEM_COK
@@ -473,18 +473,18 @@ $(PROBLEM
 )
 
 $(PROBLEM
-写一个使用 $(C ~) 运算符的程序：让用户敲入英文名字和姓氏，都用小写字母。生成一个姓名首字母大写的全名。例如，字符串是“ebru”和“domates”，程序应该打印出“Ebru&nbsp;Domates”。
+写一个使用 $(C ~) 运算符的程序：让用户都以小写键入英文名字和姓氏。生成一个姓名首字母大写的全名。例如，字符串是“ebru”和“domates”，程序应该打印出“Ebru&nbsp;Domates”。
 )
 
 $(PROBLEM
 从输入中读取一行并打印该行的第一个和最后一个‘e’字母之间的部分。例如，若这行是“this line has five words”程序就应该打印出“e has five”。
 
 $(P
-你可能会发现 $(C indexOf()) 和 $(C lastIndexOf()) 函数对生成切片所需要的两个索引很有用。
+你或许会发现 $(C indexOf()) 和 $(C lastIndexOf()) 函数对生成切片所需要的两个索引很有用。
 )
 
 $(P
-由于它们的文档指出，$(C indexOf()) 和 $(C lastIndexOf()) 的返回类型即不是 $(C int) 也不是 $(C size_t)，而是 $(C ptrdiff_t)。您可能就需要定义确切的变量类型：
+与它们的文档中所指出一样，$(C indexOf()) 和 $(C lastIndexOf()) 的返回类型不是 $(C int)，也不是 $(C size_t)，而是 $(C ptrdiff_t)。您可能就需要定义该类型的变量：
 )
 
 ---
