@@ -1,47 +1,47 @@
 Ddoc
 
-$(DERS_BOLUMU $(IX concurrency, message passing) $(IX message passing concurrency) Message Passing Concurrency)
+$(DERS_BOLUMU $(IX 并发, 消息传递) $(IX 并发消息传递) 并发消息传递)
 
 $(P
-Concurrency is similar to but different from the topic of the previous chapter, parallelism. As these two concepts both involve executing programs on threads, and as parallelism is based on concurrency, they are sometimes confused with each other.
+虽然并发（concurrency）与并行（parallelism）很相似，但我们不能将其混为一谈。这两个概念都涉及多线程，且并行是基于并发的，在刚接触它们时有些迷惑也是正常的。
 )
 
 $(P
-$(IX parallelism vs. concurrency) $(IX concurrency vs. parallelism) The following are the differences between parallelism and concurrency:
+$(IX 并行 vs. 并发) $(IX 并发 vs. 并行) 下面是并发和并行的区别：
 )
 
 $(UL
 
 $(LI
-The main purpose of parallelism is to take advantage of microprocessor cores to improve the performance of programs. Concurrency on the other hand, is a concept that may be needed even on a single-core environment. Concurrency is about making a program run on more than one thread at a time. An example of a concurrent program would be a server program that is responding to requests of more than one client at the same time.
+并行的主要目的是利用多核心的运算能力提高程序的性能。而并发这个概念在单核心系统中也有用到。并发即程序同时运行多个线程。比如说服务器程序就是并发的，它需要在同一时间处理多个客户端的请求。
 )
 
 $(LI
-In parallelism, tasks are independent from each other. In fact, it would be a bug if they did depend on results of other tasks that are running at the same time. In concurrency, it is normal for threads to depend on results of other threads.
+在并行中，任务之间相互独立。事实上如果同时运行的任务依赖其他任务的结果就可能会引发程序的 bug。而对于并发，线程间的相互依赖是很常见的。
 )
 
 $(LI
-Although both programming models use operating system threads, in parallelism threads are encapsulated by the concept of task. Concurrency makes use of threads explicitly.
+虽然两者都涉及线程操作，但并行用 task 对线程做了包装。而并发则需要显式调用线程。
 )
 
 $(LI
-Parallelism is easy to use, and as long as tasks are independent it is easy to produce programs that work correctly. Concurrency is easy only when it is based on $(I message passing). It is very difficult to write correct concurrent programs if they are based on the traditional model of concurrency that involves lock-based data sharing.
+并行上手容易，由于任务相互独立的缘故我们写出的程序很少出错。并发则只有在基于$(I 消息传递)时才比较简单。若使用传统的基于锁的数据共享模型，则很难写出正确的程序。
 )
 
 )
 
 $(P
-D supports both models of concurrency: message passing and data sharing. We will cover message passing in this chapter and data sharing in the next chapter.
+D 语言支持两种并发模型：消息传递和数据共享。我们将会在本章中学习到消息传递，在下一章中学习数据共享。
 )
 
-$(H5 Concepts)
+$(H5 概念)
 
 $(P
-$(IX thread) $(B Thread): Operating systems execute programs as work units called $(I threads). D programs start executing with $(C main()) on a thread that has been assigned to that program by the operating system. All of the operations of the program are normally executed on that thread. The program is free to start other threads to be able to work on multiple tasks at the same time. In fact, tasks that have been covered in the previous chapter are based on threads that are started automatically by $(C std.parallelism).
+$(IX thread) $(B 线程)：操作系统执行程序的工作单元叫做$(I 线程)。D 语言程序在操作系统指定的线程上执行 $(C main()) 函数。通常情况下程序的所有操作都将在这个线程中完成。程序也可以自由地创建线程以实现在同一时间执行多个任务的功能。实际上上一章我们学习的 task 就是基于线程的，只不过这些线程是由 $(C std.parallelism) 自动维护的。
 )
 
 $(P
-The operating system can pause threads at unpredictable times for unpredictable durations. As a result, even operations as simple as incrementing a variable may be paused mid operation:
+操作系统会不定期的将线程暂停一段时间。也就是说，即使是一个简单的自增操作也可能会在执行到一半时被操作系统暂停：
 )
 
 ---
@@ -49,33 +49,33 @@ The operating system can pause threads at unpredictable times for unpredictable 
 ---
 
 $(P
-The operation above involves three steps: Reading the value of the variable, incrementing the value, and assigning the new value back to the variable. The thread may be paused at any point between these steps to be continued after an unpredictable time.
+上面这个看似简单的操作实际上包含三个步骤：读取变量的值、将其加一、将结果写回变量所在的内存。线程可能会暂停在这三步中的任何一步上，停顿一段时间后才会继续。
 )
 
 $(P
-$(IX message) $(B Message): Data that is passed between threads are called messages. Messages may be composed of any type and any number of variables.
+$(IX messgae) $(B 消息)：在线程间传递的数据叫做消息。任何类型任何长短的数据都可以被称为消息。
 )
 
 $(P
-$(IX thread id) $(B Thread identifier): Every thread has an id, which is used for specifying recipients of messages.
+$(IX thread id) $(B 线程 ID)：每一个线程都有一个 ID，你可以使用它们指定消息的接收者。
 )
 
 $(P
-$(IX owner) $(B Owner): Any thread that starts another thread is called the owner of the new thread.
+$(IX owner) $(B 所有者)：启动线程的线程即为被启动线程的所有者。
 )
 
 $(P
-$(IX worker) $(B Worker): Any thread that is started by an owner is called a worker.
+$(IX worker) $(B 工作线程)：被所有者启动的线叫做工作线程。
 )
 
-$(H5 $(IX spawn) Starting threads)
+$(H5 $(IX spawn) 启动线程)
 
 $(P
-$(C spawn()) takes a function pointer as a parameter and starts a new thread from that function. Any operations that are carried out by that function, including other functions that it may call, would be executed on the new thread. The main difference between a thread that is started with $(C spawn()) and a thread that is started with $(LINK2 /ders/d.en/parallelism.html, $(C task())) is the fact that $(C spawn()) makes it possible for threads to send messages to each other.
+$(C spawn()) 需要一个函数指针，新线程将会从指定的函数启动。函数中进行的包括函数调用在内的所有操作都将在新线程中执行。与 $(LINK2 /ders/d.cn/parallelism.html, $(C task())) 启动的线程相比，$(C spawn()) 启动的线程与之最大的不同在于 $(C spawn()) 允许线程间消息传递。
 )
 
 $(P
-As soon as a new thread is started, the owner and the worker start executing separately as if they were independent programs:
+新线程启动后，所有者和工作线程将会独立执行，看上去它们就像是独立的程序：
 )
 
 ---
@@ -103,7 +103,7 @@ void main() {
 ---
 
 $(P
-The examples in this chapter call $(C Thread.sleep) to slow down threads to demonstrate that they run at the same time. The output of the program shows that the two threads, one that runs $(C main()) and the other that has been started by $(C spawn()), execute independently at the same time:
+本章中的例子调用 $(C Thread.sleep) 减慢线程执行的速度来更方便的展示线程运行的情况。程序的输出显示有两个线程，一个运行 $(C main())，另一个通过 $(C spawn()) 创建，它们同时执行并相互独立：
 )
 
 $(SHELL
@@ -121,11 +121,11 @@ main is done.
 )
 
 $(P
-The program automatically waits for all of the threads to finish executing. We can see this in the output above by the fact that $(C worker()) continues executing even after $(C main()) exits after printing "main is done."
+程序在所有线程执行完毕后才会退出。从上面的输出中我们可以看到，$(C main()) 函数在打印 “main is done.”退出后 $(C worker()) 还在继续执行。
 )
 
 $(P
-The parameters that the thread function takes are passed to $(C spawn()) as its second and later arguments. The two worker threads in the following program print four numbers each. They take the starting number as the thread function parameter:
+线程函数需要的参数应通过 $(C spawn()) 的二个参数传入。下面程序中的两个工作线程分别打印四个数字。线程函数的参数为初始数字。
 )
 
 ---
@@ -148,7 +148,7 @@ void main() {
 ---
 
 $(P
-The output of one of the threads is highlighted:
+其中一个线程的输出被高亮了：
 )
 
 $(SHELL
@@ -163,17 +163,17 @@ $(HILITE 23)
 )
 
 $(P
-The lines of the output may be different at different times depending on how the threads are paused and resumed by the operating system.
+程序的输出顺序可能会和上面有所不同。具体情况取决于操作系统对线程的调度。
 )
 
 $(P
-$(IX CPU bound) $(IX I/O bound) $(IX thread performance) Every operating system puts limits on the number of threads that can exist at one time. These limits can be set for each user, for the whole system, or for something else. The overall performance of the system can be reduced if there are more threads that are busily working than the number of cores in the system. A thread that is busily working at a given time is said to be $(I CPU bound) at that point in time. On the other hand, some threads spend considerable amount of their time waiting for some event to occur like input from a user, data from a network connection, the completion of a $(C Thread.sleep) call, etc. Such threads are said to be $(I I/O bound) at those times. If the majority of its threads are I/O bound, then a program can afford to start more threads than the number of cores without any degradation of performance. As it should be in every design decision that concerns program performance, one must take actual measurements to be exactly sure whether that really is the case.
+$(IX CPU 密集型) $(IX I/O 密集型) $(IX 线程性能) 每个操作系统都有对同时运行线程个数的限制。这种限制可能是对用户的，也可能是对整个操作系统的，当然也可能是对其他某些级别。如果忙碌的工作线程数量比系统中处理器核心数多，系统的整体性能就有可能下降。在指定运行时间消耗大量 CPU 资源的线程叫做 $(I CPU 密集型)。与之相对的是消耗大量时间等待事件、用户输入、来自互联网的数据或调用了 $(C Thread.sleep) 等情况的线程。这种线程被称作 $(I I/O 密集型)。如果大部分线程都是 I/O 密集型的，那程序就不需要担心由于线程数多余核心数而造成的性能下降的问题。基于对性能设计的考量，我们需要谨慎分析并确定线程的类型。
 )
 
-$(H5 $(IX Tid) $(IX thisTid) $(IX ownerTid) Thread identifiers)
+$(H5 $(IX Tid) $(IX thisTid) $(IX ownerTid) 线程 ID)
 
 $(P
-$(C thisTid()) returns the identifier of the $(I current) thread. It is commonly called without the function parentheses:
+$(C thisTid()) 返回$(I 当前)线程的 ID。通常调用它的时候不需要带圆括号：
 )
 
 ---
@@ -195,7 +195,7 @@ void main() {
 ---
 
 $(P
-The return type of $(C thisTid()) is $(C Tid), which has no significance for the program. Even its $(C toString()) function is not overloaded:
+$(C thisTid()) 返回值的类型为 $(C Tid)，对我们来说这个类型并没有什么卵用。它甚至连 $(C toString()) 都没重载：
 )
 
 $(SHELL
@@ -204,7 +204,7 @@ Worker: Tid(std.concurrency.MessageBox)
 )
 
 $(P
-The return value of $(C spawn()), which I have been ignoring until this point, is the id of the worker thread:
+我们之前一直没有用到的 $(C spawn()) 的返回值即为工作线程的 ID：
 )
 
 ---
@@ -212,21 +212,21 @@ The return value of $(C spawn()), which I have been ignoring until this point, i
 ---
 
 $(P
-Conversely, the owner of a worker thread is obtained by the $(C ownerTid()) function.
+与之相对的是在工作线程中使用 $(C ownerTid()) 获取其所有者的 ID。
 )
 
 $(P
-In summary, the owner is identified by $(C ownerTid) and the worker is identified by the return value of $(C spawn()).
+小结一下：调用 $(C ownerTid) 获取其所有者 ID，通过 $(C spawn()) 的返回值获取工作线程 ID。
 )
 
-$(H5 $(IX send) $(IX receiveOnly) Message Passing)
+$(H5 $(IX send) $(IX receiveOnly) 消息传递)
 
 $(P
-$(C send()) sends messages and $(C receiveOnly()) waits for a message of a particular type. (There is also $(C prioritySend()), $(C receive()), and $(C receiveTimeout()), which will be explained later below.)
+D 语言使用 $(C send()) 发送消息，使用 $(C receiveOnly()) 等待指定类型的消息。（除了它们，标准库还提供了其他实用函数，像 $(C prioritySend())、$(C receive())、$(C receiveTimeout()) 。我们之后会在本章一一介绍。）
 )
 
 $(P
-The owner in the following program sends its worker a message of type $(C int) and waits for a message from the worker of type $(C double). The threads continue sending messages back and forth until the owner sends a negative $(C int). This is the owner thread:
+下面这个程序中，线程所有者会向工作线程发送 $(C int) 类型的消息并等待工作线程返回 $(C double) 类型的消息。工作线程会不停地返回消息直到线程所有者发送一个负的 $(C int)。这是所有者线程：
 )
 
 ---
@@ -239,18 +239,18 @@ void $(CODE_DONT_TEST)main() {
         writefln("sent: %s, received: %s", value, result);
     }
 
-    /* Sending a negative value to the worker so that it
-     * terminates. */
+    /* 向工作线程发送一个负数
+     * 使其终止*/
     $(HILITE worker.send)(-1);
 }
 ---
 
 $(P
-$(C main()) stores the return value of $(C spawn()) under the name $(C worker) and uses that variable when sending messages to the worker.
+$(C main()) 将 $(C spawn()) 的返回值储存在 $(C worker) 变量中并通过它来给工作线程发送消息。
 )
 
 $(P
-On the other side, the worker receives the message that it needs as an $(C int), uses that value in a calculation, and sends the result as type $(C double) to its owner:
+另一边，工作线程需要 $(C int) 类型的消息并对其进行计算，之后将计算得到的 $(C double) 类型的结果返回给其所有者：
 )
 
 ---
@@ -266,7 +266,7 @@ void workerFunc() {
 ---
 
 $(P
-The main thread reports the messages that it sends and the messages that it receives:
+主线程会将它发送的和接收的消息一起输出：
 )
 
 $(SHELL
@@ -277,7 +277,7 @@ sent: 4, received: 0.8
 )
 
 $(P
-It is possible to send more than one value as a part of the same message. The following message consists of three parts:
+也可以在一次消息中发送多个值，这些值都会成为这次消息的一部分。下面这个消息就是由三个部分组成：
 )
 
 ---
@@ -285,38 +285,38 @@ It is possible to send more than one value as a part of the same message. The fo
 ---
 
 $(P
-Values that are passed as parts of a single message appear as a tuple on the receiver's side. In such cases the template parameters of $(C receiveOnly()) must match the types of the tuple members:
+如果在一次消息中传递多个值的话，接收者会将它们看作一个 tuple。这样的话 $(C receiveOnly()) 的模版参数的类型要与每一个 tuple 成员的类型对应：
 )
 
 ---
-    /* Wait for a message composed of Tid, int, and double. */
+    /* 等待一个包含 Tid、int 和 double 类型的消息。*/
     auto message = receiveOnly!($(HILITE Tid, int, double))();
 
-    auto sender   = message[0];    // of type Tid
-    auto integer  = message[1];    // of type int
-    auto floating = message[2];    // of type double
+    auto sender   = message[0];    // Tid
+    auto integer  = message[1];    // int
+    auto floating = message[2];    // double
 ---
 
 $(P
-$(IX MessageMismatch) If the types do not match, a $(C MessageMismatch) exception is thrown:
+$(IX MessageMismatch) 如果类型不匹配，程序将会抛出一个 $(C MessageMismatch) 异常：
 )
 
 ---
 import std.concurrency;
 
 void workerFunc() {
-    ownerTid.send("hello");    $(CODE_NOTE Sending $(HILITE string))
+    ownerTid.send("hello");    $(CODE_NOTE 发送 $(HILITE string))
 }
 
 void main() {
     spawn(&workerFunc);
 
-    auto message = receiveOnly!double();    $(CODE_NOTE Expecting $(HILITE double))
+    auto message = receiveOnly!double();    $(CODE_NOTE 需要 $(HILITE double))
 }
 ---
 
 $(P
-The output:
+输出为：
 )
 
 $(SHELL
@@ -325,34 +325,34 @@ Unexpected message type: expected 'double', got 'immutable(char)[]'
 )
 
 $(P
-The exceptions that the worker may throw cannot be caught by the owner. One solution is to have the worker catch the exception to be sent as a message. We will see this below.
+所有者无法捕获由工作线程抛出的异常。一种解决方案是在工作线程中捕获潜在的由接收信息引发的异常。我们之后会见到的。
 )
 
-$(H6 Example)
+$(H6 例子)
 
 $(P
-Let's use what we have seen so far in a simulation program.
+现在我们来实践一下刚刚学到的东西。
 )
 
 $(P
-The following program simulates independent robots moving around randomly in a two dimensional space. The movement of each robot is handled by a separate thread that takes three pieces of information when started:
+下面这个程序模拟的是两个互不相关的机器人在二维空间中随机移动。每个机器人的移动都是由一个独立的线程控制的。线程在启动时需要传入三个参数：
 )
 
 $(UL
 
-$(LI The number (id) of the robot: This information is sent back to the owner to identify the robot that the message is related to.
+$(LI 机器人的编号（ID）：这个参数会随着消息传回线程所有者，这样我们就可以通过它确认消息的来源。
 )
 
-$(LI The origin: This is where the robot starts moving from.
+$(LI 起点：机器人的初始位置。
 )
 
-$(LI The duration between each step: This information is used for determining when the robot's next step will be.
+$(LI 每一步的间隔时间：决定机器人何时走下一步。
 )
 
 )
 
 $(P
-That information can be stored in the following $(C Job) struct:
+这些信息可以储存在下面这个 $(C Job) 结构中：
 )
 
 ---
@@ -364,7 +364,7 @@ struct Job {
 ---
 
 $(P
-The thread function that moves each robot sends the id of the robot and its movement to the owner thread continuously:
+移动机器人的线程会不断地将对应机器人的 ID 和它的移动情况发送给所有者线程：
 )
 
 ---
@@ -384,7 +384,7 @@ void robotMover(Job job) {
 ---
 
 $(P
-The owner simply waits for these messages in an infinite loop. It identifies the robots by the robot ids that are sent as parts of the messages. The owner simply prints every movement:
+线程所有者仅仅通过一个死循环等待消息。它通过消息中的机器人 ID 来识别机器人，并将将其运动情况输出：
 )
 
 ---
@@ -397,11 +397,11 @@ The owner simply waits for these messages in an infinite loop. It identifies the
 ---
 
 $(P
-All of the messages in this simple program go from the worker to the owner. Message passing normally involves more complicated communication in many kinds of programs.
+本例中的所有消息都是从工作线程向线程所有者传递的。当然在许多程序中消息传递不止这么简单。
 )
 
 $(P
-Here is the complete program:
+下面是完整的程序：
 )
 
 ---
@@ -426,7 +426,7 @@ struct Movement {
 
     string toString() {
         return ((from == to)
-                ? format("%s (idle)", from)
+                ?format("%s (idle)", from)
                 : format("%s -> %s", from, to));
     }
 }
@@ -445,20 +445,20 @@ class Robot {
     }
 }
 
-/* Returns a random position around 0,0. */
+/* 返回一个 0,0 周围的随机位置。*/
 Position randomPosition() {
     return Position(uniform!"[]"(-10, 10),
                     uniform!"[]"(-10, 10));
 }
 
-/* Returns at most one step from the specified coordinate. */
+/* 从指定坐标移动一步，也可能不移动。返回移动后的坐标。*/
 int randomStep(int current) {
     return current + uniform!"[]"(-1, 1);
 }
 
-/* Returns a neighbor of the specified Position. It may be one
- * of the neighbors at eight directions, or the specified
- * position itself. */
+/* 返回指定位置周围的坐标。它既可能是
+ * 八个方向中的一个，也可能是
+ * 指定位置本身。*/
 Position randomNeighbor(Position position) {
     return Position(randomStep(position.line),
                     randomStep(position.column));
@@ -490,24 +490,24 @@ void robotMover(Job job) {
 }
 
 void main() {
-    /* Robots with various restDurations. */
+    /* 不同移动时间间隔的机器人。*/
     Robot[] robots = [ new Robot("A",  600.msecs),
                        new Robot("B", 2000.msecs),
                        new Robot("C", 5000.msecs) ];
 
-    /* Start a mover thread for each robot. */
+    /* 为每一个机器人启动一个移动线程。*/
     foreach (robotId, robot; robots) {
         spawn(&robotMover, Job(robotId,
                                randomPosition(),
                                robot.restDuration));
     }
 
-    /* Ready to collect information about the movements of the
-     * robots. */
+    /* 准备好接收有关机器人的移动情况
+     * 的信息。*/
     while (true) {
         auto message = receiveOnly!MovementMessage();
 
-        /* Print the movement of this robot. */
+        /* 显示机器人的运动信息。*/
         writefln("%s %s",
                  robots[message.robotId], message.movement);
     }
@@ -515,7 +515,7 @@ void main() {
 ---
 
 $(P
-The program prints every movement until terminated:
+程序会不停地显示所有机器人的运动信息，除非手动终止：
 )
 
 $(SHELL
@@ -535,17 +535,17 @@ A(600 ms) 7,3 -> 6,4
 )
 
 $(P
-This program demonstrates how helpful message passing concurrency can be: Movements of robots are calculated independently by separate threads without knowledge of each other. It is the owner thread that $(I serializes) the printing process simply by receiving messages from its message box one by one.
+这个程序展现了并发的强大之处：机器人的移动可以在单独的线程中独立计算，而且它们之间无需相互交换信息。所有者线程仅仅是将收件箱中的消息一个一个取出来并$(I 按顺序)输出。
 )
 
-$(H5 $(IX delegate, message passing) Expecting different types of messages)
+$(H5 $(IX delegate, 消息传递) 接收不同类型的消息)
 
 $(P
-$(C receiveOnly()) can expect only one type of message. $(C receive()) on the other hand can wait for more than one type of message. It dispatches messages to message handling delegates. When a message arrives, it is compared to the message type of each delegate. The delegate that matches the type of the particular message handles it.
+$(C receiveOnly()) 只能接收指定的那一个类型的消息。而 $(C receive()) 可以接收多种类型的消息。它通过消息处理委托来处理消息。当它接收到消息时，它会比较消息类型与委托的参数类型。如果委托参数的类型与消息类型相同，它就会把消息交由对应的委托处理。
 )
 
 $(P
-For example, the following $(C receive()) call specifies two message handlers that handle messages of types $(C int) and $(C string), respectively:
+例如下面这个 $(C receive()) 使用了两个委托来分别处理 $(C int) 和 $(C string) 型的消息：
 )
 
 ---
@@ -572,7 +572,7 @@ $(CODE_NAME workerFunc)void workerFunc() {
 ---
 
 $(P
-Messages of type $(C int) would match $(C intHandler()) and messages of type $(C string) would match $(C stringHandler()). The worker thread above can be tested by the following program:
+$(C int) 消息匹配 $(C intHandler())，而 $(C string) 消息匹配 $(C stringHandler())。可以用下面这个程序测试这个新鲜出炉的工作线程：
 )
 
 ---
@@ -587,12 +587,12 @@ void main() {
     worker.send(10);
     worker.send(42);
     worker.send("hello");
-    worker.send(-1);        // ← to terminate the worker
+    worker.send(-1);        // ← 终止工作线程
 }
 ---
 
 $(P
-The output of the program indicates that the messages are handled by matching functions on the receiver's side:
+程序的输出表明了接收端的函数是如何匹配和处理消息的：
 )
 
 $(SHELL
@@ -604,11 +604,11 @@ exiting
 )
 
 $(P
-Lambda functions and objects of types that define the $(C opCall()) member function can also be passed to $(C receive()) as message handlers. The following worker handles messages by lambda functions. The following program also defines a special type named $(C Exit) used for communicating to the thread that it is time for it to exit. Using such a specific type is more expressive than sending the arbitrary value of -1 like it was done in the previous example.
+Lambda 函数和定义了 $(C opCall()) 成员函数的对象都可以传递给 $(C receive()) 作为消息处理器。下面这个工作线程使用 lambda 函数处理消息。程序还定义了一个 $(C Exit) 类型来通知线程退出。相对于使用像 -1 这样的任意值，用一个特定的类型来传递特定的消息会让程序更易读。
 )
 
 $(P
-There are three anonymous functions below that are passed to $(C receive()) as message handlers. Their curly brackets are highlighted:
+有三个匿名函数被传递给了 $(C receive()) 来作为消息处理器。它们的花括号已被高亮：
 )
 
 ---
@@ -648,10 +648,10 @@ void main() {
 }
 ---
 
-$(H6 Receiving any type of message)
+$(H6 接收任意类型的消息)
 
 $(P
-$(IX Variant, concurrency) $(C std.variant.Variant) is a type that can encapsulate any type of data. Messages that do not match the handlers that are specified earlier in the argument list always match a $(C Variant) handler:
+$(IX Variant, 并发) $(C std.variant.Variant) 类型可以封装任意类型的数据。如果消息无法与参数列表中 $(C Variant) 之前的任一个处理函数匹配，那它最终将匹配 $(C Variant) 处理函数：
 )
 
 ---
@@ -680,7 +680,7 @@ void main() {
 ---
 
 $(P
-The output:
+输出为：
 )
 
 $(SHELL
@@ -688,17 +688,17 @@ Unexpected message: SpecialMessage()
 )
 
 $(P
-The details of $(C Variant) are outside of the scope of this chapter.
+有关 $(C Variant) 的详细信息已经超出了本章范围。
 )
 
-$(H5 $(IX receiveTimeout) Waiting for messages up to a certain time)
+$(H5 $(IX receiveTimeout) 在指定的时间内等待消息)
 
 $(P
-It may not make sense to wait for messages beyond a certain time. The sender may have been busy temporarily or may have terminated with an exception. $(C receiveTimeout()) prevents blocking the receiving thread indefinitely.
+可能经过一段时间后就不再需要继续等待消息了。消息的发送者可能正在忙碌或因异常终止。$(C receiveTimeout()) 可以防止出现无限等待消息这样的情况。
 )
 
 $(P
-The first parameter of $(C receiveTimeout()) determines how long the message should be waited for. Its return value is $(C true) if a message has been received within that time, $(C false) otherwise.
+$(C receiveTimeout()) 的第一个参数决定等待消息时要等待多长时间。如果在指定时间内接收到了消息，函数将返回 $(C true)。如果超时则返回 $(C false)。
 )
 
 ---
@@ -725,14 +725,14 @@ void main() {
         if (!received) {
             writeln("... no message yet");
 
-            /* ... other operations may be executed here ... */
+            /* ... 可在此处执行其他操作 ... */
         }
     }
 }
 ---
 
 $(P
-The owner above waits for a message for up to 600 milliseconds. It can continue working on other things if a message does not arrive within that time:
+上面的线程所有者将等待消息 600 毫秒。如果消息超时它还会继续执行其他操作：
 )
 
 $(SHELL
@@ -744,10 +744,10 @@ Waiting for a message
 received: hello
 )
 
-$(H5 $(IX exception, concurrency) Exceptions during the execution of the worker)
+$(H5 $(IX exception, 并发) 工作线程中的异常)
 
 $(P
-As we have seen in the previous chapter, the facilities of the $(C std.parallelism) module automatically catch exceptions that have been thrown during the execution of tasks and rethrow them in the context of the owner. This allows the owner to catch such exceptions:
+上一章的 $(C std.parallelism) 自动捕获 task 执行中抛出的异常并在所有者的线程中重新抛出。它使得所有者线程可以捕获工作线程的异常：
 )
 
 ---
@@ -761,11 +761,11 @@ As we have seen in the previous chapter, the facilities of the $(C std.paralleli
 ---
 
 $(P
-$(C std.concurrency) does not provide such a convenience for general exception types. However, the exceptions can be caught and sent explicitly by the worker. As we will see below, it is also possible to receive $(C OwnerTerminated) and $(C LinkTerminated) exceptions as messages.
+$(C std.concurrency) 并未提供这种捕获异常的方法。但你也可以在工作线程中手动捕获异常并将其发送给所有者。就像我们下面看到的那样，可以将 $(C OwnerTerminated) 和 $(C LinkTerminated) 当作消息传递。
 )
 
 $(P
-The $(C calculate()) function below receives $(C string) messages, converts them to $(C double), adds 0.5, and sends the result back as a message:
+下面这个 $(C calculate()) 接收一个 $(C string) 消息，将其转换为 $(C double) 并加 0.5，之后将运算的结果作为消息传递回去：
 )
 
 ---
@@ -778,7 +778,7 @@ $(CODE_NAME calculate)void calculate() {
 ---
 
 $(P
-The $(C to!double()) call above would throw an exception if the string cannot be converted to a $(C double) value. Because such an exception would terminate the worker thread right away, the owner in the following program can receive a response only for the first message:
+如果字符串不能被转换为 $(C double) 值，$(C to!double()) 会抛出一个异常。由于异常会立刻终止工作线程，所有者只能收到第一条消息的反馈：
 )
 
 ---
@@ -792,7 +792,7 @@ void main() {
     Tid calculator = spawn(&calculate);
 
     calculator.send("1.2");
-    calculator.send("hello");  // ← incorrect input
+    calculator.send("hello");  // ← 错误的输入
     calculator.send("3.4");
 
     foreach (i; 0 .. 3) {
@@ -803,16 +803,16 @@ void main() {
 ---
 
 $(P
-The owner receives the response for "1.2" as 1.7 but because the worker has been terminated, the owner would be blocked waiting for a message that would never arrive:
+由于工作线程已被终止，所有者只会收到将“1.2”变为 1.7 的消息的反馈。而它并不知道工作线程已经终止，所有者线程会被阻塞来等待永远不会到达的消息：
 )
 
 $(SHELL
 result 0: 1.7
-                 $(SHELL_NOTE waiting for a message that will never arrive)
+                 $(SHELL_NOTE 等待永远不会到达的消息)
 )
 
 $(P
-One thing that the worker can do is to catch the exception explicitly and to send it as a special error message. The following program sends the reason of the failure as a $(C CalculationFailure) message. Additionally, this program takes advantage of a special message type to signal to the worker when it is time to exit:
+工作线程能做的就是手动捕获异常并将其作为特殊的错误信息发送给所有者。下面这个程序就把出错的原因封装在 $(C CalculationFailure) 消息中传递回去。除此之外，这个程序还使用了特殊的消息类型来通知工作线程退出：
 )
 
 ---
@@ -851,7 +851,7 @@ void main() {
     Tid calculator = spawn(&calculate);
 
     calculator.send("1.2");
-    calculator.send("hello");  // ← incorrect input
+    calculator.send("hello");  // ← 错误的输入
     calculator.send("3.4");
     calculator.send(Exit());
 
@@ -864,28 +864,28 @@ void main() {
             },
 
             (CalculationFailure message) {
-                writefln("ERROR! '%s'", message.reason);
+                writefln("ERROR!'%s'", message.reason);
             });
     }
 }
 ---
 
 $(P
-This time the reason of the failure is printed by the owner:
+这次错误的原因会被所有者打印出来：
 )
 
 $(SHELL
 result 0: 1.7
-result 1: ERROR! 'no digits seen'
+result 1: ERROR!'no digits seen'
 result 2: 3.9
 )
 
 $(P
-Another method would be to send the actual exception object itself to the owner. The owner can use the exception object or simply rethrow it:
+另外一种方法是直接将将异常对象发送回所有者。所有者既可以处理异常对象也可以重新抛出：
 )
 
 ---
-// ... at the worker ...
+// ... 工作线程中 ...
                 try {
                     // ...
 
@@ -893,7 +893,7 @@ Another method would be to send the actual exception object itself to the owner.
                     ownerTid.send(exc);
                 }},
 
-// ... at the owner ...
+// ... 所有者线程中 ...
         receive(
             // ...
 
@@ -903,19 +903,19 @@ Another method would be to send the actual exception object itself to the owner.
 ---
 
 $(P
-The reason why the $(C shared) specifiers are necessary is explained in the next chapter.
+我们会在下一章解释为什么此处必须使用 $(C shared) 说明符。
 )
 
-$(H5 Detecting thread termination)
+$(H5 检测线程终止)
 
 $(P
-Threads can detect that the receiver of a message has terminated.
+线程可以检测消息的接收者是否已经终止。
 )
 
-$(H6 $(IX OwnerTerminated) $(C OwnerTerminated) exception)
+$(H6 $(IX OwnerTerminated) $(C OwnerTerminated) 异常)
 
 $(P
-This exception is thrown when receiving a message from the owner if the owner has been terminated. The intermediate owner thread below simply exits after sending two messages to its worker. This causes an $(C OwnerTerminated) exception to be thrown at the worker thread:
+如果所有者线程已被终止，工作线程在接收消息时就会抛出这个异常。下方程序中处在中间层的线程所有者在发送两条消息后就立即退出。这会导致工作线程抛出 $(C OwnerTerminated) 异常：
 )
 
 ---
@@ -930,20 +930,20 @@ void intermediaryFunc() {
     auto worker = spawn(&workerFunc);
     worker.send(1);
     worker.send(2);
-}  // ← Terminates after sending two messages
+}  // ← 发送两条消息后立刻终止
 
 void workerFunc() {
     while (true) {
-        auto m = receiveOnly!int(); // ← An exception is
-                                    //   thrown if the owner
-                                    //   has terminated.
+        auto m = receiveOnly!int(); // ← 如果
+                                    //   拥有者线程已经终止
+                                    //   它将抛出异常。
         writeln("Message: ", m);
     }
 }
 ---
 
 $(P
-The output:
+输出为：
 )
 
 $(SHELL
@@ -954,7 +954,7 @@ Owner terminated
 )
 
 $(P
-The worker can catch that exception to exit gracefully:
+工作线程也可以通过捕获这个异常来优雅地退出：
 )
 
 ---
@@ -975,7 +975,7 @@ void workerFunc() {
 ---
 
 $(P
-The output:
+输出为：
 )
 
 $(SHELL
@@ -985,13 +985,13 @@ The owner has terminated.
 )
 
 $(P
-We will see below that this exception can be received as a message as well.
+之后我们会看到也可以将这个异常当作消息发送。
 )
 
-$(H6 $(IX LinkTerminated) $(IX spawnLinked) $(C LinkTerminated) exception)
+$(H6 $(IX LinkTerminated) $(IX spawnLinked) $(C LinkTerminated) 异常)
 
 $(P
-$(C spawnLinked()) is used in the same way as $(C spawn()). When a worker that has been started by $(C spawnLinked()) terminates, a $(C LinkTerminated) exception is thrown at the owner:
+$(C spawnLinked()) 与 $(C spawn()) 用法相同。当由 $(C spawnLinked()) 创建的线程终止时，拥有者线程将会抛出 $(C LinkTerminated) 异常。
 )
 
 ---
@@ -1002,9 +1002,9 @@ void main() {
     auto worker = $(HILITE spawnLinked)(&workerFunc);
 
     while (true) {
-        auto m = receiveOnly!int(); // ← An exception is
-                                    //   thrown if the worker
-                                    //   has terminated.
+        auto m = receiveOnly!int(); // ← 如果
+                                    //   工作线程已经终止
+                                    //   它将抛出异常。
         writeln("Message: ", m);
     }
 }
@@ -1012,11 +1012,11 @@ void main() {
 void workerFunc() {
     ownerTid.send(10);
     ownerTid.send(20);
-}  // ← Terminates after sending two messages
+}  // ← 发送两条消息后立刻终止
 ---
 
 $(P
-The worker above terminates after sending two messages. Since the worker has been started by $(C spawnLinked()), the owner is notified of the worker's termination by a $(C LinkTerminated) exception:
+发送两条消息后工作线程立刻终止。由于工作线程是通过 $(C spawnLinked()) 启动的，它将通过向所有者线程抛出 $(C LinkTerminated) 异常以通知其工作线程已终止。
 )
 
 $(SHELL
@@ -1027,7 +1027,7 @@ Link terminated
 )
 
 $(P
-The owner can catch the exception to do something special like terminating gracefully:
+所有者线程可以捕获这个异常并执行某些操作，比如优雅地退出：
 )
 
 ---
@@ -1046,7 +1046,7 @@ The owner can catch the exception to do something special like terminating grace
 ---
 
 $(P
-The output:
+输出为：
 )
 
 $(SHELL
@@ -1056,13 +1056,13 @@ The worker has terminated.
 )
 
 $(P
-This exception can be received as a message as well.
+这个异常也可以被当作消息发送。
 )
 
-$(H6 Receiving exceptions as messages)
+$(H6 接收异常消息)
 
 $(P
-The $(C OwnerTerminated) and $(C LinkTerminated) exceptions can be received as messages as well. The following code demonstrates this for the $(C OwnerTerminated) exception:
+$(C OwnerTerminated) 和 $(C LinkTerminated) 都可以作为消息在线程间传递。下面的代码演示了如何传递 $(C OwnerTerminated) 异常：
 )
 
 ---
@@ -1082,41 +1082,41 @@ The $(C OwnerTerminated) and $(C LinkTerminated) exceptions can be received as m
     }
 ---
 
-$(H5 Mailbox management)
+$(H5 收件箱管理)
 
 $(P
-Every thread has a private mailbox that holds the messages that are sent to that thread. The number of messages in a mailbox may increase or decrease depending on how long it takes for the thread to receive and respond to each message. A continuously growing mailbox puts stress on the entire system and may point to a design flaw in the program. It may also mean that the thread may never get to the most recent messages.
+每一个线程都有一个用来保存消息的收件箱。收件箱中的消息个数会随着程序接收和处理消息的速度而有所变化。收件箱中持续增加的消息不仅会加重整个系统的负担，还会成为程序设计的瑕疵。这也意味着线程永远只能拿到许久之前接收的消息。
 )
 
 $(P
-$(IX setMaxMailboxSize) $(C setMaxMailboxSize()) is used for limiting the number of messages that a mailbox can hold. Its three parameters specify the mailbox, the maximum number of messages that it can hold, and what should happen when the mailbox is full, in that order. There are four choices for the last parameter:
+$(IX setMaxMailboxSize) $(C setMaxMailboxSize()) 可以限制收件箱保存的消息数量。它的三个参数分别指代的是收件箱、最大保存消息数量和收件箱被填满之后需要进行的操作。最后一个参数有四个选项：
 )
 
 $(UL
 
-$(LI $(IX OnCrowding) $(C OnCrowding.block): The sender waits until there is room in the mailbox.)
+$(LI $(IX OnCrowding) $(C OnCrowding.block)：阻塞发送者直到收件箱中有空闲空间。)
 
-$(LI $(C OnCrowding.ignore): The message is discarded.)
+$(LI $(C OnCrowding.ignore)：多余的消息将被抛弃。)
 
-$(LI $(IX MailboxFull) $(C OnCrowding.throwException): A $(C MailboxFull) exception is thrown when sending the message.)
+$(LI $(IX MailboxFull) $(C OnCrowding.throwException)：向发送者线程中抛出$(C MailboxFull) 异常。)
 
-$(LI A function pointer of type $(C bool function(Tid)): The specified function is called.)
+$(LI 类型为 $(C bool function(Tid) 的函数指针)：调用指定的函数。)
 
 )
 
 $(P
-Before seeing an example of $(C setMaxMailboxSize()), let's first cause a mailbox to grow continuously. The worker in the following program sends messages back to back but the owner spends some time for each message:
+在接触 $(C setMaxMailboxSize()) 的例子之前，我们先来创建一个消息数量会持续增长的收件箱。下面这个工作线程会不停地向主线程发送消息，但主线程处理消息的速度就没有工作线程这么快了，每条消息主线程都会花费一点时间来处理：
 )
 
 ---
-/* WARNING: Your system may become unresponsive when this
- *          program is running. */
+/* 注意：在运行这个程序时你的系统可能会
+ *          失去响应。*/
 import std.concurrency;
 import core.thread;
 
 void workerFunc() {
     while (true) {
-        ownerTid.send(42);    // ← Produces messages continuously
+        ownerTid.send(42);    // ← 持续产生消息
     }
 }
 
@@ -1126,7 +1126,7 @@ void main() {
     while (true) {
         receive(
             (int message) {
-                // Spends time for each message
+                // 每条消息都要花费一点时间来处理
                 Thread.sleep(1.seconds);
             });
     }
@@ -1134,7 +1134,7 @@ void main() {
 ---
 
 $(P
-Because the consumer is slower than the producer, the memory that the program above uses would grow continuously. To prevent that, the owner may limit the size of its mailbox before starting the worker:
+因为消费者处理消息的速度远低于生产者产生消息的速度，程序的内存占用会持续增长。为了防止出现这样的情况，线程所有者会在启动工作线程前限制收件箱大小：
 )
 
 ---
@@ -1147,11 +1147,11 @@ void $(CODE_DONT_TEST)main() {
 ---
 
 $(P
-The $(C setMaxMailboxSize()) call above sets the main thread's mailbox size to 1000. $(C OnCrowding.block) causes the sender to wait until there is room in the mailbox.
+$(C setMaxMailboxSize()) 将收件箱大小限制为 1000. $(C OnCrowding.block) 会阻塞消息发送者的线程直到收件箱中有空闲空间。
 )
 
 $(P
-The following example uses $(C OnCrowding.throwException), which causes a $(C MailboxFull) exception to be thrown when sending a message to a mailbox that is full:
+下面这个例子使用了 $(C OnCrowding.throwException)。它将在收件箱满时抛出 $(C MailboxFull) 异常：
 )
 
 ---
@@ -1164,7 +1164,7 @@ void workerFunc() {
             ownerTid.send(42);
 
         } catch ($(HILITE MailboxFull) exc) {
-            /* Failed to send; will try again later. */
+            /* 无法发送消息；稍候会重新发送。*/
             Thread.sleep(1.msecs);
         }
     }
@@ -1184,10 +1184,10 @@ void main() {
 }
 ---
 
-$(H5 $(IX prioritySend) $(IX PriorityMessageException) Priority messages)
+$(H5 $(IX prioritySend) $(IX PriorityMessageException) 消息优先级)
 
 $(P
-Messages can be sent with higher priority than regular messages by $(C prioritySend()). These messages are handled before the other messages that are already in the mailbox:
+可以使用 $(C prioritySend()) 发送高标准优先级的消息。这些高优先级消息会比其他收件箱中的消息先被处理：
 )
 
 ---
@@ -1195,7 +1195,7 @@ Messages can be sent with higher priority than regular messages by $(C priorityS
 ---
 
 $(P
-If the receiver does not have a message handler that matches the type of the priority message, then a $(C PriorityMessageException) is thrown:
+如果消息接收者没有能与优先级消息匹配的处理函数，它会抛出一个 $(C PriorityMessageException) 异常：
 )
 
 $(SHELL
@@ -1203,28 +1203,28 @@ std.concurrency.$(HILITE PriorityMessageException)@std/concurrency.d(280):
 Priority message
 )
 
-$(H5 Thread names)
+$(H5 线程名)
 
 $(P
-In the simple programs that we have used above, it was easy to pass the thread ids of owners and workers. Passing thread ids from thread to thread may be overly complicated in programs that use more than a couple of threads. To reduce this complexity, it is possible to assign names to threads, which are globally accessible from any thread.
+之前我们看到的程序都很简单，所以在线程间传递线程 ID 还是比较方便的。一旦线程数增加，它将会大大增加程序的复杂度。为了降低这种复杂度，我们可以为线程命名。所有线程都可以通过线程名访问这个线程。
 )
 
 $(P
-The following three functions define an interface to an associative array that every thread has access to:
+下面这三个函数定义了一个接口。通过这个接口每个线程都可以访问一个关联线程与线程名的数组：
 )
 
 $(UL
 
-$(LI $(IX register, concurrency) $(C register()): Associates a thread with a name.)
+$(LI $(IX register, concurrency) $(C register())：给线程关联一个名字。)
 
-$(LI $(IX locate) $(C locate()): Returns the thread that is associated with the specified name. If there is no thread associated with that name, then $(C Tid.init) is returned.)
+$(LI $(IX locate) $(C locate())：返回线程名关联的线程。如果没有线程关联到这个名字，则返回 $(C Tid.init)。)
 
-$(LI $(IX unregister) $(C unregister()): Breaks the association between the specified name and the thread.)
+$(LI $(IX unregister) $(C unregister())：解除线程和线程名之间的关联。)
 
 )
 
 $(P
-The following program starts two threads that find each other by their names. These threads continuously send messages to each other until instructed to terminate by an $(C Exit) message:
+下面这个程序启动了两个线程。它们会通过线程名找到对方。线程会不停地互相发送信息，只有在收到 $(C Exit) 消息后它们才会终止：
 )
 
 ---
@@ -1236,12 +1236,12 @@ struct Exit {
 }
 
 void main() {
-    // A thread whose partner is named "second"
+    // 兄弟线程为“second”
     auto first = spawn(&player, "second");
     $(HILITE register)("first", first);
     scope(exit) $(HILITE unregister)("first");
 
-    // A thread whose partner is named "first"
+    // 兄弟线程为“first”
     auto second = spawn(&player, "first");
     $(HILITE register)("second", second);
     scope(exit) $(HILITE unregister)("second");
@@ -1251,8 +1251,8 @@ void main() {
     prioritySend(first, Exit());
     prioritySend(second, Exit());
 
-    // For the unregister() calls to succeed, main() must wait
-    // until the workers terminate.
+    // 为了能成功调用 unregister()，main() 需要等待
+    // 工作线程终止。
     thread_joinAll();
 }
 
@@ -1283,11 +1283,11 @@ void player(string nameOfPartner) {
 ---
 
 $(P
-$(IX thread_joinAll) The $(C thread_joinAll()) call that is seen at the end of $(C main()) is for making the owner to wait for all of its workers to terminate.
+$(IX thread_joinAll) $(C main()) 末尾处的  $(C thread_joinAll()) 会阻塞所有者线程，等待所有工作线程终止。
 )
 
 $(P
-The output:
+输出为：
 )
 
 $(SHELL
@@ -1303,41 +1303,41 @@ second, I am exiting.
 first, I am exiting.
 )
 
-$(H5 Summary)
+$(H5 小结)
 
 $(UL
 
-$(LI When threads do not depend on other threads, prefer $(I parallelism), which has been the topic of the previous chapter. Consider $(I concurrency) only when threads depend on operations of other threads.)
+$(LI 如果线程相互独立，推荐使用上一章的 $(I parallelism)。只有线程间有相互依赖的操作时再考虑 $(I concurrency)。)
 
-$(LI Because concurrency by data sharing is hard to implement correctly, prefer concurrency by message passing, which is the subject of this chapter.)
+$(LI 基于数据共享的并行难以编写出正确的代码，所以推荐使用本章讲解的消息传递并行。)
 
-$(LI $(C spawn()) and $(C spawnLinked()) start threads.)
+$(LI $(C spawn()) 和 $(C spawnLinked()) 用于启动线程。)
 
-$(LI $(C thisTid) is the thread id of the current thread.)
+$(LI $(C thisTid) 为当前线程的线程 ID。)
 
-$(LI $(C ownerTid) is the thread id of the owner of the current thread.)
+$(LI $(C ownerTid) 为当前线程所有者的线程 ID。)
 
-$(LI $(C send()) and $(C prioritySend()) send messages.)
+$(LI $(C send()) 和 $(C prioritySend()) 用于发送消息。)
 
-$(LI $(C receiveOnly()), $(C receive()), and $(C receiveTimeout()) wait for messages.)
+$(LI $(C receiveOnly())、$(C receive()) 和 $(C receiveTimeout()) 用于等待消息。)
 
-$(LI $(C Variant) matches any type of message.)
+$(LI $(C Variant) 用来匹配所有类型的消息。)
 
-$(LI $(C setMaxMailboxSize()) limits the size of mailboxes.)
+$(LI $(C setMaxMailboxSize()) 用来限制收件箱大小。)
 
-$(LI $(C register()), $(C unregister()), and $(C locate()) allow referring to threads by name.)
+$(LI $(C register())、$(C unregister()) 和 $(C locate()) 允许程序员通过线程名访问线程。)
 
-$(LI Exceptions may be thrown during message passing: $(C MessageMismatch), $(C OwnerTerminated), $(C LinkTerminated), $(C MailboxFull), and $(C PriorityMessageException).)
+$(LI 消息传递的过程中也可能会抛出异常：$(C MessageMismatch)、$(C OwnerTerminated)、$(C LinkTerminated)、$(C MailboxFull) 以及 $(C PriorityMessageException)。)
 
-$(LI The owner cannot automatically catch exceptions that are thrown from the worker.)
+$(LI 所有者无法自动捕获工作线程中的异常。)
 
 )
 
 macros:
-        SUBTITLE=Message Passing Concurrency
+        SUBTITLE=并发消息传递
 
-        DESCRIPTION=Starting multiple threads in the D programming language and the interactions of threads by message passing.
+        DESCRIPTION=在 D 语言中启动多个线程并通过消息传递实现多线程交互
 
-        KEYWORDS=d programming language tutorial book concurrency thread
+        KEYWORDS=D 编程语言教程 线程并发
 
 MINI_SOZLUK=
