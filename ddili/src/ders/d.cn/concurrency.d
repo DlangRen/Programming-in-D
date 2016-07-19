@@ -65,7 +65,7 @@ $(IX owner) $(B 所有者)：启动线程的线程即为被启动线程的所有
 )
 
 $(P
-$(IX worker) $(B Worker)：被所有者启动的线叫做工作线程。
+$(IX worker) $(B 工作线程)：被所有者启动的线叫做工作线程。
 )
 
 $(H5 $(IX spawn) 启动线程)
@@ -289,7 +289,7 @@ $(P
 )
 
 ---
-    /* 等待一个包含 Tid、int 和double 类型的消息。*/
+    /* 等待一个包含 Tid、int 和 double 类型的消息。*/
     auto message = receiveOnly!($(HILITE Tid, int, double))();
 
     auto sender   = message[0];    // Tid
@@ -991,7 +991,7 @@ $(P
 $(H6 $(IX LinkTerminated) $(IX spawnLinked) $(C LinkTerminated) 异常)
 
 $(P
-$(C spawnLinked()) 与 $(C spawn()) 用法相同。当由 $(C spawnLinked())  创建的线程终止时，拥有者线程将会抛出 $(C LinkTerminated) 异常。
+$(C spawnLinked()) 与 $(C spawn()) 用法相同。当由 $(C spawnLinked()) 创建的线程终止时，拥有者线程将会抛出 $(C LinkTerminated) 异常。
 )
 
 ---
@@ -1336,7 +1336,7 @@ $(LI 所有者无法自动捕获工作线程中的异常。)
 macros:
         SUBTITLE=并发消息传递
 
-        DESCRIPTION=在 D 语言中启动多个线程并通过消息传递实现多线程互交
+        DESCRIPTION=在 D 语言中启动多个线程并通过消息传递实现多线程交互
 
         KEYWORDS=D 编程语言教程 线程并发
 
