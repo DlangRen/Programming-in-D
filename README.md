@@ -66,6 +66,7 @@ Instead of falling for getting things done quickly, "Programming in D" focuses o
 - [do-while 循环 do-while Loop](ddili/src/ders/d.cn/do_while.d) By mogu
 - [alias 与 with alias and with](ddili/src/ders/d.cn/alias.d) By mogu
 - [alias this](ddili/src/ders/d.cn/alias_this.d) By mogu
+- [并发消息传递 Message Passing Concurrency](ddili/src/ders/d.cn/concurrency.d) By IceNature
 
 ### Outdated 旧项目待更新
 - [The Hello World Program](ddili/src/ders/d.cn/hello_world.d) By Lucifer
@@ -81,7 +82,11 @@ Instead of falling for getting things done quickly, "Programming in D" focuses o
 - [Templates](ddili/src/ders/d.cn/templates.d) By meatatt
 - [Ranges](ddili/src/ders/d.cn/ranges.d) By Lucifer
 - [while Loop](ddili/src/ders/d.cn/while.d) By KimmyLeo
-- [Message Passing Concurrency](ddili/src/ders/d.cn/concurrency.d) By IceNature
+- [Lazy Operators](ddili/src/ders/d.cn/lazy_operators.d) By mogu
+- [Lvalues and Rvalues](ddili/src/ders/d.cn/lvalue_rvalue.d) By mogu
+- [Redirecting Standard Input and Output Streams](ddili/src/ders/d.cn/stream_redirect.d) By mogu
+- [Pragmas](ddili/src/ders/d.cn/pragma.d) By mogu
+- [Universal Function Call Syntax (UFCS)](ddili/src/ders/d.cn/ufcs.d) By mogu
 
 ### Orphans 待领取
 - [Foreword by Andrei Alexandrescu](ddili/src/ders/d.cn/foreword2.d)
@@ -91,7 +96,6 @@ Instead of falling for getting things done quickly, "Programming in D" focuses o
 - [Arrays](ddili/src/ders/d.cn/arrays.d)
 - [Characters](ddili/src/ders/d.cn/characters.d)
 - [Slices and Other Array Features](ddili/src/ders/d.cn/slices.d)
-- [Redirecting Standard Input and Output Streams](ddili/src/ders/d.cn/stream_redirect.d)
 - [for Loop](ddili/src/ders/d.cn/for.d)
 - [Ternary Operator ?:](ddili/src/ders/d.cn/ternary.d)
 - [Literals](ddili/src/ders/d.cn/literals.d)
@@ -104,8 +108,6 @@ Instead of falling for getting things done quickly, "Programming in D" focuses o
 - [Immutability](ddili/src/ders/d.cn/const_and_immutable.d)
 - [Value Types and Reference Types](ddili/src/ders/d.cn/value_vs_reference.d)
 - [Function Parameters](ddili/src/ders/d.cn/function_parameters.d)
-- [Lvalues and Rvalues](ddili/src/ders/d.cn/lvalue_rvalue.d)
-- [Lazy Operators](ddili/src/ders/d.cn/lazy_operators.d)
 - [Program Environment](ddili/src/ders/d.cn/main.d)
 - [assert and enforce](ddili/src/ders/d.cn/assert.d)
 - [Unit Testing](ddili/src/ders/d.cn/unit_testing.d)
@@ -124,10 +126,8 @@ Instead of falling for getting things done quickly, "Programming in D" focuses o
 - [destroy and scoped](ddili/src/ders/d.cn/destroy.d)
 - [Modules and Libraries](ddili/src/ders/d.cn/modules.d)
 - [Encapsulation and Protection Attributes](ddili/src/ders/d.cn/encapsulation.d)
-- [Universal Function Call Syntax (UFCS)](ddili/src/ders/d.cn/ufcs.d)
 - [Properties](ddili/src/ders/d.cn/property.d)
 - [Contract Programming for Structs and Classes](ddili/src/ders/d.cn/invariant.d)
-- [Pragmas](ddili/src/ders/d.cn/pragma.d)
 - [Pointers](ddili/src/ders/d.cn/pointers.d)
 - [Bit Operations](ddili/src/ders/d.cn/bit_operations.d)
 - [Conditional Compilation](ddili/src/ders/d.cn/cond_comp.d)
