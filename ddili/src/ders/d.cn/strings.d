@@ -373,10 +373,10 @@ $(P
 因为所有的“résumé”的 Unicode 字符都能用单个 $(C wchar) 或者 $(C dchar) 表示，所以最后两个的长度与字符个数是一致的。
 )
 
-$(H5 $(IX concatenation, string) 字符串合并)
+$(H5 $(IX concatenation, string) 字符串连接)
 
 $(P
-由于它们实际上是数组，所有数组的操作也都能应用到字符串上。$(C ~) 可以合并两个字符串，$(C ~=) 则能够附加字符串到一个已存在的字符串上：
+由于它们实际上是数组，所有数组的操作也都能应用到字符串上。$(C ~) 可以连接两个字符串，$(C ~=) 则能够附加字符串到一个已存在的字符串上：
 )
 
 ---
@@ -387,7 +387,7 @@ void main() {
     write("What is your name? ");
     string name = strip(readln());
 
-    // 合并：
+    // 连接：
     string greeting = "Hello " ~ name;
 
     // Append:
