@@ -1,22 +1,22 @@
 Ddoc
 
-$(DERS_BOLUMU $(IX lazy evaluation) Lazy Operators)
+$(DERS_BOLUMU $(IX 惰性求值) Lazy 运算符)
 
 $(P
-Lazy evaluation is the delaying of the execution of expressions until the results of those expressions are needed. Lazy evaluation is among the fundamental features of some programming languages.
+惰性求值即推迟表达式的执行，直到需要表达式的值。惰性求值是许多语言的基础特性。
 )
 
 $(P
-Naturally, this delaying may make programs run faster if the results end up not being needed.
+如果结果最终并不需要，延迟求值自然可以让程序运行得更快。
 )
 
 $(P
-$(IX short-circuit evaluation) A concept that is similar to lazy evaluation is the short-circuit behavior of the following operators:
+$(IX 短路求值) 下面的运算符短路行为与惰性求值是相似的概念：
 )
 
 $(UL
 
-$(LI $(IX ||, short-circuit) $(IX logical or operator) $(C ||) ($(I or)) operator: The second expression is evaluated only if the first expression is $(C false).
+$(LI $(IX ||, 短路) $(IX 逻辑 或 运算) $(C ||) ($(I 或)) 运算符： 第二个表达式只有在第一个表达式为 $(C false) 时才会执行。
 
 ---
     if (anExpression() || mayNotBeEvaluated()) {
@@ -25,12 +25,12 @@ $(LI $(IX ||, short-circuit) $(IX logical or operator) $(C ||) ($(I or)) operato
 ---
 
 $(P
-If the result of $(C anExpression()) is $(C true) then the result of the $(C ||) expression is necessarily $(C true). Since we no longer need to evaluate the second expression to determine the result of the $(C ||) expression the second expression is not evaluated.
+如果 $(C anExpression()) 的结果是 $(C true)， 那么 $(C ||) 表达式的结果就一定是 $(C true)。因为我们不需要对第二个表达式求值来确定 $(C ||) 表达式的结果，所以第二个表达式不会被求值。
 )
 
 )
 
-$(LI $(IX &&, short-circuit) $(IX logical and operator) $(C &&) ($(I and)) operator: The second expression is evaluated only if the first expression is $(C true).
+$(LI $(IX &&, 短路) $(IX 逻辑 与 运算) $(C &&) ($(I 与)) 运算符： 第二个表达式只有在第一个表达式为 $(C true) 时才会执行。
 
 ---
     if (anExpression() && mayNotBeEvaluated()) {
@@ -39,12 +39,12 @@ $(LI $(IX &&, short-circuit) $(IX logical and operator) $(C &&) ($(I and)) opera
 ---
 
 $(P
-If the result of $(C anExpression()) is $(C false) then the result of the $(C &&) expression is necessarily $(C false), so the second expression is not evaluated.
+如果 $(C anExpression()) 的结果是 $(C false)，那么 $(C &&) 表达式的结果必然是 $(C false)，因此第二个表达式不会被求值。
 )
 
 )
 
-$(LI $(IX ?:, short-circuit) $(IX ternary operator) $(IX conditional operator) $(C ?:) ($(I ternary)) operator: Either the first or the second expression is evaluated, depending on whether the condition is $(C true) or $(C false), respectively.
+$(LI $(IX ?:, 短路) $(IX 三目 运算符) $(IX 条件 运算符) $(C ?:) ($(I 三目)) 运算符： 第一个或第二个表达式是否被执行分别依赖于条件是 $(C true) 还是 $(C false)。
 
 ---
     int i = condition() ? eitherThis() : orThis();
@@ -55,11 +55,11 @@ $(LI $(IX ?:, short-circuit) $(IX ternary operator) $(IX conditional operator) $
 )
 
 $(P
-The laziness of these operators matters not only to performance. Sometimes, evaluating one of the expressions can be an error.
+这些运算符的惰性不仅仅是与性能相关。有时，执行表达式会发生错误。
 )
 
 $(P
-For example, the $(I is the first letter an A) condition check below would be an error when the string is empty:
+例如，如果字符串是空的，下面的条件 $(I 第一个字符是 A) 会出错：
 )
 
 ---
@@ -71,7 +71,7 @@ For example, the $(I is the first letter an A) condition check below would be an
 ---
 
 $(P
-In order to access the first element of $(C s), we must first ensure that the string does have such an element. For that reason, the following condition check moves that potentially erroneous logical expression to the right-hand side of the $(C &&) operator, to ensure that it will be evaluated only when it is safe to do so:
+为了正确的访问 $(C s) 的第一个元素，我们首先要确认字符串里的确有那个元素。因此，下面的条件把有潜在错误的逻辑表达式放在了 $(C &&) 运算符的右边，确保其只有在安全的情况下才执行：
 )
 
 ---
@@ -81,12 +81,12 @@ In order to access the first element of $(C s), we must first ensure that the st
 ---
 
 $(P
-Lazy evaluations can be achieved by using $(LINK2 /ders/d.en/lambda.html, function pointers, delegates), and $(LINK2 /ders/d.en/ranges.html, ranges) as well. We will see these in later chapters.
+惰性求值可以通过 $(LINK2 /ders/d.en/lambda.html, 函数指针, delegate) 完成，也可以用 $(LINK2 /ders/d.en/ranges.html, range)。我们会在后面的章节见到这些。
 )
 
 Macros:
-        SUBTITLE=Lazy Operators
+        SUBTITLE=Lazy 运算符
 
-        DESCRIPTION=The lazy (short-circuit) operators of the D programming language.
+        DESCRIPTION=D 编程语言中的惰性（短路）运算符。
 
-        KEYWORDS=d programming language tutorial book lazy
+        KEYWORDS=d 编程 语言 教程 惰性 lazy
