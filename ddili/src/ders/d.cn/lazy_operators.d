@@ -1,6 +1,6 @@
 Ddoc
 
-$(DERS_BOLUMU $(IX 惰性求值) Lazy 运算符)
+$(DERS_BOLUMU $(IX 惰性求值) 惰性运算符)
 
 $(P
 惰性求值即推迟表达式的执行，直到需要表达式的值。惰性求值是许多语言的基础特性。
@@ -16,7 +16,7 @@ $(IX 短路求值) 下面的运算符短路行为与惰性求值是相似的概�
 
 $(UL
 
-$(LI $(IX ||, 短路) $(IX 逻辑 或 运算) $(C ||) ($(I 或)) 运算符： 第二个表达式只有在第一个表达式为 $(C false) 时才会执行。
+$(LI $(IX ||, 短路) $(IX 逻辑或运算符) $(C ||) ($(I 或))运算符：第二个表达式只有在第一个表达式为 $(C false) 时才会执行。
 
 ---
     if (anExpression() || mayNotBeEvaluated()) {
@@ -30,7 +30,7 @@ $(P
 
 )
 
-$(LI $(IX &&, 短路) $(IX 逻辑 与 运算) $(C &&) ($(I 与)) 运算符： 第二个表达式只有在第一个表达式为 $(C true) 时才会执行。
+$(LI $(IX &&, 短路) $(IX 逻辑与运算符) $(C &&) ($(I 与))运算符：第二个表达式只有在第一个表达式为 $(C true) 时才会执行。
 
 ---
     if (anExpression() && mayNotBeEvaluated()) {
@@ -44,7 +44,7 @@ $(P
 
 )
 
-$(LI $(IX ?:, 短路) $(IX 三目 运算符) $(IX 条件 运算符) $(C ?:) ($(I 三目)) 运算符： 第一个或第二个表达式是否被执行分别依赖于条件是 $(C true) 还是 $(C false)。
+$(LI $(IX ?:, 短路) $(IX 三元运算符) $(IX 条件运算符) $(C ?:) ($(I 三元))运算符：第一个或第二个表达式是否被执行分别依赖于条件是 $(C true) 还是 $(C false)。
 
 ---
     int i = condition() ? eitherThis() : orThis();
@@ -59,7 +59,7 @@ $(P
 )
 
 $(P
-例如，如果字符串是空的，下面的条件 $(I 第一个字符是 A) 会出错：
+例如，如果字符串是空的，下面的条件$(I 第一个字符是 A) 会出错：
 )
 
 ---
@@ -81,11 +81,11 @@ $(P
 ---
 
 $(P
-惰性求值可以通过 $(LINK2 /ders/d.en/lambda.html, 函数指针, delegate) 完成，也可以用 $(LINK2 /ders/d.en/ranges.html, range)。我们会在后面的章节见到这些。
+惰性求值可以通过 $(LINK2 /ders/d.cn/lambda.html, 函数指针, delegate) 完成，也可以用 $(LINK2 /ders/d.cn/ranges.html, range)。我们会在后面的章节见到这些。
 )
 
 Macros:
-        SUBTITLE=Lazy 运算符
+        SUBTITLE=惰性运算符
 
         DESCRIPTION=D 编程语言中的惰性（短路）运算符。
 
