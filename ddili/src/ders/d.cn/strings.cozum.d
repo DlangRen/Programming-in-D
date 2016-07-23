@@ -1,15 +1,15 @@
 Ddoc
 
-$(COZUM_BOLUMU Strings)
+$(COZUM_BOLUMU 字符串)
 
 $(OL
 
 $(LI
-Although some of the functions in Phobos modules will be easy to use with strings, library documentations are usually terse compared to tutorials. You may find especially the Phobos ranges confusing at this point. We will see Phobos ranges in a later chapter.
+尽管，Phobos 模块中的一些函数易于处理字符串，但库文档通常要比教程简短。因此此时你或许会非常迷惑，尤其是对于 Phobos 中的 range。在稍后的一章中我们将看到 Phobos 的 range。
 )
 
 $(LI
-Many other functions may be chained as well:
+许多别的函数可以嵌套使用：
 
 ---
 import std.stdio;
@@ -29,7 +29,7 @@ void main() {
 
 )
 
-$(LI This program uses two indexes to make a slice:
+$(LI 这段程序使用两个索引值来生成一个切片：
 
 ---
 import std.stdio;
@@ -56,8 +56,8 @@ void main() {
 )
 
 Macros:
-        SUBTITLE=Strings Solution
+        SUBTITLE=字符串 习题解答
 
-        DESCRIPTION=Programming in D exercise solutions: strings
+        DESCRIPTION=D 语言编程习题解答：字符串
 
-        KEYWORDS=programming in d tutorial strings solution
+        KEYWORDS=D 语言教程 字符串 习题解答
