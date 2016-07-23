@@ -50,10 +50,10 @@ $(P
 相对于左值，右值有下面三条限制。
 )
 
-$(H6 右值没有存储地址)
+$(H6 右值没有内存地址)
 
 $(P
-左值有可以引用的存储地址，但右值没有。
+左值有可以引用的内存地址，但右值没有。
 )
 
 $(P
@@ -79,7 +79,7 @@ Error: a + b $(HILITE is not an lvalue)
 $(H6 右值不能被赋新值)
 
 $(P
-左值如果为可变，则可以被赋予新值，但右值确不行：
+左值如果为可变，则可以被赋予新值，但右值却不行：
 )
 
 ---
@@ -140,7 +140,7 @@ $(HILITE is not callable) using argument types (int)
 $(H5 $(IX auto ref, 参数) $(IX 参数, auto ref) 使用 $(C auto ref) 参数可以同时接受左值和右值)
 
 $(P
-如前面章节中提到的，$(LINK2 /ders/d.cn/templates.html, 函数模板)的 $(C auto ref) 参数可以同时接受左值和右值。
+如前面章节中提到的，$(LINK2 /ders/d.cn/templates.html, 函数模板) 的 $(C auto ref) 参数可以同时接受左值和右值。
 )
 
 $(P
@@ -163,8 +163,8 @@ void main() {
     int a;
     int b;
 
-    incrementByTen(a);        $(CODE_NOTE 左值; 引用传递)
-    incrementByTen(a + b);    $(CODE_NOTE 右值; 拷贝)
+    incrementByTen(a);        $(CODE_NOTE 左值；引用传递)
+    incrementByTen(a + b);    $(CODE_NOTE 右值；拷贝)
 }
 ---
 
@@ -175,7 +175,7 @@ $(P
 $(H5 术语)
 
 $(P
-“左值（lvalue）”和“右值（rvalue）”这两个名字并不能准确地表示两种值的特性。第一个字母 $(I l) 和 $(I r) 源自 $(I 左（left）) 和 $(I 右（right）)，表示赋值运算符左边或右边表达式：
+“左值（lvalue）”和“右值（rvalue）”这两个名字并不能准确地表示两种值的特性。第一个字母 $(I l) 和 $(I r) 分别源自$(I 左（left）)和$(I 右（right）)，表示赋值运算符左边或右边表达式：
 )
 
 $(UL
