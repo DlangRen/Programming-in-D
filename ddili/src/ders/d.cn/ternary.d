@@ -1,58 +1,58 @@
 Ddoc
 
-$(DERS_BOLUMU $(IX ternary operator) $(IX ?:) $(IX conditional operator) Ternary Operator $(CH4 ?:))
+$(DERS_BOLUMU $(IX 三元运算符) $(IX ?:) $(IX 条件运算符) 三元运算符 $(CH4 ?:))
 
 $(P
-The $(C ?:) operator works very similarly to an $(C if-else) statement:
+$(C ?:) 运算符与 $(C if-else) 语句的工作模式很像：
 )
 
 ---
-    if (/* condition check */) {
-        /* ... expression(s) to execute if true */
+    if (/* 条件检查 */) {
+        /* ... 如果条件为 ture 将执行的语句 */
 
     } else {
-        /* ... expression(s) to execute if false */
+        /* ... 如果条件为 false 将执行的语句 */
     }
 ---
 
 $(P
-The $(C if) statement executes either the block for the case of $(C true) or the block for the case of $(C false). As you remember, being a statement, it does not have a value; $(C if) merely affects the execution of code blocks.
+$(C if) 一定会执行 $(C true) 和 $(C false) 块中的一个。快速回忆一下：作为一个语句，$(C if) 并没有值，它只是影响代码块的执行流程。
 )
 
 $(P
-On the other hand, the $(C ?:) operator is an expression. In addition to working similary to the $(C if-else) statement, it produces a value. The equivalent of the above code is the following:
+而我们这章要学习的 $(C ?:) 运算符是一个表达式。除了有 $(C if-else) 的功能，它还会产生一个值。它等价于下面这样的代码：
 )
 
 ---
-/* condition */ ? /* truth expression */ : /* falsity expression */
+/* 条件 */ ?/* 条件为 true 时执行的表达式 */ : /* 条件为 false 时执行的表达式  */
 ---
 
 $(P
-Because it uses three expressions, the $(C ?:) operator is called the ternary operator.
+由于 $(C ?:) 运算符一共使用了三个表达式，所以我们称它为三元运算符。
 )
 
 $(P
-The value that is produced by this operator is either the value of the truth expression or the value of the falsity expression. Because it is an expression, it can be used anywhere that expressions can be used.
+运算符产生的值为后两个表达式中的一个。别忘了它是表达式，所以它可以用在任何一个表达式能使用的地方。
 )
 
 $(P
-The following examples contrast the $(C ?:) operator to the $(C if-else) statement. The ternary operator is more concise for the cases that are similar to these examples.
+下面这个例子对比了 $(C ?:) 运算符和 $(C if-else) 语句。对于和例子相似的情况来说，三元运算符通常更加简洁明了。
 )
 
 $(UL
 
-$(LI $(B Initialization)
+$(LI $(B 初始化)
 
 $(P
-To initialize a variable with 366 if it is leap year, 365 otherwise:
+初始化一个变量，如果是闰年则将其初始化为 366，如果不是则初始化为 365：
 )
 
 ---
-    int days = isLeapYear ? 366 : 365;
+    int days = isLeapYear ?366 : 365;
 ---
 
 $(P
-With an $(C if) statement, one way to do this is to define the variable without an explicit initial value and then assign the intended value:
+如果使用 $(C if) 语句，我们只能先以无显式初始值的方式定义变量，然后在将需要的值赋给它：
 )
 
 ---
@@ -67,7 +67,7 @@ With an $(C if) statement, one way to do this is to define the variable without 
 ---
 
 $(P
-An alternative also using an $(C if) is to initialize the variable with the non-leap year value and then increment it if it is a leap year:
+另一种使用 $(C if) 初始化的方法是先以非闰年的值初始化变量，如果是闰年则再使其自增 1：
 )
 
 ---
@@ -80,18 +80,18 @@ An alternative also using an $(C if) is to initialize the variable with the non-
 
 )
 
-$(LI $(B Printing)
+$(LI $(B 显示)
 
 $(P
-Printing part of a message differently depending on a condition:
+在屏幕上显示信息，信息的一部分会随着条件的不同而改变：
 )
 ---
     writeln("The glass is half ",
-            isOptimistic ? "full." : "empty.");
+            isOptimistic ?"full." : "empty.");
 ---
 
 $(P
-With an $(C if), the first and last parts of the message may be printed separately:
+如果使用 $(C if)，信息的最后一部分则需要单独输出：
 )
 
 ---
@@ -106,7 +106,7 @@ With an $(C if), the first and last parts of the message may be printed separate
 ---
 
 $(P
-Alternatively, the entire message can be printed separately:
+当然也可以将整条信息分开输出：
 )
 
 ---
@@ -120,18 +120,18 @@ Alternatively, the entire message can be printed separately:
 
 )
 
-$(LI $(B Calculation)
+$(LI $(B 运算)
 
 $(P
-Increasing the score of the winner in a backgammon game 2 points or 1 point depending on whether the game has ended with gammon:
+在一个西洋双陆棋的游戏中为胜者加分，如果全胜加 2 分，反之加 1 分：
 )
 
 ---
-    score += isGammon ? 2 : 1;
+    score += isGammon ?2 : 1;
 ---
 
 $(P
-A straightforward equivalent using an $(C if):
+直接使用 $(C if) 的等价方法是：
 )
 
 ---
@@ -144,7 +144,7 @@ A straightforward equivalent using an $(C if):
 ---
 
 $(P
-An alternative also using an $(C if) is to first increment by one and then increment again if gammon:
+当然也可以直接令其自增 1，之后再用 $(C if) 判断，如果全胜则令其在自增 1：
 )
 
 ---
@@ -160,37 +160,37 @@ An alternative also using an $(C if) is to first increment by one and then incre
 )
 
 $(P
-As can be seen from the examples above, the code is more concise and clearer with the ternary operator in certain situations.
+就像我们从上面的例子看到的那样，在特定情况下使用三元运算符能使代码更加简洁明了。
 )
 
-$(H5 The type of the ternary expression)
+$(H5 三元表达式的返回的类型)
 
 $(P
-The value of the $(C ?:) operator is either the value of the truth expression or the value of the falsity expression. The types of these two expressions need not be the same but they must have a $(I common type).
-)
-
-$(P
-$(IX common type) The common type of two expressions is decided by a relatively complicated algorithm, involving $(LINK2 /ders/d.en/cast.html, type conversions) and $(LINK2 /ders/d.en/inheritance.html, inheritance). Additionally, depending on the expressions, the $(I kind) of the result is either $(LINK2 /ders/d.en/lvalue_rvalue.html, an lvalue or an rvalue). We will see these concepts in later chapters.
+三元运算符 $(C ?:) 的值为后两个表达式中的一个。这两个表达式的类型可以不同，但它们必须有一个$(I 公共类型)。
 )
 
 $(P
-For now, accept common type as a type that can represent both of the values without requiring an explicit cast. For example, the integer types $(C int) and $(C long) have a common type because they can both be represented as $(C long). On the other hand, $(C int) and $(C string) do not have a common type because neither $(C int) nor $(C string) can automatically be converted to the other type.
+$(IX common type) 表达式的公共类型是由一个相对复杂的算法定义的，涉及 $(LINK2 /ders/d.cn/cast.html, 类型转换) 和 $(LINK2 /ders/d.cn/inheritance.html, 继承)。除此之外，结果的$(I 值类型)取决于表达式，它 $(LINK2 /ders/d.cn/lvalue_rvalue.html, 既可能是左值也可能是右值)。我们会在之后的章节中了解到这些概念。
 )
 
 $(P
-Remember that a simple way of determining the type of an expression is using $(C typeof) and then printing its $(C .stringof) property:
+就眼下来说，你只需要接受一个公共类型就可以避免显式类型转换。例如，数字类型 $(C int) 和 $(C long) 就有一个公共类型，因为它们都可以被 $(C long) 储存。而 $(C int) 和 $(C string) 就没有公共类型，即 $(C int) 和 $(C string) 无法自动相互转换。
+)
+
+$(P
+你可以对其使用 $(C typeof) 运算符并输出其结果的 $(C .stringof) 属性来判断表达式的类型。
 )
 
 ---
     int i;
     double d;
 
-    auto result = someCondition ? i : d;
+    auto result = someCondition ?i : d;
     writeln(typeof(result)$(HILITE .stringof));
 ---
 
 $(P
-Because $(C double) can represent $(C int) but not the other way around, the common type of the ternary expression above is $(C double):
+由于 $(C double) 可以储存 $(C int) 而 $(C int) 无法储存 $(C double)，这个三元表达式的公共类型即为 $(C double)：
 )
 
 $(SHELL
@@ -198,54 +198,54 @@ double
 )
 
 $(P
-To see an example of two expressions that do not have a common type, let's look at composing a message that reports the number of items to be shipped. Let's print "A dozen" when the value equals 12: "A $(B dozen) items will be shipped." Otherwise, let's have the message include the exact number: "$(B 3) items will be shipped."
+下面这个例子是用于排版装载货物数量信息的，其中三元运算符的两个表达式没有公共类型。当数量为 12 时显示“A dozen”：“A $(B dozen) items will be shipped.”。如果数量不等于 12 则令消息包含精确的数字：“$(B 3) items will be shipped.”。
 )
 
 $(P
-One might think that the varying part of the message can be selected with the $(C ?:) operator:
+你可能会想对消息中变化的部分使用 $(C ?:) 运算符：
 )
 
 ---
     writeln(
-        (count == 12) ? "A dozen" : count, $(DERLEME_HATASI)
+        (count == 12) ?"A dozen" : count, $(DERLEME_HATASI)
         " items will be shipped.");
 ---
 
 $(P
-Unfortunately, the expressions do not have a common type because the type of $(STRING "A dozen") is $(C string) and the type of $(C count) is $(C int).
+然而由于 $(STRING "A dozen") 的类型为 $(C string) 而 $(C count) 的类型为 $(C int)，这个表达式没有公共类型。
 )
 
 $(P
-A solution is to first convert $(C count) to $(C string). The function $(C to!string) from the $(C std.conv) module produces a $(C string) value from the specified parameter:
+解决方案是提前将 $(C count) 转换为 $(C string)。$(C std.conv) 模块中的 $(C to!string) 可将其参数转换为 $(C string)。
 )
 
 ---
 import std.conv;
 // ...
-    writeln((count == 12) ? "A dozen" : to!string(count),
+    writeln((count == 12) ?"A dozen" : to!string(count),
             " items will be shipped.");
 ---
 
 $(P
-Now, as both of the selection expressions of the $(C ?:) operator are of $(C string) type, the code compiles and prints the expected message.
+现在 $(C ?:) 运算符的两个选择表达式都是 $(C string) 类型了，这样程序就可通过编译并正常运行。
 )
 
 $(PROBLEM_TEK
 
 $(P
-Have the program read a single $(C int) value as $(I the net amount) where a positive value represents a gain and a negative value represents a loss.
+编写一个程序来对业绩信息进行排版。程序接收一个 $(C int) 作为$(I 净增长额)，整数表示收益，负数表示亏损。
 )
 
 $(P
-The program should print a message that contains "gained" or "lost" depending on whether the amount is positive or negative. For example, "&#36;100 lost" or "&#36;70 gained". Even though it may be more suitable, do not use the $(C if) statement in this exercise.
+若净增长额为正数，则程序的输出中应包含“gained”，反之则包含“lost”。例如："&#36;100 lost" 或 "&#36;70 gained"。不要在这次联系中使用 $(C if) 即使你觉得它写起来很舒服。
 )
 
 )
 
 
 Macros:
-        SUBTITLE=Ternary Operator ?:
+        SUBTITLE=三元运算符 ?:
 
-        DESCRIPTION=The ?: operator of the D programming language and comparing it to the if-else statement.
+        DESCRIPTION=D 语言中的 ?: 运算符及它与 if-else 语句的对比
 
-        KEYWORDS=d programming language tutorial book ternary operator
+        KEYWORDS=D 编程语言教程 三元运算符
