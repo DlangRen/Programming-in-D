@@ -1,9 +1,9 @@
 Ddoc
 
-$(COZUM_BOLUMU The Ternary Operator $(C ?:))
+$(COZUM_BOLUMU 三元运算符 $(C ?:))
 
 $(P
-Although it may make more sense to use an $(C if-else) statement in this exercise, the following program uses two $(C ?:) operators:
+虽然在本练习中使用 $(C if-else) 语句可能更合理，但下面的程序还是使用了两个 $(C ?:) 运算符来实现需求：
 )
 
 ---
@@ -16,18 +16,18 @@ void main() {
     readf(" %s", &amount);
 
     writeln("$",
-            amount < 0 ? -amount : amount,
-            amount < 0 ? " lost" : " gained");
+            amount < 0 ?-amount : amount,
+            amount < 0 ?" lost" : " gained");
 }
 ---
 
 $(P
-The program prints "gained" even when the value is zero. Modify the program to print a message more appropriate for zero.
+如果输入 0，程序也会显示“gained”。修改这个程序使其对 0 的输出更加合理的信息。
 )
 
 Macros:
-        SUBTITLE=The Ternary Operator ?: Solution
+        SUBTITLE=三元运算符 ?: 习题解答
 
-        DESCRIPTION=The exercise solution of the ?: operator of the D programming language.
+        DESCRIPTION=D 语言编程习题解答：运算符 ?:
 
-        KEYWORDS=programming in d tutorial ternary solution
+        KEYWORDS=D 编程语言教程 习题解答
