@@ -67,6 +67,9 @@ Instead of falling for getting things done quickly, "Programming in D" focuses o
 - [alias 与 with alias and with](ddili/src/ders/d.cn/alias.d) By mogu
 - [alias this](ddili/src/ders/d.cn/alias_this.d) By mogu
 - [并发消息传递 Message Passing Concurrency](ddili/src/ders/d.cn/concurrency.d) By IceNature
+- [字符串 Strings](ddili/src/ders/d.cn/strings.d) By 大处着手小处着眼
+- [惰性运算符 Lazy Operators](ddili/src/ders/d.cn/lazy_operators.d) By mogu
+- [左值与右值 Lvalues and Rvalues](ddili/src/ders/d.cn/lvalue_rvalue.d) By mogu
 
 ### Outdated 旧项目待更新
 - [The Hello World Program](ddili/src/ders/d.cn/hello_world.d) By Lucifer
@@ -75,29 +78,26 @@ Instead of falling for getting things done quickly, "Programming in D" focuses o
 - [Assignment and Order of Evaluation](ddili/src/ders/d.cn/assignment.d) By Lucifer
 - [Variables](ddili/src/ders/d.cn/variables.d) By Lucifer
 - [Standard Input and Output Streams](ddili/src/ders/d.cn/io.d) By Lucifer
-- [Strings](ddili/src/ders/d.cn/strings.d) By 大处着手小处着眼
 
 ### Adopted 已被领取
 - [Lifetimes and Fundamental Operations](ddili/src/ders/d.cn/lifetimes.d) By 渡世白玉
 - [Templates](ddili/src/ders/d.cn/templates.d) By meatatt
 - [Ranges](ddili/src/ders/d.cn/ranges.d) By Lucifer
 - [while Loop](ddili/src/ders/d.cn/while.d) By KimmyLeo
-- [Lazy Operators](ddili/src/ders/d.cn/lazy_operators.d) By mogu
-- [Lvalues and Rvalues](ddili/src/ders/d.cn/lvalue_rvalue.d) By mogu
 - [Redirecting Standard Input and Output Streams](ddili/src/ders/d.cn/stream_redirect.d) By mogu
 - [Pragmas](ddili/src/ders/d.cn/pragma.d) By mogu
 - [Universal Function Call Syntax (UFCS)](ddili/src/ders/d.cn/ufcs.d) By mogu
+- [Ternary Operator ?:](ddili/src/ders/d.cn/ternary.d) By IceNature
+- [Arrays](ddili/src/ders/d.cn/arrays.d) By 大处着手小处着眼
 
 ### Orphans 待领取
 - [Foreword by Andrei Alexandrescu](ddili/src/ders/d.cn/foreword2.d)
 - [Logical Expressions](ddili/src/ders/d.cn/logical_expressions.d)
 - [Integers and Arithmetic Operations](ddili/src/ders/d.cn/arithmetic.d)
 - [Floating Point Types](ddili/src/ders/d.cn/floating_point.d)
-- [Arrays](ddili/src/ders/d.cn/arrays.d)
 - [Characters](ddili/src/ders/d.cn/characters.d)
 - [Slices and Other Array Features](ddili/src/ders/d.cn/slices.d)
 - [for Loop](ddili/src/ders/d.cn/for.d)
-- [Ternary Operator ?:](ddili/src/ders/d.cn/ternary.d)
 - [Literals](ddili/src/ders/d.cn/literals.d)
 - [Formatted Output](ddili/src/ders/d.cn/formatted_output.d)
 - [Formatted Input](ddili/src/ders/d.cn/formatted_input.d)
