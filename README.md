@@ -70,6 +70,7 @@ Instead of falling for getting things done quickly, "Programming in D" focuses o
 - [字符串 Strings](ddili/src/ders/d.cn/strings.d) By 大处着手小处着眼
 - [惰性运算符 Lazy Operators](ddili/src/ders/d.cn/lazy_operators.d) By mogu
 - [左值与右值 Lvalues and Rvalues](ddili/src/ders/d.cn/lvalue_rvalue.d) By mogu
+- [三元运算符 ?: Ternary Operator ?:](ddili/src/ders/d.cn/ternary.d) By IceNature
 
 ### Outdated 旧项目待更新
 - [The Hello World Program](ddili/src/ders/d.cn/hello_world.d) By Lucifer
@@ -87,7 +88,6 @@ Instead of falling for getting things done quickly, "Programming in D" focuses o
 - [Redirecting Standard Input and Output Streams](ddili/src/ders/d.cn/stream_redirect.d) By mogu
 - [Pragmas](ddili/src/ders/d.cn/pragma.d) By mogu
 - [Universal Function Call Syntax (UFCS)](ddili/src/ders/d.cn/ufcs.d) By mogu
-- [Ternary Operator ?:](ddili/src/ders/d.cn/ternary.d) By IceNature
 - [Arrays](ddili/src/ders/d.cn/arrays.d) By 大处着手小处着眼
 
 ### Orphans 待领取
