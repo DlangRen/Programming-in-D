@@ -3,7 +3,7 @@ Ddoc
 $(DERS_BOLUMU $(IX array) Arrays)
 
 $(P
-We have defined five variables in one of the exercises of the last chapter, and used them in certain calculations. The definitions of those variables were the following:
+在上一章的一个练习中我们定义过五个变量，并用它们做过特定计算。下面各项是这些变量的定义：
 )
 
 ---
@@ -15,21 +15,21 @@ We have defined five variables in one of the exercises of the last chapter, and 
 ---
 
 $(P
-This method of defining variables individually does not scale to cases where even more variables are needed. Imagine needing a thousand values; it is almost impossible to define a thousand variables from $(C value_1) to $(C value_1000).
+这种定义个别变量的方法不能扩展到需要更多变量的情况下。想象一下，需要一千个值；定义从 $(C value_1) 到 $(C value_1000) 一千个变量，这几乎是不可能的。
 )
 
 $(P
-Arrays are useful in such cases: the array feature allows us to define a single variable that stores multiple values together. Although simple, arrays are the most common data structure used to store a collection of values.
+数组在这种情况下是有用的：数组功能允许我们定义一个把多个值存储到一起的单个变量。虽然简单，但数组是用于存储值的集合中最常见的数据结构。
 )
 
 $(P
-This chapter covers only some of the features of arrays. More features will be introduced later in $(LINK2 /ders/d.en/slices.html, the Slices and Other Array Features chapter).
+本章仅涉及数组的部分功能。更多功能将在后面 $(LINK2 /ders/d.en/slices.html, 切片和别的数组功能) 一章中介绍。
 )
 
-$(H5 Definition)
+$(H5 定义)
 
 $(P
-The definition of array variables is very similar to the definition of normal variables. The only difference is that the number of values associated with the variable is specified in square brackets. We can contrast the two definitions as follows:
+数组变量的定义与正常变量的定义非常相似。唯一的区别是，与变量相关联的值的个数在方括号中指定。我们可以对比两种定义如下：
 )
 
 ---
@@ -38,11 +38,11 @@ The definition of array variables is very similar to the definition of normal va
 ---
 
 $(P
-The first line above is the definition of a variable which stores a single value, just like the variables that we have defined so far. The second line is the definition of a variable which stores ten consecutive values. In other words, it stores an array of ten integer values. You can also think of it as defining ten variables of the same type, or as defining an array, for short.
+上面的第一行定义了一个存储单个值的变量，就像我们以前定义过的变量那样。第二行定义了一个存储连续十个值的变量。换句话说，它是一个可存储十个整数值的数组。你也可以把它定义为同类型的十个变量，或作为数组定义的简称。
 )
 
 $(P
-Accordingly, the equivalent of the five separate variables above can be defined as an array of five values using the following syntax:
+因此，上面的五个独立的变量可以等效的使用下面的语法定义为含五个值的数组：
 )
 
 ---
@@ -50,49 +50,49 @@ Accordingly, the equivalent of the five separate variables above can be defined 
 ---
 
 $(P
-$(IX scalar) That definition can be read as $(I 5 double values). Note that I have chosen the name of the array variable as plural to avoid confusing it with a single-valued variable. Variables which only store a single value are called scalar variables.
+$(IX 标量) 这个定义可以理解为 $(I 5 个 double 值)。请注意，我选择了数组变量的名字为复数，以避免它与单值变量混淆。只存储一个值的变量称为标量变量。
 )
 
 $(P
-In summary, the definition of an array variable consists of the type of the values, the number of values, and the name of the variable that refers to the array of values:
+总之，数组变量的定义包括值的类型、 值的个数和涉及数组值的变量名称：
 )
 
 ---
-    $(I type_name)[$(I value_count)] $(I variable_name);
+    $(I 类型名称)[$(I 值的个数)] $(I 变量名称);
 ---
 
 $(P
-The type of the values can also be a user-defined type. (We will see user-defined types later.) For example:
+值的类型也可以是用户定义的类型。（我们将在后面看到用户定义类型。）例如：
 )
 
 ---
-    // An array that holds the weather information of all
-    // cities. Here, the bool values may mean
-    //   false: overcast
-    //   true : sunny
+    // 保存所有城市气象信息的
+    // 数组。在这里，bool 值可能意味着
+    //   false：阴天
+    //   true ：晴天
     bool[cityCount] weatherConditions;
 
-    // An array that holds the weights of a hundred boxes
+    // 保存一百个箱子重量的数组
     double[100] boxWeights;
 
-    // Information about the students of a school
+    // 有关学校学生的信息
     StudentInformation[studentCount] studentInformation;
 ---
 
-$(H5 $(IX container) $(IX element) Containers and elements)
+$(H5 $(IX container) $(IX element) 容器和元素)
 
 $(P
-Data structures that bring elements of a certain type together are called $(I containers). According to this definition, arrays are containers. For example, an array that holds the air temperatures of the days in July can bring 31 $(C double) values together and form $(I a container of elements of type $(C double)).
+聚集特定类型元素的数据结构称为 $(I 容器)。根据定义，数组就是容器。例如，一个保存了七月每天的气温的数组能汇集 31 个 double 值，形成一个 $(I $(C double) 类型元素的容器)。
 )
 
 $(P
-The variables of a container are called $(I elements). The number of elements of an array is called the $(I length) of the array.
+容器的变量称为 $(I 元素)。数组元素的个数称为数组的 $(I length)。
 )
 
-$(H5 $(IX []) Accessing the elements)
+$(H5 $(IX []) 元素的访问)
 
 $(P
-In order to differentiate the variables in the exercise of the previous chapter, we had to append an underscore and a number to their names as in $(C value_1). This is not possible nor necessary when a single array stores all the values under a single name. Instead, the elements are accessed by specifying the $(I element number) within square brackets:
+为了与前一章练习中的变量有所区别，我们给变量的名字加上了下划线与数字，像 $(C value_1) 这样。让一个数组在一个名字下存储所有的值，那是不可能也没必要的。相反，通过指定方括号内的元素位置数就可以访问元素：
 )
 
 ---
@@ -100,52 +100,52 @@ In order to differentiate the variables in the exercise of the previous chapter,
 ---
 
 $(P
-That expression can be read as $(I the element with the number 0 of the array named values). In other words, instead of typing $(C value_1) one must type $(C values[0]) with arrays.
+这个表达式可以理解为 $(I 数组 values 位置 0 处的元素)。换句话说，对数组输入 $(C values[0]) 而不是键入 $(C value_1) 。
 )
 
 $(P
-There are two important points worth stressing here:
+还有两点值得强调：
 )
 
 $(UL
 
-$(LI $(B The numbers start with zero:) Although humans assign numbers to items starting with 1, the numbers in arrays start at 0. The values that we have numbered as 1, 2, 3, 4, and 5 before are numbered as 0, 1, 2, 3, and 4 in the array. This variation can confuse new programmers.
+$(LI $(B 从零开始编号：) 虽然人们习惯于从 1 开始给项目分配编号，但数组是从 0 开始的。以前被我们编号为 1、2、3、4 和 5 的值在数组中编号为 0、1、2、3 和 4。这种变化可能会让编程新手感到困惑。
 )
 
-$(LI $(B Two different uses of the $(C[]) characters:) Don't confuse the two separate uses of the $(C []) characters. When defining arrays, the $(C []) characters are written after the type of the elements and specify the number of elements. When accessing elements, the $(C []) characters are written after the name of the array and specify the number of the element that is being accessed:
+$(LI $(B$(C[]) 的两种不同用法：) 不要混淆 $(C []) 的两种独特用法。当我们定义数组时，$(C []) 写在元素类型之后，并指定元素个数。访问元素时，$(C []) 写在数组名称之后，并指定要访问的元素位置数：
 
 ---
-    // This is a definition. It defines an array that consists
-    // of 12 elements. This array is used to hold the number
-    // of days in each month.
+    // 这个是数组的定义。它定义了一个可以存储
+    // 12个元素的数组。这个数组用于存储
+    // 每个月的天数。
     int[12] monthDays;
 
-    // This is an access. It accesses the element that
-    // corresponds to December and sets its value to 31.
+    // 这个是数组的访问。它访问对应于
+    // 十二月的元素，并设置它的值为 31。
     monthDays[11] = 31;
 
-    // This is another access. It accesses the element that
-    // corresponds to January, the value of which is passed to
-    // writeln.
+    // 这是另一个访问。它访问对应于
+    // 一月的元素，并把它的值传给
+    // writeln 函数。
     writeln("January has ", monthDays[0], " days.");
 ---
 
 $(P
-$(B Reminder:) The element numbers of January and December are 0 and 11 respectively; not 1 and 12.
+$(B 提醒：) 一月和十二月的元素位置数分别是 0 和 11；而不是 1 和 12。
 )
 
 )
 
 )
 
-$(H5 $(IX index) Index)
+$(H5 $(IX index) Index（索引）)
 
 $(P
-The number of an element is called its $(I index) and the act of accessing an element is called $(I indexing).
+元素的位置数称为 $(I index)，访问元素的行为称为$(I 索引)。
 )
 
 $(P
-An index need not be a constant value; the value of a variable can also be used as an index, making arrays even more useful. For example, the month can be determined by the value of the $(C monthIndex) variable below:
+索引不必是恒定值；变量的值也能用作索引，这会让数组更有用。例如，下面通过变量 $(C monthIndex) 的值来确定该月：
 )
 
 ---
@@ -153,42 +153,42 @@ An index need not be a constant value; the value of a variable can also be used 
 ---
 
 $(P
-When the value of $(C monthIndex) is 2, the expression above would print the value of $(C monthDays[2]), the number of days in March.
+当 $(C monthIndex) 的值为 2，上面的表达式将输出 $(C monthDays[2]) 的值，即三月的天数。
 )
 
 $(P
-Only the index values between zero and one less than the length of the array are valid. For example, the valid indexes of a three-element array are 0, 1, and 2. Accessing an array with an invalid index causes the program to be terminated with an error.
+只有与数组长度的差值在 0 与 1 之间的索引才有效。例如，一个具有三个元素的数组的有效索引是 0、1 和 2。访问具有无效索引的数组将导致出错从而终止程序。
 )
 
 $(P
-Arrays are containers where the elements are placed side by side in the computer's memory. For example, the elements of the array holding the number of days in each month can be shown like the following (assuming a year when February has 28 days):
+数组是容器，其中的元素在计算机的内存中是逐个放置的。例如，下面数组的元素保存了每个月的天数（假定一年中二月有 28 天）：
 )
 
 $(MONO
-  indexes →     0    1    2    3    4    5    6    7    8    9   10   11
- elements →  | 31 | 28 | 31 | 30 | 31 | 30 | 31 | 31 | 30 | 31 | 30 | 31 |
+  索引 →     0    1    2    3    4    5    6    7    8    9   10   11
+ 元素 →  | 31 | 28 | 31 | 30 | 31 | 30 | 31 | 31 | 30 | 31 | 30 | 31 |
 )
 
 $(P
-$(I $(B Note:) The indexes above are for demonstration purposes only; they are not stored in the computer's memory.)
+$(I $(B 注意：) 上面的索引仅用于演示；并没有存储在计算机的内存中。)
 )
 
 $(P
-The element at index 0 has the value 31 (number of days in January); the element at index 1 has the value of 28 (number of days in February), etc.
+索引 0 处元素的值为 31（一月的天数）；索引1 处元素的值为 28（二月的天数）依次类推。
 )
 
-$(H5 $(IX fixed-length array) $(IX dynamic array) $(IX static array) Fixed-length arrays vs. dynamic arrays)
+$(H5 $(IX 定长数组) $(IX 动态数组) $(IX 静态数组) 定长数组与动态数组)
 
 $(P
-When the length of an array is specified when the program is written, that array is a $(I fixed-length array). When the length can change during the execution of the program, that array is a $(I dynamic array).
-)
-
-$(P
-Both of the arrays that we have defined above are fixed-length arrays because their element counts are specified as 5 and 12 at the time when the program is written. The lengths of those arrays cannot be changed during the execution of the program. To change their lengths, the source code must be modified and the program must be recompiled.
+当数组的长度是在写程序时指定时，该数组就是一个$(I 定长数组)。当长度可以在程序的执行过程中进行修改时，该数组就是一个$(I 动态数组)。
 )
 
 $(P
-Defining dynamic arrays is simpler than defining fixed-length arrays because omitting the length makes a dynamic array:
+上面我们定义的数组都为定长数组，因为元素的个数在写程序时已指定为 5 和 12。在程序的执行过程中数组的长度不可修改。要修改长度，就必须修改源代码，而且程序必须重新编译。
+)
+
+$(P
+因为省略了长度，所以定义动态数组比定长数组简单：
 )
 
 ---
@@ -196,17 +196,17 @@ Defining dynamic arrays is simpler than defining fixed-length arrays because omi
 ---
 
 $(P
-The length of such an array can increase or decrease during the execution of the program.
+在程序的执行过程中这种数组的长度可以增加或减少。
 )
 
 $(P
-Fixed-length arrays are also known as static arrays.
+定长数组也被称为静态数组。
 )
 
-$(H5 $(IX .length) Using $(C .length) to get or set the number of elements)
+$(H5 $(IX .length) 使用 $(C .length) 来获取或设置元素的个数)
 
 $(P
-Arrays have properties as well, of which we will see only $(C .length) here. $(C .length) returns the number of elements of the array:
+数组也有 properties（属性），在这儿我们只会看到 $(C .length)。$(C .length) 返回数组元素的个数：
 )
 
 ---
@@ -214,32 +214,32 @@ Arrays have properties as well, of which we will see only $(C .length) here. $(C
 ---
 
 $(P
-Additionally, the length of dynamic arrays can be changed by assigning a value to this property:
+另外，通过对这个 property 指定一个值就可以修改动态数组的 length：
 )
 
 ---
-    int[] array;            // initially empty
-    array.length = 5;       // now has 5 elements
+    int[] array;            // 初始时为空
+    array.length = 5;       // 现在有 5 个元素
 ---
 
-$(H5 An array example)
+$(H5 一个数组例子)
 
 $(P
-Let's now revisit the exercise with the five values and write it again by using an array:
+现在我们重温一下使用五个值的例子，用数组重写一下它：
 )
 
 ---
 import std.stdio;
 
 void main() {
-    // This variable is used as a loop counter
+    // 该变量用作循环计数器
     int counter;
 
-    // The definition of a fixed-length array of five
-    // elements of type double
+    // 定义了一个可包含五个 double 
+    // 类型元素的数组
     double[5] values;
 
-    // Reading the values in a loop
+    // 在循环中从输入流读取元素值
     while (counter < values.length) {
         write("Value ", counter + 1, ": ");
         readf(" %s", &values[counter]);
@@ -253,34 +253,34 @@ void main() {
         ++counter;
     }
 
-    // The loop that calculates the fifths of the values would
-    // be written similarly
+    // 经过计算的五个数值
+    //将在循环中输出
 }
 ---
 
-$(P $(B Observations:) The value of $(C counter) determines how many times the loops are repeated (iterated). Iterating the loop while its value is less than $(C values.length) ensures that the loops are executed once per element. As the value of that variable is incremented at the end of each iteration, the $(C values[counter]) expression refers to the elements of the array one by one: $(C values[0]), $(C values[1]), etc.
+$(P $(B 观测：) $(C counter) 的值决定了循环的重复次数（迭代）。当它的值小于 $(C values.length) 时，迭代循环可以保证每个元素只执行了一次。在每个迭代结束时该变量值都会递增，$(C values[counter]) 表达式指的是数组的逐个元素：$(C values[0])、$(C values[1]) 等等。
 )
 
 $(P
-To see how this program is better than the previous one, imagine needing to read 20 values. The program above would require a single change: replacing 5 with 20. On the other hand, a program that did not use an array would have to have 20 variable definitions. Furthermore, since you would be unable to use a loop to iterate the 20 values, you would also have to repeat several lines 20 times, one time for each single-valued variable.
+要看一看这个程序怎样才能比以前的更好，让我们设想需要读取 20 个值。修改一下上面的程序：用 20 替换 5。另一方面，这个程序若不使用数组那将必须定义 20 个变量。此外，因为您无法使用循环遍历 20 个值，您也不得不把那几行代码重复 20 次，每个单值变量来一次。
 )
 
-$(H5 $(IX initialization, array) Initializing the elements)
+$(H5 $(IX 初始化,数组) 初始化元素)
 
 $(P
-Like every variable in D, the elements of arrays are automatically initialized. The initial value of the elements depends on the type of the elements: 0 for $(C int), $(C double.nan) for $(C double), etc.
+像在 D 语言中的每个变量，数组的元素自动初始化。元素的初始值取决于元素类型：$(C int) 的为 0，$(C double) 的为 $(C double.nan) 等等。
 )
 
 $(P
-All of the elements of the $(C values) array above are initialized to $(C double.nan):
+上面 $(C values) 数组的所有元素都初始化为 $(C double.nan)：
 )
 
 ---
-    double[5] values;     // elements are all double.nan
+    double[5] values;     // 元素都是 double.nan
 ---
 
 $(P
-Obviously, the values of the elements can be changed later during the execution of the program. We have already seen this above when assigning to an element of an array:
+显然，元素的值可以在以后程序执行期间发生变化。这在上面给数组的元素赋值时我们已经看到：
 )
 
 ---
@@ -288,7 +288,7 @@ Obviously, the values of the elements can be changed later during the execution 
 ---
 
 $(P
-That also happened when reading a value from the input:
+从输入流中读取值时也发生了：
 )
 
 ---
@@ -296,7 +296,7 @@ That also happened when reading a value from the input:
 ---
 
 $(P
-Sometimes the desired values of the elements are known at the time when the array is defined. In such cases, the initial values of the elements can be specified on the right-hand side of the assignment operator, within square brackets. Let's see this in a program that reads the number of the month from the user, and prints the number of days in that month:
+有时在数组定义时元素的期望值是已知的。在这种情况下，元素的初始值可以在分配操作的右手侧方括号内指定。让我们来看一看这个程序，读取来自用户的月数，并输出当月的天数：
 )
 
 ---
@@ -318,27 +318,27 @@ void main() {
 ---
 
 $(P
-As you can see, the $(C monthDays) array is defined and initialized at the same time. Also note that the number of the month, which is in the range <span style="white-space: nowrap">1-12</span>, is converted to a valid array index in the range <span style="white-space: nowrap">0-11</span>. Any value that is entered outside of the <span style="white-space: nowrap">1-12</span> range would cause the program to be terminated with an error.
+正如你所看到的，$(C monthDays) 数组在定义的时候就已初始化。另外请注意， <span style="white-space: nowrap">1-12</span> 范围内的月份数字转换为了有效的数组索引范围 <span style="white-space: nowrap">0-11</span>。<span style="white-space: nowrap">1-12</span> 范围外的任何值都将导致程序出现错误而终止。
 )
 
 $(P
-When initializing arrays, it is possible to use a single value on the right-hand side. In that case all of the elements of the array are initialized to that value:
+当初始化数组时，也可以在右手侧使用单个值。在这种情况下，所有的数组元素都初始化为该值：
 )
 
 ---
-    int[10] allOnes = 1;    // All of the elements are set to 1
+    int[10] allOnes = 1;    // 所有的元素都设置为 1
 ---
 
-$(H5 Basic array operations)
+$(H5 数组的基本操作)
 
 $(P
-Arrays provide convenience operations that apply to all of their elements.
+数组提供了适用于所有元素的方便操作。
 )
 
-$(H6 $(IX copy, array) Copying fixed-length arrays)
+$(H6 $(IX 复制, 数组) 复​​制定长数组)
 
 $(P
-The assignment operator copies all of the elements from the right-hand side to the left-hand side:
+赋值运算符将所有元素从右手侧复制到左手侧：
 )
 ---
     int[5] source = [ 10, 20, 30, 40, 50 ];
@@ -348,24 +348,24 @@ The assignment operator copies all of the elements from the right-hand side to t
 ---
 
 $(P
-$(I $(B Note:) The meaning of the assignment operation is completely different for dynamic arrays. We will see this in a later chapter.)
+$(I $(B 注意：) 赋值运算符的含义与动态数组完全不同。我们将在后面的章节中看到这一点。)
 )
 
-$(H6 $(IX ~=) $(IX append, array) $(IX add element, array) Adding elements to dynamic arrays)
+$(H6 $(IX ~=) $(IX 附加, 数组) $(IX 添加元素, 数组) 给动态数组添加元素)
 
 $(P
-The $(C ~=) operator adds new elements to the end of a dynamic array:
+$(C ~=) 运算符是指在动态数组的尾部添加新的元素：
 )
 
 ---
-    int[] array;                // empty
-    array ~= 7;                 // array is now equal to [7]
-    array ~= 360;               // array is now equal to [7, 360]
-    array ~= [ 30, 40 ];        // array is now equal to [7, 360, 30, 40]
+    int[] array;                // 空数组
+    array ~= 7;                 // 数组现在等于 [7]
+    array ~= 360;               // 数组现在等于 [7, 360]
+    array ~= [ 30, 40 ];        // 数组现在等于 [7, 360, 30, 40]
 ---
 
 $(P
-It is not possible to add elements to fixed-length arrays:
+不可能给定长数组添加元素：
 )
 
 ---
@@ -373,10 +373,10 @@ It is not possible to add elements to fixed-length arrays:
     array ~= 7;                 $(DERLEME_HATASI)
 ---
 
-$(H6 $(IX ~, concatenation) $(IX concatenation, array) Combining arrays)
+$(H6 $(IX ~, 连接) $(IX 连接, 数组) 连接数组)
 
 $(P
-The $(C ~) operator creates a new array by combining two arrays. Its $(C ~=) counterpart combines the two arrays and assigns the result back to the left-hand side array:
+ $(C ~) 运算符通过连接两个数组从而创建一个新数组。$(C ~=) 组合两侧的数组并把结果赋值给左侧数组：
 )
 
 ---
@@ -388,15 +388,15 @@ void main() {
     int[] result;
 
     result = first ~ second;
-    writeln(result.length);     // prints 20
+    writeln(result.length);     // 输出 20
 
     result ~= first;
-    writeln(result.length);     // prints 30
+    writeln(result.length);     // 输出 30
 }
 ---
 
 $(P
-The $(C ~=) operator cannot be used when the left-hand side array is a fixed-length array:
+左侧数组是定长数组时 $(C ~=) 运算符不能使用：
 )
 
 ---
@@ -406,7 +406,7 @@ The $(C ~=) operator cannot be used when the left-hand side array is a fixed-len
 ---
 
 $(P
-If the array sizes are not equal, the program is terminated with an error during assignment:
+如果数组大小不一致，会导致赋值期间出错而终止程序：
 )
 
 ---
@@ -421,10 +421,10 @@ $(SHELL
 object.Error@(0): Array lengths don't match for copy: $(HILITE 20 != 21)
 )
 
-$(H6 $(IX sort) Sorting the elements)
+$(H6 $(IX sort（排序）) 排序元素)
 
 $(P
-$(C std.algorithm.sort) can sort the elements of many types of collections. In the case of integers, the elements get sorted from the smallest value to the greatest value. In order to use the $(C sort()) function, one must import the $(C std.algorithm) module first. (We will see functions in a later chapter.)
+$(C std.algorithm.sort) 可以对许多类型集合中的元素进行排序。对于整数，元素按从小到大排序。为了使用 $(C sort()) 函数，必须先导入 $(C std.algorithm) 模块。（在后面的章节我们将看到这些函数。）
 )
 
 ---
@@ -439,17 +439,17 @@ void main() {
 ---
 
 $(P
-The output:
+输出：
 )
 
 $(SHELL
 [1, 2, 3, 4, 5]
 )
 
-$(H6 $(IX reverse) Reversing the elements)
+$(H6 $(IX reverse（反转）) 反转元素)
 
 $(P
-$(C std.algorithm.reverse) reverses the elements in place (the first element becomes the last element, etc.):
+$(C std.algorithm.reverse) 反转元素的位置（第一个元素成为最后一个元素，以此类推）：
 )
 
 ---
@@ -464,7 +464,7 @@ void main() {
 ---
 
 $(P
-The output:
+输出：
 )
 
 $(SHELL
@@ -474,14 +474,14 @@ $(SHELL
 $(PROBLEM_COK
 
 $(PROBLEM
-Write a program that asks the user how many values will be entered and then reads all of them. Have the program sort the elements using $(C sort()) and then reverse the sorted elements using $(C reverse()).
+编写一个程序，要求用户输入多少值，然后全部读取。让程序使用 $(C sort()) 函数排序元素，然后使用 $(C reverse()) 函数反转排序的元素。
 )
 
 $(PROBLEM
-Write a program that reads numbers from the input, and prints the odd and even ones separately but in order. Treat the value <span style="white-space: nowrap">-1</span> specially to determine the end of the numbers; do not process that value.
+编写一个程序，从输入流中读取数字，并先后按顺序分别输出奇数和偶数。并专门用值 <span style="white-space: nowrap">-1</span> 来确定数字的结束；不处理该值。
 
 $(P
-For example, when the following numbers are entered,
+例如，当输入了下面的数字，
 )
 
 $(SHELL
@@ -489,7 +489,7 @@ $(SHELL
 )
 
 $(P
-have the program print the following:
+程序会输出以下内容：
 )
 
 $(SHELL
@@ -497,16 +497,16 @@ $(SHELL
 )
 
 $(P
-$(B Hint:) You may want to put the elements in separate arrays. You can determine whether a number is odd or even using the $(C %) (remainder) operator.
+$(B 提示：) 你可以把元素放入单独的数组。使用 $(C %)（求余数）运算符来确定数字是奇数还是偶数。
 )
 
 )
 
 $(PROBLEM
-The following is a program that does not work as expected. The program is written to read five numbers from the input and to place the squares of those numbers into an array. The program then attempts to print the squares to the output. Instead, the program terminates with an error.
+以下为预期不起作用的程序。程序要求从输入流中读取五个数字，并把这些数字放入一个数组。然后程序会输出这些平方。若有错误，程序会终止。
 
 $(P
-Fix the bugs of this program and make it work as expected:
+请修复程序的 bug，让它按预期的方式执行：
 )
 
 ---
@@ -542,11 +542,11 @@ void main() {
 )
 
 Macros:
-        SUBTITLE=Arrays
+        SUBTITLE=数组
 
-        DESCRIPTION=Basic array operations of the D programming language
+        DESCRIPTION=D 语言数组的基本操作
 
-        KEYWORDS=d programming language tutorial book arrays fixed-length dynamic
+        KEYWORDS=D 编程语言 教程 定长 动态
 
 
 $(Ergin)
