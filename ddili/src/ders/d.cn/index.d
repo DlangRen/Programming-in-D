@@ -106,7 +106,7 @@ $(LI $(LINK2 /ders/d.cn/encapsulation.html, Encapsulation and Protection Attribu
 $(LI $(LINK2 /ders/d.cn/ufcs.html, Universal Function Call Syntax (UFCS)))
 $(LI $(LINK2 /ders/d.cn/property.html, Properties) $(INDEX_KEYWORDS @property))
 $(LI $(LINK2 /ders/d.cn/invariant.html, Contract Programming for Structs and Classes) $(INDEX_KEYWORDS invariant))
-$(LI $(LINK2 /ders/d.cn/templates.html, Templates))
+$(LI $(LINK2 /ders/d.cn/templates.html, 模板))
 $(LI $(LINK2 /ders/d.cn/pragma.html, Pragmas))
 $(LI $(LINK2 /ders/d.cn/alias.html, alias 与 with) $(INDEX_KEYWORDS alias with))
 $(LI $(LINK2 /ders/d.cn/alias_this.html, alias this) $(INDEX_KEYWORDS alias this))
