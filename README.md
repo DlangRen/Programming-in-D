@@ -71,6 +71,10 @@ Instead of falling for getting things done quickly, "Programming in D" focuses o
 - [惰性运算符 Lazy Operators](ddili/src/ders/d.cn/lazy_operators.d) By mogu
 - [左值与右值 Lvalues and Rvalues](ddili/src/ders/d.cn/lvalue_rvalue.d) By mogu
 - [三元运算符 ?: Ternary Operator ?:](ddili/src/ders/d.cn/ternary.d) By IceNature
+- [模板 Templates](ddili/src/ders/d.cn/templates.d) By meatatt
+
+### Review Delayed 审核搁置
+- [Arrays](ddili/src/ders/d.cn/arrays.d) By 大处着手小处着眼
 
 ### Outdated 旧项目待更新
 - [The Hello World Program](ddili/src/ders/d.cn/hello_world.d) By Lucifer
@@ -82,13 +86,14 @@ Instead of falling for getting things done quickly, "Programming in D" focuses o
 
 ### Adopted 已被领取
 - [Lifetimes and Fundamental Operations](ddili/src/ders/d.cn/lifetimes.d) By 渡世白玉
-- [Templates](ddili/src/ders/d.cn/templates.d) By meatatt
 - [Ranges](ddili/src/ders/d.cn/ranges.d) By Lucifer
 - [while Loop](ddili/src/ders/d.cn/while.d) By KimmyLeo
 - [Redirecting Standard Input and Output Streams](ddili/src/ders/d.cn/stream_redirect.d) By mogu
 - [Pragmas](ddili/src/ders/d.cn/pragma.d) By mogu
 - [Universal Function Call Syntax (UFCS)](ddili/src/ders/d.cn/ufcs.d) By mogu
-- [Arrays](ddili/src/ders/d.cn/arrays.d) By 大处着手小处着眼
+- [const ref Parameters and const Member Functions](ddili/src/ders/d.cn/const_member_functions.d) By IceNature
+- [Slices and Other Array Features](ddili/src/ders/d.cn/slices.d) By 大处着手小处着眼
+- [More Templates](ddili/src/ders/d.cn/templates_more.d) By meatatt
 
 ### Orphans 待领取
 - [Foreword by Andrei Alexandrescu](ddili/src/ders/d.cn/foreword2.d)
@@ -96,7 +101,6 @@ Instead of falling for getting things done quickly, "Programming in D" focuses o
 - [Integers and Arithmetic Operations](ddili/src/ders/d.cn/arithmetic.d)
 - [Floating Point Types](ddili/src/ders/d.cn/floating_point.d)
 - [Characters](ddili/src/ders/d.cn/characters.d)
-- [Slices and Other Array Features](ddili/src/ders/d.cn/slices.d)
 - [for Loop](ddili/src/ders/d.cn/for.d)
 - [Literals](ddili/src/ders/d.cn/literals.d)
 - [Formatted Output](ddili/src/ders/d.cn/formatted_output.d)
@@ -118,7 +122,6 @@ Instead of falling for getting things done quickly, "Programming in D" focuses o
 - [Variable Number of Parameters](ddili/src/ders/d.cn/parameter_flexibility.d)
 - [Function Overloading](ddili/src/ders/d.cn/function_overloading.d)
 - [Member Functions](ddili/src/ders/d.cn/member_functions.d)
-- [const ref Parameters and const Member Functions](ddili/src/ders/d.cn/const_member_functions.d)
 - [Constructor and Other Special Functions](ddili/src/ders/d.cn/special_functions.d)
 - [Operator Overloading](ddili/src/ders/d.cn/operator_overloading.d)
 - [Inheritance](ddili/src/ders/d.cn/inheritance.d)
@@ -136,7 +139,6 @@ Instead of falling for getting things done quickly, "Programming in D" focuses o
 - [Nested Functions, Structs, and Classes](ddili/src/ders/d.cn/nested.d)
 - [Unions](ddili/src/ders/d.cn/union.d)
 - [Labels and goto](ddili/src/ders/d.cn/goto.d)
-- [More Templates](ddili/src/ders/d.cn/templates_more.d)
 - [More Functions](ddili/src/ders/d.cn/functions_more.d)
 - [Mixins](ddili/src/ders/d.cn/mixin.d)
 - [More Ranges](ddili/src/ders/d.cn/ranges_more.d)
