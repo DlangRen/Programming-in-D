@@ -3,7 +3,7 @@ Ddoc
 $(DERS_BOLUMU $(IX template) 模板拓展)
 
 $(P
-我们已经在 $(LINK2 /ders/d.en/templates.html, 模板) 一章中看到了模板的强大与便捷。将算法或数据结构定义为单一模板即可将其运用于多种类型。
+我们已经在 $(LINK2 /ders/d.cn/templates.html, 模板) 一章中看到了模板的强大与便捷。将算法或数据结构定义为单一模板即可将其运用于多种类型。
 )
 
 $(P
@@ -99,7 +99,7 @@ $(P
 ---
 
 $(P
-模板的一个特定实例引入了一个$(I 命名空间)。使用这个名称可以调用该实例内部的定义。然而，若合起来的名称太长，那么可以像在 $(LINK2 /ders/d.en/alias.html, $(C alias)) 一章中所见的那样使用别名：
+模板的一个特定实例引入了一个$(I 命名空间)。使用这个名称可以调用该实例内部的定义。然而，若合起来的名称太长，那么可以像在 $(LINK2 /ders/d.cn/alias.html, $(C alias)) 一章中所见的那样使用别名：
 )
 
 ---
@@ -188,7 +188,7 @@ $(H5 模板的种类)
 $(H6 函数、class、struct 模板)
 
 $(P
-在 $(LINK2 /ders/d.en/templates.html, 模板) 一章中，我们已经涵盖了函数、$(C class) 与 $(C struct) 模板，打那时开始我们就见到了许多相关的示例。
+在 $(LINK2 /ders/d.cn/templates.html, 模板) 一章中，我们已经涵盖了函数、$(C class) 与 $(C struct) 模板，打那时开始我们就见到了许多相关的示例。
 )
 
 $(H6 $(IX 成员函数模板) 成员函数模板)
@@ -209,11 +209,11 @@ class Sink {
 ---
 
 $(P
-然而，由于模板潜在具有无穷多的实例，它们不能成为 $(LINK2 /ders/d.en/inheritance.html, 虚函数)，因为编译器不知道要在界面中包含哪个特定的模板实例。（由是，同样也不能使用 $(C abstract) 关键字了。）
+然而，由于模板潜在具有无穷多的实例，它们不能成为 $(LINK2 /ders/d.cn/inheritance.html, 虚函数)，因为编译器不知道要在界面中包含哪个特定的模板实例。（由是，同样也不能使用 $(C abstract) 关键字了。）
 )
 
 $(P
-例如，尽管如下派生类中 $(C put()) 模板的存在或将给人以重载的印象，但实际上它隐藏了父类中的 $(C put) 名称（详见 $$(LINK2 /ders/d.en/alias.html, 别名) 一章中的(I 名字隐藏)）：
+例如，尽管如下派生类中 $(C put()) 模板的存在或将给人以重载的印象，但实际上它隐藏了父类中的 $(C put) 名称（详见 $$(LINK2 /ders/d.cn/alias.html, 别名) 一章中的(I 名字隐藏)）：
 )
 
 ---
@@ -268,7 +268,7 @@ union 模板类似于 struct 模板。快捷语法也同样适用于它们。
 )
 
 $(P
-举例来说，让我们为在 $(LINK2 /ders/d.en/union.html, union) 一章中曾见到的 $(C IpAdress) $(C union) 设计一个更加通用的版本。在那章中，IPv4 地址的值是早先版本 $(C IpAddress) 的一个 $(C uint) 成员，且分段数组的元素类型为 $(C ubyte)：
+举例来说，让我们为在 $(LINK2 /ders/d.cn/union.html, union) 一章中曾见到的 $(C IpAdress) $(C union) 设计一个更加通用的版本。在那章中，IPv4 地址的值是早先版本 $(C IpAddress) 的一个 $(C uint) 成员，且分段数组的元素类型为 $(C ubyte)：
 )
 
 ---
@@ -354,7 +354,7 @@ void main() {
 ---
 
 $(P
-该程序的输出与其在 $(LINK2 /ders/d.en/union.html, 模板) 一章中的输出应是一样的：
+该程序的输出与其在 $(LINK2 /ders/d.cn/union.html, 模板) 一章中的输出应是一样的：
 )
 
 $(SHELL_SMALL
@@ -430,7 +430,7 @@ class Bulb : ColoredObject$(HILITE !Frequency) {
 ---
 
 $(P
-然而，如在 $(LINK2 /ders/d.en/templates.html, 模板) 一章中所说的一样，“模板的每一个不同实例都是一个不同的类型”。依此，$(C ColoredObject!RGB) 与 $(C ColoredObject!Frequency) 是不相关的 interface，同时 $(C PageFrame) 与 $(C Bulb) 也是不相关的 class。
+然而，如在 $(LINK2 /ders/d.cn/templates.html, 模板) 一章中所说的一样，“模板的每一个不同实例都是一个不同的类型”。依此，$(C ColoredObject!RGB) 与 $(C ColoredObject!Frequency) 是不相关的 interface，同时 $(C PageFrame) 与 $(C Bulb) 也是不相关的 class。
 )
 
 $(H5 $(IX 参数, template) 模板参数的种类)
@@ -631,7 +631,7 @@ $(P
 ---
 
 $(P
-我们已经在 $(LINK2 /ders/d.en/parameter_flexibility.html, 变参) 一章中了解到$(特殊关键字)能根据它们在代码或函数默认值中的出现产生不同的效果。
+我们已经在 $(LINK2 /ders/d.cn/parameter_flexibility.html, 变参) 一章中了解到$(特殊关键字)能根据它们在代码或函数默认值中的出现产生不同的效果。
 )
 
 $(P
@@ -910,7 +910,7 @@ The double specialization is using 'length'.
 $(H6 $(IX 元组模板参数) 元组模板参数)
 
 $(P
-我们已经在 $(LINK2 /ders/d.en/parameter_flexibility.html, 变参) 一章中看到了可以接纳任何数量以及任何类型参数的可变参数函数。例如，$(C writeln()) 就能以任意数量的任意类型参数进行调用。
+我们已经在 $(LINK2 /ders/d.cn/parameter_flexibility.html, 变参) 一章中看到了可以接纳任何数量以及任何类型参数的可变参数函数。例如，$(C writeln()) 就能以任意数量的任意类型参数进行调用。
 )
 
 $(P
@@ -1022,7 +1022,7 @@ struct Student {
 )
 
 $(P
-$(I $(B 注：)生成源代码的函数是用于 $(C mixin) 关键字的，这我们将在 $(LINK2 /ders/d.en/mixin.html, 之后的一章) 中见到。)
+$(I $(B 注：)生成源代码的函数是用于 $(C mixin) 关键字的，这我们将在 $(LINK2 /ders/d.cn/mixin.html, 之后的一章) 中见到。)
 )
 
 $(P
@@ -1153,7 +1153,7 @@ LargerOf!(A, B) calculate(A, B)(A a, B b) {
 $(H5 模板特化)
 
 $(P
-我们已经在 $(LINK2 /ders/d.en/templates.html, 模板) 一章中见到了许多模板特化。就如同类型参数一样，其他种类的模板参数同样可以进行特化。如下模板同时具有通用定义以及它对于 0 的特化：
+我们已经在 $(LINK2 /ders/d.cn/templates.html, 模板) 一章中见到了许多模板特化。就如同类型参数一样，其他种类的模板参数同样可以进行特化。如下模板同时具有通用定义以及它对于 0 的特化：
 )
 
 ---
@@ -1491,7 +1491,7 @@ $(P
 )
 
 $(P
-由于模板是编译期特性，模板约束必须在编译时进行计算。我们在 $(LINK2 /ders/d.en/is_expr.html, $(C is) 表达式) 一章中见到的 $(C is) 表达式常用于模板约束中。我们也将在下面的示例中使用 $(C is) 表达式。
+由于模板是编译期特性，模板约束必须在编译时进行计算。我们在 $(LINK2 /ders/d.cn/is_expr.html, $(C is) 表达式) 一章中见到的 $(C is) 表达式常用于模板约束中。我们也将在下面的示例中使用 $(C is) 表达式。
 )
 
 $(H6 $(IX 单元素元组模板参数) $(IX 元组模板参数, 单元素) 单元素的元组参数)
@@ -1612,7 +1612,7 @@ template canFlyAndLand(T) {
 
 $(OL
 
-$(LI $(B 匿名函数：)我们已经在 $(LINK2 /ders/d.en/lambda.html, 函数指针、代理与 lambda) 一章中见过了匿名函数。上面高亮出的一对花括号定义了一个匿名函数。
+$(LI $(B 匿名函数：)我们已经在 $(LINK2 /ders/d.cn/lambda.html, 函数指针、代理与 lambda) 一章中见过了匿名函数。上面高亮出的一对花括号定义了一个匿名函数。
 )
 
 $(LI $(B 函数语句块：)函数语句块内使用了应在真正模板中使用的类型。首先，该类型的一个对象（object）被定义，并接着由几种特定的方式使用。（这些代码将永远不会被执行；见下文）
@@ -1644,7 +1644,7 @@ $(P
 
 )
 
-$(LI $(B $(C is) 表达式：)我们已经在 $(LINK2 /ders/d.en/is_expr.html, $(C is) 表达式) 一章中看到了很多 $(C is) 表达式的用途。语法 $(C is&nbsp;($(I Type))) 在 $(C Type) 有效时得出 $(C true)：
+$(LI $(B $(C is) 表达式：)我们已经在 $(LINK2 /ders/d.cn/is_expr.html, $(C is) 表达式) 一章中看到了很多 $(C is) 表达式的用途。语法 $(C is&nbsp;($(I Type))) 在 $(C Type) 有效时得出 $(C true)：
 
 ---
     int i;
@@ -1715,7 +1715,7 @@ $(P
 $(H5 $(IX 重载, 操作符) $(IX 多维操作符重载) $(IX 操作符重载, 多维) 在多维操作符重载中使用模板)
 
 $(P
-我们已经在 $(LINK2 /ders/d.en/operator_overloading.html, 操作符重载) 一章中看到 $(C opDollar)、$(C opIndex)、与 $(C opSlice) 是用来进行元素索引与切片的。当为一维集合进行重载时，这些操作符有如下的义务：
+我们已经在 $(LINK2 /ders/d.cn/operator_overloading.html, 操作符重载) 一章中看到 $(C opDollar)、$(C opIndex)、与 $(C opSlice) 是用来进行元素索引与切片的。当为一维集合进行重载时，这些操作符有如下的义务：
 )
 
 $(UL
