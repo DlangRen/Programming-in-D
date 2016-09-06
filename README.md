@@ -94,6 +94,7 @@ Instead of falling for getting things done quickly, "Programming in D" focuses o
 - [const ref Parameters and const Member Functions](ddili/src/ders/d.cn/const_member_functions.d) By IceNature
 - [Slices and Other Array Features](ddili/src/ders/d.cn/slices.d) By 大处着手小处着眼
 - [More Templates](ddili/src/ders/d.cn/templates_more.d) By meatatt
+- [Function Pointers, Delegates, and Lambdas](ddili/src/ders/d.cn/lambda.d) By zhaopuming
 
 ### Orphans 待领取
 - [Foreword by Andrei Alexandrescu](ddili/src/ders/d.cn/foreword2.d)
@@ -134,7 +135,6 @@ Instead of falling for getting things done quickly, "Programming in D" focuses o
 - [Pointers](ddili/src/ders/d.cn/pointers.d)
 - [Bit Operations](ddili/src/ders/d.cn/bit_operations.d)
 - [Conditional Compilation](ddili/src/ders/d.cn/cond_comp.d)
-- [Function Pointers, Delegates, and Lambdas](ddili/src/ders/d.cn/lambda.d)
 - [foreach with Structs and Classes](ddili/src/ders/d.cn/foreach_opapply.d)
 - [Nested Functions, Structs, and Classes](ddili/src/ders/d.cn/nested.d)
 - [Unions](ddili/src/ders/d.cn/union.d)
