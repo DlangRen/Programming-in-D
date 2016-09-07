@@ -73,6 +73,10 @@ Instead of falling for getting things done quickly, "Programming in D" focuses o
 - [三元运算符 ?: Ternary Operator ?:](ddili/src/ders/d.cn/ternary.d) By IceNature
 - [模板 Templates](ddili/src/ders/d.cn/templates.d) By meatatt
 
+### Reviewing 审核中
+- [Slices and Other Array Features](ddili/src/ders/d.cn/slices.d) By 大处着手小处着眼
+- [More Templates](ddili/src/ders/d.cn/templates_more.d) By meatatt
+
 ### Review Delayed 审核搁置
 - [Arrays](ddili/src/ders/d.cn/arrays.d) By 大处着手小处着眼
 
@@ -92,9 +96,9 @@ Instead of falling for getting things done quickly, "Programming in D" focuses o
 - [Pragmas](ddili/src/ders/d.cn/pragma.d) By mogu
 - [Universal Function Call Syntax (UFCS)](ddili/src/ders/d.cn/ufcs.d) By mogu
 - [const ref Parameters and const Member Functions](ddili/src/ders/d.cn/const_member_functions.d) By IceNature
-- [Slices and Other Array Features](ddili/src/ders/d.cn/slices.d) By 大处着手小处着眼
-- [More Templates](ddili/src/ders/d.cn/templates_more.d) By meatatt
 - [Function Pointers, Delegates, and Lambdas](ddili/src/ders/d.cn/lambda.d) By zhaopuming
+- [Modules and Libraries](ddili/src/ders/d.cn/modules.d) By 大处着手小处着眼
+- [Variable Number of Parameters](ddili/src/ders/d.cn/parameter_flexibility.d) By meatatt
 
 ### Orphans 待领取
 - [Foreword by Andrei Alexandrescu](ddili/src/ders/d.cn/foreword2.d)
@@ -120,7 +124,6 @@ Instead of falling for getting things done quickly, "Programming in D" focuses o
 - [The null Value and the is Operator](ddili/src/ders/d.cn/null_is.d)
 - [Type Conversions](ddili/src/ders/d.cn/cast.d)
 - [Structs](ddili/src/ders/d.cn/struct.d)
-- [Variable Number of Parameters](ddili/src/ders/d.cn/parameter_flexibility.d)
 - [Function Overloading](ddili/src/ders/d.cn/function_overloading.d)
 - [Member Functions](ddili/src/ders/d.cn/member_functions.d)
 - [Constructor and Other Special Functions](ddili/src/ders/d.cn/special_functions.d)
@@ -128,7 +131,6 @@ Instead of falling for getting things done quickly, "Programming in D" focuses o
 - [Inheritance](ddili/src/ders/d.cn/inheritance.d)
 - [Interfaces](ddili/src/ders/d.cn/interface.d)
 - [destroy and scoped](ddili/src/ders/d.cn/destroy.d)
-- [Modules and Libraries](ddili/src/ders/d.cn/modules.d)
 - [Encapsulation and Protection Attributes](ddili/src/ders/d.cn/encapsulation.d)
 - [Properties](ddili/src/ders/d.cn/property.d)
 - [Contract Programming for Structs and Classes](ddili/src/ders/d.cn/invariant.d)
