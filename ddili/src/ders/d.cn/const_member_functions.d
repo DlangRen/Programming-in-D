@@ -1,19 +1,19 @@
 Ddoc
 
-$(DERS_BOLUMU $(CH4 const ref) Parameters and $(CH4 const) Member Functions)
+$(DERS_BOLUMU $(CH4 const ref) 参数和 $(CH4 const) 成员函数)
 
 $(P
-This chapter is about how parameters and member functions are marked as $(C const) so that they can be used with $(C immutable) variables as well. As we have already covered $(C const) parameters in earlier chapters, some information in this chapter will be a review of some of the features that you already know.
+本章主要是关于如何将参数和成员函数标记为 $(C const) 来配合 $(C immutabl) 变量使用的。我们已经在之前的章节中了解过 $(C const) 参数了，所以本章的某些部分其实只是对前面知识的复习。
 )
 
 $(P
-Although the examples in this chapter use only structs, $(C const) member functions apply to classes as well.
+虽然我们这里的例子使用的都是结构体，但实际上 $(C const) 成员函数也适用于类。
 )
 
-$(H5 $(C immutable) objects)
+$(H5 $(C immutable) 对象)
 
 $(P
-We have already seen that it is not possible to modify $(C immutable) variables:
+我们都知道 $(C immutable) 变量是无法被修改的：
 )
 
 ---
@@ -21,7 +21,7 @@ We have already seen that it is not possible to modify $(C immutable) variables:
 ---
 
 $(P
-$(C readingTime) cannot be modified:
+$(C readingTime) 无法被修改：
 )
 
 ---
@@ -30,18 +30,18 @@ $(C readingTime) cannot be modified:
 ---
 
 $(P
-The compiler does not allow modifying $(C immutable) objects in any way.
+编译器不允许以任何方式修改 $(C immutable) 对象。
 )
 
-$(H5 $(C ref) parameters that are not $(C const))
+$(H5 非 $(C const) 的 $(C ref) 参数)
 
 $(P
-We have seen this concept earlier in the $(LINK2 /ders/d.en/function_parameters.html, Function Parameters chapter). Parameters that are marked as $(C ref) can freely be modified by the function. For that reason, even if the function does not actually modify the parameter, the compiler does not allow passing $(C immutable) objects as that parameter:
+我们之前在 $(LINK2 /ders/d.cn/function_parameters.html, 函数参数) 一节中见到过这个概念。被标记为 $(C ref) 的参数可以被函数不受限制地随意修改。因此，即便函数实际上并没有修改参数，编译器也不允许对其传入 $(C immutable) 对象。
 )
 
 ---
-/* Although not being modified by the function, 'duration'
- * is not marked as 'const' */
+/* 虽然 'duration' 并没有被函数修改，
+ * 它也不能被标记为 'const' */
 int totalSeconds(ref Duration duration) {
     return 60 * duration.minute;
 }
@@ -51,13 +51,13 @@ int totalSeconds(ref Duration duration) {
 ---
 
 $(P
-The compiler does not allow passing the $(C immutable) $(C warmUpTime) to $(C totalSeconds) because that function does not guarantee that the parameter will not be modified.
+编译器不允许向 $(C totalSeconds) 传递 $(C immutable) $(C warmUpTime)，因为函数没有保证参数一定不会被修改。
 )
 
-$(H5 $(IX const ref) $(IX ref const) $(IX parameter, const ref) $(C const ref) parameters)
+$(H5 $(IX const ref) $(IX ref const) $(IX parameter, const ref) $(C const ref) 参数)
 
 $(P
-$(C const ref) means that the parameter is not modified by the function:
+$(C const ref) 表示参数不会被函数修改：
 )
 
 ---
@@ -66,11 +66,11 @@ int totalSeconds(const ref Duration duration) {
 }
 // ...
     immutable warmUpTime = Duration(3);
-    totalSeconds(warmUpTime);    // ← now compiles
+    totalSeconds(warmUpTime);    // ← 现在编译通过了
 ---
 
 $(P
-Such functions can receive $(C immutable) objects as parameters because the immutability of the object is enforced by the compiler:
+编译器将强制这种函数接收 $(C immutable) 对象：
 )
 
 ---
@@ -81,7 +81,7 @@ int totalSeconds(const ref Duration duration) {
 ---
 
 $(P
-$(IX in ref) $(IX ref in) $(IX parameter, in ref) An alternative to $(C const ref) is $(C in ref). As we will see in $(LINK2 /ders/d.en/function_parameters.html, a later chapter), $(C in) means that the parameter is used only as input to the function, disallowing any modification to it.
+$(IX in ref) $(IX ref in) $(IX parameter, in ref) 可用 $(C in ref) 替代 $(C const ref)。$(C in) 表示参数只是用来向函数传入信息，禁止对其进行任何修改。我们将会在 $(LINK2 /ders/d.cn/function_parameters.html, 后面的章节) 中见到它。
 )
 
 ---
@@ -90,10 +90,10 @@ int totalSeconds($(HILITE in ref) Duration duration) {
 }
 ---
 
-$(H5 Non-$(C const) member functions)
+$(H5 非 $(C const) 成员函数)
 
 $(P
-As we have seen with the $(C TimeOfDay.increment) member function, objects can be modified through member functions as well. $(C increment()) modifies the members of the object that it is called on:
+对象可以被其成员函数修改，就像之前的 $(C TimeOfDay.increment) 成员函数。$(C increment()) 将修改调用它的对象中的成员变量：
 )
 
 ---
@@ -109,14 +109,14 @@ struct TimeOfDay {
 // ...
 }
 // ...
-    auto start = TimeOfDay(5, 30);
-    start.increment(Duration(30));          // 'start' gets modified
+    auto range = Range(10);
+    start.increment(Duration(30));          // 'start' 已被修改
 ---
 
-$(H5 $(IX const, member function) $(C const) member functions )
+$(H5 $(IX const, 成员函数) $(C const) 成员函数)
 
 $(P
-Some member functions do not make any modifications to the object that they are called on. An example of such a function is $(C toString()):
+我们也会遇到一些不会修改其调用对象的成员函数。比如 $(C toString())：
 )
 
 ---
@@ -130,11 +130,11 @@ struct TimeOfDay {
 ---
 
 $(P
-Since the whole purpose of $(C toString()) is to represent the object in string format anyway, it should not modify the object.
+$(C toString()) 只是根据指定格式将对象转换为字符串，因此它不应该有修改对象的权限。
 )
 
 $(P
-The fact that a member function does not modify the object is declared by the $(C const) keyword after the parameter list:
+我们可以通过在成员函数的参数列表后添加 $(C const) 关键字来声明这一点：
 )
 
 ---
@@ -147,24 +147,24 @@ struct TimeOfDay {
 ---
 
 $(P
-That $(C const) guarantees that the object itself is not going to be modified by the member function. As a consequence, $(C toString()) member function is allowed to be called even on $(C immutable) objects. Otherwise, the struct's $(C toString()) would not be called:
+$(C const) 保证了对象不会被其自己的成员函数修改。通过这种方式 $(C immutable) 对象也可以调用 $(C toString()) 成员函数了。否则，编译器将不允许调用 $(C immutable) 对象的 $(C toString())：
 )
 
 ---
 struct TimeOfDay {
 // ...
-    // Inferior design: Not marked as 'const'
+    // 较差的设计：没有被标记为 'const'
     string toString() {
         return format("%02s:%02s", hour, minute);
     }
 }
 // ...
     $(HILITE immutable) start = TimeOfDay(5, 30);
-    writeln(start);    // TimeOfDay.toString() is not called!
+    writeln(start);    // TimeOfDay.toString() 不会被调用！
 ---
 
 $(P
-The output is not the expected $(C 05:30), indicating that a generic function gets called instead of $(C TimeOfDay.toString):
+输出并不是我们想要的 $(C 05:30)，也就是说实际上 $(C writeln) 只是调用了那个默认的转换函数而不是我们定义的 $(C TimeOfDay.toString)：
 )
 
 $(SHELL
@@ -172,7 +172,7 @@ immutable(TimeOfDay)(5, 30)
 )
 
 $(P
-Further, calling $(C toString()) on an $(C immutable) object explicitly would cause a compilation error:
+如果在 $(C immutable) 对象上显式调用 $(C toString()) 则会引发编译错误：
 )
 
 ---
@@ -180,30 +180,30 @@ Further, calling $(C toString()) on an $(C immutable) object explicitly would ca
 ---
 
 $(P
-Accordingly, the $(C toString()) functions that we have defined in the previous chapter have all been designed incorrectly; they should have been marked as $(C const).
+因此我们在之前章节定义的 $(C toString()) 函数的设计都不够好，它们都应该增加一个 $(C const) 声明。
 )
 
-$(P $(I $(B Note:) The $(C const) keyword can be specified before the definition of the function as well:)
+$(P $(I $(B 注：)$(C const) 关键字也可放在函数声明前：)
 )
 
 ---
-    // The same as above
+    // 与之前的定义相同
     $(HILITE const) string toString() {
         return format("%02s:%02s", hour, minute);
     }
 ---
 
-$(P $(I Since this version may give the incorrect impression that the $(C const) is a part of the return type, I recommend that you specify it after the parameter list.)
+$(P $(I 由于这种形式会让人误以为 $(C const) 是返回值的一部分，所以我推荐将其放在参数列表后。)
 )
 
-$(H5 $(IX inout, member function) $(C inout) member functions)
+$(H5 $(IX inout, 成员函数) $(C inout) 成员函数)
 
 $(P
-As we have seen in $(LINK2 /ders/d.en/function_parameters.html, the Function Parameters chapter), $(C inout) transfers the mutability of a parameter to the return type.
+$(C inout) 将参数的可变性转移给了返回值，这一点我们已经在 $(LINK2 /ders/d.en/function_parameters.html, 函数参数) 一节中介绍过了。
 )
 
 $(P
-Similarly, an $(C inout) member function transfers the mutability of the $(I object) to the function's return type:
+而成员函数的 $(C inout) 也同样会将$(I 对象)的可变性转移给函数返回值：
 )
 
 ---
@@ -219,19 +219,19 @@ struct Container {
 
 void main() {
     {
-        // An immutable container
+        // 一个 immutable container
         auto container = $(HILITE immutable)(Container)([ 1, 2, 3 ]);
         auto slice = container.firstPart(2);
         writeln(typeof(slice).stringof);
     }
     {
-        // A const container
+        // 一个 const container
         auto container = $(HILITE const)(Container)([ 1, 2, 3 ]);
         auto slice = container.firstPart(2);
         writeln(typeof(slice).stringof);
     }
     {
-        // A mutable container
+        // 一个可变的 container
         auto container = Container([ 1, 2, 3 ]);
         auto slice = container.firstPart(2);
         writeln(typeof(slice).stringof);
@@ -240,7 +240,7 @@ void main() {
 ---
 
 $(P
-The three slices that are returned by the three objects of different mutability are consistent with the objects that returned them:
+这三个由不同可变性对象返回的 slices 包含了返回它们的对象：
 )
 
 $(SHELL
@@ -250,19 +250,19 @@ int[]
 )
 
 $(P
-Because it must be called on $(C const) and $(C immutable) objects as well, an $(C inout) member function is compiled as if it were $(C const).
+由于我们需要调用 $(C const) 和 $(C immutable) 对象的 $(C inout) 成员函数，编译器会自动为其添加 $(C const) 声明。
 )
 
-$(H5 How to use)
+$(H5 使用方法小结)
 
 $(UL
 
 $(LI
-To give the guarantee that a parameter is not modified by the function, mark that parameter as $(C in), $(C const), or $(C const ref).
+将参数标记为 $(C in)、$(C const) 或 $(C const ref) 以确保其不会被函数修改。
 )
 
 $(LI
-Mark member functions that do not modify the object as $(C const):
+将不会修改其对象的成员函数标记为 $(C const)：
 
 ---
 struct TimeOfDay {
@@ -274,7 +274,7 @@ struct TimeOfDay {
 ---
 
 $(P
-This would make the struct (or class) more useful by removing an unnecessary limitation. The examples in the rest of the book will observe this guideline.
+这能帮助你避免一些不必要的限制以扩大结构体或类的适用范围。本书之后的章节都会遵守这个约定。
 )
 
 )
@@ -282,8 +282,8 @@ This would make the struct (or class) more useful by removing an unnecessary lim
 )
 
 Macros:
-        SUBTITLE=const ref Parameters and const Member Functions
+        SUBTITLE=const ref 参数和 const 成员函数
 
-        DESCRIPTION=The const ref parameters and the const member functions of the D programming language
+        DESCRIPTION=D 语言中的 const ref 参数和 const 成员函数
 
-        KEYWORDS=d programming lesson book tutorial const member functions
+        KEYWORDS=D 编程语言教程 const 成员函数
