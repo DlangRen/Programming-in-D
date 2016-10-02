@@ -1,67 +1,67 @@
 Ddoc
 
-$(DERS_BOLUMU $(IX output, formatted) $(IX formatted output) Formatted Output)
+$(DERS_BOLUMU $(IX output, 格式化) $(IX 格式化输出) 格式化输出)
 
 $(P
-This chapter is about features of the $(C std.format) module, not about the core features of the D language.
+本章的内容是标准库中的 $(C std.format) 模块，与 D 语言的语言核心无关。
 )
 
 $(P
-$(IX std) $(IX Phobos) Like all modules that have the prefix $(C std), $(C std.format) is a module inside Phobos, the standard library of D. There is not enough space to fully explore Phobos in this book.
+$(IX std) $(IX Phobos) 与其它带有 $(C std) 前缀的模块一样，$(C std.format) 也来自 D 语言标准库 Phobos。由于 Phobos 过于庞大，我们无法在这本书中涉及其所有的部分。
 )
 
 $(P
-D's input and output format specifiers are similar to the ones in the C language.
+D 语言的输入输出格式化说明符与 C 语言相同。
 )
 
 $(P
-Before going further, I would like to summarize the format specifiers and flags, for your reference:
+在深入学习之前我们先来看下最基本的标识和说明符，你可以保留此表以供日后参考：
 )
 
 $(MONO
-$(B Flags) (can be used together)
-     -     flush left
-     +     print the sign
-     #     print in the alternative way
-     0     print zero-filled
-   $(I space)   print space-filled
+$(B 标识) (可同时使用多个)
+     -     左对齐
+     +     输出整数时显示正号
+     #     在八进制数前添加 `0`，在十六进制数前添加 `0x`，科学计数浮点型总是使用小数点
+     0     使用 `0` 填充空位
+   $(I 空格)   使用空格填充空位
 
-$(B Format Specifiers)
-     s     default
-     b     binary
-     d     decimal
-     o     octal
-    x,X    hexadecimal
-    f,F    floating point in the standard decimal notation
-    e,E    floating point in scientific notation
-    a,A    floating point in hexadecimal notation
-    g,G    as e or f
+$(B 格式化说明符)
+     s     默认的（字符串）
+     b     二进制
+     d     十进制
+     o     八进制
+    x,X    无符号十六进制
+    f,F    标准十进制计数法浮点数
+    e,E    科学计数法浮点数
+    a,A    十六进制浮点数
+    g,G    与 e 和 f 相同
 
-     (     element format start
-     )     element format end
-     |     element delimiter
+     (     格式化元素列表开始
+     )     格式化元素列表结束
+     |     元素分隔符
 )
 
 $(P
-We have been using functions like $(C writeln) with multiple parameters as necessary to print the desired output. The parameters would be converted to their string representations and then
- sent to the output.
+我们之前肯定用过像 $(C writeln) 这样的函数，那时我们需要传递给它多个参数来输出期望格式的信息。参数先会被转换为它们的字符串形式，然后
+ 才会被传递给标准输出流。
 )
 
 $(P
-Sometimes this is not sufficient. The output may have to be in a very specific format. Let's look at the following code that is used to print items of an invoice:
+但有时这并不能满足需求。我们可能要求输出某种特殊的格式。比如下面这段打印发票项目的代码：
 )
 
 ---
     items ~= 1.23;
     items ~= 45.6;
 
-    for (int i = 0; i != items.length; ++i) {
+    students ~= Student(i, [80 + i, 90 + i]);
         writeln("Item ", i + 1, ": ", items[i]);
     }
 ---
 
 $(P
-The output:
+输出为：
 )
 
 $(SHELL
@@ -70,7 +70,7 @@ Item 2: 45.6
 )
 
 $(P
-Despite the information being correct, we may be required to print it in a different format. For example, maybe the decimal marks (the dots, in this case) must line up and we must ensure that there always are two digits after the decimal mark, as in the following output:
+尽管数据是正确的，但客户还要要将其以其指定的格式输出。比如，我们需要将小数点对齐（本例中的点）并确保小数点后有两位小数。下面是示例输出格式：
 )
 
 $(SHELL
@@ -79,11 +79,11 @@ Item 2:    45.60
 )
 
 $(P
-Formatted output is useful in such cases. The output functions that we have been using so far have counterparts that contain the letter $(C f) in their names: $(C writef()) and $(C writefln()). The letter $(C f) is short for $(I formatted). The first parameter of these functions is a $(I format string) that describes how the other parameters should be printed.
+这个时候我们就需要格式化输出了。在之前我们使用的输出函数名中添加一个字母 $(C f) 就得到了我们需要的函数：$(C writef()) 和 $(C writefln())。$(C f) 即为$(I 格式化（formatted）)的缩写。这些函数的第一个参数是$(I 格式化字符串)，它决定了之后的参数以何种格式被输出至屏幕。
 )
 
 $(P
-For example, $(C writefln()) can produce the desired output above with the following format string:
+对我们上面的需求来说，$(C writefln()) 可以通过使用这样的格式化字符串来将其实现：
 )
 
 ---
@@ -91,45 +91,45 @@ For example, $(C writefln()) can produce the desired output above with the follo
 ---
 
 $(P
-The format string contains regular characters that are passed to the output as is, as well as special format specifiers that correspond to each parameter that is to be printed. Format specifiers start with the $(C %) character and end with a $(I format character). The format string above has two format specifiers: $(C %d) and $(C %9.02f).
+格式化字符串中既可包含被直接输出的普通字符，也可包含用于描述输出的特殊说明符。格式化说明符以 $(C %) 开头，以$(I 格式化字符)结束。上面的格式化字符串包含两个说明符：$(C %d) 和 $(C %9.02f)。
 )
 
 $(P
-Every specifier is associated with the respective parameter, usually in order of appearance. For example, $(C %d) is associated with $(C i&nbsp;+&nbsp;1) and $(C %9.02f) is associated with $(C items[i]). Every specifier specifies the format of the parameter that it corresponds to. (Format specifiers may have parameter numbers as well. This will be explained later in the chapter.)
+每一个说明符都分别关联了一个参数，其指代参数的顺序与说明符顺序相同。比如 $(C %d) 关联 $(C i&nbsp;+&nbsp;1)，$(C %9.02f) 关联 $(C items[i])。每一个说明符都将描述其关联参数的输出形式。（说明符也可能会带有参数。稍后我们会介绍。）
 )
 
 $(P
-All of the other characters of the format string that are not part of format specifiers are printed as is. Such $(I regular) characters of the format specifier above are highlighted in $(C "$(HILITE Item&nbsp;)%d$(HILITE :)%9.02f").
+除此之外，格式化字符串中的其它字符均不是格式化说明符，它们将会按照原样显示。这是将格式化字符串中这种$(I 普通)字符高亮后的样子：$(C "$(HILITE Item&nbsp;)%d$(HILITE :)%9.02f")。
 )
 
 $(P
-Format specifiers consist of six parts, most of which are optional. The part named $(I position) will be explained later below. The other five are the following: ($(I $(B Note:) The spaces between these parts are inserted here to help with readability; they are not part of the specifiers.))
+格式化说明符由六个部分组成，但其中的大部分都是可选的。我们之后会在本章介绍名为$(I 位置)的部分。而下面我们将介绍其它五个部分：（$(I $(B 注：)两部分之间的空格是为了帮助你阅读；它们不是说明符的一部分。)）
 )
 
 $(MONO
-    %  $(I$(C flags  width  precision  format_character))
+    %  $(I$(C 标识  宽度  精度  格式化字符))
 )
 
 $(P
-The $(C %) character at the beginning and the format character at the end are required; the others are optional.
+开头的 $(C %) 和结尾的格式化字符是必须的；其它部分则是可选的。
 )
 
 $(P
-Because $(C %) has a special meaning in format strings, when we need to print a $(C %) as a regular character, we must type it as $(C %%).
+由于 $(C %) 在格式化字符串中的特殊含义，当我们需要像一个普通字符一样输出 $(C %) 时需要将其写作 $(C %%)。
 )
 
-$(H5 $(I format_character))
+$(H5 $(I 格式化字符))
 
-$(P $(IX %b) $(C b): An integer parameter is printed in the binary system.
+$(P $(IX %b) $(C b)：以二进制的形式输出一个整数。
 )
 
-$(P $(IX %o, output) $(C o): An integer parameter is printed in the octal system.
+$(P $(IX %o, 输出) $(C o)：以八进制的形式输出一个整数。
 )
 
-$(P $(IX %x, output) $(IX %X) $(C x) and $(C X): An integer parameter is printed in the hexadecimal system; with lowercase letters when using $(C x) and with uppercase letters when using $(C X).
+$(P $(IX %x, 输出) $(IX %X) $(C x) 和 $(C X)：以十六进制的形式输出一个整数；若使用 $(C x) 则十六进制中的 x 也为小写，若使用 $(C X) 则十六进制中的 X 也为大写。
 )
 
-$(P $(IX %d, output) $(C d): An integer parameter is printed in the decimal system; a negative sign is also printed if it is a signed type and the value is less than zero.
+$(P $(IX %d, 输出) $(C d)：以十进制的形式输出一个整数；如果是有符号整数且其值小于零则显示负号。
 )
 
 ---
@@ -148,44 +148,44 @@ Hexadecimal: c
 Decimal    : 12
 )
 
-$(P $(IX %e) $(C e): A floating point parameter is printed according to the following rules.
+$(P $(IX %e) $(C e)：按照下面的规则输出一个浮点数。
 )
 
 $(UL
-$(LI a single digit before the decimal mark)
-$(LI a decimal mark if $(I precision) is nonzero)
-$(LI the required digits after the decimal mark, the number of which is determined by $(I precision) (default precision is 6))
-$(LI the $(C e) character (meaning "10 to the power of"))
-$(LI the $(C -) or $(C +) character, depending on whether the exponent is less than or greater than zero)
-$(LI the exponent, consisting of at least two digits)
+$(LI 小数点前必有一位数)
+$(LI 如果$(I 精度)不为零则显示小数点)
+$(LI 小数点后必须存在小数部分，小数位数取决于$(I 精度) （精度通常是 6）)
+$(LI 字符 $(C e) （表示“以 10 为底的次方”）)
+$(LI $(C -) 或 $(C +) 号，取决于指数是否大于零)
+$(LI 指数，至少有两位)
 )
 
-$(P $(IX %E) $(C E): Same as $(C e), with the exception of outputting the character $(C E) instead of $(C e).
+$(P $(IX %E) $(C E)：与 $(C e) 相同，但将输出中的小写 $(C e) 换为大写 $(C E)。
 )
 
-$(P $(IX %f, output) $(IX %F) $(C f) and $(C F): A floating point parameter is printed in the decimal system; there is at least one digit before the decimal mark and the default precision is 6 digits after the decimal mark.
+$(P $(IX %f, 输出) $(IX %F) $(C f) 和 $(C F)：以十进制的形式输出一个浮点数；小数点前至少有两位数字，默认保留 6 位小数。
 )
 
-$(P $(IX %g) $(C g): Same as $(C f) if the exponent is between -5 and $(I precision); otherwise same as $(C e). $(I precision) does not specify the number of digits after the decimal mark, but the significant digits of the entire value. If there are no significant digits after the decimal mark, then the decimal mark is not printed. The rightmost zeros after the decimal mark are not printed.
+$(P $(IX %g) $(C g)：如果指数大于 -5 小于$(I 精度)则与 $(C f) 相同，反之则与 $(C e) 相同。$(I 精度)指定的是整个浮点数的有效数字，而不仅仅是小数点后的有效位数。若小数点后没有数字那则不会显示小数点。小数点后最右端的零不会显示。
 )
 
-$(P $(IX %G) $(C G): Same as $(C g), with the exception of outputting the characters $(C E) or $(C F).
+$(P $(IX %G) $(C G)：与 $(C g) 相同，但 $(C E) 和 $(C F) 都会变为大写。
 )
 
-$(P $(IX %a) $(C a): A floating point parameter is printed in the hexadecimal floating point notation:
+$(P $(IX %a) $(C a)：以十六进制浮点数表示法显示浮点数：
 )
 
 $(UL
-$(LI the characters $(C 0x))
-$(LI a single hexadecimal digit)
-$(LI a decimal mark if $(I precision) is nonzero)
-$(LI the required digits after the decimal mark, the number of which is determined by $(I precision); if no $(I precision) is specified, then as many digits as necessary)
-$(LI the $(C p) character (meaning "2 to the power of"))
-$(LI the $(C -) or $(C +) character, depending on whether the exponent is less than or greater than zero)
-$(LI the exponent, consisting of at least one digit (the exponent of the value 0 is 0))
+$(LI 符号 $(C 0x))
+$(LI 一个十六进制数字)
+$(LI 若$(I 精度)不为零则显示小数点)
+$(LI 小数点后的小数，位数由$(I 精度决定)；若没有指定$(I 精度)则尽可能显示更多的数字)
+$(LI 符号 $(C p) （表示“以 2 为底的次方”）)
+$(LI $(C -) 或 $(C +) 号，取决于指数是否大于零)
+$(LI 指数，至少包含一个数字（0 指数即显示 0）)
 )
 
-$(P $(IX %A) $(C A): Same as $(C a), with the exception of outputting the characters $(C 0X) and $(C P).
+$(P $(IX %A) $(C A)：与 $(C a) 相同，但 $(C 0X) 和 $(C P) 都会变为大写。
 )
 
 ---
@@ -204,22 +204,22 @@ with g: 123.457
 with a: 0x1.edd3c07ee0b0bp+6
 )
 
-$(P $(IX %s, output) $(C s): The value is printed in the same way as in regular output, according to the type of the parameter:
+$(P $(IX %s, 输出) $(C s)：以常规形式输出数据，具体情况与类型有关：
 )
 
 $(UL
 
-$(LI $(C bool) values as $(C true) or $(C false)
+$(LI $(C bool) 值将显示 $(C true) 或 $(C false)
 )
-$(LI integer values same as $(C %d)
+$(LI 整数输出形式与 $(C %d) 相同
 )
-$(LI floating point values same as $(C %g)
+$(LI 浮点数输出形式与 $(C %g) 相同
 )
-$(LI strings in UTF-8 encoding; $(I precision) determines the maximum number of bytes to use (remember that in UTF-8 encoding, the number of bytes is not the same as the number of characters; for example, the string "ağ" has 2 characters, consisting a total of 3 bytes)
+$(LI 字符串以 UTF-8 编码；$(I 精度)决定最多可使用多少字节 （在 UTF-8 中字节数并不是字符数；比如 "ağ" 中有两个字符，但实际上包含 3 个字节）
 )
-$(LI struct and class objects as the return value of the $(C toString()) member functions of their types; $(I precision) determines the maximum number of bytes to use
+$(LI 结构体和类将输出其 $(C toString()) 成员函数的返回值；$(I 精度)决定最多可使用多少字节
 )
-$(LI arrays as their element values, side by side
+$(LI 数组则会将其所有值并排输出出来
 )
 
 )
@@ -249,10 +249,10 @@ object: File(55738FA0)
 array : [2, 4, 6, 8]
 )
 
-$(H5 $(IX width, output) $(I width))
+$(H5 $(IX width, 输出) $(I 宽度))
 
 $(P
-$(IX *, formatted output) This part determines the width of the field that the parameter is printed in. If the width is specified as the character $(C *), then the actual width value is read from the next parameter (that parameter must be an $(C int)). If width is a negative value, then the $(C -) flag is assumed.
+$(IX *, 格式化输出) 这部分参数决定了输出内容的宽度。如果使用 $(C *) 指定宽度，那它将从下一个参数读取宽度（那个参数必须是 $(C int)）。小于零的宽度会使其带有 $(C -) 标识的效果。
 )
 
 ---
@@ -267,10 +267,10 @@ In a field of 10 characters:       100
 In a field of 5 characters :  100
 )
 
-$(H5 $(IX precision, output) $(I precision))
+$(H5 $(IX precision, 输出) $(I 精度))
 
 $(P
-Precision is specified after a dot in the format specifier. For floating point types, it determines the precision of the printed representation of the values. If the precision is specified as the character $(C *), then the actual precision is read from the next parameter (that parameter must be an $(C int)). Negative precision values are ignored.
+精度通常写在标识符中的点号后面。对于浮点类型，它将决定输出的小数的位数。如果使用 $(C *) 指定精度，那那它将从下一个参数读取精度（那个参数必须是 $(C int)）。负精度将被忽略。
 )
 
 ---
@@ -298,13 +298,13 @@ $(SHELL
 Number: 0.1235
 )
 
-$(H5 $(IX flags, output) $(I flags))
+$(H5 $(IX flags, 输出) $(I 标识))
 
 $(P
-More than one flag can be specified.
+一个说明符中可以指定多个标识。
 )
 
-$(P $(C -): the value is printed left-aligned in its field; this flag cancels the $(C 0) flag
+$(P $(C -)：输出的数据将被左对齐；它将使 $(C 0) 标识失效
 )
 
 ---
@@ -319,7 +319,7 @@ Normally right-aligned:|       123|
 Left-aligned          :|123       |
 )
 
-$(P $(C +): if the value is positive, it is prepended with the $(C +) character; this flag cancels the $(I space) flag
+$(P $(C +)：如果输出的数据是正数则在其开头添加 $(C +) 号；它将使$(I 空格)标识失效
 )
 
 ---
@@ -334,17 +334,17 @@ Positive value with the + flag   : +50
 Positive value without the + flag: 50
 )
 
-$(P $(C #): prints the value in an $(I alternate) form depending on the $(I format_character)
+$(P $(C #)：根据不同的$(I 格式化字符)显示$(I 不同的)输出格式
 )
 
 $(UL
-$(LI $(C o): the first character of the octal value is always printed as 0)
+$(LI $(C o)：八进制数的第一个数字一般都是 0)
 
-$(LI $(C x) and $(C X): if the value is not zero, it is prepended with $(C 0x) or $(C 0X))
+$(LI $(C x) 和 $(C X)：如果是非零值则在其开头处添加 $(C 0x) 或 $(C 0X))
 
-$(LI floating points: a decimal mark is printed even if there are no significant digits after the decimal mark)
+$(LI 浮点数：即使小数点后没有有效数字也会显示小数点)
 
-$(LI $(C g) and $(C G): even the insignificant zero digits after the decimal mark are printed)
+$(LI $(C g) 和 $(C G)：小数点后的非有效数字（即 0）也会显示)
 )
 
 ---
@@ -361,7 +361,7 @@ Contains decimal mark even when unnecessary: 1.00000
 Rightmost zeros are printed                : 1.20000
 )
 
-$(P $(C 0): the field is padded with zeros (unless the value is $(C nan) or $(C infinity)); if $(I precision) is also specified, this flag is ignored
+$(P $(C 0)：用零填充空白（除非传入的值是 $(C nan) 或 $(C infinity)）；如果同时指定了$(I 精度)那这个标志会被忽略
 )
 
 ---
@@ -372,7 +372,7 @@ $(SHELL
 In a field of 8 characters: 00000042
 )
 
-$(P $(I space) character: if the value is positive, a space character is prepended to align the negative and positive values)
+$(P $(I 空格)符：如果传入的值是正数，那它将会在正数前插入空格使其能与负数对齐)
 
 ---
     writefln("No effect for negative values: % d", -34);
@@ -387,18 +387,18 @@ Positive value without space : 56
 )
 
 
-$(H5 $(IX %1$) $(IX positional parameter, output) $(IX $, formatted output) Positional parameters)
+$(H5 $(IX %1$) $(IX positional parameter, 输出) $(IX $, 格式化输出) 位置参数)
 
 $(P
-We have seen above that the parameters are associated one by one with the specifiers in the format string. It is also possible to use position numbers within format specifiers. This enables associating the specifiers with specific parameters. Parameters are numbered in increasing fashion, starting with 1. The parameter numbers are specified immediately after the $(C %) character, followed by a $(C $):
+之前我们编写的程序中格式化字符串中的说明符与参数是按照顺序一个一个相关联的。除此之外我们也可以在格式化说明符中使用位置编号。这样说明符就能与指定的参数相关联。参数的序号从 1 开始递增。参数序号应写在 $(C %) 后，并以 $(C $) 结尾：
 )
 
 $(MONO
-    %  $(I$(C $(HILITE position$)  flags  width  precision  format_character))
+    %  $(I$(C $(HILITE 位置$)  标识  宽度  精度  格式化字符))
 )
 
 $(P
-An advantage of positional parameters is being able to use the same parameter in more than one place in the same format string:
+参数序号的作用之一是允许一个格式化字符串中的多个说明符关联同一个参数：
 )
 
 ---
@@ -406,7 +406,7 @@ An advantage of positional parameters is being able to use the same parameter in
 ---
 
 $(P
-The format string above uses the parameter numbered 1 within four specifiers to print it in decimal, hexadecimal, octal, and binary formats:
+上面这个格式化字符串在 4 个说明符中使用一个参数序号 1 来将同一个数分别以十进制、十六进制、八进制和二进制的形式显示：
 )
 
 $(SHELL
@@ -414,7 +414,7 @@ $(SHELL
 )
 
 $(P
-Another application of positional parameters is supporting multiple natural languages. When referred by position numbers, parameters can be moved anywhere within the specific format string for a given human language. For example, the number of students of a given classroom can be printed as in the following:
+还有就是位置编号能让程序支持多种自然语言。有了位置编号，程序只需在格式化字符串中移动参数位置就可以适应多种人类语言。举个例子，按照下面的格式显示指定教室中的学生个数：
 )
 
 ---
@@ -426,39 +426,39 @@ There are 20 students in room 1A.
 )
 
 $(P
-Let's assume that the program must also support Turkish. In this case the format string needs to be selected according to the active language. The following method takes advantage of the ternary operator:
+我们假设现在程序要支持土耳其语。为了应对这种需求，程序需要根据活动语言来选择格式化字符串。下面这种方法运用了三元运算符：
 )
 
 ---
     auto format = (language == "en"
-                   ? "There are %s students in room %s."
+                   ?"There are %s students in room %s."
                    : "%s sınıfında %s öğrenci var.");
 
     writefln(format, count, room);
 ---
 
 $(P
-Unfortunately, when the parameters are associated one by one, the classroom and student count information appear in reverse order in the Turkish message; the room information is where the count should be and the count is where the room should be:
+然而这样的话土耳其语信息中的教室和学生信息的顺序是错误的；教教室信息的位置显示的是学生数，而学生数的位置显示的则是教室：
 )
 
 $(SHELL
-20 sınıfında 1A öğrenci var.  $(SHELL_NOTE_WRONG Wrong: means "room 20", and "1A students"!)
+20 sınıfında 1A öğrenci var.  $(SHELL_NOTE_WRONG 错误的：表示的是 “room 20” 和 “1A students”！)
 )
 
 $(P
-To avoid this, the parameters can be specified by numbers, such as $(C 1$) and $(C 2$), to associate each specifier with the exact parameter:
+为了避免出现这种情况，我们通常为说明符指定像 $(C 1$) 或 $(C 2$) 这样的参数编号使其能与正确的参数相关联：
 )
 
 ---
     auto format = (language == "en"
-                   ? "There are %1$s students in room %2$s."
+                   ?"There are %1$s students in room %2$s."
                    : "%2$s sınıfında %1$s öğrenci var.");
 
     writefln(format, count, room);
 ---
 
 $(P
-Now the parameters appear in the proper order, regardless of the language selected:
+现在无论选择那个语言参数都能出现在正确的位置了：
 )
 
 $(SHELL
@@ -469,10 +469,10 @@ $(SHELL
 1A sınıfında 20 öğrenci var.
 )
 
-$(H5 $(IX %$(PARANTEZ_AC)) $(IX %$(PARANTEZ_KAPA)) Formatted element output)
+$(H5 $(IX %$(PARANTEZ_AC)) $(IX %$(PARANTEZ_KAPA)) 元素格式化输出)
 
 $(P
-Format specifiers between $(STRING %$(PARANTEZ_AC)) and $(STRING %$(PARANTEZ_KAPA)) are applied to every element of a container (e.g. an array or a range):
+在 $(STRING %$(PARANTEZ_AC)) 和 $(STRING %$(PARANTEZ_KAPA)) 之间的格式化说明符将会被应用到其关联的容器中的每个参数（比如数组或 range）：
 )
 
 ---
@@ -481,17 +481,17 @@ Format specifiers between $(STRING %$(PARANTEZ_AC)) and $(STRING %$(PARANTEZ_KAP
 ---
 
 $(P
-The format string above consists of three parts:
+上面这个格式化字符串由三个部分组成：
 )
 
 $(UL
-$(LI $(STRING %$(PARANTEZ_AC)): Start of element format)
-$(LI $(STRING %s): Format for each element)
-$(LI $(STRING %$(PARANTEZ_KAPA)): End of element format)
+$(LI $(STRING %$(PARANTEZ_AC))：开始元素格式)
+$(LI $(STRING %s)：每一个元素的格式)
+$(LI $(STRING %$(PARANTEZ_KAPA))：结束元素格式)
 )
 
 $(P
-Each being printed with the $(STRING %s) format, the elements appear one after the other:
+容器中的元素会以 $(STRING %s) 格式挨个输出：
 )
 
 $(SHELL
@@ -499,7 +499,7 @@ $(SHELL
 )
 
 $(P
-The regular characters before and after the element format are repeated for each element. For example, the $(STRING {%s},) specifier would print each element between curly brackets separated by commas:
+元素格式两侧的普通字符都会在每一个元素中重复。比如使用 $(STRING {%s},) 说明符，将元素包裹在花括号中并以逗号分隔的格式输出：
 )
 
 ---
@@ -507,30 +507,30 @@ The regular characters before and after the element format are repeated for each
 ---
 
 $(P
-However, regular characters to the right of the format specifier are considered to be element delimiters and are printed only between elements, not after the last one:
+但元素右侧的普通字符将会被当作元素分隔符，它们只会在两个元素之间显示而不会显示在最后：
 )
 
 $(SHELL
-{1},{2},{3},{4  $(SHELL_NOTE '}' and ',' are not printed after the last element)
+{1},{2},{3},{4  $(SHELL_NOTE ‘}’ 和 ‘,’ 都不会在最后一个元素后显示)
 )
 
 $(P
-$(IX %|) $(STRING %|) is used for specifying the characters that should be printed even for the last element. Characters that are to the right of $(STRING %|) are considered to be the delimiters and are not printed for the last element. Conversely, characters to the left of $(STRING %|) are printed even for the last element.
+$(IX %|) $(STRING %|)是用来说明允许在最后一个元素后显示的字符的。$(STRING %|) 右侧的字符将会被当作分隔符，它们将不会在最后一个元素后显示。而 $(STRING %|) 左侧的字符将为最后一个元素显示。
 )
 
 $(P
-For example, the following format specifier would print the closing curly bracket after the last element but not the comma:
+比如下面这个格式化说明符，花括号会显示在输出信息的最后而逗号不会：
 )
 ---
     writefln("%({%s}%|,%)", numbers);
 ---
 
 $(SHELL
-{1},{2},{3},{4}  $(SHELL_NOTE '}' is printed after the last element as well)
+{1},{2},{3},{4}  $(SHELL_NOTE 现在最后一个元素后也有 ‘}’ 了)
 )
 
 $(P
-Unlike strings that are printed individually, strings that are printed as elements appear within double quotes:
+与单独显示字符串不同的是，以元素的方式输出的字符串都会被包裹在双引号中：
 )
 
 ---
@@ -543,7 +543,7 @@ $(SHELL
 )
 
 $(P
-$(IX %-$(PARANTEZ_AC)) When the double quotes are not desired, the element format must be started with $(STRING %-$(PARANTEZ_AC)) instead of $(STRING %$(PARANTEZ_AC)):
+$(IX %-$(PARANTEZ_AC)) 如果我们不需要双引号，那我们需要将开头处的 $(STRING %$(PARANTEZ_AC)) 替换为 $(STRING %-$(PARANTEZ_AC))：
 )
 
 ---
@@ -555,7 +555,7 @@ spinach, asparagus, artichoke
 )
 
 $(P
-The same applies to characters as well. $(STRING %$(PARANTEZ_AC)) prints them within single quotes:
+单个字符也有类似的情况。$(STRING %$(PARANTEZ_AC)) 会对其每一个元素两侧添加双引号：
 )
 
 ---
@@ -567,7 +567,7 @@ $(SHELL
 )
 
 $(P
-$(STRING %-$(PARANTEZ_AC)) prints them without quotes:
+$(STRING %-$(PARANTEZ_AC)) 则不会添加双引号：
 )
 
 ---
@@ -579,7 +579,7 @@ hello
 )
 
 $(P
-There must be two format specifiers for associative arrays: one for the keys and one for the values. For example, the following $(STRING %s&nbsp;(%s)) specifier would print first the key and then the value in parentheses:
+对于关联数组来说格式化字符串中必须有两个格式化说明符，一个对应键，一个对应值。下面这个例子中的说明符 $(STRING %s&nbsp;(%s)) 会将值放在键后的圆括号中：
 )
 
 ---
@@ -588,7 +588,7 @@ There must be two format specifiers for associative arrays: one for the keys and
 ---
 
 $(P
-Also note that, being specified to the right of $(STRING %|), the comma is not printed for the last element:
+注意由于指定了 $(STRING %|)，逗号将不会出现在最后一个元素后。
 )
 
 $(SHELL
@@ -598,7 +598,7 @@ $(SHELL
 $(H5 $(IX format, std.string) $(C format))
 
 $(P
-Formatted output is available through the $(C format()) function of the $(C std.string) module as well. $(C format()) works the same as $(C writef()) but it $(I returns) the result as a $(C string) instead of printing it to the output:
+我们也可以使用 $(C std.string) 模块中的 $(C format()) 函数来实现格式化输出。$(C format()) 与 $(C writef()) 的作用相似，不同的是它将$(I 返回)格式化后的得到的 $(C string) 而不是将其输出：
 )
 
 ---
@@ -606,7 +606,7 @@ import std.stdio;
 import std.string;
 
 void main() {
-    write("What is your name? ");
+    write("What is your name?");
     auto name = strip(readln());
 
     auto result = $(HILITE format)("Hello %s!", name);
@@ -614,24 +614,24 @@ void main() {
 ---
 
 $(P
-The program can make use of that result in later expressions.
+我们可以在程序之后的表达式中使用格式化后的结果字符串。
 )
 
 $(PROBLEM_COK
 
 $(PROBLEM
-Write a program that reads a value and prints it in the hexadecimal system.
+编写一个程序，让用户输入一个数并将其以十六进制形式输出。
 )
 
 $(PROBLEM
-Write a program that reads a floating point value and prints it as percentage value with two digits after the decimal mark. For example, if the value is 1.2345, it should print $(C %1.23).
+编写一个程序，让用户输入一个浮点数，将得到的浮点数转换为百分比形式并保留两位小数输出。比如输入 1.2345，程序将显示 $(C %1.23)。
 )
 
 )
 
 Macros:
-        SUBTITLE=Formatted Output
+        SUBTITLE=格式化输出
 
-        DESCRIPTION=Printing values in certain formats.
+        DESCRIPTION=以确定的格式显示数据
 
-        KEYWORDS=d programming language tutorial book format output
+        KEYWORDS=D 编程语言教程 格式化 输出
