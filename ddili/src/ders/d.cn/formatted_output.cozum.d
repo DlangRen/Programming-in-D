@@ -1,10 +1,10 @@
 Ddoc
 
-$(COZUM_BOLUMU Formatted Output)
+$(COZUM_BOLUMU 格式化输出)
 
 $(OL
 
-$(LI We have already seen that this is trivial with format specifiers:
+$(LI 如果你使用格式化说明符，那这个任务就会变得非常简单：
 
 ---
 import std.stdio;
@@ -29,7 +29,7 @@ void main() {
 )
 
 $(LI
-Remembering that the $(C %) character must appear twice in the format string to be printed as itself:
+注意如果你想要输出 $(C %)，那必须在格式化字符串中将其写作 $(C %%)：
 
 ---
 import std.stdio;
@@ -49,8 +49,8 @@ void main() {
 
 
 Macros:
-        SUBTITLE=Formatted Output Solutions
+        SUBTITLE=格式化输出习题解答
 
-        DESCRIPTION=Programming in D exercise solutions: Formatted output
+        练习DESCRIPTION=D 编程语言练习解答：格式化输出
 
-        KEYWORDS=programming in d tutorial formatted output solution
+        KEYWORDS=D 编程语言教程 格式化输出 解答
