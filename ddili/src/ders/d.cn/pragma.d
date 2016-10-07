@@ -3,21 +3,21 @@ Ddoc
 $(DERS_BOLUMU $(IX pragma) Pragmas)
 
 $(P
-Pragmas are a way of interacting with the compiler. They can be for providing special information to the compiler as well as getting information from it. Although they are useful in non-templated code as well, $(C pragma(msg)) can be helpful when debugging templates.
+Pragma 是一种与编译器交互的方法。可以通过他们向编译器提供或获取特殊的信息。$(C pragma(msg)) 在非模板代码中非常有用，调试模板亦然。
 )
 
 $(P
-Every compiler vendor is free to introduce their special $(C pragma) directives in addition to the following mandatory ones:
+每一个编译器生产商都可以任意添加他们的特殊 $(C pragma) 指令，但以下指令是强制实现的：
 )
 
 $(H5 $(C pragma(msg)))
 
 $(P
-Prints a message to $(C stderr) during compilation. No message is printed during the execution of the compiled program.
+在编译期向 $(C stderr) 打印消息。编译后的程序在执行过程中不会输出任何消息。
 )
 
 $(P
-For example, the following $(C pragma(msg)) is being used for exposing the types of template parameters, presumably during debugging:
+例如，如下的 $(C pragma(msg)) 通常用于在调试期暴露模板参数的类型：
 )
 
 ---
@@ -43,11 +43,11 @@ Called with types 'string' and 'char'
 $(H5 $(C pragma(lib)))
 
 $(P
-Instructs the compiler to link the program with a particular library. This is the easiest way of linking the program with a library that is already installed on the system.
+命令编译器将程序与一个特别的库链接。这是将程序链接到一个已经安装到系统里的库的最方便的做法。
 )
 
 $(P
-For example, the following program would be linked with the $(C curl) library without needing to mention the library on the command line:
+例如，下面的程序会被链接到 $(C curl) 而不用在命令行指定这个库：
 )
 
 ---
@@ -62,29 +62,30 @@ void main() {
 }
 ---
 
-$(H5 $(IX inline) $(IX function inlining) $(IX optimization, compiler) $(C pragma(inline)))
+$(H5 $(IX 内联) $(IX 函数内联) $(IX 优化, 编译器) $(C pragma(inline)))
 
 $(P
+指定函数是否被$(I 内联)。
 Specifies whether a function should be $(I inlined) or not.
 )
 
 $(P
-Every function call has some performance cost. Function calls involve passing arguments to the function, returning its return value to the caller, and handling some bookkeeping information to remember where the function was called from so that the execution can continue after the function returns.
+每一次函数调用都有性能损耗。函数调用需要处理函数的参数传递，返回调用者函数的返回值，还需要处理记录一些函数调用位置的书签信息，因而可以在函数返回后继续执行。
 )
 
 $(P
-This cost is usually insignificant compared to the cost of actual work that the caller and the callee perform. However, in some cases just the act of calling a certain function can have a measurable effect on the program's performance. This can happen especially when the function body is relatively fast and when it is called from a short loop that repeats many times.
+通常函数调用开销相比较调用者和函数本身的工作而言并不算什么。但是，在一些场景调用函数的行为会对程序的性能有重要影响。例如，函数体的执行相对很快，或者是函数是在一个很短的循环里重复被调用。
 )
 
 $(P
-The following program calls a small function from a loop and increments a counter when the returned value satisfies a condition:
+如下的程序会在循环里调用一个很小的函数，在函数返回值满足条件时增加计数器：
 )
 
 ---
 import std.stdio;
 import std.datetime;
 
-// A function with a fast body:
+// 函数体执行速度很快：
 ubyte compute(ubyte i) {
     return cast(ubyte)(i * 42);
 }
@@ -95,7 +96,7 @@ void main() {
     StopWatch sw;
     sw.start();
 
-    // A short loop that repeats many times:
+    // 重复很多此的小循环：
     foreach (i; 0 .. 100_000_000) {
         const number = cast(ubyte)i;
 
@@ -111,7 +112,7 @@ void main() {
 ---
 
 $(P
-$(IX StopWatch, std.datetime) The code takes advantage of $(C std.datetime.StopWatch) to measure the time it takes executing the entire loop:
+$(IX StopWatch, std.datetime) 代码使用 $(C std.datetime.StopWatch) 来测量整个循环执行的时间：
 )
 
 $(SHELL
@@ -119,7 +120,7 @@ $(HILITE 674) milliseconds
 )
 
 $(P
-$(IX -inline, compiler switch) The $(C -inline) compiler switch instructs the compiler to perform a compiler optimization called $(I function inlining):
+$(IX -inline, 编译器开关) 编译器开关 $(C -inline) 命令编译器执行$(I 函数内联)优化：
 )
 
 $(SHELL
@@ -127,7 +128,7 @@ $ dmd deneme.d -w $(HILITE -inline)
 )
 
 $(P
-When a function is inlined, its body is injected into code right where it is called from; no actual function call happens. The following is the equivalent code that the compiler would compile after inlining:
+当一个函数被内联，则函数体会被注入到函数被调用的地方，而不是函数调用发生的时候。下面的代码与编译器内联后的代码等价：
 )
 
 ---
@@ -143,7 +144,7 @@ When a function is inlined, its body is injected into code right where it is cal
 ---
 
 $(P
-On the platform that I tested that program, eliminating the function call reduced the execution time by about 40%:
+在我测试程序的平台上，消除这个函数调用减少了 40% 的执行时间：
 )
 
 $(SHELL
@@ -151,86 +152,84 @@ $(HILITE 407) milliseconds
 )
 
 $(P
-Although function inlining looks like a big gain, it cannot be applied for every function call because otherwise inlined bodies of functions would make code too large to fit in the CPU's $(I instruction cache). Unfortunately, this can make the code even slower. For that reason, the decision of which function calls to inline is usually left to the compiler.
+尽管函数内联看起来是巨大的收获，但是它却不能应用与所有函数调用，因为内联的函数体会使代码过大而不能塞进 CPU 的$(I 指令缓存)。这样会让代码更慢。因此，决定函数调用是否内联通常都交给编译器了。
 )
 
 $(P
-However, there may be cases where it is beneficial to help the compiler with this decision. The $(C inline) pragma instructs the compiler in its inlining decisions:
+但是，也有一些场景帮助编译器做决定会从中受益。$(C inline) pragma 命令编译器做出内联的决定：
 )
 
 $(UL
 
-$(LI $(C pragma(inline, false)): Instructs the compiler to never inline certain functions even when the $(C -inline) compiler switch is specified.)
+$(LI $(C pragma(inline, false))： 命令编译器不要内联函数，即使指定了编译器开关 $(C -inline)。)
 
-$(LI $(C pragma(inline, true)): Instructs the compiler to definitely inline certain functions when the $(C -inline) compiler switch is specified. This causes a compilation error if the compiler cannot inline such a function. (The exact behavior of this pragma may be different on your compiler.))
+$(LI $(C pragma(inline, true))： 当指定了编译器开关 $(C -inline)，命令编译器强制内联函数。如果编译器无法内联这个函数会导致编译错误（这个 pragma 确切的行为在你的编译器上可能不同。）)
 
-$(LI $(C pragma(inline)): Sets the inlining behavior back to the setting on the compiler command line: whether $(C -inline) is specified or not.)
+$(LI $(C pragma(inline))： 让内联行为由编译器命令行决定：$(C -inline) 是否被指定。)
 
 )
 
 $(P
-These pragmas can affect the function that they appear in, as well as they can be used with a scope or colon to affect more than one function:
+下面这些 pragma 会影响引入点的函数，同样可以用 scope 和冒号来影响更多的函数：
 )
 
 ---
 pragma(inline, false)
 $(HILITE {)
-    // Functions defined in this scope should not be inlined
+    // 定义在这个 scope 内的函数不应该内联
     // ...
 $(HILITE })
 
 int foo() {
-    pragma(inline, true);  // This function should be inlined
+    pragma(inline, true);  // 这个函数应该内联
     // ...
 }
 
 pragma(inline, true)$(HILITE :)
-// Functions defined in this section should be inlined
+// 在这个段的函数定义应该被内联
 // ...
 
 pragma(inline)$(HILITE :)
-// Functions defined in this section should be inlined or not
-// depending on the -inline compiler switch
+// 在这个段的函数定义是否被内联取决于 -inline 编译器开关
 // ...
 ---
 
 $(P
-$(IX -O, compiler switch) Another compiler switch that can make programs run faster is $(C -O), which instructs the compiler to perform more optimization algorithms. However, faster program speeds come at the expense of slower compilation speeds because these algorithms take significant amounts of time.
+$(IX -O, 编译器开关) 另外一个可以使程序运行得更快的编译器开关是 $(C -O)，它命令编译器执行更优化的算法。但是，更快的程序运行速度导致更慢的编译速度，这是因为这些算法需要大量的时间。
 )
 
-$(H5 $(IX startaddress) $(C pragma(startaddress)))
+$(H5 $(IX 起始地址) $(C pragma(startaddress)))
 
 $(P
-Specifies the start address of the program. Since the start address is normally assigned by the D runtime environment it is very unlikely that you will ever use this pragma.
+指定程序的起始地址。因为起始地址正常情况下会被 D 运行时环境重新设置，所以你不太会用到这个 pragma。
 )
 
-$(H5 $(IX mangle, pragma) $(IX name mangling) $(C pragma(mangle)))
+$(H5 $(IX mangle, pragma) $(IX 名字改编) $(C pragma(mangle)))
 
 $(P
-Specifies that a symbol should be $(I name mangled) differently from the default name mangling method. Name mangling is about how the linker identifies functions and their callers. This pragma is useful when D code needs to call a library function that happens to be a D keyword.
+指定一个需要$(I 名字改编)的符号，以不同于默认名字改编的方法。名字改变主要用于让连接器辨别函数以及他们的调用者。当 D 代码需要调用一个用 D 关键字命名的库函数时，这个 pragma 会非常有用。
 )
 
 $(P
-For example, if a C library had a function named $(C body), because $(C body) happens to be a keyword in D, the only way of calling it from D would be through a different name. However, that different name must still be mangled as the actual function name in the library for the linker to be able to identify it:
+例如，如果 C 库里面有一个函数叫做 $(C body)，因为 $(C body) 是 D 的关键字，在 D 中调用的唯一的办法就是通过一个不同的名字。但是这个不同的名字依然需要改编成库中实际的函数名字，连接器才能找到它：
 )
 
 ---
-/* If a C library had a function named 'body', it could only
- * be called from D through a name like 'c_body', mangled as
- * the actual function name: */
+/* 如果 C 库有一个函数名字叫做“body”，在 D 里只能通过像“c_body”
+ * 这样的名字来调用，然后改编成实际的函数名字：*/
 pragma($(HILITE mangle), "body")
 extern(C) string c_body(string);
 
 void main() {
-    /* D code calls the function as c_body() but the linker
-     * would find it by its correct C library name 'body': */
+    /* D 代码用 c_body() 来调用这个函数，但连接器依然会找到其
+     * 正确的 C 库名字“body”： */
     auto s = $(HILITE c_body)("hello");
 }
 ---
 
 Macros:
-        SUBTITLE=Pragmas
+        SUBTITLE=Pragma
 
-        DESCRIPTION=Introduction of pragmas, which are a way of interacting with the compiler.
+        DESCRIPTION=介绍 pragma —— 一种与编译器交互的方法。
 
-        KEYWORDS=d programming language tutorial book pragma inline
+        KEYWORDS=d 编程 语言 教程 pragma inline 内联
