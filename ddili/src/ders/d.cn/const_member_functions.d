@@ -70,7 +70,7 @@ int totalSeconds(const ref Duration duration) {
 ---
 
 $(P
-编译器将强制这种函数接收 $(C immutable) 对象：
+编译器保证这种函数只会接收到 $(C immutable) 对象：
 )
 
 ---
@@ -109,7 +109,7 @@ struct TimeOfDay {
 // ...
 }
 // ...
-    auto range = Range(10);
+    auto start = TimeOfDay(5, 30);
     start.increment(Duration(30));          // 'start' 已被修改
 ---
 
@@ -240,7 +240,7 @@ void main() {
 ---
 
 $(P
-这三个由不同可变性对象返回的 slices 包含了返回它们的对象：
+这三个由不同可变性对象返回的 slice 包含了返回它们的对象：
 )
 
 $(SHELL
