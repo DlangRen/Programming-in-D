@@ -1,17 +1,17 @@
 Ddoc
 
-$(DERS_BOLUMU $(IX input, formatted) $(IX formatted input) Formatted Input)
+$(DERS_BOLUMU $(IX input, 格式化) $(IX 格式化输入) 格式化输入)
 
 $(P
-It is possible to specify the format of the data that is expected at the input. The format specifies both the data that is to be read and the characters that should be ignored.
+与输出一样，数据输入的格式也是可以在程序中指定的。我们既可以指定需要读取的数据格式，也可以指定哪一个字符应被忽略。
 )
 
 $(P
-D's input format specifiers are similar to the ones present in the C language.
+D 语言的输入格式化说明符与 C 语言相似。
 )
 
 $(P
-As we have already been using in the previous chapters, the format specifier $(STRING " %s") reads the data according to the type of the variable. For example, as the type of the following variable is $(C double), the characters at the input would be read as floating point number:
+$(STRING “%s”) 将根据变量的类型读取数据，这和我们在前一章中使用的相同。比如下面这个类型为 $(C double) 的变量会令程序从标准输入读取浮点型的数据：
 )
 
 ---
@@ -21,24 +21,24 @@ As we have already been using in the previous chapters, the format specifier $(S
 ---
 
 $(P
-The format string can contain three types of information:
+格式化字符串中可包含三类信息：
 )
 
 $(UL
-$(LI $(B The space character): Indicates $(I zero) or more whitespace characters at the input and specifies that all of those characters should be read and ignored.)
+$(LI $(B 空白字符)：说明符或输入中的$(I 零)或多个空白字符将被读取并忽略。)
 
-$(LI $(B Format specifier): Similar to the output format specifiers, input format specifiers start with the $(C %) character and determine the format of the data that is to be read.)
+$(LI $(B 格式化说明符)：输入格式化说明符以 $(C %) 开头，它决定了以何种格式读取数据。这与输出格式化说明符相同。)
 
-$(LI $(B Any other character): Indicates the characters that are expected at the input as is, which should be read and ignored.)
+$(LI $(B 其它字符)：输入数据中应包含的字符，它们将被读取并忽略。)
 
 )
 
 $(P
-The format string makes it possible to select specific information from the input and ignore the others.
+格式化字符串能帮我们从输入数据中提取需要的数据，并忽略掉无用的信息。
 )
 
 $(P
-Let's have a look at an example that uses all of the three types of information in the format string. Let's assume that the student number and the grade are expected to appear at the input in the following format:
+我们将用一个例子来展示格式化字符串中这三类信息的用法。我们假设学生的学号和成绩是以下面这种格式输入的：
 )
 
 $(SHELL
@@ -46,7 +46,7 @@ number:123 grade:90
 )
 
 $(P
-Let's further assume that the tags $(C number:) and $(C grade:) must be ignored. The following format string would $(I select) the values of number and grade and would ignore the other characters:
+我们需要忽略 $(C number:) 和 $(C grade:) 这两个标签。下面这个格式化字符串会将学号和成绩$(I 提取)出来并忽略其它的字符：
 )
 
 ---
@@ -56,19 +56,19 @@ Let's further assume that the tags $(C number:) and $(C grade:) must be ignored.
 ---
 
 $(P
-The characters that are highlighted in $(STRING "$(HILITE number:)%s&nbsp;$(HILITE grade:)%s") must appear at the input exactly as specified; $(C readf()) reads and ignores them.
+$(STRING "$(HILITE number:)%s&nbsp;$(HILITE grade:)%s") 中被高亮的字符必须在输入中出现并与指定的格式相同；只有这样 $(C readf()) 才能正确读取并忽略它们。
 )
 
 $(P
-The single space character that appears in the format string above would cause all of the whitespace characters that appear exactly at that position to be read and ignored.
+虽然格式化字符串中只有一个空白字符，但是它能保证所有在指定位置的空白字符都被读取并忽略。
 )
 
 $(P
-As the $(C %) character has a special meaning in format strings, when that character itself needs to be read and ignored, it must be written twice in the format string as $(C %%).
+由于字符 $(C %) 在格式化字符串中有特殊含义，所以当我们想要读取并忽略它时需要将其写作 $(C %%)。
 )
 
 $(P
-Reading a single line of data from the input has been recommended as $(C strip(readln())) in the $(LINK2 /ders/d.en/strings.html, Strings chapter). Instead of that method, a $(C \n) character at the end of the format string can achieve a similar goal:
+在 $(LINK2 /ders/d.cn/strings.html, Strings) 一章中，我们曾推荐使用 $(C strip(readln())) 来按行读取输入的数据。除了这种方法，在格式化字符串后添加 $(C \n) 也可以达到同样的目的：
 )
 
 ---
@@ -77,11 +77,11 @@ import std.stdio;
 void main() {
     write("First name: ");
     string firstName;
-    readf(" %s\n", &firstName);    // ← \n at the end
+    readf(" %s\n", &firstName);    // ← 在末尾添加一个 \n
 
     write("Last name : ");
     string lastName;
-    readf(" %s\n", &lastName);     // ← \n at the end
+    readf(" %s\n", &lastName);     // ← 在末尾添加一个 \n
 
     write("Age       : ");
     int age;
@@ -92,30 +92,30 @@ void main() {
 ---
 
 $(P
-The $(C \n) characters at the ends of the format strings when reading $(C firstName) and $(C lastName) would cause the new-line characters to be read from the input and to be ignored. However, potential whitespace characters at the ends of the strings may still need to be removed by $(C strip()).
+在读取 $(C firstName) 和 $(C lastName) 时，末尾的 $(C \n) 字符将使程序读取并忽略换行符。但字符串末尾可能存在的空格依旧需要使用 $(C strip()) 去除。
 )
 
-$(H5 Format specifier characters)
+$(H5 格式化说明符)
 
 $(P
-The way the data should be read is specified with the following format specifier characters:
+下面的这些字符将指定程序读取数据的方式：
 )
 
-$(P $(IX %d, input) $(C d): Read an integer in the decimal system.)
+$(P $(IX %d, 输入) $(C d)：读取一个十进制整数。)
 
-$(P $(IX %o, input) $(C o): Read an integer in the octal system.)
+$(P $(IX %o, 输入) $(C o)：读取一个八进制整数。)
 
-$(P $(IX %x, input) $(C x): Read an integer in the hexadecimal system.)
+$(P $(IX %x, 输入) $(C x)：读取一个十六进制整数。)
 
-$(P $(IX %f, input) $(C f): Read a floating point number.)
+$(P $(IX %f, 输入) $(C f)：读取一个浮点数。)
 
-$(P $(IX %s, input) $(C s): Read according to the type of the variable. This is the most commonly used specifier.)
+$(P $(IX %s, 输入) $(C s)：按变量类型读取。这是最常用的说明符。)
 
-$(P $(IX %c) $(C c): Read a single character. This specifier allows reading whitespace characters as well. (It cancels the ignore behavior.)
+$(P $(IX %c) $(C c)：读取一个字符。这个说明符也能读取一个空白字符。（但是它不会将空白字符忽略。）
 )
 
 $(P
-For example, if the input contains "23 23 23", the values would be read differently according to different format specifiers:
+比如 “23 23 23” 这组数据，根据不同的格式化说明符程序将以不同的形式读取它们。
 )
 
 ---
@@ -131,7 +131,7 @@ For example, if the input contains "23 23 23", the values would be read differen
 ---
 
 $(P
-Although the input contains three sets of "23" characters, the values of the variables are different:
+虽然看起来它们都是 “23”，但实际上对程序来说它们的值是不同的：
 )
 
 $(SHELL
@@ -141,20 +141,20 @@ Read with %x: 35
 )
 
 $(P
-$(I $(B Note:) Very briefly, "23" is equal to 2x8+3=19 in the octal system and to 2x16+3=35 in the hexadecimal system.)
+$(I $(B 注：)“23” 对应的八进制数是 2x8+3=19，对应的十六进制数是 2x16+3=35。)
 )
 
 $(PROBLEM_TEK
 
 $(P
-Assume that the input contains the date in the format $(I year.month.day). Write a program that prints the number of the month. For example, if the input is $(C 2009.09.30), the output should be $(C 9).
+假设日期以$(I 年.月.日)的格式输入。编写一个程序显示其中的月份。比如输入了 $(C 2009.09.30)，那程序将输出 $(C 9)。
 )
 
 )
 
 Macros:
-        SUBTITLE=Formatted Input
+        SUBTITLE=格式化输入
 
-        DESCRIPTION=Reading the input in certain format.
+        DESCRIPTION=以确定的格式读入数据。
 
-        KEYWORDS=d programming language tutorial book format input
+        KEYWORDS=D 编程语言教程 格式化 输入
