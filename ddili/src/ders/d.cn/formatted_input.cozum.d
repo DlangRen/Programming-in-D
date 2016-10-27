@@ -1,9 +1,9 @@
 Ddoc
 
-$(COZUM_BOLUMU Formatted Input)
+$(COZUM_BOLUMU 格式化输入)
 
 $(P
-Using a format string where the parts of the date are replaced with $(C %s) would be sufficient:
+仅需将输入中的日期部分替换成 $(C %s) 就完成了我们需要的格式化字符串：
 )
 
 ---
@@ -21,8 +21,8 @@ void main() {
 ---
 
 Macros:
-        SUBTITLE=Formatted Input Solutions
+        SUBTITLE=格式化输入习题解答
 
-        DESCRIPTION=Programming in D exercise solutions: Formatted input
+        DESCRIPTION=D 编程语言练习解答：格式化输入
 
-        KEYWORDS=programming in d tutorial formatted input solution
+        KEYWORDS=D 编程语言教程 格式化输入 解答
