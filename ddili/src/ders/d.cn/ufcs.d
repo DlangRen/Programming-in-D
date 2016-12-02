@@ -1,6 +1,6 @@
 Ddoc
 
-$(DERS_BOLUMU $(IX UFCS) $(IX 统一 函数 调用 语法) 统一函数调用语法(UFCS))
+$(DERS_BOLUMU $(IX UFCS) $(IX 通用 函数 调用 语法) 通用函数调用语法(UFCS))
 
 $(P
 UFCS 是编译器自动应用的特性。它能让普通函数使用成员函数的语法。语法可以用两个表达的对比来简单描述：
@@ -213,8 +213,8 @@ $(P
 )
 
 Macros:
-        SUBTITLE=统一函数调用语法 (UFCS)
+        SUBTITLE=通用函数调用语法 (UFCS)
 
-        DESCRIPTION=统一函数调用语法：普通函数使用成员函数调用语法的能力。
+        DESCRIPTION=通用函数调用语法：普通函数使用成员函数调用语法的能力。
 
         KEYWORDS=d 编程 课程 教程 封装
