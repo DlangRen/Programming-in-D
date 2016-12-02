@@ -11,7 +11,7 @@ D 语言的输入格式化说明符与 C 语言相似。
 )
 
 $(P
-$(STRING “%s”) 将根据变量的类型读取数据，这和我们在前一章中使用的相同。比如下面这个类型为 $(C double) 的变量会令程序从标准输入读取浮点型的数据：
+$(STRING "%s") 将根据变量的类型读取数据，这和我们在前一章中使用的相同。比如下面这个类型为 $(C double) 的变量会令程序从标准输入读取浮点型的数据：
 )
 
 ---
@@ -25,7 +25,7 @@ $(P
 )
 
 $(UL
-$(LI $(B 空白字符)：说明符或输入中的$(I 零)或多个空白字符将被读取并忽略。)
+$(LI $(B 空白字符)：表示输入中的$(I 零个)或多个空白字符，并指示这些字符应被读取并忽略。)
 
 $(LI $(B 格式化说明符)：输入格式化说明符以 $(C %) 开头，它决定了以何种格式读取数据。这与输出格式化说明符相同。)
 
@@ -68,7 +68,7 @@ $(P
 )
 
 $(P
-在 $(LINK2 /ders/d.cn/strings.html, Strings) 一章中，我们曾推荐使用 $(C strip(readln())) 来按行读取输入的数据。除了这种方法，在格式化字符串后添加 $(C \n) 也可以达到同样的目的：
+在 $(LINK2 /ders/d.cn/strings.html, 字符串) 一章中，我们曾推荐使用 $(C strip(readln())) 来按行读取输入的数据。除了这种方法，在格式化字符串后添加 $(C \n) 也可以达到同样的目的：
 )
 
 ---
@@ -77,11 +77,11 @@ import std.stdio;
 void main() {
     write("First name: ");
     string firstName;
-    readf(" %s\n", &firstName);    // ← 在末尾添加一个 \n
+    readf(" %s\n", &firstName);    // ← 末尾的 \n
 
     write("Last name : ");
     string lastName;
-    readf(" %s\n", &lastName);     // ← 在末尾添加一个 \n
+    readf(" %s\n", &lastName);     // ← 末尾的 \n
 
     write("Age       : ");
     int age;
