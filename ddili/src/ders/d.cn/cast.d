@@ -1,13 +1,13 @@
 Ddoc
 
-$(DERS_BOLUMU $(IX type conversion) $(IX conversion, type) Type Conversions)
+$(DERS_BOLUMU $(IX 类型转换) $(IX 转换, 类型) 类型转换)
 
 $(P
-Variables must be compatible with the expressions that they take part in. As it has probably been obvious from the programs that we have seen so far, D is a $(I statically typed language), meaning that the compatibility of types is validated at compile time.
+表达式中的变量的类型必须与表达式所要求的类型相匹配。就像我们在之前的程序中见到的那样，D 语言是一个$(I 静态类型语言)，也就是说所有变量的类型在编译期就已经确定了。
 )
 
 $(P
-All of the expressions that we have written so far always had compatible types because otherwise the code would be rejected by the compiler. The following is an example of code that has incompatible types:
+之前我们写过的表达式都使用与之相匹配的类型的变量，否则编译器会拒绝编译。下面这个例子中的代码就包含不匹配的类型：
 )
 
 ---
@@ -16,7 +16,7 @@ All of the expressions that we have written so far always had compatible types b
 ---
 
 $(P
-The compiler rejects the code due to the incompatible types $(C char[]) and $(C int) for the addition operation:
+编译器将会拒绝编译这段代码，因为对加运算符来说 $(C char[]) 和 $(C int) 无法相互兼容。
 )
 
 $(SHELL
@@ -24,7 +24,7 @@ Error: $(HILITE incompatible types) for ((slice) + (5)): 'char[]' and 'int'
 )
 
 $(P
-Type incompatibility does not mean that the types are different; different types can indeed be used in expressions safely. For example, an $(C int) variable can safely be used in place of a $(C double) value:
+并不是类型不同就意味这不匹配；实际上不同的类型也可以在同一个表达式中安全使用。比如，下面这个本应该是 $(C double) 型变量的位置就可以用 $(C int) 型变量替换：
 )
 
 ---
@@ -34,25 +34,25 @@ Type incompatibility does not mean that the types are different; different types
 ---
 
 $(P
-Even though $(C sum) and $(C increment) are of different types, the code above is valid because incrementing a $(C double) variable by an $(C int) value is legal.
+即使 $(C sum) 和 $(C increment) 是不同类型的变量，上面这个表达式也是有效的，因为将一个 $(C int) 加到 $(C double) 上是合法的。
 )
 
-$(H5 $(IX automatic type conversion) $(IX implicit type conversion) Automatic type conversions)
+$(H5 $(IX 自动类型转换) $(IX 隐式类型转换) 自动类型转换)
 
 $(P
-Automatic type conversions are also called $(I implicit type conversions).
-)
-
-$(P
-Although $(C double) and $(C int) are compatible types in the expression above, the addition operation must still be evaluated as a specific type at the microprocessor level.  As you would remember from the $(LINK2 /ders/d.en/floating_point.html, Floating Point Types chapter), the 64-bit type $(C double) is $(I wider) (or $(I larger)) than the 32-bit type $(C int). Additionally, any value that fits in an $(C int) also fits in a $(C double).
+自动类型转换也可称作$(I 隐式类型转换)。
 )
 
 $(P
-When the compiler encounters an expression that involves mismatched types, it first converts the parts of the expressions to a common type and then evaluates the overall expression. The automatic conversions that are performed by the compiler are in the direction that avoids data loss. For example, $(C double) can hold any value that $(C int) can hold but the opposite is not true. The $(C +=) operation above can work because any $(C int) value can safely be converted to $(C double).
+虽然上面这个表达式中 $(C double) 和 $(C int) 能相互匹配，但在微处理器上这个加法依旧需要使用一个明确的类型以进行计算。$(LINK2 /ders/d.cn/floating_point.html, 浮点型) 一章曾经说过，64-bit 的 $(C double) 比 32-bit 的 $(C int) $(I 更宽)（或者说$(I 更大)）。因此任何能用 $(C int) 储存的值均可用 $(C double) 储存。
 )
 
 $(P
-The value that has been generated automatically as a result of a conversion is always an anonymous (and often temporary) variable. The original value does not change. For example, the automatic conversion during $(C +=) above does not change the type of $(C increment); it is always an $(C int). Rather, a temporary value of type $(C double) is constructed with the value of $(C increment). The conversion that takes place in the background is equivalent to the following code:
+当编译器遇到一个含有不匹配类型的表达式时，它会先试着将表达式中的类型不同变量都转换成相同的类型再进行运算。由编译器执行的自动类型转换的原则是会不损失数据。比如说 $(C double) 能储存所有 $(C int) 能储存的值，但反过来就不行。之所以上面那个 $(C +=) 运算符能正常工作是因为 $(C int) 能被安全的转换为 $(C double)。
+)
+
+$(P
+由自动类型转换生成的值是匿名的（通常是临时变量）。而原来参与表达式运算的变量的类型并没有改变。就像上面那个 $(C +=) 运算，它并不会改变 $(C increment) 的类型；$(C increment) 一直都是 $(C int)。编译器只是生成了一个与 $(C increment) 的值相同的类型为 $(C double) 的临时变量。下面这段代就与这个隐式转换过程等价：
 )
 
 ---
@@ -63,11 +63,11 @@ The value that has been generated automatically as a result of a conversion is a
 ---
 
 $(P
-The compiler converts the $(C int) value to a temporary $(C double) value and uses that value in the operation. In this example, the temporary variable lives only during the $(C +=) operation.
+编译器将 $(C int) 值转换成了一个临时的 $(C double) 值来参与运算。在这个例子中，这个临时变量仅在 $(C +=) 运算过程中存在。
 )
 
 $(P
-Automatic conversions are not limited to arithmetic operations. There are other cases where types are converted to other types automatically. As long as the conversions are valid, the compiler takes advantage of type conversions to be able to use values in expressions. For example, a $(C byte) value can be passed for an $(C int) parameter:
+自动类型转换不仅限于数学运算。也有其他适用于自动类型转换的情况。只要能进行有效的转换，我们就可以利用编译器的自动类型转换让我们能在表达式中使用我们想要使用的那个变量。比如向一个 $(C int) 形参传递 $(C byte) 型变量：
 )
 
 ---
@@ -77,22 +77,22 @@ void func(int number) {
 
 void main() {
     byte smallValue = 7;
-    func(smallValue);    // automatic type conversion
+    func(smallValue);    // 此处执行自动类型转换
 }
 ---
 
 $(P
-In the code above, first a temporary $(C int) value is constructed and the function is called with that value.
+在上面这段代码中，编译器会先构造一个 $(C int) 类型的临时变量，再用这个临时变量调用函数。
 )
 
-$(H6 $(IX integer promotion) $(IX promotion, integer) Integer promotions)
+$(H6 $(IX 整型提升) $(IX 提升, 整型) 整型提升)
 
 $(P
-Values of types that are on the left-hand side of the following table never take part in arithmetic expressions as their actual types. Each type is first promoted to the type that is on the right-hand side of the table.
+下表中左侧的类型永远不能参与数学运算。他们先会被转换成表中右侧对应的类型，然后才能进行运算。
 )
 
 <table class="narrow" border="1" cellpadding="4" cellspacing="0">
-<tr><th scope="col">From</th> <th scope="col">To</th>
+<tr><th scope="col">源类型</th> <th scope="col">目标类型</th>
 </tr>
 
         <tr align="center">
@@ -137,21 +137,21 @@ Values of types that are on the left-hand side of the following table never take
 </table>
 
 $(P
-Integer promotions are applied to $(C enum) values as well.
+$(C enum) 也有整型提升。
 )
 
 $(P
-The reasons for integer promotions are both historical (where the rules come from C) and the fact that the natural arithmetic type for the microprocessor is $(C int). For example, although the following two variables are both $(C ubyte), the addition operation is performed only after both of the values are individually promoted to $(C int):
+整型提升的存在不仅是由于历史原因（来自 C 语言的规则），也是因为对微处理器来说 $(C int) 才是最自然的或者说运算效率最高的算术类型。就像下面这个例子，虽然参与运算的两个变量都是 $(C ubyte)，但必须先将其分别转换为 $(C int) 后才可进行运算：
 )
 
 ---
     ubyte a = 1;
     ubyte b = 2;
-    writeln(typeof(a + b).stringof);  // the addition is not in ubyte
+    writeln(typeof(a + b).stringof);  // 不是 ubyte 的加法运算
 ---
 
 $(P
-The output:
+输出为：
 )
 
 $(SHELL
@@ -159,51 +159,51 @@ int
 )
 
 $(P
-Note that the types of the variables $(C a) and $(C b) do not change; only their values are temporarily promoted to $(C int) for the duration of the addition operation.
+注意变量 $(C a) 和 $(C b) 的类型并没有改变；只是在执行加法运算时它们的值被临时提升为 $(C int)。
 )
 
-$(H6 $(IX arithmetic conversion) Arithmetic conversions)
+$(H6 $(IX 算术转换) 算术转换)
 
 $(P
-There are other conversion rules that are applied for arithmetic operations. In general, automatic arithmetic conversions are applied in the safe direction: from the $(I narrower) type to the $(I wider) type. Although this rule is easy to remember and is correct in most cases, automatic conversion rules are very complicated and in the case of signed-to-unsigned conversions, carry some risk of bugs.
+还有其他几种用于数学运算的类型转换规则。通常情况下，自动算数类型转换只会向着安全的方向进行：从$(I 窄)类型到$(I 宽)类型。虽然这条规则简单易懂且在大多数情况下都能得到正确的结果，但实际上自动转换的规则是相当复杂的。在某些时候从带符号类型转换为无符号类型将带来引入 bug 的风险。
 )
 
 $(P
-The arithmetic conversion rules are the following:
+算术转换规则如下：
 )
 
 $(OL
 
-$(LI If one of the values is $(C real), then the other value is converted to $(C real))
+$(LI 如果表达式中存在 $(C real) 变量，则其它所有值被转换为 $(C real))
 
-$(LI Else, if one of the values is $(C double), then the other value is converted to $(C double))
+$(LI 若不符合第一条且表达式中存在 $(C double) 变量，则其它所有值被转换为 $(C double))
 
-$(LI Else, if one of the values is $(C float), then the other value is converted to $(C float))
+$(LI 若不符合前两条且表达式中存在 $(C float) 变量，则所有值被转换为 $(C float))
 
-$(LI Else, first $(I integer promotions) are applied according to the table above, and then the following rules are followed:
+$(LI 若前三条均不符合，则先使用上表中的$(I 整型提升)规则，之后再按照下面的规则转换：
 
 $(OL
-$(LI If both types are the same, then no more steps needed)
-$(LI If both types are signed or both types are unsigned, then the narrower value is converted to the wider type)
-$(LI If the signed type is wider than the unsigned type, then the unsigned value is converted to the signed type)
-$(LI Otherwise the signed type is converted to the unsigned type)
+$(LI 如果所有变量类型相同，则不进行转换)
+$(LI 如果所有变量都是带符号的或都是无符号的，则将窄类型转换为宽类型)
+$(LI 如果带符号的类型比无符号的类型宽，则将无符号类型转换为带符号类型)
+$(LI 否则将带符号类型转换为无符号类型)
 )
 )
 )
 
 $(P
-Unfortunately, the last rule above can cause subtle bugs:
+不幸的是最后一条规则很可能会引入不易察觉的 bug：
 )
 
 ---
     int    a = 0;
     int    b = 1;
     size_t c = 0;
-    writeln(a - b + c);  // Surprising result!
+    writeln(a - b + c);  // 意料之外的结果！
 ---
 
 $(P
-Surprisingly, the output is not -1, but $(C size_t.max):
+输出不是 -1，而是 $(C size_t.max)：
 )
 
 $(SHELL
@@ -211,13 +211,13 @@ $(SHELL
 )
 
 $(P
-Although one would expect $(C (0 - 1 + 0)) to be calculated as -1, according to the rules above, the type of the entire expression is $(C size_t), not $(C int); and since $(C size_t) cannot hold negative values, the result overflows and becomes $(C size_t.max).
+没错 $(C (0 - 1 + 0)) 的结果的确是 -1，但是根据上面的规则，整个表达式的类型应为 $(C size_t) 而不是 $(C int)；由于 $(C size_t) 无法储存负数，所以结果溢出变成了 $(C size_t.max)。
 )
 
-$(H6 Slice conversions)
+$(H6 slice 转换)
 
 $(P
-$(IX fixed-length array, conversion to slice) $(IX static array, conversion to slice) As a convenience, fixed-length arrays can automatically be converted to slices when calling a function:
+$(IX 定长数组, 转换为 slice) $(IX 静态数组, 转换为 slice) 为了方便使用，调用函数时传递的定长数组将被自动转换为 slice：
 )
 
 ---
@@ -225,7 +225,7 @@ import std.stdio;
 
 void foo() {
     $(HILITE int[2]) array = [ 1, 2 ];
-    bar(array);    // Passes fixed-length array as a slice
+    bar(array);    // 定长数组将作为 slice 传入
 }
 
 void bar($(HILITE int[]) slice) {
@@ -238,7 +238,7 @@ void main() {
 ---
 
 $(P
-$(C bar()) receives a slice to all elements of the fixed-length array and prints it:
+$(C bar()) 将在控制台中显示收到的定长数组的所有元素：
 )
 
 $(SHELL
@@ -246,7 +246,7 @@ $(SHELL
 )
 
 $(P
-$(B Warning:) A $(I local) fixed-length array must not be passed as a slice if the function stores the slice for later use. For example, the following program has a bug because the slice that $(C bar()) stores would not be valid after $(C foo()) exits:
+$(B 注意：)如果函数需要将定长数组储存起来以备它用，则不要对其传递$(I 局部)定长数组。下面这个例子就存在这样的 bug，$(C bar()) 储存的 slice 会在 $(C foo()) 结束后失效：
 )
 
 ---
@@ -254,14 +254,14 @@ import std.stdio;
 
 void foo() {
     int[2] array = [ 1, 2 ];
-    bar(array);    // Passes fixed-length array as a slice
+    bar(array);    // 定长数组将作为 slice 传入
 
-}  // ← NOTE: 'array' is not valid beyond this point
+}  // ← 注：运行到此处后‘array’将不再有效
 
 int[] sliceForLaterUse;
 
 void bar(int[] slice) {
-    // Saves a slice that is about to become invalid
+    // 储存了一个失效的 slice
     sliceForLaterUse = slice;
     writefln("Inside bar : %s", sliceForLaterUse);
 }
@@ -269,24 +269,24 @@ void bar(int[] slice) {
 void main() {
     foo();
 
-    /* BUG: Accesses memory that is not array elements anymore */
+    /* BUG：访问了那块已经不再是数组的内存 */
     writefln("Inside main: %s", sliceForLaterUse);
 }
 ---
 
 $(P
-The result of such a bug is undefined behavior. A sample execution can prove that the memory that used to be the elements of $(C array) has already been reused for other purposes:
+这种 bug 将导致未定义行为。比如下面这种情况证实了之前用于储存 $(C array) 的内存已被移作它用：
 )
 
 $(SHELL
-Inside bar : [1, 2]        $(SHELL_NOTE actual elements)
-Inside main: [4396640, 0]  $(SHELL_NOTE_WRONG a manifestation of undefined behavior)
+Inside bar : [1, 2]        $(SHELL_NOTE 实际元素)
+Inside main: [4396640, 0]  $(SHELL_NOTE_WRONG 未定义行为的一种表现)
 )
 
-$(H6 $(C const) conversions)
+$(H6 $(C const) 转换)
 
 $(P
-As we have seen earlier in the $(LINK2 /ders/d.en/function_parameters.html, Function Parameters chapter), reference types can automatically be converted to the $(C const) of the same type. Conversion to $(C const) is safe because the width of the type does not change and $(C const) is a promise to not modify the variable:
+$(LINK2 /ders/d.cn/function_parameters.html, 函数参数) 一章中我们曾提到过，引用类型可被自动转换为对应的 $(C const) 类型。转换到 $(C const) 是安全的，因为类型的宽度未被改变且 $(C const) 保证了变量不会再被修改：
 )
 
 ---
@@ -302,11 +302,11 @@ void main() {
 ---
 
 $(P
-The mutable $(C greeting) above is automatically converted to a $(C const char[]) as it is passed to $(C parenthesized()).
+可变的 $(C greeting) 在传入 $(C parenthesized()) 时被自动转换为 $(C const char[])。
 )
 
 $(P
-As we have also seen earlier, the opposite conversion is not automatic. A $(C const) reference is not automatically converted to a mutable reference:
+反向转换无法自动进行，关于这点我们之前已经见过很多次了。$(C const) 引用无法被转换为可变引用：
 )
 
 ---
@@ -317,43 +317,43 @@ char[] parenthesized(const char[] text) {
 ---
 
 $(P
-Note that this topic is only about references; since variables of value types are copied, it is not possible to affect the original through the copy anyway:
+注意我们讨论的问题只针对引用；因为对于值类型来说，修改复制结果并不会对原变量造成任何影响：
 )
 
 ---
     const int totalCorners = 4;
-    int theCopy = totalCorners;      // compiles (value type)
+    int theCopy = totalCorners;      // 编译通过（值类型）
 ---
 
 $(P
-The conversion from $(C const) to mutable above is legal because the copy is not a reference to the original.
+上面这个将 $(C const) 转换为可变类型是合法的，因为复制不是对原变量的引用。
 )
 
-$(H6 $(C immutable) conversions)
+$(H6 $(C immutable) 转换)
 
 $(P
-Because $(C immutable) specifies that a variable can never change, neither conversion from $(C immutable) nor to $(C immutable) are automatic:
+由于 $(C immutable) 变量的不可变性，无论是从 $(C immutable) 转换为其它类型还是将其它类型转换为 $(C immutable) 都可以自动进行：
 )
 
 ---
-    string a = "hello";    // immutable characters
+    string a = "hello";    // immutable 字符
     char[] b = a;          $(DERLEME_HATASI)
     string c = b;          $(DERLEME_HATASI)
 ---
 
 $(P
-As with $(C const) conversions above, this topic is also only about reference types. Since variables of value types are copied anyway, conversions to and from $(C immutable) are valid:
+和上面的 $(C const) 转换一样，这条规则只针对引用类型。值类型在任何地方都是通过复制的方式传递，因而从 $(C immutable) 转换为可变是有效的：
 )
 
 ---
     immutable a = 10;
-    int b = a;           // compiles (value type)
----
+    int b = a;           // 通过编译（值类型）
+--
 
-$(H6 $(C enum) conversions)
+$(H6 $(C enum) 转换)
 
 $(P
-As we have seen in the $(LINK2 /ders/d.en/enum.html, $(C enum) chapter), $(C enum) is for defining $(I named constants):
+$(LINK2 /ders/d.cn/enum.html, $(C enum)) 一章中我们已经提到过，$(C enum) 通常被用作$(I 命名常量)：
 )
 
 ---
@@ -361,11 +361,11 @@ As we have seen in the $(LINK2 /ders/d.en/enum.html, $(C enum) chapter), $(C enu
 ---
 
 $(P
-Remember that since no values are specified explicitly above, the values of the $(C enum) members start with zero and are automatically incremented by one. Accordingly, the value of $(C Suit.clubs) is 3.
+由于上面并没有显式指定枚举的值，所以 $(C enum) 成员默认从零开始，每一个成员依次在上一个成员的值的基础上加一。因此，$(C Suit.clubs) 的值是 3。
 )
 
 $(P
-$(C enum) values are atomatically converted to integral types. For example, the value of $(C Suit.hearts) is taken to be 1 in the following calculation and the result becomes 11:
+$(C enum) 能被自动转换为整型。比如下面这个例子，$(C Suit.hearts) 会在计算中被隐式转换为 1，即最后的结果是 11：
 )
 
 ---
@@ -374,7 +374,7 @@ $(C enum) values are atomatically converted to integral types. For example, the 
 ---
 
 $(P
-The opposite conversion is not automatic: Integer values are not automatically converted to corresponding $(C enum) values. For example, the $(C suit) variable below might be expected to become $(C Suit.diamonds), but the code cannot be compiled:
+然而反向转换则不是自动的：整型值不会被自动转换为对应的 $(C enum) 值。就比如说下面这个 $(C suit)，你可能认为它能被转换为 $(C Suit.diamonds)，而实际上下面这段代码不能被编译：
 )
 
 ---
@@ -382,13 +382,13 @@ The opposite conversion is not automatic: Integer values are not automatically c
 ---
 
 $(P
-As we will see below, conversions from integers to $(C enum) values are still possible but they must be explicit.
+实际上从整型到 $(C enum) 的转换是允许的，但你必须显式转换。
 )
 
-$(H6 $(IX bool, automatic conversion) $(C bool) conversions)
+$(H6 $(IX bool, 自动转换) $(C bool) 转换)
 
 $(P
-$(C false) and $(C true) are automatically converted to 0 and 1, respectively:
+$(C false) 和 $(C true) 可被分别自动转换为 0 和 1。
 )
 
 ---
@@ -400,7 +400,7 @@ $(C false) and $(C true) are automatically converted to 0 and 1, respectively:
 ---
 
 $(P
-Regarding $(I literal values), the opposite conversion is automatic only for two special literal values: 0 and 1 are converted automatically to $(C false) and $(C true), respectively:
+而反过来只有 0 和 1 这两个$(I 字面量)能分别自动转换到 $(C false) 和 $(C true)：
 )
 
 ---
@@ -412,7 +412,7 @@ Regarding $(I literal values), the opposite conversion is automatic only for two
 ---
 
 $(P
-Other literal values cannot be converted to $(C bool) automatically:
+其它字面量不能被自动转换为 $(C bool)：
 )
 
 ---
@@ -420,66 +420,66 @@ Other literal values cannot be converted to $(C bool) automatically:
 ---
 
 $(P
-Some statements make use of logical expressions: $(C if), $(C while), etc. For the logical expressions of such statements, not only $(C bool) but most other types can be used as well. The value zero is automatically converted to $(C false) and the nonzero values are automatically converted to $(C true).
+某些语句使用了逻辑表达式，比如：$(C if)，$(C while) 等。对于这些逻辑语句，除了 $(C bool) 值，其它类型的值也可以作为逻辑表达式使用。零将被自动转换为 $(C false)，其它非零值则会自动转换为 $(C true)。
 )
 
 ---
     int i;
     // ...
 
-    if (i) {    // ← int value is being used as a logical expression
-        // ... 'i' is not zero
+    if (i) {    // ← int 值作为逻辑表达式
+        // ... 'i' 非零
 
     } else {
-        // ... 'i' is zero
+        // ... 'i' 为零
     }
 ---
 
 $(P
-Similarly, $(C null) references are automatically converted to $(C false) and non-$(C null) references are automatically converted to $(C true). This makes it easy to ensure that a reference is non-$(C null) before actually using it:
+与此相同的是 $(C null) 引用，它将被自动转换为 $(C false)，而非 $(C null) 引用将被自动转换为 $(C true)。利用它我们可以确保将要使用的引用是一个非 $(C null) 值：
 )
 
 ---
     int[] a;
     // ...
 
-    if (a) {    // ← automatic bool conversion
-        // ... not null; 'a' can be used ...
+    if (a) {    // ← 自动转换为 bool
+        // ... 非 null，‘a’可以使用 ...
 
     } else {
-        // ... null; 'a' cannot be used ...
+        // ... null，‘a’不能使用 ...
     }
 ---
 
-$(H5 $(IX explicit type conversion) $(IX type conversion, explicit) Explicit type conversions)
+$(H5 $(IX 显式类型转换) $(IX 类型转换, 显式) 显式类型转换)
 
 $(P
-As we have seen above, there are cases where automatic conversions are not available:
+就像我们之前看到的那样，对某些情况来说自动转换并不适用：
 )
 
 $(UL
-$(LI Conversions from wider types to narrower types)
-$(LI Conversions from $(C const) to mutable)
-$(LI $(C immutable) conversions)
-$(LI Conversions from integers to $(C enum) values)
-$(LI etc.)
+$(LI 从宽类型到窄类型的转换)
+$(LI 从 $(C const) 到可变类型的转换)
+$(LI $(C immutable) 转换)
+$(LI 从整形到 $(C enum) 的转换)
+$(LI 以及其它上述未提到的情况)
 )
 
 $(P
-If such a conversion is known to be safe, the programmer can explicitly ask for a type conversion by one of the following methods:
+如果你能保证上述转换是安全的，那你可以使用下面这几种方法显式执行类型转换：
 )
 
 $(UL
-$(LI Construction syntax)
-$(LI $(C std.conv.to) function)
-$(LI $(C std.exception.assumeUnique) function)
-$(LI $(C cast) operator)
+$(LI 构造语法)
+$(LI $(C std.conv.to) 函数)
+$(LI $(C std.exception.assumeUnique) 函数)
+$(LI $(C cast) 运算符)
 )
 
-$(H6 $(IX construction, type conversion) Construction syntax)
+$(H6 $(IX 构造, 类型转换) 构造语法)
 
 $(P
-The $(C struct) and $(C class) construction syntax is available for other types as well:
+$(C struct) 和 $(C class) 的构造语法也适用于其它类型：
 )
 
 ---
@@ -487,7 +487,7 @@ The $(C struct) and $(C class) construction syntax is available for other types 
 ---
 
 $(P
-For example, the following $(I conversion) makes a $(C double) value from an $(C int) value, presumably to preserve the fractional part of the division operation:
+比如下面这个例子将 $(C int) $(I 转换为) $(C double)，想必是为了保留除法运算结果的小数部分：
 )
 
 ---
@@ -496,10 +496,10 @@ For example, the following $(I conversion) makes a $(C double) value from an $(C
     const result = $(HILITE double(i)) / 2;
 ---
 
-$(H6 $(IX to, std.conv) $(C to()) for most conversions)
+$(H6 $(IX to, std.conv) 最常用的 $(C to()) 转换)
 
 $(P
-The $(C to()) function, which we have already used mostly to convert values to $(C string), can actually be used for many other types. Its complete syntax is the following:
+$(C to()) 函数经常被用来将某个类型的值转换为 $(C string)，但实际上除了转换到字符串它还可以转换到其它类型。完整的语法如下：
 )
 
 ---
@@ -507,7 +507,7 @@ The $(C to()) function, which we have already used mostly to convert values to $
 ---
 
 $(P
-Being a template, $(C to()) can take advantage of the shortcut template parameter notation: When the destination type consists only of a single token (generally, $(I a single word)), it can be called without the first pair of parentheses:
+作为一个模版，$(C to()) 可以利用模版参数的语法糖简化代码编写：如果目标类型的名字只有一个标记（即通常情况下只有$(I 一个单词)），我们就可以省略第一对圆括号：
 )
 
 ---
@@ -515,7 +515,7 @@ Being a template, $(C to()) can take advantage of the shortcut template paramete
 ---
 
 $(P
-The following program is trying to convert a $(C double) value to $(C short) and a $(C string) value to $(C int):
+下面这段程序试图将一个 $(C double) 值转换为 $(C short) 并将一个 $(C string) 转换为 $(C int)：
 )
 
 ---
@@ -528,7 +528,7 @@ void main() {
 ---
 
 $(P
-Since not every $(C double) value can be represented as a $(C short) and not every $(C string) can be represented as an $(C int), those conversions are not automatic. When it is known by the programmer that the conversions are in fact safe or that the potential consequences are acceptable, then the types can be converted by $(C to()):
+由于并不是每一个 $(C double) 都能用 $(C short) 储存，并不是每一个 $(C string) 都能用 $(C int) 储存，所以上述转换无法自动执行。只有当程序员认为转换是安全的或转换的结果在预期内时才可以使用 $(C to()) 进行转换：
 )
 
 ---
@@ -546,17 +546,17 @@ void main() {
 ---
 
 $(P
-Note that because $(C short) cannot carry fractional values, the converted value is -1.
+由于 $(C short) 不能储存小数，所以转换的结果将是 -1。
 )
 
 $(P
-$(C to()) is safe: It throws an exception when a conversion is not possible.
+$(C to()) 是安全的：在转换无法执行时它将抛出异常。
 )
 
-$(H6 $(IX assumeUnique, std.exception) $(C assumeUnique()) for fast $(C immutable) conversions)
+$(H6 $(IX assumeUnique, std.exception) 使用 $(C assumeUnique()) 进行快速 $(C immutable) 转换)
 
 $(P
-$(C to()) can perform $(C immutable) conversions as well:
+也可以使用 $(C to()) 进行 $(C immutable) 转换：
 )
 
 ---
@@ -565,11 +565,11 @@ $(C to()) can perform $(C immutable) conversions as well:
 ---
 
 $(P
-In order to guarantee that the elements of $(C immutableSlice) will never change, it cannot share the same elements with $(C slice). For that reason, $(C to()) creates an additional slice with $(C immutable) elements above. Otherwise, modifications to the elements of $(C slice) would cause the elements of $(C immutableSlice) change as well. This behavior is the same with the $(C .idup) property of arrays.
+为了确保 $(C immutableSlice) 中的元素不会被改变，它将无法与 $(C slice) 共享储存元素的内存。所以上面这个 $(C to()) 将创建一个独立的 slice 来储存 $(C immutable) 元素。否则，改变 $(C slice) 中的元素将同时改变 $(C immutableSlice) 中的元素。这与数组的 $(C .idup) 属性的行为一致。
 )
 
 $(P
-We can see that the elements of $(C immutableSlice) are indeed copies of the elements of $(C slice) by looking at the addresses of their first elements:
+通过查看第一个元素的地址，我们可以看出 $(C immutableSlice) 中的元素实际上是 $(C slice) 中元素的拷贝：
 )
 
 ---
@@ -577,7 +577,7 @@ We can see that the elements of $(C immutableSlice) are indeed copies of the ele
 ---
 
 $(P
-Sometimes this copy is unnecessary and may slow the speed of the program noticeably in certain cases. As an example of this, let's look at the following function that takes an $(C immutable) slice:
+然而有时在某些情况下这种非必需的拷贝将显著降低程序的运行效率。来看下下面这个示例，其中有一个函数接收 $(C immutable) slice 参数：
 )
 
 ---
@@ -588,7 +588,7 @@ void calculate(immutable int[] coordinates) {
 void main() {
     int[] numbers;
     numbers ~= 10;
-    // ... various other modifications ...
+    // ... 多种修改 ...
     numbers[0] = 42;
 
     calculate(numbers);    $(DERLEME_HATASI)
@@ -596,18 +596,18 @@ void main() {
 ---
 
 $(P
-The program above cannot be compiled because the caller is not passing an $(C immutable) argument to $(C calculate()). As we have seen above, an $(C immutable) slice can be created by $(C to()):
+上面这段代码无法通过编译因为调用者向 $(C calculate()) 传递了非 $(C immutable) 的参数。就像我们之前看到的那样，我们可以使用 $(C to()) 来创建 $(C immutable) slice：
 )
 
 ---
 import std.conv;
 // ...
     auto immutableNumbers = to!(immutable int[])(numbers);
-    calculate(immutableNumbers);    // ← now compiles
+    calculate(immutableNumbers);    // ← 现在通过编译了
 ---
 
 $(P
-However, if $(C numbers) is needed only to produce this argument and will never be used after the function is called, copying its elements to $(C immutableNumbers) would be unnecessary. $(C assumeUnique()) makes the elements of a slice $(C immutable) without copying:
+但如果 $(C numbers) 只是被用来作参数且在函数调用完成前并没有被修改，那复制到 $(C immutableNumbers) 的操作就显得没有必要。$(C assumeUnique()) 无需复制即可将 slice 中的元素转换为 $(C immutable)：
 )
 
 ---
@@ -615,21 +615,21 @@ import std.exception;
 // ...
     auto immutableNumbers = assumeUnique(numbers);
     calculate(immutableNumbers);
-    assert(numbers is null);    // the original slice becomes null
+    assert(numbers is null);    // 原来的 slice 变为 null
 ---
 
 $(P
-$(C assumeUnique()) returns a new slice that provides $(C immutable) access to the existing elements. It also makes the original slice $(C null) to prevent the elements from accidentally being modified through it.
+$(C assumeUnique()) 返回一个新的 slice，将传入的元素直接转换为 $(C immutable)。它同时会将传入的 slice 变为 $(C null) 以防止通过它对 $(C immutable) 元素的修改。
 )
 
-$(H6 $(IX cast) The $(C cast) operator)
+$(H6 $(IX cast) The $(C cast) 运算符)
 
 $(P
-Both $(C to()) and $(C assumeUnique()) make use of the conversion operator $(C cast), which is available to the programmer as well.
+$(C to()) 和 $(C assumeUnique()) 都是使用 $(C cast) 运算符实现的，当然除了标准库程序员也可以使用这个运算符。
 )
 
 $(P
-The $(C cast) operator takes the destination type in parentheses:
+$(C cast) 运算符后紧跟一对圆括号，括号中的类型即为目标类型：
 )
 
 ---
@@ -637,12 +637,12 @@ The $(C cast) operator takes the destination type in parentheses:
 ---
 
 $(P
-$(C cast) is powerful even for conversions that $(C to()) cannot safely perform. For example, $(C to()) fails for the following conversions at runtime:
+$(C cast) 非常强大，它能做很多 $(C to()) 无法安全执行的转换。比如说 $(C to()) 无法在运行时执行以下转换：
 )
 
 ---
-    Suit suit = to!Suit(7);    $(CODE_NOTE_WRONG throws exception)
-    bool b = to!bool(2);       $(CODE_NOTE_WRONG throws exception)
+    Suit suit = to!Suit(7);    $(CODE_NOTE_WRONG 抛出异常)
+    bool b = to!bool(2);       $(CODE_NOTE_WRONG 抛出异常)
 ---
 
 $(SHELL
@@ -651,11 +651,11 @@ $(HILITE does not match any member) value of enum 'Suit'
 )
 
 $(P
-Sometimes only the programmer can know whether an integer value corresponds to a valid $(C enum) value or that it makes sense to treat an integer value as a $(C bool). The $(C cast) operator can be used when the conversion is known to be correct according the program's logic:
+有的时候只有程序员知道某个整型是否对应有效的 $(C enum) 或将一个数字转换为 $(C bool) 是否是有意义的。$(C cast) 运算符则可在任何程序逻辑认为是正确的地方执行转换：
 )
 
 ---
-    // Probably incorrect but possible:
+    // 可能得到错误的结果但转换本身是可行的：
     Suit suit = cast(Suit)7;
 
     bool b = cast(bool)2;
@@ -663,7 +663,7 @@ Sometimes only the programmer can know whether an integer value corresponds to a
 ---
 
 $(P
-$(C cast) is the only option when converting to and from pointer types:
+对于转换到指针或从指针转换为其它类型的情况，$(C cast) 是唯一的选择：
 )
 
 ---
@@ -673,7 +673,7 @@ $(C cast) is the only option when converting to and from pointer types:
 ---
 
 $(P
-Although rare, some C library interfaces make it necessary to store a pointer value as a non-pointer type. If it is guaranteed that the conversion will preserve the actual value, $(C cast) can convert between pointer and non-pointer types as well:
+某些 C 语言库可能需要将指针以非指针的类型储存，当然这种情况很少见。如果它保证转换能保留正确的值，$(C cast) 可以在指针和非指针类型间转换：
 )
 
 ---
@@ -682,34 +682,34 @@ Although rare, some C library interfaces make it necessary to store a pointer va
     int * p2 = cast($(HILITE int*))savedPointerValue;
 ---
 
-$(H5 Summary)
+$(H5 小结)
 
 $(UL
 
-$(LI Automatic type conversions are mostly in the safe direction: From the narrower type to the wider type and from mutable to $(C const).)
+$(LI 自动类型转换通常只会向着安全的方向进行：从窄类型转换到宽类型，从可变转换到 $(C const)。)
 
-$(LI However, conversions to unsigned types may have surprising effects because unsigned types cannot have negative values.)
+$(LI 但转换到无符号类型时可能会得到意料之外的结果，因为无符号类型无法储存负数。)
 
-$(LI $(C enum) types can automatically be converted to integer values but the opposite conversion is not automatic.)
+$(LI $(C enum) 可被隐式转换为整型，但反过来却不行。)
 
-$(LI $(C false) and $(C true) are automatically converted to 0 and 1 respectively. Similarly, zero values are automatically converted to $(C false) and nonzero values are automatically converted to $(C true).)
+$(LI $(C false) 和 $(C true) 可被分别隐式转换为 0 和 1。同样的是，0 会被隐式转换为 $(C false)，非零值将被隐式转换为 $(C true)。)
 
-$(LI $(C null) references are automatically converted to $(C false) and non-$(C null) references are automatically converted to $(C true).)
+$(LI $(C null) 引用能被隐式转换为 $(C false)，非 $(C null) 引用能被隐式转换为 $(C true)。)
 
-$(LI The construction syntax can be used for explicit conversions.)
+$(LI 可以使用构造语法进行显式转换。)
 
-$(LI $(C to()) covers most of the explicit conversions.)
+$(LI $(C to()) 可以用在大多数显式转换中。)
 
-$(LI $(C assumeUnique()) converts to $(C immutable) without copying.)
+$(LI $(C assumeUnique()) 可在不经复制的情况下将可变类型转换为 $(C immutable)。)
 
-$(LI The $(C cast) operator is the most powerful conversion tool.)
+$(LI $(C cast) 运算符是最有用的转换工具。)
 
 )
 
 Macros:
-        SUBTITLE=Type Conversions
+        SUBTITLE=类型转换
 
-        DESCRIPTION=The automatic and explicit type conversions in the D programming language.
+        DESCRIPTION=D 编程语言中的隐式和显式转换。
 
 
-        KEYWORDS=d programming lesson book tutorial type conversions
+        KEYWORDS=D 编程语言教程 类型转换
