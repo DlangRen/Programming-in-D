@@ -1,39 +1,39 @@
 Ddoc
 
-$(DERS_BOLUMU $(IX UFCS) $(IX universal function call syntax) Universal Function Call Syntax (UFCS))
+$(DERS_BOLUMU $(IX UFCS) $(IX 通用 函数 调用 语法) 通用函数调用语法(UFCS))
 
 $(P
-UFCS is a feature that is applied by the compiler automatically. It enables the member function syntax even for regular functions. It can be explained simply by comparing two expressions:
+UFCS 是编译器自动应用的特性。它能让普通函数使用成员函数的语法。语法可以用两个表达的对比来简单描述：
 )
 
 ---
-    variable.foo($(I arguments))
+    variable.foo($(I 参数))
 ---
 
 $(P
-When the compiler encounters an expression such as the one above, if there is no member function named $(C foo) that can be called on $(C variable) with the provided arguments, then the compiler also tries to compile the following expression:
+当编译器遇到如上的表达式，如果使用给定的参数，变量 $(C variable) 没有能调用的成员函数 $(C foo)，那么编译器会尝试如下的表达式：
 )
 
 ---
-    foo(variable, $(I arguments))
+    foo(variable, $(I 参数))
 ---
 
 $(P
-If this new expression can indeed be compiled, then the compiler simply accepts that one. As a result, although $(C foo()) evidently has been a regular function, it gets accepted to be used by the member function syntax.
+如果能够被编译，那编译器就会简单的接受这个新的表达式。因此，尽管 $(C foo()) 显然是一个普通函数，但是用成员函数的调用语法同样也能被接受。
 )
 
 $(P
-We know that functions that are closely related to a type are defined as member functions of that type. This is especially important for encapsulation as only the member functions of a type (and that type's module) can access its $(C private) members.
+我们知道与类型紧密相关的函数都通常定义为这个类型的成员函数。这一点对于封装而言尤其重要，只有类型的成员函数(以及类型所在的模块)才能访问其$(C 私有)成员。
 )
 
 $(P
-Let's consider a $(C Car) class which maintains the amount of fuel:
+来看一个 $(C Car) 类的实例，这个类维护着燃油的数量：
 )
 
 ---
 $(CODE_NAME Car)class Car {
-    enum economy = 12.5;          // kilometers per liter (average)
-    private double fuelAmount;    // liters
+    enum economy = 12.5;          // 千米/升（平均）
+    private double fuelAmount;    // 升
 
     this(double fuelAmount) {
         this.fuelAmount = fuelAmount;
@@ -48,7 +48,7 @@ $(CODE_NAME Car)class Car {
 ---
 
 $(P
-Although member functions are very useful and sometimes necessary, not every function that operates on a type should be a member function. Some operations on a type are too specific to a certain application to be member functions. For example, a function that determines whether a car can travel a specific distance may more appropriately be defined as a regular function:
+尽管成员函数非常有用，有时候也是必须的，但并不是所有操作某类型的函数都应当是成员函数。对于真正的程序，有些类型的操作非常特殊，因而不能作为成员函数。例如，确定一辆车是否能行驶指定的距离这样的函数定义为普通函数会更为合适：
 )
 
 ---
@@ -58,34 +58,33 @@ $(CODE_NAME canTravel)bool canTravel(Car car, double distance) {
 ---
 
 $(P
-This naturally brings a discrepancy in calling functions that are related to a type: objects appear at different places in these two syntaxes:
+这种自然的定义会让与类相关的函数的调用方式产生分歧：在这两种语法里，对象出现在了不同的位置：
 )
 
 ---
 $(CODE_XREF Car)$(CODE_XREF canTravel)void main() {
     auto car = new Car(5);
 
-    auto remainingFuel = $(HILITE car).fuel();  // Member function syntax
+    auto remainingFuel = $(HILITE car).fuel();  // 成员函数调用语法
 
-    if (canTravel($(HILITE car), 100)) {        // Regular function syntax
+    if (canTravel($(HILITE car), 100)) {        // 普通函数调用语法
         // ...
     }
 }
 ---
 
 $(P
-UFCS removes this discrepancy by allowing regular functions to be called by the member function syntax:
+UFCS 通过允许普通函数的调用使用成员函数的语法消除了这种分歧：
 )
 
 ---
-    if ($(HILITE car).canTravel(100)) {  // Regular function, called by the
-                               // member function syntax
+    if ($(HILITE car).canTravel(100)) {  // 普通函数，调用采用成员函数调用语法
         // ...
     }
 ---
 
 $(P
-This feature is available for fundamental types as well, including literals:
+该特性对于基础类型同样适用，包括字面量：
 )
 
 ---
@@ -99,7 +98,7 @@ void main() {
 ---
 
 $(P
-As we will see in the next chapter, when there are no arguments to pass to a function, that function can be called without parentheses. When that feature is used as well, the expression above gets even shorter. All three of the following statements are equivalent:
+在下一章我们会看到，当函数没有传入的参数时，函数调用可以省略括号。与这个特性一起使用是，上面的表达式会变得更加小巧。下面的三种语句是等同的：
 )
 
 ---
@@ -109,12 +108,11 @@ As we will see in the next chapter, when there are no arguments to pass to a fun
 ---
 
 $(P
-$(IX chaining, function call) $(IX function call chaining) UFCS is especially useful when function calls are $(I chained). Let's see this on a group of functions that operate on $(C int) slices:
+$(IX 链式, 函数调用) $(IX 函数调用链) 当函数调用是$(I 链式)形式时，UFCS 尤其好用。我们来看个例子，例子中包含了一组操作 $(C int) 切片的函数：
 )
 
 ---
-$(CODE_NAME functions)// Returns the result of dividing all of the elements by
-// 'divisor'
+$(CODE_NAME functions)// 返回所有元素除以‘divisor’的结果
 int[] divide(int[] slice, int divisor) {
     int[] result;
     result.reserve(slice.length);
@@ -126,8 +124,7 @@ int[] divide(int[] slice, int divisor) {
     return result;
 }
 
-// Returns the result of multiplying all of the elements by
-// 'multiplier'
+// 返回所有元素乘以‘multiplier’的结果
 int[] multiply(int[] slice, int multiplier) {
     int[] result;
     result.reserve(slice.length);
@@ -139,7 +136,7 @@ int[] multiply(int[] slice, int multiplier) {
     return result;
 }
 
-// Filters out elements that have odd values
+// 筛选出所有偶数
 int[] evens(int[] slice) {
     int[] result;
     result.reserve(slice.length);
@@ -155,7 +152,7 @@ int[] evens(int[] slice) {
 ---
 
 $(P
-When written by the regular syntax, without taking advantage of UFCS, an expression that chains three calls to these functions can be written as in the following program:
+如果用普通函数语法，而不是 UFCS，链式调用这三个函数的表达式可以如下写出：
 )
 
 ---
@@ -170,7 +167,7 @@ void main() {
 ---
 
 $(P
-The values are first multiplied by 10, then divided by 3, and finally only the even numbers are used:
+values 首先乘以 10，然后除以 3，最后只有偶数会被输出：
 )
 
 $(SHELL
@@ -178,7 +175,7 @@ $(SHELL
 )
 
 $(P
-A problem with the expression above is that although the pair of $(C multiply) and $(C 10) are related and the pair of $(C divide) and $(C 3) are related, parts of each pair end up written away from each other. UFCS eliminates this issue and enables a more natural syntax that reflects the actual order of operations:
+上面表达式的问题在于，尽管 $(C multiply) 和 $(C 10) 对是相关的，$(C divide) 和 $(C 3) 对是相关的，结果最终两者都写得很开。UFCS 消除了这个问题，允许用更自然的方式反映实际的操作顺序：
 )
 
 ---
@@ -186,7 +183,7 @@ A problem with the expression above is that although the pair of $(C multiply) a
 ---
 
 $(P
-Some programmers take advantage of UFCS even for calls like $(C writeln()):
+一些程序员甚至对像 $(C writeln()) 这样的调用都使用 UFCS：
 )
 
 ---
@@ -194,7 +191,7 @@ Some programmers take advantage of UFCS even for calls like $(C writeln()):
 ---
 
 $(P
-As an aside, the entire program above could have been written in a much simpler way by $(C map()) and $(C filter()):
+顺便提一下，上面的程序完全可以用 $(C map()) 和 $(C filter()) 写的极其简短：
 )
 
 ---
@@ -212,12 +209,12 @@ void main() {
 ---
 
 $(P
-The program above takes advantage of $(LINK2 /ders/d.en/templates.html, templates), $(LINK2 /ders/d.en/ranges.html, ranges), and $(LINK2 /ders/d.en/lambda.html, lambda functions), all of which will be explained in later chapters.
+上面的程序使用了 $(LINK2 /ders/d.cn/templates.html, 模板)，$(LINK2 /ders/d.cn/ranges.html, ranges)，以及 $(LINK2 /ders/d.cn/lambda.html, lambda 函数)，所有这些都会在下面的章节中阐述。
 )
 
 Macros:
-        SUBTITLE=Universal Function Call Syntax (UFCS)
+        SUBTITLE=通用函数调用语法 (UFCS)
 
-        DESCRIPTION=Universal function call syntax: The ability to call regular functions by the member function syntax.
+        DESCRIPTION=通用函数调用语法：普通函数使用成员函数调用语法的能力。
 
-        KEYWORDS=d programming lesson book tutorial encapsulation
+        KEYWORDS=d 编程 课程 教程 封装
