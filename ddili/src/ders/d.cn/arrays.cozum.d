@@ -1,6 +1,6 @@
 Ddoc
 
-$(COZUM_BOLUMU Arrays)
+$(COZUM_BOLUMU 数组)
 
 $(OL
 
@@ -18,7 +18,7 @@ void main() {
     double[] values;
     values.length = count;
 
-    // The counter is commonly named as 'i'
+    // 计数器通常命名作‘i’
     int i;
     while (i < count) {
         write("Value ", i, ": ");
@@ -51,15 +51,15 @@ void main() {
 )
 
 $(LI
-The explanations are included as code comments:
+解释包含在代码说明中：
 
 ---
 import std.stdio;
 import std.algorithm;
 
 void main() {
-    // Using dynamic arrays because it is not known how many
-    // values are going to be read from the input
+    // 使用动态数组的原因是不知道有多少
+    // 值要从输入流中读取
     int[] odds;
     int[] evens;
 
@@ -67,18 +67,18 @@ void main() {
 
     while (true) {
 
-        // Reading the value
+        // 从输入流中读取值
         int value;
         readf(" %s", &value);
 
-        // The special value of -1 breaks the loop
+        // 特殊值 -1 中断循环
         if (value == -1) {
             break;
         }
 
-        // Adding to the corresponding array, depending on
-        // whether the value is odd or even. It is an even
-        // number if there is no remainder when divided by 2.
+        // 根据值的奇偶性，把值添加到
+        //相应的数组。如果值被 2 
+        // 整除而没有余数，那这个数就是偶数。
         if ((value % 2) == 0) {
             evens ~= value;
 
@@ -87,17 +87,17 @@ void main() {
         }
     }
 
-    // The odds and evens arrays are sorted separately
+    // 分别排序奇偶数的数组
     sort(odds);
     sort(evens);
 
-    // The two arrays are then appended to form a new array
+    // 连接两个数组从而形成一个新数组
     int[] result;
     result = odds ~ evens;
 
     writeln("First the odds then the evens, sorted:");
 
-    // Printing the array elements in a loop
+    // 在循环中输出数组元素
     int i;
     while (i < result.length) {
         write(result[i], " ");
@@ -111,14 +111,14 @@ void main() {
 )
 
 $(LI
-There are three mistakes (bugs) in this program. The first two are with the $(C while) loops: Both of the loop conditions use the $(C <=) operator instead of the $(C <) operator. As a result, the program uses invalid indexes and attempts to access elements that are not parts of the arrays.
+程序有三个错误(bugs)。前两个与 $(C while) 循环有关： 循环条件都用了 $(C <=) 运算符而没用 $(C <) 运算符。因此，程序使用了无效的索引，试图访问不在数组中的元素。
 
 $(P
-Since it is more beneficial for you to debug the third mistake yourself, I would like you to first run the program after fixing the previous two bugs. You will notice that the program will not print the results. Can you figure out the remaining problem before reading the following paragraph?
+自行调试第三个错误对你来说更有益，建议你在修复了前两个 bug 之后先运行一下程序。你将注意到程序不会输出结果。在没有读下面这段话之前你能指出剩下的问题吗？
 )
 
 $(P
-The value of $(C i) is 5 when the first $(C while) loop terminates, and that value is causing the logical expression of the second loop to be $(C false), which in turn is preventing the second loop to be entered. The solution is to reset $(C i) to 0 before the second $(C while) loop, for example with the statement $(C i = 0;)
+当第一个 $(C while) 循环结束时 $(C i) 值为 5，该值使得第二个循环的逻辑表达式的值为 $(C false)，因此进入不了第二个循环。 解决办法就是在第二个 $(C while) 循环前重设 $(C i) 为 0，比如使用语句 $(C i = 0;)
 )
 
 )
@@ -126,8 +126,8 @@ The value of $(C i) is 5 when the first $(C while) loop terminates, and that val
 )
 
 Macros:
-        SUBTITLE=Arrays Solutions
+        SUBTITLE=数组习题解答
 
-        DESCRIPTION=Programming in D exercise solutions: arrays
+        DESCRIPTION=D 语言编程习题解答：数组
 
-        KEYWORDS=programming in d tutorial arrays solution
+        KEYWORDS=D 语言编程教程 数组 习题解答
