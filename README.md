@@ -72,10 +72,10 @@ Instead of falling for getting things done quickly, "Programming in D" focuses o
 - [左值与右值 Lvalues and Rvalues](ddili/src/ders/d.cn/lvalue_rvalue.d) By mogu
 - [三元运算符 ?: Ternary Operator ?:](ddili/src/ders/d.cn/ternary.d) By IceNature
 - [模板 Templates](ddili/src/ders/d.cn/templates.d) By meatatt
-- [通用函數調用語法 Universal Function Call Syntax (UFCS)](ddili/src/ders/d.cn/ufcs.d) By mogu
-- [屬性 Properties](ddili/src/ders/d.cn/property.d) By IceNature
-- [const ref 參數 and const 成員函數 const ref Parameters and const Member Functions](ddili/src/ders/d.cn/const_member_functions.d) By IceNature
-- [格式化輸出 Formatted Output](ddili/src/ders/d.cn/formatted_output.d) By IceNature
+- [通用函数调用语法 Universal Function Call Syntax (UFCS)](ddili/src/ders/d.cn/ufcs.d) By mogu
+- [属性 Properties](ddili/src/ders/d.cn/property.d) By IceNature
+- [const ref 参数 and const 成员函数 const ref Parameters and const Member Functions](ddili/src/ders/d.cn/const_member_functions.d) By IceNature
+- [格式化输出 Formatted Output](ddili/src/ders/d.cn/formatted_output.d) By IceNature
 - [Pragmas](ddili/src/ders/d.cn/pragma.d) By mogu
 
 ### Reviewing 审核中
