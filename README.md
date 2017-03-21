@@ -72,6 +72,11 @@ Instead of falling for getting things done quickly, "Programming in D" focuses o
 - [左值与右值 Lvalues and Rvalues](ddili/src/ders/d.cn/lvalue_rvalue.d) By mogu
 - [三元运算符 ?: Ternary Operator ?:](ddili/src/ders/d.cn/ternary.d) By IceNature
 - [模板 Templates](ddili/src/ders/d.cn/templates.d) By meatatt
+- [通用函數調用語法 Universal Function Call Syntax (UFCS)](ddili/src/ders/d.cn/ufcs.d) By mogu
+- [屬性 Properties](ddili/src/ders/d.cn/property.d) By IceNature
+- [const ref 參數 and const 成員函數 const ref Parameters and const Member Functions](ddili/src/ders/d.cn/const_member_functions.d) By IceNature
+- [格式化輸出 Formatted Output](ddili/src/ders/d.cn/formatted_output.d) By IceNature
+- [Pragmas](ddili/src/ders/d.cn/pragma.d) By mogu
 
 ### Reviewing 审核中
 - [Slices and Other Array Features](ddili/src/ders/d.cn/slices.d) By 大处着手小处着眼
@@ -93,12 +98,13 @@ Instead of falling for getting things done quickly, "Programming in D" focuses o
 - [Ranges](ddili/src/ders/d.cn/ranges.d) By Lucifer
 - [while Loop](ddili/src/ders/d.cn/while.d) By KimmyLeo
 - [Redirecting Standard Input and Output Streams](ddili/src/ders/d.cn/stream_redirect.d) By mogu
-- [Pragmas](ddili/src/ders/d.cn/pragma.d) By mogu
-- [Universal Function Call Syntax (UFCS)](ddili/src/ders/d.cn/ufcs.d) By mogu
-- [const ref Parameters and const Member Functions](ddili/src/ders/d.cn/const_member_functions.d) By IceNature
 - [Function Pointers, Delegates, and Lambdas](ddili/src/ders/d.cn/lambda.d) By zhaopuming
 - [Modules and Libraries](ddili/src/ders/d.cn/modules.d) By 大处着手小处着眼
 - [Variable Number of Parameters](ddili/src/ders/d.cn/parameter_flexibility.d) By meatatt
+- [Conditional Compilation](ddili/src/ders/d.cn/cond_comp.d) By IceNature
+- [Immutability](ddili/src/ders/d.cn/const_and_immutable.d) By IceNature
+- [Type Conversions](ddili/src/ders/d.cn/cast.d) By IceNature
+- [Formatted Input](ddili/src/ders/d.cn/formatted_input.d) By IceNature
 
 ### Orphans 待领取
 - [Foreword by Andrei Alexandrescu](ddili/src/ders/d.cn/foreword2.d)
@@ -108,13 +114,10 @@ Instead of falling for getting things done quickly, "Programming in D" focuses o
 - [Characters](ddili/src/ders/d.cn/characters.d)
 - [for Loop](ddili/src/ders/d.cn/for.d)
 - [Literals](ddili/src/ders/d.cn/literals.d)
-- [Formatted Output](ddili/src/ders/d.cn/formatted_output.d)
-- [Formatted Input](ddili/src/ders/d.cn/formatted_input.d)
 - [foreach Loop](ddili/src/ders/d.cn/foreach.d)
 - [switch and case](ddili/src/ders/d.cn/switch_case.d)
 - [enum](ddili/src/ders/d.cn/enum.d)
 - [Functions](ddili/src/ders/d.cn/functions.d)
-- [Immutability](ddili/src/ders/d.cn/const_and_immutable.d)
 - [Value Types and Reference Types](ddili/src/ders/d.cn/value_vs_reference.d)
 - [Function Parameters](ddili/src/ders/d.cn/function_parameters.d)
 - [Program Environment](ddili/src/ders/d.cn/main.d)
@@ -122,7 +125,6 @@ Instead of falling for getting things done quickly, "Programming in D" focuses o
 - [Unit Testing](ddili/src/ders/d.cn/unit_testing.d)
 - [Contract Programming](ddili/src/ders/d.cn/contracts.d)
 - [The null Value and the is Operator](ddili/src/ders/d.cn/null_is.d)
-- [Type Conversions](ddili/src/ders/d.cn/cast.d)
 - [Structs](ddili/src/ders/d.cn/struct.d)
 - [Function Overloading](ddili/src/ders/d.cn/function_overloading.d)
 - [Member Functions](ddili/src/ders/d.cn/member_functions.d)
@@ -132,11 +134,9 @@ Instead of falling for getting things done quickly, "Programming in D" focuses o
 - [Interfaces](ddili/src/ders/d.cn/interface.d)
 - [destroy and scoped](ddili/src/ders/d.cn/destroy.d)
 - [Encapsulation and Protection Attributes](ddili/src/ders/d.cn/encapsulation.d)
-- [Properties](ddili/src/ders/d.cn/property.d)
 - [Contract Programming for Structs and Classes](ddili/src/ders/d.cn/invariant.d)
 - [Pointers](ddili/src/ders/d.cn/pointers.d)
 - [Bit Operations](ddili/src/ders/d.cn/bit_operations.d)
-- [Conditional Compilation](ddili/src/ders/d.cn/cond_comp.d)
 - [foreach with Structs and Classes](ddili/src/ders/d.cn/foreach_opapply.d)
 - [Nested Functions, Structs, and Classes](ddili/src/ders/d.cn/nested.d)
 - [Unions](ddili/src/ders/d.cn/union.d)
