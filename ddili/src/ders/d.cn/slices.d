@@ -1,66 +1,66 @@
 Ddoc
 
-$(DERS_BOLUMU $(IX slice) $(IX array) Slices and Other Array Features)
+$(DERS_BOLUMU $(IX slice) $(IX 数组) 切片和其它的数组特征)
 
 $(P
-We have seen in the $(LINK2 /ders/d.en/arrays.html, Arrays chapter) how elements are grouped as a collection in an array. That chapter was intentionally brief, leaving most of the features of arrays to this chapter.
+在 $(LINK2 /ders/d.cn/arrays.html, 数组) 一章中我们已经看到元素是如何被整理为一个数组中的集合。那章是比较简短，数组的大部分特征都留在这一章来讲。
 )
 
 $(P
-Before going any further, here are a few brief definitions of some of the terms that happen to be close in meaning:
+在细讲特征之前，先简单介绍一些意思相近的术语：
 )
 
 $(UL
 
-$(LI $(B Array:) The general concept of a group of elements that are located side by side and are accessed by indexes.
+$(LI $(B 数组：) 通常是指被逐个放置并通过索引来访问的一组元素。
 )
 
 $(LI
-$(B Fixed-length array (static array):) An array with a fixed number of elements. This type of array owns its elements.
+$(B 定长数组（静态数组）：) 有固定数量元素的数组。该类型数组拥有自己的元素。
 )
 
 $(LI
-$(B Dynamic array:) An array that can gain or lose elements. This type of array provides access to elements that are owned by the D runtime environment.
+$(B 动态数组：)能获得或失去元素的数组。该类数组允许访问受 D 运行时环境管理的元素。
 )
 
-$(LI $(B Slice:) Another name for $(I dynamic array).
+$(LI $(B 切片：)$(I 动态数组)的另一名称。
 )
 
-)
-
-$(P
-When I write $(I slice) I will specifically mean a slice; and when I write $(I array), I will mean either a slice or a fixed-length array, with no distinction.
-)
-
-$(H5 Slices)
-
-$(P
-Slices are the same feature as dynamic arrays. They are called $(I dynamic arrays) for being used like arrays, and are called $(I slices) for providing access to portions of other arrays. They allow using those portions as if they are separate arrays.
 )
 
 $(P
-$(IX .., slice element range) Slices are defined by the $(I number range) syntax that correspond to the indexes that specify the beginning and the end of the range:
+书中的 $(I slice) 特指 slice（切片）；$(I 数组)指 slice 或定长数组，没有区别。
+)
+
+$(H5 切片)
+
+$(P
+切片与动态数组的特征一致。当它的用法像数组时称为$(I 动态数组)，当它可以访问别的数组接口时称为$(I 切片)。它们允许使用那些接口，就像它们是独立的数组。
+)
+
+$(P
+$(IX .., 切片元素范围) 切片由$(I 数量范围)语法定义，该语法与范围的开始、结束索引相对应：
 )
 
 ---
-  $(I beginning_index) .. $(I one_beyond_the_end_index)
+  $(I 开始索引) .. $(I 超出的结束索引)
 ---
 
 $(P
-In the number range syntax, the beginning index is a part of the range but the end index is outside of the range:
+在数量范围的语法中，开始索引是范围的一部分，但结束索引在范围之外：
 )
 
 ---
-/* ... */ = monthDays[0 .. 3];  // 0, 1, and 2 are included; but not 3
+/* ... */ = monthDays[0 .. 3];  // 0，1，和 2 包括在内，但不含 3
 ---
 
 $(P
-$(I $(B Note:) Number ranges are different from Phobos ranges. Phobos ranges are about struct and class interfaces. We will see these features in later chapters.
+$(I $(B 注：)数量范围与 Phobos 的 range 不同。Phobos 的 range 与 struct 和 class 接口有关。在后面的章节中我们将看到这些特征。
 )
 )
 
 $(P
-As an example, we can $(I slice) the $(C monthDays) array to be able to use its parts as four smaller arrays:
+举个例子，我们$(I 裁减)一下 $(C monthDays) 数组，以便把它用作四个小数组：
 )
 
 ---
@@ -74,7 +74,7 @@ As an example, we can $(I slice) the $(C monthDays) array to be able to use its 
 ---
 
 $(P
-The four variables in the code above are slices; they provide access to four parts of an already existing array. An important point worth stressing here is that those slices do not have their own elements. They merely provide access to the elements of the actual array. Modifying an element of a slice modifies the element of the actual array. To see this, let's modify the first elements of each slice and then print the actual array:
+上面代码中的四个变量就是切片；它们可以访问现有数组的四个部分。值得强调的一点是，这些切片不拥有自己的元素。它们只能访问实际数组的元素。修改切片的元素就会修改实际数组的元素。让我们修改一下每个切片的第一个元素，然后打印实际的数组来看一看：
 )
 
 ---
@@ -87,7 +87,7 @@ The four variables in the code above are slices; they provide access to four par
 ---
 
 $(P
-The output:
+输出：
 )
 
 $(SHELL
@@ -95,24 +95,24 @@ $(SHELL
 )
 
 $(P
-Each slice modifies its first element, and the corresponding element of the actual array is affected.
+每个切片修改了第一个元素，实际数组的相应元素受到了影响。
 )
 
 $(P
-We have seen earlier that valid array indexes are from 0 to one less than the length of the array. For example, the valid indexes of a 3-element array are 0, 1, and 2. Similarly, the end index in the slice syntax specifies one beyond the last element that the slice will be providing access to. For that reason, when the last element of an array needs to be included in a slice, the length of the array must be specified as the end index. For example, a slice of all elements of a 3-element array would be $(C array[0..3]).
+前面我们已经看到，有效的数组索引是从 0 到一个小于数组长度的值。例如，3 个元素数组的有效索引是 0，1 和 2。同样地，在切片语法中结束索引特指超过切片能访问的最后一个元素的索引。因此，当需要把数组的最后一个元素包括在切片中时，就必须把数组的长度值指定为结束索引。例如，一个包含 3 个元素数组的全部元素的切片会是 $(C array[0..3])。
 )
 
 $(P
-An obvious limitation is that the beginning index cannot be greater than the end index:
+一个明显的限制是开始索引不能大于结束索引：
 )
 
 ---
     int[3] array = [ 0, 1, 2 ];
-    int[] slice = array[2 .. 1];  // ← run-time ERROR
+    int[] slice = array[2 .. 1];  // ←运行时错误
 ---
 
 $(P
-It is legal to have the beginning and the end indexes to be equal. In that case the slice is empty. Assuming that $(C index) is valid:
+开始索引和结束索引相等是合法的。这种情况下切片是空的。假设 $(C index) 有效：
 )
 
 ---
@@ -121,28 +121,28 @@ It is legal to have the beginning and the end indexes to be equal. In that case 
 ---
 
 $(P
-The output:
+输出：
 )
 
 $(SHELL
 The length of the slice: 0
 )
 
-$(H5 $(IX $, slice length) Using $(C $), instead of $(C array.length))
+$(H5 $(IX $, 切片长度)使用 $(C $)，而不是 $(C array.length))
 
 $(P
-When indexing, $(C $) is a shorthand for the length of the array:
+在索引中，$(C $) 是数组长度的简写：
 )
 
 ---
-    writeln(array[array.length - 1]);  // the last element
-    writeln(array[$ - 1]);             // the same thing
+    writeln(array[array.length - 1]);  // 最后一个元素
+    writeln(array[$ - 1]);             // 同上
 ---
 
-$(H5 $(IX .dup) $(IX copy, array) Using $(C .dup) to copy)
+$(H5 $(IX .dup) $(IX 复制, 数组) 使用 $(C .dup) 复制)
 
 $(P
-Short for "duplicate", the $(C .dup) property makes a new array from the copies of the elements of an existing array:
+作为“duplicate（复制）”的简写，$(C .dup) property（属性）从现有数组元素的副本中生成一个新的数组：
 )
 
 ---
@@ -151,7 +151,7 @@ Short for "duplicate", the $(C .dup) property makes a new array from the copies 
 ---
 
 $(P
-As an example, let's define an array that contains the number of days of the months of a leap year. A method is to take a copy of the non-leap-year array and then to increment the element that corresponds to February:
+作为一个例子，让我们来定义一个包含某个闰年的月份天数的数组。一种方法是取非闰年数组的一个副本，然后递增相应的二月份的元素：
 )
 
 ---
@@ -163,7 +163,7 @@ void main() {
 
     int[] leapYear = monthDays$(HILITE .dup);
 
-    ++leapYear[1];   // increments the days in February
+    ++leapYear[1];   // 递增二用份的天数
 
     writeln("Non-leap year: ", monthDays);
     writeln("Leap year    : ", leapYear);
@@ -171,7 +171,7 @@ void main() {
 ---
 
 $(P
-The output:
+输出：
 )
 
 $(SHELL_SMALL
@@ -179,22 +179,22 @@ Non-leap year: [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
 Leap year    : [31, $(HILITE 29), 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
 )
 
-$(H5 $(IX assignment, array) Assignment)
+$(H5 $(IX 赋值, 数组) 赋值)
 
 $(P
-We have seen so far that the assignment operator $(I modifies) values of variables. It is the same with fixed-length arrays:
+到目前为止，我们已经看到赋值运算符可以$(I 修改)变量的值。对定长数组这个同样有效：
 )
 
 ---
     int[3] a = [ 1, 1, 1 ];
     int[3] b = [ 2, 2, 2 ];
 
-    a = b;        // the elements of 'a' become 2
+    a = b;        // ‘a’的元素变为了 2
     writeln(a);
 ---
 
 $(P
-The output:
+输出：
 )
 
 $(SHELL
@@ -202,14 +202,14 @@ $(SHELL
 )
 
 $(P
-The assignment operation has a completely different meaning for slices: It makes the slice start providing access to new elements:
+赋值操作对切片有完全不同的含义：它让切片可以访问新元素：
 )
 
 ---
     int[] odds = [ 1, 3, 5, 7, 9, 11 ];
     int[] evens = [ 2, 4, 6, 8, 10 ];
 
-    int[] slice;   // not providing access to any elements yet
+    int[] slice;   // 还不能访问任何元素
 
     $(HILITE slice =) odds[2 .. $ - 2];
     writeln(slice);
@@ -219,7 +219,7 @@ The assignment operation has a completely different meaning for slices: It makes
 ---
 
 $(P
-Above, $(C slice) does not provide access to any elements when it is defined. It is then used to provide access to some of the elements of $(C odds), and later to some of the elements of $(C evens):
+上面的 $(C slice) 在定义时不能访问任何元素。赋值后它就可以访问 $(C odds) 数组的部分元素，以及后来可以访问 $(C evens) 数组的部分元素：
 )
 
 $(SHELL
@@ -227,14 +227,14 @@ $(SHELL
 [4, 6, 8]
 )
 
-$(H5 Making a slice longer may terminate sharing)
+$(H5 生成更长的切片可以终止共享)
 
 $(P
-Since the length of a fixed-length array cannot be changed, the concept of $(I termination of sharing) is only about slices.
+由于定长数组的长度不能修改，因此$(I 终止共享)的概念仅与切片有关。
 )
 
 $(P
-It is possible to access the same elements by more than one slice. For example, the first two of the eight elements below are being accessed through three slices:
+可以让一个以上的切片来访问相同的元素。例如，通过三个切片可以访问下面八个元素中的前两个：
 )
 
 ---
@@ -245,7 +245,7 @@ void main() {
     int[] half = slice[0 .. $ / 2];
     int[] quarter = slice[0 .. $ / 4];
 
-    quarter[1] = 0;     // modify through one slice
+    quarter[1] = 0;     // 通过一个切片修改
 
     writeln(quarter);
     writeln(half);
@@ -254,7 +254,7 @@ void main() {
 ---
 
 $(P
-The effect of the modification to the second element of $(C quarter) is seen through all slices:
+通过所有的切片可以看到修改 $(C quarter) 的第二个元素所产生的效果：
 )
 
 $(SHELL
@@ -264,27 +264,27 @@ $(SHELL
 )
 
 $(P
-$(IX stomping) When viewed this way, slices provide $(I shared) access to elements. This sharing opens the question of what happens when a new element is added to one of the slices. Since multiple slices can provide access to same elements, there may not be room to add elements to a slice without $(I stomping) on the elements of others.
+$(IX stomping) 当这样查看时, 切片提供元素的$(I 共享)访问。当给这样的切片添加新元素时，这种共享可能会有麻烦。由于多个切片可以访问相同的元素，若切片没有空间添加元素，那么在别的切片元素上就没有 $(I stomping（覆盖）)。
 )
 
 $(P
-D disallows element stomping and answers this question by terminating the sharing relationship if there is no room for the new element: The slice that has no room to grow leaves the sharing. When this happens, all of the existing elements of that slice are copied to a new place automatically and the slice starts providing access to these new elements.
+如果没有为新元素留出空间，D 就不允许元素 stomping，并且通过终止共享关系来回应这个问题：没有成长空间的切片会停止共享。当这种情况发生时，切片所有的现有元素都被自动复制到一个新的地方，然后切片会提供对这些新元素的访问。
 )
 
 $(P
-To see this in action, let's add an element to $(C quarter) before modifying its second element:
+为看到这种行为，让我们在修改第二个元素之前给 $(C quarter) 添加一个元素：
 )
 
 ---
-    quarter ~= 42;    // this slice leaves the sharing because
-                      // there is no room for the new element
+    quarter ~= 42;    // 切片停止了共享，因为
+                      // 没有为新元素留出空间
 
-    quarter[1] = 0;   // for that reason this modification
-                      // does not affect the other slices
+    quarter[1] = 0;   //因此，这样的修改
+                      // 不会影响到别的切片
 ---
 
 $(P
-The output of the program shows that the modification to the $(C quarter) slice does not affect the others:
+程序的输出显示，对 $(C quarter) 切片的修改没有影响到其它切片：
 )
 
 $(SHELL
@@ -294,37 +294,37 @@ $(SHELL
 )
 
 $(P
-Explicitly increasing the length of a slice makes it leave the sharing as well:
+明确增加切片的长度也会让它远离共享：
 )
 
 ---
-    ++quarter.length;       // leaves the sharing
+    ++quarter.length;       // 没有共享
 ---
 
 $(P
-or
+或者
 )
 
 ---
-    quarter.length += 5;    // leaves the sharing
+    quarter.length += 5;    // 没有共享
 ---
 
 $(P
-On the other hand, shortening a slice does not affect sharing. Shortening the slice merely means that the slice now provides access to fewer elements:
+另一方面，缩短切片不会影响共享。缩短切片仅仅意味着切片可以访问较少的元素：
 )
 
 ---
     int[] a = [ 1, 11, 111 ];
     int[] d = a;
 
-    d = d[1 .. $];  // shortening from the beginning
-    d[0] = 42;      // modifying the element through the slice
+    d = d[1 .. $];  // 从开始位置缩短
+    d[0] = 42;      // 通过切片修改元素
 
-    writeln(a);     // printing the other slice
+    writeln(a);     // 输出别的切片
 ---
 
 $(P
-As can be seen from the output, the modification through $(C d) is seen through $(C a); the sharing is still in effect:
+从输出中可以看出，通过 $(C a) 可以看到对 $(C d) 的修改；共享仍然有效：
 )
 
 $(SHELL
@@ -332,23 +332,23 @@ $(SHELL
 )
 
 $(P
-Reducing the length in different ways does not terminate the sharing either:
+以不同方式减少长度都不会终止共享：
 )
 
 ---
-    d = d[0 .. $ - 1];         // shortening from the end
-    --d.length;                // same thing
-    d.length = d.length - 1;   // same thing
+    d = d[0 .. $ - 1];         // 从末端缩短
+    --d.length;                // 同上
+    d.length = d.length - 1;   // 同上
 ---
 
 $(P
-Sharing of elements is still in effect.
+元素的共享仍然有效。
 )
 
-$(H6 $(IX .capacity) Using $(C capacity) to determine whether sharing will be terminated)
+$(H6 $(IX .capacity) 使用 $(C capacity) 来确定是否会终止共享)
 
 $(P
-There are cases when slices continue sharing elements even after an element is added to one of them. This happens when the element is added to the longest slice and there is room at the end of it:
+有时候，在元素添加到其中的一个切片后，切片仍继续共享元素。这是因为，当元素添加到最长的切片上时，在末端留有空间：
 )
 
 ---
@@ -359,8 +359,8 @@ void main() {
     int[] half = slice[0 .. $ / 2];
     int[] quarter = slice[0 .. $ / 4];
 
-    slice ~= 42;      // adding to the longest slice ...
-    $(HILITE slice[1] = 0);     // ... and then modifying an element
+    slice ~= 42;      // 添加到最长的切片上 ...
+    $(HILITE slice[1] = 0);     // ... 修改一个元素
 
     writeln(quarter);
     writeln(half);
@@ -369,7 +369,7 @@ void main() {
 ---
 
 $(P
-As seen in the output, although the added element increases the length of a slice, the sharing has not been terminated, and the modification is seen through all slices:
+在输出中可以看到，虽然添加元素增加了切片的长度，共享还没有终止，通过所有的切片可以看到修改：:
 )
 
 $(SHELL
@@ -379,39 +379,39 @@ $(SHELL
 )
 
 $(P
-The $(C capacity) property of slices determines whether the sharing will be terminated if an element is added to a particular slice. ($(C capacity) is actually a function but this distinction does not have any significance in this discussion.)
+一个元素添加到特定切片上时，切片的 $(C capacity) property（属性）决定了共享是否会终止。虽然 ($(C capacity) 实际上是个函数，但讨论这种差别没有任何意义。)
 )
 
 $(P
-The value of $(C capacity) has the following meanings:
+$(C capacity) 的值具有如下含义：
 )
 
 $(UL
 
 $(LI
-When its value is 0, it means that this is not the longest original slice. In this case, adding a new element would definitely relocate the elements of the slice and the sharing would terminate.
+值为 0，表示这不是最长的原始切片。在这种情况下，添加新元素一定会迁移切片的元素，并且共享将终止。
 )
 
 $(LI
-When its value is nonzero, it means that this is the longest original slice. In this case $(C capacity) denotes the total number of elements that this slice can hold without needing to be copied. The number of $(I new elements) that can be added can be calculated by subtracting the actual length of the slice from the capacity value. If the length of the slice equals its capacity, then the slice will be copied to a new location if one more element is added.)
+值为非零时，则表示这是最长的原始切片。这种情况下， $(C capacity) 表示切片拥有的不需要被复制的元素总数。可以加入的 $(I 新元素) 的数量可以通过从容量值中减去切片的实际长度来计算。如果切片的长度等于它的容量，那么添加一个以上的元素时，切片将被复制到新的位置。)
 
 )
 
 $(P
-Accordingly, a program that needs to determine whether the sharing will terminate should use a logic similar to the following:
+因此，需要确定共享是否终止的程序可以使用类似于下面的逻辑：
 )
 
 ---
     if (slice.capacity == 0) {
-        /* Its elements would be relocated if one more element
-         * is added to this slice. */
+        /* 如果一个以上的元素添加到切片上时，它的元素
+         * 的位置会迁移。*/
 
         // ...
 
     } else {
-        /* This slice may have room for new elements before
-         * needing to be relocated. Let's calculate how
-         * many: */
+        /* 在切片迁移之前，切片还有空间
+         * 存储新元素。让我们计算
+         * 一下还需要多少：*/
         auto howManyNewElements = slice.capacity - slice.length;
 
         // ...
@@ -419,14 +419,14 @@ Accordingly, a program that needs to determine whether the sharing will terminat
 ---
 
 $(P
-An interesting corner case is when there are more than one slice to $(I all elements). In such a case all slices report to have capacity:
+一个有趣的不引人注意的情况是，当有一个以上的切片拥有$(I 所有的元素)时，这种情况下，所有的切片都会报告有 capacity：
 )
 
 ---
 import std.stdio;
 
 void main() {
-    // Three slices to all elements
+    // 三个切片拥有全部元素
     int[] s0 = [ 1, 2, 3, 4 ];
     int[] s1 = s0;
     int[] s2 = s0;
@@ -438,7 +438,7 @@ void main() {
 ---
 
 $(P
-All three have capacity:
+三个都有 capacity：
 )
 
 $(SHELL
@@ -448,11 +448,11 @@ $(SHELL
 )
 
 $(P
-However, as soon as an element is added to one of the slices, the capacity of the others drop to 0:
+然而，一旦其中的一个切片添加了一个元素， 其它切片的容量就降为了 0：
 )
 
 ---
-    $(HILITE s1 ~= 42);    $(CODE_NOTE s1 becomes the longest)
+    $(HILITE s1 ~= 42);    $(CODE_NOTE s1 变为了最长的)
 
     writeln(s0.capacity);
     writeln(s1.capacity);
@@ -460,19 +460,19 @@ However, as soon as an element is added to one of the slices, the capacity of th
 ---
 
 $(P
-Since the slice with the added element is now the longest, it is the only one with capacity:
+由于现在最长的切片是添加元素的那个，它是唯一有 capacity 的切片：
 )
 
 $(SHELL
 0
-7        $(SHELL_NOTE now only s1 has capacity)
+7        $(SHELL_NOTE 现在只有 s1 有 capacity)
 0
 )
 
-$(H6 $(IX .reserve) Reserving room for elements)
+$(H6 $(IX .reserve) 为元素预留空间)
 
 $(P
-Both copying elements and allocating new memory to increase capacity have some cost. For that reason, appending an element can be an expensive operation. When the number of elements to append is known before hand, it is possible to reserve capacity for the elements:
+无论复制元素还是分配新内存对增加 capacity 都有一定的成本。因此，附加元素应该是一个昂贵的操作。当要附加的元素数目已知时，就可以为元素预留容量：
 )
 
 ---
@@ -485,31 +485,31 @@ void main() {
     writeln(slice.capacity);
 
     foreach (element; 0 .. $(HILITE 17)) {
-        slice ~= element;  $(CODE_NOTE these elements will not be moved)
+        slice ~= element;  $(CODE_NOTE 这些元素将不会移动)
     }
 }
 ---
 
 $(SHELL
-31        $(SHELL_NOTE Capacity for at least 20 elements)
+31        $(SHELL_NOTE 至少有 20 个元素的容量)
 )
 
 $(P
-The elements of $(C slice) would be moved only after there are more than 31 elements.
+$(C slice) 的元素在超过 31 个时将会移动。
 )
 
-$(H5 $(IX array-wise operation) $(IX elements, operation on all) Operations on all elements)
+$(H5 $(IX 数组方式操作) $(IX 元素, 全部操作)所有元素上的操作)
 
 $(P
-This feature is for both fixed-length arrays and slices.
-)
-
-$(P
-The $(C []) characters written after the name of an array means $(I all elements). This feature simplifies the program when certain operations need to be applied to all of the elements of an array.
+定长数组和切片都有这个特征。
 )
 
 $(P
-$(I $(B Note:) dmd 2.071, the compiler that was used to compile the examples in this chapter, did not fully support this feature yet. For that reason, some of the examples below use only fixed-length arrays.)
+数组名后写出的 $(C []) 字符意味着$(I 全部元素)。当某些操作需要被应用到数组的所有元素时该特征简化了程序。
+)
+
+$(P
+$(I $(B 注：) dmd 2.071，是用来编译本章例子的编译器，还没有完全支持这一特征呢。因此，下面只使用一些定长数组的例子。)
 )
 
 ---
@@ -526,7 +526,7 @@ void main() {
 ---
 
 $(P
-The output:
+输出：
 )
 
 $(SHELL
@@ -534,19 +534,19 @@ $(SHELL
 )
 
 $(P
-The addition operation in that program is applied to the corresponding elements of both of the arrays in order: First the first elements are added, then the second elements are added, etc. A natural requirement is that the lengths of the two arrays must be equal.
+在上面的程序中，加法操作被依次应用到两个数组的相应元素上：首先是第一对元素相加，然后是第二对元素相加，以此类推。这自然要求两个数组的长度必须相等。
 )
 
 $(P
-The operator can be one of the arithmetic operators $(C +), $(C -), $(C *), $(C /), $(C %), and $(C ^^); one of the binary operators $(C ^), $(C &), and $(C |); as well as the unary operators $(C -) and $(C ~) that are typed in front of an array. We will see some of these operators in later chapters.
+运算符可以是算术运算符之一 $(C +)，$(C -)，$(C *)，$(C /)，$(C %) 和 $(C ^^)；二元运算符之一 $(C ^)，$(C &) 和 $(C |)；以及在数组前面键入的一元运算符 $(C -) 和 $(C ~)。在后面的章节中我们将看到一些运算符。
 )
 
 $(P
-The assignment versions of these operators can also be used: $(C =), $(C +=), $(C -=), $(C *=), $(C /=), $(C %=), $(C ^^=), $(C ^=), $(C &=), and $(C |=).
+这些运算符的赋值版本也可以使用：$(C =)，$(C +=)，$(C -=)，$(C *=)，$(C /=)，$(C %=)，$(C ^^=)，$(C ^=)，$(C &=) 和 $(C |=)。
 )
 
 $(P
-This feature works not only using two arrays; it can also be used with an array and a compatible expression. For example, the following operation divides all elements of an array by four:
+这个特征不只是使用两个数组时才可以这样；单个数组和一个复合表达式也可以。例如，下面的操作让数组的全部元素都除以四：
 )
 
 ---
@@ -557,7 +557,7 @@ This feature works not only using two arrays; it can also be used with an array 
 ---
 
 $(P
-The output:
+输出：
 )
 
 $(SHELL
@@ -565,7 +565,7 @@ $(SHELL
 )
 
 $(P
-To assign a specific value to all elements:
+给所有的元素赋一个特定值：
 )
 
 ---
@@ -574,7 +574,7 @@ To assign a specific value to all elements:
 ---
 
 $(P
-The output:
+输出：
 )
 
 $(SHELL
@@ -582,24 +582,24 @@ $(SHELL
 )
 
 $(P
-This feature requires great attention when used with slices. Although there is no apparent difference in element values, the following two expressions have very different meanings:
+在使用切片时，这个特征需要高度重视。虽然下面两个表达式的元素值没有明显的差异，但含义明显不同：
 )
 
 ---
-    slice2 = slice1;      // ← slice2 starts providing access
-                          //   to the same elements that
-                          //   slice1 provides access to
+    slice2 = slice1;      // ← slice2 开始提供
+                          // 对 slice1 所提供的
+                          //   相同元素的访问
 
-    slice3[] = slice1;    // ← the values of the elements of
-                          //   slice3 change
+    slice3[] = slice1;    // ←修改  slice3
+                          //   访问
 ---
 
 $(P
-The assignment of $(C slice2) makes it share the same elements as $(C slice1). On the other hand, since $(C slice3[]) means $(I all elements of $(C slice3)), the values of its elements become the same as the values of the elements of $(C slice1). The effect of the presence or absence of the $(C []) characters cannot be ignored.
+$(C slice2) 的赋值使得它与 $(C slice1) 共享相同的元素。另一方面，由于 $(C slice3[]) 指的是 $(C slice3) 的$(I 全部元素)，元素的值变为与 $(C slice1) 的元素值一致。$(C []) 字符存不存在的影响不能忽略。
 )
 
 $(P
-We can see an example of this difference in the following program:
+在下面的程序中我们能看到这种差异：
 )
 
 ---
@@ -610,23 +610,23 @@ void main() {
     double[] slice2 = [ 2, 2, 2 ];
     double[] slice3 = [ 3, 3, 3 ];
 
-    slice2 = slice1;      // ← slice2 starts providing access
-                          //   to the same elements that
-                          //   slice1 provides access to
+    slice2 = slice1;      // ← slice2 开始提供
+                          // 对 slice1 所提供的
+                          //   相同元素的访问
 
-    slice3[] = slice1;    // ← the values of the elements of
-                          //   slice3 change
+    slice3[] = slice1;    // ←修改  slice3
+                          //    的元素值
 
     writeln("slice1 before: ", slice1);
     writeln("slice2 before: ", slice2);
     writeln("slice3 before: ", slice3);
 
-    $(HILITE slice2[0] = 42);       // ← the value of an element that
-                          //   it shares with slice1 changes
+    $(HILITE slice2[0] = 42);       // ← 它与 slice1 共享元素值的
+                          //  变化
 
-    slice3[0] = 43;       // ← the value of an element that
-                          //   only it provides access to
-                          //   changes
+    slice3[0] = 43;       // ← 它只提供对
+                          //   该变化值的
+                          //   访问
 
     writeln("slice1 after : ", slice1);
     writeln("slice2 after : ", slice2);
@@ -635,7 +635,7 @@ void main() {
 ---
 
 $(P
-The modification through $(C slice2) affects $(C slice1) too:
+通过 $(C slice2) 的修改也会影响 $(C slice1)：
 )
 
 $(SHELL
@@ -648,17 +648,17 @@ slice3 after : [43, 1, 1]
 )
 
 $(P
-The danger here is that the potential bug may not be noticed until after the value of a shared element is changed.
+此处的危险是潜在的 bug 直到共享的元素值有了变化时才让人注意到。
 )
 
-$(H5 $(IX multi-dimensional array) Multi-dimensional arrays)
+$(H5 $(IX 多维数组) 多维数组)
 
 $(P
-So far we have used arrays with only fundamental types like $(C int) and $(C double). The element type can actually be any other type, including other arrays. This enables the programmer to define complex containers like $(I array of arrays). Arrays of arrays are called $(I multi-dimensional arrays).
+到目前为止，我们用过的数组里只有像 $(C int) 和 $(C double) 这样的基本类型。元素类型实际上可以是任何类型，包括数组。这使得程序员能够定义如$(I 数组的数组)这样复杂的容器。数组的数组被称为 $(I 多维数组)。
 )
 
 $(P
-The elements of all of the arrays that we have defined so far have been written in the source code from left to right. To help us understand the concept of a two-dimensional array, let's define an array from top to bottom this time:
+迄今为止所有我们所定义的数组元素都是从左到右的写入到源代码中的。为了帮助我们理解二维数组的概念，这次我们从上到下的定义数组：
 )
 
 ---
@@ -671,11 +671,11 @@ The elements of all of the arrays that we have defined so far have been written 
 ---
 
 $(P
-As you remember, most spaces in the source code are used to help with readability and do not change the meaning of the code. The array above could have been defined on a single line and would have the same meaning.
+你还记得，源代码中的大部分空格都是用来帮助提高可读性的，并且不会改变代码的含义。上面的数组可以定义在一行，而且含义不变。
 )
 
 $(P
-Let's now replace every element of that array with another array:
+现在让我们用别的数组替换数组的每个元素：
 )
 
 ---
@@ -688,7 +688,7 @@ Let's now replace every element of that array with another array:
 ---
 
 $(P
-We have replaced elements of type $(C int) with elements of type $(C int[]). To make the code conform to the array definition syntax, we must now specify the type of the elements as $(C int[]) instead of $(C int):
+我们已用 $(C int[]) 类型的元素替换了 $(C int) 类型的元素。要使代码符合数组定义语法，我们现在必须指定 $(C int[]) 作为元素的类型而不是 $(C int)：
 )
 
 ---
@@ -701,20 +701,20 @@ We have replaced elements of type $(C int) with elements of type $(C int[]). To 
 ---
 
 $(P
-Such arrays are called $(I two-dimensional arrays) because they can be seen as having rows and columns.
+这样的数组被称为 $(I 二维数组)，因为它们有行和列。
 )
 
 $(P
-Two-dimensional arrays are used the same way as any other array as long as we remember that each element is an array itself and is used in array operations:
+二维数组的使用方式和我们记得的任何其它数组一样，每个元素本身就是一个数组，数组操作也能使用：
 )
 
 ---
-    array ~= [ 50, 51 ]; // adds a new element (i.e. a slice)
-    array[0] ~= 13;      // adds to the first element
+    array ~= [ 50, 51 ]; // 添加一个新元素 (即一个切片)
+    array[0] ~= 13;      // 添加到第一个元素
 ---
 
 $(P
-The new state of the array:
+数组的新状态：
 )
 
 $(SHELL_SMALL
@@ -722,29 +722,29 @@ $(SHELL_SMALL
 )
 
 $(P
-Arrays and elements can be fixed-length as well. The following is a three-dimensional array where all dimensions are fixed-length:
+数组和元素尽量长度固定。下面的是一个所有维度都固定的三维数组：
 )
 
 ---
-    int[2][3][4] array;  // 2 columns, 3 rows, 4 pages
+    int[2][3][4] array;  // 2 列，3 行，4 页
 ---
 
 $(P
-The definition above can be seen as $(I four pages of three rows of two columns of integers). As an example, such an array can be used to represent a 4-story building in an adventure game, each story consisting of 2x3=6 rooms.
+上面的定义可以看作是 $(I 四页三行两列的整数)。例如，在冒险游戏中这种数组可以用来表示一个4 层建筑物，每层由 2x3=6 个房间组成。
 )
 
 $(P
-For example, the number of items in the first room of the second floor can be incremented like the following:
+例如，第二层第一室的项目数可以像下面这样增长：
 )
 
 ---
-    // The index of the second floor is 1, and the first room
-    // of that floor is accessed by [0][0]
+    // 第二层的索引是 1，该层
+    // 第一个房间通过 [0][0] 来访问
     ++itemCounts[1][0][0];
 ---
 
 $(P
-In addition to the syntax above, the $(C new) expression can also be used to create a $(I slice of slices). The following example uses only two dimensions:
+除了上述语法， $(C new) 表达式也能用来创建 $(I 切片的切片)。下面是只使用两个维度的例子：
 )
 
 ---
@@ -757,43 +757,43 @@ void main() {
 ---
 
 $(P
-The $(C new) expression above creates 2 slices containing 3 elements each and returns a slice that provides access to those slices and elements. The output:
+上面的 $(C new) 表达式创建了一个包含 2 个切片、每个切片含有 3 个元素的切片，该切片可以访问它们以及内部的元素。输出：
 )
 
 $(SHELL
 [[0, 0, 0], [0, 0, 0]]
 )
 
-$(H5 Summary)
+$(H5 摘要)
 
 $(UL
 
 $(LI
-Fixed-length arrays own their elements; slices provide access to elements that don't belong exclusively to them.
+定长数组拥有自己的元素；切片提供对不专属于它们的元素的访问。
 )
 
 $(LI
-Within the $(C []) operator, $(C $) is the equivalent of $(C $(I array_name).length).
+在 $(C []) 运算符内部，$(C $) 与 $(C $(I 数组名称).length) 等价。
 )
 
 $(LI
-$(C .dup) makes a new array that consists of the copies of the elements of an existing array.
+$(C .dup) 由一个现有数组元素的副本生成一个新的数组。
 )
 
 $(LI
-With fixed-length arrays, the assignment operation changes the values of elements; with slices, it makes the slices start providing access to other elements.
+对于定长数组，赋值操作改变元素的值；对于切片，它让切片开始提供对别的元素的访问。
 )
 
 $(LI
-Slices that get longer $(I may) stop sharing elements and start providing access to newly copied elements. $(C capacity) determines whether this will be the case.
+变长的切片 $(I 可以) 停止元素的共享，并开始提供对新复制元素的访问。$(C capacity) 可以确定是否属于这种情况。
 )
 
 $(LI
-The syntax $(C array[]) means $(I all elements of the array); the operation that is applied to it is applied to each element individually.
+$(C array[]) 语法表示$(I 数组的所有元素)；在它上面的操作可以单独应用到每个元素。
 )
 
 $(LI
-Arrays of arrays are called multi-dimensional arrays.
+数组的数组被称为多维数组。
 )
 
 )
@@ -801,7 +801,7 @@ Arrays of arrays are called multi-dimensional arrays.
 $(PROBLEM_TEK
 
 $(P
-Iterate over the elements of an array of $(C double)s and halve the ones that are greater than 10. For example, given the following array:
+迭代 $(C double) 类型数组的元素，并对大于 10 的元素作减半处理。例如，下面给出的数组：
 )
 
 ---
@@ -809,7 +809,7 @@ Iterate over the elements of an array of $(C double)s and halve the ones that ar
 ---
 
 $(P
-Modify it as the following:
+修改为下面这样：
 )
 
 $(SHELL
@@ -817,11 +817,11 @@ $(SHELL
 )
 
 $(P
-Although there are many solutions of this problem, try to use only the features of slices. You can start with a slice that provides access to all elements. Then you can shorten the slice from the beginning and always use the first element.
+虽然这个问题有好多解决办法，但这儿尽量使用切片的特征。你可以从切片开始，它可以提供对所有元素的访问。然后你可以从数组的开始处缩短切片，并且总是使用第一个元素。
 )
 
 $(P
-The following expression shortens the slice from the beginning:
+下面的表达式从数组的开始处缩短了切片：
 )
 
 ---
@@ -831,8 +831,8 @@ The following expression shortens the slice from the beginning:
 )
 
 Macros:
-        SUBTITLE=Slices and Other Array Features
+        SUBTITLE=数组和其它的数组特征
 
-        DESCRIPTION=More features of D slices and arrays
+        DESCRIPTION=D 语言切片和数组的更多特征
 
-        KEYWORDS=d programming language tutorial book arrays slices fixed-length dynamic
+        KEYWORDS=d 编程语言手册 数组 切片 定长 动态
