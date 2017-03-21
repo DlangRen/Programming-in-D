@@ -1,19 +1,19 @@
 Ddoc
 
-$(DERS_BOLUMU $(IX template) More Templates)
+$(DERS_BOLUMU $(IX template) 模板拓展)
 
 $(P
-We have seen the power and convenience of templates in $(LINK2 /ders/d.en/templates.html, the Templates chapter). A single templated definition of an algorithm or a data structure is sufficient to use that definition for multiple types.
+我们已经在 $(LINK2 /ders/d.cn/templates.html, 模板) 一章中看到了模板的强大与便捷。将算法或数据结构定义为单一模板即可将其运用于多种类型。
 )
 
 $(P
-That chapter covered only the most common uses of templates: function, $(C struct), and $(C class) templates and their uses  with $(I type) template parameters. In this chapter we will see templates in more detail. Before going further, I recommend that you review at least the summary section of that chapter.
+那一章只涵盖了几种最通用的模板使用：以类型作为模板参数的函数、$(C struct) 与 $(C class) 模板。在本章中我们将看到有关模板的更多细节。在继续之前，建议你至少先复习一下那一章的小结部分。
 )
 
-$(H5 $(IX shortcut syntax, template) The shortcut syntax)
+$(H5 $(IX 快捷语法, template) 快捷语法)
 
 $(P
-In addition to being powerful, D templates are easy to define and use and they are very readable. Defining a function, $(C struct), or $(C class) template is as simple as providing a template parameter list:
+D 模板不仅强大，而且还易于定义与阅读。定义一个函数、$(C struct) 或 $(C class) 模板简单到只需提供一个模板参数列表：
 )
 
 ---
@@ -30,11 +30,11 @@ class Fraction$(HILITE (T)) {
 ---
 
 $(P
-Template definitions like the ones above are taking advantage of D's shortcut template syntax.
+像上面这样的模板定义是利用了 D 的快捷模板语法。
 )
 
 $(P
-In their full syntax, templates are defined by the $(C template) keyword. The equivalents of the two template definitions above are the following:
+在它们的完整语法中，模板是由 $(C template) 关键字定义的。下面是与上面两个等价的模板定义：
 )
 
 ---
@@ -55,23 +55,23 @@ template Fraction$(HILITE (T)) {
 ---
 
 $(P
-Although most templates are defined by the shortcut syntax, the compiler always uses the full syntax. We can imagine the compiler applying the following steps to convert a shortcut syntax to its full form behind the scenes:
+尽管几乎所有的模板都是以快捷语法定义的，但是编译器却总是会使用完整语法。可以想象，编译器在幕后应用以下步骤来将一个快捷语法的定义转为完整形式：
 )
 
 $(OL
-$(LI Wrap the definition with a template block.)
-$(LI Give the same name to that block.)
-$(LI Move the template parameter list to the template block.)
+$(LI 用一个 template 语句块包裹该定义。)
+$(LI 用相同的名称命名该语句块。)
+$(LI 将模板参数列表移到 template 语句块上。)
 )
 
 $(P
-The full syntax that is arrived after those steps is called an $(I eponymous template), which the programmer can define explicitly as well. We will see eponymous templates later below.
+这些步骤执行后所达到的完整语法叫做$(I 同名模板)，它也可以由程序员明确定义。我们稍后将在下面看见同名模板。
 )
 
-$(H6 $(IX name space, template) Template name space)
+$(H6 $(IX 命名空间, template) 模板命名空间)
 
 $(P
-It is possible to have more than one definition inside a template block. The following template contains both a function and a $(C struct) definition:
+一个模板语句块内可以有多个定义。如下的模板同时包含了函数与 $(C struct) 定义：
 )
 
 ---
@@ -87,7 +87,7 @@ template MyTemplate(T) {
 ---
 
 $(P
-Instantiating the template for a specific type instantiates all of the definitions inside the block. The following code instantiates the template for $(C int) and $(C double):
+用一个特定的类型实例化该模板就实例化了语句块内的所有定义。如下代码以 $(C int) 和 $(C double) 实例化该模板：
 )
 
 ---
@@ -99,7 +99,7 @@ Instantiating the template for a specific type instantiates all of the definitio
 ---
 
 $(P
-A specific instantiation of a template introduces a $(I name space). The definitions that are inside an instantiation can be used by that name. However, if these names are too long, it is always possible to use aliases as we have seen in $(LINK2 /ders/d.en/alias.html, the $(C alias) chapter):
+模板的一个特定实例引入了一个$(I 命名空间)。使用这个名称可以调用该实例内部的定义。然而，若合起来的名称太长，那么可以像在 $(LINK2 /ders/d.cn/alias.html, $(C alias)) 一章中所见的那样使用别名：
 )
 
 ---
@@ -111,14 +111,14 @@ A specific instantiation of a template introduces a $(I name space). The definit
     writeln(o.member);
 ---
 
-$(H6 $(IX eponymous template) Eponymous templates)
+$(H6 $(IX 同名模板) 同名模板)
 
 $(P
-Eponymous templates are $(C template) blocks that contain a definition that has the same name as that block. In fact, each shortcut template syntax is the shortcut of an eponymous template.
+同名模板是包含一个与语句块同名的定义的 $(C template) 语句块。事实上，每一个快捷模板语法都是一个同名模板的快捷方式。
 )
 
 $(P
-As an example, assume that a program needs to qualify types that are larger than 20 bytes as $(I too large). Such a qualification can be achieved by a constant $(C bool) value inside a template block:
+举例来说，假设一个程序需要将大于 20 byte 的类型判定为$(I 太大了)（too large)。这样的判定可以借一个模板中的 $(C bool) 常数来达到：
 )
 
 ---
@@ -128,7 +128,7 @@ template isTooLarge(T) {
 ---
 
 $(P
-Note how the names of both the template block and its only definition are the same. This eponymous template is used by the shortcut syntax instead of the whole $(C isTooLarge!int.isTooLarge):
+注意 template 语句块与其中的唯一定义的名称是一样的。这个同名模板调用时使用的是快捷语法，而非完整的 $(C isTooLarge!int.isTooLarge)：
 )
 
 ---
@@ -136,11 +136,11 @@ Note how the names of both the template block and its only definition are the sa
 ---
 
 $(P
-The highlighted part above is the same as the $(C bool) value inside the block. Since the size of $(C int) is less than 20, the output of the code would be $(C false).
+上面高亮的部分与语句块内部的 $(C bool) 值是一样的。由于 $(C int) 的大小小于 20，该代码的输出应是 $(C false)。
 )
 
 $(P
-That eponymous template can be defined by the shortcut syntax as well:
+该同名模板亦可以使用如下的快捷语法定义：
 )
 
 ---
@@ -148,7 +148,7 @@ enum isTooLarge$(HILITE (T)) = T.sizeof > 20;
 ---
 
 $(P
-A common use of eponymous templates is defining type aliases depending on certain conditions. For example, the following eponymous template picks the larger of two types by setting an alias to it:
+同名模板的常见用途是根据特定的条件定义类型别名。例如，如下同名模板以定义别名的方式在两个类型中选出较大的那个：
 )
 
 ---
@@ -163,14 +163,14 @@ $(CODE_NAME LargerOf)template LargerOf(A, B) {
 ---
 
 $(P
-Since $(C long) is larger than $(C int) (8 bytes versus 4 bytes), $(C LargerOf!(int, long)) would be the same as the type $(C long). Such templates are especially useful in other templates where the two types are template parameters themselves (or depend on template parameters):
+由于 $(C long) 比 $(C int) 大（8 byte 比之 4 byte），$(C LargerOf!(int, long)) 应与 $(C long) 为同一个类型。这样的模板在其他将这两个类型作为其本身参数的模板中十分有用：
 )
 
 ---
 $(CODE_XREF LargerOf)// ...
 
-/* The return type of this function is the larger of its two
- * template parameters: Either type A or type B. */
+/* 该函数的返回类型是它两个模板参数中大的那个：
+ * 不是 A 就是 B。 */
 auto calculate(A, B)(A a, B b) {
     $(HILITE LargerOf!(A, B)) result;
     // ...
@@ -183,18 +183,18 @@ void main() {
 }
 ---
 
-$(H5 Kinds of templates)
+$(H5 模板的种类)
 
-$(H6 Function, class, and struct templates)
+$(H6 函数、class、struct 模板)
 
 $(P
-We have already covered function, $(C class), and $(C struct) templates in $(LINK2 /ders/d.en/templates.html, the Templates chapter) and we have seen many examples of them since then.
+在 $(LINK2 /ders/d.cn/templates.html, 模板) 一章中，我们已经涵盖了函数、$(C class) 与 $(C struct) 模板，打那时开始我们就见到了许多相关的示例。
 )
 
-$(H6 $(IX member function template) Member function templates)
+$(H6 $(IX 成员函数模板) 成员函数模板)
 
 $(P
-$(C struct) and $(C class) member functions can be templates as well. For example, the following $(C put()) member function template would work with any parameter type as long as that type is compatible with the operations inside the template (for this specific template, it should be convertible to $(C string)):
+$(C struct) 和 $(C class) 成员函数同样可以是模板。例如，如下的 $(C put()) 成员函数模板适用于任何兼容该模板内操作的类型（针对这个特定的模板，该类型应能转换为 $(C string)）：
 )
 
 ---
@@ -209,11 +209,11 @@ class Sink {
 ---
 
 $(P
-However, as templates can have potentially infinite number of instantiations, they cannot be $(LINK2 /ders/d.en/inheritance.html, virtual functions) because the compiler cannot know which specific instantiations of a template to include in the interface. (Accordingly, the $(C abstract) keyword cannot be used either.)
+然而，由于模板潜在具有无穷多的实例，它们不能成为 $(LINK2 /ders/d.cn/inheritance.html, 虚函数)，因为编译器不知道要在界面中包含哪个特定的模板实例。（由是，同样也不能使用 $(C abstract) 关键字了。）
 )
 
 $(P
-For example, although the presence of the $(C put()) template in the following subclass may give the impression that it is overriding a function, it actually hides the $(C put) name of the superclass (see $(I name hiding) in $(LINK2 /ders/d.en/alias.html, the alias chapter)):
+例如，尽管如下派生类中 $(C put()) 模板的存在或将给人以重载的印象，但实际上它隐藏了父类中的 $(C put) 名称（详见 $$(LINK2 /ders/d.cn/alias.html, 别名) 一章中的(I 名字隐藏)）：
 )
 
 ---
@@ -227,9 +227,8 @@ class Sink {
 }
 
 class SpecialSink : Sink {
-    /* The following template definition does not override
-     * the template instances of the superclass; it hides
-     * those names. */
+    /* 如下的模板定义没有重载基类中的模板实例；
+     * 它隐藏了那些名称。 */
     void put(T)(auto ref const T value) {
         import std.string;
         super.put(format("{%s}", value));
@@ -237,10 +236,9 @@ class SpecialSink : Sink {
 }
 
 void fillSink($(HILITE Sink) sink) {
-    /* The following function calls are not virtual. Because
-     * parameter 'sink' is of type 'Sink', the calls will
-     * always be dispatched to Sink's 'put' template
-     * instances. */
+    /* 如下的函数调用不是虚的。因为
+     * 参数'sink'的类型是'Sink'，这些调用将
+     * 总是解析为 Sink 的'put'模板实例。 */
 
     sink.put(42);
     sink.put("hello");
@@ -256,21 +254,21 @@ void main() {
 ---
 
 $(P
-As a result, although the object actually is a $(C SpecialSink), both of the calls inside $(C fillSink()) are dispatched to $(C Sink) and the content does not contain the curly brackets that $(C SpecialSink.put()) inserts:
+因此，尽管这个对象实际上是一 $(C SpecialSink)，在 $(C fillSink()) 的两处调用都解析到了 $(C Sink) 且内容都不包括 $(C SpecialSink.put()) 会加入的花括号：
 )
 
 $(SHELL
-42hello    $(SHELL_NOTE Sink's behavior, not SpecialSink's)
+42hello    $(SHELL_NOTE Sink 的行为，而不是 SpecialSink 的)
 )
 
-$(H6 $(IX union template) Union templates)
+$(H6 $(IX union 模板) union 模板)
 
 $(P
-Union templates are similar to struct templates. The shortcut syntax is available for them as well.
+union 模板类似于 struct 模板。快捷语法也同样适用于它们。
 )
 
 $(P
-As an example, let's design a more general version of the $(C IpAdress) $(C union) that we have seen in $(LINK2 /ders/d.en/union.html, the Unions chapter). There, the value of the IPv4 address was kept as a $(C uint) member in that earlier version of $(C IpAdress), and the element type of the segment array was $(C ubyte):
+举例来说，让我们为在 $(LINK2 /ders/d.cn/union.html, union) 一章中曾见到的 $(C IpAdress) $(C union) 设计一个更加通用的版本。在那章中，IPv4 地址的值是早先版本 $(C IpAddress) 的一个 $(C uint) 成员，且分段数组的元素类型为 $(C ubyte)：
 )
 
 ---
@@ -281,11 +279,11 @@ union IpAddress {
 ---
 
 $(P
-The $(C bytes) array was an easy access to the four segments of the IPv4 address.
+$(C bytes) 数组提供了对 IPv4 地址四个分段的便捷访问。
 )
 
 $(P
-The same concept can be implemented in a more general way as the following $(C union) template:
+同样的概念能像如下 union 模板一样成为一个更通用的实现：
 )
 
 ---
@@ -296,15 +294,15 @@ union SegmentedValue($(HILITE ActualT, SegmentT)) {
 ---
 
 $(P
-That template would allow specifying the types of the value and its segments freely.
+这个模板允许自由地指定其值与分段的类型。
 )
 
 $(P
-The number of segments that are needed depends on the types of the actual value and the segments. Since an IPv4 address has four $(C ubyte) segments, that value was hard-coded as $(C 4) in the earlier definition of $(C IpAddress). For the $(C SegmentedValue) template, the number of segments must be computed at compile time when the template is instantiated for the two specific types.
+所需的分段个数是由值与分段的真正类型所决定的。由于一个 IPv4 地址有四个 $(C ubyte) 分段，分段个数在早先版本 $(C IpAddress) 中被编码为 $(C 4)。对于 $(C SegmentedValue) 模板，一旦模板被两个特定的类型实例化，其分段个数必须在编译时计算得出
 )
 
 $(P
-The following eponymous template takes advantage of the $(C .sizeof) properties of the two types to calculate the number of segments needed:
+如下的同名模板利用两个类型的 $(C .sizeof) property 来计算所需的分段数量：
 )
 
 ---
@@ -315,7 +313,7 @@ $(CODE_NAME segmentCount)template segmentCount(ActualT, SegmentT) {
 ---
 
 $(P
-The shortcut syntax may be more readable:
+它的快捷语法的可读性或许更高一些：
 )
 
 ---
@@ -325,11 +323,11 @@ enum segmentCount(ActualT, SegmentT) =
 ---
 
 $(P
-$(I $(B Note:) The expression $(C SegmentT.sizeof - 1) is for when the sizes of the types cannot be divided evenly. For example, when the actual type is 5 bytes and the segment type is 2 bytes, even though a total of 3 segments are needed, the result of the integer division 5/2 would incorrectly be 2.)
+$(I $(B 注：)表达式 $(C SegmentT.sizeof - 1) 是为类型大小不能整除的情况所做的设置。例如，当实际类型是 5 字节而分段类型是 2 字节时，总共需要 3 个分段，但此时整数除法 5/2 的结果却错误地是 2。)
 )
 
 $(P
-The definition of the union template is now complete:
+union 模板的定义现在就完整了：
 )
 
 ---
@@ -340,7 +338,7 @@ $(CODE_NAME SegmentedValue)$(CODE_XREF segmentCount)union SegmentedValue(ActualT
 ---
 
 $(P
-Instantiation of the template for $(C uint) and $(C ubyte) would be the equivalent of the earlier definition of $(C IpAddress):
+该模板对于 $(C uint) 与 $(C ubyte) 的实例应与早先 $(C IpAddress) 的定义相等价：
 )
 
 ---
@@ -356,7 +354,7 @@ void main() {
 ---
 
 $(P
-The output of the program is the same as the one in $(LINK2 /ders/d.en/union.html, the Unions chapter):
+该程序的输出与其在 $(LINK2 /ders/d.cn/union.html, 模板) 一章中的输出应是一样的：
 )
 
 $(SHELL_SMALL
@@ -364,7 +362,7 @@ $(SHELL_SMALL
 )
 
 $(P
-To demonstrate the flexibility of this template, let's imagine that it is required to access the parts of the IPv4 address as two $(C ushort) values. It would be as easy as providing $(C ushort) as the segment type:
+为了展现这个模板的灵活性，假设需要以两个 $(C ushort) 值对该 IPv4 地址的进行访问。这简单到只需要将 $(C ushort) 设置为分段类型：
 )
 
 ---
@@ -372,21 +370,21 @@ To demonstrate the flexibility of this template, let's imagine that it is requir
 ---
 
 $(P
-Although unusual for an IPv4 address, the output of the program would consist of two $(C ushort) segment values:
+尽管这对于 IPv4 地址来说不常用，程序输出确实包含了两个 $(C ushort) 分段值：
 )
 
 $(SHELL_SMALL
 258 49320
 )
 
-$(H6 $(IX interface template) Interface templates)
+$(H6 $(IX interface 模板) interface 模板)
 
 $(P
-Interface templates provide flexibility on the types that are used on an interface (as well as values such as sizes of fixed-length arrays and other features of an interface).
+interface 模板提供了用于其中的类型灵活性（以及像静态数组的长度值、interface 的其他功能等等）。
 )
 
 $(P
-Let's define an interface for colored objects where the type of the color is determined by a template parameter:
+让我们定义一个有色对象，颜色的类型取决于模板参数：
 )
 
 ---
@@ -396,11 +394,11 @@ interface ColoredObject(ColorT) {
 ---
 
 $(P
-That interface template requires that its subtypes must define the $(C paint()) function but it leaves the type of the color flexible.
+这个 interface 模板规定了它的派生类型必须定义函数 $(C paint())，但同时它又没有指定颜色的类型。
 )
 
 $(P
-A class that represents a frame on a web page may choose to use a color type that is represented by its red, green, and blue components:
+一个表示网页框架的 class 或会选择使用一个以红、绿、蓝组成的颜色类型：
 )
 
 ---
@@ -418,7 +416,7 @@ class PageFrame : ColoredObject$(HILITE !RGB) {
 ---
 
 $(P
-On the other hand, a class that uses the frequency of light can choose a completely different type to represent color:
+而另一边，一个使用光频率的 class 能选择一个完全不同的类型来表示颜色：
 )
 
 ---
@@ -432,37 +430,37 @@ class Bulb : ColoredObject$(HILITE !Frequency) {
 ---
 
 $(P
-However, as explained in $(LINK2 /ders/d.en/templates.html, the Templates chapter), "every different instantiation of a template is a different type". Accordingly, the interfaces $(C ColoredObject!RGB) and $(C ColoredObject!Frequency) are unrelated interfaces, and $(C PageFrame) and $(C Bulb) are unrelated classes.
+然而，如在 $(LINK2 /ders/d.cn/templates.html, 模板) 一章中所说的一样，“模板的每一个不同实例都是一个不同的类型”。依此，$(C ColoredObject!RGB) 与 $(C ColoredObject!Frequency) 是不相关的 interface，同时 $(C PageFrame) 与 $(C Bulb) 也是不相关的 class。
 )
 
-$(H5 $(IX parameter, template) Kinds of template parameters)
+$(H5 $(IX 参数, template) 模板参数的种类)
 
 $(P
-The template parameters that we have seen so far have all been $(I type) parameters. So far, parameters like $(C T) and $(C ColorT) all represented types.  For example, $(C T) meant $(C int), $(C double), $(C Student), etc. depending on the instantiation of the template.
-)
-
-$(P
-There are other kinds of template parameters: value, $(C this), $(C alias), and tuple.
-)
-
-$(H6 $(IX type template parameter) Type template parameters)
-
-$(P
-This section is only for completeness. All of the templates that we have seen so far had type parameters.
-)
-
-$(H6 $(IX value template parameter) Value template parameters)
-
-$(P
-Value template parameters allow flexibility on certain values used in the template implementation.
+到现在为止，我们所见到的模板参数都是$(I 类型)。到现在为止，参数诸如 $(C T) 与 $(C ColorT) 都表示的是类型。例如，$(C T) 根据该模板的不同实例，分别表示 $(C int)、$(C double) 或 $(C Student) 等等。
 )
 
 $(P
-Since templates are a compile-time feature, the values for the value template parameters must be known at compile time; values that must be calculated at run time cannot be used.
+存在其他种类的模板参数：值、$(C this)、$(C alias) 以及元组。
+)
+
+$(H6 $(IX 类型模板参数) 类型模板参数)
+
+$(P
+这一部分只是出于完整性而出现。我们至今为止见到的所有模板都拥有类型参数。
+)
+
+$(H6 $(IX 值模板参数) 值模板参数)
+
+$(P
+值模板参数允许了在模板实现中使用特定灵活的值。
 )
 
 $(P
-To see the advantage of value template parameters, let's start with a set of structs representing geometric shapes:
+由于模板是编译期特性，值模板参数中的值必须在编译时就能确定；而不能使用必须在运行时进行计算的值。
+)
+
+$(P
+为了体现值模板参数的优势，让我们从用以表示几何图形的一系列 struct 开始：
 )
 
 ---
@@ -483,11 +481,11 @@ struct Pentagon {
 ---
 
 $(P
-Let's assume that other member variables and member functions of those types are exactly the same and that the only difference is the $(I value) that determines the number of corners.
+假设这些类型的其他成员变量与成员函数是完全相同的，唯一的区别仅仅是表示边个数的$(I 值)。
 )
 
 $(P
-Value template parameters help in such cases. The following struct template is sufficient to represent all of the types above and more:
+值模板参数有助于此类情况。如下的 struct 模板就足以表示上面所有的类型以及更多此类类型：
 )
 
 ---
@@ -498,11 +496,11 @@ struct Polygon$(HILITE (size_t N)) {
 ---
 
 $(P
-The only template parameter of that struct template is a value named $(C N) of type $(C size_t). The value $(C N) can be used as a compile-time constant anywhere inside the template.
+这个 struct 模板仅有的模板参数为一个名为 $(C N) 的 $(C size_t) 值。值 $(C N) 能被用作一个模板内部的编译期常数。
 )
 
 $(P
-That template is flexible enough to represent shapes of any sides:
+这个模板足以表示任何边数的多边形：
 )
 
 ---
@@ -510,7 +508,7 @@ That template is flexible enough to represent shapes of any sides:
 ---
 
 $(P
-The following aliases correspond to the earlier struct definitions:
+如下的别名与之前的 struct 定义一一对应：
 )
 
 ---
@@ -526,7 +524,7 @@ alias Pentagon = Polygon!5;
 ---
 
 $(P
-The type of the $(I value) template parameter above was $(C size_t). As long as the value can be known at compile time, a value template parameter can be of any type: a fundamental type, a $(C struct) type, an array, a string, etc.
+上述模板参数$(I 值)类型为 $(C size_t)。只要该值可以在编译时确定，一个模板参数值可以是任何类型：基本类型、struct 类型、数组、string 等等。
 )
 
 ---
@@ -534,28 +532,28 @@ struct S {
     int i;
 }
 
-// Value template parameter of struct S
+// struct S 类型的模板参数值
 void foo($(HILITE S s))() {
     // ...
 }
 
 void main() {
-    foo!(S(42))();    // Instantiating with literal S(42)
+    foo!(S(42))();    // 用字面量 S(42) 进行实例化
 }
 ---
 
 $(P
-The following example uses a $(C string) template parameter to represent an XML tag to produce a simple XML output:
+如下的例子用了一个 $(C string) 模板参数来表示一个 XML 标签以生成一个简单的 XML 输出：
 )
 
 $(UL
-$(LI First the tag between the $(C &lt;)&nbsp;$(C &gt;) characters: $(C &lt;tag&gt;))
-$(LI Then the value)
-$(LI Finally the tag between the $(C &lt;/)&nbsp;$(C &gt;) characters: $(C &lt;/tag&gt;))
+$(LI 首先是在 $(C &lt;)&nbsp;$(C &gt;) 字符之间的标签：$(C &lt;tag&gt;))
+$(LI 然后是值)
+$(LI 最后是在 $(C &lt;/)&nbsp;$(C &gt;) 字符之间的标签：$(C &lt;/tag&gt;))
 )
 
 $(P
-For example, an XML tag representing $(I location 42) would be printed as $(C &lt;location&gt;42&lt;/location&gt;).
+例如，一个表示 $(I location 42) 的 XML 标签应被输出为 $(C &lt;location&gt;42&lt;/location&gt;)。
 )
 
 ---
@@ -575,11 +573,11 @@ class XmlElement$(HILITE (string tag)) {
 ---
 
 $(P
-Note that the template parameter is not about a type that is used in the implementation of the template, rather it is about a $(C string) $(I value). That value can be used anywhere inside the template as a $(C string).
+注意该模板参数不再是一个模板实现中的类型，它是一个 $(C string) $(I 值)。这个值能作为一个 $(C string) 被用于模板内部的任何位置。
 )
 
 $(P
-The XML elements that a program needs can be defined as aliases as in the following code:
+程序所需的 XML 元素能想如下代码中一样被定义为别名：
 )
 
 ---
@@ -599,7 +597,7 @@ void main() {
 ---
 
 $(P
-The output:
+输出为：
 )
 
 $(SHELL_SMALL
@@ -607,7 +605,7 @@ $(SHELL_SMALL
 )
 
 $(P
-Value template parameters can have default values as well. For example, the following struct template represents points in a multi-dimensional space where the default number of dimensions is 3:
+模板参数值同样可以拥有默认值。例如，如下表示多维空间中点的 struct 模板中维度数量的默认值为 3：
 )
 
 ---
@@ -617,27 +615,27 @@ struct Point(T, size_t dimension $(HILITE = 3)) {
 ---
 
 $(P
-That template can be used without specifying the $(C dimension) template parameter:
+不指定 $(C dimension) 模板参数时该模板同样可以使用：
 )
 
 ---
-    Point!double center;    // a point in 3-dimensional space
+    Point!double center;    // 一个三维空间中的点
 ---
 
 $(P
-The number of dimensions can still be specified when needed:
+当需要时依然可以指定维度数量：
 )
 
 ---
-    Point!(int, 2) point;   // a point on a surface
+    Point!(int, 2) point;   // 一个平面中的点
 ---
 
 $(P
-We have seen in $(LINK2 /ders/d.en/parameter_flexibility.html, the Variable Number of Parameters chapter) how $(I special keywords) work differently depending on whether they appear inside code or as default function arguments.
+我们已经在 $(LINK2 /ders/d.cn/parameter_flexibility.html, 变参) 一章中了解到$(特殊关键字)能根据它们在代码或函数默认值中的出现产生不同的效果。
 )
 
 $(P
-Similarly, when used as default template arguments, the special keywords refer to where the template is instantiated at, not where the keywords appear:
+相似的是，当作为模板默认参数时，这些特殊关键字将指向模板实例化的位置，而非关键字出现的位置：
 )
 
 ---
@@ -657,7 +655,7 @@ void main() {
 ---
 
 $(P
-Although the special keywords appear in the definition of the template, their values refer to $(C main()), where the template is instantiated at:
+尽管这些特殊关键字出现于模板的定义之中，它们的值指向的是 $(C main())，也就是该模板实例化的位置：
 )
 
 $(SHELL
@@ -665,17 +663,17 @@ Instantiated at function deneme.$(HILITE main) at file deneme.d, $(HILITE line 1
 )
 
 $(P
-We will use $(C __FUNCTION__) below in a multi-dimensional operator overloading example.
+我们将在下面的多维操作符重载示例中使用 $(C __FUNCTION__)。
 )
 
-$(H6 $(IX this, template parameter) $(C this) template parameters for member functions)
+$(H6 $(IX this, 模板参数) 成员函数的 $(C this) 模板参数)
 
 $(P
-Member functions can be templates as well. Their template parameters have the same meanings as other templates.
+成员函数也能是模板。他们的模板参数的意义与在其他模板中的相同。
 )
 
 $(P
-However, unlike other templates, member function template parameters can also be $(I $(C this) parameters). In that case, the identifier that comes after the $(C this) keyword represents the exact type of the $(C this) reference of the object. ($(I $(C this) reference) means the object itself, as is commonly written in constructors as $(C this.member&nbsp;=&nbsp;value).)
+然而，不像其他模板，成员函数模板参数还能是 $(I $(C this) 参数)。在此时，$(C this) 关键字之后的 identifier 表示 $(C this) 引用的准确类型。（$(I $(C this) 引用)表示该对象自身，就像常常在构建函数中写为的 $(C this.member&nbsp;=&nbsp;value) 一样。）
 )
 
 ---
@@ -687,7 +685,7 @@ struct MyStruct(T) {
 ---
 
 $(P
-The $(C OwnType) template parameter is the actual type of the object that the member function is called on:
+$(C OwnType) 模板参数是调用该成员函数的对象的实际类型：
 )
 
 ---
@@ -701,7 +699,7 @@ The $(C OwnType) template parameter is the actual type of the object that the me
 ---
 
 $(P
-The output:
+输出为：
 )
 
 $(SHELL_SMALL
@@ -711,29 +709,29 @@ Type of this object: immutable(MyStruct!int)
 )
 
 $(P
-As you can see, the type includes the corresponding type of $(C T) as well as the type qualifiers like $(C const) and $(C immutable).
+就像看到的一样，这个类型不仅包括了 $(C T) 对应的类型，还包含了诸如 $(C const) 与 $(C immutable) 之类的类型限定符。
 )
 
 $(P
-The $(C struct) (or $(C class)) need not be a template. $(C this) template parameters can appear on member function templates of non-templated types as well.
+$(C struct)（或是 $(C class)）不一定要是模板。$(C this) 模板参数同样能在非模板类型的成员函数模板中出现。
 )
 
 $(P
-$(C this) template parameters can be useful in $(I template mixins) as well, which we will see two chapters later.
+$(C this) 模板参数也能在 $(I mixin template) 中起作用，这我们将在之后的两章中见到。
 )
 
-$(H6 $(IX alias, template parameter) $(C alias) template parameters)
+$(H6 $(IX alias, 模板参数) $(C alias) 模板参数)
 
 $(P
-$(C alias) template parameters can correspond to any symbol or expression that is used in the program. The only constraint on such a template argument is that the argument must be compatible with its use inside the template.
-)
-
-$(P
-$(C filter()) and $(C map()) use $(C alias) template parameters to determine the operations that they execute.
+$(C alias) 模板参数可以对应程序中使用的任何符号或表达式。这种模板参数唯一的限制是该参数必须与它在模板中的使用相兼容。
 )
 
 $(P
-Let's see a simple example on a $(C struct) template that is for modifying an existing variable. The $(C struct) template takes the variable as an $(C alias) parameter:
+$(C filter()) 与 $(C map()) 使用 $(C alias) 模板参数来确定它们需要执行的操作。
+)
+
+$(P
+这是一个简单示例，它使用一个 $(C struct) 模板来修改一个已存在的变量。该 $(C struct) 模板以 $(C alias) 参数的形式接受变量：
 )
 
 ---
@@ -745,7 +743,7 @@ struct MyStruct(alias variable) {
 ---
 
 $(P
-The member function simply assigns its parameter to the variable that the $(C struct) template is instantiated with. That variable must be specified during the instantiation of the template:
+该成员函数简单地将参数赋值于该 $(C struct) 模板实例化所用的变量。这个变量需在模板实例化时进行指定：
 )
 
 ---
@@ -758,7 +756,7 @@ The member function simply assigns its parameter to the variable that the $(C st
 ---
 
 $(P
-In that instantiation, the $(C variable) template parameter corresponds to the variable $(C x):
+在这个实例中，$(C variable) 模板参数对应着变量 $(C x)：
 )
 
 $(SHELL_SMALL
@@ -766,11 +764,11 @@ x: $(HILITE 10), y: 2
 )
 
 $(P
-Conversely, $(C MyStruct!y) instantiation of the template would associate $(C variable) with $(C y).
+相对地，该模板的 $(C MyStruct!y) 实例就应将 $(C variable) 与 $(C y) 相关联。
 )
 
 $(P
-Let's now have an $(C alias) parameter that represents a callable entity, similar to $(C filter()) and $(C map()):
+现在让我们使 $(C alias) 参数表示一个可调用的实体，这与 $(C filter()) 及 $(C map()) 相似：
 )
 
 ---
@@ -781,11 +779,11 @@ void caller(alias func)() {
 ---
 
 $(P
-As seen by the $(C ()) parentheses, $(C caller()) uses its template parameter as a function. Additionally, since the parentheses are empty, it must be legal to call the function without specifying any arguments.
+从 $(C ()) 括号上可以看出，$(C caller()) 将其模板参数视为了一个函数。进一步来说，由于括号是空的，该函数必须能够在不指定任何参数时进行调用。
 )
 
 $(P
-Let's have the following two functions that match that description. They can both represent $(C func) because they can be called as $(C func()) in the template:
+设计如下两个满足该描述的函数。它们都表现为 $(C func)，这是由于它们都是作为 $(C func()) 在模板中进行调用的：
 )
 
 ---
@@ -799,7 +797,7 @@ void bar() {
 ---
 
 $(P
-Those functions can be used as the $(C alias) parameter of $(C caller()):
+这些函数可以作为 $(C caller()) 的 $(C alias) 参数：
 )
 
 ---
@@ -808,7 +806,7 @@ Those functions can be used as the $(C alias) parameter of $(C caller()):
 ---
 
 $(P
-The output:
+输出为：
 )
 
 $(SHELL_SMALL
@@ -817,7 +815,7 @@ calling: bar called.
 )
 
 $(P
-As long as it matches the way it is used in the template, any symbol can be used as an $(C alias) parameter. As a counter example, using an $(C int) variable with $(C caller()) would cause a compilation error:
+只要它与它在模板中的用法相匹配，任何符号都能用作 $(C alias) 模板参数。反例为，在 $(C caller()) 中使用 $(C int) 变量将导致一个编译错误：
 )
 
 ---
@@ -826,7 +824,7 @@ As long as it matches the way it is used in the template, any symbol can be used
 ---
 
 $(P
-The compilation error indicates that the variable does not match its use in the template:
+这个编译错误表示该变量不匹配它在模板中的使用：
 )
 
 $(SHELL_SMALL
@@ -834,11 +832,11 @@ Error: $(HILITE function expected before ()), not variable of type int
 )
 
 $(P
-Although the mistake is with the $(C caller!variable) instantiation, the compilation error necessarily points at $(C func()) inside the $(C caller()) template because from the point of view of the compiler the error is with trying to call $(C variable) as a function. One way of dealing with this issue is to use $(I template constraints), which we will see below.
+尽管这个错误是伴随着 $(C caller!variable) 实例化发生的，该编译错误必要地指向了 $(C caller()) 模板内部的 $(C func())，这是因为从编译器的角度来看，这个错误是由尝试像函数一样调用 $(C variable)。解决这个问题的一种途径是使用$(I 模板约束)，这将在下面陈述。
 )
 
 $(P
-If the variable supports the function call syntax perhaps because it has an $(C opCall()) overload or it is a function literal, it would still work with the $(C caller()) template. The following example demonstrates both of those cases:
+若这个变量支持函数调用语法，或是因为它定义了 $(C opCall())、或是因为它是一个函数字面量，那么它将仍旧适用于该 $(C caller()) 模板。如下的示例演示了这两种情况：
 )
 
 ---
@@ -857,7 +855,7 @@ class C {
 ---
 
 $(P
-The output:
+输出为：
 )
 
 $(SHELL
@@ -866,7 +864,7 @@ calling: Function literal called.
 )
 
 $(P
-$(C alias) parameters can be specialized as well. However, they have a different specialization syntax. The specialized type must be specified between the $(C alias) keyword and the name of the parameter:
+$(C alias) 参数同样可以进行特化。然而它们拥有一种不同的特化语法。特化类型必须指定于 $(C alias) 关键字与参数名称之间：
 )
 
 ---
@@ -900,7 +898,7 @@ void main() {
 ---
 
 $(P
-Also note that $(C alias) parameters make the names of the actual variables available inside the template:
+同样需要注意的是 $(C alias) 参数使得实际的变量名也可以在模板内部进行访问：
 )
 
 $(SHELL
@@ -909,18 +907,18 @@ The int specialization is using 'count'.
 The double specialization is using 'length'.
 )
 
-$(H6 $(IX tuple template parameter) Tuple template parameters)
+$(H6 $(IX 元组模板参数) 元组模板参数)
 
 $(P
-We have seen in $(LINK2 /ders/d.en/parameter_flexibility.html, the Variable Number of Parameters chapter) that variadic functions can take any number and any type of parameters. For example, $(C writeln()) can be called with any number of parameters of any type.
+我们已经在 $(LINK2 /ders/d.cn/parameter_flexibility.html, 变参) 一章中看到了可以接纳任何数量以及任何类型参数的可变参数函数。例如，$(C writeln()) 就能以任意数量的任意类型参数进行调用。
 )
 
 $(P
-$(IX ..., template parameter) $(IX variadic template) Templates can be variadic as well. A template parameter that consists of a name followed by $(C ...) allows any number and kind of parameters at that parameter's position. Such parameters appear as a tuple inside the template, which can be used like an $(C AliasSeq).
+$(IX ..., 模板参数) $(IX 可变参数模板) 模板同样可以接受变参。一个包含一个尾随着 $(C ...) 的名称的模板参数在该位置允许了任何数量及类型的参数。这些参数在模板内部表现为一个元组，它能被用为一个 $(C AliasSeq)。
 )
 
 $(P
-Let's see an example of this with a template that simply prints information about every template argument that it is instantiated with:
+这是一个示例，一个简单地输出实例化所用的每一个参数信息的模板：
 )
 
 ---
@@ -930,16 +928,16 @@ $(CODE_NAME info)void info(T...)(T args) {
 ---
 
 $(P
-The template parameter $(C T...) makes $(C info) a $(I variadic template). Both $(C T) and $(C args) are tuples:
+模板参数 $(C T...) 让 $(C info) 成为了一个$(I 可变参数模板)。$(C T) 与 $(C args) 均是元组：
 )
 
 $(UL
-$(LI $(C T) represents the types of the arguments.)
-$(LI $(C args) represents the arguments themselves.)
+$(LI $(C T) 表示各参数的类型。)
+$(LI $(C args) 表示各参数自身。)
 )
 
 $(P
-The following example instantiates that function template with three values of three different types:
+如下的示例使用三个不同类型的值实例化这个函数模板：
 )
 
 ---
@@ -953,12 +951,12 @@ void main() {
 ---
 
 $(P
-The following implementation simply prints information about the arguments by iterating over them in a $(C foreach) loop:
+如下的实现简单地在一个 $(C foreach) 循环中分别输出各个参数的信息：
 )
 
 ---
 void info(T...)(T args) {
-    // 'args' is being used like a tuple:
+    // 'args' 被用作一个元组：
     foreach (i, arg; $(HILITE args)) {
         writefln("%s: %s argument %s",
                  i, typeof(arg).stringof, arg);
@@ -967,7 +965,7 @@ void info(T...)(T args) {
 ---
 
 $(P
-The output:
+输出为：
 )
 
 $(SHELL_SMALL
@@ -977,15 +975,15 @@ $(SHELL_SMALL
 )
 
 $(P
-Note that instead of obtaining the type of each argument by $(C typeof(arg)), we could have used $(C T[i]) as well.
+注意除了可以使用 $(C typeof(arg)) 获取每个参数的类型之外，也能使用 $(C T[i])。
 )
 
 $(P
-We know that template arguments can be deduced for function templates. That's why the compiler deduces the types as $(C int), $(C string), and $(C double) in the previous program.
+我们知道，函数模板的模板参数可以自动推断。这是为什么编译器在之前的程序中能推断出诸如 $(C int)、$(C string) 和 $(C double) 之类的类型。
 )
 
 $(P
-However, it is also possible to specify template parameters explicitly. For example, $(C std.conv.to) takes the destination type as an explicit template parameter:
+然而，显式地指定这些模板参数也是可以的。例如，$(C std.conv.to) 以显式模板参数的形式接受目标类型：
 )
 
 ---
@@ -993,11 +991,11 @@ However, it is also possible to specify template parameters explicitly. For exam
 ---
 
 $(P
-When template parameters are explicitly specified, they can be a mixture of value, type, and other kinds. That flexibility makes it necessary to be able to determine whether each template parameter is a type or not, so that the body of the template can be coded accordingly. That is achieved by treating the arguments as an $(C AliasSeq).
+当模板参数被显式指定时，它们可以是值、类型以及其他种类的混合体。这种灵活性使得确定每一个模板参数是否为类型成为必要，这样模板的主体才能依此进行编码。这可以借由将参数视为一个 $(C AliasSeq) 来达到。
 )
 
 $(P
-Let's see an example of this in a function template that produces $(C struct) definitions as source code in text form. Let's have this function return the produced source code as $(C string). This function can first take the name of the $(C struct) followed by the types and names of the members specified as pairs:
+这是一个关于此的示例，一个生成 $(C struct) 定义源代码文本的函数模板。这个函数将生成的源代码返回为一个 $(C string) 值。该函数先接纳 $(C struct) 的名称，接着是一对对其成员的类型与名称：
 )
 
 ---
@@ -1012,7 +1010,7 @@ void $(CODE_DONT_TEST)main() {
 ---
 
 $(P
-That $(C structDefinition) instantiation is expected to produce the following $(C string):
+这个 $(C structDefinition) 实例应生成如下的 $(C string) 值：
 )
 
 $(SHELL
@@ -1024,55 +1022,55 @@ struct Student {
 )
 
 $(P
-$(I $(B Note:) Functions that produce source code are used with the $(C mixin) keyword, which we will see in $(LINK2 /ders/d.en/mixin.html, a later chapter).)
+$(I $(B 注：)生成源代码的函数是用于 $(C mixin) 关键字的，这我们将在 $(LINK2 /ders/d.cn/mixin.html, 之后的一章) 中见到。)
 )
 
 $(P
-The following is an implementation that produces the desired output. Note how the function template makes use of the $(C is) expression. Remember that the expression $(C is&nbsp;(arg)) produces $(C true) when $(C arg) is a valid type:
+如下是一个生成需要的输出的实现。注意该函数模板使用了 $(C is) 表达式。当 $(C arg) 是一个有效类型时表达式 $(C is&nbsp;(arg)) 生成 $(C true)：
 )
 
 ---
 import std.string;
 
 string structDefinition(string name, $(HILITE Members)...)() {
-    /* Ensure that members are specified as pairs: first the
-     * type then the name. */
+    /* 保证成员是按对指定的：
+     * 先是类型再是名称。 */
     static assert(($(HILITE Members).length % 2) == 0,
                   "Members must be specified as pairs.");
 
-    /* The first part of the struct definition. */
+    /* struct 定义的第一部分。 */
     string result = "struct " ~ name ~ "\n{\n";
 
     foreach (i, arg; $(HILITE Members)) {
         static if (i % 2) {
-            /* The odd numbered arguments should be the names
-             * of members. Instead of dealing with the names
-             * here, we use them as Members[i+1] in the 'else'
-             * clause below.
+            /* 奇数编号的参数应是成员
+             * 的名称。与其在这里处理
+             * 变量名，我们将在下面的
+             * ‘else’中在以 Members[i+1] 使用它们。
              *
-             * Let's at least ensure that the member name is
-             * specified as a string. */
+             * 最起码要确保成员名称指
+             * 定为了一个 string 值。 */
             static assert(is (typeof(arg) == string),
                           "Member name " ~ arg.stringof ~
                           " is not a string.");
 
         } else {
-            /* In this case 'arg' is the type of the
-             * member. Ensure that it is indeed a type. */
+            /* 在这种情况下，‘arg’是成员的
+             * 类型。保证它确实是一个类型。 */
             static assert(is (arg),
                           arg.stringof ~ " is not a type.");
 
-            /* Produce the member definition from its type and
-             * its name.
+            /* 由它的类型与名称生成该成员
+             * 的定义。
              *
-             * Note: We could have written 'arg' below instead
-             * of Members[i]. */
+             * 注：下面可以用‘arg’来代替
+             * Members[i]。 */
             result ~= format("    %s %s;\n",
                              $(HILITE Members[i]).stringof, $(HILITE Members[i+1]));
         }
     }
 
-    /* The closing bracket of the struct definition. */
+    /* struct 定义的尾部花括号。 */
     result ~= "}";
 
     return result;
@@ -1088,19 +1086,19 @@ void main() {
 }
 ---
 
-$(H5 $(IX typeof(this)) $(IX typeof(super)) $(IX typeof(return))$(C typeof(this)), $(C typeof(super)), and $(C typeof(return)))
+$(H5 $(IX typeof(this)) $(IX typeof(super)) $(IX typeof(return))$(C typeof(this))、$(C typeof(super))、以及 $(C typeof(return)))
 
 $(P
-In some cases, the generic nature of templates makes it difficult to know or spell out certain types in the template code. The following three special $(C typeof) varieties are useful in such cases. Although they are introduced in this chapter, they work in non-templated code as well.
+在某些情况下，模板的动态的天性使得在模板中往往很难得知或确定特定的类型。如下的三个特殊的 $(C typeof) 变体在这种情况下非常有用。尽管它们是在本章中引入的，它们同样适用于非模板代码中。
 )
 
 $(UL
 
-$(LI $(C typeof(this)) generates the type of the $(C this) reference. It works in any $(C struct) or $(C class), even outside of member functions:
+$(LI $(C typeof(this)) 生成 $(C this) 引用的类型。它适用于任何 $(C struct) 或 $(C class) 中，甚至是在成员函数之外的地方：
 
 ---
 struct List(T) {
-    // The type of 'next' is List!int when T is int
+    // 当 T 是 int 时‘next’的类型是 List!int
     typeof(this) *next;
     // ...
 }
@@ -1108,7 +1106,7 @@ struct List(T) {
 
 )
 
-$(LI $(C typeof(super)) generates the base type of a $(C class) (i.e. the type of $(C super)).
+$(LI $(C typeof(super)) 生成 $(C class) 的基类型（即 $(C super) 的类型）
 
 ---
 class ListImpl(T) {
@@ -1116,7 +1114,7 @@ class ListImpl(T) {
 }
 
 class List(T) : ListImpl!T {
-    // The type of 'next' is ListImpl!int when T is int
+    // 当 T 是 int 时‘next’的类型是 ListImpl!int
     typeof(super) *next;
     // ...
 }
@@ -1124,10 +1122,10 @@ class List(T) : ListImpl!T {
 
 )
 
-$(LI $(C typeof(return)) generates the return type of a function, inside that function.
+$(LI $(C typeof(return)) 在函数内部生成该函数的返回值类型。
 
 $(P
-For example, instead of defining the $(C calculate()) function above as an $(C auto) function, we can be more explicit by replacing $(C auto) with $(C LargerOf!(A, B)) in its definition. (Being more explicit would have the added benefit of obviating at least some part of its function comment.)
+举例而言，与其将上面的 $(C calculate()) 函数定义为一个 $(C auto) 函数，我们可以在其定义中用 $(C LargerOf!(A, B)) 来代替 $(C auto)。（变得更显式至少可以避免它一部分的函数备注。）
 )
 
 ---
@@ -1137,12 +1135,12 @@ $(HILITE LargerOf!(A, B)) calculate(A, B)(A a, B b) {
 ---
 
 $(P
-$(C typeof(return)) prevents having to repeat the return type inside the function body:
+$(C typeof(return)) 避免了在函数体中不得不将返回类型重复多次的情况。
 )
 
 ---
 LargerOf!(A, B) calculate(A, B)(A a, B b) {
-    $(HILITE typeof(return)) result;    // The type is either A or B
+    $(HILITE typeof(return)) result;    // 这个类型不是 A 就是 B
     // ...
     return result;
 }
@@ -1152,46 +1150,46 @@ LargerOf!(A, B) calculate(A, B)(A a, B b) {
 
 )
 
-$(H5 Template specializations)
+$(H5 模板特化)
 
 $(P
-We have seen template specializations in $(LINK2 /ders/d.en/templates.html, the Templates chapter). Like type parameters, other kinds of template parameters can be specialized as well. The following is both the general definition of a template and its specialization for 0:
+我们已经在 $(LINK2 /ders/d.cn/templates.html, 模板) 一章中见到了许多模板特化。就如同类型参数一样，其他种类的模板参数同样可以进行特化。如下模板同时具有通用定义以及它对于 0 的特化：
 )
 
 ---
 void foo(int value)() {
-    // ... general definition ...
+    // ……通用定义……
 }
 
 void foo(int value $(HILITE : 0))() {
-    // ... special definition for zero ...
+    // ……针对零的特殊定义……
 }
 ---
 
 $(P
-We will take advantage of template specializations in the $(I meta programming) section below.
+我们将在下面的$(元编程)部分中利用模板特化。
 )
 
-$(H5 $(IX meta programming) Meta programming)
+$(H5 $(IX 元编程) 元编程)
 
 $(P
-As they are about code generation, templates are among the higher level features of D. A template is indeed code that generates code. Writing code that generates code is called $(I meta programming).
-)
-
-$(P
-Due to templates being compile-time features, some operations that are normally executed at runtime can be moved to compile time as template instantiations.
+由于它们是有关代码生成的，模板是 D 语言高级特性之一。模板当然是生成代码的代码。写生成代码的代码叫做$(元编程)。
 )
 
 $(P
-($(I $(B Note:) Compile time function execution) (CTFE) $(I is another feature that achieves the same goal. We will see CTFE in a later chapter.))
+由于模板是编译时功能，一些常常在运行时进行的操作可以作为模板实例化在编译时完成。
 )
 
 $(P
-$(I Executing) templates at compile time is commonly based on recursive template instantiations.
+($(I $(B 注：)编译时计算) （CTFE，即 Compile time function execution） $(I 是另一个达到同样目标的特性。我们将在之后的一章中看到 CTFE。))
 )
 
 $(P
-To see an example of this, let's first consider a regular function that calculates the sum of numbers from 0 to a specific value. For example, when its argument is 4, this fuction should return the result of 0+1+2+3+4:
+在编译期$(I 执行)模板通常是基于模板的递归实例化的。
+)
+
+$(P
+这是这个的一个示例，让我们先看一个计算从 0 到特定值的普通函数。例如，当它的参数是 4 时，这个函数应返回 0+1+2+3+4 的结果：
 )
 
 ---
@@ -1207,7 +1205,7 @@ int sum(int last) {
 ---
 
 $(P
-$(IX recursion) That is an iterative implementation of the function. The same function can be implemented by recursion as well:
+$(IX 递归) 这是一个该函数的迭代实现。同样的函数也能被实现为递归：
 )
 
 ---
@@ -1219,11 +1217,11 @@ int sum(int last) {
 ---
 
 $(P
-The recursive function returns the sum of the last value and the previous sum. As you can see, the function terminates the recursion by treating the value 0 specially.
+这个递归函数返回当前数与前一个总和的和。正如所见，这个函数以特殊对待 0 而终止了递归。
 )
 
 $(P
-Functions are normally run-time features. As usual, $(C sum()) can be executed at run time:
+函数通常数运行时特性。寻常地，$(C sum()) 能在运行时执行：
 )
 
 ---
@@ -1231,11 +1229,11 @@ Functions are normally run-time features. As usual, $(C sum()) can be executed a
 ---
 
 $(P
-When the result is needed at compile time, one way of achieving the same calculation is by defining a function template. In this case, the parameter must be a template parameter, not a function parameter:
+当在编译时需要其结果时，达到相同的计算的一种方法是定义一个函数模板。在这种情况下，该参数必须为一个模板参数，而不是一个函数参数：
 )
 
 ---
-// WARNING: This code is incorrect.
+// 警告：这是不正确的代码。
 int sum($(HILITE int last))() {
     return (last == 0
             ? last
@@ -1244,11 +1242,11 @@ int sum($(HILITE int last))() {
 ---
 
 $(P
-That function template instantiates itself by $(C last - 1) and tries to calculate the sum again by recursion. However, that code is incorrect.
+这个函数模板以 $(C last - 1) 实例化自身，并尝试用递归再次计算它的和。然而，这个代码是错误的。
 )
 
 $(P
-As the ternary operator would be compiled to be executed at run time, there is no condition check that terminates the recursion at compile time:
+由于该三元操作符应被编译以在运行时执行，在编译时是没有终止递归的条件检查的：
 )
 
 ---
@@ -1256,7 +1254,7 @@ As the ternary operator would be compiled to be executed at run time, there is n
 ---
 
 $(P
-The compiler detects that the template instances would recurse infinitely and stops at an arbitrary number of recursions:
+编译器发现模板实例将无限递归，于是它在任意次递归时进行终止：
 )
 
 $(SHELL_SMALL
@@ -1264,27 +1262,27 @@ Error: template instance deneme.sum!($(HILITE -296)) recursive expansion
 )
 
 $(P
-Considering the difference between the template argument 4 and -296, the compiler restricts template expansion at 300 by default.
+想一想模板参数 4 与 -296 间的差值，那么就是说编译器默认于 300 处限制模板展开。
 )
 
 $(P
-In meta programming, recursion is terminated by a template specialization. The following specialization for 0 produces the expected result:
+在元编程中，递归是由模板特化终止的。如下针对 0 的特化生成预期的结果：
 )
 
 ---
-$(CODE_NAME sum)// The general definition
+$(CODE_NAME sum)// 通用定义
 int sum(int last)() {
     return last + sum!(last - 1)();
 }
 
-// The special definition for zero
+// 针对零的特殊定义
 int sum(int last $(HILITE : 0))() {
     return 0;
 }
 ---
 
 $(P
-The following is a program that tests $(C sum()):
+如下是一个测试 $(C sum()) 的程序：
 )
 
 ---
@@ -1296,7 +1294,7 @@ void main() {
 ---
 
 $(P
-Now the program compiles successfully and produces the result of 4+3+2+1+0:
+现在该程序编译成功并生成 4+3+2+1+0 的结果：
 )
 
 $(SHELL_SMALL
@@ -1304,29 +1302,29 @@ $(SHELL_SMALL
 )
 
 $(P
-An important point to make here is that the function $(C sum!4()) is executed entirely at compile time. The compiled code is the equivalent of calling $(C writeln()) with literal $(C 10):
+这里很重要的一点是函数 $(C sum!4()) 是完全在编译时执行的。编译成的代码与以字面量 10 调用 $(C writeln()) 是等价的：
 )
 
 ---
-    writeln(10);         // the equivalent of writeln(sum!4())
+    writeln(10);         // 与 writeln(sum!4()) 等价
 ---
 
 $(P
-As a result, the compiled code is as fast and simple as can be. Although the value 10 is still calculated as the result of 4+3+2+1+0, the entire calculation happens at compile time.
+因此，编译成的代码是尽可能快及简单的。尽管 10 依旧计算自 4+3+2+1+0，但整个计算都发生在编译期。
 )
 
 $(P
-The previous example demonstrates one of the benefits of meta programming: moving operations from run time to compile time. CTFE obviates some of the idioms of meta programming in D.
+前一个示例展现了元编程的好处之一：将运行时的操作移至了编译时。而在 D 中 CTFE 则避免了一些元编程的惯用语法。
 )
 
-$(H5 $(IX polymorphism, compile-time) $(IX compile-time polymorphism) Compile-time polymorphism)
+$(H5 $(IX 多态性, 编译期) $(IX 编译期多态性) 编译期多态性)
 
 $(P
-In object oriented programming (OOP), polymorphism is achieved by inheritance. For example, if a function takes an interface, it accepts objects of any class that inherits that interface.
+在面向对象编程（OOP）中，多态性是由继承所达到的。例如，若一个函数接受一个 interface，它即接受继承于这个 interface 的任何 class 的对象。
 )
 
 $(P
-Let's recall an earlier example from a previous chapter:
+让我们回忆一下早先之前一章中的一个示例：
 )
 
 ---
@@ -1349,9 +1347,9 @@ class Bell : SoundEmitter {
 }
 
 void useSoundEmittingObject($(HILITE SoundEmitter object)) {
-    // ... some operations ...
+    // ……一些操作……
     writeln(object.emitSound());
-    // ... more operations ...
+    // ……更多操作……
 }
 
 void main() {
@@ -1361,34 +1359,34 @@ void main() {
 ---
 
 $(P
-$(C useSoundEmittingObject()) is benefiting from polymorphism. It takes a $(C SoundEmitter) so that it can be used with any type that is derived from that interface.
+$(C useSoundEmittingObject()) 得益于多态性。它接纳一个 $(C SoundEmitter)，因此它能被用于由这个 interface 所衍生的任何类型。
 )
 
 $(P
-Since $(I working with any type) is inherent to templates, they can be seen as providing a kind of polymorphism as well. Being a compile-time feature, the polymorphism that templates provide is called $(I compile-time polymorphism). Conversely, OOP's polymorphism is called $(I run-time polymorphism).
+由于$(I 适用于任何类型)是模板的功能，它们亦能被看作是提供了某种多态性。作为一个编译期特性，这种模板提供的多态性叫做$(I 编译期多态性)。相对地，OOP 的多态性叫做$(I 运行时多态性)。
 )
 
 $(P
-In reality, neither kind of polymorphism allows being used with $(I any type) because the types must satisfy certain requirements.
+实际上，两者都不可以用于$(I 任何类型)，因为这些类型均必须满足特定的条件。
 )
 
 $(P
-Run-time polymorphism requires that the type implements a certain interface.
+运行时多态性需要该类型实现一个特定的接口（interface）。
 )
 
 $(P
-Compile-time polymorphism requires that the type is compatible with how it is used by the template. As long as the code compiles, the template argument can be used with that template. ($(I $(B Note:) Optionally, the argument must satisfy template constraints as well. We will see template constraints later below.))
+编译期多态性需要该类型与其在模板群中的使用相兼容。只要代码能够通过编译，这个模板参数就能够被用于该模板。（$(I $(B 注：)若需要，参数也必须满足模板约束。我们将在下面稍后看见模板约束。)）
 )
 
 $(P
-For example, if $(C useSoundEmittingObject()) were implemented as a function template instead of a function, it could be used with any type that supported the $(C object.emitSound()) call:
+例如，若 $(C useSoundEmittingObject()) 被实现为一个函数模板而不是一个函数，那么它将适用于任何支持 $(C object.emitSound()) 调用的类型：
 )
 
 ---
 void useSoundEmittingObject$(HILITE (T))(T object) {
-    // ... some operations ...
+    // ……一些操作……
     writeln(object.emitSound());
-    // ... more operations ...
+    // ……更多操作……
 }
 
 class Car {
@@ -1405,129 +1403,129 @@ class Car {
 ---
 
 $(P
-Note that although $(C Car) has no inheritance relationship with any other type, the code compiles successfully, and the $(C emitSound()) member function of each type gets called.
+注意尽管 $(C Car) 和其他任何类型都没有继承关系，代码仍将成功编译，并且每一个类型的 $(C emitSound()) 成员函数都得到了调用。
 )
 
 $(P
-$(IX duck typing) Compile-time polymorphism is also known as $(I duck typing), a humorous term, emphasizing behavior over actual type.
+$(IX 鸭子类型) 编译期多态性又叫做$(I 鸭子类型)，一个幽默的词，强调着重行为强过本身类型。
 )
 
-$(H5 $(IX code bloat) Code bloat)
+$(H5 $(IX 代码膨胀) 代码膨胀)
 
 $(P
-The code generated by the compiler is different for every different argument of a type parameter, of a value parameter, etc.)
+对于每一个不同的类型参数、值参数……编译器生成的代码都不同。)
 
 $(P
-The reason for that can be seen by considering $(C int) and $(C double) as type template arguments. Each type would have to be processed by different kinds of CPU registers. For that reason, the same template needs to be compiled differently for different template arguments. In other words, the compiler needs to generate different code for each instantiation of a template.
-)
-
-$(P
-For example, if $(C useSoundEmittingObject()) were implemented as a template, it would be compiled as many times as the number of different instantiations of it.
+这种现象的原因可以借分别以 $(C int) 和 $(C double) 作为类型模板参数看出来。每一个类型需要经过不同种类的 CPU 寄存器。因此，同一个模板需要为不同的模板参数进行不同的编译。换而言之，编译器需要为一个模板的每一个实例生成不同的代码。
 )
 
 $(P
-Because it results in larger program size, this effect is called $(I code bloat). Although this is not a problem in most programs, it is an effect of templates that must be known.
+例如，若 $(C useSoundEmittingObject()) 被实现为一个模板，它应根据不同实例的个数被多次进行编译。
 )
 
 $(P
-Conversely, non-templated version of $(C useSoundEmittingObject()) would not have any code repetition. The compiler would compile that function just once and execute the same code for all types of the $(C SoundEmitter) interface. In run-time polymorphism, having the same code behave differently for different types is achieved by function pointers on the background. Although function pointers have a small cost at run time, that cost is not significant in most programs.
+由于它造成了巨大的程序体积，该现象叫做$(I 代码膨胀)。尽管这对于大多数程序不是问题，它是一个模板必须了解的副作用。
 )
 
 $(P
-Since both code bloat and run-time polymorphism have effects on program performance, it cannot be known beforehand whether run-time polymorphism or compile-time polymorphism would be a better approach for a specific program.
-)
-
-$(H5 $(IX constraint, template) $(IX template constraint) Template constraints)
-
-$(P
-The fact that templates can be instantiated with any argument yet not every argument is compatible with every template brings an inconvenience. If a template argument is not compatible with a particular template, the incompatibility is necessarily detected during the compilation of the template code for that argument. As a result, the compilation error points at a line inside the template implementation.
+相对地，$(C useSoundEmittingObject()) 的非模板版本将不会有任何代码重复。编译器将一次性地编译该函数并为所有类型的 $(C SoundEmitter) interface 执行相同的代码。在运行时多态性中，让相同的代码产生不同的效果是通过幕后的函数指针来达到的。尽管函数指针在运行时有轻微的消耗，在大多数程序中这种消耗并不明显。
 )
 
 $(P
-Let's see this by using $(C useSoundEmittingObject()) with a type that does not support the $(C object.emitSound()) call:
+由于代码膨胀与运行时多态性都对程序性能有所影响，对于特定的程序，究竟运行时多态性或编译时多态性是更好的途径，这是无法预先知晓的。
+)
+
+$(H5 $(IX 约束, template) $(IX 模板约束) 模板约束)
+
+$(P
+模板能被任何参数实例化，却不是每一个参数都能够兼容其在模板中的使用，这一点造成了不便。若一个模板参数不兼容于一个特定的模板，那么该不兼容性是在模板代码针对该参数的编译中检测到的。因此，该编译错误指向的是模板实现中的一行。
+)
+
+$(P
+让我们借以一个不支持 $(C object.emitSound()) 调用的类型使用 $(C useSoundEmittingObject()) 来观察这一点：
 )
 
 ---
 class Cup {
-    // ... does not have emitSound() ...
+    // ……并没有 emitSound()……
 }
 
 // ...
 
-    useSoundEmittingObject(new Cup);   // ← incompatible type
+    useSoundEmittingObject(new Cup);   // ← 不兼容的类型
 ---
 
 $(P
-Although arguably the error is with the code that uses the template with an incompatible type, the compilation error points at a line inside the template:
+尽管按理说这个错误是由以一个不兼容的类型使用该模板引起的，这个编译错误指向的却是模板内部的一行：
 )
 
 ---
 void useSoundEmittingObject(T)(T object) {
-    // ... some operations ...
+    // ……一些操作……
     writeln(object.emitSound());    $(DERLEME_HATASI)
-    // ... more operations ...
+    // ……更多操作……
 }
 ---
 
 $(P
-An undesired consequence is that when the template is a part of a third-party library module, the compilation error would appear to be a problem with the library itself.
+一个所不希望的后果是当该模板是第三方库模块的一部分时，编译错误将显示为该库内部的一个问题。
 )
 
 $(P
-Note that this issue does not exist for interfaces: A function that takes an interface can only be called with a type that implements that interface. Attempting to call such a function with any other type is a compilation error at the caller.
+注意这个问题在界面中是不存在的：一个接纳 interface 的函数只能被一个实现了该界面的类型调用。尝试以其他类型调用这个函数将在调用方上导致一个错误。
 )
 
 $(P
-Template contraints are for disallowing incorrect instantiations of templates. They are defined as logical expressions of an $(C if) condition right before the template body:
+模板约束是用来禁止不正确的模板实例的。它们被定义为紧接在模板体之前的一个 $(C if) 条件逻辑表达式。
 )
 
 ---
 void foo(T)()
-        if (/* ... constraints ... */) {
+        if (/* ……约束…… */) {
     // ...
 }
 ---
 
 $(P
-A template definition is considered by the compiler only if its constraints evaluate to $(C true) for a specific instantiation of the template. Otherwise, the template definition is ignored for that use.
+仅当对于一个特定的实例其约束计算为 $(C true) 时模板定义才会被纳入编译器。否则，该模板定义对于该用途将被忽略。
 )
 
 $(P
-Since templates are a compile-time feature, template constraints must be evaluable at compile time. The $(C is) expression that we have seen in $(LINK2 /ders/d.en/is_expr.html, the $(C is) Expression chapter) is commonly used in template constraints. We will use the $(C is) expression in the following examples as well.
+由于模板是编译期特性，模板约束必须在编译时进行计算。我们在 $(LINK2 /ders/d.cn/is_expr.html, $(C is) 表达式) 一章中见到的 $(C is) 表达式常用于模板约束中。我们也将在下面的示例中使用 $(C is) 表达式。
 )
 
-$(H6 $(IX single-element tuple template parameter) $(IX tuple template parameter, single-element) Tuple parameter of single element)
+$(H6 $(IX 单元素元组模板参数) $(IX 元组模板参数, 单元素) 单元素的元组参数)
 
 $(P
-Sometimes the single parameter of a template needs to be one of type, value, or $(C alias) kinds. That can be achieved by a tuple parameter of length one:
+有时一个模板的单个参数需要是类型、值或 $(C alias) 这些种类之一。这可以借长度为一的元组参数来实现：
 )
 
 ---
 template myTemplate(T...)
         $(HILITE if (T.length == 1)) {
     static if (is ($(HILITE T[0]))) {
-        // The single parameter is a type
+        // 该单一参数是一个类型
         enum bool myTemplate = /* ... */;
 
     } else {
-        // The single parameter is some other kind
+        // 该单一参数是其他种类的
         enum bool myTemplate = /* ... */;
     }
 }
 ---
 
 $(P
-Some of the templates of the $(C std.traits) module take advantage of this idiom. We will see $(C std.traits) in a later chapter.
+$(C std.traits) 模块中的一些模板利用了这个惯用语法。我们将在之后的一章中见到 $(C std.traits)。
 )
 
-$(H6 $(IX named template constraint) Named constraints)
+$(H6 $(IX 命名模板约束) 命名约束)
 
 $(P
-Sometimes the constraints are complex, making it hard to understand the requirements of template parameters. This complexity can be handled by an idiom that effectively gives names to constraints. This idiom combines four features of D: anonymous functions, $(C typeof), the $(C is) expression, and eponymous templates.
+有时约束会十分复杂，这使得模板参数的需求变得难以理解。这种复杂性可以由将约束高效命名的惯用语法来处理。该惯用语法合并了 D 语言的四个特性：匿名函数、$(C typeof)、$(C is) 表达式、以及同名模板。
 )
 
 $(P
-Let's see this on a function template that has a type parameter. The template uses its function parameter in specific ways:
+这一点可以借一个拥有一个类型参数的函数模板看出。该模板用几种特定的方式使用了它的函数参数：
 )
 
 ---
@@ -1543,11 +1541,11 @@ void use(T)(T object) {
 ---
 
 $(P
-As is obvious from the implementation of the template, the types that this function can work with must support three specific function calls on the object: $(C prepare()), $(C fly(42)), and $(C land()).
+从模板实现中可以明显看出，这个函数能工作的类型必须支持该对象之上的三个特定函数调用：$(C prepare())、$(C fly(42))、及 $(C land())。
 )
 
 $(P
-One way of specifying a template constraint for that type is by the $(C is) and $(C typeof) expressions for each function call inside the template:
+对于该类型指定模板约束的一种方式是对每一个模板内的函数调用使用 $(C is) 与 $(C typeof) 表达式：
 )
 
 ---
@@ -1560,11 +1558,11 @@ void use(T)(T object)
 ---
 
 $(P
-I will explain that syntax below. For now, accept the whole construct of $(C is&nbsp;(typeof(object.prepare()))) to mean $(I whether the type supports the $(C .prepare()) call).
+我将在下面解释这种语法。而现在，请先接受 $(C is&nbsp;(typeof(object.prepare()))) 一并表示$(I 该类型是否支持调用 $(C .prepare()))。
 )
 
 $(P
-Although such constraints achieve the desired goal, sometimes they are too complex to be readable. Instead, it is possible to give a more descriptive name to the whole constraint:
+尽管这样的约束达到了预期目标，有时这读起来太过繁琐。取而代之，给予整个约束一个自描述的名称是可能的：
 )
 
 ---
@@ -1575,11 +1573,11 @@ void use(T)(T object)
 ---
 
 $(P
-That constraint is more readable because it is now more clear that the template is designed to work with types that $(I can fly and land).
+这个约束更可读，因为它更明确地表示了该模板适用于$(I 既能飞（fly）又能降落（land）)的类型。
 )
 
 $(P
-Such constraints are achieved by an idiom that is implemented similar to the following eponymous template:
+这样的约束是由像如下同名模板一样实现的惯用语法达到的：
 )
 
 ---
@@ -1587,15 +1585,15 @@ template canFlyAndLand(T) {
     enum canFlyAndLand = is (typeof(
     {
         T object;
-        object.prepare();  // should be preparable for flight
-        object.fly(1);     // should be flyable for a certain distance
-        object.land();     // should be landable
+        object.prepare();  // 应能准备飞行
+        object.fly(1);     // 应能飞一段特定的距离
+        object.land();     // 应能降落
     }()));
 }
 ---
 
 $(P
-The D features that take part in that idiom and how they interact with each other are explained below:
+在这个惯用语法中的 D 语言特性与它们之间的影响有如下解析：
 )
 
 ---
@@ -1614,39 +1612,39 @@ template canFlyAndLand(T) {
 
 $(OL
 
-$(LI $(B Anonymous function:) We have seen anonymous functions in $(LINK2 /ders/d.en/lambda.html, the Function Pointers, Delegates, and Lambdas chapter). The highlighted curly brackets above define an anonymous function.
+$(LI $(B 匿名函数：)我们已经在 $(LINK2 /ders/d.cn/lambda.html, 函数指针、代理与 lambda) 一章中见过了匿名函数。上面高亮出的一对花括号定义了一个匿名函数。
 )
 
-$(LI $(B Function block:) The function block uses the type as it is supposed to be used in the actual template. First an object of that type is defined and then that object is used in specific ways. (This code never gets executed; see below.)
+$(LI $(B 函数语句块：)函数语句块内使用了应在真正模板中使用的类型。首先，该类型的一个对象（object）被定义，并接着由几种特定的方式使用。（这些代码将永远不会被执行；见下文）
 )
 
-$(LI $(B Evaluation of the function:) The empty parentheses at the end of an anonymous function normally execute that function. However, since that call syntax is within a $(C typeof), it is never executed.
+$(LI $(B 函数调用：)在匿名函数末尾的空括号在正常情况下执行该函数。然而，由于这个调用语法是在 $(C typeof) 内的，它永远不会被执行。
 )
 
-$(LI $(IX typeof) $(B The $(C typeof) expression:) $(C typeof) produces the type of an expression.
+$(LI $(IX typeof) $(B $(C typeof) 表达式：)$(C typeof) 提供表达式的类型。
 
 $(P
-An important fact about $(C typeof) is that it never executes the expression. Rather, it produces the type of the expression $(I if) that expression would be executed:
+关于 $(C typeof) 很重要的一个事实是它从来不会执行该表达式。相反，它产生$(I 若)该表达式被执行应得出的类型：
 )
 
 ---
     int i = 42;
-    typeof(++i) j;    // same as 'int j;'
+    typeof(++i) j;    // 与‘int j;’一样
 
-    assert(i == 42);  // ++i has not been executed
+    assert(i == 42);  // ++i 没有被执行
 ---
 
 $(P
-As the previous $(C assert) proves, the expression $(C ++i) has not been executed. $(C typeof) has merely produced the type of that expression as $(C int).
+就像前一个 $(C assert) 所证实的那样，表达式 $(C ++i) 并未被执行。$(C typeof) 只是得出了该表达式的类型为 $(C int)。
 )
 
 $(P
-If the expression that $(C typeof) receives is not valid, $(C typeof) produces no type at all (not even $(C void)). So, if the anonymous function inside $(C canFlyAndLand) can be compiled successfully for $(C T), $(C typeof) produces a valid type. Otherwise, it produces no type at all.
+若 $(C typeof) 接受的是一个不正确的表达式，那么 $(C typeof) 完全不产生任何类型（甚至不是 $(C void)）。所以，若在 $(C canFlyAndLand) 内部的匿名函数能为 $(C T) 编译成功，那么 $(C typeof) 即产生一个有效的类型。否则，它将不产生任何类型。
 )
 
 )
 
-$(LI $(B The $(C is) expression:) We have seen many different uses of the $(C is) expression in $(LINK2 /ders/d.en/is_expr.html, the $(C is) Expression chapter). The $(C is&nbsp;($(I Type))) syntax produces $(C true) if $(C Type) is valid:
+$(LI $(B $(C is) 表达式：)我们已经在 $(LINK2 /ders/d.cn/is_expr.html, $(C is) 表达式) 一章中看到了很多 $(C is) 表达式的用途。语法 $(C is&nbsp;($(I Type))) 在 $(C Type) 有效时得出 $(C true)：
 
 ---
     int i;
@@ -1655,7 +1653,7 @@ $(LI $(B The $(C is) expression:) We have seen many different uses of the $(C is
 ---
 
 $(P
-Although the second $(C typeof) above receives a nonexistent symbol, the compiler does not emit a compilation error. Rather, the effect is that the $(C typeof) expression does not produce any type, so the $(C is) expression produces $(C false):
+尽管上面的第二个 $(C typeof) 收到了一个不存在（nonexistent）的符号（symbol），编译器却不触发一个编译错误。相反，其影响是该 $(C typeof) 表达式不产生任何类型，因此这个 $(C is) 表达式得出 $(C false)：
 )
 
 $(SHELL_SMALL
@@ -1665,13 +1663,13 @@ false
 
 )
 
-$(LI $(B Eponymous template:) As described above, since the $(C canFlyAndLand) template contains a definition by the same name, the template instantiation is that definition itself.
+$(LI $(B 同名模板：)就如同上面描述的一样，由于 $(C canFlyAndLand) 模板包含一个同名的定义，该模板的实例就是该定义自身。
 )
 
 )
 
 $(P
-In the end, $(C use()) gains a more descriptive constraint:
+在最后，$(C use()) 得到了一个更描述性的约束：
 )
 
 ---
@@ -1682,11 +1680,11 @@ void use(T)(T object)
 ---
 
 $(P
-Let's try to use that template with two types, one that satisfies the constraint and one that does not satisfy the constraint:
+让我们尝试以两个使用该模板，一个是符合该约束的，而另一个却不是：
 )
 
 ---
-// A type that does match the template's operations
+// 一个与模板操作相匹配的类型
 class ModelAirplane {
     void prepare() {
     }
@@ -1698,7 +1696,7 @@ class ModelAirplane {
     }
 }
 
-// A type that does not match the template's operations
+// 一个不与模板操作相匹配的类型
 class Pigeon {
     void fly(int distance) {
     }
@@ -1706,37 +1704,37 @@ class Pigeon {
 
 // ...
 
-    use(new ModelAirplane);    // ← compiles
+    use(new ModelAirplane);    // ← 通过编译
     use(new Pigeon);           $(DERLEME_HATASI)
 ---
 
 $(P
-Named or not, since the template has a constraint, the compilation error points at the line where the template is used rather than where it is implemented.
+不论命名与否，由于该模板拥有一个约束，其编译错误指向的是使用模板的那一行而不是它的实现之处。
 )
 
-$(H5 $(IX overloading, operator) $(IX multi-dimensional operator overloading) $(IX operator overloading, multi-dimensional) Using templates in multi-dimensional operator overloading)
+$(H5 $(IX 重载, 操作符) $(IX 多维操作符重载) $(IX 操作符重载, 多维) 在多维操作符重载中使用模板)
 
 $(P
-We have seen in $(LINK2 /ders/d.en/operator_overloading.html, the Operator Overloading chapter) that $(C opDollar), $(C opIndex), and $(C opSlice) are for element indexing and slicing. When overloaded for single-dimensional collections, these operators have the following responsibilities:
+我们已经在 $(LINK2 /ders/d.cn/operator_overloading.html, 操作符重载) 一章中看到 $(C opDollar)、$(C opIndex)、与 $(C opSlice) 是用来进行元素索引与切片的。当为一维集合进行重载时，这些操作符有如下的义务：
 )
 
 $(UL
 
-$(LI $(C opDollar): Returns the number of elements of the collection.)
+$(LI $(C opDollar)：返回集合的元素个数。)
 
-$(LI $(C opSlice): Returns an object that represents some or all of the elements of the collection.)
+$(LI $(C opSlice)：返回一个表示集合的一部分或全部元素的对象。)
 
-$(LI $(C opIndex): Provides access to an element.)
+$(LI $(C opIndex)：提供对单个元素的访问。)
 
 )
 
 $(P
-Those operator functions have templated versions as well, which have different responsibilities from the non-templated ones above. Note especially that in multi-dimensional operator overloading $(C opIndex) assumes the responsibility of $(C opSlice).
+这些操作符函数也有模板版本，它们与上面非模板的义务有所不同。注意尤其是在多维操作符重载时重载 $(C opIndex) 即假定了 $(C opSlice) 的义务。
 )
 
 $(UL
 
-$(LI $(IX opDollar template) $(C opDollar) template: Returns the length of a specific dimension of the collection. The dimension is determined by the template parameter:
+$(LI $(IX opDollar 模板) $(C opDollar) 模板：返回集合特定维度的长度。该维度由其模板参数确定的：
 
 ---
     size_t opDollar$(HILITE (size_t dimension))() const {
@@ -1746,7 +1744,7 @@ $(LI $(IX opDollar template) $(C opDollar) template: Returns the length of a spe
 
 )
 
-$(LI $(IX opSlice template) $(C opSlice) template: Returns the range information that specifies the range of elements (e.g. the $(C begin) and $(C end) values in $(C array[begin..end])). The information can be returned as $(C Tuple!(size_t, size_t)) or an equivalent type. The dimension that the range specifies is determined by the template parameter:
+$(LI $(IX opSlice 模板) $(C opSlice) 模板：返回指定元素区间的区间信息（例如 $(C array[begin..end]) 中的 $(C begin) 与 $(C end)）。该信息能被返回为 $(C Tuple!(size_t, size_t)) 或一个等价的类型。区间的维度是由其模板参数确定的：
 
 ---
     Tuple!(size_t, size_t) opSlice$(HILITE (size_t dimension))(size_t begin,
@@ -1757,7 +1755,7 @@ $(LI $(IX opSlice template) $(C opSlice) template: Returns the range information
 
 )
 
-$(LI $(IX opIndex template) $(C opIndex) template: Returns a range object that represents a part of the collection. The range of elements are determined by the template parameters:
+$(LI $(IX opIndex 模板) $(C opIndex) 模板：返回表示集合一部分的区间对象。元素的区间是由其模板参数确定的：
 
 ---
     Range opIndex$(HILITE (A...))(A arguments) {
@@ -1770,55 +1768,55 @@ $(LI $(IX opIndex template) $(C opIndex) template: Returns a range object that r
 )
 
 $(P
-$(IX opIndexAssign template) $(IX opIndexOpAssign template) $(C opIndexAssign) and $(C opIndexOpAssign) have templated versions as well, which operate on a range of elements of the collection.
+$(IX opIndexAssign 模板) $(IX opIndexOpAssign 模板) $(C opIndexAssign) 与 $(C opIndexOpAssign) 同样拥有模板版本，它们对集合中的一系列元素进行处理：
 )
 
 $(P
-The user-defined types that define these operators can be used with the multi-dimensional indexing and slicing syntax:
+定义了这些运算符的自定义类型能适用于这些多维索引与切片语法：
 )
 
 ---
-              // Assigns 42 to the elements specified by the
-              // indexing and slicing arguments:
+              // 将 42 赋值于由这些索引与
+              // 切片操作所指定的元素：
               m[a, b..c, $-1, d..e] = 42;
 //              ↑   ↑     ↑    ↑
-// dimensions:  0   1     2    3
+// 维度：       0   1     2    3
 ---
 
 $(P
-Such expressions are first converted to the ones that call the operator functions. The conversions are performed by replacing the $(C $) characters with calls to $(C opDollar!dimension()), and the index ranges with calls to $(C opSlice!dimension(begin, end)). The length and range information that is returned by those calls is in turn used as arguments when calling e.g. $(C opIndexAssign). Accordingly, the expression above is executed as the following equivalent (the dimension values are highlighted):
+这样的表达式首先被转化为对运算符函数的调用。这样的转换具体操作为，以调用 $(C opDollar!dimension()) 代替 $(C $)，以调用 $(C opSlice!dimension(begin, end)) 代替索引区间。这些函数所返回的长度与区间信息依次作为调用诸如 $(C opIndexAssign) 的参数。依此，上面的表达式以下面的等价形式被执行（维度值被高亮标出）：
 )
 
 ---
-    // The equivalent of the above:
+    // 与上面的等价：
     m.opIndexAssign(
-        42,                    // ← value to assign
-        a,                     // ← argument for dimension 0
-        m.opSlice!$(HILITE 1)(b, c),     // ← argument for dimension 1
-        m.opDollar!$(HILITE 2)() - 1,    // ← argument for dimension 2
-        m.opSlice!$(HILITE 3)(d, e));    // ← argument for dimension 3
+        42,                    // ← 需被赋以的值
+        a,                     // ← 0 维参数
+        m.opSlice!$(HILITE 1)(b, c),     // ← 1 维参数
+        m.opDollar!$(HILITE 2)() - 1,    // ← 2 维参数
+        m.opSlice!$(HILITE 3)(d, e));    // ← 3 维参数
 ---
 
 $(P
-Consequently, $(C opIndexAssign) determines the range of elements from the arguments.
+所以，$(C opIndexAssign) 借这些参数确定了相应的一系列元素。
 )
 
-$(H6 Multi-dimensional operator overloading example)
+$(H6 多维运算符重载示例)
 
 $(P
-The following $(C Matrix) example demonstrates how these operators can be overloaded for a two-dimensional type.
-)
-
-$(P
-Note that this code can be implemented in more efficient ways. For example, instead of constructing a $(I single-element sub-matrix) even when operating on a single element e.g. by $(C m[i, j]), it could apply the operation directly on that element.
+如下的 $(C Matrix) 示例演示了这些运算符可以为一个二维类型进行重载。
 )
 
 $(P
-Additionally, the $(C writeln(__FUNCTION__)) expressions inside the functions have nothing to do with the behavior of the code. They merely help expose the functions that get called behind the scenes for different operator usages.
+注意这些代码完全可以由许多更高效的方式实现。例如，可以直接对元素进行运算，而不是每次，甚至在进行单元素运算时，都构建一个$(I 单元素的子矩阵)。
 )
 
 $(P
-Also note that the correctness of dimension values are enforced by template constraints.
+除此之外，函数内部的 $(C writeln(__FUNCTION__)) 表达式对于实际代码需求是没有任何作用的。它们仅仅是为了使被调用的函数从运算符使用的幕后显化出来。
+)
+
+$(P
+同时需要注意的是维度值的正确性是由模板约束保证的。
 )
 
 ---
@@ -1826,20 +1824,19 @@ import std.stdio;
 import std.format;
 import std.string;
 
-/* Works as a two-dimensional int array. */
+/* 像一个二维 int 数组一样工作。 */
 struct Matrix {
 private:
 
     int[][] rows;
 
-    /* Represents a range of rows or columns. */
+    /* 表示行或列区间。 */
     struct Range {
         size_t begin;
         size_t end;
     }
 
-    /* Returns the sub-matrix that is specified by the row and
-     * column ranges. */
+    /* 返回由行列区间确定的子矩阵。 */
     Matrix subMatrix(Range rowRange, Range columnRange) {
         writeln(__FUNCTION__);
 
@@ -1870,8 +1867,7 @@ public:
         formattedWrite(sink, "%(%(%5s %)\n%)", rows);
     }
 
-    /* Assigns the specified value to each element of the
-     * matrix. */
+    /* 将指定值赋于矩阵的每一个元素。 */
     Matrix opAssign(int value) {
         writeln(__FUNCTION__);
 
@@ -1882,8 +1878,8 @@ public:
         return this;
     }
 
-    /* Uses each element and a value in a binary operation
-     * and assigns the result back to that element. */
+    /* 将每个元素与一个值进行二元运算
+     * 并将结果赋值于原元素。 */
     Matrix opOpAssign(string op)(int value) {
         writeln(__FUNCTION__);
 
@@ -1894,29 +1890,28 @@ public:
         return this;
     }
 
-    /* Returns the length of the specified dimension. */
+    /* 返回特定维度的长度。 */
     size_t opDollar(size_t dimension)() const
             if (dimension <= 1) {
         writeln(__FUNCTION__);
 
         static if (dimension == 0) {
-            /* The length of dimension 0 is the length of the
-             * 'rows' array. */
+            /* 0 维度的长度即
+             * ‘rows’数组的长度。 */
             return rows.length;
 
         } else {
-            /* The length of dimension 1 is the lengths of the
-             * elements of 'rows'. */
+            /* 1 维的长度即
+             * ‘rows’元素的长度。 */
             return rows.length ? rows[0].length : 0;
         }
     }
 
-    /* Returns an object that represents the range from
-     * 'begin' to 'end'.
+    /* 返回一个表示从‘begin’至‘end’区间的对象。
      *
-     * Note: Although the 'dimension' template parameter is
-     * not used here, that information can be useful for other
-     * types. */
+     * 注：尽管模板参数‘dimension’
+     * 未在此处使用，对于其他类型
+     * 这或许是有用的。 */
     Range opSlice(size_t dimension)(size_t begin, size_t end)
             if (dimension <= 1) {
         writeln(__FUNCTION__);
@@ -1924,46 +1919,45 @@ public:
         return Range(begin, end);
     }
 
-    /* Returns a sub-matrix that is defined by the
-     * arguments. */
+    /* 返回一个由参数定义的子矩阵。 */
     Matrix opIndex(A...)(A arguments)
             if (A.length <= 2) {
         writeln(__FUNCTION__);
 
-        /* We start with ranges that represent the entire
-         * matrix so that the parameter-less use of opIndex
-         * means "all of the elements". */
+        /* 我们以表示整个矩阵的区间
+         * 进行开始，这样 opIndex
+         * 的无参数形式就表示“全部元素”。 */
         Range[2] ranges = [ Range(0, opDollar!0),
                             Range(0, opDollar!1) ];
 
         foreach (dimension, a; arguments) {
             static if (is (typeof(a) == Range)) {
-                /* This dimension is already specified as a
-                 * range like 'matrix[begin..end]', which can
-                 * be used as is. */
+                /* 这个维度已经指定为了如
+                 * ‘matrix[begin..end]’这
+                 * 样能够直接使用的区间。 */
                 ranges[dimension] = a;
 
             } else static if (is (typeof(a) : size_t)) {
-                /* This dimension is specified as a single
-                 * index value like 'matrix[i]', which we want
-                 * to represent as a single-element range. */
+                /* 这个维度被指定为一个单一
+                 * 的像‘matrix[i]’这样的参数
+                 * 值，这表示为一个单元素区间。 */
                 ranges[dimension] = Range(a, a + 1);
 
             } else {
-                /* We don't expect other types. */
+                /* 我们不期望其他类型。 */
                 static assert(
                     false, format("Invalid index type: %s",
                                   typeof(a).stringof));
             }
         }
 
-        /* Return the sub-matrix that is specified by
-         * 'arguments'. */
+        /* 返回由‘arguments’指定的
+         * 子矩阵。 */
         return subMatrix(ranges[0], ranges[1]);
     }
 
-    /* Assigns the specified value to each element of the
-     * sub-matrix. */
+    /* 将指定的值赋于子矩阵的
+     * 的每一个元素。 */
     Matrix opIndexAssign(A...)(int value, A arguments)
             if (A.length <= 2) {
         writeln(__FUNCTION__);
@@ -1972,9 +1966,8 @@ public:
         return subMatrix = value;
     }
 
-    /* Uses each element of the sub-matrix and a value in a
-     * binary operation and assigns the result back to that
-     * element. */
+    /* 使用子矩阵的每一个元素与一个值于
+     * 二元运算中并将其结果赋于该元素。 */
     Matrix opIndexOpAssign(string op, A...)(int value,
                                             A arguments)
             if (A.length <= 2) {
@@ -1985,9 +1978,8 @@ public:
     }
 }
 
-/* Executes the expression that is specified as a string, and
- * prints the result as well as the new state of the
- * matrix. */
+/* 执行以字符串指定的表达式，并
+ * 输出其结果与矩阵的新状态。 */
 void execute(string expression)(Matrix m) {
     writefln("\n--- %s ---", expression);
     mixin ("auto result = " ~ expression ~ ";");
@@ -2039,69 +2031,69 @@ void main() {
 }
 ---
 
-$(H5 Summary)
+$(H5 小结)
 
 $(P
-The earlier template chapter had the following reminders:
+早先的模板一章中有如下几点：
 )
 
 $(UL
 
-$(LI Templates define the code as a pattern, for the compiler to generate instances of it according to the actual uses in the program.)
+$(LI 模板将代码定义为模型，以让编译器根据其在程序中的实际应用来生成它的实例。)
 
-$(LI Templates are a compile-time feature.)
+$(LI 模板是编译期特性。)
 
-$(LI Specifying template parameter lists is sufficient to make function, struct, and class definitions templates.)
+$(LI 指定模板参数列表就足以将函数、struct、class 定义转为模板。)
 
-$(LI Template arguments can be specified explicitly after an exclamation mark. The parentheses are not necessary when there is only one token inside the parentheses.)
+$(LI 模板参数能在一个感叹号之后被显式指定。当括号中只存在一个标记时括号可以被省略。)
 
-$(LI Each different instantiation of a template is a different type.)
+$(LI 一个模板的每一个不同实例都是不同的类型。)
 
-$(LI Template arguments can only be deduced for function templates.)
+$(LI 只能为函数模板进行模板参数推断。)
 
-$(LI Templates can be specialized for the type that is after the $(C :) character.)
+$(LI 模板能以在 $(C :) 字符之后的类型进行特化。)
 
-$(LI Default template arguments are specified after the $(C =) character.)
+$(LI 默认模板参数是在 $(C =) 字符之后指定的。)
 
 )
 
 $(P
-This chapter added the following concepts:
+本章增加了以下概念：
 )
 
 $(UL
 
-$(LI Templates can be defined by the full syntax or the shortcut syntax.)
+$(LI 模板能由完整语法或快捷语法定义。)
 
-$(LI The scope of the template is a name space.)
+$(LI 模板语句块是一个命名空间。)
 
-$(LI A template that contains a definition with the same name as the template is called an eponymous template. The template represents that definition.)
+$(LI 一个包含与该模板同名的定义的模板叫做同名模板。这个模板即代表那个定义。)
 
-$(LI Templates can be of functions, classes, structs, unions, and interfaces, and every template body can contain any number of definitions.)
+$(LI 模板可以是函数、class、struct、union、interface，并且任何模板体中可以包含任意数量的定义。)
 
-$(LI Template parameters can be of type, value, $(C this), $(C alias), and tuple kinds.)
+$(LI 模板参数可以是类型、值、$(C this)、$(C alias) 以及元组。)
 
-$(LI $(C typeof(this)), $(C typeof(super)), and $(C typeof(return)) are useful in templates.)
+$(LI $(C typeof(this))、$(C typeof(super))、以及 $(C typeof(return)) 在模板中很有用。)
 
-$(LI Templates can be specialized for particular arguments.)
+$(LI 模板能为特定的参数特化。)
 
-$(LI Meta programming is a way of executing operations at compile time.)
+$(LI 元编程是一种在编译期执行运算操作的方式。)
 
-$(LI Templates enable $(I compile-time polymorphism).)
+$(LI 模板允许了$(I 编译期多态性)。)
 
-$(LI Separate code generation for different instantiations can cause $(I code bloat).)
+$(LI 对于不同的实例生成分离代码会造成$(I 代码膨胀)。)
 
-$(LI Template constraints limit the uses of templates for specific template arguments. They help move compilation errors from the implementations of templates to where the templates are actually used incorrectly.)
+$(LI 模板约束对特定的模板参数实行了模板使用限制。它们将模板实现中的编译错误移至了实际上模板被错误使用的地方。)
 
-$(LI It is more readable to give names to template constraints.)
+$(LI 将模板约束命名会使其更加可读。)
 
-$(LI The templated versions of $(C opDollar), $(C opSlice), $(C opIndex), $(C opIndexAssign), and $(C opIndexOpAssign) are for multi-dimensional indexing and slicing.)
+$(LI $(C opDollar)、$(C opSlice)、$(C opIndex)、$(C opIndexAssign)、与 $(C opIndexOpAssign) 的模板版本是用于多维索引与切片的。)
 
 )
 
 Macros:
-        SUBTITLE=More Templates
+        SUBTITLE=模板扩展
 
-        DESCRIPTION=One of generic programming features of D in more detail.
+        DESCRIPTION=更详细地阐明 D 语言中最通用的编程特性之一。
 
-        KEYWORDS=d programming language tutorial book templates
+        KEYWORDS=d 编程 语言 教程 书 模板
