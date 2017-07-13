@@ -6,7 +6,7 @@ The Chinese Translation Project of [Programming in D](http://ddili.org/ders/d.en
 ## Why "Programming in D"? 为什么选择此书？
 Instead of falling for getting things done quickly, "Programming in D" focuses on getting things done properly, to the lasting benefit of its reader. -Andrei Alexandrescu
 
-本书注重于如何恰到好处地使用D语言将任务处理得当，而非试图快速地完成一切却有失于代码质量，这使得它的读者能够长久受益。 ——大A
+本书没有急于求成，而是将各方面都处理得恰到好处，让读者受益匪浅。 ——Andrei Alexandrescu
 
 ## How to join us 怎样加入我们
 ### Tencent QQ
