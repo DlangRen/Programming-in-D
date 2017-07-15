@@ -51,6 +51,6 @@ void main() {
 Macros:
         SUBTITLE=格式化输出习题解答
 
-        练习DESCRIPTION=D 编程语言练习解答：格式化输出
+        DESCRIPTION=D 编程语言练习解答：格式化输出
 
         KEYWORDS=D 编程语言教程 格式化输出 解答
