@@ -1,65 +1,66 @@
 Ddoc
 
-$(DERS_BOLUMU $(IX const) $(IX immutable) Immutability)
+$(DERS_BOLUMU $(IX const) $(IX immutable) 不可变性)
 
 $(P
-We have seen that variables represent concepts in programs. The interactions of these concepts are achieved by expressions that change the values of those variables:
+我们已经多次遇到过变量这个概念了。之所以叫变量是因为我们可以通过表达式修改它的值：
 )
 
 ---
-    // Pay the bill
+    // 支付账单
     totalPrice = calculateAmount(itemPrices);
     moneyInWallet $(HILITE -=) totalPrice;
     moneyAtMerchant $(HILITE +=) totalPrice;
 ---
 
 $(P
-Modifying a variable is called $(I mutating) that variable. The concept of mutability is essential for most tasks. However, there are some cases where mutability is not desirable:
+我们把这种修改操作成为$(I 赋值)。对于大多数任务来说可变值都是必须的。但变量并不能适用于所有情况：
 )
 
 $(UL
 
 $(LI
-Some concepts are immutable by definition. For example, there are always seven days in a week, the math constant $(I pi) (π) never changes, the list of natural languages supported by a program may be fixed and small (e.g. only English and Turkish), etc.
+某些值一旦定义就不会在改变。比如说，一星期总是有七天、永远不会改变的数学常量 $(I pi)（π）、程序所支持的自然语言总是有限的（比如只支持英语和土耳其语）等等。
 )
 
 $(LI
-If every variable were modifiable, as we have seen so far, then every piece of code that used a variable could potentially modify it. Even if there was no reason to modify a variable in an operation there would be no guarantee that this would not happen by accident. Programs are difficult to read and maintain when there are no immutability guarantees.
+如果所有的量都是可变的，那任何一段使用这些值的代码都可能会修改它们。虽然对这些值的修改完全没有必要，但这并不能保证不会发生意外的更改操作。如果没有不变性约定，程序将变得难以阅读和维护。
 
 $(P
-For example, consider a function call $(C retire(office, worker)) that retires a worker of an office. If both of those variables were mutable it would not be clear (just by looking at that function call) which of them would be modified by the function. It may be expected that the number of active employees of $(C office) would be decreased, but would the function call also modify $(C worker) in some way?
+让我们来看一个例子，假设有一个用来让员工退休的函数 $(C retire(office, worker))。在变量均可变的情况下，这段代码并不能清晰的传递出它所要表达的意图（如果只看函数调用的话）。每一个变量都有可能被函数修改。我们可能的确需要减少 $(C office) 中活动员工的个数，但函数需要以相同的方式修改 $(C worker) 吗？
 )
 
 )
 
-)
-
-$(P
-The concept of immutability helps with understanding parts of programs by guaranteeing that certain operations do not change certain variables. It also reduces the risk of some types of programming errors.
 )
 
 $(P
-The $(I immutability) concept is expressed in D by the $(C const) and $(C immutable) keywords. Although the two words themselves are close in meaning, their responsibilities in programs are different and they are sometimes incompatible.
+不变性能够帮助我们理解程序，因为它保证了操作一定不会修改变量的值。同时它也能降低程序出现错误的风险。
 )
 
 $(P
-$(IX type qualifier) $(IX qualifier, type) $(C const), $(C immutable), $(C inout), and $(C shared) are $(I type qualifiers). (We will see $(LINK2 /ders/d.en/function_parameters.html, $(C inout)) and $(LINK2 /ders/d.en/concurrency_shared.html, $(C shared)) in later chapters.)
-)
-
-$(H5 Immutable variables)
-
-$(P
-Both of the terms "immutable variable" and "constant variable" are nonsensical when the word "variable" is taken literally to mean $(I something that changes). In a broader sense, the word "variable" is often understood to mean any concept of a program which may be mutable or immutable.
+在 D 语言中，$(I 不变性) 是通过关键字 $(C const) 和 $(C immutable) 描述的。虽然这两个词的含义相近，但在程序中它们有着不同的作用且在某些情况下无法相互兼容。
 )
 
 $(P
-There are three ways of defining variables that can never be mutated.
+$(IX 类型限定符) $(IX 限定符, type) $(C const)、$(C immutable)、$(C inout) 和 $(C shared) 是$(I 类型限定符)。
+（我们会在之后的章节中学习 $(LINK2 /ders/d.cn/function_parameters.html, $(C inout)) 和 $(LINK2 /ders/d.cn/concurrency_shared.html, $(C shared))。）
 )
 
-$(H6 $(IX enum) $(C enum) constants)
+$(H5 不可变变量)
 
 $(P
-We have seen earlier in the $(LINK2 /ders/d.en/enum.html, $(C enum) chapter) that $(C enum) defines named constant values:
+如果你非要认为词组“immutable variable”和“constant variable”中的“variable”指的是$(I 某种可变的量)的话，那这两个词组就没有什么意义了。广义上来说，“variable”指的是程序中任何可变或不可变的值。
+)
+
+$(P
+有三种定义不变量的方法。
+)
+
+$(H6 $(IX enum) $(C enum) 常量)
+
+$(P
+我们在之前的 $(LINK2 /ders/d.cn/enum.html, $(C enum)) 一章中介绍过 $(C enum) 常被用来定义命名常量：
 )
 
 ---
@@ -67,7 +68,7 @@ We have seen earlier in the $(LINK2 /ders/d.en/enum.html, $(C enum) chapter) tha
 ---
 
 $(P
-As long as their values can be determined at compile time, $(C enum) variables can be initialized by the return values of functions as well:
+如果函数返回值可在编译期确定，那我们也可以使用函数返回值来初始化 $(C enum) 常量：
 )
 
 ---
@@ -90,7 +91,7 @@ void main() {
 ---
 
 $(P
-As expected, the values of $(C enum) constants cannot be modified:
+正如我们期望的那样，$(C enum) 常量无法被修改：
 )
 
 ---
@@ -98,11 +99,11 @@ As expected, the values of $(C enum) constants cannot be modified:
 ---
 
 $(P
-Although it is a very effective way of representing immutable values, $(C enum) can only be used for compile-time values.
+虽然 $(C enum) 能高效地定义不变量，但这种方法只能用在编译期已知的值上。
 )
 
 $(P
-An $(C enum) constant is $(I a manifest constant), meaning that the program is compiled as if every mention of that constant had been replaced by its value. As an example, let's consider the following $(C enum) definition and the two expressions that make use of it:
+$(C enum) 实际上是$(I 一个宏)，即在编译时编译器将以枚举实际的值替换枚举名。来看下面这个例子，有一个 $(C enum) 定义和两个使用它的表达式：
 )
 
 ---
@@ -112,7 +113,7 @@ An $(C enum) constant is $(I a manifest constant), meaning that the program is c
 ---
 
 $(P
-The code above is completely equivalent to the one below, where we replace every use of $(C i) with its value of $(C 42):
+上面这段代码和下面这段代码等价，实际上每一个使用 $(C i) 的地方都被替换为 $(C 42)：
 )
 
 ---
@@ -121,7 +122,7 @@ The code above is completely equivalent to the one below, where we replace every
 ---
 
 $(P
-Although that replacement makes sense for simple types like $(C int) and makes no difference to the resulting program, $(C enum) constants can bring a hidden cost when they are used for arrays or associative arrays:
+虽然对像 $(C int) 一样的简单类型来说这种替换不会影响程序的执行结果，但对于数组或关联数组来说 $(C enum) 常量将引入不易察觉的运行时开销：
 )
 
 ---
@@ -131,42 +132,42 @@ Although that replacement makes sense for simple types like $(C int) and makes n
 ---
 
 $(P
-After replacing $(C a) with its value, the equivalent code that the compiler would be compiling is the following:
+用 $(C a) 的值替换它自己之后，上面这段代码将会被编译成下面这样：
 )
 
 ---
-    writeln([ 42, 100 ]); // an array is created at run time
-    foo([ 42, 100 ]);     // another array is created at run time
+    writeln([ 42, 100 ]); // 在运行时创建一个数组
+    foo([ 42, 100 ]);     // 又在运行时创建一个数组
 ---
 
 $(P
-The hidden cost here is that there would be two separate arrays created for the two expressions above. For that reason, it may make more sense to define arrays and associative arrays as $(C immutable) variables if they are going to be used more than once in the program.
+此处的开销在于两个表达式分别创建了一个数组。因此如果程序中的数组和关联数组会被多次使用的话最好还是将其定义为 $(C immutable) 变量。
 )
 
 $(P
-$(C enum) constants can be initialized with results of function calls:
+可用函数返回值初始化 $(C enum) 常量：
 )
 
 ---
-    enum a = makeArray();    // called at compile time
+    enum a = makeArray();    // 在编译期调用
 ---
 
 $(P
-This is possible with D's $(I compile time function execution) (CTFE) feature, which we will see in $(LINK2 /ders/d.en/functions_more.html, a later chapter).
+使用 D 语言的$(I 编译期函数执行)（CTFE）特性初始化枚举也是可行的，我们会在 $(LINK2 /ders/d.cn/functions_more.html, 之后的章节) 中学习。
 )
 
-$(H6 $(IX variable, immutable) $(C immutable) variables)
+$(H6 $(IX 变量, immutable) $(C immutable) 变量)
 
 $(P
-Like $(C enum), this keyword specifies that the value of a variable will never change. Unlike $(C enum), an $(C immutable) variable is an actual variable with a memory address, which means that we can set its value during the execution of the program and that we can refer to its memory location.
-)
-
-$(P
-The following program compares the uses of $(C enum) and $(C immutable). The program asks for the user to guess a number that has been picked randomly. Since the random number cannot be determined at compile time, it cannot be defined as an $(C enum). Still, since the randomly picked value must never be changed after having been decided, it is suitable to specify that variable as $(C immutable).
+与 $(C enum) 相同，关键字 $(C immutable) 保证变量的值永远不会被改变。但与 $(C enum) 不同的是，$(C immutable) 变量是一个真实存在的变量，它有内存地址。也就是说我们可以在运行时设定它的值，或者引用它的内存地址。
 )
 
 $(P
-The program takes advantage of the $(C readInt()) function that was defined in the previous chapter:
+下面这段代码比较了 $(C enum) 和 $(C immutable) 的用法。程序要求用户猜一个随机数。由于随机数不能在编译期确定，所以它不能被定义为 $(C enum)。但一旦确定后随机数将不再改变，所以 $(C immutable) 非常适合用在这里。
+)
+
+$(P
+程序利用了我们之前写的 $(C readInt()) 函数：
 )
 
 ---
@@ -175,7 +176,7 @@ import std.random;
 
 int readInt(string message) {
     int result;
-    write(message, "? ");
+    write(message, "?");
     readf(" %s", &result);
     return result;
 }
@@ -200,24 +201,24 @@ void main() {
 ---
 
 $(P
-Observations:
+显然：
 )
 
 $(UL
 
-$(LI $(C min) and $(C max) are integral parts of the behavior of this program and their values are known at compile time. For that reason they are defined as $(C enum) constants.
+$(LI $(C min) 和 $(C max) 是程序行为的一部分，它们在编译期就已经确定了。所以它们被定义为 $(C enum) 常量。
 )
 
-$(LI $(C number) is specified as $(C immutable) because it would not be appropriate to modify it after its initialization at run time. Likewise for each user guess: once read, the guess should not be modified.
+$(LI $(C number) 之所以被定义为 $(C immutable) 是因为在运行时它一旦初始化就不会再被改变。就像用户猜的数一样：一旦被确定就不会再被修改。
 )
 
-$(LI Observe that the types of those variables are not specified explicitly. As with $(C auto) and $(C enum), the type of an $(C immutable) variable can be inferred from the expression on the right hand side.
+$(LI 注意这些变量并没有显式指定类型。就像$(C auto) 和 $(C enum) 一样，$(C immutable) 变量的类型也可以从等号右侧的表达式中推导出来。
 )
 
 )
 
 $(P
-Although it is not necessary to write the type fully, $(C immutable) normally takes the actual type within parentheses, e.g. $(C immutable(int)). The output of the following program demonstrates that the full names of the types of the three variables are in fact the same:
+$(C immutable) 通常将变量的实际类型放在其后的圆括号中，就象这样：$(C immutable(int))。但大多数时候我们并不需要显式写出完整类型。下面这段程序的输出表明这三个变量的实际类型完全相同：
 )
 
 ---
@@ -235,7 +236,7 @@ void main() {
 ---
 
 $(P
-The actual name of the type includes $(C immutable):
+这三个类型实际上都包含 $(C immutable)：
 )
 
 $(SHELL
@@ -245,13 +246,13 @@ immutable(int)
 )
 
 $(P
-The use of parentheses has significance, and specifies which parts of the type are immutable. We will see this below when discussing the immutability of the whole slice vs. its elements.
+圆括号可以更明确的指明类型的哪一部分是不可变的。之后我们在讨论整个 slice 的不变性与其元素的不变性的区别时再次看到它。
 )
 
-$(H6 $(IX variable, const) $(C const) variables)
+$(H6 $(IX 变量, const) $(C const) 变量)
 
 $(P
-When defining variables the $(C const) keyword has the same effect as $(C immutable). $(C const) variables cannot be modified:
+在定义变量时 $(C const) 关键字与 $(C immutable) 作用相同。$(C const) 变量不能被修改：
 )
 
 ---
@@ -260,25 +261,25 @@ When defining variables the $(C const) keyword has the same effect as $(C immuta
 ---
 
 $(P
-I recommend that you prefer $(C immutable) over $(C const) for defining variables. The reason is that $(C immutable) variables can be passed to functions that have $(C immutable) parameters. We will see this below.
+我建议你使用最好使用 $(C immutable) 而不是 $(C const) 定义变量。因为 $(C immutable) 变量可以传递给函数的 $(C immutable) 形参。我们之后会见到相关的例子。
 )
 
-$(H5 Immutable parameters)
+$(H5 不可变参数)
 
 $(P
-It is possible for functions to promise that they do not modify certain parameters that they take, and the compiler will enforce this promise. Before seeing how this is achieved, let's first see that functions can indeed modify the elements of slices that are passed as arguments to those functions.
-)
-
-$(P
-As you would remember from the $(LINK2 /ders/d.en/slices.html, Slices and Other Array Features chapter), slices do not own elements but provide access to them. There may be more than one slice at a given time that provides access to the same elements.
+函数可以声明自己不会修改传入的参数，编译器将会确保这种承诺生效。在这之前我们先来看一个的确会修改传入的 slice 参数的函数。
 )
 
 $(P
-Although the examples in this section focus only on slices, this topic is applicable to associative arrays and classes as well because they too are $(I reference types).
+slice 并不是拥有元素，它只是能够访问到元素。关于这点我们已经在 $(LINK2 /ders/d.cn/slices.html, Slice 和其它数组特性) 一章中介绍过了。对于一组数据，同一时间可能有多个 slice 能够访问到它们。
 )
 
 $(P
-A slice that is passed as a function argument is not the slice that the function is called with. The argument is a copy of the actual slice:
+虽然本节都是 slice 的例子，但实际上这些问题也适用于关联数组和类，因为他们都是$(I 引用类型)。
+)
+
+$(P
+实际上函数被调用时传入的 slice 并非参数列表中作实参的那个 slice。传入的 slice 是它的副本：
 )
 
 ---
@@ -298,21 +299,21 @@ void halve(int[] numbers) {            // 2
 ---
 
 $(P
-When program execution enters the $(C halve()) function, there are two slices that provide access to the same four elements:
+当程序执行到 $(C halve()) 函数内部时，内存中将会有两个可以访问相同元素的 slice。
 )
 
 $(OL
 
-$(LI The slice named $(C slice) that is defined in $(C main()), which is passed to $(C halve()) as its argument
+$(LI $(C main()) 中定义的那个名为 $(C slice) 的 slice，被作为参数传给 $(C halve())
 )
 
-$(LI The slice named $(C numbers) that $(C halve()) receives as its argument, which provides access to the same elements as $(C slice)
+$(LI $(C halve()) 接收到的名为 $(C numbers) 的 slice 能够与 $(C slice) 访问同一组元素。
 )
 
 )
 
 $(P
-Since both slides refer to the same elements and given that we use the $(C ref) keyword in the $(C foreach) loop, the values of the elements get halved:
+由于两个 slice 都指向同一组元素且我们在 $(C foreach) 中使用了 $(C ref) 关键字，所以输出的结果中每一个元素的值都变为原来的一半了：
 )
 
 $(SHELL
@@ -320,11 +321,11 @@ $(SHELL
 )
 
 $(P
-It is useful for functions to be able to modify the elements of the slices that are passed as arguments. Some functions exist just for that purpose, as has been seen in this example.
+当我们需要使用函数修改传入的 slice 时这个特性很有用。就像我们的例子一样，某些函数存在的意义就是为了实现这样的功能。
 )
 
 $(P
-The compiler does not allow passing $(C immutable) variables as arguments to such functions because we cannot modify an immutable variable:
+编译器不允许我们将 $(C immutable) 作为参数传入这种函数，因为我们不能修改一个 immutable 量：
 )
 
 ---
@@ -333,7 +334,7 @@ The compiler does not allow passing $(C immutable) variables as arguments to suc
 ---
 
 $(P
-The compilation error indicates that a variable of type $(C immutable(int[])) cannot be used as an argument of type $(C int[]):
+编译器的错误信息明确的告诉我们 $(C immutable(int[])) 类型的量不能被用作 $(C int[]) 型的参数：
 )
 
 $(SHELL
@@ -341,10 +342,10 @@ Error: function deneme.halve ($(HILITE int[]) numbers) is not callable
 using argument types ($(HILITE immutable(int[])))
 )
 
-$(H6 $(IX parameter, const) $(C const) parameters)
+$(H6 $(IX 参数, const) $(C const) 参数)
 
 $(P
-It is important and natural that $(C immutable) variables be prevented from being passed to functions like $(C halve()), which modify their arguments. However, it would be a limitation if they could not be passed to functions that do not modify their arguments in any way:
+不能给像 $(C halve()) 一样的函数传递 $(C immutable) 变量是很自然的事情，毕竟它们需要修改参数。然而，对于那些的确不会修改参数的函数来说，这条限制又显得有些多余：
 )
 
 ---
@@ -365,33 +366,33 @@ void print(int[] slice) {
 ---
 
 $(P
-It does not make sense above that a slice is prevented from being printed just because it is $(C immutable). The proper way of dealing with this situation is by using $(C const) parameters.
+对于上面这个例子来说，函数只是显示 slice，并不会修改它。由于 $(C immutable) 的存在而无法传入 slice 是没有意义的。我们需要一种优雅地解决类似问题的方式，这就是 $(C const)：
 )
 
 $(P
-The $(C const) keyword specifies that a variable is not modified through $(I that particular reference) (e.g. a slice) of that variable. Specifying a parameter as $(C const) guarantees that the elements of the slice are not modified inside the function. Once $(C print()) provides this guarantee, the program can now be compiled:
+$(C const) 关键字创建了一个$(I 特殊的引用)（比如 slice）来确保变量不会被修改。对一个参数指定 $(C const) 意味着函数保证不会修改 slice 中的元素。只要 $(C print()) 提供了这样的保证，程序就能通过编译：
 )
 
 ---
-    print(slice);    // now compiles
+    print(slice);    // 现在编译通过了
 // ...
 void print($(HILITE const) int[] slice)
 ---
 
 $(P
-This guarantee allows passing both mutable and $(C immutable) variables as arguments:
+有了这种保证，函数参数不仅可以接收可变变量也可接收 $(C immutable) 变量。
 )
 
 ---
     immutable int[] slice = [ 10, 20, 30, 40 ];
-    print(slice);           // compiles
+    print(slice);           // 编译通过
 
     int[] mutableSlice = [ 7, 8 ];
-    print(mutableSlice);    // compiles
+    print(mutableSlice);    // 编译通过
 ---
 
 $(P
-A parameter that is not modified in a function but is not specified as $(C const) reduces the applicability of that function. Additionally, $(C const) parameters provide useful information to the programmer. Knowing that a variable will not be modified when passed to a function makes the code easier to understand. It also prevents potential errors because the compiler detects modifications to $(C const) parameters:
+如果不对那些函数不会修改的参数指定 $(C const) 会限制的函数的适用范围。除此之外，$(C const) 参数还能为程序员提供有价值的信息。若已知传入函数的变量不会被修改，代码将更易理解。它也会消除潜在的出现错误的可能，因为编译器会检查是否存在对 $(C const) 参数的修改操作：
 )
 
 ---
@@ -400,21 +401,21 @@ void print($(HILITE const) int[] slice) {
 ---
 
 $(P
-The programmer would either realize the mistake in the function or would rethink the design and perhaps remove the $(C const) specifier.
+这样程序员就能知道函数中出现了错误，或者也许需要重新设计接口移除 $(C const) 声明。
 )
 
 $(P
-The fact that $(C const) parameters can accept both mutable and $(C immutable) variables has an interesting consequence. This is explained in the "Should a parameter be $(C const) or $(C immutable)?" section below.
+通过 $(C const) 参数能够接收可变变量和 $(C immutable) 变量这个设计我们可以得到一个有趣的结论。我们会在“参数是否应该声明为 $(C const) 或 $(C immutable)？”一节中说明。
 )
 
-$(H6 $(IX parameter, immutable) $(C immutable) parameters)
+$(H6 $(IX 参数, immutable) $(C immutable) 参数)
 
 $(P
-As we saw above, both mutable and $(C immutable) variables can be passed to functions as their $(C const) parameters. In a way, $(C const) parameters are welcoming.
+就像我们刚刚看到的那样，可变变量和 $(C immutable) 变量都可以传递给函数的 $(C const) 参数。在某种程度上，$(C const) 参数很受欢迎。
 )
 
 $(P
-In contrast, $(C immutable) parameters bring a strong requirement: only $(C immutable) variables can be passed to functions as their $(C immutable) parameters:
+而与它相对的是，$(C immutable) 参数一共了一种非常强的要求：只有 $(C immutable) 变量可以传给 $(C immutable) 参数：
 )
 
 ---
@@ -426,68 +427,68 @@ void main() {
     immutable int[] immSlice = [ 1, 2 ];
               int[]    slice = [ 8, 9 ];
 
-    func(immSlice);      // compiles
+    func(immSlice);      // 编译通过
     func(slice);         $(DERLEME_HATASI)
 }
 ---
 
 $(P
-For that reason, the $(C immutable) specifier should be used only when this requirement is actually necessary. We have indeed been using the $(C immutable) specifier indirectly through certain string types. This will be covered below.
+因此，只有在明确这种需求时才使用 $(C immutable) 声明。在使用 string 类型时，我们会间接的声明 $(C immutable)。等下我们会讲到的。
 )
 
 $(P
-We have seen that the parameters that are specified as $(C const) or $(C immutable) promise not to modify $(I the actual variable) that is passed as an argument. This is relevant only for reference types because only then there is $(I the actual variable) to talk about the immutability of.
+我们已经了解到 $(C const) 或 $(C immutable) 声明保证了被传入参数的$(I 变量的实际值)不会被改变。这种声明只针对引用类型，因为我们讨论的不可变性都是针对引用类型的$(I 实际值)的。
 )
 
 $(P
-$(I Reference types) and $(I value types) will be covered in the next chapter. Among the types that we have seen so far, only slices and associative arrays are reference types; the others are value types.
+我们会在之后的章节中介绍$(I 引用类型)和$(I值类型)。在目前已经见到的所有类型中，只有 slice 和关联数组是引用类型，其它均为值类型。
 )
 
-$(H6 $(IX parameter, const vs. immutable) Should a parameter be $(C const) or $(C immutable)?)
+$(H6 $(IX 参数, const vs. immutable) 是否应该将形参声明为 $(C const) 或 $(C immutable)？)
 
 $(P
-The two sections above may give the impression that, being more flexible, $(C const) parameters should be preferred over $(C immutable) parameters. This is not always true.
-)
-
-$(P
-$(C const) $(I erases) the information about whether the original variable was mutable or $(C immutable). This information is hidden even from the compiler.
+上面两个小节可能会给你一种暗示，让你觉得 $(C const) 形参比 $(C immutable) 形参更灵活。实际上并非总是如此。
 )
 
 $(P
-A consequence of this fact is that $(C const) parameters cannot be passed as arguments to functions that take $(C immutable) parameters. For example, $(C foo()) below cannot pass its $(C const) parameter to $(C bar()):
+$(C const) $(I 抹去)了原变量可变或 $(C immutable) 的信息。甚至连编译器都不再考虑这些信息。
+)
+
+$(P
+其后果就是函数的 $(C const) 形参无法再作为实参传给另一个函数的 $(C immutable) 形参。就像下面这个例子，$(C foo()) 函数不能把 $(C const) 参数再传给 $(C bar())：
 )
 
 ---
 void main() {
-    /* The original variable is immutable */
+    /* 原变量被声明为 immutable */
     immutable int[] slice = [ 10, 20, 30, 40 ];
     foo(slice);
 }
 
-/* A function that takes its parameter as const, in order to
- * be more useful. */
+/* 为了提高可可用性，函数将其形参
+ * 定义为 const。*/
 void foo(const int[] slice) {
     bar(slice);    $(DERLEME_HATASI)
 }
 
-/* A function that takes its parameter as immutable, for a
- * plausible reason. */
+/* 由于某种原因，函数将其形参
+ * 定义为 immutable。*/
 void bar(immutable int[] slice) {
     // ...
 }
 ---
 
 $(P
-$(C bar()) requires the parameter to be $(C immutable). However, it is not known (in general) whether the original variable that $(C foo())'s $(C const) parameter references was $(C immutable) or not.
+$(C bar()) 要求实参为 $(C immutable)。然而，在大多数情况下它并不知道 $(C foo()) 的 $(C const) 形参对应的引用是否为 $(C immutable)。
 )
 
 $(P
-$(I $(B Note:) It is clear in the code above that the original variable in $(C main()) is $(C immutable). However, the compiler compiles functions individually, without regard to all of the places that function is called from. To the compiler, the $(C slice) parameter of $(C foo()) may refer to a mutable variable or an $(C immutable) one.
+$(I $(B 注：) 从上面的代码中可以清楚的看出 $(C main()) 中的原变量是 $(C immutable)。但编译器实际上并不会去关注函数被调用的位置，它会将这些函数分别单独编译。对编译器来说，传入 $(C foo()) 函数的 $(C slice) 的实参既可能是可变变量也可能是 $(C immutable) 变量。
 )
 )
 
 $(P
-A solution would be to call $(C bar()) with an immutable copy of the parameter:
+一种解决方案是向 $(C bar()) 传入其 immutable 拷贝。
 )
 
 ---
@@ -497,21 +498,21 @@ void foo(const int[] slice) {
 ---
 
 $(P
-Although that is a sensible solution, it does incur into the cost of copying the slice and its contents, which would be wasteful in the case where the original variable was $(C immutable) to begin with.
+虽然这种方案看起来很合理，但它会引入拷贝 slice 及其元素带来的性能损失。尤其是一开始就传入 $(C immutable) 时，这种拷贝显然时没有必要的。
 )
 
 $(P
-After this analysis, it should be clear that always declaring parameters as $(C const) is not the best approach in every situation. After all, if $(C foo())'s parameter had been defined as $(C immutable) there would be no need to copy it before calling $(C bar()):
+通过上面这个例子我们可以清晰的认识到，$(C const) 形参并不能完美的适用于所有情况。毕竟如果 $(C foo()) 将参数定义为 $(C immutable)，它就不需要在调用 $(C bar()) 前复制整个 slice：
 )
 
 ---
-void foo(immutable int[] slice) {  // This time immutable
-    bar(slice);    // Copying is not needed anymore
+void foo(immutable int[] slice) {  // 这次是 immutable
+    bar(slice);    // 不再需要拷贝
 }
 ---
 
 $(P
-Although the code compiles, defining the parameter as $(C immutable) has a similar cost: this time an immutable copy of the original variable is needed when calling $(C foo()), if that variable was not immutable to begin with:
+虽然这段代码通过了编译，但若最初传入 $(C foo()) 的变量不是 immutable，那将形参定义为 $(C immutable) 依旧需要对原变量进行一次 immutable 拷贝。
 )
 
 ---
@@ -519,26 +520,26 @@ Although the code compiles, defining the parameter as $(C immutable) has a simil
 ---
 
 $(P
-Templates can help. (We will see templates in later chapters.) Although I don't expect you to fully understand the following function at this point in the book, I will present it as a solution to this problem. The following function template $(C foo()) can be called both with mutable and $(C immutable) variables. The parameter would be copied only if the original variable was mutable; no copying would take place if it were $(C immutable):
+模版可以帮助解决这个问题。（我们会在之后的章节中学习模版）我并不强求你此时就能理解以下全部代码，但我依旧将其作为此问题的一个解决方案。下面这个函数模版 $(C foo()) 即可传入可变变量也可传入 $(C immutable) 变量。只有当原变量是可变变量时，参数才会被复制；如果原变量为 $(C immutable)，那此处不会执行任何复制操作：
 )
 
 ---
 import std.conv;
 // ...
 
-/* Because it is a template, foo() can be called with both mutable
- * and immutable variables. */
+/* 以为 foo() 是模版，它既可传入可变变量
+ * 又可传入 immutable 变量。*/
 void foo(T)(T[] slice) {
-    /* 'to()' does not make a copy if the original variable is
-     * already immutable. */
+    /* 如果原变量已经是 immutable，‘to()’
+     * 不会进行复制。*/
     bar(to!(immutable T[])(slice));
 }
 ---
 
-$(H5 Immutability of the slice versus the elements)
+$(H5 不可变 slice 与不可变元素)
 
 $(P
-We have seen above that the type of an $(C immutable) slice has been printed as $(C immutable(int[])). As the parentheses after $(C immutable) indicate, it is the entire slice that is $(C immutable). Such a slice cannot be modified in any way: elements may not be added or removed, their values may not be modified, and the slice may not start providing access to a different set of elements:
+就像我们之前见到的那样，$(C immutable) slice 的完整类型是 $(C immutable(int[]))。$(C immutable) 之后的圆括号表明整个 slice 都是 $(C immutable)。这样的 slice 不能被任何方式修改：不能添加或删除元素，不能修改元素的值，slice 也不能指向另一组元素：
 )
 
 ---
@@ -552,85 +553,85 @@ We have seen above that the type of an $(C immutable) slice has been printed as 
 ---
 
 $(P
-Taking immutability to that extreme may not be suitable in every case. In most cases, what is important is the immutability of the elements themselves. Since a slice is just a tool to access the elements, it should not matter if we make changes to the slice itself as long as the elements are not modified. This is especially true in the cases we have seen so far, where the function receives a copy of the slice itself.
+如此极致的不可变性可能并不适用于某些情况。在大多数情况下，我们只需要元素的不可变性。由于 slice 只是一个访问元素的工具，只要元素不能被修改，slice 本身能否被改变并不重要。尤其是先前那种函数接收 slice 拷贝的情况。
 )
 
 $(P
-To specify that only the elements are immutable we use the $(C immutable) keyword with parentheses that enclose just the element type. Modifying the code accordingly, now only the elements are immutable, not the slice itself:
+$(C immutable) 关键字后的括号只括起元素类型即可实现这种需求。经过这样的修改，现在只有元素是不可变的，而不再是 slice：
 )
 
 ---
     immutable$(HILITE (int))[] immSlice = [ 1, 2 ];
-    immSlice ~= 3;               // can add elements
+    immSlice ~= 3;               // 可以增加元素
     immSlice[0] = 3;             $(DERLEME_HATASI)
-    immSlice.length = 1;         // can drop elements
+    immSlice.length = 1;         // 可以移除元素
 
     immutable int[] immOtherSlice = [ 10, 11 ];
-    immSlice = immOtherSlice;    /* can provide access to
-                                  * other elements */
+    immSlice = immOtherSlice;    /* 可以提供到
+                                  * 其它数组的访问 */
 ---
 
 $(P
-Although the two syntaxes are very similar, they have different meanings. To summarize:
+虽然这两种语法很相似，但它们却有着截然不同的含义。总结一下：
 )
 
 ---
-    immutable int[]  a = [1]; /* Neither the elements nor the
-                               * slice can be modified */
+    immutable int[]  a = [1]; /* 无论是元素本身还是
+                               * slice 都不可以修改 */
 
-    immutable(int[]) b = [1]; /* The same meaning as above */
+    immutable(int[]) b = [1]; /* 同上 */
 
-    immutable(int)[] c = [1]; /* The elements cannot be
-                               * modified but the slice can be */
+    immutable(int)[] c = [1]; /* 元素不可被修改
+                               * 但 slice 可以 */
 ---
 
 $(P
-This distinction has been in effect in some of the programs that we have written so far. As you may remember, the three string aliases involve immutability:
+这种差异已经体现在之前我们写过的程序中了。你应该还记得这三种不可变字符串别名：
 )
 
 $(UL
-$(LI $(C string) is an alias for $(C immutable(char)[]))
-$(LI $(C wstring) is an alias for $(C immutable(wchar)[]))
-$(LI $(C dstring) is an alias for $(C immutable(dchar)[]))
+$(LI $(C string) 是 $(C immutable(char)[])) 的别名
+$(LI $(C wstring) 是 $(C immutable(wchar)[])) 的别名
+$(LI $(C dstring) 是 $(C immutable(dchar)[])) 的别名
 )
 
 $(P
-Likewise, string literals are immutable as well:
+字符串字面量也是不可变的：
 )
 
 $(UL
-$(LI The type of literal $(STRING "hello"c) is $(C string))
-$(LI The type of literal $(STRING "hello"w) is $(C wstring))
-$(LI The type of literal $(STRING "hello"d) is $(C dstring))
+$(LI 字面量 $(STRING "hello"c) 的类型 $(C string))
+$(LI 字面量 $(STRING "hello"w) 的类型 $(C wstring))
+$(LI 字面量 $(STRING "hello"d) 的类型 $(C dstring))
 )
 
 $(P
-According to these definitions, D strings are normally arrays of $(I immutable characters).
+基于这样的定义，正常情况下 D 语言的字符串是$(I 不可变字符)数组。
 )
 
-$(H6 $(IX transitive, immutability) $(C const) and $(C immutable) are transitive)
+$(H6 $(IX 传递性, immutability) $(C const) 和 $(C immutable) 具有传递性)
 
 $(P
-As mentioned in the code comments of slices $(C a) and $(C b) above, both those slices and their elements are $(C immutable).
+正如之前 slice $(C a) 和 $(C b) 的注释所说的那样，slice 本身及其元素均为 $(C immutable)。
 )
 
 $(P
-This is true for $(LINK2 /ders/d.en/struct.html, structs) and $(LINK2 /ders/d.en/class.html, classes) as well, both of which will be covered in later chapters. For example, all members of a $(C const) $(C struct) variable are $(C const) and all members of an $(C immutable) $(C struct) variable are $(C immutable). (Likewise for classes.)
+对 $(LINK2 /ders/d.cn/struct.html, 结构体) 和 $(LINK2 /ders/d.cn/class.html, 类) 来说，这个结论也是正确的。关于这两种语法我们会在之后的章节中介绍。举个例子，$(C const) $(C struct) 的所有成员均为 $(C const)，$(C immutable) $(C struct) 的所有成员均为 $(C immutable)。（类也是一样的。）
 )
 
-$(H6 $(IX .dup) $(IX .idup) $(C .dup) and $(C .idup))
+$(H6 $(IX .dup) $(IX .idup) $(C .dup) 和 $(C .idup))
 
 $(P
-There may be mismatches in immutability when strings are passed to functions as parameters. The $(C .dup) and $(C .idup) properties make copies of arrays with the desired mutability:
+当函数传入 string 参数时，参数可能不匹配函数指定的不可变性。$(C .dup) 和 $(C .idup) 属性提供了满足可变性要求的数组拷贝：
 )
 
 $(UL
-$(LI $(C .dup) makes a mutable copy of the array; its name comes from "duplicate")
-$(LI $(C .idup) makes an immutable copy of the array)
+$(LI $(C .dup) 提供一个可变的数组拷贝；它的名字来源于英文单词 ”duplicate”)
+$(LI $(C .idup) 提供一个不可变的数组拷贝)
 )
 
 $(P
-For example, a function that insists on the immutability of a parameter may have to be called with an immutable copy of a mutable string:
+就像下面这个例子，要求传入不可变参数的函数可用可变变量的不可变拷贝调用：
 )
 
 ---
@@ -641,27 +642,27 @@ void foo($(HILITE string) s) {
 void main() {
     char[] salutation;
     foo(salutation);                $(DERLEME_HATASI)
-    foo(salutation$(HILITE .idup));           // ← this compiles
+    foo(salutation$(HILITE .idup));           // ← 编译通过
 }
 ---
 
-$(H5 How to use)
+$(H5 使用方法小结)
 
 $(UL
 
 $(LI
-As a general rule, prefer immutable variables over mutable ones.
+作为一个通用规则，优先使用不可变变量。
 )
 
 $(LI
-Define constant values as $(C enum) if their values can be calculated at compile time. For example, the constant value of $(I seconds per minute) can be an $(C enum):
+如果某个值可在编译期计算，将其定义为 $(C enum)。比如 常量$(I 一分钟有 60 秒) 即可被定义为 $(C enum)：
 
 ---
     enum int secondsPerMinute = 60;
 ---
 
 $(P
-There is no need to specify the type explicitly if it can be inferred from the right hand side:
+如果能从等号右侧的表达式中推导出变量类型，那就无需显示指定：
 )
 
 ---
@@ -671,11 +672,11 @@ There is no need to specify the type explicitly if it can be inferred from the r
 )
 
 $(LI
-Consider the hidden cost of $(C enum) arrays and $(C enum) associative arrays. Define them as $(C immutable) variables if the arrays are large and they are used more than once in the program.
+注意 $(C enum) 数组和 $(C enum) 关联数组带来的隐藏开销。如果数组很大并在程序中多次使用应将其定义为 $(C immutable) 变量。
 )
 
 $(LI
-Specify variables as $(C immutable) if their values will never change but cannot be known at compile time. Again, the type can be inferred:
+如果变量一经定义不会再改变而且在编译期无法计算出它们的值，将其定义为 $(C immutable)。它也可以使用类型推倒：
 
 ---
     immutable guess = readInt("What is your guess");
@@ -684,7 +685,7 @@ Specify variables as $(C immutable) if their values will never change but cannot
 )
 
 $(LI
-If a function does not modify a parameter, specify that parameter as $(C const). This would allow both mutable and $(C immutable) variables to be passed as arguments:
+如果函数保证不修改参数，应为参数指定 $(C const)。它既允许传入可变实参也允许传入 $(C immutable) 实参。
 
 ---
 void foo(const char[] s) {
@@ -695,19 +696,19 @@ void main() {
     char[] mutableString;
     string immutableString;
 
-    foo(mutableString);      // ← compiles
-    foo(immutableString);    // ← compiles
+    foo(mutableString);      // ← 编译通过
+    foo(immutableString);    // ← 编译通过
 }
 ---
 
 )
 
 $(LI
-Following from the previous guideline, consider that $(C const) parameters cannot be passed to functions taking $(C immutable). See the section titled "Should a parameter be $(C const) or $(C immutable)?" above.
+上面这条规则还需要考虑 $(C const) 参数无法传入接收 $(C immutable) 参数的函数的情况。参见“是否应该将形参声明为 $(C const) 或 $(C immutable)？”小节。
 )
 
 $(LI
-If the function modifies a parameter, leave that parameter as mutable ($(C const) or $(C immutable) would not allow modifications anyway):
+如果函数的确需要修改参数，形参应为可变类型（$(C const) 和 $(C immutable) 都不允许任何形式的修改）：
 
 ---
 import std.stdio;
@@ -728,7 +729,7 @@ void main() {
 ---
 
 $(P
-The output:
+输出为：
 )
 
 $(SHELL
@@ -739,27 +740,27 @@ olleh
 
 )
 
-$(H5 Summary)
+$(H5 小结)
 
 $(UL
 
-$(LI $(C enum) variables represent immutable concepts that are known at compile time.)
+$(LI $(C enum) 常量表示能在编译期得到的值。)
 
-$(LI $(C immutable) variables represent immutable concepts that must be calculated at run time, or that must have some memory location that we can refer to.)
+$(LI $(C immutable) 变量表示只有通过运行期计算才能获取到的常量或需要内存地址能通过引用访问的常量。)
 
-$(LI $(C const) parameters are the ones that functions do not modify. Both mutable and $(C immutable) variables can be passed as arguments of $(C const) parameters.)
+$(LI $(C const) 形参保证函数不会修改传入的实参。可变变量和 $(C immutable) 变量均可作为 $(C const) 形参的实参。)
 
-$(LI $(C immutable) parameters are the ones that functions specifically require them to be so. Only $(C immutable) variables can be passed as arguments of $(C immutable) parameters.)
+$(LI $(C immutable) 形参则代表了一种函数要求。只有 $(C immutable) 变量才能作为实参传给 $(C immutable) 形参。)
 
-$(LI $(C immutable(int[])) specifies that neither the slice nor its elements can be modified.)
+$(LI $(C immutable(int[])) 指明无论是 slice 本身还是元素都不可以被修改。)
 
-$(LI $(C immutable(int)[]) specifies that only the elements cannot be modified.)
+$(LI $(C immutable(int)[]) 仅指明元素不可被修改。)
 
 )
 
 Macros:
-        SUBTITLE=Immutability
+        SUBTITLE=不可变性
 
-        DESCRIPTION=The const and immutable keywords of D, which support the concept of immutability.
+        DESCRIPTION=D 语言中的 const 和 immutable 关键字，提供不可变性概念。
 
-        KEYWORDS=d programming language tutorial book immutable const
+        KEYWORDS=D 编程语言教程 immutable const
