@@ -1,39 +1,39 @@
 Ddoc
 
-$(DERS_BOLUMU $(IX conditional compilation) Conditional Compilation)
+$(DERS_BOLUMU $(IX 条件编译) 条件编译)
 
 $(P
-Conditional compilation is for compiling parts of programs in special ways depending on certain compile time conditions. Sometimes, entire sections of a program may need to be taken out and not compiled at all.
+条件编译，顾名思义，就是指在编译时根据条件选择最后要编译哪一部分的代码。有时一整段程序都应从源代码中剔除无需编译。
 )
 
 $(P
-Conditional compilation involves condition checks that are evaluable at compile time. Runtime conditional statements like $(C if), $(C for), $(C while) are not conditional compilation features.
+条件编译包将在编译期执行条件检查。像 $(C if)、$(C for)、$(C while) 这种运行期条件检查不属于条件编译的范畴。
 )
 
 $(P
-We have already encountered some features in the previous chapters, which can be seen as conditional compilation:
+我们已经在之前的章节中见到过可被看作是条件编译的特性：
 )
 
 $(UL
 
 $(LI
-$(C unittest) blocks are compiled and run only if the $(C -unittest) compiler switch is enabled.
+$(C unittest) 代码块只在有编译器开关 $(C -unittest) 打开时才会编译并运行 。
 )
 
 $(LI
-The contract programming blocks $(C in), $(C out), and $(C invariant) are activated only if the $(C -release) compiler switch is $(I not) enabled.
+契约编程中的 $(C in)、$(C out) 和 $(C invariant) 代码块只有在编译器开关 $(C -release) $(I 没有)被打开时才会编译执行。
 )
 
 )
 
 $(P
-Unit tests and contracts are about program correctness; whether they are included in the program should not change the behavior of the program.
+单元测试和契约是用来保证程序的正确性的；它们就算被包含在程序中也不会改变程序的功能。
 )
 
 $(UL
 
 $(LI
-Template specializations are compiled into the program only for specific types. When a specialization is not actually used in the program, the specialization is not compiled:
+只有特定类型的模版特化会被编译入程序。如果特化从未在程序中被使用，它将不会被编译：
 
 ---
 void swap(T)(ref T lhs, ref T rhs) {
@@ -54,7 +54,7 @@ unittest {
 void swap(T $(HILITE : uint))(ref T lhs, ref T rhs) {
     lhs ^= rhs;
     rhs ^= lhs;
-    lhs ^= rh;  // TYPO!
+    lhs ^= rh;  // 错误的代码！
 }
 
 void main() {
@@ -62,15 +62,15 @@ void main() {
 ---
 
 $(P
-The $(C uint) specialization above has been implemented by taking advantage of the $(C ^) ($(I xor)) operator, presumably under the belief that it would be executed faster than the general algorithm. ($(I $(B Note:) To the contrary, on most modern microprocessors this method is slower than the one that uses a temporary variable.))
+上面这个针对 $(C uint) 的模版特化利用了 $(C ^)（$(I xor，异或)）运算符，它貌似比通用算法执行的更快。（$(I $(B 注：) 实际正好相反，在大多数现代微处理器上，这种方法比使用临时变量的方法慢。)）
 )
 
 $(P
-Despite the typo at the end of that specialization, since the $(C uint) specialization is never actually used, the program gets compiled without any errors.
+虽然特化的最后一行代码出现了拼写错误，但由于 $(C uint) 特化从未被使用，因此程序可以顺利通过编译。
 )
 
 $(P
-$(I $(B Note:) This is another example of how important unit tests are; the mistake would have been noticed if there were a unit test for that specialization:
+$(I $(B 注：) 这也是一个说明单元测试重要性的例子；如果编写了一个针对此特化的单元测试，这个错误将被发现：
 )
 )
 
@@ -86,7 +86,7 @@ unittest {
 ---
 
 $(P
-This example shows that template specializations are also compiled under certain conditions.
+这个例子表明在特定的条件下，模版特化的确会被编译。
 )
 
 )
@@ -94,58 +94,58 @@ This example shows that template specializations are also compiled under certain
 )
 
 $(P
-The following are the features of D that are specifically for conditional compilation:
+下面这些 D 语言特性专门用于条件编译：
 )
 
 $(UL
 $(LI $(C debug))
 $(LI $(C version))
 $(LI $(C static if))
-$(LI $(C is) expression)
+$(LI $(C is) 表达式)
 $(LI $(C __traits))
 )
 
 $(P
-We will see the $(C is) expression in the next chapter and $(C __traits) in a later chapter.
+我们将在下一章学习 $(C is)，再下一章学习 $(C __traits)。
 )
 
 $(H5 $(IX debug) debug)
 
 $(P
-$(IX -debug, compiler switch) $(C debug) is useful during program development. The expressions and statements that are marked as $(C debug) are compiled into the program only when the $(C -debug) compiler switch is enabled:
+$(IX -debug, 编译器开关) 在程序开发过程中，$(C debug) 非常有用。被标记为 $(C debug) 的表达式和语句只有在编译开关 $(C -debug) 打开时才会被编译进程序：
 )
 
 ---
 debug $(I a_conditionally_compiled_expression);
 
 debug {
-    // ... conditionally compiled code ...
+    // ... 满足条件时编译的代码 ...
 
 } else {
-    // ... code that is compiled otherwise ...
+    // ... 不满足条件时编译的代码 ...
 }
 ---
 
 $(P
-The $(C else) clause is optional.
+$(C else) 子句是可选的。
 )
 
 $(P
-Both the single expression and the code block above are compiled only when the $(C -debug) compiler switch is enabled.
+只有当编译开关 $(C -debug) 打开，那条单独的表达式和上方的代码块才会被编译。
 )
 
 $(P
-We have been adding statements into the programs, which printed messages like "adding", "subtracting", etc. to the output. Such messages (aka $(I logs) and $(I log) messages) are helpful in finding errors by visualizing the steps that are taken by the program.
+我们可以为程序添加一下输出像“adding”，“subtracting”这样的语句。这种信息（又称 $(I logs) 和 $(I log) 信息）可视化了程序的执行流程，帮助我们找到错误。
 )
 
 $(P
-Remember the $(C binarySearch()) function from $(LINK2 /ders/d.en/templates.html, the Templates chapter). The following version of the function is intentionally incorrect:
+还记得 $(LINK2 /ders/d.en/templates.html, 模版) 一章中的 $(C binarySearch()) 函数吗？下面这个版本故意留有错误：
 )
 
 ---
 import std.stdio;
 
-// WARNING! This algorithm is wrong
+// 警告！此算法是错误的
 size_t binarySearch(const int[] values, in int value) {
     if (values.length == 0) {
         return size_t.max;
@@ -173,7 +173,7 @@ void main() {
 ---
 
 $(P
-Although the index of 42 is 6, the program incorrectly reports 1:
+虽然 42 的索引是 6，但程序错误输出了 1：
 )
 
 $(SHELL_SMALL
@@ -181,7 +181,7 @@ Index: 1
 )
 
 $(P
-One way of locating the bug in the program is to insert lines that would print messages to the output:
+一种定位 bug 的方法是在程序中添加几行输出信息的代码：
 )
 
 ---
@@ -213,7 +213,7 @@ size_t binarySearch(const int[] values, in int value) {
 ---
 
 $(P
-The output of the program now includes steps that the program takes:
+现在程序的输出中包含了其执行的每一步操作：
 )
 
 $(SHELL_SMALL
@@ -230,11 +230,11 @@ Index: 1
 )
 
 $(P
-Let's assume that the previous output does indeed help the programmer locate the bug. It is obvious that the $(C writefln()) expressions are not needed anymore once the bug has been located and fixed. However, removing those lines can also be seen as wasteful, because they might be useful again in the future.
+我们假设上面这段输出的确帮助了程序员定位 bug。显然在 bug 已被修复后就这些 $(C writefln()) 表达式就没用了。然而，删除这几行却有点浪费，因为我们将来可能还需要用到它们。
 )
 
 $(P
-Instead of being removed altogether, the lines can be marked as $(C debug) instead:
+可以将其标记为 $(C debug) 而不是移除他们：
 )
 
 ---
@@ -242,17 +242,17 @@ Instead of being removed altogether, the lines can be marked as $(C debug) inste
 ---
 
 $(P
-Such lines are included in the program only when the $(C -debug) compiler switch is enabled:
+只有在编译器开关 $(C -debug) 打开时这几行才会被编译进程序：
 )
 
 $(SHELL_SMALL
 dmd deneme.d -ofdeneme -w $(HILITE -debug)
 )
 
-$(H6 $(C debug($(I tag))))
+$(H6 $(C debug（$(I 标签)）))
 
 $(P
-If there are many $(C debug) keywords in the program, possibly in unrelated parts, the output may become too crowded. To avoid that, the $(C debug) statements can be given names (tags) to be included in the program selectively:
+如果程序中有许多不相干的 $(C debug) 关键字，输出可能会一片混乱。为了解决这类问题，我们可以为 $(C debug) 语句加上名字（标签），选择那一部分需要添加进程序：
 )
 
 ---
@@ -260,15 +260,16 @@ If there are many $(C debug) keywords in the program, possibly in unrelated part
 ---
 
 $(P
-The tagged $(C debug) statements are enabled by the $(C -debug=$(I tag)) compiler switch:
+命名的 $(C debug) 语句应使用编译开关 $(C -debug=$(I tag)) 来启用：
 )
+
 
 $(SHELL_SMALL
 dmd deneme.d -ofdeneme -w $(HILITE -debug=binarySearch)
 )
 
 $(P
-$(C debug) blocks can have tags as well:
+也可以为 $(C debug) 代码块指定标签：
 )
 
 ---
@@ -278,7 +279,7 @@ $(C debug) blocks can have tags as well:
 ---
 
 $(P
-It is possible to enable more than one $(C debug) tag at a time:
+一次性启用多个 $(C debug) 标签是可行的：
 )
 
 $(SHELL_SMALL
@@ -286,13 +287,13 @@ $ dmd deneme.d -w $(HILITE -debug=binarySearch) $(HILITE -debug=stackContainer)
 )
 
 $(P
-In that case both the $(C binarySearch) and the $(C stackContainer) debug statements and blocks would be included.
+在上面这种编译条件下，标签为 $(C binarySearch) 和 $(C stackContainer) 的语句和代码块都会被包含进程序。
 )
 
-$(H6 $(C debug($(I level))))
+$(H6 $(C debug（$(I 等级)）))
 
 $(P
-Sometimes it is more useful to associate $(C debug) statements by numerical levels. Increasing levels can provide more detailed information:
+有时我们可以把 $(C debug) 语句和数字的等级联系在一起。通过增高等级可获得更详细的信息：
 )
 
 ---
@@ -310,7 +311,7 @@ void myFunction(string fileName, int[] values) {
         }
     }
 
-    // ... the implementation of the function ...
+    // ... 函数实现 ...
 }
 
 void main() {
@@ -319,7 +320,7 @@ void main() {
 ---
 
 $(P
-The $(C debug) expressions and blocks that are lower than or equal to the specified level would be compiled:
+低于或等于指定等级的 $(C debug) 表达式或代码块将会被编译：
 )
 
 $(SHELL_SMALL
@@ -329,7 +330,7 @@ $(SHELL_OBSERVED entered myFunction)
 )
 
 $(P
-The following compilation would provide more information:
+下面这次编译能提供更多调试信息：
 )
 
 $(SHELL_SMALL
@@ -343,40 +344,40 @@ the arguments:
      2: 100)
 )
 
-$(H5 $(IX version) $(C version($(I tag))) and $(C version($(I level))))
+$(H5 $(IX version) $(C version（$(I 标签)）) 和 $(C version（$(I 等级)）))
 
 $(P
-$(C version) is similar to $(C debug) and is used in the same way:
+$(C version) 的用途和 $(C debug) 类似：
 )
 
 ---
-    version(testRelease) /* ... an expression ... */;
+    version(testRelease) /* ... 一个表达式 ... */;
 
     version(schoolRelease) {
-        /* ... expressions that are related to the version of
-         *     this program that is presumably shipped to schools ... */
+        /* ... 与将要发给学校的
+         *     那个版本有关的代码 ... */
 
     } else {
-        // ... code compiled otherwise ...
+        // ... 不满足条件时编译的代码 ...
     }
 
     version(1) aVariable = 5;
 
     version(2) {
-        // ... a feature of version 2 ...
+        // ... 版本 2 包含的特性 ...
     }
 ---
 
 $(P
-The $(C else) clause is optional.
+$(C else) 子句是可选的。
 )
 
 $(P
-Although $(C version) works essentially the same as $(C debug), having separate keywords helps distinguish their unrelated uses.
+虽然 $(C version) 实质上与 $(C debug) 作用相同，但这两个关键字有助于区分不同的功能。
 )
 
 $(P
-$(IX -version, compiler switch) As with $(C debug), more than one $(C version) can be enabled:
+$(IX -version, 编译开关) 和 $(C debug) 一样，我们可以一次性启用多个 $(C version)：
 )
 
 $(SHELL_SMALL
@@ -384,14 +385,14 @@ $ dmd deneme.d -w $(HILITE -version=record) $(HILITE -version=precise_calculatio
 )
 
 $(P
-There are many predefined $(C version) tags, the complete list of which is available at the $(LINK2 http://dlang.org/version.html, Conditional Compilation specification). The following short list is just a sampling:
+D 语言预先定义了许多 $(C version) 标签，完整的标签列表参见 $(LINK2 http://dlang.org/version.html, 条件编译规范)。下面这个简短的表格只是一个其中一部分：
 )
 
-<table class="full" border="1" cellpadding="4" cellspacing="0"><caption>Predefined $(C version) tags</caption>
+<table class="full" border="1" cellpadding="4" cellspacing="0"><caption>预定义 $(C version) 标签</caption>
 
-<tr><td>The compiler</td> <td>$(B DigitalMars GNU LDC SDC)</td></tr>
+<tr><td>编译器</td> <td>$(B DigitalMars GNU LDC SDC)</td></tr>
 
-<tr><td>The operating system</td> <td>$(B Windows Win32 Win64 linux OSX Posix FreeBSD
+<tr><td>操作系统</td> <td>$(B Windows Win32 Win64 linux OSX Posix FreeBSD
 OpenBSD
 NetBSD
 DragonFlyBSD
@@ -404,8 +405,8 @@ SysV3
 SysV4
 Hurd)</td></tr>
 
-<tr><td>CPU endianness</td><td>$(B LittleEndian BigEndian)</td></tr>
-<tr><td>Enabled compiler switches</td> <td> $(B D_Coverage D_Ddoc D_InlineAsm_X86 D_InlineAsm_X86_64 D_LP64 D_PIC D_X32
+<tr><td>CPU 字节序</td><td>$(B LittleEndian BigEndian)</td></tr>
+<tr><td>打开编译开关</td> <td> $(B D_Coverage D_Ddoc D_InlineAsm_X86 D_InlineAsm_X86_64 D_LP64 D_PIC D_X32
 D_HardFloat
 D_SoftFloat
 D_SIMD
@@ -415,8 +416,8 @@ unittest
 assert
 )</td></tr>
 
-<tr><td>CPU architecture</td> <td>$(B X86 X86_64)</td></tr>
-<tr><td>Platform</td> <td>$(B Android
+<tr><td>CPU 架构</td> <td>$(B X86 X86_64)</td></tr>
+<tr><td>平台</td> <td>$(B Android
 Cygwin
 MinGW
 ARM
@@ -460,16 +461,16 @@ Alpha_HardFP
 </table>
 
 $(P
-In addition, there are the following two special $(C version) tags:
+除此之外，还有以下两种特殊 $(C version) 标签：
 )
 
 $(UL
-$(LI $(IX none, version) $(C none): This tag is never defined; it is useful for disabling code blocks.)
-$(LI $(IX all, version) $(C all): This tag is always defined; it is useful for enabling code blocks.)
+$(LI $(IX none, version) $(C none)：这个标签永远不会被定义；它常用于禁用代码块。)
+$(LI $(IX all, version) $(C all)：这个标签始终已被定义；它常用于启用代码。)
 )
 
 $(P
-As an example of how predefined $(C version) tags are used, the following is an excerpt (formatted differently here) from the $(C std.ascii) module, which is for determining the newline character sequence for the system ($(C static assert) will be explained later below):
+我们用一个例子来讲解如何使用预定义 $(C version)。下面这段代码摘录自 $(C std.ascii) 模块（此处格式不同），用于确定当前操作系统的换行符（之后我们会讲解 $(C static assert)）：
 )
 
 ---
@@ -484,10 +485,10 @@ version(Windows) {
 }
 ---
 
-$(H5 Assigning identifiers to $(C debug) and $(C version))
+$(H5 为 $(C debug) 和 $(C version) 赋值)
 
 $(P
-Similar to variables, $(C debug) and $(C version) can be assigned identifiers. Unlike variables, this assignment does not change any value, it activates the specified identifier $(I as well).
+与变量一样，可给 $(C debug) 和 $(C version) 赋值某个标签。但与变量不同的是，这种赋值并不会改变任何值，它$(I 只是)激活指定的标签。
 )
 
 ---
@@ -510,7 +511,7 @@ void main() {
 ---
 
 $(P
-The assignments inside the $(C debug(everything)) block above activates all of the specified identifiers:
+$(C debug(everything)) 代码块中的赋值激活了所有指定的标签：
 )
 
 $(SHELL_SMALL
@@ -525,23 +526,23 @@ schoolRelease is active)
 $(H5 $(IX static if) $(C static if))
 
 $(P
-$(C static if) is the compile time equivalent of the $(C if) statement.
+$(C static if) 在编译期等于 $(C if) 语句。
 )
 
 $(P
-Just like the $(C if) statement, $(C static if) takes a logical expression and evaluates it. Unlike the $(C if) statement, $(C static if) is not about execution flow; rather, it determines whether a piece of code should be included in the program or not.
+与 $(C if) 一样，$(C static if) 接受一个逻辑表达式并进行判断。与 $(C if) 语句不同的是，$(C static if) 并不是选择执行某个流程，它是用来判断一段代码是否应被编译并包含在程序中。
 )
 
 $(P
-The logical expression must be evaluable at compile time. If the logical expression evaluates to $(C true), the code inside the $(C static if) gets compiled. If the condition is $(C false), the code is not included in the program as if it has never been written. The logical expressions commonly take advantage of the $(C is) expression and $(C __traits).
+逻辑表达式必须能在编译期求值。如果逻辑表达式判断为 $(C true)，$(C static if) 中的代码将被编译。如果被判断为 $(C false)，那段代码将不会被包含入程序，就好像它们从未被写下一样。此处的逻辑表达式通常会使用 $(C is) 语句和 $(C __traits)。
 )
 
 $(P
-$(C static if) can appear at module scope or inside definitions of $(C struct), $(C class), template, etc. Optionally, there may be $(C else) clauses as well.
+$(C static if) 既可以放在模块作用域下，亦可以写在 $(C struct)、$(C class) 或模版等定义中。它也可以带有一个可选的 $(C else) 子句。
 )
 
 $(P
-Let's use $(C static if) with a simple template, making use of the $(C is) expression. We will see other examples of $(C static if) in the next chapter:
+让我们配合 $(C is) 表达式使用 $(C static if) 实现一个简单的模版。我们会在下一章见到 $(C static if) 的其他例子：
 )
 
 ---
@@ -577,7 +578,7 @@ void main() {
 ---
 
 $(P
-According to the code, $(C MyType) can be used only with two types: $(C float) or $(C double). The return type of $(C doWork()) is chosen depending on whether the template is instantiated for $(C float) or $(C double):
+根据代码，$(C MyType) 只能用于 $(C float) 或 $(C double) 这两种类型。$(C doWork()) 的返回值类型取决于模版被实例为 $(C float) 还是 $(C double)：
 )
 
 $(SHELL
@@ -586,25 +587,25 @@ The return type for double is real.
 )
 
 $(P
-Note that one must write $(C else static if) when chaining $(C static if) clauses. Otherwise, writing $(C else if) would result in inserting that $(C if) conditional into the code, which would naturally be executed at run time.
+注意如果需要多个 $(C static if) 成链则需写作 $(C else static if)。否则的话，只写 $(C else if) 则会向代码中添加运行期执行的 $(C if) 语句。
 )
 
 $(H5 $(IX static assert) $(C static assert))
 
 $(P
-Although it is not a conditional compilation feature, I have decided to introduce $(C static assert) here.
+虽然 $(C static assert) 属于条件编译的范畴，但我还是决定在此处介绍它。
 )
 
 $(P
-$(C static assert) is the compile time equivalent of $(C assert). If the conditional expression is $(C false), the compilation gets aborted due to that assertion failure.
+$(C static assert) 是 $(C assert) 编译期求值版本。如果条件表达式是 $(C false)，此断言将会失败从而中止编译。
 )
 
 $(P
-Similar to $(C static if), $(C static assert) can appear in any scope in the program.
+与 $(C static if) 类似，$(C static assert) 可以出现在程序中任何作用域。
 )
 
 $(P
-We have seen an example of $(C static assert) in the program above: There, compilation gets aborted if $(C T) is any type other than $(C float) or $(C double):
+我们已经在之前的程序中见到过 $(C static assert) 的例子了：如果 $(C T) 的类型不是 $(C float) 或 $(C double) 中的一个，编译将会中止：
 )
 
 ---
@@ -612,7 +613,7 @@ We have seen an example of $(C static assert) in the program above: There, compi
 ---
 
 $(P
-The compilation is aborted with the message that was given to $(C static assert):
+编译终止时编译器将会给出传给 $(C static assert) 的提示消息：
 )
 
 $(SHELL
@@ -620,13 +621,13 @@ Error: static assert  "int is not supported"
 )
 
 $(P
-As another example, let's assume that a specific algorithm can work only with types that are a multiple of a certain size. Such a condition can be ensured at compile time by a $(C static assert):
+下面这个例子中，我们假设这个特殊的算法只有在参数类型的大小是指定大小的整数倍时才能正常工作。使用 $(C static assert) 在编译期检查是否满足条件：
 )
 
 ---
 T myAlgorithm(T)(T value) {
-    /* This algorithm requires that the size of type T is a
-     * multiple of 4. */
+    /* 算法要求参数类型 T 的大小是
+     * 4 的整数倍。*/
     static assert((T.sizeof % 4) == 0);
 
     // ...
@@ -634,7 +635,7 @@ T myAlgorithm(T)(T value) {
 ---
 
 $(P
-If the function was called with a $(C char), the compilation would be aborted with the following error message:
+如果使用 $(C char) 调用这个函数，编译将会中止并给出以下错误信息：
 )
 
 $(SHELL_SMALL
@@ -642,21 +643,21 @@ Error: static assert  (1LU == 0LU) is false
 )
 
 $(P
-Such a test prevents the function from working with an incompatible type, potentially producing incorrect results.
+这个测试防止出现函数接收到不兼容的类型从而得出错误结果的情况。
 )
 
 $(P
-$(C static assert) can be used with any logical expression that is evaluable at compile time.
+$(C static assert) 能使用所有可在编译期求值的逻辑表达式。
 )
 
-$(H5 $(IX type trait) $(IX traits) Type traits)
+$(H5 $(IX 类型特征) $(IX traits) 类型特征)
 
 $(P
-$(IX __traits) $(IX std.traits) The $(C __traits) keyword and the $(C std.traits) module provide information about types and expressions at compile time.
+$(IX __traits) $(IX std.traits) $(C __traits) 关键字和 $(C std.traits) 模块提供了能在编译期使用的类型信息。
 )
 
 $(P
-Some information that is collected by the compiler is made available to the program by $(C __traits). Its syntax includes a traits $(I keyword) and $(I parameters) that are relevant to that keyword:
+$(C __traits) 让程序能使用那些编译器在编译时收集到的信息。它的语法包括一个 traits $(I 关键字) 和与关键字相关的$(I 参数)：
 )
 
 ---
@@ -664,24 +665,24 @@ Some information that is collected by the compiler is made available to the prog
 ---
 
 $(P
-$(I keyword) specifies the information that is being queried. The $(I parameters) are either types or expressions, meanings of which are determined by each particular keyword.
+$(I keyword) 指定需要查询的信息。$(I parameters) 则为任一个类型或表达式，其意义取决于特殊的关键字。
 )
 
 $(P
-The information that can be gathered by $(C __traits) is especially useful in templates. For example, the $(C isArithmetic) keyword can determine whether a particular template parameter $(C T) is an arithmetic type:
+对模版来说，由 $(C __traits) 获取到的信息非常有用。比如关键字 $(C isArithmetic) 可以判断模版参数 $(C T) 是否为算术类型：
 )
 
 ---
     static if (__traits($(HILITE isArithmetic), T)) {
-        // ... an arithmetic type ...
+        // ... 是算术类型 ...
 
     } else {
-        // ... not an arithmetic type ...
+        // ... 不是算术类型 ...
     }
 ---
 
 $(P
-Similarly, the $(C std.traits) module provides information at compile time through its templates. For example, $(C std.traits.isSomeChar) returns $(C true) if its template parameter is a character type:
+通过 $(C std.traits) 模块的模版也能在编译期提供相同的信息。例如：当模版参数是字符类型时，$(C std.traits.isSomeChar) 返回 $(C true)：
 )
 
 ---
@@ -690,44 +691,44 @@ import std.traits;
 // ...
 
     static if ($(HILITE isSomeChar)!T) {
-        // ... char, wchar, or dchar ...
+        // ... char、wchar 或 dchar ...
 
     } else {
-        // ... not a character type ...
+        // ... 非字符类型 ...
     }
 ---
 
 $(P
-Please refer to $(LINK2 http://dlang.org/traits.html, the $(C __traits) documentation) and $(LINK2 http://dlang.org/phobos/std_traits.html, the $(C std.traits) documentation) for more information.
+更多信息请查阅 $(LINK2 http://dlang.org/traits.html, $(C __traits) 文档) 和 $(LINK2 http://dlang.org/phobos/std_traits.html, $(C std.traits) 文档)。
 )
 
-$(H5 Summary)
+$(H5 小结)
 
 $(UL
 
 $(LI
-Code that is defined as $(C debug) is included to the program only if the $(C -debug) compiler switch is used.
+被定义为 $(C debug) 的代码只有在编译开关 $(C -debug) 打开时才会被编译进程序。
 )
 
 $(LI
-Code that is defined as $(C version) is included to the program only if a corresponding $(C -version) compiler switch is used.
+被定义为 $(C version) 的代码只有在对应的编译开关 $(C -version) 打开时才会被编译进程序。
 )
 
 $(LI
-$(C static if) is similar to an $(C if) statement that is executed at compile time. It introduces code to the program depending on certain compile-time conditions.
+$(C static if) 与 $(C if) 语句作用相似，但它执行在编译期。它根据编译期条件判断是否编译并包含代码。
 )
 
 $(LI
-$(C static assert) validates assumptions about code at compile time.
+$(C static assert) 在编译期保证断言成功。
 )
 
-$(LI $(C __traits) and $(C std.traits) provide information about types at compile time.)
+$(LI $(C __traits) 和 $(C std.traits) 在编译期提供类型信息。)
 
 )
 
 Macros:
-        SUBTITLE=Conditional Compilation
+        SUBTITLE=条件编译
 
-        DESCRIPTION=Specifying parts of a program conditionally depending on logical expressions that are evaluated at compile time.
+        DESCRIPTION=通过编译期求值的逻辑表达式指定那一部分程序需要编译。
 
-        KEYWORDS=d programming language tutorial book conditional compilation
+        KEYWORDS=D 编程语言教程 条件编译
