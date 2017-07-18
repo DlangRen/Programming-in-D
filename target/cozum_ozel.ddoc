@@ -1,0 +1,6 @@
+MAIN_TITLE=D 语言解答
+CLASS=solution
+COZUM_BOLUMU = $(H4 $0)
+LANG=en
+LANGUAGE=english
+SUB_AUTHOR=
