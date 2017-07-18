@@ -4,6 +4,130 @@
   <header creationtool="OmegaT" o-tmf="OmegaT TMX" adminlang="EN-US" datatype="plaintext" creationtoolversion="OmegaT-4.1.2" segtype="sentence" srclang="EN-US"/>
   <body>
 <!-- Default translations -->
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(UL
+$(LI $(LINK2 $(ROOT_DIR)/ders/d/, $(IMG bullet_black.png) This book in Turkish))
+$(LI $(LINK2 mailto:acehreli@yahoo.com, $(IMG bullet_black.png) Contact))
+$(BR)
+$(LI $(LINK2 $(ROOT_DIR)/copyright.html, $(IMG cc_80x15.png) Rights))
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170718T105411Z" creationid="Heromyth" creationdate="20170718T105411Z">
+        <seg>土耳其语版$(UL
+$(LI $(LINK2 $(ROOT_DIR)/ders/d/, $(IMG bullet_black.png) 土耳其语版))
+$(LI $(LINK2 mailto:acehreli@yahoo.com, $(IMG bullet_black.png) 联系方式))
+$(BR)
+$(LI $(LINK2 $(ROOT_DIR)/copyright.html, $(IMG cc_80x15.png) 版权))
+)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>COZUM_METIN=the solution
+COZUMLER_METIN=the solutions</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170718T105637Z" creationid="Heromyth" creationdate="20170718T105637Z">
+        <seg>COZUM_METIN=解答
+COZUMLER_METIN=解答</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>DERLEME_HATASI_METIN=compilation ERROR</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170718T105651Z" creationid="Heromyth" creationdate="20170718T105651Z">
+        <seg>DERLEME_HATASI_METIN=编译出错</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>DUSEY_NAVIGASYON=
+&lt;div class="vertinavheader"&gt;Other D Resources&lt;/div&gt;
+$(UL
+$(LI $(LINK2 http://wiki.dlang.org/Books, $(IMG bullet_black.png) Books))
+$(LI $(LINK2 http://forum.dlang.org/, $(IMG bullet_black.png) Newsgroups))
+$(LI $(LINK2 http://dlang.org/lex.html, $(IMG bullet_black.png) Language spec))
+$(LI $(LINK2 http://dlang.org/phobos/index.html, $(IMG bullet_black.png) Standard library))
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170718T105310Z" creationid="Heromyth" creationdate="20170718T105310Z">
+        <seg>DUSEY_NAVIGASYON=
+&lt;div class="vertinavheader"&gt;其他D语言资源&lt;/div&gt;
+$(UL
+$(LI $(LINK2 http://wiki.dlang.org/Books, $(IMG bullet_black.png) 书籍))
+$(LI $(LINK2 http://forum.dlang.org/, $(IMG bullet_black.png) 社区))
+$(LI $(LINK2 http://dlang.org/lex.html, $(IMG bullet_black.png) 语言规范))
+$(LI $(LINK2 http://dlang.org/phobos/index.html, $(IMG bullet_black.png) 标准库))
+)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Ddoc</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="ZXP" changedate="20070111T134422Z" creationid="ZXP" creationdate="20070111T134422Z">
+        <seg>Ddoc</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>GERI_METIN=Prev
+ILERI_METIN=Next
+PROBLEM_METIN=Exercise
+PROBLEM_COK_METIN=Exercises
+PROBLEM_TEK_COZUMSUZ_METIN=the solution will be posted later...</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170718T105551Z" creationid="Heromyth" creationdate="20170718T105551Z">
+        <seg>GERI_METIN=上一章
+ILERI_METIN=下一章
+PROBLEM_METIN=练习
+PROBLEM_COK_METIN=练习
+PROBLEM_TEK_COZUMSUZ_METIN=答案将随后公布……</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>MAIN_TITLE=D.ershane Solutions
+CLASS=solution
+COZUM_BOLUMU = $(H4 $0)
+LANG=en
+LANGUAGE=english
+SUB_AUTHOR=</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170718T105755Z" creationid="Heromyth" creationdate="20170718T104957Z">
+        <seg>MAIN_TITLE=D 语言解答
+CLASS=solution
+COZUM_BOLUMU = $(H4 $0)
+LANG=en
+LANGUAGE=english
+SUB_AUTHOR=</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>MAIN_TITLE=Programming in D
+SUB_MAIN_TITLE_DERSE_OZEL=– Tutorial and Reference
+SUB_AUTHOR=Ali Çehreli
+LANG=en
+LANGUAGE=english</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170718T105151Z" creationid="Heromyth" creationdate="20170718T105151Z">
+        <seg>MAIN_TITLE=D 编程语言
+SUB_MAIN_TITLE_DERSE_OZEL=——教程与参考
+SUB_AUTHOR=Ali Çehreli
+LANG=en
+LANGUAGE=english其他D语言资源</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>PROBLEM_COK_COZUMSUZ_METIN=the solutions will be posted later...</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170718T105604Z" creationid="Heromyth" creationdate="20170718T105604Z">
+        <seg>PROBLEM_COK_COZUMSUZ_METIN=答案将随后公布……</seg>
+      </tuv>
+    </tu>
 <!-- Alternative translations -->
   </body>
 </tmx>
