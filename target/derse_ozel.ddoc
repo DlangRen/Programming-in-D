@@ -2,7 +2,7 @@ MAIN_TITLE=D 编程语言
 SUB_MAIN_TITLE_DERSE_OZEL=——教程与参考
 SUB_AUTHOR=Ali Çehreli
 LANG=en
-LANGUAGE=english其他D语言资源
+LANGUAGE=english
 
 HORIZNAV_CONTENT_DERSE_OZEL=$(LINK2 /ders/d.en/rss.xml, RSS&nbsp;<img src="$(ROOT_DIR)/image/rss-icon.png" border="0" width="16" height="16" alt="Programming in D RSS Feed"/>)
 $(BR)
