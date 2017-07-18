@@ -112,12 +112,12 @@ SUB_AUTHOR=Ali Çehreli
 LANG=en
 LANGUAGE=english</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170718T105151Z" creationid="Heromyth" creationdate="20170718T105151Z">
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170718T105959Z" creationid="Heromyth" creationdate="20170718T105151Z">
         <seg>MAIN_TITLE=D 编程语言
 SUB_MAIN_TITLE_DERSE_OZEL=——教程与参考
 SUB_AUTHOR=Ali Çehreli
 LANG=en
-LANGUAGE=english其他D语言资源</seg>
+LANGUAGE=english</seg>
       </tuv>
     </tu>
     <tu>
