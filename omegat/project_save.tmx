@@ -8,8 +8,18 @@
       <tuv lang="EN-US">
         <seg>$(DERS_BOLUMU $(IX user defined attributes) $(IX UDA) User Defined Attributes (UDA))</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170719T054011Z" creationid="Heromyth" creationdate="20170719T054011Z">
-        <seg>$(DERS_BOLUMU $(IX 自定义属性) $(IX UDA) 自定义属性（UDA）)</seg>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170719T105356Z" creationid="Heromyth" creationdate="20170719T054011Z">
+        <seg>$(DERS_BOLUMU $(IX user defined attributes) $(IX UDA) 自定义属性（UDA）)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
+Any declaration (e.g. struct type, class type, variable, etc.) can be assigned attributes, which can then be accessed at compile time to alter the way the code is compiled.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170719T105759Z" creationid="Heromyth" creationdate="20170719T105759Z">
+        <seg>$(P
+所有声明（如结构、类和变量等）都可以加上属性，以便在编译时访问这些属性来调整该部分代码的编译方式。</seg>
       </tuv>
     </tu>
     <tu>
