@@ -15,11 +15,31 @@
     <tu>
       <tuv lang="EN-US">
         <seg>$(P
+$(IX @) The user defined attribute syntax consists of the $(C @) sign followed by the attribute and appear before the declaration that it is being assigned to.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170720T041949Z" creationid="Heromyth" creationdate="20170720T041949Z">
+        <seg>$(P
+$(IX @)自定义属性的语法格式：符号 $(C @)  的后面紧跟属性名，并且需要放置在与之相关的那个声明前面。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
 Any declaration (e.g. struct type, class type, variable, etc.) can be assigned attributes, which can then be accessed at compile time to alter the way the code is compiled.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170719T105759Z" creationid="Heromyth" creationdate="20170719T105759Z">
         <seg>$(P
 所有声明（如结构、类和变量等）都可以加上属性，以便在编译时访问这些属性来调整该部分代码的编译方式。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
+Multiple attributes can be specified separately or as a parenthesized list of attributes.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170720T042405Z" creationid="Heromyth" creationdate="20170720T042405Z">
+        <seg>$(P
+多个属性可以分别指定，也可以采用括号列表形式。</seg>
       </tuv>
     </tu>
     <tu>
@@ -90,6 +110,26 @@ $(LI $(LINK2 http://dlang.org/phobos/index.html, $(IMG bullet_black.png) 标准�
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>For example, both of the following variables have the same attributes:
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170720T042510Z" creationid="Heromyth" creationdate="20170720T042510Z">
+        <seg>例如，下面的变量拥有的属性是相同的：
+)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>For example, the following code assigns the $(C Encrypted) attribute to the declaration of $(C name):
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170720T042203Z" creationid="Heromyth" creationdate="20170720T042203Z">
+        <seg>例如，下面代码会将 $(C Encrypted) 属性赋予 $(C name) 声明：
+)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>GERI_METIN=Prev
 ILERI_METIN=Next
 PROBLEM_METIN=Exercise
@@ -144,6 +184,14 @@ LANGUAGE=english</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170718T105604Z" creationid="Heromyth" creationdate="20170718T105604Z">
         <seg>PROBLEM_COK_COZUMSUZ_METIN=答案将随后公布……</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>User defined attributes is purely a compile-time feature.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170720T041606Z" creationid="Heromyth" creationdate="20170720T041606Z">
+        <seg>自定义属性完全是一项编译时功能。</seg>
       </tuv>
     </tu>
 <!-- Alternative translations -->
