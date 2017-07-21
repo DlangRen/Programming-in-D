@@ -1,13 +1,13 @@
 Ddoc
 
-$(DERS_BOLUMU $(IX user defined attributes) $(IX UDA) User Defined Attributes (UDA))
+$(DERS_BOLUMU $(IX user defined attributes) $(IX UDA) 自定义属性（UDA）)
 
 $(P
-Any declaration (e.g. struct type, class type, variable, etc.) can be assigned attributes, which can then be accessed at compile time to alter the way the code is compiled. User defined attributes is purely a compile-time feature.
+所有声明（如结构、类和变量等）都可以加上属性，以便在编译时访问这些属性来调整该部分代码的编译方式。自定义属性完全是一项编译时功能。
 )
 
 $(P
-$(IX @) The user defined attribute syntax consists of the $(C @) sign followed by the attribute and appear before the declaration that it is being assigned to. For example, the following code assigns the $(C Encrypted) attribute to the declaration of $(C name):
+$(IX @)自定义属性的语法格式：符号 $(C @)  的后面紧跟属性名，并且需要放置在与之相关的那个声明前面。例如，下面代码会将 $(C Encrypted) 属性赋予 $(C name) 声明：
 )
 
 ---
@@ -15,7 +15,7 @@ $(IX @) The user defined attribute syntax consists of the $(C @) sign followed b
 ---
 
 $(P
-Multiple attributes can be specified separately or as a parenthesized list of attributes. For example, both of the following variables have the same attributes:
+多个属性可以分别指定，也可以采用括号列表形式。例如，下面的变量拥有的属性是相同的：
 )
 
 ---
