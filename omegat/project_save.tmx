@@ -51,8 +51,8 @@ $(BR)
 $(LI $(LINK2 $(ROOT_DIR)/copyright.html, $(IMG cc_80x15.png) Rights))
 )</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170718T105411Z" creationid="Heromyth" creationdate="20170718T105411Z">
-        <seg>土耳其语版$(UL
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170721T060209Z" creationid="Heromyth" creationdate="20170718T105411Z">
+        <seg>$(UL
 $(LI $(LINK2 $(ROOT_DIR)/ders/d/, $(IMG bullet_black.png) 土耳其语版))
 $(LI $(LINK2 mailto:acehreli@yahoo.com, $(IMG bullet_black.png) 联系方式))
 $(BR)
@@ -65,9 +65,9 @@ $(LI $(LINK2 $(ROOT_DIR)/copyright.html, $(IMG cc_80x15.png) 版权))
         <seg>COZUM_METIN=the solution
 COZUMLER_METIN=the solutions</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170718T105637Z" creationid="Heromyth" creationdate="20170718T105637Z">
-        <seg>COZUM_METIN=解答
-COZUMLER_METIN=解答</seg>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170721T060242Z" creationid="Heromyth" creationdate="20170718T105637Z">
+        <seg>COZUM_METIN=答案
+COZUMLER_METIN=答案</seg>
       </tuv>
     </tu>
     <tu>
@@ -146,6 +146,20 @@ PROBLEM_TEK_COZUMSUZ_METIN=答案将随后公布……</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>HORIZNAV_CONTENT_DERSE_OZEL=$(LINK2 /ders/d.en/rss.xml, RSS&amp;nbsp;&lt;img src="$(ROOT_DIR)/image/rss-icon.png" border="0" width="16" height="16" alt="Programming in D RSS Feed"/&gt;)
+$(BR)
+$(LINK2 /ders/d.en/index.html,
+Download or buy $(IMG book.png))</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170721T060009Z" creationid="Heromyth" creationdate="20170721T060009Z">
+        <seg>HORIZNAV_CONTENT_DERSE_OZEL=$(LINK2 /ders/d.cn/rss.xml, RSS&amp;nbsp;&lt;img src="$(ROOT_DIR)/image/rss-icon.png" border="0" width="16" height="16" alt="RSS 订阅"/&gt;)
+$(BR)
+$(LINK2 /ders/d.cn/index.html,
+下载或购买 $(IMG book.png))</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>MAIN_TITLE=D.ershane Solutions
 CLASS=solution
 COZUM_BOLUMU = $(H4 $0)
@@ -170,12 +184,12 @@ SUB_AUTHOR=Ali Çehreli
 LANG=en
 LANGUAGE=english</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170718T105959Z" creationid="Heromyth" creationdate="20170718T105151Z">
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170721T055442Z" creationid="Heromyth" creationdate="20170718T105151Z">
         <seg>MAIN_TITLE=D 编程语言
 SUB_MAIN_TITLE_DERSE_OZEL=——教程与参考
 SUB_AUTHOR=Ali Çehreli
-LANG=en
-LANGUAGE=english</seg>
+LANG=zh-cn
+LANGUAGE=chinese</seg>
       </tuv>
     </tu>
     <tu>
