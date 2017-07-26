@@ -210,14 +210,6 @@ LANGUAGE=chinese</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
-        <seg>Macros:</seg>
-      </tuv>
-      <tuv lang="ZH-CN" changeid="ZXP" changedate="20070614T081244Z" creationid="ZXP" creationdate="20070614T081244Z">
-        <seg>宏(Macros):</seg>
-      </tuv>
-    </tu>
-    <tu>
-      <tuv lang="EN-US">
         <seg>PROBLEM_COK_COZUMSUZ_METIN=the solutions will be posted later...</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170718T105604Z" creationid="Heromyth" creationdate="20170718T105604Z">
