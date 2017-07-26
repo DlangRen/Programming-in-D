@@ -14,6 +14,14 @@
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>$(DERS_BOLUMU Programming in D)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170726T011008Z" creationid="Heromyth" creationdate="20170726T011008Z">
+        <seg>$(DERS_BOLUMU D 语言编程)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>$(P
 $(IX @) The user defined attribute syntax consists of the $(C @) sign followed by the attribute and appear before the declaration that it is being assigned to.</seg>
       </tuv>
@@ -76,6 +84,14 @@ COZUMLER_METIN=答案</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170718T105651Z" creationid="Heromyth" creationdate="20170718T105651Z">
         <seg>DERLEME_HATASI_METIN=编译出错</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>DESCRIPTION=D programming language tutorial from the ground up.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170726T032110Z" creationid="Heromyth" creationdate="20170726T032110Z">
+        <seg>DESCRIPTION=全新编写的 D 编程语言教程。</seg>
       </tuv>
     </tu>
     <tu>
@@ -194,10 +210,26 @@ LANGUAGE=chinese</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Macros:</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="ZXP" changedate="20070614T081244Z" creationid="ZXP" creationdate="20070614T081244Z">
+        <seg>宏(Macros):</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>PROBLEM_COK_COZUMSUZ_METIN=the solutions will be posted later...</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170718T105604Z" creationid="Heromyth" creationdate="20170718T105604Z">
         <seg>PROBLEM_COK_COZUMSUZ_METIN=答案将随后公布……</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>SUBTITLE=Programming in D</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170726T011119Z" creationid="Heromyth" creationdate="20170726T011119Z">
+        <seg>SUBTITLE=D 语言编程</seg>
       </tuv>
     </tu>
     <tu>
