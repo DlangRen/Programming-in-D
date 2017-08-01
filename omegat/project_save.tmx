@@ -52,6 +52,18 @@ Multiple attributes can be specified separately or as a parenthesized list of at
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>$(P
+These options have different prices, shipping times, shipping costs, customs and other fees, availability at local book stores, etc.
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170801T042617Z" creationid="Heromyth" creationdate="20170801T042617Z">
+        <seg>$(P
+以上各个版本受诸多因素影响而存在差异，如价格、运送时间、运送成本、关税与其他费用，以及当地书店是否有售等等
+)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>$(UL
 $(LI $(LINK2 $(ROOT_DIR)/ders/d/, $(IMG bullet_black.png) This book in Turkish))
 $(LI $(LINK2 mailto:acehreli@yahoo.com, $(IMG bullet_black.png) Contact))
@@ -206,6 +218,14 @@ SUB_MAIN_TITLE_DERSE_OZEL=——教程与参考
 SUB_AUTHOR=Ali Çehreli
 LANG=zh-cn
 LANGUAGE=chinese</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Macros:</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="ZXP" changedate="20070614T081244Z" creationid="ZXP" creationdate="20070614T081244Z">
+        <seg>宏(Macros):</seg>
       </tuv>
     </tu>
     <tu>
