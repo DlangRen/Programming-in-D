@@ -33,11 +33,23 @@ $(IX @)自定义属性的语法格式：符号 $(C @)  的后面紧跟属性名�
     <tu>
       <tuv lang="EN-US">
         <seg>$(P
+$(LINK_DOWNLOAD /ders/d.en/Programming_in_D_code_samples.zip, Click here to download code samples as a $(C .zip) file.)
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170801T052326Z" creationid="Heromyth" creationdate="20170801T052326Z">
+        <seg>$(P
+$(LINK_DOWNLOAD /ders/d.en/Programming_in_D_code_samples.zip, 点击此处可下载示例代码 $(C .zip) file.)
+)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
 Also available as $(LINK2 https://gumroad.com/l/PinD, $(I pay-what-you-want) eBooks at Gumroad) and $(I free) here as $(LINK_DOWNLOAD http://ddili.org/ders/d.en/Programming_in_D.pdf, PDF), $(LINK_DOWNLOAD http://ddili.org/ders/d.en/Programming_in_D.epub, EPUB), $(LINK_DOWNLOAD http://ddili.org/ders/d.en/Programming_in_D.azw3, AZW3), and $(LINK_DOWNLOAD http://ddili.org/ders/d.en/Programming_in_D.mobi, MOBI).</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170801T042848Z" creationid="Heromyth" creationdate="20170801T042848Z">
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170801T044022Z" creationid="Heromyth" creationdate="20170801T042848Z">
         <seg>$(P
-其他提供形式还包括 $(LINK2 https://gumroad.com/l/PinD, $(I pay-what-you-want) eBooks at Gumroad) and $(I free) here as $(LINK_DOWNLOAD http://ddili.org/ders/d.en/Programming_in_D.pdf, PDF), $(LINK_DOWNLOAD http://ddili.org/ders/d.en/Programming_in_D.epub, EPUB), $(LINK_DOWNLOAD http://ddili.org/ders/d.en/Programming_in_D.azw3, AZW3), and $(LINK_DOWNLOAD http://ddili.org/ders/d.en/Programming_in_D.mobi, MOBI).</seg>
+其他提供形式还包括：$(LINK2 https://gumroad.com/l/PinD, Gumroad提供的$(I 付你所需)电子书) 以及各种$(I 免费) 版本的电子书，如 $(LINK_DOWNLOAD http://ddili.org/ders/d.en/Programming_in_D.pdf, PDF)、$(LINK_DOWNLOAD http://ddili.org/ders/d.en/Programming_in_D.epub, EPUB)、$(LINK_DOWNLOAD http://ddili.org/ders/d.en/Programming_in_D.azw3, AZW3) 和 $(LINK_DOWNLOAD http://ddili.org/ders/d.en/Programming_in_D.mobi, MOBI)。</seg>
       </tuv>
     </tu>
     <tu>
