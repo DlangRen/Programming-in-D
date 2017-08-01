@@ -156,6 +156,28 @@ $(LI $(LINK2 /ders/d.cn/logical_expressions.html, 逻辑表达式) $(INDEX_KEYWO
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>== != &lt; &lt;= &gt; &gt;= || &amp;&amp;))
+$(LI $(LINK2 /ders/d.en/if.html, if Statement) $(INDEX_KEYWORDS if else))
+$(LI $(LINK2 /ders/d.en/while.html, while Loop) $(INDEX_KEYWORDS while continue break))
+$(LI $(LINK2 /ders/d.en/arithmetic.html, Integers and Arithmetic Operations) $(INDEX_KEYWORDS ++ -- + - * / % ^^ += -= *= /= %= ^^=))
+$(LI $(LINK2 /ders/d.en/floating_point.html, Floating Point Types) $(INDEX_KEYWORDS .nan .infinity isNaN))
+$(LI $(LINK2 /ders/d.en/arrays.html, Arrays) $(INDEX_KEYWORDS [] .length ~ ~=))
+$(LI $(LINK2 /ders/d.en/characters.html, Characters) $(INDEX_KEYWORDS char wchar dchar))
+$(LI $(LINK2 /ders/d.en/slices.html, Slices and Other Array Features) $(INDEX_KEYWORDS ..</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170801T100919Z" creationid="Heromyth" creationdate="20170801T100919Z">
+        <seg>== != &lt; &lt;= &gt; &gt;= || &amp;&amp;))
+$(LI $(LINK2 /ders/d.cn/if.html, if 语句) $(INDEX_KEYWORDS if else))
+$(LI $(LINK2 /ders/d.cn/while.html, while 循环) $(INDEX_KEYWORDS while continue break))
+$(LI $(LINK2 /ders/d.cn/arithmetic.html, 整型和算术运算) $(INDEX_KEYWORDS ++ -- + - * / % ^^ += -= *= /= %= ^^=))
+$(LI $(LINK2 /ders/d.cn/floating_point.html, 浮点类型) $(INDEX_KEYWORDS .nan .infinity isNaN))
+$(LI $(LINK2 /ders/d.cn/arrays.html, 数组) $(INDEX_KEYWORDS [] .length ~ ~=))
+$(LI $(LINK2 /ders/d.cn/characters.html, 字符) $(INDEX_KEYWORDS char wchar dchar))
+$(LI $(LINK2 /ders/d.cn/slices.html, 分片与其他数组功能) $(INDEX_KEYWORDS ..</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>COZUM_METIN=the solution
 COZUMLER_METIN=the solutions</seg>
       </tuv>
@@ -258,6 +280,14 @@ Download or buy $(IMG book.png))</seg>
 $(BR)
 $(LINK2 /ders/d.cn/index.html,
 下载或购买 $(IMG book.png))</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>KEYWORDS=d programming language tutorial book novice beginner</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170801T100406Z" creationid="Heromyth" creationdate="20170801T100406Z">
+        <seg>KEYWORDS=d programming language tutorial book novice beginner D编程语言 教程 书籍 新手 初学者</seg>
       </tuv>
     </tu>
     <tu>
