@@ -22,6 +22,14 @@
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>$(H5 Online version)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170801T052519Z" creationid="Heromyth" creationdate="20170801T052519Z">
+        <seg>$(H5 在线版本)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>$(P
 $(IX @) The user defined attribute syntax consists of the $(C @) sign followed by the attribute and appear before the declaration that it is being assigned to.</seg>
       </tuv>
@@ -36,9 +44,9 @@ $(IX @)自定义属性的语法格式：符号 $(C @)  的后面紧跟属性名�
 $(LINK_DOWNLOAD /ders/d.en/Programming_in_D_code_samples.zip, Click here to download code samples as a $(C .zip) file.)
 )</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170801T052326Z" creationid="Heromyth" creationdate="20170801T052326Z">
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170801T052452Z" creationid="Heromyth" creationdate="20170801T052326Z">
         <seg>$(P
-$(LINK_DOWNLOAD /ders/d.en/Programming_in_D_code_samples.zip, 点击此处可下载示例代码 $(C .zip) file.)
+$(LINK_DOWNLOAD /ders/d.en/Programming_in_D_code_samples.zip, 点击此处可下载 $(C .zip) 文件形式的示例代码。)
 )</seg>
       </tuv>
     </tu>
@@ -86,6 +94,14 @@ These options have different prices, shipping times, shipping costs, customs and
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>$(P $(LINK2 /ders/d.en/ix.html, $(B The Index Section)) (useful for keyword searches))</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170801T052832Z" creationid="Heromyth" creationdate="20170801T052832Z">
+        <seg>$(P $(LINK2 /ders/d.en/ix.html, $(B 索引)) （可以使用关键字搜索）)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>$(UL
 $(LI $(LINK2 $(ROOT_DIR)/ders/d/, $(IMG bullet_black.png) This book in Turkish))
 $(LI $(LINK2 mailto:acehreli@yahoo.com, $(IMG bullet_black.png) Contact))
@@ -100,6 +116,42 @@ $(LI $(LINK2 mailto:acehreli@yahoo.com, $(IMG bullet_black.png) 联系方式))
 $(BR)
 $(LI $(LINK2 $(ROOT_DIR)/copyright.html, $(IMG cc_80x15.png) 版权))
 )</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(UL
+$(WORK_IN_PROCESS
+$(LI $(LINK2 /ders/d.en/foreword1.html, Foreword by Walter Bright))
+)
+$(LI $(LINK2 /ders/d.en/foreword2.html, Foreword by Andrei Alexandrescu))
+$(LI $(LINK2 /ders/d.en/preface.html, Preface))
+$(LI $(LINK2 /ders/d.en/hello_world.html, The Hello World Program) $(INDEX_KEYWORDS main))
+$(LI $(LINK2 /ders/d.en/writeln.html, writeln and write))
+$(LI $(LINK2 /ders/d.en/compiler.html, Compilation))
+$(LI $(LINK2 /ders/d.en/types.html, Fundamental Types) $(INDEX_KEYWORDS char int double (and more)))
+$(LI $(LINK2 /ders/d.en/assignment.html, Assignment and Order of Evaluation) $(INDEX_KEYWORDS =))
+$(LI $(LINK2 /ders/d.en/variables.html, Variables))
+$(LI $(LINK2 /ders/d.en/io.html, Standard Input and Output Streams) $(INDEX_KEYWORDS stdin stdout))
+$(LI $(LINK2 /ders/d.en/input.html, Reading from the Standard Input))
+$(LI $(LINK2 /ders/d.en/logical_expressions.html, Logical Expressions) $(INDEX_KEYWORDS bool true false !</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170801T100252Z" creationid="Heromyth" creationdate="20170801T100252Z">
+        <seg>$(UL
+$(WORK_IN_PROCESS
+$(LI $(LINK2 /ders/d.cn/foreword1.html, Walter Bright序))
+)
+$(LI $(LINK2 /ders/d.cn/foreword2.html, Andrei Alexandrescu序))
+$(LI $(LINK2 /ders/d.cn/preface.html, 前言))
+$(LI $(LINK2 /ders/d.cn/hello_world.html, Hello World程序) $(INDEX_KEYWORDS main))
+$(LI $(LINK2 /ders/d.cn/writeln.html, writeln 和 write))
+$(LI $(LINK2 /ders/d.cn/compiler.html, 编译))
+$(LI $(LINK2 /ders/d.cn/types.html, 基础类型) $(INDEX_KEYWORDS char int double (等)))
+$(LI $(LINK2 /ders/d.cn/assignment.html, 赋值与计算顺序) $(INDEX_KEYWORDS =))
+$(LI $(LINK2 /ders/d.cn/variables.html, 变量))
+$(LI $(LINK2 /ders/d.cn/io.html, 标准输入、输出流) $(INDEX_KEYWORDS stdin stdout))
+$(LI $(LINK2 /ders/d.cn/input.html, 从标准输入读取))
+$(LI $(LINK2 /ders/d.cn/logical_expressions.html, 逻辑表达式) $(INDEX_KEYWORDS bool true false !</seg>
       </tuv>
     </tu>
     <tu>
