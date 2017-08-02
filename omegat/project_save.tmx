@@ -6,6 +6,76 @@
 <!-- Default translations -->
     <tu>
       <tuv lang="EN-US">
+        <seg>$ .dup capacity))
+$(LI $(LINK2 /ders/d.en/strings.html, Strings) $(INDEX_KEYWORDS char[] wchar[] dchar[] string wstring dstring))
+$(LI $(LINK2 /ders/d.en/stream_redirect.html, Redirecting Standard Input and Output Streams))
+$(LI $(LINK2 /ders/d.en/files.html, Files) $(INDEX_KEYWORDS File))
+$(LI $(LINK2 /ders/d.en/auto_and_typeof.html, auto and typeof) $(INDEX_KEYWORDS auto typeof))
+$(LI $(LINK2 /ders/d.en/name_space.html, Name Scope))
+$(LI $(LINK2 /ders/d.en/for.html, for Loop) $(INDEX_KEYWORDS for))
+$(LI $(LINK2 /ders/d.en/ternary.html, Ternary Operator ?:) $(INDEX_KEYWORDS ?:))
+$(LI $(LINK2 /ders/d.en/literals.html, Literals))
+$(LI $(LINK2 /ders/d.en/formatted_output.html, Formatted Output) $(INDEX_KEYWORDS writef writefln))
+$(LI $(LINK2 /ders/d.en/formatted_input.html, Formatted Input))
+$(LI $(LINK2 /ders/d.en/do_while.html, do-while Loop) $(INDEX_KEYWORDS do while))
+$(LI $(LINK2 /ders/d.en/aa.html, Associative Arrays) $(INDEX_KEYWORDS .keys .values .byKey .byValue .byKeyValue .get .remove in))
+$(LI $(LINK2 /ders/d.en/foreach.html, foreach Loop) $(INDEX_KEYWORDS foreach .byKey .byValue .byKeyValue))
+$(LI $(LINK2 /ders/d.en/switch_case.html, switch and case) $(INDEX_KEYWORDS switch, case, default, final switch))
+$(LI $(LINK2 /ders/d.en/enum.html, enum) $(INDEX_KEYWORDS enum .min .max))
+$(LI $(LINK2 /ders/d.en/functions.html, Functions) $(INDEX_KEYWORDS return void))
+$(LI $(LINK2 /ders/d.en/const_and_immutable.html, Immutability) $(INDEX_KEYWORDS enum const immutable .dup .idup))
+$(LI $(LINK2 /ders/d.en/value_vs_reference.html, Value Types and Reference Types) $(INDEX_KEYWORDS &amp;))
+$(LI $(LINK2 /ders/d.en/function_parameters.html, Function Parameters) $(INDEX_KEYWORDS in out ref inout lazy scope shared))
+$(LI $(LINK2 /ders/d.en/lvalue_rvalue.html, Lvalues and Rvalues) $(INDEX_KEYWORDS auto ref))
+$(LI $(LINK2 /ders/d.en/lazy_operators.html, Lazy Operators))
+$(LI $(LINK2 /ders/d.en/main.html, Program Environment) $(INDEX_KEYWORDS main stderr))
+$(LI $(LINK2 /ders/d.en/exceptions.html, Exceptions) $(INDEX_KEYWORDS throw try catch finally))
+$(LI $(LINK2 /ders/d.en/scope.html, scope) $(INDEX_KEYWORDS scope(exit) scope(success) scope(failure)))
+$(LI $(LINK2 /ders/d.en/assert.html, assert and enforce) $(INDEX_KEYWORDS assert enforce))
+$(LI $(LINK2 /ders/d.en/unit_testing.html, Unit Testing) $(INDEX_KEYWORDS unittest))
+$(LI $(LINK2 /ders/d.en/contracts.html, Contract Programming) $(INDEX_KEYWORDS in out body))
+$(LI $(LINK2 /ders/d.en/lifetimes.html, Lifetimes and Fundamental Operations))
+$(LI $(LINK2 /ders/d.en/null_is.html, The null Value and the is Operator) $(INDEX_KEYWORDS null is !is))
+$(LI $(LINK2 /ders/d.en/cast.html, Type Conversions) $(INDEX_KEYWORDS to assumeUnique cast))
+$(LI $(LINK2 /ders/d.en/struct.html, Structs) $(INDEX_KEYWORDS struct .</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170802T025319Z" creationid="Heromyth" creationdate="20170802T025319Z">
+        <seg>$ .dup capacity))
+$(LI $(LINK2 /ders/d.cn/strings.html, 字符串) $(INDEX_KEYWORDS char[] wchar[] dchar[] string wstring dstring))
+$(LI $(LINK2 /ders/d.cn/stream_redirect.html, 重定向标准输入输出流))
+$(LI $(LINK2 /ders/d.cn/files.html, 文件) $(INDEX_KEYWORDS File))
+$(LI $(LINK2 /ders/d.cn/auto_and_typeof.html, auto 和 typeof) $(INDEX_KEYWORDS auto typeof))
+$(LI $(LINK2 /ders/d.cn/name_space.html, 名字作用域))
+$(LI $(LINK2 /ders/d.cn/for.html, for 循环) $(INDEX_KEYWORDS for))
+$(LI $(LINK2 /ders/d.cn/ternary.html, 三元运算符 ?:) $(INDEX_KEYWORDS ?:))
+$(LI $(LINK2 /ders/d.cn/literals.html, 文字量))
+$(LI $(LINK2 /ders/d.cn/formatted_output.html, 格式化输出) $(INDEX_KEYWORDS writef writefln))
+$(LI $(LINK2 /ders/d.cn/formatted_input.html, 格式化输入))
+$(LI $(LINK2 /ders/d.cn/do_while.html, do-while 循环) $(INDEX_KEYWORDS do while))
+$(LI $(LINK2 /ders/d.cn/aa.html, 关联数组) $(INDEX_KEYWORDS .keys .values .byKey .byValue .byKeyValue .get .remove in))
+$(LI $(LINK2 /ders/d.cn/foreach.html, foreach 循环) $(INDEX_KEYWORDS foreach .byKey .byValue .byKeyValue))
+$(LI $(LINK2 /ders/d.cn/switch_case.html, switch 和 case) $(INDEX_KEYWORDS switch, case, default, final switch))
+$(LI $(LINK2 /ders/d.cn/enum.html, enum) $(INDEX_KEYWORDS enum .min .max))
+$(LI $(LINK2 /ders/d.cn/functions.html, 函数) $(INDEX_KEYWORDS return void))
+$(LI $(LINK2 /ders/d.cn/const_and_immutable.html, 不变量) $(INDEX_KEYWORDS enum const immutable .dup .idup))
+$(LI $(LINK2 /ders/d.cn/value_vs_reference.html, 值类型与引用类型) $(INDEX_KEYWORDS &amp;))
+$(LI $(LINK2 /ders/d.cn/function_parameters.html, 函数参数) $(INDEX_KEYWORDS in out ref inout lazy scope shared))
+$(LI $(LINK2 /ders/d.cn/lvalue_rvalue.html, 左值与右值) $(INDEX_KEYWORDS auto ref))
+$(LI $(LINK2 /ders/d.cn/lazy_operators.html, 惰性运算符))
+$(LI $(LINK2 /ders/d.cn/main.html, 程序环境) $(INDEX_KEYWORDS main stderr))
+$(LI $(LINK2 /ders/d.cn/exceptions.html, 异常) $(INDEX_KEYWORDS throw try catch finally))
+$(LI $(LINK2 /ders/d.cn/scope.html, scope) $(INDEX_KEYWORDS scope(exit) scope(success) scope(failure)))
+$(LI $(LINK2 /ders/d.cn/assert.html, assert 与 enforce) $(INDEX_KEYWORDS assert enforce))
+$(LI $(LINK2 /ders/d.cn/unit_testing.html, 单元测试) $(INDEX_KEYWORDS unittest))
+$(LI $(LINK2 /ders/d.cn/contracts.html, 契约编程) $(INDEX_KEYWORDS in out body))
+$(LI $(LINK2 /ders/d.cn/lifetimes.html, 生命周期与函数式运算))
+$(LI $(LINK2 /ders/d.cn/null_is.html, null 值与 is 运算符) $(INDEX_KEYWORDS null is !is))
+$(LI $(LINK2 /ders/d.cn/cast.html, 类型转换) $(INDEX_KEYWORDS to assumeUnique cast))
+$(LI $(LINK2 /ders/d.cn/struct.html, 结构) $(INDEX_KEYWORDS struct .</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>$(DERS_BOLUMU $(IX user defined attributes) $(IX UDA) User Defined Attributes (UDA))</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170719T105356Z" creationid="Heromyth" creationdate="20170719T054011Z">
