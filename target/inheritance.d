@@ -59,7 +59,7 @@ $(I $(B Note:) It would be more useful to produce the time string by a $(C toStr
 )
 
 $(P
-The output:
+输出：
 )
 
 $(SHELL
@@ -147,7 +147,7 @@ The members that are inherited from the superclass can be accessed as if they we
 ---
 
 $(P
-The output:
+输出：
 )
 
 $(SHELL
@@ -496,7 +496,7 @@ $(CODE_XREF Clock_AlarmClock)void main() {
 ---
 
 $(P
-The output:
+输出：
 )
 
 $(SHELL
@@ -732,7 +732,7 @@ $(P
 The $(C ChessPiece) class is still abstract even though $(C isValid()) was already implemented, but the $(C Pawn) class is non-abstract and can be instantiated.
 )
 
-$(H5 Example)
+$(H5 样例)
 
 $(P
 Let's consider a class hierarchy that represents railway vehicles:
@@ -942,7 +942,7 @@ The passengers are getting off    $(SHELL_NOTE)
 The crates are being unloaded     $(SHELL_NOTE)
 )
 
-$(H5 Summary)
+$(H5 摘要)
 
 $(UL
 $(LI Inheritance is used for the "is a" relationship.)

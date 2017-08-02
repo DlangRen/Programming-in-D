@@ -316,7 +316,7 @@ void main() {
 ---
 
 $(P
-The output:
+输出：
 )
 
 $(SHELL
@@ -680,7 +680,7 @@ void main() {
 ---
 
 $(P
-The output:
+输出：
 )
 
 $(SHELL
@@ -943,7 +943,7 @@ void workerFunc() {
 ---
 
 $(P
-The output:
+输出：
 )
 
 $(SHELL
@@ -975,7 +975,7 @@ void workerFunc() {
 ---
 
 $(P
-The output:
+输出：
 )
 
 $(SHELL
@@ -1046,7 +1046,7 @@ The owner can catch the exception to do something special like terminating grace
 ---
 
 $(P
-The output:
+输出：
 )
 
 $(SHELL
@@ -1287,7 +1287,7 @@ $(IX thread_joinAll) The $(C thread_joinAll()) call that is seen at the end of $
 )
 
 $(P
-The output:
+输出：
 )
 
 $(SHELL
@@ -1303,7 +1303,7 @@ second, I am exiting.
 first, I am exiting.
 )
 
-$(H5 Summary)
+$(H5 摘要)
 
 $(UL
 

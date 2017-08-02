@@ -473,7 +473,7 @@ void main() {
 ---
 
 $(P
-The output:
+输出：
 )
 
 $(SHELL
@@ -1131,7 +1131,7 @@ void main() {
 ---
 
 $(P
-The output:
+输出：
 )
 
 $(SHELL
@@ -1303,7 +1303,7 @@ $(P
 Note that $(C Object.factory()) takes the fully qualified name of the type of the object. Also, the return type of $(C factory()) is $(C Object); so, it must be cast to the actual type of the object before being used in the program.
 )
 
-$(H5 Summary)
+$(H5 摘要)
 
 $(UL
 $(LI The garbage collector scans the memory at unspecified times, determines the objects that cannot possibly be reached anymore by the program, destroys them, and reclaims their memory locations.)

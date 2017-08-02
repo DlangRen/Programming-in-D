@@ -260,7 +260,7 @@ Instead of $(C this.new) and $(C this.outer), $(C .new) and $(C .outer) can be u
     auto var2 = $(HILITE nestedObject.outer);
 ---
 
-$(H5 Summary)
+$(H5 摘要)
 
 $(UL
 

@@ -87,7 +87,7 @@ The four variables in the code above are slices; they provide access to four par
 ---
 
 $(P
-The output:
+输出：
 )
 
 $(SHELL
@@ -121,7 +121,7 @@ It is legal to have the beginning and the end indexes to be equal. In that case 
 ---
 
 $(P
-The output:
+输出：
 )
 
 $(SHELL
@@ -171,7 +171,7 @@ void main() {
 ---
 
 $(P
-The output:
+输出：
 )
 
 $(SHELL_SMALL
@@ -194,7 +194,7 @@ We have seen so far that the assignment operator $(I modifies) values of variabl
 ---
 
 $(P
-The output:
+输出：
 )
 
 $(SHELL
@@ -522,7 +522,7 @@ void main() {
 ---
 
 $(P
-The output:
+输出：
 )
 
 $(SHELL
@@ -553,7 +553,7 @@ This feature works not only using two arrays; it can also be used with an array 
 ---
 
 $(P
-The output:
+输出：
 )
 
 $(SHELL
@@ -570,7 +570,7 @@ To assign a specific value to all elements:
 ---
 
 $(P
-The output:
+输出：
 )
 
 $(SHELL
@@ -760,7 +760,7 @@ $(SHELL
 [[0, 0, 0], [0, 0, 0]]
 )
 
-$(H5 Summary)
+$(H5 摘要)
 
 $(UL
 

@@ -109,7 +109,7 @@ void main() {
 ---
 
 $(P
-The output:
+输出：
 )
 
 $(SHELL
@@ -315,7 +315,7 @@ String literals that start with $(C q) and that use $(C {) and $(C }) as delimit
 ---
 
 $(P
-The output:
+输出：
 )
 
 $(SHELL

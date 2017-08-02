@@ -108,7 +108,7 @@ The other syntax of $(C assert) allows printing a custom message when the $(C as
 ---
 
 $(P
-The output:
+输出：
 )
 
 $(SHELL

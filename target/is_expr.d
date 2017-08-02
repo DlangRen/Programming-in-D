@@ -61,7 +61,7 @@ As another example, because $(C void) is not valid as the key type of an associa
 ---
 
 $(P
-The output:
+输出：
 )
 
 $(SHELL_SMALL
@@ -231,7 +231,7 @@ Function templates can take advantage of such information to behave differently 
 ---
 
 $(P
-The output:
+输出：
 )
 
 $(SHELL_SMALL
@@ -414,7 +414,7 @@ Let's now call that function template with various types that we have defined ab
 ---
 
 $(P
-The output:
+输出：
 )
 
 $(SHELL_SMALL

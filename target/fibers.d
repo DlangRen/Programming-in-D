@@ -643,7 +643,7 @@ struct Tree {
     }
 }
 
-/* Returns an InputRange to the nodes of the tree. The
+/* Returns an InputRange to the nodes of the tree. 这个
  * returned range is empty if the tree has no elements (i.e.
  * if 'root' is 'null'). */
 auto byNode(const(Tree) tree) {
@@ -1077,7 +1077,7 @@ $(P
 $(IX M:N, threading) One obvious shortcoming of fibers is that only one core of the CPU is used for the caller and its fibers. The other cores of the CPU might be sitting idle, effectively wasting resources. It is possible to use different designs like the $(I M:N threading model (hybrid threading)) that employ other cores as well. I encourage you to research and compare different threading models.
 )
 
-$(H5 Summary)
+$(H5 摘要)
 
 $(UL
 

@@ -49,7 +49,7 @@ $(P
 Although the function above clearly takes six parameters, when the three pairs of parameters are considered, it is conceptually taking only three bits of information for the starting time, the duration, and the result.
 )
 
-$(H5 Definition)
+$(H5 定义)
 
 $(P
 The $(C struct) keyword defines a new type by combining variables that are related in some way:
@@ -254,7 +254,7 @@ $(CODE_XREF TimeOfDay)$(CODE_XREF addDuration)void main() {
 ---
 
 $(P
-The output:
+输出：
 )
 
 $(SHELL
@@ -906,7 +906,7 @@ A higher value for $(C repetition) should result in a more shuffled deck:
 ---
 
 $(P
-The output:
+输出：
 )
 
 $(SHELL

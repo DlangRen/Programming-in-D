@@ -325,7 +325,7 @@ The following code demonstrates this by printing the type of the returned expres
 ---
 
 $(P
-The output:
+输出：
 )
 
 $(SHELL_SMALL
@@ -923,7 +923,7 @@ $(SHELL_SMALL
 foo is called 1 times.
 )
 
-$(H5 Summary)
+$(H5 摘要)
 
 $(UL
 

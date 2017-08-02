@@ -148,7 +148,7 @@ static assert(hasUDA!(Person.name, $(HILITE Colored)));
 static assert(hasUDA!(Person.name, $(HILITE Colored(Color.blue))));
 ---
 
-$(H5 Example)
+$(H5 样例)
 
 $(P
 Let's design a function template that prints the values of all members of a $(C struct) object in XML format. The following function considers the $(C Encrypted) and $(C Colored) attributes of each member when producing the output:
@@ -366,7 +366,7 @@ struct Person {
 ---
 
 $(P
-The output:
+输出：
 )
 
 $(SHELL
@@ -392,7 +392,7 @@ struct Data {
 ---
 
 $(P
-The output:
+输出：
 )
 
 $(SHELL
@@ -401,7 +401,7 @@ $(SHELL
 &lt;/Data&gt;
 )
 
-$(H5 Summary)
+$(H5 摘要)
 
 $(UL
 

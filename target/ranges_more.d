@@ -227,7 +227,7 @@ For example, when it is used with a slice, the negative elements can be accessed
 ---
 
 $(P
-The output:
+输出：
 )
 
 $(SHELL
@@ -339,7 +339,7 @@ Compile-time polymorphism has to deal with the fact that every instantiation of 
 ---
 
 $(P
-The output:
+输出：
 )
 
 $(SHELL
@@ -409,7 +409,7 @@ $(P
 Similarly, $(C outputRangeObject()) works with $(C OutputRange) ranges and allows their use as $(I an $(C OutputRange) that accepts specific types of elements).
 )
 
-$(H5 Summary)
+$(H5 摘要)
 
 $(UL
 

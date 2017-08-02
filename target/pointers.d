@@ -588,7 +588,7 @@ $(LI Pointing at the next element.)
 )
 
 $(P
-The output:
+输出：
 )
 
 $(SHELL
@@ -721,7 +721,7 @@ Although it is not absolutely necessary in D, pointers can directly be used for 
 ---
 
 $(P
-The output:
+输出：
 )
 
 $(SHELL_SMALL
@@ -1308,7 +1308,7 @@ void main() {
 ---
 
 $(P
-The output:
+输出：
 )
 
 $(SHELL_SMALL

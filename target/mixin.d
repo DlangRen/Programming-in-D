@@ -86,7 +86,7 @@ void main() {
 ---
 
 $(P
-The output:
+输出：
 )
 
 $(SHELL
@@ -279,7 +279,7 @@ void main() {
 ---
 
 $(P
-The output:
+输出：
 )
 
 $(SHELL
@@ -465,7 +465,7 @@ $(P
 Due to a bug as of this writing, the same behavior does not apply to other special functions like constructors. Additionally, a destructor mixed in by a string mixin does conflict with the existing destructor of the type.
 )
 
-$(H5 Example)
+$(H5 样例)
 
 $(P
 ($(I $(B Note:) Specifying predicates as strings was used more commonly before the lambda syntax was added to D. Although string predicates as in this example are still used in Phobos, the $(C =>) lambda syntax may be more suitable in most cases.))

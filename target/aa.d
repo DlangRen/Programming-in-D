@@ -1,13 +1,13 @@
 Ddoc
 
-$(DERS_BOLUMU $(IX associative array) $(IX AA) Associative Arrays)
+$(DERS_BOLUMU $(IX 关联数组) $(IX AA) 关联数组)
 
 $(P
-Associative arrays are a feature that is found in most modern high-level languages. They are very fast data structures that work like mini databases and are used in many programs.
+关联数组是大多数现代高级编程语言所具有的功能。它们是高速的数据结构，如迷你数据库一样地运作，在很多程序里都用到了。
 )
 
 $(P
-We saw in the $(LINK2 /ders/d.en/arrays.html, Arrays chapter) that plain arrays are containers that store their elements side-by-side and provide access to them by index. An array that stores the names of the days of the week can be defined like this:
+在 $(LINK2 /ders/d.cn/arrays.html, 数组) 一章中我们已经看到简单数组作为容器逐个存储元素，按索引访问它们。一个存储了星期的英文名称的数组可以这样定义：
 )
 
 ---
@@ -17,49 +17,49 @@ We saw in the $(LINK2 /ders/d.en/arrays.html, Arrays chapter) that plain arrays 
 ---
 
 $(P
-The name of a specific day can be accessed by its index in that array:
+在数组里通过索引访问特定的英文日期名：
 )
 
 ---
-    writeln(dayNames[1]);   // prints "Tuesday"
+    writeln(dayNames[1]);   // 打印 “Tuesday”
 ---
 
 $(P
-The fact that plain arrays provide access to their values through index numbers can be described as an $(I association) of indexes with values. In other words, arrays map indexes to values. Plain arrays can use only integers as indexes.
+事实上简单数组通过索引访问值可以被描述为索引与值的$(I 关联) 。换句话说，数组映射索引到值。简单数组只能使用整型做索引。
 )
 
 $(P
-Associative arrays allow indexing not only using integers but also using any other type. They map the values of one type to the values of another type. The values of the type that associative arrays $(I map from) are called $(I keys), rather than indexes. Associative arrays store their elements as key-value pairs.
+关联数组允许索引不只是整型而是任何类型。它们映射一种类型的值到另一种类型的值上。关联数组用于$(I 映射)的类型的值叫$(I 键)，而不是索引。关联数组通过键值对存储它们的元素。
 )
 
 $(P
-Associative arrays are implemented in D using a $(I hash table). Hash tables are among the fastest collections for storing and accessing elements. Other than in rare pathological cases, the time it takes to store or access an element is independent of the number of elements that are in the associative array.
+在D语言中，关联数组是一个 $(I hash 表) 实现。Hash 表是存储和访问元素的最快的集合。除极个别情况外，一般存取单个元素所花费的时间不依赖于关联数组中元素的个数。
 )
 
 $(P
-The high performance of hash tables comes at the expense of storing the elements in an unordered way. Also, unlike arrays, the elements of hash tables are not stored side-by-side.
+hash 表的高性能的代价是元素的存储是无序的。不像数组，hash 表的元素不是逐个排列存储的。
 )
 
 $(P
-For plain arrays, index values are not stored at all. Because array elements are stored side-by-side in memory, index values are implicitly the relative positions of elements from the beginning of the array.
+对于简单数组，索引值根本就没有存储。因为在内存中数组元素是逐个存储的，索引值就是元素位置与数组的起始位置的相对值。
 )
 
 $(P
-On the other hand, associative arrays do store both the keys and the values of elements. Although this difference makes associative arrays use more memory, it also allows them to use $(I sparse) key values. For example, when there are just two elements to store for keys 0 and 999, an associative array stores just two elements, not 1000 as a plain array has to.
+另一方面，关联数组既存储键又存储元素值。虽然这种不同让关联数组使用更多内存，但它也允许它们使用$(I 稀疏)键值。例如，对于键 0 和 999，当只有两个元素要存储时，关联数组就只存储两个元素，而不像简单数组那样必须 1000 个。
 )
 
-$(H5 Definition)
+$(H5 定义)
 
 $(P
-The syntax of associative arrays is similar to the array syntax. The difference is that it is the type of the key that is specified within the square brackets, not the length of the array:
+关联数组的语法与数组相似。不同的是方框号中指定的是键的类型，而不是数组的长度：
 )
 
 ---
-    $(I value_type)[$(I key_type)] $(I associative_array_name);
+    $(I 值类型)[$(I 键类型)] $(I 关联数组名);
 ---
 
 $(P
-For example, an associative array that maps day names of type $(C string) to day numbers of type $(C int) can be defined like this:
+例如，下面这个关联数组这样定义，它把日期名的类型 $(C string) 映射到日期的数字类型 $(C int) ：
 )
 
 ---
@@ -67,37 +67,37 @@ For example, an associative array that maps day names of type $(C string) to day
 ---
 
 $(P
-The $(C dayNumbers) variable above is an associative array that can be used as a table that provides a mapping from day names to day numbers. In other words, it can be used as the opposite of the $(C dayNames) array at the beginning of this chapter. We will use the $(C dayNumbers) associative array in the examples below.
+上面的 $(C dayNumbers) 变量是一个关联数组，它能用来作为从日期名映射到日期数字的表。换句话说，它能用作本章开始处 $(C dayNames) 数组的逆转。在下面的例子中我们将使用 $(C dayNumbers) 关联数组。
 )
 
 $(P
-The keys of associative arrays can be of any type, including user-defined $(C struct) and $(C class) types. We will see user-defined types in later chapters.
+关联数组的键可以是任何类型，包括用户定义的 $(C struct) 和 $(C class) 类型。在稍后的章节中我们将看到用户定义类型。
 )
 
 $(P
-The length of associative arrays cannot be specified when defined. They grow automatically as key-value pairs are added.
+定义时，不能指定关联数组的长度。它们随着键值对的添加而自动增长。
 )
 
 $(P
-$(I $(B Note:) An associative array that is defined without any element is $(LINK2 /ders/d.en/null_is.html, $(C null)), not empty. This distinction has an important consequence when  $(LINK2 /ders/d.en/function_parameters.html, passing associative arrays to functions). We will cover these concepts in later chapters.)
+$(I $(B 注：) 已定义的没有任何元素的关联数组是 $(LINK2 /ders/d.cn/null_is.html, $(C null))，而不是空。当 $(LINK2 /ders/d.cn/function_parameters.html, 传关联数组给函数) 时，这种区分具有重要意义。在稍后的章节中我们将涵盖这些概念。)
 )
 
-$(H5 Adding key-value pairs)
+$(H5 添加键值对)
 
 $(P
-Using the assignment operator is sufficient to build the association between a key and a value:
+使用赋值运算符就足以构建键与值的关联：
 )
 
 ---
-    // associates value 0 with key "Monday"
+    // 关联值 0 与 键 “Monday”
     dayNumbers["Monday"] $(HILITE =) 0;
 
-    // associates value 1 with key "Tuesday"
+    // 关联值 1 与 键 “Tuesday”
     dayNumbers["Tuesday"] $(HILITE =) 1;
 ---
 
 $(P
-The table grows automatically with each association. For example, $(C dayNumbers) would have two key-value pairs after the operations above. This can be demonstrated by printing the entire table:
+随着每次的关联，该表会自动增长。例如，上面的操作结束后 $(C dayNumbers) 将有两个键值对。这可以通过打印整个表来验证：
 )
 
 ---
@@ -105,7 +105,7 @@ The table grows automatically with each association. For example, $(C dayNumbers
 ---
 
 $(P
-The output indicates that the values 0 and 1 correspond to keys "Monday" and "Tuesday", respectively:
+下面的输出表明了元素值 0 和 1 分别对应着键 “Monday” 和 “Tuesday”：
 )
 
 $(SHELL
@@ -113,7 +113,7 @@ $(SHELL
 )
 
 $(P
-There can be only one value per key. For that reason, when we assign a new key-value pair and the key already exists, the table does not grow; instead, the value of the existing key changes:
+每个键有且仅有一个对应值。因而，给一个存在的键赋值，表不增长，而现有键所对应的值会发生变化：
 )
 
 ---
@@ -122,7 +122,7 @@ There can be only one value per key. For that reason, when we assign a new key-v
 ---
 
 $(P
-The output:
+输出：
 )
 
 $(SHELL
@@ -130,10 +130,10 @@ $(SHELL
 )
 
 
-$(H5 Initialization)
+$(H5 初始化)
 
 $(P
-$(IX :, associative array) Sometimes some of the mappings between the keys and the values are already known at the time of the definition of the associative array. Associative arrays are initialized similarly to regular arrays, using a colon to separate each key from its respective value:
+$(IX :, 关联数组) 有时候一些键与值的映射在定义关联数组的时候就已经明确。关联数组的初始化与常规数组相似，不同的是用冒号分隔每个键与相应的值：
 )
 
 ---
@@ -143,51 +143,51 @@ $(IX :, associative array) Sometimes some of the mappings between the keys and t
           "Thursday" : 3, "Friday"  : 4, "Saturday"  : 5,
           "Sunday"   : 6 ];
 
-    writeln(dayNumbers["Tuesday"]);    // prints 1
+    writeln(dayNumbers["Tuesday"]);    // 打印 1
 ---
 
 $(H5 Removing key-value pairs)
 
 $(P
-Key-value pairs can be removed by using $(C .remove()):
+通过 $(C .remove()) 可以移除键值对：
 )
 
 ---
     dayNumbers.remove("Tuesday");
-    writeln(dayNumbers["Tuesday"]);    // ← run-time ERROR
+    writeln(dayNumbers["Tuesday"]);    // ← 运行时错误
 ---
 
 $(P
-The first line above removes the key-value pair "Tuesday" / $(C 1). Since that key is not in the container anymore, the second line would cause an exception to be thrown and the program to be terminated if that exception is not caught. We will see exceptions in $(LINK2 /ders/d.en/exceptions.html, a later chapter).
+上面第一行移除了键值对 "Tuesday" / $(C 1). 由于键已不存在于容器中， 因而第二行将引发一个异常，如果异常没有被捕获，程序将终止。在 $(LINK2 /ders/d.cn/exceptions.html, 稍后的一章) 中我们将看到异常。
 )
 
 $(P
-$(C .clear) removes all elements:
+$(C .clear) 移除全部元素：
 )
 
 ---
-    dayNumbers.clear;    // The associative array becomes empty
+    dayNumbers.clear;    // 清空关联数组
 ---
 
-$(H5 $(IX in, associative array) Determining the presence of a key)
+$(H5 $(IX in, 关联数组) 确定键的存在)
 
 $(P
-The $(C in) operator determines whether a given key exists in the associative array:
+$(C in) 运算符确定一个给定的键是否存在于关联数组中：
 )
 
 ---
     int[string] colorCodes = [ /* ... */ ];
 
     if ("purple" $(HILITE in) colorCodes) {
-        // key "purple" exists in the table
+        // 键 “purple” 在表中
 
     } else {
-        // key "purple" does not exist in the table
+        //表中不存在 键 “purple” 
     }
 ---
 
 $(P
-Sometimes it makes sense to use a default value if a key does not exist in the associative array. For example, the special value of -1 can be used as the code for colors that are not in $(C colorCodes). $(C .get()) is useful in such cases: it returns the value associated with the specified key if that key exists, otherwise it returns the default value. The default value is specified as the second parameter of $(C .get()):
+有时候在关联数组中，为不存在的键使用一个默认值是有道理的。例如，特殊值 -1 用作不在 $(C colorCodes) 中的  colors 代码。$(C .get()) 在这样的样例中是有用的：如果指定键存在则返回相应值，否则返回默认值。默认值被指定为 $(C .get()) 的第2个参数：
 )
 
 ---
@@ -196,45 +196,45 @@ Sometimes it makes sense to use a default value if a key does not exist in the a
 ---
 
 $(P
-Since the array does not contain a value for the key $(STRING "purple"), $(C .get()) returns -1:
+由于键 $(STRING "purple") 的值不在数组中，$(C .get()) 返回 -1：
 )
 
 $(SHELL
 -1
 )
 
-$(H5 Properties)
+$(H5 Properties（属性）)
 
 $(UL
 
-$(LI $(IX .length) $(C .length) returns the number of key-value pairs.)
+$(LI $(IX .length) $(C .length) 返回键值对的个数。)
 
-$(LI $(IX .keys) $(C .keys) returns a copy of all keys as a dynamic array.)
+$(LI $(IX .keys) $(C .keys) 返回全部键的动态数组副本。)
 
-$(LI $(IX .byKey) $(C .byKey) provides access to the keys without copying them; we will see how $(C .byKey) is used in $(C foreach) loops in the next chapter.)
+$(LI $(IX .byKey) $(C .byKey) 提供对键的直接访问；在下一章我们将看到在 $(C foreach) 循环中如何使用 $(C .byKey) 。)
 
-$(LI $(IX .values) $(C .values) returns a copy of all values as a dynamic array.)
+$(LI $(IX .values) $(C .values) 返回全部值的动态数组副本。)
 
-$(LI $(IX .byValue) $(C .byValue) provides access to the values without copying them.)
+$(LI $(IX .byValue) $(C .byValue) 提供对值的直接访问。)
 
-$(LI $(IX .byKeyValue) $(C .byKeyValue) provides access to the key-value pairs without copying them.)
+$(LI $(IX .byKeyValue) $(C .byKeyValue) 提供对键值对的直接访问。)
 
-$(LI $(IX .rehash) $(C .rehash) may make the array more efficient in some cases, such as after inserting a large number of key-value pairs.)
+$(LI $(IX .rehash) $(C .rehash) 在一些例子中可以让数组更有效率，比如在插入大量的键值对之后。)
 
-$(LI $(IX .sizeof, associative array) $(C .sizeof) is the size of the array $(I reference) (it has nothing to do with the number of key-value pairs in the table and is the same value for all associative arrays).)
+$(LI $(IX .sizeof, associative array) $(C .sizeof) 数组$(I 引用)大小（它不受表中键值对个数的影响，对所有的关联数组来说值都是一样的）。)
 
-$(LI $(IX .get) $(C .get) returns the value if it exists, the default value otherwise.)
+$(LI $(IX .get) $(C .get) 值存在即返回相应值，否则返回默认值。)
 
 $(LI $(IX .remove, associative array) $(C .remove) removes the specified key and its value from the array.)
 
-$(LI $(IX .clear) $(C .clear) removes all elements.)
+$(LI $(IX .clear) $(C .clear) 移除全部元素。)
 
 )
 
-$(H5 Example)
+$(H5 样例)
 
 $(P
-Here is a program that prints the Turkish names of colors that are specified in English:
+这是一段打印英文颜色的土耳其语表达的程序，它的键指定为英文：
 )
 
 ---
@@ -267,22 +267,22 @@ void main() {
 $(PROBLEM_COK
 
 $(PROBLEM
-How can all of the key-value pairs of an associative array be removed other than calling $(C .clear)? ($(C .clear) is the most natural method.) There are at least three methods:
+除 $(C .clear) 函数外还有什么方法能移除关联数组的全部键值对？ ($(C .clear) 是最自然的方法。) 至少还有三种方法：
 
 $(UL
 
-$(LI Removing them one-by-one from the associative array.)
+$(LI 从关联数组中逐个移除它们。)
 
-$(LI Assigning an empty associative array.)
+$(LI 用一个空的关联数组赋值。)
 
-$(LI Similar to the previous method, assigning the array's $(C .init) property.
+$(LI 与前一方法相似，用数组的 $(C .init) 属性赋值。
 
 $(P
-$(IX .init, clearing a variable) $(I $(B Note:) The $(C .init) property of any variable or type is the initial value of that type:)
+$(IX .init, 清除一个变量) $(I $(B 注：) 任何变量或类型的 $(C .init) 属性是类型的初始值：)
 )
 
 ---
-    number = int.init;    // 0 for int
+    number = int.init;    // int 值：0 
 ---
 )
 
@@ -291,24 +291,24 @@ $(IX .init, clearing a variable) $(I $(B Note:) The $(C .init) property of any v
 )
 
 $(PROBLEM
-Just like with arrays, there can be only one value for each key. This may be seen as a limitation for some applications.
+与数组一样，每个键有且仅有一个值。对某些程序来说可能是个限制。
 
 $(P
-Assume that an associative array is used for storing student grades. For example, let's assume that the grades 90, 85, 95, etc. are to be stored for the student named "emre".
+假设使用关联数组来存储学生成绩。例如，我们假设存储学生“emre”的成绩 90，85，95 等等。
 )
 
 $(P
-Associative arrays make it easy to access the grades by the name of the student as in $(C grades["emre"]). However, the grades cannot be inserted as in the following code because each grade would overwrite the previous one:
+在 $(C grades["emre"]) 中通过学生姓名关联数组让它很容易访问到成绩。然而，不能像下面的代码这样插入成绩，因为后来的成绩将覆盖前一个：
 )
 
 ---
     int[string] grades;
     grades["emre"] = 90;
-    grades["emre"] = 85;   // ← Overwrites the previous grade!
+    grades["emre"] = 85;   // ← 覆盖前一个成绩！
 ---
 
 $(P
-How can you solve this problem? Define an associative array that can store multiple grades per student.
+怎么解决这个问题？定义一个能存储每个学生的多个成绩的关联数组。
 )
 
 )
@@ -316,8 +316,8 @@ How can you solve this problem? Define an associative array that can store multi
 )
 
 Macros:
-        SUBTITLE=Associative Arrays
+        SUBTITLE=关联数组
 
-        DESCRIPTION=The associative arrays of the d programming language.
+        DESCRIPTION=D语言的关联数组。
 
-        KEYWORDS=d programming language tutorial book associative arrays
+        KEYWORDS=D 编程语言教程 关联数组

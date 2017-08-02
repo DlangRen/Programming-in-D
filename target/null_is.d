@@ -72,7 +72,7 @@ The special value $(C null) can be printed just like any other value.
 ---
 
 $(P
-The output:
+输出：
 )
 
 $(SHELL
@@ -259,7 +259,7 @@ Slices can be assigned $(C null) as well:
     slice = null;     // Not providing access to any element
 ---
 
-$(H5 Summary)
+$(H5 摘要)
 
 $(UL
 

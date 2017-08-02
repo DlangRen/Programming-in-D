@@ -401,7 +401,7 @@ void main() {
 ---
 
 $(P
-The output:
+输出：
 )
 
 $(SHELL
@@ -442,7 +442,7 @@ void main() {
 ---
 
 $(P
-The output:
+输出：
 )
 
 $(SHELL
@@ -454,7 +454,7 @@ Its output:
 )
 )
 
-$(H5 Summary)
+$(H5 摘要)
 
 $(UL
 

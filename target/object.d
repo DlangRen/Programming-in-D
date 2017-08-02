@@ -209,7 +209,7 @@ class AlarmClock : Clock {
 ---
 
 $(P
-The output:
+输出：
 )
 
 $(SHELL

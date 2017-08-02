@@ -240,7 +240,7 @@ Unlike some other languages, the copy inside post-increment has no cost in D if 
 )
 
 ---
-    /* The value of the expression is not used below. The
+    /* The value of the expression is not used below. 这个
      * only effect of the expression is incrementing 'i'. */
     i++;
 ---
@@ -1442,7 +1442,7 @@ void $(CODE_DONT_TEST)main() {
 ---
 
 $(P
-The output:
+输出：
 )
 
 $(SHELL
@@ -1726,7 +1726,7 @@ void main() {
 ---
 
 $(P
-The output:
+输出：
 )
 
 $(SHELL

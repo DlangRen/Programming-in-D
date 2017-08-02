@@ -72,7 +72,7 @@ void main() {
 ---
 
 $(P
-The output:
+输出：
 )
 
 $(SHELL
@@ -106,7 +106,7 @@ void main() {
 ---
 
 $(P
-The output:
+输出：
 )
 
 $(SHELL
@@ -547,7 +547,7 @@ void main() {
 ---
 
 $(P
-The output:
+输出：
 )
 
 $(SHELL
@@ -734,7 +734,7 @@ void main() {
 ---
 
 $(P
-The output:
+输出：
 )
 
 $(SHELL
@@ -909,7 +909,7 @@ $(P
 $(I $(B Note:) Although it is conceivable that the compiler could inspect $(C pick()) and detect the bug even without the $(C return) keyword, it cannot do so in general because the bodies of some functions may not be available to the compiler during every compilation.)
 )
 
-$(H5 Summary)
+$(H5 摘要)
 
 $(UL
 

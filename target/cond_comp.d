@@ -638,7 +638,7 @@ $(P
 Please refer to $(LINK2 http://dlang.org/traits.html, the $(C __traits) documentation) and $(LINK2 http://dlang.org/phobos/std_traits.html, the $(C std.traits) documentation) for more information.
 )
 
-$(H5 Summary)
+$(H5 摘要)
 
 $(UL
 

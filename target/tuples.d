@@ -60,7 +60,7 @@ The members of a tuple are normally accessed by their index values. That syntax 
 ---
 
 $(P
-The output:
+输出：
 )
 
 $(SHELL
@@ -91,7 +91,7 @@ The definition above allows accessing the members by $(C .number) and $(C .messa
 ---
 
 $(P
-The output:
+输出：
 )
 
 $(SHELL
@@ -174,7 +174,7 @@ Because their values can be expanded, tuples can be used with the $(C foreach) s
 ---
 
 $(P
-The output:
+输出：
 )
 
 $(SHELL
@@ -232,7 +232,7 @@ import std.algorithm;
 ---
 
 $(P
-The output:
+输出：
 )
 
 $(SHELL
@@ -541,7 +541,7 @@ $(P
 Here, an important point to make is that the tuple that $(C .tupleof) returns consists of the members of the object themselves, not their copies. In other words, the tuple members are references to the actual object members.
 )
 
-$(H5 Summary)
+$(H5 摘要)
 
 $(UL
 

@@ -721,7 +721,7 @@ void main() {
 ---
 
 $(P
-The output:
+输出：
 )
 
 $(SHELL
@@ -732,7 +732,7 @@ olleh
 
 )
 
-$(H5 Summary)
+$(H5 摘要)
 
 $(UL
 

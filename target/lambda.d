@@ -78,7 +78,7 @@ $(P
 As the two $(C static assert) lines above indicate, $(C f) is a $(C function) and $(C d) is a $(C delegate). We will see later below that $(C d) can be called directly but $(C f) needs an object to be called on.
 )
 
-$(H6 Definition)
+$(H6 定义)
 
 $(P
 $(IX function) Similar to regular pointers, each function pointer type can point exactly to a particular type of function; the parameter list and the return type of the function pointer and the function must match. Function pointers are defined by the $(C function) keyword between the return type and the parameter list of that particular type:
@@ -339,7 +339,7 @@ int negativeOf(int number) {
 ---
 
 $(P
-The output:
+输出：
 )
 
 $(SHELL
@@ -751,7 +751,7 @@ Let's call that function with a trivial delegate that always returns the same va
 ---
 
 $(P
-The output:
+输出：
 )
 
 $(SHELL
@@ -1169,7 +1169,7 @@ $(P
 The advantage of this program is that, even though there are still a total of 10 calls made to various $(C toString()) functions, those calls collectively produce a single $(C string), not 10.
 )
 
-$(H5 Summary)
+$(H5 摘要)
 
 $(UL
 $(LI The $(C function) keyword is for defining function pointers to be called later just like a function.)

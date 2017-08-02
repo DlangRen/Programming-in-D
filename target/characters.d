@@ -289,7 +289,7 @@ For example, the $(C write()) function, which does not start a new line automati
 ---
 
 $(P
-The output:
+输出：
 )
 
 $(SHELL
@@ -390,7 +390,7 @@ void main() {
 ---
 
 $(P
-The output:
+输出：
 )
 
 $(SHELL
@@ -572,7 +572,7 @@ Although they would mean the same character to a human reader, the single code p
 
 )
 
-$(H5 Summary)
+$(H5 摘要)
 
 $(UL
 

@@ -99,7 +99,7 @@ void main() {
 ---
 
 $(P
-The output:
+输出：
 )
 
 $(SHELL
@@ -190,7 +190,7 @@ void $(CODE_DONT_TEST)main() {
 ---
 
 $(P
-The output:
+输出：
 )
 
 $(SHELL

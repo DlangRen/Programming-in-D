@@ -131,7 +131,7 @@ $(P
 As has been seen in the previous example, $(C destroy()) is used when resources need to be released at a specific time without relying on the garbage collector.
 )
 
-$(H5 Example)
+$(H5 样例)
 
 $(P
 We had designed an $(C XmlElement) struct in the $(LINK2 /ders/d.en/special_functions.html, Constructor and Other Special Functions chapter). That struct was being used for printing XML elements in the format $(C &lt;tag&gt;value&lt;/tag&gt;). Printing the closing tag has been the responsibility of the destructor:
@@ -444,7 +444,7 @@ For that reason, do not define $(C scoped()) variables by the actual type:
     immutable d = scoped!C();    $(CODE_NOTE correct)
 ---
 
-$(H5 Summary)
+$(H5 摘要)
 
 $(UL
 

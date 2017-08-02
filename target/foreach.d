@@ -293,7 +293,7 @@ void main() {
 ---
 
 $(P
-The output:
+输出：
 )
 
 $(SHELL
@@ -391,7 +391,7 @@ $(C foreach_reverse) works the same way as $(C foreach) except it iterates in th
 ---
 
 $(P
-The output:
+输出：
 )
 
 $(SHELL

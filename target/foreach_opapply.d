@@ -534,7 +534,7 @@ Also note that the type of the delegate parameter is $(C ref const(Point)). This
 )
 
 $(P
-The output:
+输出：
 )
 
 $(SHELL

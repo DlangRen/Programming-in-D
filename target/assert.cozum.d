@@ -62,7 +62,7 @@ An obvious correction is to pass the hour and minute variables in the right orde
 ---
 
 $(P
-The output:
+输出：
 )
 
 $(SHELL

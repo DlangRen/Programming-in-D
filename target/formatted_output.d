@@ -61,7 +61,7 @@ Sometimes this is not sufficient. The output may have to be in a very specific f
 ---
 
 $(P
-The output:
+输出：
 )
 
 $(SHELL

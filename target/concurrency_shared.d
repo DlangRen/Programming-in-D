@@ -161,7 +161,7 @@ void main() {
 ---
 
 $(P
-The output:
+输出：
 )
 
 $(SHELL
@@ -301,7 +301,7 @@ The incorrect program behavior above is due to more than one thread accessing th
 ---
 
 $(P
-The output:
+输出：
 )
 
 $(SHELL
@@ -587,7 +587,7 @@ $(HILITE shared) static this() {
 ---
 
 $(P
-The output:
+输出：
 )
 
 $(SHELL
@@ -726,7 +726,7 @@ $(LI $(C core.sync.semaphore))
 
 )
 
-$(H5 Summary)
+$(H5 摘要)
 
 $(UL
 

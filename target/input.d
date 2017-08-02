@@ -174,7 +174,7 @@ As a general rule, you can use $(STRING "&nbsp;%s") for every data that is read 
 ---
 
 $(P
-The output:
+输出：
 )
 
 $(SHELL

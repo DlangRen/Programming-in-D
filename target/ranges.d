@@ -523,7 +523,7 @@ import std.array;
 ---
 
 $(P
-The output:
+输出：
 )
 
 $(SHELL
@@ -1173,7 +1173,7 @@ $(IX retro, std.range) A good $(C BidirectionalRange) example is the $(C std.ran
 ---
 
 $(P
-The output:
+输出：
 )
 
 $(SHELL
@@ -1426,7 +1426,7 @@ As expected, printing the entire range should contain all of the elements:
 ---
 
 $(P
-The output:
+输出：
 )
 
 $(SHELL
@@ -1669,7 +1669,7 @@ We can pass this range to other range algorithms. For example, to $(C retro()), 
 ---
 
 $(P
-The output:
+输出：
 )
 
 $(SHELL
@@ -1937,7 +1937,7 @@ In the code above, $(C appender) is called with an array and returns a special r
 ---
 
 $(P
-The output:
+输出：
 )
 
 $(SHELL
@@ -1954,7 +1954,7 @@ $(C Appender) supports the $(C ~=) operator as well:
 ---
 
 $(P
-The output:
+输出：
 )
 
 $(SHELL
@@ -1971,7 +1971,7 @@ $(P
 The $(C std.range) module includes many range templates. We will see these templates in the next chapter.
 )
 
-$(H5 Summary)
+$(H5 摘要)
 
 $(UL
 

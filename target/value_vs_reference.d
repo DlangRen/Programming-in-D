@@ -677,7 +677,7 @@ $(IX replicate, std.array) The $(C replicate()) function of the $(C std.array) m
 
 )
 
-$(H5 Summary)
+$(H5 摘要)
 
 $(UL
 

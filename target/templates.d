@@ -1022,7 +1022,7 @@ struct Point(T) {
 }
 ---
 
-$(H5 Summary)
+$(H5 摘要)
 
 $(P
 We will see other features of templates in $(LINK2 /ders/d.en/templates_more.html, a later chapter). The following are what we have covered in this chapter:

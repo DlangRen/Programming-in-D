@@ -30,7 +30,7 @@ $(P
 Despite these restrictions, there is no limit on the number of $(C interface)s that a class can inherit from. (In contrast, a class can inherit from up to one $(C class).)
 )
 
-$(H5 Definition)
+$(H5 定义)
 
 $(P
 Interfaces are defined by the $(C interface) keyword, the same way as classes:
@@ -527,7 +527,7 @@ $(P
 $(I Abstracting away) parts of a program from each other allows making changes in one part of the program without needing to modify the other parts. When implementations of certain parts of the program are $(I behind) a particular interface, the code that uses only that interface does not get affected.
 )
 
-$(H5 Example)
+$(H5 样例)
 
 $(P
 The following program defines the $(C SoundEmitter), $(C MusicalInstrument), and $(C CommunicationDevice) interfaces:
@@ -627,7 +627,7 @@ rrring
 beep
 )
 
-$(H5 Summary)
+$(H5 摘要)
 
 $(UL
 

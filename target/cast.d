@@ -151,7 +151,7 @@ The reasons for integer promotions are both historical (where the rules come fro
 ---
 
 $(P
-The output:
+输出：
 )
 
 $(SHELL
@@ -682,7 +682,7 @@ Although rare, some C library interfaces make it necessary to store a pointer va
     int * p2 = cast($(HILITE int*))savedPointerValue;
 ---
 
-$(H5 Summary)
+$(H5 摘要)
 
 $(UL
 

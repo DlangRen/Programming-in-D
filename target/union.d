@@ -221,7 +221,7 @@ import core.bitop;
 ---
 
 $(P
-The output:
+输出：
 )
 
 $(SHELL_SMALL

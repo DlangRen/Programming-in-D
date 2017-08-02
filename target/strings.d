@@ -1,23 +1,23 @@
 Ddoc
 
-$(DERS_BOLUMU Strings)
+$(DERS_BOLUMU 字符串)
 
 $(P
-We have used strings in many programs that we have seen so far. Strings are a combination of the two features that we have covered in the last three chapters: characters and arrays. In the simplest definition, strings are nothing but arrays of characters. For example, $(C char[]) is a type of string.
+迄今为至，我们已经看到，好多程序都用到了字符串。字符串是在过去三章中介绍的两种功能的组合：字符和数组。在最简单的定义中，字符串只不过是字符数组。例如，$(C char[]) 是一个字符串类型。
 )
 
 $(P
-This simple definition may be misleading. As we have seen in the $(LINK2 /ders/d.en/characters.html, Characters chapter), D has three separate character types. Arrays of these character types lead to three separate string types, some of which may have surprising outcomes in some string operations.
+这个简单的定义可能是个误导。正如我们在 $(LINK2 /ders/d.cn/characters.html, 字符) 一章中看到的，D 具有三种独立的字符类型。这些字符类型的数组对应着三种独立的字符串类型，其中一些可能会在一些字符串操作上有出人意料的结果。
 )
 
-$(H5 $(IX readln) $(IX strip) $(C readln) and $(C strip), instead of $(C readf))
+$(H5 $(IX readln) $(IX strip) 使用 $(C readln) 和 $(C strip)，而非 $(C readf))
 
 $(P
-There are surprises even when reading strings from the terminal.
+从终端读字符串您会有一些惊奇。
 )
 
 $(P
-Being character arrays, strings can contain control characters like $(STRING '\n') as well. When reading strings from the input, the control character that corresponds to the Enter key that is pressed at the end of the input becomes a part of the string as well. Further, because there is no way to tell $(C readf()) how many characters to read, it continues to read until the end of the entire input. For these reasons, $(C readf()) does not work as intended when reading strings:
+作为字符数组，字符串能包含像 $(STRING '\n') 这样的控制字符。当从输入中读取字符串，输入结束时按的 Enter 键对应的控制字符将变成字符串的一部分。另外，因为没有办法告诉 $(C readf()) 要读取多少字符，它持续读，直到整个输入结束。因而，$(C readf()) 不能如愿读取字符串：
 )
 
 ---
@@ -34,31 +34,31 @@ void main() {
 ---
 
 $(P
-The Enter key that the user presses after the name does not terminate the input. $(C readf()) continues to wait for more characters to add to the string:
+用户在名字之后按的 Enter 键并没有结束输入。$(C readf()) 继续等待新输入的字符以添加到字符串：
 )
 
 $(SHELL
-What is your name? Mert
-   $(SHELL_NOTE The input is not terminated although Enter has been pressed)
-   $(SHELL_NOTE (Let's assume that Enter is pressed a second time here))
+What is your name?Mert
+   $(SHELL_NOTE 虽然按了 Enter 键，但输入没有中断)
+   $(SHELL_NOTE （让我们假设在这儿第二次按了 Enter 键）)
 )
 
 $(P
-One way of terminating the standard input stream in a terminal is pressing Ctrl-D under Unix-based systems and Ctrl-Z under Windows systems. If the user eventually terminates the input that way, we see that the new-line characters have been read as parts of the string as well:
+在终端结束标准输入流的方法随系统而不同，在 Unix 系统下按 Ctrl-D，在 Windows 系统下按 Ctrl-Z。如果用户最后这样结束输入，我们看到换行符已作为字符串的一部分被读取：
 )
 
 $(SHELL
 Hello Mert
-   $(SHELL_NOTE_WRONG new-line character after the name)
-!  $(SHELL_NOTE_WRONG (one more before the exclamation mark))
+   $(SHELL_NOTE_WRONG 名字之后的换行符)
+!$(SHELL_NOTE_WRONG （在感叹号前还有一个）)
 )
 
 $(P
-The exclamation mark appears after those characters instead of being printed right after the name.
+感叹号出现在了那些字符之后，而不是在名字之后立即输出。
 )
 
 $(P
-$(C readln()) is more suitable when reading strings. Short for "read line", $(C readln()) reads until the end of the line. It is used differently because the $(STRING " %s") format string and the $(C &) operator are not needed:
+$(C readln()) 更适合读取字符串。它是“read line”的缩写，$(C readln()) 读取到行尾。不同的是没有 $(STRING " %s") 格式字符串并且不需要 $(C &) 运算符：
 )
 
 ---
@@ -75,17 +75,17 @@ void main() {
 ---
 
 $(P
-$(C readln()) stores the new-line character as well. This is so that the program has a way of determining whether the input consisted of a complete line or whether the end of input has been reached:
+$(C readln()) 也存储换行符。这就让程序有办法确定输入是否包含一条完整语句或者输入是否已结束： 
 )
 
 $(SHELL
-What is your name? Mert
+What is your name?Mert
 Hello Mert
-!  $(SHELL_NOTE_WRONG new-line character before the exclamation mark)
+!$(SHELL_NOTE_WRONG 感叹号前有换行符)
 )
 
 $(P
-Such control characters as well as all whitespace characters at both ends of strings can be removed by $(C std.string.strip):
+像字符串两端的空白字符这样的控制字符能被 $(C std.string.strip) 移除：
 )
 
 ---
@@ -104,16 +104,16 @@ void main() {
 ---
 
 $(P
-The $(C strip()) expression above returns a new string that does not contain the trailing control characters. Assigning that return value back to $(C name) produces the intended output:
+上面的 $(C strip()) 表达式返回一个不包含尾随控制符的新字符串。返回值再赋值给 $(C name)，得到预期的输出：
 )
 
 $(SHELL
-What is your name? Mert
-Hello Mert!    $(SHELL_NOTE no new-line character)
+What is your name?Mert
+Hello Mert!$(SHELL_NOTE 没有换行符)
 )
 
 $(P
-$(C readln()) can be used without a parameter. In that case it $(I returns) the line that it has just read. Chaining the result of $(C readln()) to $(C strip()) enables a shorter and more readable syntax:
+$(C readln()) 没有参数也可以使用。在这种情况下它$(I 返回)刚刚读入的行。把 $(C readln()) 的结果放到 $(C strip()) 中，能得到更短且可读性更好的语法：
 )
 
 ---
@@ -121,13 +121,13 @@ $(C readln()) can be used without a parameter. In that case it $(I returns) the 
 ---
 
 $(P
-I will start using that form after introducing the $(C string) type below.
+在介绍了下面的 $(C string) 类型之后，我们将开始使用这种格式。
 )
 
-$(H5 $(IX formattedRead) $(C formattedRead) for parsing strings)
+$(H5 $(IX formattedRead) 使用 $(C formattedRead) 函数来解析字符串)
 
 $(P
-Once a line is read from the input or from any other source, it is possible to parse and convert separate data that it may contain with $(C formattedRead()) from the $(C std.format) module. Its first parameter is the line that contains the data, and the rest of the parameters are used exacly like $(C readf()):
+Once a line is read from the input or from any other source, it is possible to parse and convert separate data that it may contain with $(C formattedRead()) from the $(C std.format) module. 它的第一个参数是包含数据的输入行，而其余的参数就与 $(C readf()) 的一模一样：
 )
 
 ---
@@ -156,7 +156,7 @@ Your name is $(HILITE Mert), and your age is $(HILITE 30).
 )
 
 $(P
-Both $(C readf()) and $(C formattedRead()) $(I return) the number of items that they could parse and convert successfully. That value can be compared against the expected number of data items so that the input can be validated. For example, as the $(C formattedRead()) call above expects to read $(I two) items (a $(C string) as name and an $(C int) as age), the following check ensures that it really is the case:
+$(C readf()) 和 $(C formattedRead()) 函数 都可以$(I 返回)成功解析及转换的项目个数。该值可与数据项的预期数相比较，以便确定输入的有效性。例如，像上面的 $(C formattedRead()) 函数期望去读$(I 两个)项目(一个 $(C string) 型 name 和一个 $(C int) 型 age)，下面的检查确定它真是这样：
 )
 
 ---
@@ -172,7 +172,7 @@ Both $(C readf()) and $(C formattedRead()) $(I return) the number of items that 
 ---
 
 $(P
-When the input cannot be converted to $(C name) and $(C age), the program prints an error:
+当输入不能转换到 $(C name) 和 $(C age) 时，程序将打印一个错误：
 )
 
 $(SHELL
@@ -180,24 +180,24 @@ Please enter your name and age, separated with a space: $(HILITE Mert)
 Error: Unexpected line.
 )
 
-$(H5 $(IX &quot;) Double quotes, not single quotes)
+$(H5 $(IX &quot;) 使用双引号，而非单引号)
 
 $(P
-We have seen that single quotes are used to define character literals. String literals are defined with double quotes. $(STRING 'a') is a character; $(STRING "a") is a string that contains a single character.
+我们已经看到单引号用于定义字符字面量。字符串字面量用双引号定义。$(STRING 'a') 是一个字符；$(STRING "a") 是一个包含单字符的字符串。
 )
 
-$(H5 $(IX string) $(IX wstring) $(IX dstring) $(IX char[]) $(IX wchar[]) $(IX dchar[]) $(IX immutable) $(C string), $(C wstring), and $(C dstring) are immutable)
+$(H5 $(IX string) $(IX wstring) $(IX dstring) $(IX char[]) $(IX wchar[]) $(IX dchar[]) $(IX immutable) $(C string)、$(C wstring) 和 $(C dstring) 是 immutable （不可变的）)
 
 $(P
-There are three string types that correspond to the three character types: $(C char[]), $(C wchar[]), and $(C dchar[]).
-)
-
-$(P
-There are three $(I aliases) of the $(I immutable) versions of those types: $(C string), $(C wstring), and $(C dstring). The characters of the variables that are defined by these aliases cannot be modified. For example, the characters of a $(C wchar[]) can be modified but the characters of a $(C wstring) cannot be modified. (We will see D's $(I immutability) concept in later chapters.)
+对应着三种字符类型，分别存在着三种字符串类型：$(C char[])、$(C wchar[]) 和 $(C dchar[])。
 )
 
 $(P
-For example, the following code that tries to capitalize the first letter of a $(C string) would cause a compilation error:
+这些类型的 $(I immutable) 版本有三个$(I 别名)：$(C string)、$(C wstring) 和 $(C dstring)。由这些别名定义的变量中的字符不可修改。例如，可以修改一个 $(C wchar[]) 中的字符，但不可以修改一个 $(C wstring) 中的字符。（在稍后的章节我们将看到 D 的$(I 不可变性)概念。）
+)
+
+$(P
+例如，下面这段代码尝试着修改 $(C string) 的首字母为大写，这将引发一个编译错误： 
 )
 
 ---
@@ -206,7 +206,7 @@ For example, the following code that tries to capitalize the first letter of a $
 ---
 
 $(P
-We may think of defining the variable as a $(C char[]) instead of the $(C string) alias but that cannot be compiled either:
+我们可能想到把变量定义为 $(C char[]) 而不是别名 $(C string)，但这也不能通过编译：
 )
 
 ---
@@ -214,22 +214,22 @@ We may think of defining the variable as a $(C char[]) instead of the $(C string
 ---
 
 $(P
-This time the compilation error is due to the combination of two factors:
+这次的编译错误是因为两个因素的联合作用：
 )
 
 $(OL
-$(LI The type of string literals like $(STRING "hello") is $(C string), not $(C char[]), so they are immutable.
+$(LI 像 $(STRING "hello") 这样的字符串字面量的类型是 $(C string)，而不是 $(C char[])，因此它们是  immutable。
 )
-$(LI The $(C char[]) on the left-hand side is a slice, which, if the code compiled, would provide access to all of the characters of the right-hand side.
+$(LI 左手侧的 $(C char[]) 是一个切片，这意味着，一旦代码编译成功，它将会访问右手侧的全部字符。
 )
-)
-
-$(P
-Since $(C char[]) is mutable and $(C string) is not, there is a mismatch. The compiler does not allow accessing characters of an immutable array through a mutable slice.
 )
 
 $(P
-The solution here is to take a copy of the immutable string by using the $(C .dup) property:
+由于 $(C char[]) 可变而 $(C string) 不可变，两者不批配。编译器不允许通过可变的切片访问不可变的字符数组。
+)
+
+$(P
+此处的解决办法是通过 $(C .dup) property（属性）得到一个不可变字符串的副本：
 )
 
 ---
@@ -243,7 +243,7 @@ void main() {
 ---
 
 $(P
-The program can now be compiled and will print the modified string:
+现在程序能通过编译并且打印修改后的字符串：
 )
 
 $(SHELL
@@ -251,7 +251,7 @@ Hello
 )
 
 $(P
-Similarly, $(C char[]) cannot be used where a $(C string) is needed. In such cases, the $(C .idup) property can be used to produce an immutable $(C string) variable from a mutable $(C char[]) variable. For example, if $(C s) is a variable of type $(C char[]), the following line will fail to compile:
+同样的，$(C char[]) 不能被用到需要 $(C string) 的地方。这种情况下，$(C .idup) property 能被用来从一个可变的 $(C char[]) 变量中生成一个不可变的 $(C string) 变量。例如，如果 $(C s) 的变量类型是 $(C char[])，下面这行将编译失败：
 )
 
 ---
@@ -259,17 +259,17 @@ Similarly, $(C char[]) cannot be used where a $(C string) is needed. In such cas
 ---
 
 $(P
-When the type of $(C s) is $(C char[]), the type of the expression on the right-hand side of the assignment above is $(C char[]) as well. $(C .idup) is used for producing immutable strings from existing strings:
+当 $(C s) 的类型是 $(C char[])，上面右手侧赋值的表达式类型也是 $(C char[])，$(C .idup) 可用来从存在的字符串中生成不可变的字符串：
 )
 
 ---
-    string result = (s ~ '.')$(HILITE .idup);   // ← now compiles
+    string result = (s ~ '.')$(HILITE .idup);   // ← 现在可以编译
 ---
 
-$(H5 $(IX length, string) Potentially confusing length of strings)
+$(H5 $(IX length, string) 有可能让人困惑的字符串长度)
 
 $(P
-We have seen that some Unicode characters are represented by more than one byte. For example, the character 'é' (the latin letter 'e' combined with an acute accent) is represented by Unicode encodings using at least two bytes. This fact is reflected in the $(C .length) property of strings:
+我们已经知道一些 Unicode 字符串由多个字节表示。例如，字符‘é’ (拉丁字母‘e’包含了一个重音符) 由 Unicode 编码表示，至少用了两个字节。这个事实反映在字符串的 $(C .length) property 上：
 )
 
 ---
@@ -277,7 +277,7 @@ We have seen that some Unicode characters are represented by more than one byte.
 ---
 
 $(P
-Although "résumé" contains six $(I letters), the length of the $(C string) is the number of UTF-8 code units that it contains:
+虽然 "résumé" 包含6个$(I 字母)，但$(C 字符串)的长度是它包含的 UTF-8 编码单元的个数：
 )
 
 $(SHELL
@@ -285,7 +285,7 @@ $(SHELL
 )
 
 $(P
-The type of the elements of string literals like $(STRING "hello") is $(C char) and each $(C char) value represents a UTF-8 code unit. A problem that this may cause is when we try to replace a two-code-unit character with a single-code-unit character:
+像 $(STRING "hello") 这样的字符串字面量的元素类型是 $(C char)，并且每个 $(C char) 值对应一个 UTF-8 编码单元。当我们试着用一个单字节字符替换一个双字节字符时问题就来了：
 )
 
 ---
@@ -297,16 +297,16 @@ The type of the elements of string literals like $(STRING "hello") is $(C char) 
 ---
 
 $(P
-The two 'e' characters do not replace the two 'é' characters; they replace single code units, resulting in an invalid UTF-8 encoding:
+两个‘e’字符不能代替两个‘é’字符；用单字节编码单元替换后，结果就是得到一个无效的 UTF-8 编码：
 )
 
 $(SHELL
 Before: résumé
-After : re�sueé    $(SHELL_NOTE_WRONG INCORRECT)
+After : re�sueé    $(SHELL_NOTE_WRONG 不正确)
 )
 
 $(P
-When dealing with letters, symbols, and other Unicode characters directly, as in the code above, the correct type to use is $(C dchar):
+当直接处理字母、符号或其它 Unicode 字符的时候，比如在上面代码中，应该使用正确的类型 $(C dchar)：
 )
 
 ---
@@ -318,7 +318,7 @@ When dealing with letters, symbols, and other Unicode characters directly, as in
 ---
 
 $(P
-The output:
+输出：
 )
 
 $(SHELL
@@ -327,29 +327,29 @@ After : resume
 )
 
 $(P
-Please note the two differences in the new code:
+请注意新代码的两个不同：
 )
 $(OL
-$(LI The type of the string is $(C dchar[]).
-$(LI There is a $(C d) at the end of the literal $(STRING "résumé"d), specifying its type as an array of $(C dchar)s.)
+$(LI 字符串的类型是 $(C dchar[])。
+$(LI 有一个 $(C d) 在字面量 $(STRING "résumé"d) 的末尾，指定了它的类型是一个 $(C dchar) 型数组。)
 )
 )
 
 $(P
-In any case, keep in mind that the use of $(C dchar[]) and $(C dstring) does not solve all of the problems of manipulating Unicode characters. For instance, if the user inputs the text "résumé" you and your program cannot assume that the string length will be 6 even for $(C dchar) strings. It might be greater if e.g. at least one of the 'é' characters is not encoded as a single code point but as the combination of an 'e' and a combining accute accent. To avoid dealing with this and many other Unicode issues, consider using a Unicode-aware text manipulation library in your programs.
+无论如何，请记住使用 $(C dchar[]) 和 $(C dstring) 并不能解决所有的操作 Unicode 字符的问题。例如，如果用户输入文本“résumé”，即使使用 $(C dchar) 字符串，你和你的程序仍然不能确保字符串的长度会是6。如果至少其中一个‘é’字符没有做为单个编码点编码，而是一个‘e’与一个组合重音符的组合，那么它就可能会更长。为避免处理这种以及许多其它的 Unicode 问题，在你的程序里就要考虑使用一个支持 Unicode 的文本处理库。
 )
 
-$(H5 $(IX literal, string) String literals)
+$(H5 $(IX literal, string) 字符串字面量)
 
 $(P
-The optional character that is specified after string literals determines the type of the elements of the string:
+在字符串字面量之后指定的可选字符决定了字符串的元素类型：
 )
 
 ---
 import std.stdio;
 
 void main() {
-     string s = "résumé"c;   // same as "résumé"
+     string s = "résumé"c;   // 与“résumé”一样
     wstring w = "résumé"w;
     dstring d = "résumé"d;
 
@@ -360,7 +360,7 @@ void main() {
 ---
 
 $(P
-The output:
+输出：
 )
 
 $(SHELL
@@ -370,13 +370,13 @@ $(SHELL
 )
 
 $(P
-Because all of the Unicode characters of "résumé" can be represented by a single $(C wchar) or $(C dchar), the last two lengths are equal to the number of characters.
+因为所有的“résumé”的 Unicode 字符都能用单个 $(C wchar) 或者 $(C dchar) 表示，所以最后两个的长度与字符个数是一致的。
 )
 
-$(H5 $(IX concatenation, string) String concatenation)
+$(H5 $(IX concatenation, string) 字符串连接)
 
 $(P
-Since they are actually arrays, all of the array operations can be applied to strings as well. $(C ~) concatenates two strings and $(C ~=) appends to an existing string:
+由于它们实际上是数组，所有数组的操作也都能应用到字符串上。$(C ~) 可以连接两个字符串，$(C ~=) 则能够把字符串附加到一个已存在的字符串上：
 )
 
 ---
@@ -387,7 +387,7 @@ void main() {
     write("What is your name? ");
     string name = strip(readln());
 
-    // Concatenate:
+    // 连接：
     string greeting = "Hello " ~ name;
 
     // Append:
@@ -398,7 +398,7 @@ void main() {
 ---
 
 $(P
-The output:
+输出：
 )
 
 $(SHELL
@@ -406,14 +406,14 @@ What is your name? Can
 Hello Can! Welcome...
 )
 
-$(H5 Comparing strings)
+$(H5 比较字符串)
 
 $(P
-$(I $(B Note:) Unicode does not define how the characters are ordered other than their Unicode codes. For that reason, you may get results that don't match your expectations below.)
+$(I $(B 注：)除了 Unicode 编码顺序之外，Unicode 不定义字符的排列顺序。因此，下面的输出结果不是你所期望的那样。)
 )
 
 $(P
-We have used comparison operators $(C <), $(C >=), etc. with integer and floating point values before. The same operators can be used with strings as well, but with a different meaning: strings are ordered $(I lexicographically). This ordering takes each character's Unicode code to be its place in a hypothetical grand Unicode alphabet. The concepts of $(I less) and $(I greater) are replaced with $(I before) and $(I after) in this hypothetical alphabet:
+我们以前把比较运算符 $(C <)，$(C >=) 等等用于整型和浮点数值。同样的操作也能用于字符串，但含义不同：字符串按$(I 字典顺序)排序。这种排序需要在一个假设的大字母表中让每个字符的 Unicode 编码找到它的位置。在这个假设的字母表中，$(I 更少)和$(I 更多)的概念就被$(I 之前)和$(I 之后)代替：
 )
 
 ---
@@ -449,42 +449,42 @@ void main() {
 ---
 
 $(P
-Because Unicode adopts the letters of the basic Latin alphabet from the ASCII table, the strings that contain only the letters of the ASCII table will always be ordered correctly.
+由于 Unicode 采用来自于 ASCII 表的基本拉丁字母，仅包含 ASCII 字母的字符串将会正确排序。
 )
 
-$(H5 Lowercase and uppercase are different)
+$(H5 小写与大写不同)
 
 $(P
-Because each character has a unique code, every letter variant is different from the others. For example, 'A' and 'a' are different letters, when directly comparing Unicode strings.
-)
-
-$(P
-Additionally, as a consequence of their ASCII code values, all of the latin uppercase letters are sorted before all of the lowercase letters. For example, 'B' comes before 'a'. The $(C icmp()) function of the $(C std.string) module can be used when strings need to be compared regardless of lowercase and uppercase. You can see the functions of this module at $(LINK2 http://dlang.org/phobos/std_string.html, its online documentation).
+因为每个字母都有一个唯一的编码，每个字母变体都与其它的不同。例如，当直接比较 Unicode 字符串时，‘A’和‘a’是不同的字母。
 )
 
 $(P
-Because strings are arrays (and as a corollary, $(I ranges)), the functions of the $(C std.array), $(C std.algorithm), and $(C std.range) modules are very useful with strings as well.
+另外，受 ASCII 编码值的影响，所有拉丁大写字母都排在小写字母的前面。例如，‘B’排在‘a’之前。无论小写大写，$(C std.string) 模块中的 $(C icmp()) 函数可用于字符串比较。在 $(LINK2 http://dlang.org/phobos/std_string.html, 它的在线文档) 中你可以看到这个模块的各个函数。
+)
+
+$(P
+因为字符串是数组(进一步而言，是 $(I range))，所以 $(C std.array)、$(C std.algorithm) 和 $(C std.range) 模块中的函数对于字符串也都非常有用。
 )
 
 $(PROBLEM_COK
 
 $(PROBLEM
-Browse the documentations of the $(C std.string), $(C std.array), $(C std.algorithm), and $(C std.range) modules.
+浏览 $(C std.string)、$(C std.array)、$(C std.algorithm) 和 $(C std.range) 模块的文档。
 )
 
 $(PROBLEM
-Write a program that makes use of the $(C ~) operator: The user enters the first name and the last name, all in lowercase letters. Produce the full name that contains the proper capitalization of the first and last names. For example, when the strings are "ebru" and "domates" the program should print "Ebru&nbsp;Domates".
+写一个使用 $(C ~) 运算符的程序：让用户都以小写键入英文名字和姓氏，生成一个姓名首字母大写的全名。例如，字符串是“ebru”和“domates”，程序应该打印出“Ebru&nbsp;Domates”。
 )
 
 $(PROBLEM
-Read a line from the input and print the part between the first and last 'e' letters of the line. For example, when the line is "this line has five words" the program should print "e has five".
+从输入中读取一行并打印该行的第一个和最后一个‘e’字母之间的部分。例如，若这行是“this line has five words”程序就应该打印出“e has five”。
 
 $(P
-You may find the $(C indexOf()) and $(C lastIndexOf()) functions useful to get the two indexes needed to produce a slice.
+你或许会发现 $(C indexOf()) 和 $(C lastIndexOf()) 函数对生成切片所需要的两个索引很有用。
 )
 
 $(P
-As it is indicated in their documentation, the return types of $(C indexOf()) and $(C lastIndexOf()) are not $(C int) nor $(C size_t), but $(C ptrdiff_t). You may have to define variables of that exact type:
+与它们的文档中所指出的一样，$(C indexOf()) 和 $(C lastIndexOf()) 的返回类型既不是 $(C int) 也不是 $(C size_t)，而是 $(C ptrdiff_t)。您可能就需要定义该类型的变量：
 )
 
 ---
@@ -492,7 +492,7 @@ As it is indicated in their documentation, the return types of $(C indexOf()) an
 ---
 
 $(P
-It is possible to define variables with the $(C auto) keyword, which we will see in a later chapter:
+也可以使用 $(C auto) 关键字定义变量，这个我们将在后面的一章中看到：
 )
 
 ---
@@ -504,8 +504,8 @@ It is possible to define variables with the $(C auto) keyword, which we will see
 )
 
 Macros:
-        SUBTITLE=Strings
+        SUBTITLE=字符串
 
-        DESCRIPTION=The strings of the D programming language
+        DESCRIPTION=D 语言的字符串
 
-        KEYWORDS=d programming language tutorial book string
+        KEYWORDS=D 语言教程 string

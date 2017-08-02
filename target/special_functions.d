@@ -372,7 +372,7 @@ Note that it is not possible to type $(C Test()) inside $(C static opCall()). Th
 ---
 
 $(P
-The output:
+输出：
 )
 
 $(SHELL
@@ -1148,7 +1148,7 @@ struct Duration {
 ---
 
 $(P
-The output:
+输出：
 )
 
 $(SHELL
@@ -1196,7 +1196,7 @@ struct Duration {
 ---
 
 $(P
-The output:
+输出：
 )
 
 $(SHELL
@@ -1208,7 +1208,7 @@ $(P
 $(B Note:) Although convenient, assigning different types to each other may cause confusions and errors.
 )
 
-$(H5 Summary)
+$(H5 摘要)
 
 $(UL
 

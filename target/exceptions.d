@@ -804,7 +804,7 @@ void main() {
 ---
 
 $(P
-The output:
+输出：
 )
 
 $(SHELL
@@ -955,7 +955,7 @@ $(P
 It is up to the higher layer functions that call this function to decide what to do with thrown exceptions. They may catch the exceptions that we throw to remedy the situation.
 )
 
-$(H5 Summary)
+$(H5 摘要)
 
 $(UL
 

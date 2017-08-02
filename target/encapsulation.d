@@ -219,7 +219,7 @@ $(P
 $(IX export) Additionally, the $(C export) attribute specifies accessibility from the outside of the program.
 )
 
-$(H5 Definition)
+$(H5 定义)
 
 $(P
 Protection attributes can be specified in three ways.
@@ -352,7 +352,7 @@ $(P
 Encapsulation is one of the most powerful benefits of object oriented programming.
 )
 
-$(H5 Example)
+$(H5 样例)
 
 $(P
 Let's define the $(C Student) struct and the $(C School) class by taking advantage of encapsulation and let's use them in a short test program.

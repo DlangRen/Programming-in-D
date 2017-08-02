@@ -35,6 +35,6 @@ void main() {
 Macros:
         SUBTITLE=Slices and Other Array Features Solution
 
-        DESCRIPTION=Programming in D exercise solutions: arrays
+        DESCRIPTION=D 语言编程习题解答：数组
 
-        KEYWORDS=programming in d tutorial arrays solution
+        KEYWORDS=D 语言编程教程 数组 习题解答

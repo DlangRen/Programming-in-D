@@ -1125,7 +1125,7 @@ void main() {
 ---
 
 $(P
-The output:
+输出：
 )
 
 $(SHELL
@@ -1180,7 +1180,7 @@ $(P
 $(C TaskPool.finish()) tells the object to stop processing when all of its current tasks are completed.
 )
 
-$(H5 Summary)
+$(H5 摘要)
 
 
 $(UL

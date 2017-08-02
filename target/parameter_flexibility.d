@@ -65,7 +65,7 @@ $(CODE_XREF printAA)void main() {
 ---
 
 $(P
-The output:
+输出：
 )
 
 $(SHELL
@@ -106,7 +106,7 @@ The parameter values can still be specified when needed, and not necessarily all
 ---
 
 $(P
-The output:
+输出：
 )
 
 $(SHELL
@@ -123,7 +123,7 @@ The following call specifies both of the parameters:
 ---
 
 $(P
-The output:
+输出：
 )
 
 $(SHELL
@@ -331,7 +331,7 @@ As long as the mandatory parameters are specified, the rest are optional:
 ---
 
 $(P
-The output:
+输出：
 )
 
 $(SHELL

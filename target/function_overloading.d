@@ -171,7 +171,7 @@ Note that this overload makes use of the already-defined overload for $(C TimeOf
 ---
 
 $(P
-The output:
+输出：
 )
 
 $(SHELL

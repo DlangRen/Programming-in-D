@@ -129,7 +129,7 @@ Unless explicitly specified by the programmer, the numerical values of $(C enum)
 ---
 
 $(P
-The output:
+输出：
 )
 
 $(SHELL
@@ -147,7 +147,7 @@ It is possible to manually (re)set the values at any point in the $(C enum). Tha
 ---
 
 $(P
-The output:
+输出：
 )
 
 $(SHELL
@@ -209,7 +209,7 @@ $(P
 It is possible to create manifest constants of arrays an associative arrays as well. However, as we will see later in $(LINK2 /ders/d.en/const_and_immutable.html, the Immutability chapter), $(C enum) arrays and associative arrays may have hidden costs.
 )
 
-$(H5 Properties)
+$(H5 Properties（属性）)
 
 $(P
 The $(C .min) and $(C .max) properties are the minimum and maximum values of an $(C enum) type. When the values of the $(C enum) type are consecutive, they can be iterated over in a $(C for) loop within these limits:
@@ -245,7 +245,7 @@ Note that a $(C foreach) loop over that range would leave the $(C .max) value ou
 ---
 
 $(P
-The output:
+输出：
 )
 
 $(SHELL

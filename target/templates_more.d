@@ -599,7 +599,7 @@ void main() {
 ---
 
 $(P
-The output:
+输出：
 )
 
 $(SHELL_SMALL
@@ -701,7 +701,7 @@ The $(C OwnType) template parameter is the actual type of the object that the me
 ---
 
 $(P
-The output:
+输出：
 )
 
 $(SHELL_SMALL
@@ -808,7 +808,7 @@ Those functions can be used as the $(C alias) parameter of $(C caller()):
 ---
 
 $(P
-The output:
+输出：
 )
 
 $(SHELL_SMALL
@@ -857,7 +857,7 @@ class C {
 ---
 
 $(P
-The output:
+输出：
 )
 
 $(SHELL
@@ -967,7 +967,7 @@ void info(T...)(T args) {
 ---
 
 $(P
-The output:
+输出：
 )
 
 $(SHELL_SMALL
@@ -2039,7 +2039,7 @@ void main() {
 }
 ---
 
-$(H5 Summary)
+$(H5 摘要)
 
 $(P
 The earlier template chapter had the following reminders:
