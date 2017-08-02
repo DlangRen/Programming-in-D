@@ -356,8 +356,8 @@ $(LINK2 /ders/d.cn/index.html,
       <tuv lang="EN-US">
         <seg>KEYWORDS=d programming language tutorial book novice beginner</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170801T100406Z" creationid="Heromyth" creationdate="20170801T100406Z">
-        <seg>KEYWORDS=d programming language tutorial book novice beginner D编程语言 教程 书籍 新手 初学者</seg>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170802T045729Z" creationid="Heromyth" creationdate="20170801T100406Z">
+        <seg>KEYWORDS=d programming language tutorial book novice beginner D 编程语言 教程 书籍 新手 初学者</seg>
       </tuv>
     </tu>
     <tu>
@@ -392,14 +392,6 @@ SUB_MAIN_TITLE_DERSE_OZEL=——教程与参考
 SUB_AUTHOR=Ali Çehreli
 LANG=zh-cn
 LANGUAGE=chinese</seg>
-      </tuv>
-    </tu>
-    <tu>
-      <tuv lang="EN-US">
-        <seg>Macros:</seg>
-      </tuv>
-      <tuv lang="ZH-CN" changeid="ZXP" changedate="20070614T081244Z" creationid="ZXP" creationdate="20070614T081244Z">
-        <seg>宏(Macros):</seg>
       </tuv>
     </tu>
     <tu>
