@@ -5363,6 +5363,14 @@ LANGUAGE=chinese</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>This is an important difference that affects the way attributes are used at compile time.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170803T055247Z" creationid="Heromyth" creationdate="20170803T055247Z">
+        <seg>它们有着明显的差异，它会对编译时属性的使用方式产生影响。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>This is because later code may depend on previous variables.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Hipter" changedate="20160707T045157Z" creationid="Hipter" creationdate="20160707T045157Z">
@@ -5519,6 +5527,14 @@ LANGUAGE=chinese</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="大处着手小处着眼" changedate="20160720T124954Z" creationid="大处着手小处着眼" creationdate="20160714T094241Z">
         <seg>在稍后的一章中我们将看到 Phobos 的 range。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>We will see an example of this difference below.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170803T055422Z" creationid="Heromyth" creationdate="20170803T055422Z">
+        <seg>下面来看一个与该差异有关的例子。</seg>
       </tuv>
     </tu>
     <tu>
