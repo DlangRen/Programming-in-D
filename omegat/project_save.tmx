@@ -2302,6 +2302,16 @@ The assignment operator copies all of the elements from the right-hand side to t
     <tu>
       <tuv lang="EN-US">
         <seg>$(P
+The attributes of $(C a) and $(C b) above are of different kinds: The attribute of $(C a) is the type $(C Encrypted) itself, while the attribute of $(C b) is an $(I object) of type $(C Encrypted).</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170803T054610Z" creationid="Heromyth" creationdate="20170803T054610Z">
+        <seg>$(P
+上面 $(C a) 和 $(C b) 的属性属于不同类别：$(C a) 的属性是 $(C Encrypted) 类型，而 $(C b) 的属性是 $(C Encrypted) 类型的一个$(I 对象)。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
 The behavior of assignment cannot be changed for classes.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Hipter" changedate="20160706T031647Z" creationid="Hipter" creationdate="20160706T031647Z">
