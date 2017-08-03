@@ -1117,6 +1117,16 @@ $(IX OOP) $(IX 面向对象编程) 与结构相似， $(C class) 具有定义新
     <tu>
       <tuv lang="EN-US">
         <seg>$(P
+$(IX __traits) $(IX getAttributes) The meaning of attributes is solely determined by the programmer for the needs of the program.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170803T110205Z" creationid="Heromyth" creationdate="20170803T110205Z">
+        <seg>$(P
+$(IX __traits) $(IX getAttributes) 属性的实际含义意义在于The meaning of attributes is solely determined by the programmer for the needs of the program.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
 $(IX final) As overridable member functions have a runtime performance cost, without going into more detail, I recommend that you define all $(C class) functions that do not need to be overridden with the $(C final) keyword.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Hipter" changedate="20160707T012042Z" creationid="Hipter" creationdate="20160707T012042Z">
