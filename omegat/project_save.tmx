@@ -1258,6 +1258,16 @@ Although these statements are closely related to exceptions, they can be used wi
     <tu>
       <tuv lang="EN-US">
         <seg>$(P
+An attribute can be a type name as well as a value of a user defined or a fundamental type.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170803T043344Z" creationid="Heromyth" creationdate="20170803T043344Z">
+        <seg>$(P
+属性除了可以是自定义类型值或基础类型值以外，还可是以类型名。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
 An index need not be a constant value; the value of a variable can also be used as an index, making arrays even more useful.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="大处着手小处着眼" changedate="20160725T021213Z" creationid="大处着手小处着眼" creationdate="20160725T021213Z">
@@ -3781,6 +3791,60 @@ $(LI $(LINK2 /ders/d.cn/slices.html, 分片与其他数组功能) $(INDEX_KEYWOR
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>@$(HILITE $(PARANTEZ_AC))Encrypted, Colored$(HILITE $(PARANTEZ_KAPA)) string address;    $(CODE_NOTE together)
+---</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170803T043202Z" creationid="Heromyth" creationdate="20170803T043202Z">
+        <seg>@$(HILITE $(PARANTEZ_AC))Encrypted, Colored$(HILITE $(PARANTEZ_KAPA)) string address;    $(CODE_NOTE 组合一起)
+---</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>@(42)                int d;    $(CODE_NOTE literal (discouraged))
+}
+---</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170803T043642Z" creationid="Heromyth" creationdate="20170803T043642Z">
+        <seg>@(42)                int d;    $(CODE_NOTE 文字量（不赞成）)
+}
+---</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>@Colored(Color.blue) int c;    $(CODE_NOTE object)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170803T043625Z" creationid="Heromyth" creationdate="20170803T043625Z">
+        <seg>@Colored(Color.blue) int c;    $(CODE_NOTE 对象)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>@Encrypted           int a;    $(CODE_NOTE type name)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170803T043608Z" creationid="Heromyth" creationdate="20170803T043608Z">
+        <seg>@Encrypted           int a;    $(CODE_NOTE 类型名)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>@Encrypted @Colored string lastName;     $(CODE_NOTE separately)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170803T043207Z" creationid="Heromyth" creationdate="20170803T043139Z">
+        <seg>@Encrypted @Colored string lastName;     $(CODE_NOTE 单独分开)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>@Encrypted()         int b;    $(CODE_NOTE object)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170803T043617Z" creationid="Heromyth" creationdate="20170803T043617Z">
+        <seg>@Encrypted()         int b;    $(CODE_NOTE 对象)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>A benefit of $(C scope(failure)) is the fact that the expression that reverts another expression is written close to it.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Hipter" changedate="20160707T034926Z" creationid="Hipter" creationdate="20160707T034511Z">
@@ -4405,6 +4469,16 @@ $(LINK2 /ders/d.cn/index.html,
       </tuv>
       <tuv lang="ZH-CN" changeid="大处着手小处着眼" changedate="20160720T033302Z" creationid="大处着手小处着眼" creationdate="20160720T033302Z">
         <seg>在这里，bool 值可能意味着</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>However, because their meanings may not be clear, attributes consisting of literal values like $(C 42) are discouraged:
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170803T043559Z" creationid="Heromyth" creationdate="20170803T043559Z">
+        <seg>不过，因为它们的含义可能不是很清楚，因此不赞成大家使用文字量值（如 $(C 42) ）构成的属性：
+)</seg>
       </tuv>
     </tu>
     <tu>
