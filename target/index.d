@@ -21,7 +21,7 @@ $(P
 </div>
 
 $(P
-其他提供形式还包括：$(LINK2 https://gumroad.com/l/PinD, Gumroad提供的$(I 付你所需)电子书) 以及各种$(I 免费) 版本的电子书，如 $(LINK_DOWNLOAD http://ddili.org/ders/d.en/Programming_in_D.pdf, PDF)、$(LINK_DOWNLOAD http://ddili.org/ders/d.en/Programming_in_D.epub, EPUB)、$(LINK_DOWNLOAD http://ddili.org/ders/d.en/Programming_in_D.azw3, AZW3) 和 $(LINK_DOWNLOAD http://ddili.org/ders/d.en/Programming_in_D.mobi, MOBI)。
+其他提供形式还包括：$(LINK2 https://gumroad.com/l/PinD, Gumroad提供的$(I 按需支付) 电子书) 以及各种$(I 免费) 版本的电子书，如 $(LINK_DOWNLOAD http://ddili.org/ders/d.en/Programming_in_D.pdf, PDF)、$(LINK_DOWNLOAD http://ddili.org/ders/d.en/Programming_in_D.epub, EPUB)、$(LINK_DOWNLOAD http://ddili.org/ders/d.en/Programming_in_D.azw3, AZW3) 和 $(LINK_DOWNLOAD http://ddili.org/ders/d.en/Programming_in_D.mobi, MOBI)。
 )
 
 $(P
@@ -34,9 +34,9 @@ $(P $(LINK2 /ders/d.en/ix.html, $(B 索引)) （可以使用关键字搜索）)
 
 $(UL
 $(WORK_IN_PROCESS
-$(LI $(LINK2 /ders/d.cn/foreword1.html, Walter Bright序))
+$(LI $(LINK2 /ders/d.cn/foreword1.html, Walter Bright 序))
 )
-$(LI $(LINK2 /ders/d.cn/foreword2.html, Andrei Alexandrescu序))
+$(LI $(LINK2 /ders/d.cn/foreword2.html, Andrei Alexandrescu 序))
 $(LI $(LINK2 /ders/d.cn/preface.html, 前言))
 $(LI $(LINK2 /ders/d.cn/hello_world.html, Hello World程序) $(INDEX_KEYWORDS main))
 $(LI $(LINK2 /ders/d.cn/writeln.html, writeln 和 write))
