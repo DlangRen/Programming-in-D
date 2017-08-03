@@ -3319,12 +3319,12 @@ $(LI $(LINK2 /ders/d.en/io.html, Standard Input and Output Streams) $(INDEX_KEYW
 $(LI $(LINK2 /ders/d.en/input.html, Reading from the Standard Input))
 $(LI $(LINK2 /ders/d.en/logical_expressions.html, Logical Expressions) $(INDEX_KEYWORDS bool true false !</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170801T100252Z" creationid="Heromyth" creationdate="20170801T100252Z">
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170803T012639Z" creationid="Heromyth" creationdate="20170801T100252Z">
         <seg>$(UL
 $(WORK_IN_PROCESS
-$(LI $(LINK2 /ders/d.cn/foreword1.html, Walter Bright序))
+$(LI $(LINK2 /ders/d.cn/foreword1.html, Walter Bright 序))
 )
-$(LI $(LINK2 /ders/d.cn/foreword2.html, Andrei Alexandrescu序))
+$(LI $(LINK2 /ders/d.cn/foreword2.html, Andrei Alexandrescu 序))
 $(LI $(LINK2 /ders/d.cn/preface.html, 前言))
 $(LI $(LINK2 /ders/d.cn/hello_world.html, Hello World程序) $(INDEX_KEYWORDS main))
 $(LI $(LINK2 /ders/d.cn/writeln.html, writeln 和 write))
