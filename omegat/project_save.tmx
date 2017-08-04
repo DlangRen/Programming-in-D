@@ -1119,9 +1119,9 @@ $(IX OOP) $(IX 面向对象编程) 与结构相似， $(C class) 具有定义新
         <seg>$(P
 $(IX __traits) $(IX getAttributes) The meaning of attributes is solely determined by the programmer for the needs of the program.</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170803T110205Z" creationid="Heromyth" creationdate="20170803T110205Z">
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170804T043110Z" creationid="Heromyth" creationdate="20170803T110205Z">
         <seg>$(P
-$(IX __traits) $(IX getAttributes) 属性的实际含义意义在于The meaning of attributes is solely determined by the programmer for the needs of the program.</seg>
+$(IX __traits) $(IX getAttributes) 属性的实际含义完全由程序员根据程序的需要来决定。</seg>
       </tuv>
     </tu>
     <tu>
@@ -2406,6 +2406,18 @@ The following code makes use of $(C dup()) to create a new object:
     <tu>
       <tuv lang="EN-US">
         <seg>$(P
+The following code shows how the attributes of a specific $(C struct) member (e.g. $(C Person.name)) can be accessed by $(C __traits(getAttributes)):
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170804T043714Z" creationid="Heromyth" creationdate="20170804T043714Z">
+        <seg>$(P
+下面代码展示的是如何使用使用$(C __traits(getAttributes))来访问某个特定 $(C struct) 成员（如 $(C Person.name)）的属性：
+)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
 The grades can also be assigned in one go with an array literal:
 )</seg>
       </tuv>
@@ -2498,6 +2510,18 @@ The output indicates that the values 0 and 1 correspond to keys "Monday" and "Tu
       <tuv lang="ZH-CN" changeid="Hipter" changedate="20160709T091105Z" creationid="Hipter" creationdate="20160709T024828Z">
         <seg>$(P
 下面的输出表明了元素值 0 和 1 分别对应着键 “Monday” 和 “Tuesday”：
+)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
+The output of the program lists the attributes of $(C Person.name):
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170804T044037Z" creationid="Heromyth" creationdate="20170804T044037Z">
+        <seg>$(P
+这个程序的输出内容是 $(C Person.name) 的各个属性：
 )</seg>
       </tuv>
     </tu>
@@ -2733,6 +2757,18 @@ To see how this program is better than the previous one, imagine needing to read
       <tuv lang="ZH-CN" changeid="大处着手小处着眼" changedate="20160726T134911Z" creationid="大处着手小处着眼" creationdate="20160725T081024Z">
         <seg>$(P
 要看一看这个程序怎样才能比以前的更好，让我们设想需要读取 20 个值。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
+Two other $(C __traits) expressions are useful when dealing with user defined attributes:
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170804T053206Z" creationid="Heromyth" creationdate="20170804T053206Z">
+        <seg>$(P
+在处理自定义属性时，还有其他两个 $(C __traits) 表达式可以使用：
+)</seg>
       </tuv>
     </tu>
     <tu>
@@ -5105,6 +5141,14 @@ LANGUAGE=chinese</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Hipter" changedate="20160706T012852Z" creationid="Hipter" creationdate="20160706T012821Z">
         <seg>实际的对象没有被复制。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>The attributes are determined by $(C __traits(getAttributes)) at compile time and the code is compiled according to those attributes.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170804T043355Z" creationid="Heromyth" creationdate="20170804T043355Z">
+        <seg>编译时可以通过 $(C __traits(getAttributes)) 来判定属性，而相应代码则会根据那些属性来编译。</seg>
       </tuv>
     </tu>
     <tu>
