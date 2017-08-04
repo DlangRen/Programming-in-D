@@ -19,12 +19,12 @@ $(P
 )
 
 ---
-    @Encrypted @Colored string lastName;     $(CODE_NOTE separately)
-    @$(HILITE $(PARANTEZ_AC))Encrypted, Colored$(HILITE $(PARANTEZ_KAPA)) string address;    $(CODE_NOTE together)
+    @Encrypted @Colored string lastName;     $(CODE_NOTE 单独分开)
+    @$(HILITE $(PARANTEZ_AC))Encrypted, Colored$(HILITE $(PARANTEZ_KAPA)) string address;    $(CODE_NOTE 组合一起)
 ---
 
 $(P
-An attribute can be a type name as well as a value of a user defined or a fundamental type. However, because their meanings may not be clear, attributes consisting of literal values like $(C 42) are discouraged:
+属性除了可以是自定义类型值或基础类型值以外，还可是以类型名。不过，因为它们的含义可能不是很清楚，因此不赞成大家使用文字量值（如 $(C 42) ）构成的属性：
 )
 
 ---
@@ -38,23 +38,23 @@ struct Colored {
 }
 
 void main() {
-    @Encrypted           int a;    $(CODE_NOTE type name)
-    @Encrypted()         int b;    $(CODE_NOTE object)
-    @Colored(Color.blue) int c;    $(CODE_NOTE object)
-    @(42)                int d;    $(CODE_NOTE literal (discouraged))
+    @Encrypted           int a;    $(CODE_NOTE 类型名)
+    @Encrypted()         int b;    $(CODE_NOTE 对象)
+    @Colored(Color.blue) int c;    $(CODE_NOTE 对象)
+    @(42)                int d;    $(CODE_NOTE 文字量（不赞成）)
 }
 ---
 
 $(P
-The attributes of $(C a) and $(C b) above are of different kinds: The attribute of $(C a) is the type $(C Encrypted) itself, while the attribute of $(C b) is an $(I object) of type $(C Encrypted). This is an important difference that affects the way attributes are used at compile time. We will see an example of this difference below.
+上面 $(C a) 和 $(C b) 的属性属于不同类别：$(C a) 的属性是 $(C Encrypted) 类型，而 $(C b) 的属性是 $(C Encrypted) 类型的一个$(I 对象)。它们有着明显的差异，它会对编译时属性的使用方式产生影响。下面来看一个与该差异有关的例子。
 )
 
 $(P
-$(IX __traits) $(IX getAttributes) The meaning of attributes is solely determined by the programmer for the needs of the program. The attributes are determined by $(C __traits(getAttributes)) at compile time and the code is compiled according to those attributes.
+$(IX __traits) $(IX getAttributes) 属性的实际含义完全由程序员根据程序的需要来决定。编译时可以通过 $(C __traits(getAttributes)) 来判定属性，而相应代码则会根据那些属性来编译。
 )
 
 $(P
-The following code shows how the attributes of a specific $(C struct) member (e.g. $(C Person.name)) can be accessed by $(C __traits(getAttributes)):
+下面代码展示的是如何使用使用$(C __traits(getAttributes))来访问某个特定 $(C struct) 成员（如 $(C Person.name)）的属性：
 )
 
 ---
@@ -76,7 +76,7 @@ void $(CODE_DONT_TEST)main() {
 ---
 
 $(P
-The output of the program lists the attributes of $(C Person.name):
+这个程序的输出内容是 $(C Person.name) 的各个属性：
 )
 
 $(SHELL
@@ -85,14 +85,14 @@ Colored(cast(Color)1)
 )
 
 $(P
-Two other $(C __traits) expressions are useful when dealing with user defined attributes:
+在处理自定义属性时，还有其他两个 $(C __traits) 表达式可以使用：
 )
 
 $(UL
 
-$(LI $(IX allMembers) $(C __traits(allMembers)) produces the members of a type (or a module) as strings.)
+$(LI $(IX allMembers) $(C __traits(allMembers)) 会以字符串列表的形式生成某个类型（或模块）的所有成员。)
 
-$(LI $(IX getMember) $(C __traits(getMember)) produces a $(I symbol) useful when accessing a member. Its first argument is a symbol (e.g. a type or a variable name) and its second argument is a string. It produces a symbol by combining its first argument, a dot, and its second argument. For example, $(C __traits(getMember, Person, $(STRING "name"))) produces the symbol $(C Person.name).
+$(LI $(IX getMember) $(C __traits(getMember)) 会生成一个 $(I 符号)，可以在访问某个成员时使用它。Its first argument is a symbol (e.g. a type or a variable name) and its second argument is a string. It produces a symbol by combining its first argument, a dot, and its second argument. For example, $(C __traits(getMember, Person, $(STRING "name"))) produces the symbol $(C Person.name).
 )
 
 )
