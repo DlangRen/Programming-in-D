@@ -776,6 +776,22 @@ There are three mistakes (bugs) in this program.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>$(LI $(IX allMembers) $(C __traits(allMembers)) produces the members of a type (or a module) as strings.)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170804T053356Z" creationid="Heromyth" creationdate="20170804T053356Z">
+        <seg>$(LI $(IX allMembers) $(C __traits(allMembers)) 会以字符串列表的形式生成某个类型（或模块）的所有成员。)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(LI $(IX getMember) $(C __traits(getMember)) produces a $(I symbol) useful when accessing a member.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170804T053639Z" creationid="Heromyth" creationdate="20170804T053639Z">
+        <seg>$(LI $(IX getMember) $(C __traits(getMember)) 会生成一个 $(I 符号)，可以在访问某个成员时使用它。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>$(LI Assigning an empty associative array.)</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Hipter" changedate="20160709T084451Z" creationid="Hipter" creationdate="20160709T084139Z">
