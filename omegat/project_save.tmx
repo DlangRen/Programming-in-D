@@ -2532,6 +2532,18 @@ The output indicates that the values 0 and 1 correspond to keys "Monday" and "Tu
     <tu>
       <tuv lang="EN-US">
         <seg>$(P
+The output of the program lists all attributes of all members of $(C Person):
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170805T135005Z" creationid="Heromyth" creationdate="20170805T135005Z">
+        <seg>$(P
+此程序的输出会列出 $(C Person) 的所有成员的所有属性：
+)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
 The output of the program lists the attributes of $(C Person.name):
 )</seg>
       </tuv>
@@ -4273,6 +4285,14 @@ $(LI $(LINK2 http://dlang.org/phobos/index.html, $(IMG bullet_black.png) 标准�
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>For example, $(C __traits(getMember, Person, $(STRING "name"))) produces the symbol $(C Person.name).</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170805T134631Z" creationid="Heromyth" creationdate="20170805T134631Z">
+        <seg>例如，$(C __traits(getMember, Person, $(STRING "name"))) 生成的符号是 $(C Person.name)。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>For example, $(C char[]) is a type of string.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="大处着手小处着眼" changedate="20160715T144519Z" creationid="Hipter" creationdate="20160711T091203Z">
@@ -4749,6 +4769,14 @@ $(LINK2 /ders/d.cn/index.html,
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>It produces a symbol by combining its first argument, a dot, and its second argument.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170805T134502Z" creationid="Heromyth" creationdate="20170805T134502Z">
+        <seg>它会生成一个符号，其组成部分包含了它的第一个参数、一个小数点和它的第二个参数。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>It returns $(C true) if the object is the same and $(C false) otherwise.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Hipter" changedate="20160707T014719Z" creationid="Hipter" creationdate="20160707T014719Z">
@@ -4779,6 +4807,14 @@ $(LINK2 /ders/d.cn/index.html,
       <tuv lang="ZH-CN" changeid="大处着手小处着眼" changedate="20160726T105743Z" creationid="大处着手小处着眼" creationdate="20160726T015640Z">
         <seg>$(C ~=) 组合两侧的数组并把结果赋值给左侧数组：
 )</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Its first argument is a symbol (e.g. a type or a variable name) and its second argument is a string.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170805T133822Z" creationid="Heromyth" creationdate="20170805T133822Z">
+        <seg>它的第一个参数是符号（如类型或者变量名），第二个参数是字符串。</seg>
       </tuv>
     </tu>
     <tu>
