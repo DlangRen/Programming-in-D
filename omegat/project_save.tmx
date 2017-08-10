@@ -951,6 +951,16 @@ $(C .clear) 移除全部元素：
     <tu>
       <tuv lang="EN-US">
         <seg>$(P
+$(C hasUDA) can be used with an attribute type as well as a specific value of that type.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170810T104724Z" creationid="Heromyth" creationdate="20170810T104724Z">
+        <seg>$(P
+$(C hasUDA) 除了可以与属性类型的特定值一起使用外，还可以与属性类型一起使用。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
 $(C is) specifies whether two class variables provide access to the same class object.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Hipter" changedate="20160707T014640Z" creationid="Hipter" creationdate="20160707T014640Z">
@@ -1148,6 +1158,16 @@ $(IX final) As overridable member functions have a runtime performance cost, wit
       <tuv lang="ZH-CN" changeid="Hipter" changedate="20160707T012042Z" creationid="Hipter" creationdate="20160707T012042Z">
         <seg>$(P
 $(IX final) 由于可重写的成员函数有一个运行时性能消耗，在这儿不讨论更多细节，我推荐您定义全部没必要用 $(C final) 关键字重写的 $(C class) 成员函数。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
+$(IX hasUDA, std.traits) Another useful tool is $(C std.traits.hasUDA), which determines whether a symbol has a specific attribute.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170810T104354Z" creationid="Heromyth" creationdate="20170810T104354Z">
+        <seg>$(P
+$(IX hasUDA, std.traits) 另一个有用的工具是 $(C std.traits.hasUDA)，它可检测某个符号是否拥有某个特定的属性。</seg>
       </tuv>
     </tu>
     <tu>
@@ -5281,6 +5301,26 @@ LANGUAGE=chinese</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="大处着手小处着眼" changedate="20160726T084426Z" creationid="大处着手小处着眼" creationdate="20160726T031012Z">
         <seg>前两个与 $(C while) 循环有关： 循环条件都使用 $(C &lt;=) 运算符而不使用 $(C &lt;) 运算符。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>The following $(C static assert) checks both pass because $(C Person.name) has $(C Colored(Color.blue)) attribute:
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170810T104835Z" creationid="Heromyth" creationdate="20170810T104835Z">
+        <seg>下面的两个 $(C static assert) 都会顺利通过，因为 $(C Person.name) 拥有 $(C Colored(Color.blue)) 属性：
+)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>The following $(C static assert) passes because $(C Person.name) has $(C Encrypted) attribute:
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170810T104459Z" creationid="Heromyth" creationdate="20170810T104459Z">
+        <seg>下面的 $(C static assert) 会顺利通过，因为 $(C Person.name) 拥有 $(C Encrypted) 属性：
+)</seg>
       </tuv>
     </tu>
     <tu>
