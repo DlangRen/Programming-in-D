@@ -864,6 +864,14 @@ There are three mistakes (bugs) in this program.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>$(LI The members of the type are determined by $(C __traits(allMembers)).)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170814T110101Z" creationid="Heromyth" creationdate="20170814T110101Z">
+        <seg>$(LI 该类型的所有成员可以通过 $(C __traits(allMembers)) 获得。)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>$(LI There is a $(C d) at the end of the literal $(STRING "résumé"d), specifying its type as an array of $(C dchar)s.)
 )
 )</seg>
@@ -1930,6 +1938,16 @@ Let's consider the following code that we have seen previously in the $(LINK2 /d
     <tu>
       <tuv lang="EN-US">
         <seg>$(P
+Let's design a function template that prints the values of all members of a $(C struct) object in XML format.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170814T103704Z" creationid="Heromyth" creationdate="20170814T103704Z">
+        <seg>$(P
+一起来设计一个函数模板，让它以XML格式输出一个 $(C struct) 对象的所有成员的值。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
 Let's now revisit the exercise with the five values and write it again by using an array:
 )</seg>
       </tuv>
@@ -2471,6 +2489,18 @@ The high performance of hash tables comes at the expense of storing the elements
       <tuv lang="ZH-CN" changeid="Hipter" changedate="20160711T131431Z" creationid="Hipter" creationdate="20160708T092120Z">
         <seg>$(P
 hash 表的高性能的代价是元素的存储是无序的。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
+The highlighted parts of the code are explained below:
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170814T103955Z" creationid="Heromyth" creationdate="20170814T103955Z">
+        <seg>$(P
+下面来解释一下这段代码的高亮部分：
+)</seg>
       </tuv>
     </tu>
     <tu>
@@ -5320,6 +5350,16 @@ LANGUAGE=chinese</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170810T104459Z" creationid="Heromyth" creationdate="20170810T104459Z">
         <seg>下面的 $(C static assert) 会顺利通过，因为 $(C Person.name) 拥有 $(C Encrypted) 属性：
+)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>The following function considers the $(C Encrypted) and $(C Colored) attributes of each member when producing the output:
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170814T103912Z" creationid="Heromyth" creationdate="20170814T103912Z">
+        <seg>下面这个函数在生成输出内容时会使用到每个成员的 $(C Encrypted) 和 $(C Colored) 属性：
 )</seg>
       </tuv>
     </tu>
