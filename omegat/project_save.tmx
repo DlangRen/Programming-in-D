@@ -916,6 +916,30 @@ There are three mistakes (bugs) in this program.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>$(LI User defined attributes can be accessed at compile time by $(C hasUDA) and $(C __traits(getAttributes)) to alter the way the program is compiled.)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170815T053248Z" creationid="Heromyth" creationdate="20170815T053248Z">
+        <seg>$(LI 自定义属性在编译时可以通过 $(C hasUDA) 和 $(C __traits(getAttributes)) 来访问，以便达到更改程序编译方式的目的。)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(LI User defined attributes can be assigned to any declaration.)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170815T053036Z" creationid="Heromyth" creationdate="20170815T053036Z">
+        <seg>$(LI 自定义属性可用于任何声明。)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(LI User defined attributes can be type names as well as values.)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170815T053114Z" creationid="Heromyth" creationdate="20170815T053114Z">
+        <seg>$(LI 自定义属性可以是类型名，也可以是具体值。)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>$(LI Writing all of potentially unrelated expressions in the single $(C finally) block at the bottom separates those expressions from the actual code that they are related to.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Hipter" changedate="20160707T024639Z" creationid="Hipter" creationdate="20160707T024639Z">
@@ -2422,6 +2446,18 @@ The behavior of assignment cannot be changed for classes.</seg>
     <tu>
       <tuv lang="EN-US">
         <seg>$(P
+The complete program has more explanations:
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170815T052903Z" creationid="Heromyth" creationdate="20170815T052903Z">
+        <seg>$(P
+列出整个程序代码更能说明问题：
+)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
 The definition of array variables is very similar to the definition of normal variables.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="大处着手小处着眼" changedate="20160720T022547Z" creationid="大处着手小处着眼" creationdate="20160720T022547Z">
@@ -3028,6 +3064,18 @@ When the actual object needs to be copied, the class must have a member function
     <tu>
       <tuv lang="EN-US">
         <seg>$(P
+When the compile-time evaluations are completed, the $(C printAsXML()) function template would be instantiated for the $(C Person) type as the equivalent of the following function:
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170815T052641Z" creationid="Heromyth" creationdate="20170815T052641Z">
+        <seg>$(P
+当编译时计算完成时，函数模板 $(C printAsXML()) 会根据 $(C Person) 类型实例化，并与下面这个函数相似：
+)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
 When the input cannot be converted to $(C name) and $(C age), the program prints an error:
 )</seg>
       </tuv>
@@ -3619,6 +3667,16 @@ $(LI 左手侧的 $(C char[]) 是一个切片，这意味着，一旦代码编�
       </tuv>
       <tuv lang="ZH-CN" changeid="Hipter" changedate="20160711T021222Z" creationid="Hipter" creationdate="20160711T021222Z">
         <seg>* 将用于附加新成绩：*/</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>---
+/* The equivalent of the printAsXML!Person instance.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170815T052807Z" creationid="Heromyth" creationdate="20170815T052807Z">
+        <seg>---
+/* printAsXML!Person 实例的等同函数。</seg>
       </tuv>
     </tu>
     <tu>
