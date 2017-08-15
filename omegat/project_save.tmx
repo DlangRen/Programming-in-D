@@ -4303,6 +4303,14 @@ COZUMLER_METIN=答案</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>DESCRIPTION=Assigning user defined attributes to declarations, determining the attributes at compile time, and compiling the code according to those attributes.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170815T053512Z" creationid="Heromyth" creationdate="20170815T053512Z">
+        <seg>DESCRIPTION=为声明加上自定义属性、在编译时检测属性，并根据那些属性编译代码。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>DESCRIPTION=Basic array operations of the D programming language</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="大处着手小处着眼" changedate="20160726T024919Z" creationid="大处着手小处着眼" creationdate="20160726T024919Z">
