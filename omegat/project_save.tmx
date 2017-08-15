@@ -832,6 +832,14 @@ There are three mistakes (bugs) in this program.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>$(LI Each member is tested with $(C hasUDA) to determine whether it has the $(C Encrypted) attribute.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170815T042259Z" creationid="Heromyth" creationdate="20170815T042259Z">
+        <seg>$(LI 每个成员都使用 $(C hasUDA) 来测试，以便确定它是否拥有 $(C Encrypted) 特性。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>$(LI Removing them one-by-one from the associative array.)</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Hipter" changedate="20160709T084106Z" creationid="Hipter" creationdate="20160709T084106Z">
@@ -864,10 +872,26 @@ There are three mistakes (bugs) in this program.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>$(LI The color attribute of each member is determined with $(C colorAttributeOf()), which we will see below.)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170815T043241Z" creationid="Heromyth" creationdate="20170815T043241Z">
+        <seg>$(LI 每个成员的 color 属性可以使用 $(C colorAttributeOf()) 来检测。下面便来看看这个方法。)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>$(LI The members of the type are determined by $(C __traits(allMembers)).)</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170814T110101Z" creationid="Heromyth" creationdate="20170814T110101Z">
         <seg>$(LI 该类型的所有成员可以通过 $(C __traits(allMembers)) 获得。)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(LI The value of each member is converted to $(C string) to be used later when printing to the output.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170815T042044Z" creationid="Heromyth" creationdate="20170815T042044Z">
+        <seg>$(LI 每个成员值都被转换为 $(C string)，以便后面输出时使用。</seg>
       </tuv>
     </tu>
     <tu>
@@ -2226,6 +2250,18 @@ That solution may be slow especially for large arrays.</seg>
     <tu>
       <tuv lang="EN-US">
         <seg>$(P
+The $(C colorAttributeOf()) function template can be implemented as in the following code:
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170815T052323Z" creationid="Heromyth" creationdate="20170815T052323Z">
+        <seg>$(P
+函数模板 $(C colorAttributeOf()) 可以实现成下面的样子：
+)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
 The $(C dayNumbers) variable above is an associative array that can be used as a table that provides a mapping from day names to day numbers.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Hipter" changedate="20160711T030402Z" creationid="Hipter" creationdate="20160708T141034Z">
@@ -3491,6 +3527,14 @@ $(LI $(LINK2 /ders/d.cn/logical_expressions.html, 逻辑表达式) $(INDEX_KEYWO
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>(Because $(C hasUDA) requires $(I symbols) to work with, note how $(C __traits(getMember)) is used to get the member as a symbol (e.g. $(C Person.name)).))</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170815T043031Z" creationid="Heromyth" creationdate="20170815T043031Z">
+        <seg>（因为 $(C hasUDA) 需要 $(I 符号) 才能工作，请参考一下如何使用 $(C __traits(getMember)) 以符号方式（如 $(C Person.name)）获取成员的。）)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>(We will see D's $(I immutability) concept in later chapters.)
 )</seg>
       </tuv>
@@ -4491,6 +4535,14 @@ $(LI $(LINK2 http://dlang.org/phobos/index.html, $(IMG bullet_black.png) 标准�
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>For example, when the member is $(STRING "name"), the right-hand side expression becomes $(C object.name.to!string).)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170815T042157Z" creationid="Heromyth" creationdate="20170815T042157Z">
+        <seg>例如，当成员为 $(STRING "name") 时，对应的表达式会变成 $(C object.name.to!string)。)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>For example, when the strings are "ebru" and "domates" the program should print "Ebru&amp;nbsp;Domates".</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="大处着手小处着眼" changedate="20160715T143945Z" creationid="大处着手小处着眼" creationdate="20160715T143945Z">
@@ -5469,6 +5521,14 @@ LANGUAGE=chinese</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Hipter" changedate="20160706T021711Z" creationid="Hipter" creationdate="20160706T021711Z">
         <seg>这俩变量可访问同一对象。The two variables start providing access to the same object.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>The value of the member is encrypted if it has that attribute.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170815T042355Z" creationid="Heromyth" creationdate="20170815T042355Z">
+        <seg>如果该成员拥有此属性，则它的值会被加密。</seg>
       </tuv>
     </tu>
     <tu>
