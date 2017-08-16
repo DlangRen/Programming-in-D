@@ -3613,8 +3613,8 @@ $(LI $(LINK2 /ders/d.cn/logical_expressions.html, 逻辑表达式) $(INDEX_KEYWO
 &amp;lt;/Person&amp;gt;
 )</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170816T042458Z" creationid="Heromyth" creationdate="20170816T042458Z">
-        <seg>&amp;lt;address color="black"&amp;gt;Dbooft&amp;lt;/address&amp;gt;       $(SHELL_NOTE 加密)
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170816T042758Z" creationid="Heromyth" creationdate="20170816T042458Z">
+        <seg>&amp;lt;address color="black"&amp;gt;Dbooft&amp;lt;/address&amp;gt;       $(SHELL_NOTE 已加密)
 &amp;lt;/Person&amp;gt;
 )</seg>
       </tuv>
@@ -3647,8 +3647,8 @@ $(LI $(LINK2 /ders/d.cn/logical_expressions.html, 逻辑表达式) $(INDEX_KEYWO
       <tuv lang="EN-US">
         <seg>&amp;lt;lastName color="black"&amp;gt;ef!Dbooft&amp;lt;/lastName&amp;gt;  $(SHELL_NOTE encrypted)</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170816T042453Z" creationid="Heromyth" creationdate="20170816T042453Z">
-        <seg>&amp;lt;lastName color="black"&amp;gt;ef!Dbooft&amp;lt;/lastName&amp;gt;  $(SHELL_NOTE 加密)</seg>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170816T042755Z" creationid="Heromyth" creationdate="20170816T042453Z">
+        <seg>&amp;lt;lastName color="black"&amp;gt;ef!Dbooft&amp;lt;/lastName&amp;gt;  $(SHELL_NOTE 已加密)</seg>
       </tuv>
     </tu>
     <tu>
@@ -3667,8 +3667,8 @@ $(LI $(LINK2 /ders/d.cn/logical_expressions.html, 逻辑表达式) $(INDEX_KEYWO
       <tuv lang="EN-US">
         <seg>&amp;lt;name color="black"&amp;gt;Djoez&amp;lt;/name&amp;gt;              $(SHELL_NOTE encrypted)</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170816T042446Z" creationid="Heromyth" creationdate="20170816T042446Z">
-        <seg>&amp;lt;name color="black"&amp;gt;Djoez&amp;lt;/name&amp;gt;              $(SHELL_NOTE 加密)</seg>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170816T042750Z" creationid="Heromyth" creationdate="20170816T042446Z">
+        <seg>&amp;lt;name color="black"&amp;gt;Djoez&amp;lt;/name&amp;gt;              $(SHELL_NOTE 已加密)</seg>
       </tuv>
     </tu>
     <tu>
