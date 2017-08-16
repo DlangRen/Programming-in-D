@@ -1,8 +1,0 @@
-
-DDOC = $(DIV_CLASS $(CLASS),
-
-<!-- Chapter source: $(SRCFILENAME) -->
-$(BODY)
-)
-
-COZUM_BOLUMU = <h5 class="solution_subsection">$0</h5>

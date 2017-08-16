@@ -1,4 +1,0 @@
-
-BREADCRUMBS_INDEX=$(LINK2 /index.html, 主页) &gt; $(LINK2 /ders/index.html, 书籍) &gt; Prg in D
-
-BREADCRUMBS_FULL=$(LINK2 /index.html, 主页) &gt; $(LINK2 /ders/index.html, 书籍) &gt; $(LINK2 /ders/d.cn/index.html, Prg in D)

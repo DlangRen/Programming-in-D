@@ -1,4 +1,0 @@
-
-BREADCRUMBS_INDEX=Ana Sayfa
-
-BREADCRUMBS_FULL=$(LINK2 /, Ana Sayfa)
