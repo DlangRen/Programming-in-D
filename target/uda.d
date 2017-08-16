@@ -92,7 +92,7 @@ $(UL
 
 $(LI $(IX allMembers) $(C __traits(allMembers)) 会以字符串列表的形式生成某个类型（或模块）的所有成员。)
 
-$(LI $(IX getMember) $(C __traits(getMember)) 会生成一个 $(I 符号)，可以在访问某个成员时使用它。Its first argument is a symbol (e.g. a type or a variable name) and its second argument is a string. It produces a symbol by combining its first argument, a dot, and its second argument. For example, $(C __traits(getMember, Person, $(STRING "name"))) produces the symbol $(C Person.name).
+$(LI $(IX getMember) $(C __traits(getMember)) 会生成一个 $(I 符号)，可以在访问某个成员时使用它。它的第一个参数是符号（如类型或者变量名），第二个参数是字符串。它会生成一个符号，其组成部分包含了它的第一个参数、一个小数点和它的第二个参数。例如，$(C __traits(getMember, Person, $(STRING "name"))) 生成的符号是 $(C Person.name)。
 )
 
 )
@@ -118,7 +118,7 @@ void main() {
 ---
 
 $(P
-The output of the program lists all attributes of all members of $(C Person):
+此程序的输出会列出 $(C Person) 的所有成员的所有属性：
 )
 
 $(SHELL
@@ -128,7 +128,7 @@ The attributes of address : Colored(cast(Color)2)
 )
 
 $(P
-$(IX hasUDA, std.traits) Another useful tool is $(C std.traits.hasUDA), which determines whether a symbol has a specific attribute. The following $(C static assert) passes because $(C Person.name) has $(C Encrypted) attribute:
+$(IX hasUDA, std.traits) 另一个有用的工具是 $(C std.traits.hasUDA)，它可检测某个符号是否拥有某个特定的属性。下面的 $(C static assert) 会顺利通过，因为 $(C Person.name) 拥有 $(C Encrypted) 属性：
 )
 
 ---
@@ -140,7 +140,7 @@ static assert(hasUDA!(Person.name, Encrypted));
 ---
 
 $(P
-$(C hasUDA) can be used with an attribute type as well as a specific value of that type. The following $(C static assert) checks both pass because $(C Person.name) has $(C Colored(Color.blue)) attribute:
+$(C hasUDA) 除了可以与属性类型的特定值一起使用外，还可以与属性类型一起使用。下面的两个 $(C static assert) 都会顺利通过，因为 $(C Person.name) 拥有 $(C Colored(Color.blue)) 属性：
 )
 
 ---
@@ -151,7 +151,7 @@ static assert(hasUDA!(Person.name, $(HILITE Colored(Color.blue))));
 $(H5 样例)
 
 $(P
-Let's design a function template that prints the values of all members of a $(C struct) object in XML format. The following function considers the $(C Encrypted) and $(C Colored) attributes of each member when producing the output:
+一起来设计一个函数模板，让它以XML格式输出一个 $(C struct) 对象的所有成员的值。下面这个函数在生成输出内容时会使用到每个成员的 $(C Encrypted) 和 $(C Colored) 属性：
 )
 
 ---
@@ -174,23 +174,23 @@ void printAsXML(T)(T object) {
 ---
 
 $(P
-The highlighted parts of the code are explained below:
+下面来解释一下这段代码的高亮部分：
 )
 
 $(OL
 
-$(LI The members of the type are determined by $(C __traits(allMembers)).)
+$(LI 该类型的所有成员可以通过 $(C __traits(allMembers)) 获得。)
 
-$(LI The value of each member is converted to $(C string) to be used later when printing to the output. For example, when the member is $(STRING "name"), the right-hand side expression becomes $(C object.name.to!string).)
+$(LI 每个成员值都被转换为 $(C string)，以便后面输出时使用。例如，当成员为 $(STRING "name") 时，对应的表达式会变成 $(C object.name.to!string)。)
 
-$(LI Each member is tested with $(C hasUDA) to determine whether it has the $(C Encrypted) attribute. The value of the member is encrypted if it has that attribute. (Because $(C hasUDA) requires $(I symbols) to work with, note how $(C __traits(getMember)) is used to get the member as a symbol (e.g. $(C Person.name)).))
+$(LI 每个成员都使用 $(C hasUDA) 来测试，以便确定它是否拥有 $(C Encrypted) 特性。如果该成员拥有此属性，则它的值会被加密。（因为 $(C hasUDA) 需要 $(I 符号) 才能工作，请参考一下如何使用 $(C __traits(getMember)) 以符号方式（如 $(C Person.name)）获取成员的。）)
 
-$(LI The color attribute of each member is determined with $(C colorAttributeOf()), which we will see below.)
+$(LI 每个成员的 color 属性可以使用 $(C colorAttributeOf()) 来检测。下面便来看看这个方法。)
 
 )
 
 $(P
-The $(C colorAttributeOf()) function template can be implemented as in the following code:
+函数模板 $(C colorAttributeOf()) 可以实现成下面的样子：
 )
 
 ---
@@ -207,11 +207,11 @@ Color colorAttributeOf(T, string memberName)() {
 ---
 
 $(P
-When the compile-time evaluations are completed, the $(C printAsXML()) function template would be instantiated for the $(C Person) type as the equivalent of the following function:
+当编译时计算完成时，函数模板 $(C printAsXML()) 会根据 $(C Person) 类型实例化，并与下面这个函数相似：
 )
 
 ---
-/* The equivalent of the printAsXML!Person instance. */
+/* printAsXML!Person 实例的等同函数。*/
 void printAsXML_Person(Person object) {
 // ...
 
@@ -235,7 +235,7 @@ void printAsXML_Person(Person object) {
 ---
 
 $(P
-The complete program has more explanations:
+列出整个程序代码更能说明问题：
 )
 
 ---
@@ -245,34 +245,34 @@ import std.algorithm;
 import std.conv;
 import std.traits;
 
-/* Specifies that the symbol that it is assigned to should be
- * encrypted. */
+/* 特别要求加密应用此自定义属性
+ * 的那个符号。*/
 struct Encrypted {
 }
 
 enum Color { black, blue, red }
 
-/* Specifies the color of the symbol that it is assigned to.
- * The default color is Color.black. */
+/* 特别指定应用此自定义属性的那个符号的颜色。
+ * 默认颜色为 Color.black。*/
 struct Colored {
     Color color;
 }
 
 struct Person {
-    /* This member is specified to be encrypted and printed in
-     * blue. */
+    /* 此成员被特定要求加密，并且输出为
+     * 蓝色。*/
     @Encrypted @Colored(Color.blue) string name;
 
-    /* This member does not have any user defined
-     * attributes. */
+    /* 这个成员没有自定义
+     * 属性。*/
     string lastName;
 
-    /* This member is specified to be printed in red. */
+    /* 此成员被特定要求输出为红色。*/
     @Colored(Color.red) string address;
 }
 
-/* Returns the value of the Colored attribute if the specified
- * member has that attribute, Color.black otherwise. */
+/* 如果被特定要求的成员拥有 Colored 属性，
+ * 则输出它的值，否则输出 Color.black。*/
 Color colorAttributeOf(T, string memberName)() {
     auto result = Color.black;
 
@@ -287,9 +287,9 @@ Color colorAttributeOf(T, string memberName)() {
     return result;
 }
 
-/* Returns the Caesar-encrypted version of the specified
- * string. (Warning: Caesar cipher is a very weak encryption
- * method.) */
+/* 返回指定字符串的 Caesar 加密
+ * 版本。（警告：Caesar cipher 是一种强度很弱的
+ * 加密方法。） */
 auto encrypted(string value) {
     return value.map!(a => dchar(a + 1));
 }
@@ -298,8 +298,8 @@ unittest {
     assert("abcdefghij".encrypted.equal("bcdefghijk"));
 }
 
-/* Prints the specified object in XML format according to the
- * attributes of its members. */
+/* 根据指定对象的各个成员的属性
+ * 以 XML 格式输出它。*/
 void printAsXML(T)(T object) {
     writefln("<%s>", T.stringof);
     scope(exit) writefln("</%s>", T.stringof);
@@ -329,26 +329,26 @@ void main() {
 ---
 
 $(P
-The output of the program shows that the members have the correct color and that the $(C name) member is encrypted:
+上面程序的输出内容包含那些拥有正确颜色的成员和被加密过的  $(C name) 成员：
 )
 
 $(SHELL
 &lt;Person&gt;
-  &lt;name color="blue"&gt;Bmjdf&lt;/name&gt;                $(SHELL_NOTE blue and encrypted)
+  &lt;name color="blue"&gt;Bmjdf&lt;/name&gt;                $(SHELL_NOTE 蓝色且加密)
   &lt;lastName color="black"&gt;Davignon&lt;/lastName&gt;
-  &lt;address color="red"&gt;Avignon&lt;/address&gt;         $(SHELL_NOTE red)
+  &lt;address color="red"&gt;Avignon&lt;/address&gt;         $(SHELL_NOTE 红色)
 &lt;/Person&gt;
 &lt;Person&gt;
-  &lt;name color="blue"&gt;Cfo&lt;/name&gt;                  $(SHELL_NOTE blue and encrypted)
+  &lt;name color="blue"&gt;Cfo&lt;/name&gt;                  $(SHELL_NOTE 蓝色且加密)
   &lt;lastName color="black"&gt;de Bordeaux&lt;/lastName&gt;
-  &lt;address color="red"&gt;Bordeaux&lt;/address&gt;        $(SHELL_NOTE red)
+  &lt;address color="red"&gt;Bordeaux&lt;/address&gt;        $(SHELL_NOTE 红色)
 &lt;/Person&gt;
 )
 
-$(H5 The benefit of user defined attributes)
+$(H5 自定义属性的好处)
 
 $(P
-The benefit of user defined attributes is being able to change the attributes of declarations without needing to change any other part of the program. For example, all of the members of $(C Person) can become encrypted in the XML output by the trivial change below:
+自定义属性的好处在于能够更改声明的属性，且不需要更改程序的其他部分。例如，$(C Person) 的所有成员在 XML 格式输出里都会被加密，类似下面内容：
 )
 
 ---
@@ -371,14 +371,14 @@ $(P
 
 $(SHELL
 &lt;Person&gt;
-  &lt;name color="black"&gt;Djoez&lt;/name&gt;              $(SHELL_NOTE encrypted)
-  &lt;lastName color="black"&gt;ef!Dbooft&lt;/lastName&gt;  $(SHELL_NOTE encrypted)
-  &lt;address color="black"&gt;Dbooft&lt;/address&gt;       $(SHELL_NOTE encrypted)
+  &lt;name color="black"&gt;Djoez&lt;/name&gt;              $(SHELL_NOTE 已加密)
+  &lt;lastName color="black"&gt;ef!Dbooft&lt;/lastName&gt;  $(SHELL_NOTE 已加密)
+  &lt;address color="black"&gt;Dbooft&lt;/address&gt;       $(SHELL_NOTE 已加密)
 &lt;/Person&gt;
 )
 
 $(P
-Further, $(C printAsXML()) and the attributes that it considers can be used with other types as well:
+此外，$(C printAsXML()) 和它涉及到的属性还可以与其他类型一起使用：
 )
 
 ---
@@ -397,25 +397,25 @@ $(P
 
 $(SHELL
 &lt;Data&gt;
-  &lt;message color="blue"&gt;hello world&lt;/message&gt;    $(SHELL_NOTE blue)
+  &lt;message color="blue"&gt;hello world&lt;/message&gt;    $(SHELL_NOTE 蓝色)
 &lt;/Data&gt;
 )
 
-$(H5 摘要)
+$(H5 小结)
 
 $(UL
 
-$(LI User defined attributes can be assigned to any declaration.)
+$(LI 自定义属性可用于任何声明。)
 
-$(LI User defined attributes can be type names as well as values.)
+$(LI 自定义属性可以是类型名，也可以是具体值。)
 
-$(LI User defined attributes can be accessed at compile time by $(C hasUDA) and $(C __traits(getAttributes)) to alter the way the program is compiled.)
+$(LI 自定义属性在编译时可以通过 $(C hasUDA) 和 $(C __traits(getAttributes)) 来访问，以便达到更改程序编译方式的目的。)
 
 )
 
 macros:
-        SUBTITLE=User Defined Attributes (UDA)
+        SUBTITLE=自定义属性（UDA）
 
-        DESCRIPTION=Assigning user defined attributes to declarations, determining the attributes at compile time, and compiling the code according to those attributes.
+        DESCRIPTION=为声明加上自定义属性、在编译时检测属性，并根据那些属性编译代码。
 
-        KEYWORDS=d programming language tutorial book user defined attributes UDA
+        KEYWORDS=d programming language tutorial book user defined attributes UDA D 编程语言 教程 书籍 自定义属性
