@@ -1804,6 +1804,18 @@ For that syntax to work, a constructor must be defined explicitly by the program
     <tu>
       <tuv lang="EN-US">
         <seg>$(P
+Further, $(C printAsXML()) and the attributes that it considers can be used with other types as well:
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170816T042701Z" creationid="Heromyth" creationdate="20170816T042701Z">
+        <seg>$(P
+此外，$(C printAsXML()) 和它涉及到的属性还可以与其他类型一起使用：
+)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
 Here is a program that prints the Turkish names of colors that are specified in English:
 )</seg>
       </tuv>
@@ -2449,6 +2461,16 @@ The behavior of assignment cannot be changed for classes.</seg>
       <tuv lang="ZH-CN" changeid="Hipter" changedate="20160706T031647Z" creationid="Hipter" creationdate="20160706T031647Z">
         <seg>$(P
 赋值操作不能改变类。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
+The benefit of user defined attributes is being able to change the attributes of declarations without needing to change any other part of the program.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170816T042134Z" creationid="Heromyth" creationdate="20170816T042134Z">
+        <seg>$(P
+自定义属性的好处在于能够更改声明的属性，且不需要更改程序的其他部分。</seg>
       </tuv>
     </tu>
     <tu>
@@ -3587,6 +3609,18 @@ $(LI $(LINK2 /ders/d.cn/logical_expressions.html, 逻辑表达式) $(INDEX_KEYWO
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>&amp;lt;address color="black"&amp;gt;Dbooft&amp;lt;/address&amp;gt;       $(SHELL_NOTE encrypted)
+&amp;lt;/Person&amp;gt;
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170816T042458Z" creationid="Heromyth" creationdate="20170816T042458Z">
+        <seg>&amp;lt;address color="black"&amp;gt;Dbooft&amp;lt;/address&amp;gt;       $(SHELL_NOTE 加密)
+&amp;lt;/Person&amp;gt;
+)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>&amp;lt;address color="red"&amp;gt;Avignon&amp;lt;/address&amp;gt;         $(SHELL_NOTE red)
 &amp;lt;/Person&amp;gt;
 &amp;lt;Person&amp;gt;</seg>
@@ -3607,6 +3641,34 @@ $(LI $(LINK2 /ders/d.cn/logical_expressions.html, 逻辑表达式) $(INDEX_KEYWO
         <seg>&amp;lt;address color="red"&amp;gt;Bordeaux&amp;lt;/address&amp;gt;        $(SHELL_NOTE 红色)
 &amp;lt;/Person&amp;gt;
 )</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>&amp;lt;lastName color="black"&amp;gt;ef!Dbooft&amp;lt;/lastName&amp;gt;  $(SHELL_NOTE encrypted)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170816T042453Z" creationid="Heromyth" creationdate="20170816T042453Z">
+        <seg>&amp;lt;lastName color="black"&amp;gt;ef!Dbooft&amp;lt;/lastName&amp;gt;  $(SHELL_NOTE 加密)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>&amp;lt;message color="blue"&amp;gt;hello world&amp;lt;/message&amp;gt;    $(SHELL_NOTE blue)
+&amp;lt;/Data&amp;gt;
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170816T042713Z" creationid="Heromyth" creationdate="20170816T042713Z">
+        <seg>&amp;lt;message color="blue"&amp;gt;hello world&amp;lt;/message&amp;gt;    $(SHELL_NOTE 蓝色)
+&amp;lt;/Data&amp;gt;
+)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>&amp;lt;name color="black"&amp;gt;Djoez&amp;lt;/name&amp;gt;              $(SHELL_NOTE encrypted)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170816T042446Z" creationid="Heromyth" creationdate="20170816T042446Z">
+        <seg>&amp;lt;name color="black"&amp;gt;Djoez&amp;lt;/name&amp;gt;              $(SHELL_NOTE 加密)</seg>
       </tuv>
     </tu>
     <tu>
@@ -3849,8 +3911,8 @@ auto encrypted(string value) {</seg>
       <tuv lang="EN-US">
         <seg>/* Returns the value of the Colored attribute if the specified</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170815T120718Z" creationid="Heromyth" creationdate="20170815T120718Z">
-        <seg>/* 如果被特别要求的成员拥有 Colored 属性，</seg>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170816T041914Z" creationid="Heromyth" creationdate="20170815T120718Z">
+        <seg>/* 如果被特定要求的成员拥有 Colored 属性，</seg>
       </tuv>
     </tu>
     <tu>
@@ -3897,16 +3959,16 @@ auto encrypted(string value) {</seg>
       <tuv lang="EN-US">
         <seg>/* This member is specified to be encrypted and printed in</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170815T120417Z" creationid="Heromyth" creationdate="20170815T120327Z">
-        <seg>/* 被特别要求加密的那个成员，并且输出为</seg>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170816T042034Z" creationid="Heromyth" creationdate="20170815T120327Z">
+        <seg>/* 此成员被特定要求加密，并且输出为</seg>
       </tuv>
     </tu>
     <tu>
       <tuv lang="EN-US">
         <seg>/* This member is specified to be printed in red.</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170815T120529Z" creationid="Heromyth" creationdate="20170815T120529Z">
-        <seg>/* 此成员被特别要求输出为红色。</seg>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170816T041920Z" creationid="Heromyth" creationdate="20170815T120529Z">
+        <seg>/* 此成员被特定要求输出为红色。</seg>
       </tuv>
     </tu>
     <tu>
@@ -4679,6 +4741,16 @@ $(LI $(LINK2 http://dlang.org/phobos/index.html, $(IMG bullet_black.png) 标准�
       </tuv>
       <tuv lang="ZH-CN" changeid="大处着手小处着眼" changedate="20160715T143708Z" creationid="大处着手小处着眼" creationdate="20160715T143708Z">
         <seg>例如，‘B’排在‘a’之前。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>For example, all of the members of $(C Person) can become encrypted in the XML output by the trivial change below:
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170816T042440Z" creationid="Heromyth" creationdate="20170816T042440Z">
+        <seg>例如，$(C Person) 的所有成员在 XML 格式输出里都会被加密，类似下面内容：
+)</seg>
       </tuv>
     </tu>
     <tu>
