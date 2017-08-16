@@ -414,6 +414,14 @@ $(LI $(LINK2 /ders/d.cn/struct.html, 结构) $(INDEX_KEYWORDS struct .</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>$(H5 The benefit of user defined attributes)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170815T121738Z" creationid="Heromyth" creationdate="20170815T121738Z">
+        <seg>$(H5 自定义属性的好处)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>$(H6 $(IX assignment, class) Assignment)</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Hipter" changedate="20160706T024616Z" creationid="Hipter" creationdate="20160706T024616Z">
@@ -2678,6 +2686,18 @@ The output of the program lists the attributes of $(C Person.name):
     <tu>
       <tuv lang="EN-US">
         <seg>$(P
+The output of the program shows that the members have the correct color and that the $(C name) member is encrypted:
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170815T121614Z" creationid="Heromyth" creationdate="20170815T121507Z">
+        <seg>$(P
+上面程序的输出内容包含那些拥有正确颜色的成员和被加密过的  $(C name) 成员：
+)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
 The output:
 )</seg>
       </tuv>
@@ -3567,6 +3587,46 @@ $(LI $(LINK2 /ders/d.cn/logical_expressions.html, 逻辑表达式) $(INDEX_KEYWO
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>&amp;lt;address color="red"&amp;gt;Avignon&amp;lt;/address&amp;gt;         $(SHELL_NOTE red)
+&amp;lt;/Person&amp;gt;
+&amp;lt;Person&amp;gt;</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170815T121650Z" creationid="Heromyth" creationdate="20170815T121650Z">
+        <seg>&amp;lt;address color="red"&amp;gt;Avignon&amp;lt;/address&amp;gt;         $(SHELL_NOTE 红色)
+&amp;lt;/Person&amp;gt;
+&amp;lt;Person&amp;gt;</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>&amp;lt;address color="red"&amp;gt;Bordeaux&amp;lt;/address&amp;gt;        $(SHELL_NOTE red)
+&amp;lt;/Person&amp;gt;
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170815T121720Z" creationid="Heromyth" creationdate="20170815T121720Z">
+        <seg>&amp;lt;address color="red"&amp;gt;Bordeaux&amp;lt;/address&amp;gt;        $(SHELL_NOTE 红色)
+&amp;lt;/Person&amp;gt;
+)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>&amp;lt;name color="blue"&amp;gt;Bmjdf&amp;lt;/name&amp;gt;                $(SHELL_NOTE blue and encrypted)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170815T121639Z" creationid="Heromyth" creationdate="20170815T121639Z">
+        <seg>&amp;lt;name color="blue"&amp;gt;Bmjdf&amp;lt;/name&amp;gt;                $(SHELL_NOTE 蓝色且加密)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>&amp;lt;name color="blue"&amp;gt;Cfo&amp;lt;/name&amp;gt;                  $(SHELL_NOTE blue and encrypted)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170815T121714Z" creationid="Heromyth" creationdate="20170815T121714Z">
+        <seg>&amp;lt;name color="blue"&amp;gt;Cfo&amp;lt;/name&amp;gt;                  $(SHELL_NOTE 蓝色且加密)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>($(C .clear) is the most natural method.) There are at least three methods:</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Hipter" changedate="20160709T094657Z" creationid="Hipter" creationdate="20160709T084034Z">
@@ -3579,6 +3639,14 @@ $(LI $(LINK2 /ders/d.cn/logical_expressions.html, 逻辑表达式) $(INDEX_KEYWO
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170815T043031Z" creationid="Heromyth" creationdate="20170815T043031Z">
         <seg>（因为 $(C hasUDA) 需要 $(I 符号) 才能工作，请参考一下如何使用 $(C __traits(getMember)) 以符号方式（如 $(C Person.name)）获取成员的。）)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>(Warning: Caesar cipher is a very weak encryption</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170815T121011Z" creationid="Heromyth" creationdate="20170815T121011Z">
+        <seg>（警告：Caesar cipher 是一种强度很弱的</seg>
       </tuv>
     </tu>
     <tu>
@@ -3631,10 +3699,68 @@ $(LI 左手侧的 $(C char[]) 是一个切片，这意味着，一旦代码编�
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>* The default color is Color.black.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170815T120021Z" creationid="Heromyth" creationdate="20170815T120021Z">
+        <seg>* 默认颜色为 Color.black。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>* associative array is being defined with an extra</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Hipter" changedate="20160711T122913Z" creationid="Hipter" creationdate="20160711T020244Z">
         <seg>*关联数组在定义时附加了额外的空格，</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>* attributes of its members.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170815T121232Z" creationid="Heromyth" creationdate="20170815T121232Z">
+        <seg>* 以 XML 格式输出它。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>* attributes.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170815T120448Z" creationid="Heromyth" creationdate="20170815T120448Z">
+        <seg>* 属性。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>* blue.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170815T120350Z" creationid="Heromyth" creationdate="20170815T120350Z">
+        <seg>* 蓝色。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>* encrypted.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170815T115828Z" creationid="Heromyth" creationdate="20170815T115236Z">
+        <seg>* 的那个符号。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>* member has that attribute, Color.black otherwise.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170815T120805Z" creationid="Heromyth" creationdate="20170815T120805Z">
+        <seg>* 则输出它的值，否则输出 Color.black。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>* method.) */
+auto encrypted(string value) {</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170815T121025Z" creationid="Heromyth" creationdate="20170815T121025Z">
+        <seg>* 加密方法。） */
+auto encrypted(string value) {</seg>
       </tuv>
     </tu>
     <tu>
@@ -3651,6 +3777,14 @@ $(LI 左手侧的 $(C char[]) 是一个切片，这意味着，一旦代码编�
       </tuv>
       <tuv lang="ZH-CN" changeid="Hipter" changedate="20160711T122942Z" creationid="Hipter" creationdate="20160711T020350Z">
         <seg>* 以易于区分值类型： */</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>* string.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170815T120911Z" creationid="Heromyth" creationdate="20170815T120911Z">
+        <seg>* 版本。</seg>
       </tuv>
     </tu>
     <tu>
@@ -3697,6 +3831,46 @@ $(LI 左手侧的 $(C char[]) 是一个切片，这意味着，一旦代码编�
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>/* Prints the specified object in XML format according to the</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170815T121156Z" creationid="Heromyth" creationdate="20170815T121156Z">
+        <seg>/* 根据指定对象的各个成员的属性</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>/* Returns the Caesar-encrypted version of the specified</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170815T120903Z" creationid="Heromyth" creationdate="20170815T120903Z">
+        <seg>/* 返回指定字符串的 Caesar 加密</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>/* Returns the value of the Colored attribute if the specified</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170815T120718Z" creationid="Heromyth" creationdate="20170815T120718Z">
+        <seg>/* 如果被特别要求的成员拥有 Colored 属性，</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>/* Specifies that the symbol that it is assigned to should be</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170815T120233Z" creationid="Heromyth" creationdate="20170815T115215Z">
+        <seg>/* 特别要求加密应用此自定义属性</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>/* Specifies the color of the symbol that it is assigned to.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170815T120216Z" creationid="Heromyth" creationdate="20170815T115939Z">
+        <seg>/* 特别指定应用此自定义属性的那个符号的颜色。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>/* The array of ints that correspond to "emre" is being</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Hipter" changedate="20160711T021215Z" creationid="Hipter" creationdate="20160711T021215Z">
@@ -3709,6 +3883,30 @@ $(LI 左手侧的 $(C char[]) 是一个切片，这意味着，一旦代码编�
       </tuv>
       <tuv lang="ZH-CN" changeid="Hipter" changedate="20160711T120710Z" creationid="Hipter" creationdate="20160711T014817Z">
         <seg>/* 该关联数组的键类型为 string，</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>/* This member does not have any user defined</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170815T120442Z" creationid="Heromyth" creationdate="20170815T120442Z">
+        <seg>/* 这个成员没有自定义</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>/* This member is specified to be encrypted and printed in</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170815T120417Z" creationid="Heromyth" creationdate="20170815T120327Z">
+        <seg>/* 被特别要求加密的那个成员，并且输出为</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>/* This member is specified to be printed in red.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170815T120529Z" creationid="Heromyth" creationdate="20170815T120529Z">
+        <seg>/* 此成员被特别要求输出为红色。</seg>
       </tuv>
     </tu>
     <tu>
