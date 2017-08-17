@@ -48,6 +48,7 @@ Instead of falling for getting things done quickly, "Programming in D" focuses o
 
 ## Progress 进度
 ### Translated 已完成翻译
+- [数组 Arrays](target/arrays.d) By 大处着手小处着眼
 - [编译 Compilation](target/compiler.d) By Lucifer & meatatt
 - [元组 Tuples](target/tuples.d) By meatatt
 - [is 表达式 is Expression](target/is_expr.d) By meatatt
@@ -84,7 +85,7 @@ Instead of falling for getting things done quickly, "Programming in D" focuses o
 - [More Templates](target/templates_more.d) By meatatt
 
 ### Review Delayed 审核搁置
-- [Arrays](target/arrays.d) By 大处着手小处着眼
+
 
 ### Outdated 旧项目待更新
 - [The Hello World Program](target/hello_world.d) By Lucifer
