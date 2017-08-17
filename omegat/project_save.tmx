@@ -542,6 +542,22 @@ $(LI $(LINK2 /ders/d.cn/struct.html, 结构) $(INDEX_KEYWORDS struct .</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>$(HILITE array =) array.remove!(a =&gt; $(HILITE a == 42));    // Assigned back to array</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170817T145745Z" creationid="Heromyth" creationdate="20170817T145745Z">
+        <seg>$(HILITE array =) array.remove!(a =&gt; $(HILITE a == 42));    // 回赋给 array</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(HILITE array =) array.remove($(HILITE 1));                // Assigned back to array</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170817T145201Z" creationid="Heromyth" creationdate="20170817T145201Z">
+        <seg>$(HILITE array =) array.remove($(HILITE 1));                // 回赋给 array</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>$(HILITE final) int func() {    $(CODE_NOTE Recommended)</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Hipter" changedate="20160707T012540Z" creationid="Hipter" creationdate="20160707T012540Z">
@@ -616,6 +632,16 @@ Since the initial value of an array is an empty array anyway, the following tech
       <tuv lang="ZH-CN" changeid="Hipter" changedate="20160711T013753Z" creationid="Hipter" creationdate="20160711T013753Z">
         <seg>$(LI
 由于数组的初始值无论如何都是一个空数组，那么下面的技术将得到一样的结果：</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(LI
+Specifying the elements to remove with a $(I lambda function), which we will cover in $(LINK2 /ders/d.en/lambda.html, a later chapter).</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170817T145615Z" creationid="Heromyth" creationdate="20170817T145615Z">
+        <seg>$(LI
+使用一个 $(I 匿名函数) （在 $(LINK2 /ders/d.cn/lambda.html, 后面章节) 会讲解它）来指定需要删除的元素。</seg>
       </tuv>
     </tu>
     <tu>
@@ -4911,6 +4937,14 @@ $(LI $(LINK2 http://dlang.org/phobos/index.html, $(IMG bullet_black.png) 标准�
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>For example, the following code removes the elements of the array that are equal to 42.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170817T145726Z" creationid="Heromyth" creationdate="20170817T145726Z">
+        <seg>例如，下面这段代码将删除数组里等于 42 的所有元素。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>For example, the month can be determined by the value of the $(C monthIndex) variable below:
 )</seg>
       </tuv>
@@ -5332,8 +5366,8 @@ $(LINK2 /ders/d.cn/index.html,
         <seg>Its $(C ~=) counterpart combines the two arrays and assigns the result back to the left-hand side array:
 )</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="大处着手小处着眼" changedate="20160726T105743Z" creationid="大处着手小处着眼" creationdate="20160726T015640Z">
-        <seg>$(C ~=) 组合两侧的数组并把结果赋值给左侧数组：
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170817T150131Z" creationid="大处着手小处着眼" creationdate="20160726T015640Z">
+        <seg>$(C ~=) 将两边的数组连接起来，并把结果赋给左边那个数组：
 )</seg>
       </tuv>
     </tu>
