@@ -1,6 +1,6 @@
 Ddoc
 
-$(DERS_BOLUMU $(IX array) Arrays)
+$(DERS_BOLUMU $(IX array) 数组)
 
 $(P
 在上一章的一个练习中我们定义过五个变量，并用它们做过特定计算。下面各项是这些变量的定义：
@@ -373,19 +373,19 @@ $(P
     array ~= 7;                 $(DERLEME_HATASI)
 ---
 
-$(H6 $(IX remove, array) Removing elements from dynamic arrays)
+$(H6 $(IX remove, array) 从动态数组里删除元素)
 
 $(P
-Array elements can be removed with the $(C remove()) function from the $(C std.algorithm) module. Because there may be more than one $(I slice) to the same elements, $(C remove()) cannot actually change the number of element of the array. Rather, it has to move some of the elements of the array one or more positions to the left. For that reason, the result of the remove operation must be assigned back to the same array variable.
+可以使用模块 $(C std.algorithm) 里的 $(C remove()) 函数删除数组元素。由于数组里可能拥有多个具有相同元素的 $(I 分片) ，$(C remove()) 实际上不会改变原有数组的元素个数。由此，它不得不将原数组的某些元素向左移动一个或多个位置。基于此，删除操作的结果必须回赋给同一个数组变量。
 )
 
 $(P
-There are two different ways of using $(C remove()):
+$(C remove()) 的使用方式有以下两种：
 )
 
 $(OL
 $(LI
-Providing the index of the element to remove. For example, the following code removes the element at index 1.
+提供需要删除的那个元素的索引。例如，下面这段代码将删除索引1上的那个元素。
 )
 
 ---
@@ -394,7 +394,7 @@ import std.algorithm;
 
 void main() {
     int[] array = [ 10, 20, 30, 40 ];
-    $(HILITE array =) array.remove($(HILITE 1));                // Assigned back to array
+    $(HILITE array =) array.remove($(HILITE 1));                // 回赋给 array
     writeln(array);
 }
 ---
@@ -404,7 +404,7 @@ $(SHELL
 )
 
 $(LI
-Specifying the elements to remove with a $(I lambda function), which we will cover in $(LINK2 /ders/d.en/lambda.html, a later chapter). For example, the following code removes the elements of the array that are equal to 42.
+使用一个 $(I 匿名函数) （在 $(LINK2 /ders/d.cn/lambda.html, 后面章节) 会讲解它）来指定需要删除的元素。例如，下面这段代码将删除数组里等于 42 的所有元素。
 )
 
 ---
@@ -413,7 +413,7 @@ import std.algorithm;
 
 void main() {
     int[] array = [ 10, 42, 20, 30, 42, 40 ];
-    $(HILITE array =) array.remove!(a => $(HILITE a == 42));    // Assigned back to array
+    $(HILITE array =) array.remove!(a => $(HILITE a == 42));    // 回赋给 array
     writeln(array);
 }
 ---
@@ -426,7 +426,7 @@ $(SHELL
 $(H6 $(IX ~, 连接) $(IX 连接, 数组) 连接数组)
 
 $(P
- $(C ~) 运算符通过连接两个数组从而创建一个新数组。$(C ~=) 组合两侧的数组并把结果赋值给左侧数组：
+ $(C ~) 运算符通过连接两个数组从而创建一个新数组。$(C ~=) 将两边的数组连接起来，并把结果赋给左边那个数组：
 )
 
 ---
@@ -594,7 +594,7 @@ void main() {
 Macros:
         SUBTITLE=数组
 
-        DESCRIPTION=D 语言数组的基本操作
+        DESCRIPTION=D 语言的数组基本操作
 
         KEYWORDS=D 编程语言 教程 定长 动态
 
