@@ -4665,8 +4665,8 @@ COZUMLER_METIN=答案</seg>
       <tuv lang="EN-US">
         <seg>DESCRIPTION=Basic array operations of the D programming language</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="大处着手小处着眼" changedate="20160726T024919Z" creationid="大处着手小处着眼" creationdate="20160726T024919Z">
-        <seg>DESCRIPTION=D 语言数组的基本操作</seg>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170817T150219Z" creationid="大处着手小处着眼" creationdate="20160726T024919Z">
+        <seg>DESCRIPTION=D 语言的数组基本操作</seg>
       </tuv>
     </tu>
     <tu>
