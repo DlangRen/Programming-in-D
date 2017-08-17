@@ -166,6 +166,14 @@ $(LI $(LINK2 /ders/d.cn/struct.html, 结构) $(INDEX_KEYWORDS struct .</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>$(DERS_BOLUMU $(IX array) Arrays)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170817T051835Z" creationid="Heromyth" creationdate="20170817T051835Z">
+        <seg>$(DERS_BOLUMU $(IX array) 数组)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>$(DERS_BOLUMU $(IX associative array) $(IX AA) Associative Arrays)</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Hipter" changedate="20160708T085529Z" creationid="Hipter" creationdate="20160708T082836Z">
@@ -450,6 +458,14 @@ $(LI $(LINK2 /ders/d.cn/struct.html, 结构) $(INDEX_KEYWORDS struct .</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Hipter" changedate="20160707T013714Z" creationid="Hipter" creationdate="20160707T013714Z">
         <seg>$(H6 $(IX is, 运算符) $(IX !is)   $(C is) 和 $(C !is) 运算符)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(H6 $(IX remove, array) Removing elements from dynamic arrays)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170817T051918Z" creationid="Heromyth" creationdate="20170817T051918Z">
+        <seg>$(H6 $(IX remove, array) 从动态数组里删除元素)</seg>
       </tuv>
     </tu>
     <tu>
@@ -4555,6 +4571,14 @@ COZUMLER_METIN=答案</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Contents</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="ZXP" changedate="20080919T151013Z" creationid="ZXP" creationdate="20080919T151013Z">
+        <seg>内容</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>DERLEME_HATASI_METIN=compilation ERROR</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170718T105651Z" creationid="Heromyth" creationdate="20170718T105651Z">
@@ -4891,6 +4915,14 @@ $(LI $(LINK2 http://dlang.org/phobos/index.html, $(IMG bullet_black.png) 标准�
       </tuv>
       <tuv lang="ZH-CN" changeid="Hipter" changedate="20160711T233433Z" creationid="Hipter" creationdate="20160708T094744Z">
         <seg>例如，对于键 0 和 999，当只有两个元素要存储时，关联数组就只存储两个元素，而不像简单数组那样必须 1000 个。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>For example:</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="ZXP" changedate="20100615T034848Z" creationid="ZXP" creationdate="20070103T141309Z">
+        <seg>例如：</seg>
       </tuv>
     </tu>
     <tu>
@@ -6325,6 +6357,14 @@ LANGUAGE=chinese</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>break;</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="ZXP" changedate="20070307T072716Z" creationid="ZXP" creationdate="20070307T072716Z">
+        <seg>break;</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>dayNumbers.clear;    // The associative array becomes empty
 ---</seg>
       </tuv>
@@ -6409,6 +6449,14 @@ LANGUAGE=chinese</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>return;</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="ZXP" changedate="20070307T073114Z" creationid="ZXP" creationdate="20070307T073114Z">
+        <seg>return;</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>string result = (s ~ '.')$(HILITE .idup);   // ← now compiles
 ---</seg>
       </tuv>
@@ -6423,6 +6471,14 @@ LANGUAGE=chinese</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="大处着手小处着眼" changedate="20160715T031247Z" creationid="大处着手小处着眼" creationdate="20160715T031247Z">
         <seg>string s = "résumé"c;   // 与“résumé”一样</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>variable</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Tradoser" changedate="20070103T042255Z" creationid="Tradoser" creationdate="20070103T042255Z">
+        <seg>变数</seg>
       </tuv>
     </tu>
     <tu>
