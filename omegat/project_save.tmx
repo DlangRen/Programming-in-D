@@ -989,6 +989,18 @@ There are three mistakes (bugs) in this program.</seg>
     <tu>
       <tuv lang="EN-US">
         <seg>$(OL
+$(LI
+Providing the index of the element to remove.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170817T144608Z" creationid="Heromyth" creationdate="20170817T144608Z">
+        <seg>$(OL
+$(LI
+提供需要删除的那个元素的索引。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(OL
 $(LI The type of string literals like $(STRING "hello") is $(C string), not $(C char[]), so they are immutable.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="大处着手小处着眼" changedate="20160718T150351Z" creationid="Hipter" creationdate="20160713T024251Z">
@@ -1419,6 +1431,16 @@ Any declaration (e.g. struct type, class type, variable, etc.) can be assigned a
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170719T105759Z" creationid="Heromyth" creationdate="20170719T105759Z">
         <seg>$(P
 所有声明（如结构、类和变量等）都可以加上属性，以便在编译时访问这些属性来调整该部分代码的编译方式。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
+Array elements can be removed with the $(C remove()) function from the $(C std.algorithm) module.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170817T143321Z" creationid="Heromyth" creationdate="20170817T143321Z">
+        <seg>$(P
+可以使用模块 $(C std.algorithm) 里的 $(C remove()) 函数删除数组元素。</seg>
       </tuv>
     </tu>
     <tu>
@@ -2869,6 +2891,18 @@ There are three string types that correspond to the three character types: $(C c
       <tuv lang="ZH-CN" changeid="大处着手小处着眼" changedate="20160719T145013Z" creationid="Hipter" creationdate="20160712T080418Z">
         <seg>$(P
 对应着三种字符类型，分别存在着三种字符串类型：$(C char[])、$(C wchar[]) 和 $(C dchar[])。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
+There are two different ways of using $(C remove()):
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170817T144240Z" creationid="Heromyth" creationdate="20170817T144240Z">
+        <seg>$(P
+$(C remove()) 的使用方式有以下两种：
+)</seg>
       </tuv>
     </tu>
     <tu>
@@ -4519,6 +4553,14 @@ $(LI $(LINK2 /ders/d.cn/slices.html, 分片与其他数组功能) $(INDEX_KEYWOR
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Because there may be more than one $(I slice) to the same elements, $(C remove()) cannot actually change the number of element of the array.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170817T144435Z" creationid="Heromyth" creationdate="20170817T143753Z">
+        <seg>由于数组里可能拥有多个具有相同元素的 $(I 分片) ，$(C remove()) 实际上不会改变原有数组的元素个数。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Being value types, $(C o) and $(C i) are copied automatically.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Hipter" changedate="20160706T023459Z" creationid="Hipter" creationdate="20160706T023459Z">
@@ -4861,6 +4903,14 @@ $(LI $(LINK2 http://dlang.org/phobos/index.html, $(IMG bullet_black.png) 标准�
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>For example, the following code removes the element at index 1.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170817T145128Z" creationid="Heromyth" creationdate="20170817T145128Z">
+        <seg>例如，下面这段代码将删除索引1上的那个元素。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>For example, the month can be determined by the value of the $(C monthIndex) variable below:
 )</seg>
       </tuv>
@@ -4931,6 +4981,14 @@ $(LI $(LINK2 http://dlang.org/phobos/index.html, $(IMG bullet_black.png) 标准�
       </tuv>
       <tuv lang="ZH-CN" changeid="大处着手小处着眼" changedate="20160718T152446Z" creationid="大处着手小处着眼" creationdate="20160715T005840Z">
         <seg>例如，如果用户输入文本“résumé”，即使使用 $(C dchar) 字符串，你和你的程序仍然不能确保字符串的长度会是6。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>For that reason, the result of the remove operation must be assigned back to the same array variable.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170817T144130Z" creationid="Heromyth" creationdate="20170817T144130Z">
+        <seg>基于此，删除操作的结果必须回赋给同一个数组变量。</seg>
       </tuv>
     </tu>
     <tu>
@@ -5503,6 +5561,14 @@ LANGUAGE=chinese</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="大处着手小处着眼" changedate="20160715T143933Z" creationid="大处着手小处着眼" creationdate="20160715T143933Z">
         <seg>生成一个姓名首字母大写的全名。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Rather, it has to move some of the elements of the array one or more positions to the left.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170817T144512Z" creationid="Heromyth" creationdate="20170817T143944Z">
+        <seg>由此，它不得不将原数组的某些元素向左移动一个或多个位置。</seg>
       </tuv>
     </tu>
     <tu>
