@@ -408,8 +408,16 @@ $(LI $(LINK2 /ders/d.cn/struct.html, 结构) $(INDEX_KEYWORDS struct .</seg>
       <tuv lang="EN-US">
         <seg>$(H5 Properties)</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Hipter" changedate="20160711T132650Z" creationid="Hipter" creationdate="20160709T042827Z">
-        <seg>$(H5 Properties（属性）)</seg>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170818T143437Z" creationid="Hipter" creationdate="20160709T042827Z">
+        <seg>$(H5 特性)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(H5 Removing key-value pairs)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170818T144123Z" creationid="Heromyth" creationdate="20170818T144123Z">
+        <seg>$(H5 删除键-值对)</seg>
       </tuv>
     </tu>
     <tu>
@@ -806,6 +814,14 @@ There are three mistakes (bugs) in this program.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Hipter" changedate="20160709T083314Z" creationid="Hipter" creationdate="20160709T083314Z">
         <seg>$(LI $(IX .remove) $(C .remove) 从数组中移除指定的键和值。)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(LI $(IX .remove, associative array) $(C .remove) removes the specified key and its value from the array.)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170818T143538Z" creationid="Heromyth" creationdate="20170818T143538Z">
+        <seg>$(LI $(IX .remove, associative array) $(C .remove) 从数组里删除指定的键及其值。)</seg>
       </tuv>
     </tu>
     <tu>
@@ -3767,8 +3783,8 @@ $(LI $(LINK2 /ders/d.cn/logical_expressions.html, 逻辑表达式) $(INDEX_KEYWO
       <tuv lang="EN-US">
         <seg>($(C .clear) is the most natural method.) There are at least three methods:</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Hipter" changedate="20160709T094657Z" creationid="Hipter" creationdate="20160709T084034Z">
-        <seg>($(C .clear) 是最自然的方法。) 至少还有三种方法：</seg>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170818T144029Z" creationid="Hipter" creationdate="20160709T084034Z">
+        <seg>（$(C .clear) 是最自然的方法。） 至少有三种方法：</seg>
       </tuv>
     </tu>
     <tu>
@@ -4494,8 +4510,8 @@ $(LI $(LINK2 /ders/d.cn/slices.html, 分片与其他数组功能) $(INDEX_KEYWOR
         <seg>An array that stores the names of the days of the week can be defined like this:
 )</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Hipter" changedate="20160708T232810Z" creationid="Hipter" creationdate="20160708T083910Z">
-        <seg>一个存储了星期的英文名称的数组可以这样定义：
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170818T143411Z" creationid="Hipter" creationdate="20160708T083910Z">
+        <seg>一个存储一周当中每天的英文名称的数组可以定义下面这样：
 )</seg>
       </tuv>
     </tu>
