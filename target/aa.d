@@ -7,7 +7,7 @@ $(P
 )
 
 $(P
-在 $(LINK2 /ders/d.cn/arrays.html, 数组) 一章中我们已经看到简单数组作为容器逐个存储元素，按索引访问它们。一个存储了星期的英文名称的数组可以这样定义：
+在 $(LINK2 /ders/d.cn/arrays.html, 数组) 一章中我们已经看到简单数组作为容器逐个存储元素，按索引访问它们。一个存储一周当中每天的英文名称的数组可以定义下面这样：
 )
 
 ---
@@ -146,7 +146,7 @@ $(IX :, 关联数组) 有时候一些键与值的映射在定义关联数组的�
     writeln(dayNumbers["Tuesday"]);    // 打印 1
 ---
 
-$(H5 Removing key-value pairs)
+$(H5 删除键-值对)
 
 $(P
 通过 $(C .remove()) 可以移除键值对：
@@ -169,7 +169,7 @@ $(C .clear) 移除全部元素：
     dayNumbers.clear;    // 清空关联数组
 ---
 
-$(H5 $(IX in, 关联数组) 确定键的存在)
+$(H5 $(IX in, 关联数组) 确定某个键是否存在)
 
 $(P
 $(C in) 运算符确定一个给定的键是否存在于关联数组中：
@@ -182,7 +182,7 @@ $(C in) 运算符确定一个给定的键是否存在于关联数组中：
         // 键 “purple” 在表中
 
     } else {
-        //表中不存在 键 “purple” 
+        // 这张表里不存在 “purple” 键
     }
 ---
 
@@ -203,7 +203,7 @@ $(SHELL
 -1
 )
 
-$(H5 Properties（属性）)
+$(H5 特性)
 
 $(UL
 
@@ -225,7 +225,7 @@ $(LI $(IX .sizeof, associative array) $(C .sizeof) 数组$(I 引用)大小（它
 
 $(LI $(IX .get) $(C .get) 值存在即返回相应值，否则返回默认值。)
 
-$(LI $(IX .remove, associative array) $(C .remove) removes the specified key and its value from the array.)
+$(LI $(IX .remove, associative array) $(C .remove) 从数组里删除指定的键及其值。)
 
 $(LI $(IX .clear) $(C .clear) 移除全部元素。)
 
@@ -267,7 +267,7 @@ void main() {
 $(PROBLEM_COK
 
 $(PROBLEM
-除 $(C .clear) 函数外还有什么方法能移除关联数组的全部键值对？ ($(C .clear) 是最自然的方法。) 至少还有三种方法：
+除 $(C .clear) 函数外还有什么方法能移除关联数组的全部键值对？ （$(C .clear) 是最自然的方法。） 至少有三种方法：
 
 $(UL
 
