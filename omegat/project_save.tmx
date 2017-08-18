@@ -649,9 +649,9 @@ Specifying the elements to remove with a $(I lambda function), which we will cov
         <seg>$(LI
 The $(C .keys) property returns a slice (i.e. dynamic array) that includes all of the keys of the associative array.</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Hipter" changedate="20160711T115704Z" creationid="Hipter" creationdate="20160709T101654Z">
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170818T141924Z" creationid="Hipter" creationdate="20160709T101654Z">
         <seg>$(LI
-$(C .keys) property（属性）返回一个切片(即 动态数组)，它包含了关联数组全部的键。</seg>
+特性 $(C .keys) 返回的是一个分片(即动态数组)，其中包含关联数组的所有键。</seg>
       </tuv>
     </tu>
     <tu>
@@ -679,9 +679,9 @@ The goal is to store multiple grades per student.</seg>
         <seg>$(LI
 There are three mistakes (bugs) in this program.</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="大处着手小处着眼" changedate="20160726T030824Z" creationid="大处着手小处着眼" creationdate="20160726T030739Z">
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170818T141623Z" creationid="大处着手小处着眼" creationdate="20160726T030739Z">
         <seg>$(LI
-程序有三个错误(bugs)。</seg>
+程序有三个错误（bug）。</seg>
       </tuv>
     </tu>
     <tu>
@@ -4295,8 +4295,8 @@ auto encrypted(string value) {</seg>
       <tuv lang="EN-US">
         <seg>// number if there is no remainder when divided by 2.</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="大处着手小处着眼" changedate="20160726T030452Z" creationid="大处着手小处着眼" creationdate="20160726T030452Z">
-        <seg>// 整除而没有余数，那这个数就是偶数。</seg>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170818T141551Z" creationid="大处着手小处着眼" creationdate="20160726T030452Z">
+        <seg>// 除时没有余数，那这个数就是偶数。</seg>
       </tuv>
     </tu>
     <tu>
@@ -5349,8 +5349,8 @@ $(LINK2 /ders/d.cn/index.html,
       <tuv lang="EN-US">
         <seg>Iterating over this slice and removing the element for each key by calling $(C .remove) would result in an empty associative array:</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Hipter" changedate="20160711T010819Z" creationid="Hipter" creationdate="20160711T005658Z">
-        <seg>迭代这个切片，通过为每个键调用 $(C .remove) 函数来移除元素，就会形成一个空的关联数组：</seg>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170818T142255Z" creationid="Hipter" creationdate="20160711T005658Z">
+        <seg>采用迭代此分片，并对每个键调用 $(C .remove) 函数来移除元素的方法，最后会得到一个空的关联数组：</seg>
       </tuv>
     </tu>
     <tu>
@@ -5697,8 +5697,8 @@ LANGUAGE=chinese</seg>
       <tuv lang="EN-US">
         <seg>Since multiple grades can be stored in a dynamic array, an associative array that maps from $(C string) to $(C int[]) would work here.</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Hipter" changedate="20160711T014352Z" creationid="Hipter" creationdate="20160711T014051Z">
-        <seg>由于多个成绩可以用一个动态数组存储，从 $(C string) 到 $(C int[]) 映射的关联数组将能用在这儿。</seg>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170818T142319Z" creationid="Hipter" creationdate="20160711T014051Z">
+        <seg>由于多个成绩可以用一个动态数组存储，从 $(C string) 到 $(C int[]) 映射的关联数组将能用在此处。</seg>
       </tuv>
     </tu>
     <tu>
