@@ -272,8 +272,8 @@ $(LI $(LINK2 /ders/d.cn/struct.html, 结构) $(INDEX_KEYWORDS struct .</seg>
       <tuv lang="EN-US">
         <seg>$(H5 $(IX in, associative array) Determining the presence of a key)</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Hipter" changedate="20160709T034942Z" creationid="Hipter" creationdate="20160709T034906Z">
-        <seg>$(H5 $(IX in, 关联数组) 确定键的存在)</seg>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170818T144209Z" creationid="Hipter" creationdate="20160709T034906Z">
+        <seg>$(H5 $(IX in, 关联数组) 确定某个键是否存在)</seg>
       </tuv>
     </tu>
     <tu>
@@ -4295,8 +4295,8 @@ auto encrypted(string value) {</seg>
       <tuv lang="EN-US">
         <seg>// key "purple" does not exist in the table</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Hipter" changedate="20160711T132616Z" creationid="Hipter" creationdate="20160709T035323Z">
-        <seg>//表中不存在 键 “purple” </seg>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170818T145133Z" creationid="Hipter" creationdate="20160709T035323Z">
+        <seg>// 这张表里不存在 “purple” 键</seg>
       </tuv>
     </tu>
     <tu>
