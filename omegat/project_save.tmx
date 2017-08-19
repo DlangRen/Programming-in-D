@@ -605,6 +605,18 @@ $(LI $(LINK2 /ders/d.cn/struct.html, 结构) $(INDEX_KEYWORDS struct .</seg>
     <tu>
       <tuv lang="EN-US">
         <seg>$(LI
+$(B Encapsulation:) Controlling access to members ($(I Encapsulation is available for structs as well but it has not been mentioned until this chapter.))
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170819T120907Z" creationid="Heromyth" creationdate="20170819T120907Z">
+        <seg>$(LI
+$(B 封装：) 控制成员的访问（$(I 封装也可用于结构，只是到本章之前一直未提及。)）
+)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(LI
 Although some of the functions in Phobos modules will be easy to use with strings, library documentations are usually terse compared to tutorials.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="大处着手小处着眼" changedate="20160720T070344Z" creationid="大处着手小处着眼" creationdate="20160714T093404Z">
@@ -4803,6 +4815,16 @@ $(LI $(LINK2 http://dlang.org/phobos/index.html, $(IMG bullet_black.png) 标准�
       </tuv>
       <tuv lang="ZH-CN" changeid="Hipter" changedate="20160709T092617Z" creationid="Hipter" creationdate="20160709T092617Z">
         <seg>定义一个能存储每个学生的多个成绩的关联数组。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Different from structs, classes provide the $(I object oriented programming) (OOP) paradigm in D. The major aspects of OOP are the following:
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170819T120242Z" creationid="Heromyth" creationdate="20170819T120242Z">
+        <seg>不同于结构的是，D 语言中的类提供的是 $(I 面向对象编程) （OOP）模型。OOP 的主要内容有以下几个方面：
+)</seg>
       </tuv>
     </tu>
     <tu>
