@@ -510,6 +510,14 @@ $(LI $(LINK2 /ders/d.cn/struct.html, 结构) $(INDEX_KEYWORDS struct .</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>$(H6 $(IX variable, class) $(IX object, class) Class variables versus class objects)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170819T130756Z" creationid="Heromyth" creationdate="20170819T130756Z">
+        <seg>$(H6 $(IX variable, class) $(IX object, class) 类变量与类对象)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>$(H6 $(IX ~, concatenation) $(IX concatenation, array) Combining arrays)</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="大处着手小处着眼" changedate="20160726T041030Z" creationid="大处着手小处着眼" creationdate="20160726T014408Z">
@@ -1860,6 +1868,26 @@ Both of the variables above provide access to the same object.</seg>
     <tu>
       <tuv lang="EN-US">
         <seg>$(P
+Class objects are constructed by the $(C new) keyword; they do not have names.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170819T131126Z" creationid="Heromyth" creationdate="20170819T131126Z">
+        <seg>$(P
+类对象由关键字 $(C new) 构造；它们没有名字。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
+Class variable and class object are separate concepts.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170819T130812Z" creationid="Heromyth" creationdate="20170819T130812Z">
+        <seg>$(P
+类变量和类对象是独立的概念。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
 Classes are defined by the $(C class) keyword instead of the $(C struct) keyword:
 )</seg>
       </tuv>
@@ -2214,6 +2242,18 @@ Let's consider the following code that we have seen previously in the $(LINK2 /d
     <tu>
       <tuv lang="EN-US">
         <seg>$(P
+Let's consider the following code that we saw previously in the $(LINK2 /ders/d.en/value_vs_reference.html, Value Types and Reference Types chapter):
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170819T131840Z" creationid="Heromyth" creationdate="20170819T131840Z">
+        <seg>$(P
+一起来看看下面这段代码，之前在 $(LINK2 /ders/d.en/value_vs_reference.html, 值类型和引用类型一章)已见过，如下所示：
+)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
 Let's design a function template that prints the values of all members of a $(C struct) object in XML format.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170814T103704Z" creationid="Heromyth" creationdate="20170814T103704Z">
@@ -2349,6 +2389,16 @@ Similarly, $(C char[]) cannot be used where a $(C string) is needed.</seg>
       <tuv lang="ZH-CN" changeid="Hipter" changedate="20160713T030046Z" creationid="Hipter" creationdate="20160713T030046Z">
         <seg>$(P
 同样的，$(C char[]) 不能被用到需要 $(C string) 的地方。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
+Similarly, an $(C immutable) copy of an object can be provided by a member function appropriately named $(C idup()).</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170819T132306Z" creationid="Heromyth" creationdate="20170819T132306Z">
+        <seg>$(P
+同样地，可以由命名为 $(C idup()) 的适当的成员函数提供对象的  $(C immutable) 副本：</seg>
       </tuv>
     </tu>
     <tu>
@@ -4015,8 +4065,8 @@ $(LI $(LINK2 /ders/d.cn/logical_expressions.html, 逻辑表达式) $(INDEX_KEYWO
       <tuv lang="EN-US">
         <seg>(anonymous MyClass object)    variable1    variable2</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Hipter" changedate="20160706T011847Z" creationid="Hipter" creationdate="20160706T011847Z">
-        <seg>(匿名的 MyClass 对象)    variable1    variable2</seg>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170819T131919Z" creationid="Hipter" creationdate="20160706T011847Z">
+        <seg>(匿名 MyClass 对象)    变量1    变量2</seg>
       </tuv>
     </tu>
     <tu>
@@ -5093,6 +5143,14 @@ $(LI $(LINK2 http://dlang.org/phobos/index.html, $(IMG bullet_black.png) 标准�
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>For example, assuming that a $(C Student) class represents students by their names and grades, such information would be stored by the members of $(C Student) $(I objects).</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170819T131502Z" creationid="Heromyth" creationdate="20170819T131502Z">
+        <seg>例如，有一个 $(C Student) 类，它通过姓名和成绩来表示学生， 此时 $(C Student) $(I 对象)的成员会存储这些信息。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>For example, both of the following variables have the same attributes:
 )</seg>
       </tuv>
@@ -5863,6 +5921,14 @@ LANGUAGE=chinese</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Partly because they are anonymous, it is not possible to access class objects directly.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170819T131523Z" creationid="Heromyth" creationdate="20170819T131523Z">
+        <seg>另一方面，类变量是用于访问类对象的一种语言特性。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Plain arrays can use only integers as indexes.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Hipter" changedate="20160708T085309Z" creationid="Hipter" creationdate="20160708T084606Z">
@@ -6051,6 +6117,14 @@ LANGUAGE=chinese</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Hipter" changedate="20160707T015858Z" creationid="Hipter" creationdate="20160707T015858Z">
         <seg>The $(C new) 关键字构造一个匿名 $(I class 对象) 并返回一个 $(I class 变量)。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>The actual concept that a class type represents in a program is provided by a class object.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170819T131148Z" creationid="Heromyth" creationdate="20170819T131148Z">
+        <seg>实际的概念是，在程序中，一个类类型由一个类对象表示。</seg>
       </tuv>
     </tu>
     <tu>
@@ -6275,8 +6349,8 @@ LANGUAGE=chinese</seg>
       <tuv lang="EN-US">
         <seg>The two variables start providing access to the same object.</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Hipter" changedate="20160706T021711Z" creationid="Hipter" creationdate="20160706T021711Z">
-        <seg>这俩变量可访问同一对象。The two variables start providing access to the same object.</seg>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170819T132015Z" creationid="Hipter" creationdate="20160706T021711Z">
+        <seg>这两个变量可访问同一个对象。</seg>
       </tuv>
     </tu>
     <tu>
