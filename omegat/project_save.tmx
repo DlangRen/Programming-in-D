@@ -1383,6 +1383,16 @@ $(IX final) 由于可重写的成员函数有一个运行时性能消耗，在�
     <tu>
       <tuv lang="EN-US">
         <seg>$(P
+$(IX finalizer versus destructor) However, different from structs, class destructors are not executed at the time when the lifetime of a class object ends.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170819T134503Z" creationid="Heromyth" creationdate="20170819T134503Z">
+        <seg>$(P
+$(IX finalizer versus destructor) 不过，与结构有所不同的是，类的析构函数在类对象的生命期结束时并不会被执行。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
 $(IX hasUDA, std.traits) Another useful tool is $(C std.traits.hasUDA), which determines whether a symbol has a specific attribute.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170810T104354Z" creationid="Heromyth" creationdate="20170810T104354Z">
@@ -4025,6 +4035,14 @@ $(LI $(LINK2 /ders/d.cn/logical_expressions.html, 逻辑表达式) $(INDEX_KEYWO
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>(By this distinction, class destructors should have more accurately been called $(I finalizers)).</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170819T135044Z" creationid="Heromyth" creationdate="20170819T135044Z">
+        <seg>（基于此点差异，类的析构函数被叫作 $(I 终结函数) 会更加确切）。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>(Warning: Caesar cipher is a very weak encryption</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170815T121011Z" creationid="Heromyth" creationdate="20170815T121011Z">
@@ -4775,6 +4793,14 @@ $(LI $(LINK2 /ders/d.cn/slices.html, 分片与其他数组功能) $(INDEX_KEYWOR
       <tuv lang="ZH-CN" changeid="大处着手小处着眼" changedate="20160725T080800Z" creationid="大处着手小处着眼" creationdate="20160725T080744Z">
         <seg>在每个迭代结束时该变量值都会递增，$(C values[counter]) 表达式指的是数组的逐个元素：$(C values[0])、$(C values[1]) 等等。
 )</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>As we have seen above, the destructor is executed some time in the future during a garbage collection cycle.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170819T134733Z" creationid="Heromyth" creationdate="20170819T134733Z">
+        <seg>正如上面看到的，析构函数会在未来垃圾回收周期内的某个时候被执行。</seg>
       </tuv>
     </tu>
     <tu>
@@ -5569,6 +5595,14 @@ $(LINK2 /ders/d.cn/index.html,
       </tuv>
       <tuv lang="ZH-CN" changeid="Hipter" changedate="20160711T091131Z" creationid="Hipter" creationdate="20160711T091131Z">
         <seg>在最简单的定义中，字符串只不过是字符数组。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>In this case, the constructor must be defined as $(C pure) as well.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170819T133939Z" creationid="Heromyth" creationdate="20170819T133939Z">
+        <seg>此时，构造函数必须同时定义为 $(C pure) 。</seg>
       </tuv>
     </tu>
     <tu>
@@ -6601,6 +6635,14 @@ LANGUAGE=chinese</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Hipter" changedate="20160711T011230Z" creationid="Hipter" creationdate="20160711T011230Z">
         <seg>在下一章我们将</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>We will cover the $(C pure) keyword in $(LINK2 /ders/d.en/functions_more.html, a later chapter).</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170819T134146Z" creationid="Heromyth" creationdate="20170819T134146Z">
+        <seg>我们会在$(LINK2 /ders/d.en/functions_more.html, 后面章节)对关键字 $(C pure) 进行讲解。</seg>
       </tuv>
     </tu>
     <tu>
