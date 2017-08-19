@@ -478,6 +478,14 @@ $(LI $(LINK2 /ders/d.cn/struct.html, 结构) $(INDEX_KEYWORDS struct .</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>$(H6 $(IX null, class) $(new, class) Class variables may be $(C null))</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170819T124204Z" creationid="Heromyth" creationdate="20170819T124204Z">
+        <seg>$(H6 $(IX null, class) $(new, class) 类变量可以为 $(C null))</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>$(H6 $(IX remove, array) Removing elements from dynamic arrays)</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170817T051918Z" creationid="Heromyth" creationdate="20170817T051918Z">
@@ -514,6 +522,14 @@ $(LI $(LINK2 /ders/d.cn/struct.html, 结构) $(INDEX_KEYWORDS struct .</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="大处着手小处着眼" changedate="20160726T013609Z" creationid="大处着手小处着眼" creationdate="20160726T013609Z">
         <seg>$(H6 $(IX ~=) $(IX 附加, 数组) $(IX 添加元素, 数组) 给动态数组添加元素)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(H6 Classes are reference types)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170819T123955Z" creationid="Heromyth" creationdate="20170819T123955Z">
+        <seg>$(H6 类是引用类型)</seg>
       </tuv>
     </tu>
     <tu>
@@ -1612,6 +1628,16 @@ As an example, let's write the function above with a $(C scope(failure)) stateme
     <tu>
       <tuv lang="EN-US">
         <seg>$(P
+As it has been mentioned briefly in $(LINK2 /ders/d.en/null_is.html, The $(CH4 null) Value and the $(CH4 is) Operator chapter), class variables can be $(C null).</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170819T124929Z" creationid="Heromyth" creationdate="20170819T124929Z">
+        <seg>$(P
+在 $(LINK2 /ders/d.en/null_is.html, $(CH4 null) 值和 $(CH4 is) 运算符一章)已提到过，类变量可以为 $(C null)。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
 As it is indicated in their documentation, the return types of $(C indexOf()) and $(C lastIndexOf()) are not $(C int) nor $(C size_t), but $(C ptrdiff_t).</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="大处着手小处着眼" changedate="20160718T154528Z" creationid="大处着手小处着眼" creationdate="20160715T144120Z">
@@ -1997,6 +2023,16 @@ How can you solve this problem?</seg>
       <tuv lang="ZH-CN" changeid="Hipter" changedate="20160709T092601Z" creationid="Hipter" creationdate="20160709T092601Z">
         <seg>$(P
 怎么解决这个问题？</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
+However, there are important differences between classes and structs.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170819T123940Z" creationid="Heromyth" creationdate="20170819T123940Z">
+        <seg>$(P
+然而，类与结构之间有重要的区别。</seg>
       </tuv>
     </tu>
     <tu>
@@ -2633,6 +2669,16 @@ The benefit of user defined attributes is being able to change the attributes of
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170816T042134Z" creationid="Heromyth" creationdate="20170816T042134Z">
         <seg>$(P
 自定义属性的好处在于能够更改声明的属性，且不需要更改程序的其他部分。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
+The biggest difference from structs is that structs are $(I value types) and classes are $(I reference types).</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170819T124110Z" creationid="Heromyth" creationdate="20170819T124110Z">
+        <seg>$(P
+与结构的最大区别在于结构是 $(I 值类型)  而类是 $(I 引用类型)。</seg>
       </tuv>
     </tu>
     <tu>
@@ -3758,6 +3804,26 @@ $(LI $(LINK2 $(ROOT_DIR)/copyright.html, $(IMG cc_80x15.png) 版权))
     <tu>
       <tuv lang="EN-US">
         <seg>$(UL
+$(LI $(LINK2 /ders/d.en/struct.html, Structs))
+$(LI $(LINK2 /ders/d.en/member_functions.html, Member Functions))
+$(LI $(LINK2 /ders/d.en/const_member_functions.html, $(CH4 const ref) Parameters and $(CH4 const) Member Functions))
+$(LI $(LINK2 /ders/d.en/special_functions.html, Constructor and Other Special Functions))
+$(LI $(LINK2 /ders/d.en/operator_overloading.html, Operator Overloading))
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170819T123920Z" creationid="Heromyth" creationdate="20170819T123920Z">
+        <seg>$(UL
+$(LI $(LINK2 /ders/d.en/struct.html, 结构))
+$(LI $(LINK2 /ders/d.en/member_functions.html, 成员函数))
+$(LI $(LINK2 /ders/d.en/const_member_functions.html, $(CH4 const ref) 参数和 $(CH4 const) 成员函数))
+$(LI $(LINK2 /ders/d.en/special_functions.html, 构造函数和其它特殊函数))
+$(LI $(LINK2 /ders/d.en/operator_overloading.html, 运算符重载))
+)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(UL
 $(WORK_IN_PROCESS
 $(LI $(LINK2 /ders/d.en/foreword1.html, Foreword by Walter Bright))
 )
@@ -4755,6 +4821,14 @@ COZUMLER_METIN=答案</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Class variables do not have values themselves; the actual class objects must be constructed by the $(C new) keyword.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170819T125718Z" creationid="Heromyth" creationdate="20170819T125718Z">
+        <seg>类变量并不拥有值本身；实际的类对象必须使用关键字 $(C new) 来构造。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Classes will be explained in more detail in later chapters.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170819T123613Z" creationid="Heromyth" creationdate="20170819T123613Z">
@@ -5327,6 +5401,14 @@ $(LINK2 /ders/d.cn/index.html,
       </tuv>
       <tuv lang="ZH-CN" changeid="Hipter" changedate="20160708T084530Z" creationid="Hipter" creationdate="20160708T084530Z">
         <seg>换句话说，数组映射索引到值。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>In other words, class variables may not be providing access to any object.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170819T124942Z" creationid="Heromyth" creationdate="20170819T124942Z">
+        <seg>换句话说，类变量可以不提供对任何对象的访问。</seg>
       </tuv>
     </tu>
     <tu>
@@ -6083,6 +6165,14 @@ LANGUAGE=chinese</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="大处着手小处着眼" changedate="20160726T043657Z" creationid="大处着手小处着眼" creationdate="20160720T022710Z">
         <seg>唯一的区别是，与变量相关联的值的个数在方括号中指定。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>The other differences outlined below are mostly due to this fact.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170819T124126Z" creationid="Heromyth" creationdate="20170819T124126Z">
+        <seg>下面的其它不同大部分与此有关。</seg>
       </tuv>
     </tu>
     <tu>
