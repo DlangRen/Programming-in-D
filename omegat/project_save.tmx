@@ -1616,9 +1616,9 @@ Arrays provide convenience operations that apply to all of their elements.</seg>
         <seg>$(P
 As a result, the objects that are associated with $(C var1) and $(C var2) are different.</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Hipter" changedate="20160706T023913Z" creationid="Hipter" creationdate="20160706T023913Z">
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170819T132622Z" creationid="Hipter" creationdate="20160706T023913Z">
         <seg>$(P
-结果是，$(C var1) 和 $(C var2) 相关联的对象是不同的。</seg>
+最后，与 $(C var1) 和 $(C var2) 关联的那些对象并不相同。</seg>
       </tuv>
     </tu>
     <tu>
@@ -2396,9 +2396,9 @@ Similarly, $(C char[]) cannot be used where a $(C string) is needed.</seg>
         <seg>$(P
 Similarly, an $(C immutable) copy of an object can be provided by a member function appropriately named $(C idup()).</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170819T132306Z" creationid="Heromyth" creationdate="20170819T132306Z">
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170819T133836Z" creationid="Heromyth" creationdate="20170819T132306Z">
         <seg>$(P
-同样地，可以由命名为 $(C idup()) 的适当的成员函数提供对象的  $(C immutable) 副本：</seg>
+同样地，可以通过名为 $(C idup()) 的成员函数的提供对象的  $(C immutable) 副本：</seg>
       </tuv>
     </tu>
     <tu>
@@ -2821,9 +2821,9 @@ The first line above removes the key-value pair "Tuesday" / $(C 1).</seg>
 The following code makes use of $(C dup()) to create a new object:
 )</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Hipter" changedate="20160706T023705Z" creationid="Hipter" creationdate="20160706T023705Z">
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170819T133505Z" creationid="Hipter" creationdate="20160706T023705Z">
         <seg>$(P
-下面的代码演示 $(C dup()) 创建一个新的对象的用法：
+下面的代码利用 $(C dup()) 创建一个新的对象：
 )</seg>
       </tuv>
     </tu>
