@@ -1265,6 +1265,16 @@ $(IX @)自定义属性的语法格式：符号 $(C @)  的后面紧跟属性名�
     <tu>
       <tuv lang="EN-US">
         <seg>$(P
+$(IX OOP) $(IX object oriented programming) $(IX user defined type) Similar to structs, $(C class) is a feature for defining new types.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170819T115209Z" creationid="Heromyth" creationdate="20170819T115209Z">
+        <seg>$(P
+$(IX OOP) $(IX object oriented programming) $(IX user defined type) 与结构相似，$(C class) 具有定义新类型的功能。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
 $(IX OOP) $(IX 面向对象编程) 与结构相似， $(C class) 具有定义新类型的功能。不同于结构的是，在D中，类提供 $(I 面向对象编程) (OOP) 模型。下面是OOP的主要方面：
 )</seg>
       </tuv>
@@ -4607,6 +4617,14 @@ $(LI $(LINK2 /ders/d.cn/slices.html, 分片与其他数组功能) $(INDEX_KEYWOR
       </tuv>
       <tuv lang="ZH-CN" changeid="Hipter" changedate="20160706T023459Z" creationid="Hipter" creationdate="20160706T023459Z">
         <seg>做为值类型，$(C o) 和 $(C i) 自动被复制。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>By this definition, classes are $(I user defined types).</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170819T115500Z" creationid="Heromyth" creationdate="20170819T115500Z">
+        <seg>根据此定义，类是 $(I 自定义类型)。</seg>
       </tuv>
     </tu>
     <tu>
