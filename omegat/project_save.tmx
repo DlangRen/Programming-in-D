@@ -366,6 +366,14 @@ $(LI $(LINK2 /ders/d.cn/struct.html, 结构) $(INDEX_KEYWORDS struct .</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>$(H5 Comparing with structs)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170819T123652Z" creationid="Heromyth" creationdate="20170819T123652Z">
+        <seg>$(H5 与结构对比)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>$(H5 Definition)</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Hipter" changedate="20160708T094803Z" creationid="Hipter" creationdate="20160708T094803Z">
@@ -1062,6 +1070,14 @@ There are three mistakes (bugs) in this program.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Hipter" changedate="20160708T060943Z" creationid="Hipter" creationdate="20160708T055701Z">
         <seg>$(LI 类的析构函数一定不分配由垃圾回收器管理的新内存。这是因为垃圾回收器没有被要求保证在垃圾回收周期内能分配新的对象。)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(LINK2 /ders/d.en/inheritance.html, Polymorphism) is for abstracting parts of programs from each other and is achieved by class $(I interfaces).</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170819T123135Z" creationid="Heromyth" creationdate="20170819T122822Z">
+        <seg>$(LINK2 /ders/d.en/inheritance.html, 多态性) 是从类之间抽象出部分代码，通过 $(I 接口) 实现的。</seg>
       </tuv>
     </tu>
     <tu>
@@ -2047,6 +2063,16 @@ In any case, keep in mind that the use of $(C dchar[]) and $(C dstring) does not
       <tuv lang="ZH-CN" changeid="大处着手小处着眼" changedate="20160714T021458Z" creationid="大处着手小处着眼" creationdate="20160714T021458Z">
         <seg>$(P
 无论如何，请记住使用 $(C dchar[]) 和 $(C dstring) 并不能解决所有的操作 Unicode 字符的问题。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
+In general, classes are very similar to structs.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170819T123716Z" creationid="Heromyth" creationdate="20170819T123716Z">
+        <seg>$(P
+一般情况下，类与结构非常相似。</seg>
       </tuv>
     </tu>
     <tu>
@@ -3055,6 +3081,16 @@ This chapter covers only some of the features of arrays.</seg>
       <tuv lang="ZH-CN" changeid="大处着手小处着眼" changedate="20160720T022235Z" creationid="大处着手小处着眼" creationdate="20160720T022235Z">
         <seg>$(P
 本章仅涉及数组的部分功能。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
+This chapter will introduce classes at a high level, underlining the fact that they are reference types.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170819T123555Z" creationid="Heromyth" creationdate="20170819T123555Z">
+        <seg>$(P
+本章将深入介绍类，特别强调一点，类是引用类型。</seg>
       </tuv>
     </tu>
     <tu>
@@ -4719,6 +4755,14 @@ COZUMLER_METIN=答案</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Classes will be explained in more detail in later chapters.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170819T123613Z" creationid="Heromyth" creationdate="20170819T123613Z">
+        <seg>稍后的章节中将展示类的更多细节。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Contents</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="ZXP" changedate="20080919T151013Z" creationid="ZXP" creationdate="20080919T151013Z">
@@ -5361,6 +5405,14 @@ $(LINK2 /ders/d.cn/index.html,
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Inheritance is for acquiring $(I implementations) of other types.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170819T122731Z" creationid="Heromyth" creationdate="20170819T122731Z">
+        <seg>继承是用于获取其它类型的 $(I 实现)。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Instead, the elements are accessed by specifying the $(I element number) within square brackets:
 )</seg>
       </tuv>
@@ -5629,6 +5681,16 @@ LANGUAGE=chinese</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="大处着手小处着眼" changedate="20160720T022422Z" creationid="大处着手小处着眼" creationdate="20160720T022422Z">
         <seg>更多功能将在后面 $(LINK2 /ders/d.en/slices.html, 切片和别的数组功能) 一章中介绍。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Most of the features that we have seen for structs in the following chapters apply to classes as well:
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170819T123741Z" creationid="Heromyth" creationdate="20170819T123741Z">
+        <seg>在下面的章节中我们已经看到结构的大部分特性也适用于类：
+)</seg>
       </tuv>
     </tu>
     <tu>
