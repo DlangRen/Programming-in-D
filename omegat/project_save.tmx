@@ -617,6 +617,30 @@ $(B 封装：) 控制成员的访问（$(I 封装也可用于结构，只是到�
     <tu>
       <tuv lang="EN-US">
         <seg>$(LI
+$(B Inheritance:) Acquiring members of another type
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170819T120944Z" creationid="Heromyth" creationdate="20170819T120944Z">
+        <seg>$(LI
+$(B 继承：) 获取另一个类型的成员
+)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(LI
+$(B Polymorphism:) Being able to use a more special type in place of a more general type
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170819T121346Z" creationid="Heromyth" creationdate="20170819T121346Z">
+        <seg>$(LI
+$(B 多态性：) 能够使用较特定的类型取代较通用的类型
+)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(LI
 Although some of the functions in Phobos modules will be easy to use with strings, library documentations are usually terse compared to tutorials.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="大处着手小处着眼" changedate="20160720T070344Z" creationid="大处着手小处着眼" creationdate="20160714T093404Z">
@@ -1823,6 +1847,16 @@ Defining dynamic arrays is simpler than defining fixed-length arrays because omi
         <seg>$(P
 因为省略了长度，所以定义动态数组比定长数组简单：
 )</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
+Encapsulation is achieved by $(I protection attributes), which we will see in $(LINK2 /ders/d.en/encapsulation.html, a later chapter).</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170819T122633Z" creationid="Heromyth" creationdate="20170819T122633Z">
+        <seg>$(P
+封装是通过 $(I 保护属性) 来实现的，关于这一点在 $(LINK2 /ders/d.en/encapsulation.html, 后面章节) 会看到。</seg>
       </tuv>
     </tu>
     <tu>
