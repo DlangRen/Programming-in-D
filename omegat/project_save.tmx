@@ -1700,6 +1700,16 @@ As you can see, the $(C monthDays) array is defined and initialized at the same 
     <tu>
       <tuv lang="EN-US">
         <seg>$(P
+As you would also remember, comparing a reference to $(C null) by the $(C ==) or the $(C !=) operator is an error.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170819T130303Z" creationid="Heromyth" creationdate="20170819T130303Z">
+        <seg>$(P
+大家都还记得吧，引用与运算符 $(C null) 不能通过运算符 $(C ==) 或 $(C !=) 进行比较。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
 Assigning to a class variable disassociates that variable from its current object and associates it with a new object.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Hipter" changedate="20160706T030537Z" creationid="Hipter" creationdate="20160706T030537Z">
@@ -2947,6 +2957,16 @@ The program can now be compiled and will print the modified string:
         <seg>$(P
 现在程序能通过编译并且打印修改后的字符串：
 )</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
+The reason is that, the $(C ==) operator may need to consult the values of the members of the objects and that attempting to access the members through a potentially $(C null) variable would cause a memory access error.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170819T130649Z" creationid="Heromyth" creationdate="20170819T130649Z">
+        <seg>$(P
+原因是，运算符 $(C ==) 会查询对象成员的值，并尝试通过一个潜在的 $(C null) 变量访问成员，这将引发一个内存访问错误。</seg>
       </tuv>
     </tu>
     <tu>
@@ -5227,6 +5247,14 @@ $(LI $(LINK2 http://dlang.org/phobos/index.html, $(IMG bullet_black.png) 标准�
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>For that reason, class variables must always be compared by the $(C is) and $(C !is) operators.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170819T130731Z" creationid="Heromyth" creationdate="20170819T130731Z">
+        <seg>因此，类变量必须总是通过运算符 $(C is) 和 $(C !is) 进行比较。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>For that reason, the result of the remove operation must be assigned back to the same array variable.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170817T144130Z" creationid="Heromyth" creationdate="20170817T144130Z">
@@ -5491,6 +5519,16 @@ $(LINK2 /ders/d.cn/index.html,
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170819T122731Z" creationid="Heromyth" creationdate="20170819T122731Z">
         <seg>继承是用于获取其它类型的 $(I 实现)。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Instead, the comparison must be done by the $(C is) or the $(C !is) operator, accordingly:
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170819T130448Z" creationid="Heromyth" creationdate="20170819T130448Z">
+        <seg>相反，必须相应地使用运算符 $(C is) 或 $(C !is)：
+)</seg>
       </tuv>
     </tu>
     <tu>
@@ -5773,6 +5811,14 @@ LANGUAGE=chinese</seg>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170819T123741Z" creationid="Heromyth" creationdate="20170819T123741Z">
         <seg>在下面的章节中我们已经看到结构的大部分特性也适用于类：
 )</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>MyClass variable;   // does not reference an object</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170819T130525Z" creationid="Heromyth" creationdate="20170819T130525Z">
+        <seg>MyClass variable;   // 没有引用对象</seg>
       </tuv>
     </tu>
     <tu>
