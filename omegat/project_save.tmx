@@ -6387,8 +6387,8 @@ LANGUAGE=chinese</seg>
       <tuv lang="EN-US">
         <seg>More features will be introduced later in $(LINK2 /ders/d.en/slices.html, the Slices and Other Array Features chapter).</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="大处着手小处着眼" changedate="20160720T022422Z" creationid="大处着手小处着眼" creationdate="20160720T022422Z">
-        <seg>更多功能将在后面 $(LINK2 /ders/d.en/slices.html, 切片和别的数组功能) 一章中介绍。</seg>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170820T014118Z" creationid="大处着手小处着眼" creationdate="20160720T022422Z">
+        <seg>更多功能将在后面 $(LINK2 /ders/d.cn/slices.html, 分片和其他数组功能一章) 介绍。</seg>
       </tuv>
     </tu>
     <tu>
