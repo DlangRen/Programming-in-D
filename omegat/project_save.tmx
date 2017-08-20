@@ -566,6 +566,14 @@ $(LI $(LINK2 /ders/d.cn/struct.html, 结构) $(INDEX_KEYWORDS struct .</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>$(H6 Member access)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170820T002524Z" creationid="Heromyth" creationdate="20170820T002524Z">
+        <seg>$(H6 成员访问)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>$(H6 Member functions)</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Hipter" changedate="20160707T005242Z" creationid="Hipter" creationdate="20160707T005242Z">
@@ -922,6 +930,22 @@ There are three mistakes (bugs) in this program.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170804T053639Z" creationid="Heromyth" creationdate="20170804T053639Z">
         <seg>$(LI $(IX getMember) $(C __traits(getMember)) 会生成一个 $(I 符号)，可以在访问某个成员时使用它。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(LI A class destructor must not access a member that is managed by the garbage collector.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170820T001816Z" creationid="Heromyth" creationdate="20170820T001647Z">
+        <seg>$(LI 类的析构函数不能访问由垃圾回收器管理的成员。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(LI A class destructor must not allocate new memory that is managed by the garbage collector.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170820T001802Z" creationid="Heromyth" creationdate="20170820T001723Z">
+        <seg>$(LI 类的析构函数一定不要分配由垃圾回收器管理的新内存。</seg>
       </tuv>
     </tu>
     <tu>
@@ -1686,6 +1710,18 @@ As we have seen in the previous chapter, expressions that must always be execute
     <tu>
       <tuv lang="EN-US">
         <seg>$(P
+As we will see later in $(LINK2 /ders/d.en/memory.html, the Memory Management chapter), class destructors must observe the following rules:
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170820T001603Z" creationid="Heromyth" creationdate="20170820T001603Z">
+        <seg>$(P
+在后面的 $(LINK2 /ders/d.en/memory.html, 内存管理一章) 将会看到，类的析构函数必须遵循以下几条规则：
+)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
 As with structs, the name of the constructor is $(C this).</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Hipter" changedate="20160706T032221Z" creationid="Hipter" creationdate="20160706T032221Z">
@@ -2194,6 +2230,16 @@ In the code above, $(C variable2) is being initialized by $(C variable1).</seg>
     <tu>
       <tuv lang="EN-US">
         <seg>$(P
+It is equally wrong to allocate new memory $(I indirectly) from the garbage collector in a destructor.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170820T002405Z" creationid="Heromyth" creationdate="20170820T002405Z">
+        <seg>$(P
+在析构函数里 $(I 间接地) 从垃圾回收器里分配新的内存，这种做法同样是错的。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
 It is not possible to add elements to fixed-length arrays:
 )</seg>
       </tuv>
@@ -2385,9 +2431,9 @@ $(LI 字符串的类型是 $(C dchar[])。</seg>
 Same as structs, the members are accessed by the $(I dot) operator:
 )</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Hipter" changedate="20160707T004024Z" creationid="Hipter" creationdate="20160707T004024Z">
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170820T002609Z" creationid="Hipter" creationdate="20160707T004024Z">
         <seg>$(P
-与结构一样，用 $(I 点) 运算符访问成员：
+与结构一样，可以使用 $(I 点) 运算符来访问成员：
 )</seg>
       </tuv>
     </tu>
@@ -3022,6 +3068,18 @@ The program can now be compiled and will print the modified string:
     <tu>
       <tuv lang="EN-US">
         <seg>$(P
+The program is terminated with an exception:
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170820T002254Z" creationid="Heromyth" creationdate="20170820T002254Z">
+        <seg>$(P
+这个程序会抛一个异常，并中断：
+)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
 The reason is that, the $(C ==) operator may need to consult the values of the members of the objects and that attempting to access the members through a potentially $(C null) variable would cause a memory access error.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170819T130649Z" creationid="Heromyth" creationdate="20170819T130649Z">
@@ -3295,6 +3353,16 @@ Using the assignment operator is sufficient to build the association between a k
         <seg>$(P
 使用赋值运算符就足以构建键与值的关联：
 )</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
+Violating these rules is undefined behavior.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170820T001909Z" creationid="Heromyth" creationdate="20170820T001909Z">
+        <seg>$(P
+违反这些规则即会产生未定义行为。</seg>
       </tuv>
     </tu>
     <tu>
@@ -4311,6 +4379,14 @@ auto encrypted(string value) {</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>//          in a class destructor</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170820T002129Z" creationid="Heromyth" creationdate="20170820T002129Z">
+        <seg>//          显式分配内存</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>//   false: overcast</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="大处着手小处着眼" changedate="20160720T033314Z" creationid="大处着手小处着眼" creationdate="20160720T033314Z">
@@ -4709,6 +4785,14 @@ $(LI $(LINK2 /ders/d.cn/slices.html, 分片与其他数组功能) $(INDEX_KEYWOR
       </tuv>
       <tuv lang="ZH-CN" changeid="大处着手小处着眼" changedate="20160723T141542Z" creationid="大处着手小处着眼" creationdate="20160723T141542Z">
         <seg>根据定义，数组就是容器。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>All members may have already been finalized when the destructor is executing.)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170820T001709Z" creationid="Heromyth" creationdate="20170820T001709Z">
+        <seg>当析构函数执行时，全部成员应该已经终结。)</seg>
       </tuv>
     </tu>
     <tu>
@@ -5205,6 +5289,14 @@ $(LI $(LINK2 http://dlang.org/phobos/index.html, $(IMG bullet_black.png) 标准�
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>For example, memory used for the elements of a dynamic array is allocated by the garbage collector as well.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170820T002415Z" creationid="Heromyth" creationdate="20170820T002415Z">
+        <seg>例如，用于一个动态数组的元素的内存由垃圾回收器来分配。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>For example, the character 'é' (the latin letter 'e' combined with an acute accent) is represented by Unicode encodings using at least two bytes.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="大处着手小处着眼" changedate="20160715T150017Z" creationid="大处着手小处着眼" creationdate="20160714T011821Z">
@@ -5663,6 +5755,16 @@ $(LINK2 /ders/d.cn/index.html,
       </tuv>
       <tuv lang="ZH-CN" changeid="大处着手小处着眼" changedate="20160726T030417Z" creationid="大处着手小处着眼" creationdate="20160726T030417Z">
         <seg>如果值被 2 </seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>It is easy to see an example of such a problem simply by trying to allocate an object in a class destructor:
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170820T002034Z" creationid="Heromyth" creationdate="20170820T002034Z">
+        <seg>尝试在类的析构函数中分配一个对象，通过这种方式可以轻易地重现这种的问题：
+)</seg>
       </tuv>
     </tu>
     <tu>
@@ -6497,6 +6599,22 @@ LANGUAGE=chinese</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>This is because garbage collectors are not required to guarantee that the object and its members are finalized in any specific order.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170820T001705Z" creationid="Heromyth" creationdate="20170820T001705Z">
+        <seg>这是因为垃圾回收器没有被要求保证该对象及其成员按任何特定顺序终结。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>This is because garbage collectors are not required to guarantee that they can allocate new objects during a garbage collection cycle.)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170820T001831Z" creationid="Heromyth" creationdate="20170820T001831Z">
+        <seg>这是因为垃圾回收器没有被要求保证在垃圾回收周期内能分配新的对象。)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>This is because later code may depend on previous variables.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Hipter" changedate="20160707T045157Z" creationid="Hipter" creationdate="20160707T045157Z">
@@ -6599,6 +6717,16 @@ LANGUAGE=chinese</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170720T041606Z" creationid="Heromyth" creationdate="20170720T041606Z">
         <seg>自定义属性完全是一项编译时功能。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Using an array in a way that would require allocating a new memory block for the elements is undefined behavior as well:
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170820T002426Z" creationid="Heromyth" creationdate="20170820T002426Z">
+        <seg>用这种方式使用一个数组，那将需要为未定义行为的元素分配一个新的内存块：
+)</seg>
       </tuv>
     </tu>
     <tu>
@@ -6857,6 +6985,22 @@ LANGUAGE=chinese</seg>
       <tuv lang="ZH-CN" changeid="大处着手小处着眼" changedate="20160725T072325Z" creationid="大处着手小处着眼" creationdate="20160725T072325Z">
         <seg>array.length = 5;       // 现在有 5 个元素
 ---</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>auto arr = [ 1 ];    // ← WRONG: Allocates indirectly</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170820T002459Z" creationid="Heromyth" creationdate="20170820T002459Z">
+        <seg>auto arr = [ 1 ];    // ← 错误：在类的析构函数里</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>auto c = new C();    // ← WRONG: Allocates explicitly</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170820T002104Z" creationid="Heromyth" creationdate="20170820T002104Z">
+        <seg>auto c = new C();    // ← 错误：在类的析构函数里</seg>
       </tuv>
     </tu>
     <tu>
