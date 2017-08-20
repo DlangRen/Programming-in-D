@@ -23,7 +23,7 @@ $(B 多态性：) 能够使用较特定的类型取代较通用的类型
 )
 
 $(P
-封装是通过 $(I 保护属性) 来实现的，关于这一点在 $(LINK2 /ders/d.en/encapsulation.html, 后面章节) 会看到。继承是用于获取其它类型的 $(I 实现)。$(LINK2 /ders/d.en/inheritance.html, 多态性) 是从类之间抽象出部分代码，通过 $(I 接口) 实现的。
+封装是通过 $(I 保护属性) 来实现的，关于这一点在 $(LINK2 /ders/d.cn/encapsulation.html, 后面章节) 会看到。继承是用于获取其它类型的 $(I 实现)。$(LINK2 /ders/d.cn/inheritance.html, 多态性) 是从类之间抽象出部分代码，通过 $(I 接口) 实现的。
 )
 
 $(P
@@ -37,11 +37,11 @@ $(P
 )
 
 $(UL
-$(LI $(LINK2 /ders/d.en/struct.html, 结构))
-$(LI $(LINK2 /ders/d.en/member_functions.html, 成员函数))
-$(LI $(LINK2 /ders/d.en/const_member_functions.html, $(CH4 const ref) 参数和 $(CH4 const) 成员函数))
-$(LI $(LINK2 /ders/d.en/special_functions.html, 构造函数和其它特殊函数))
-$(LI $(LINK2 /ders/d.en/operator_overloading.html, 运算符重载))
+$(LI $(LINK2 /ders/d.cn/struct.html, 结构))
+$(LI $(LINK2 /ders/d.cn/member_functions.html, 成员函数))
+$(LI $(LINK2 /ders/d.cn/const_member_functions.html, $(CH4 const ref) 参数和 $(CH4 const) 成员函数))
+$(LI $(LINK2 /ders/d.cn/special_functions.html, 构造函数和其它特殊函数))
+$(LI $(LINK2 /ders/d.cn/operator_overloading.html, 运算符重载))
 )
 
 $(P
@@ -57,7 +57,7 @@ $(P
 $(H6 $(IX null, class) $(new, class) 类变量可以为 $(C null))
 
 $(P
-在 $(LINK2 /ders/d.en/null_is.html, $(CH4 null) 值和 $(CH4 is) 运算符一章)已提到过，类变量可以为 $(C null)。换句话说，类变量可以不提供对任何对象的访问。类变量并不拥有值本身；实际的类对象必须使用关键字 $(C new) 来构造。
+在 $(LINK2 /ders/d.cn/null_is.html, $(CH4 null) 值和 $(CH4 is) 运算符一章)已提到过，类变量可以为 $(C null)。换句话说，类变量可以不提供对任何对象的访问。类变量并不拥有值本身；实际的类对象必须使用关键字 $(C new) 来构造。
 )
 
 $(P
@@ -87,11 +87,11 @@ $(P
 )
 
 $(P
-A class variable on the other hand is a language feature for accessing class objects. 虽然语法上看起来是在类 $(I 变量) 上执行，但实际上调度了一个类 $(I object)。
+另一方面，类变量一种访问类对象的语言功能。虽然语法上看起来是在类 $(I 变量) 上执行，但实际上调度了一个类 $(I object)。
 )
 
 $(P
-一起来看看下面这段代码，之前在 $(LINK2 /ders/d.en/value_vs_reference.html, 值类型和引用类型一章)已见过，如下所示：
+一起来看看下面这段代码，之前在 $(LINK2 /ders/d.cn/value_vs_reference.html, 值类型和引用类型一章)已见过，如下所示：
 )
 
 ---
@@ -177,7 +177,7 @@ $(P
 )
 
 $(P
-同样地，可以通过名为 $(C idup()) 的成员函数的提供对象的  $(C immutable) 副本：此时，构造函数必须同时定义为 $(C pure) 。我们会在$(LINK2 /ders/d.en/functions_more.html, 后面章节)对关键字 $(C pure) 进行讲解。
+同样地，可以通过名为 $(C idup()) 的成员函数的提供对象的  $(C immutable) 副本：此时，构造函数必须同时定义为 $(C pure) 。我们会在$(LINK2 /ders/d.cn/functions_more.html, 后面章节)对关键字 $(C pure) 进行讲解。
 )
 
 ---
@@ -448,6 +448,6 @@ $(LI 赋值会把一个变量与一个对象相关联。该行为不能被修改
 Macros:
         SUBTITLE=类
 
-        DESCRIPTION=D语言基本的面向对象编程 (OOP) 功能。
+        DESCRIPTION=基本的 D 语言面向对象编程（OOP） 功能。
 
-        KEYWORDS=D 语言编程教程 class
+        KEYWORDS=D 语言 编程 教程 书籍 教程 类
