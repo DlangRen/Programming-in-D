@@ -190,6 +190,14 @@ $(LI $(LINK2 /ders/d.cn/struct.html, 结构) $(INDEX_KEYWORDS struct .</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>$(DERS_BOLUMU $(IX compilation) Compilation)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170820T003000Z" creationid="Heromyth" creationdate="20170820T003000Z">
+        <seg>$(DERS_BOLUMU $(IX compilation) 编译)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>$(DERS_BOLUMU $(IX user defined attributes) $(IX UDA) User Defined Attributes (UDA))</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170719T105356Z" creationid="Heromyth" creationdate="20170719T054011Z">
@@ -306,6 +314,22 @@ $(LI $(LINK2 /ders/d.cn/struct.html, 结构) $(INDEX_KEYWORDS struct .</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="大处着手小处着眼" changedate="20160715T014642Z" creationid="大处着手小处着眼" creationdate="20160715T014642Z">
         <seg>$(H5 $(IX literal, string) 字符串字面量)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(H5 $(IX machine code) Machine code)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170820T003231Z" creationid="Heromyth" creationdate="20170820T003231Z">
+        <seg>$(H5 $(IX machine code) 机器码)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(H5 $(IX programming language) Programming language)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170820T004025Z" creationid="Heromyth" creationdate="20170820T004025Z">
+        <seg>$(H5 $(IX programming language) 编程语言)</seg>
       </tuv>
     </tu>
     <tu>
@@ -1130,6 +1154,18 @@ There are three mistakes (bugs) in this program.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>$(MONO
+$(B
+Operation   Value            Meaning)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170820T003833Z" creationid="Heromyth" creationdate="20170820T003833Z">
+        <seg>$(MONO
+$(B
+操作   值            含义)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>$(OL
 $(LI
 Providing the index of the element to remove.</seg>
@@ -1360,6 +1396,16 @@ $(IX @) The user defined attribute syntax consists of the $(C @) sign followed b
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170720T041949Z" creationid="Heromyth" creationdate="20170720T041949Z">
         <seg>$(P
 $(IX @)自定义属性的语法格式：符号 $(C @)  的后面紧跟属性名，并且需要放置在与之相关的那个声明前面。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
+$(IX CPU) $(IX microprocessor) The brain of the computer is the microprocessor (or the CPU, short for $(I central processing unit)).</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170820T003419Z" creationid="Heromyth" creationdate="20170820T003419Z">
+        <seg>$(P
+$(IX CPU) $(IX microprocessor) 计算机的大脑是微处理器（CPU，即 $(I 中央处理单元) 的简称)。</seg>
       </tuv>
     </tu>
     <tu>
@@ -1884,6 +1930,16 @@ Being character arrays, strings can contain control characters like $(STRING '\n
     <tu>
       <tuv lang="EN-US">
         <seg>$(P
+Being so close to hardware, machine code is not suitable for representing higher level concepts like $(I a playing card) or $(I a student record).</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170820T004014Z" creationid="Heromyth" creationdate="20170820T004014Z">
+        <seg>$(P
+由于机器码太靠近硬件，因此它并不适合用于表示 $(I 扑克牌) 或 $(I 学生记录) 等较为高级的概念。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
 Both $(C readf()) and $(C formattedRead()) $(I return) the number of items that they could parse and convert successfully.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="大处着手小处着眼" changedate="20160720T063405Z" creationid="Hipter" creationdate="20160712T035510Z">
@@ -2107,6 +2163,16 @@ How can you solve this problem?</seg>
       <tuv lang="ZH-CN" changeid="Hipter" changedate="20160709T092601Z" creationid="Hipter" creationdate="20160709T092601Z">
         <seg>$(P
 怎么解决这个问题？</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
+However, programming languages adhere to much more strict and formal rules than any spoken language.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170820T004212Z" creationid="Heromyth" creationdate="20170820T004212Z">
+        <seg>$(P
+然而，编程语言依然比口语更严格、正规。</seg>
       </tuv>
     </tu>
     <tu>
@@ -2342,6 +2408,16 @@ Like every variable in D, the elements of arrays are automatically initialized.<
     <tu>
       <tuv lang="EN-US">
         <seg>$(P
+Most CPU architectures use machine code specific to that particular architecture.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170820T003639Z" creationid="Heromyth" creationdate="20170820T003620Z">
+        <seg>$(P
+大多数 CPU 都使用特定架构的机器码。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
 Multiple attributes can be specified separately or as a parenthesized list of attributes.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170720T042405Z" creationid="Heromyth" creationdate="20170720T042405Z">
@@ -2423,6 +2499,16 @@ $(LI The type of the string is $(C dchar[]).</seg>
 )
 $(OL
 $(LI 字符串的类型是 $(C dchar[])。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
+Programming languages are designed as efficient ways of programming a CPU, capable of representing higher-level concepts.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170820T004037Z" creationid="Heromyth" creationdate="20170820T004037Z">
+        <seg>$(P
+编程语言的设计目标是用来对 CPU 高效编程，且有能力描述高级概念。</seg>
       </tuv>
     </tu>
     <tu>
@@ -2806,6 +2892,18 @@ The complete program has more explanations:
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170815T052903Z" creationid="Heromyth" creationdate="20170815T052903Z">
         <seg>$(P
 列出整个程序代码更能说明问题：
+)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
+The concept of compilation and the function of the compiler must also be understood when using $(I compiled) languages like D.
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170820T003218Z" creationid="Heromyth" creationdate="20170820T003218Z">
+        <seg>$(P
+当使用类似 D 语言的 $(I 编译型) 语言时，需要理解编译的概念和编译器的功能。
 )</seg>
       </tuv>
     </tu>
@@ -3238,6 +3336,16 @@ There can be only one value per key.</seg>
     <tu>
       <tuv lang="EN-US">
         <seg>$(P
+These machine code instructions are special numbers, which represent various operations supported by the CPU.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170820T003718Z" creationid="Heromyth" creationdate="20170820T003718Z">
+        <seg>$(P
+机器码指令都是特定的数字，它们表示 CPU 支持的各种操作。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
 These operators operate on class variables.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Hipter" changedate="20160707T013802Z" creationid="Hipter" creationdate="20160707T013802Z">
@@ -3405,6 +3513,16 @@ We have seen that some Unicode characters are represented by more than one byte.
       <tuv lang="ZH-CN" changeid="大处着手小处着眼" changedate="20160714T011246Z" creationid="大处着手小处着眼" creationdate="20160714T011246Z">
         <seg>$(P
 我们已经知道一些 Unicode 字符串由多个字节表示。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
+We have seen that the two tools that are used most in D programming are $(I the text editor) and $(I the compiler).</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170820T003058Z" creationid="Heromyth" creationdate="20170820T003058Z">
+        <seg>$(P
+用 D 编程时经常会用到两个工具，它们分别是 $(I 文本编辑器) 和 $(I 编译器)。</seg>
       </tuv>
     </tu>
     <tu>
@@ -4925,10 +5043,36 @@ $(LI $(LINK2 /ders/d.cn/slices.html, 分片与其他数组功能) $(INDEX_KEYWOR
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Assuming that the leftmost 3 bits are the operation number and the rightmost 5 bits are the value that is used in that operation, a sample program in machine code for this CPU might look like the following:
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170820T003804Z" creationid="Heromyth" creationdate="20170820T003804Z">
+        <seg>假定最左边 3 位表示操作码，最右边 5 位表示用于运算的值，该 8 位 CPU 上机器码示例程序如下所示：
+)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>At the lowest level these machine code instructions are implemented as electrical signals.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170820T003654Z" creationid="Heromyth" creationdate="20170820T003654Z">
+        <seg>它们在最底层由电子信号实现。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Because array elements are stored side-by-side in memory, index values are implicitly the relative positions of elements from the beginning of the array.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Hipter" changedate="20160709T093155Z" creationid="Hipter" creationdate="20160708T093357Z">
         <seg>因为在内存中数组元素是逐个存储的，索引值就是元素位置与数组的起始位置的相对值。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Because the ease of coding is not a primary consideration at this level, writing programs directly in the form of the machine code of the CPU is a very difficult task.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170820T003705Z" creationid="Heromyth" creationdate="20170820T003705Z">
+        <seg>在这层，编码的舒适度不是主要考虑因素，所以直接按照 CPU 机器码形式编写程序非常困难。</seg>
       </tuv>
     </tu>
     <tu>
@@ -5021,6 +5165,14 @@ COZUMLER_METIN=答案</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="ZXP" changedate="20080919T151013Z" creationid="ZXP" creationdate="20080919T151013Z">
         <seg>内容</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>D programs are written in text editors.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170820T003147Z" creationid="Heromyth" creationdate="20170820T003147Z">
+        <seg>D 程序需要在文本编辑器里编写。</seg>
       </tuv>
     </tu>
     <tu>
@@ -5267,6 +5419,14 @@ $(LI $(LINK2 http://dlang.org/phobos/index.html, $(IMG bullet_black.png) 标准�
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170720T042510Z" creationid="Heromyth" creationdate="20170720T042510Z">
         <seg>例如，下面的变量拥有的属性是相同的：
 )</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>For example, for an imaginary 8-bit CPU, the number 4 might represent the operation of loading, the number 5 might represent the operation of storing, and the number 6 might represent the operation of incrementing.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170820T003729Z" creationid="Heromyth" creationdate="20170820T003729Z">
+        <seg>例如，对于虚构的 8 位 CPU 来说，数字 4 可能表示载入操作，数字 5 可能表示存储操作，而数字 6 可能表示递增操作。</seg>
       </tuv>
     </tu>
     <tu>
@@ -6081,6 +6241,24 @@ LANGUAGE=chinese</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Programming languages are easier for humans to understand, closer to natural languages:
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170820T004159Z" creationid="Heromyth" creationdate="20170820T004120Z">
+        <seg>编程语言更易于人类理解，更接近自然语言：
+)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Programming languages do not have to deal with hardware constraints; their main purposes are ease of use and expressiveness.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170820T004126Z" creationid="Heromyth" creationdate="20170820T004047Z">
+        <seg>编程语言不处理底层硬件约束，它们的主要目的是使用和表现上的简易舒适。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Rather, it has to move some of the elements of the array one or more positions to the left.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170817T144512Z" creationid="Heromyth" creationdate="20170817T143944Z">
@@ -6213,6 +6391,14 @@ LANGUAGE=chinese</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Hipter" changedate="20160711T091043Z" creationid="Hipter" creationdate="20160711T091043Z">
         <seg>字符串是在过去三章中介绍的两种功能的组合：字符和数组。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Telling the CPU what to do is called $(I coding), and the instructions that are used when doing so are called $(I machine code).</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170820T003607Z" creationid="Heromyth" creationdate="20170820T003607Z">
+        <seg>告知 CPU 要做什么事情这在过程叫做 $(I 编码)，而何时该做何事的指令则叫做 $(I 机器码)。</seg>
       </tuv>
     </tu>
     <tu>
@@ -6511,6 +6697,14 @@ LANGUAGE=chinese</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="大处着手小处着眼" changedate="20160724T024332Z" creationid="大处着手小处着眼" creationdate="20160724T024332Z">
         <seg>以前被我们编号为 1、2、3、4 和 5 的值在数组中编号为 0、1、2、3 和 4。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>These machine code instructions are determined under hardware constraints during the design stage of the architecture.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170820T003643Z" creationid="Heromyth" creationdate="20170820T003643Z">
+        <seg>而这些机器码指令取决于底层架构设计阶段时的硬件约束。</seg>
       </tuv>
     </tu>
     <tu>
