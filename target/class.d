@@ -3,87 +3,87 @@ Ddoc
 $(DERS_BOLUMU $(IX class) 类)
 
 $(P
-$(IX OOP) $(IX object oriented programming) $(IX user defined type) Similar to structs, $(C class) is a feature for defining new types. By this definition, classes are $(I user defined types). Different from structs, classes provide the $(I object oriented programming) (OOP) paradigm in D. The major aspects of OOP are the following:
+$(IX OOP) $(IX object oriented programming) $(IX user defined type) 与结构相似，$(C class) 具有定义新类型的功能。根据此定义，类是 $(I 自定义类型)。不同于结构的是，D 语言中的类提供的是 $(I 面向对象编程) （OOP）模型。OOP 的主要内容有以下几个方面：
 )
 
 $(UL
 
 $(LI
-$(B Encapsulation:) Controlling access to members ($(I Encapsulation is available for structs as well but it has not been mentioned until this chapter.))
+$(B 封装：) 控制成员的访问（$(I 封装也可用于结构，只是到本章之前一直未提及。)）
 )
 
 $(LI
-$(B Inheritance:) Acquiring members of another type
+$(B 继承：) 获取另一个类型的成员
 )
 
 $(LI
-$(B Polymorphism:) Being able to use a more special type in place of a more general type
+$(B 多态性：) 能够使用较特定的类型取代较通用的类型
 )
 
 )
 
 $(P
-Encapsulation is achieved by $(I protection attributes), which we will see in $(LINK2 /ders/d.en/encapsulation.html, a later chapter). Inheritance is for acquiring $(I implementations) of other types. $(LINK2 /ders/d.en/inheritance.html, Polymorphism) is for abstracting parts of programs from each other and is achieved by class $(I interfaces).
+封装是通过 $(I 保护属性) 来实现的，关于这一点在 $(LINK2 /ders/d.en/encapsulation.html, 后面章节) 会看到。继承是用于获取其它类型的 $(I 实现)。$(LINK2 /ders/d.en/inheritance.html, 多态性) 是从类之间抽象出部分代码，通过 $(I 接口) 实现的。
 )
 
 $(P
-This chapter will introduce classes at a high level, underlining the fact that they are reference types. Classes will be explained in more detail in later chapters.
+本章将深入介绍类，特别强调一点，类是引用类型。稍后的章节中将展示类的更多细节。
 )
 
-$(H5 Comparing with structs)
+$(H5 与结构对比)
 
 $(P
-In general, classes are very similar to structs. Most of the features that we have seen for structs in the following chapters apply to classes as well:
+一般情况下，类与结构非常相似。在下面的章节中我们已经看到结构的大部分特性也适用于类：
 )
 
 $(UL
-$(LI $(LINK2 /ders/d.en/struct.html, Structs))
-$(LI $(LINK2 /ders/d.en/member_functions.html, Member Functions))
-$(LI $(LINK2 /ders/d.en/const_member_functions.html, $(CH4 const ref) Parameters and $(CH4 const) Member Functions))
-$(LI $(LINK2 /ders/d.en/special_functions.html, Constructor and Other Special Functions))
-$(LI $(LINK2 /ders/d.en/operator_overloading.html, Operator Overloading))
+$(LI $(LINK2 /ders/d.en/struct.html, 结构))
+$(LI $(LINK2 /ders/d.en/member_functions.html, 成员函数))
+$(LI $(LINK2 /ders/d.en/const_member_functions.html, $(CH4 const ref) 参数和 $(CH4 const) 成员函数))
+$(LI $(LINK2 /ders/d.en/special_functions.html, 构造函数和其它特殊函数))
+$(LI $(LINK2 /ders/d.en/operator_overloading.html, 运算符重载))
 )
 
 $(P
-However, there are important differences between classes and structs.
+然而，类与结构之间有重要的区别。
 )
 
-$(H6 Classes are reference types)
+$(H6 类是引用类型)
 
 $(P
-The biggest difference from structs is that structs are $(I value types) and classes are $(I reference types). The other differences outlined below are mostly due to this fact.
+与结构的最大区别在于结构是 $(I 值类型)  而类是 $(I 引用类型)。下面的其它不同大部分与此有关。
 )
 
-$(H6 $(IX null, class) $(new, class) Class variables may be $(C null))
+$(H6 $(IX null, class) $(new, class) 类变量可以为 $(C null))
 
 $(P
-As it has been mentioned briefly in $(LINK2 /ders/d.en/null_is.html, The $(CH4 null) Value and the $(CH4 is) Operator chapter), class variables can be $(C null). In other words, class variables may not be providing access to any object. Class variables do not have values themselves; the actual class objects must be constructed by the $(C new) keyword.
+在 $(LINK2 /ders/d.en/null_is.html, $(CH4 null) 值和 $(CH4 is) 运算符一章)已提到过，类变量可以为 $(C null)。换句话说，类变量可以不提供对任何对象的访问。类变量并不拥有值本身；实际的类对象必须使用关键字 $(C new) 来构造。
 )
 
 $(P
-As you would also remember, comparing a reference to $(C null) by the $(C ==) or the $(C !=) operator is an error. Instead, the comparison must be done by the $(C is) or the $(C !is) operator, accordingly:
+大家都还记得吧，引用与运算符 $(C null) 不能通过运算符 $(C ==) 或 $(C !=) 进行比较。相反，必须相应地使用运算符 $(C is) 或 $(C !is)：
 )
 
 ---
     MyClass referencesAnObject = new MyClass;
     assert(referencesAnObject $(HILITE !is) null);
 
-    MyClass variable;   // does not reference an object
+    MyClass variable;   // 没有引用对象
     assert(variable $(HILITE is) null);
 ---
 
 $(P
-The reason is that, the $(C ==) operator may need to consult the values of the members of the objects and that attempting to access the members through a potentially $(C null) variable would cause a memory access error. For that reason, class variables must always be compared by the $(C is) and $(C !is) operators.
+原因是，运算符 $(C ==) 会查询对象成员的值，并尝试通过一个潜在的 $(C null) 变量访问成员，这将引发一个内存访问错误。因此，类变量必须总是通过运算符 $(C is) 和 $(C !is) 进行比较。
 )
 
-$(H6 $(IX variable, class) $(IX object, class) Class variables versus class objects)
+$(H6 $(IX variable, class) $(IX object, class) 类变量与类对象)
 
 $(P
-Class variable and class object are separate concepts.
+类变量和类对象是独立的概念。
 )
 
 $(P
-Class objects are constructed by the $(C new) keyword; they do not have names. The actual concept that a class type represents in a program is provided by a class object. For example, assuming that a $(C Student) class represents students by their names and grades, such information would be stored by the members of $(C Student) $(I objects). Partly because they are anonymous, it is not possible to access class objects directly.
+类对象由关键字 $(C new) 构造；它们没有名字。实际的概念是，在程序中，一个类类型由一个类对象表示。例如，有一个 $(C Student) 类，它通过姓名和成绩来表示学生， 此时 $(C Student) $(I 对象)的成员会存储这些信息。另一方面，类变量是用于访问类对象的一种语言特性。
 )
 
 $(P
@@ -91,7 +91,7 @@ A class variable on the other hand is a language feature for accessing class obj
 )
 
 $(P
-Let's consider the following code that we saw previously in the $(LINK2 /ders/d.en/value_vs_reference.html, Value Types and Reference Types chapter):
+一起来看看下面这段代码，之前在 $(LINK2 /ders/d.en/value_vs_reference.html, 值类型和引用类型一章)已见过，如下所示：
 )
 
 ---
@@ -104,7 +104,7 @@ $(P
 )
 
 $(MONO
- (匿名的 MyClass 对象)    variable1    variable2
+ (匿名 MyClass 对象)    变量1    变量2
  ───┬───────────────────┬───  ───┬───┬───  ───┬───┬───
     │        ...        │        │ o │        │ o │
  ───┴───────────────────┴───  ───┴─│─┴───  ───┴─│─┴───
@@ -132,7 +132,7 @@ $(P
 ---
 
 $(P
-在上面的代码中， $(C variable2) 由 $(C variable1) 初始化。这俩变量可访问同一对象。The two variables start providing access to the same object.
+在上面的代码中， $(C variable2) 由 $(C variable1) 初始化。这两个变量可访问同一个对象。
 )
 
 $(P
@@ -164,7 +164,7 @@ $(C dup())  成员函数利用 $(C Foo) 的构造函数，创建并返回新的�
 )
 
 $(P
-下面的代码演示 $(C dup()) 创建一个新的对象的用法：
+下面的代码利用 $(C dup()) 创建一个新的对象：
 )
 
 ---
@@ -173,11 +173,11 @@ $(P
 ---
 
 $(P
-结果是，$(C var1) 和 $(C var2) 相关联的对象是不同的。
+最后，与 $(C var1) 和 $(C var2) 关联的那些对象并不相同。
 )
 
 $(P
-Similarly, an $(C immutable) copy of an object can be provided by a member function appropriately named $(C idup()). In this case, the constructor must be defined as $(C pure) as well. We will cover the $(C pure) keyword in $(LINK2 /ders/d.en/functions_more.html, a later chapter).
+同样地，可以通过名为 $(C idup()) 的成员函数的提供对象的  $(C immutable) 副本：此时，构造函数必须同时定义为 $(C pure) 。我们会在$(LINK2 /ders/d.en/functions_more.html, 后面章节)对关键字 $(C pure) 进行讲解。
 )
 
 ---
@@ -289,30 +289,30 @@ $(P
 ---
 
 $(P
-$(IX finalizer versus destructor) However, different from structs, class destructors are not executed at the time when the lifetime of a class object ends. As we have seen above, the destructor is executed some time in the future during a garbage collection cycle. (By this distinction, class destructors should have more accurately been called $(I finalizers)).
+$(IX finalizer versus destructor) 不过，与结构有所不同的是，类的析构函数在类对象的生命期结束时并不会被执行。正如上面看到的，析构函数会在未来垃圾回收周期内的某个时候被执行。（基于此点差异，类的析构函数被叫作 $(I 终结函数) 会更加确切）。
 )
 
 $(P
-As we will see later in $(LINK2 /ders/d.en/memory.html, the Memory Management chapter), class destructors must observe the following rules:
+在后面的 $(LINK2 /ders/d.en/memory.html, 内存管理一章) 将会看到，类的析构函数必须遵循以下几条规则：
 )
 
 $(UL
 
-$(LI A class destructor must not access a member that is managed by the garbage collector. This is because garbage collectors are not required to guarantee that the object and its members are finalized in any specific order. All members may have already been finalized when the destructor is executing.)
+$(LI 类的析构函数不能访问由垃圾回收器管理的成员。这是因为垃圾回收器没有被要求保证该对象及其成员按任何特定顺序终结。当析构函数执行时，全部成员应该已经终结。)
 
-$(LI A class destructor must not allocate new memory that is managed by the garbage collector. This is because garbage collectors are not required to guarantee that they can allocate new objects during a garbage collection cycle.)
+$(LI 类的析构函数一定不要分配由垃圾回收器管理的新内存。这是因为垃圾回收器没有被要求保证在垃圾回收周期内能分配新的对象。)
 
 )
 
 $(P
-Violating these rules is undefined behavior. It is easy to see an example of such a problem simply by trying to allocate an object in a class destructor:
+违反这些规则即会产生未定义行为。尝试在类的析构函数中分配一个对象，通过这种方式可以轻易地重现这种的问题：
 )
 
 ---
 class C {
     ~this() {
-        auto c = new C();    // ← WRONG: Allocates explicitly
-                             //          in a class destructor
+        auto c = new C();    // ← 错误：在类的析构函数里
+                             //          显式分配内存
     }
 }
 
@@ -322,7 +322,7 @@ void main() {
 ---
 
 $(P
-The program is terminated with an exception:
+这个程序会抛一个异常，并中断：
 )
 
 $(SHELL
@@ -330,13 +330,13 @@ core.exception.$(HILITE InvalidMemoryOperationError)@(0)
 )
 
 $(P
-It is equally wrong to allocate new memory $(I indirectly) from the garbage collector in a destructor. For example, memory used for the elements of a dynamic array is allocated by the garbage collector as well. Using an array in a way that would require allocating a new memory block for the elements is undefined behavior as well:
+在析构函数里 $(I 间接地) 从垃圾回收器里分配新的内存，这种做法同样是错的。例如，用于一个动态数组的元素的内存由垃圾回收器来分配。用这种方式使用一个数组，那将需要为未定义行为的元素分配一个新的内存块：
 )
 
 ---
     ~this() {
-        auto arr = [ 1 ];    // ← WRONG: Allocates indirectly
-                             //          in a class destructor
+        auto arr = [ 1 ];    // ← 错误：在类的析构函数里
+                             //          显式分配内存
     }
 ---
 
@@ -344,10 +344,10 @@ $(SHELL
 core.exception.$(HILITE InvalidMemoryOperationError)@(0)
 )
 
-$(H6 Member access)
+$(H6 成员访问)
 
 $(P
-与结构一样，用 $(I 点) 运算符访问成员：
+与结构一样，可以使用 $(I 点) 运算符来访问成员：
 )
 
 ---
@@ -424,7 +424,7 @@ $(P
 上面的两个变量都提供对同一对象的访问。
 )
 
-$(H5 摘要)
+$(H5 小结)
 
 $(UL
 
