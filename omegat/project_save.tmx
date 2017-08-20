@@ -246,6 +246,14 @@ $(LI $(LINK2 /ders/d.cn/struct.html, 结构) $(INDEX_KEYWORDS struct .</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>$(H5 $(IX compiler) Compiler)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170820T004712Z" creationid="Heromyth" creationdate="20170820T004712Z">
+        <seg>$(H5 $(IX compiler) 编译器)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>$(H5 $(IX concatenation, string) String concatenation)</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="大处着手小处着眼" changedate="20160718T153034Z" creationid="大处着手小处着眼" creationdate="20160715T032440Z">
@@ -298,6 +306,14 @@ $(LI $(LINK2 /ders/d.cn/struct.html, 结构) $(INDEX_KEYWORDS struct .</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="大处着手小处着眼" changedate="20160725T082357Z" creationid="大处着手小处着眼" creationdate="20160725T082342Z">
         <seg>$(H5 $(IX 初始化,数组) 初始化元素)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(H5 $(IX interpreter) Interpreter)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170820T004222Z" creationid="Heromyth" creationdate="20170820T004222Z">
+        <seg>$(H5 $(IX interpreter) 解释器)</seg>
       </tuv>
     </tu>
     <tu>
@@ -490,6 +506,14 @@ $(LI $(LINK2 /ders/d.cn/struct.html, 结构) $(INDEX_KEYWORDS struct .</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Hipter" changedate="20160706T011913Z" creationid="Hipter" creationdate="20160706T011913Z">
         <seg>$(H6 $(IX copy, class) 复制)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(H6 $(IX error, compilation) $(IX compilation error) Compilation error)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170820T005043Z" creationid="Heromyth" creationdate="20170820T005043Z">
+        <seg>$(H6 $(IX error, compilation) $(IX compilation error) 编译错误)</seg>
       </tuv>
     </tu>
     <tu>
@@ -1506,6 +1530,16 @@ $(LINK_DOWNLOAD /ders/d.en/Programming_in_D_code_samples.zip, 点击此处可下
     <tu>
       <tuv lang="EN-US">
         <seg>$(P
+A compiler is another tool that reads the instructions of a program from source code.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170820T004725Z" creationid="Heromyth" creationdate="20170820T004725Z">
+        <seg>$(P
+编译器是另一种从源码中读取程序指令的工具。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
 Accordingly, the equivalent of the five separate variables above can be defined as an array of five values using the following syntax:
 )</seg>
       </tuv>
@@ -1619,6 +1653,16 @@ An index need not be a constant value; the value of a variable can also be used 
       <tuv lang="ZH-CN" changeid="大处着手小处着眼" changedate="20160725T021213Z" creationid="大处着手小处着眼" creationdate="20160725T021213Z">
         <seg>$(P
 索引不必是恒定值；变量的值也能用作索引，这会让数组更有用。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
+An interpreter is a tool (a program) that reads the instructions from source code and executes them.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170820T004237Z" creationid="Heromyth" creationdate="20170820T004237Z">
+        <seg>$(P
+解释器是一种能从源码中读取指令并执行相应命令的工具（程序）。</seg>
       </tuv>
     </tu>
     <tu>
@@ -1741,6 +1785,16 @@ As seen in the outputs, the blocks of the $(C scope) statements are executed in 
       <tuv lang="ZH-CN" changeid="Hipter" changedate="20160707T045137Z" creationid="Hipter" creationdate="20160707T035844Z">
         <seg>$(P
 在输出中我们看到，$(C scope) 语句块是按相反的顺序执行的。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
+As the compiler compiles a program according to the rules of the language, it stops the compilation as soon as it comes across $(I illegal) instructions.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170820T005114Z" creationid="Heromyth" creationdate="20170820T005114Z">
+        <seg>$(P
+当编译器按照语言规则编译程序时，一旦碰到 $(I 非法) 指令就会停止编译。</seg>
       </tuv>
     </tu>
     <tu>
@@ -2107,6 +2161,16 @@ For plain arrays, index values are not stored at all.</seg>
       <tuv lang="ZH-CN" changeid="Hipter" changedate="20160708T092502Z" creationid="Hipter" creationdate="20160708T092502Z">
         <seg>$(P
 对于简单数组，索引值根本就没有存储。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
+For reasons like safety and performance, some languages have been designed to be compiled.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170820T005003Z" creationid="Heromyth" creationdate="20170820T005003Z">
+        <seg>$(P
+出于对安全及效率等原因的考量，某些语言被设计为可编译的。</seg>
       </tuv>
     </tu>
     <tu>
@@ -2620,6 +2684,16 @@ Since they are actually arrays, all of the array operations can be applied to st
     <tu>
       <tuv lang="EN-US">
         <seg>$(P
+Some languages like Perl, Python and Ruby have been designed to be very flexible and dynamic, making code analysis harder.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170820T004655Z" creationid="Heromyth" creationdate="20170820T004655Z">
+        <seg>$(P
+一些语言被设计得非常灵活与动态，诸如 Perl、Python 和 Ruby，这使得代码分析困难重重。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
 Sometimes it makes sense to use a default value if a key does not exist in the associative array.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Hipter" changedate="20160709T035616Z" creationid="Hipter" creationdate="20160709T035616Z">
@@ -2886,6 +2960,16 @@ The biggest difference from structs is that structs are $(I value types) and cla
     <tu>
       <tuv lang="EN-US">
         <seg>$(P
+The compiler may also emit a $(I compilation warning) when it sees a suspicious piece of code that may cause concern but not necessarily an error.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170820T005224Z" creationid="Heromyth" creationdate="20170820T005224Z">
+        <seg>$(P
+当编译器看到某段可疑但又不是错误的代码时，会发出 $(I 编译警告)。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
 The complete program has more explanations:
 )</seg>
       </tuv>
@@ -3025,6 +3109,16 @@ The highlighted parts of the code are explained below:
         <seg>$(P
 下面来解释一下这段代码的高亮部分：
 )</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
+The interpreter must read and understand the instructions every time the program is executed.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170820T004509Z" creationid="Heromyth" creationdate="20170820T004509Z">
+        <seg>$(P
+每一次执行程序之前，解释器都必须重新读入源码并了解它们的含义。</seg>
       </tuv>
     </tu>
     <tu>
@@ -3437,6 +3531,16 @@ Two other $(C __traits) expressions are useful when dealing with user defined at
         <seg>$(P
 在处理自定义属性时，还有其他两个 $(C __traits) 表达式可以使用：
 )</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
+Unlike an interpreter, the compiler reads and understands the source code only once, during compilation.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170820T004834Z" creationid="Heromyth" creationdate="20170820T004834Z">
+        <seg>$(P
+不像解释器，编译器一次性地在编译期读入和理解源码。</seg>
       </tuv>
     </tu>
     <tu>
@@ -4907,6 +5011,30 @@ $(LI $(LINK2 /ders/d.cn/slices.html, 分片与其他数组功能) $(INDEX_KEYWOR
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Ada, C, C++, and D are some of them.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170820T005030Z" creationid="Heromyth" creationdate="20170820T005030Z">
+        <seg>Ada、C、C++ 和 D 都属于这样的语言。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Additionally, interpreters usually perform very little analysis on the code before executing it.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170820T004604Z" creationid="Heromyth" creationdate="20170820T004604Z">
+        <seg>此外，解释器在执行代码之前对代码的分析大都非常有限。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Additionally, the languages that are easy to compile are usually less dynamic than those that run in an interpreter.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170820T004927Z" creationid="Heromyth" creationdate="20170820T004927Z">
+        <seg>此外，容易编译的语言与在解释器中运行的语言相比往往缺乏灵活性。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>All members may have already been finalized when the destructor is executing.)</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170820T001709Z" creationid="Heromyth" creationdate="20170820T001709Z">
@@ -4977,6 +5105,14 @@ $(LI $(LINK2 /ders/d.cn/slices.html, 分片与其他数组功能) $(INDEX_KEYWOR
       </tuv>
       <tuv lang="ZH-CN" changeid="大处着手小处着眼" changedate="20160722T110916Z" creationid="Hipter" creationdate="20160711T092039Z">
         <seg>这些字符类型的数组对应着三种独立的字符串类型，其中一些可能会在一些字符串操作上有出人意料的结果。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>As a result, most interpreters discover programming errors only after they start executing the program.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170820T004620Z" creationid="Heromyth" creationdate="20170820T004620Z">
+        <seg>最后，大多数解释器在执行程序之后方能发现编程错误。</seg>
       </tuv>
     </tu>
     <tu>
@@ -5161,6 +5297,14 @@ COZUMLER_METIN=答案</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Compilers usually perform advanced analysis on the code, which help with producing fast programs and catching programming errors before the program even starts running.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170820T004854Z" creationid="Heromyth" creationdate="20170820T004854Z">
+        <seg>编译器素来对源码进行深入的分析，这有助于生成更高效的程序，甚至于在程序执行之前就捕捉到编程错误。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Contents</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="ZXP" changedate="20080919T151013Z" creationid="ZXP" creationdate="20080919T151013Z">
@@ -5249,6 +5393,14 @@ COZUMLER_METIN=答案</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>DESCRIPTION=The introduction of the compiler and compiled languages</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170820T005338Z" creationid="Heromyth" creationdate="20170820T005338Z">
+        <seg>DESCRIPTION=编译与编译型编程语言简介</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>DESCRIPTION=The scope(success), scope(failure), and scope(exit) statements that are used for specifying expressions that must be executed when exiting scopes.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Hipter" changedate="20160707T045751Z" creationid="Hipter" creationdate="20160707T045751Z">
@@ -5299,6 +5451,14 @@ $(LI $(LINK2 http://dlang.org/phobos/index.html, $(IMG bullet_black.png) 标准�
       </tuv>
       <tuv lang="ZH-CN" changeid="Hipter" changedate="20160709T092617Z" creationid="Hipter" creationdate="20160709T092617Z">
         <seg>定义一个能存储每个学生的多个成绩的关联数组。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Different from an interpreter, it does not execute the code; rather, it produces a program written in another language (usually machine code).</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170820T004734Z" creationid="Heromyth" creationdate="20170820T004734Z">
+        <seg>与解释器不同的是，它不立即执行代码，而是生成一个用其他语言（通常为机器码）表示的程序。</seg>
       </tuv>
     </tu>
     <tu>
@@ -5427,6 +5587,14 @@ $(LI $(LINK2 http://dlang.org/phobos/index.html, $(IMG bullet_black.png) 标准�
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170820T003729Z" creationid="Heromyth" creationdate="20170820T003729Z">
         <seg>例如，对于虚构的 8 位 CPU 来说，数字 4 可能表示载入操作，数字 5 可能表示存储操作，而数字 6 可能表示递增操作。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>For example, for the code above, an interpreter would understand to first execute $(C a_card_has_been_played()) and then conditionally execute $(C display_the_card()).</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170820T004312Z" creationid="Heromyth" creationdate="20170820T004312Z">
+        <seg>例如，对于上述代码，解释器会首先执行 $(C a_card_has_been_played()) ，而后根据其执行结果选择性地执行 $(C display_the_card())。</seg>
       </tuv>
     </tu>
     <tu>
@@ -5583,10 +5751,26 @@ $(LI $(LINK2 http://dlang.org/phobos/index.html, $(IMG bullet_black.png) 标准�
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>For that reason and in general, a compiled program runs faster compared to executing that program with an interpreter.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170820T004843Z" creationid="Heromyth" creationdate="20170820T004843Z">
+        <seg>出于这个原因，通常情况下被编译的程序较被解释器所执行的程序运行更快。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>For that reason, class variables must always be compared by the $(C is) and $(C !is) operators.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170819T130731Z" creationid="Heromyth" creationdate="20170819T130731Z">
         <seg>因此，类变量必须总是通过运算符 $(C is) 和 $(C !is) 进行比较。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>For that reason, running a program with an interpreter is usually slower than running the compiled version of the same program.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170820T004518Z" creationid="Heromyth" creationdate="20170820T004518Z">
+        <seg>这也就是为什么使用解释器执行程序往往要比直接执行编译版本的同一程序要慢。</seg>
       </tuv>
     </tu>
     <tu>
@@ -5625,6 +5809,22 @@ $(LI $(LINK2 http://dlang.org/phobos/index.html, $(IMG bullet_black.png) 标准�
       <tuv lang="ZH-CN" changeid="Hipter" changedate="20160711T095603Z" creationid="Hipter" creationdate="20160711T095603Z">
         <seg>因而，$(C readf()) 不能如愿读取字符串：
 )</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>From the point of view of the programmer, executing with a compiler involves three steps: writing the source code, compiling it, and running the produced program.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170820T004821Z" creationid="Heromyth" creationdate="20170820T004821Z">
+        <seg>这时，从程序员的角度来看，执行指令就分三个步骤：写代码、编译和执行生成的文件。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>From the point of view of the programmer, executing with an interpreter involves just two steps: writing the source code and giving it to the interpreter.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170820T004456Z" creationid="Heromyth" creationdate="20170820T004456Z">
+        <seg>从程序员的角度来看，依赖解释器执行指令只涉及两个步骤：编写源代码和将源代码交由解释器处理。</seg>
       </tuv>
     </tu>
     <tu>
@@ -5719,12 +5919,28 @@ $(LINK2 /ders/d.cn/index.html,
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>However, warnings almost always indicate an actual error or bad style, so it is a common practice to consider most or all warnings as errors.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170820T005229Z" creationid="Heromyth" creationdate="20170820T005229Z">
+        <seg>但是，警告几乎总是指示一个实际错误或糟糕的代码风格，所以把警告当作错误对待是一个常见的做法。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>If the user eventually terminates the input that way, we see that the new-line characters have been read as parts of the string as well:
 )</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="大处着手小处着眼" changedate="20160718T135535Z" creationid="Hipter" creationdate="20160712T014616Z">
         <seg>如果用户最后这样结束输入，我们看到换行符已作为字符串的一部分被读取：
 )</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Illegal instructions are the ones that are outside the specifications of the language.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170820T005132Z" creationid="Heromyth" creationdate="20170820T005132Z">
+        <seg>非法指令指的是超出语言规范的地方。</seg>
       </tuv>
     </tu>
     <tu>
@@ -6007,6 +6223,14 @@ $(LINK2 /ders/d.cn/index.html,
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>KEYWORDS=d programming language tutorial book</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170820T005402Z" creationid="Heromyth" creationdate="20170820T005402Z">
+        <seg>KEYWORDS=D 编程 语言 教程 书籍</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>KEYWORDS=d programming language tutorial book arrays fixed-length dynamic</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="大处着手小处着眼" changedate="20160726T025230Z" creationid="大处着手小处着眼" creationdate="20160726T024956Z">
@@ -6159,6 +6383,14 @@ LANGUAGE=chinese</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Moreover, the programs that are produced by a compiler can usually run only on a specific platform; to run on a different kind of processor or on a different operating system, the program would have to be recompiled.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170820T004923Z" creationid="Heromyth" creationdate="20170820T004923Z">
+        <seg>另外，编译器往往是针对某一特定平台进行编译，程序需要重新编译以在不同的处理器或操作系统上运行。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Most of the features that we have seen for structs in the following chapters apply to classes as well:
 )</seg>
       </tuv>
@@ -6201,6 +6433,14 @@ LANGUAGE=chinese</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>On the other hand, having to compile the program every time it is changed is a complication and a potential source of human errors.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170820T004905Z" creationid="Heromyth" creationdate="20170820T004905Z">
+        <seg>另一方面，每次改变代码都必须重新编译，既复杂又易引起人为错误。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Other than in rare pathological cases, the time it takes to store or access an element is independent of the number of elements that are in the associative array.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Hipter" changedate="20160708T100056Z" creationid="Hipter" creationdate="20160708T091750Z">
@@ -6229,6 +6469,14 @@ LANGUAGE=chinese</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Hipter" changedate="20160708T085309Z" creationid="Hipter" creationdate="20160708T084606Z">
         <seg>简单数组只能使用整型做索引。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Problems like a mismatched parenthesis, a missing semicolon, a misspelled keyword, etc. all cause compilation errors.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170820T005135Z" creationid="Heromyth" creationdate="20170820T005135Z">
+        <seg>诸如圆括号未匹配、分号丢失、关键字拼错等的问题都会引起编译错误。</seg>
       </tuv>
     </tu>
     <tu>
@@ -6311,6 +6559,14 @@ LANGUAGE=chinese</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Hipter" changedate="20160707T020705Z" creationid="Hipter" creationdate="20160707T020705Z">
         <seg>SUBTITLE=类</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>SUBTITLE=Compiler</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170820T005319Z" creationid="Heromyth" creationdate="20170820T005319Z">
+        <seg>SUBTITLE=编译器</seg>
       </tuv>
     </tu>
     <tu>
@@ -6415,6 +6671,14 @@ LANGUAGE=chinese</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Hipter" changedate="20160711T121050Z" creationid="Hipter" creationdate="20160711T120306Z">
         <seg>这个</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>The $(C dmd) compiler switch to enable warnings as errors is $(C -w).</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170820T005309Z" creationid="Heromyth" creationdate="20170820T005309Z">
+        <seg>编译器 $(C dmd) 将警告视作错误的编译选项是 $(C -w)。</seg>
       </tuv>
     </tu>
     <tu>
@@ -6701,6 +6965,14 @@ LANGUAGE=chinese</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>These languages have traditionally been used with an interpreter.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170820T004705Z" creationid="Heromyth" creationdate="20170820T004705Z">
+        <seg>因此，这些语言传统上就需使用解释器。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>These machine code instructions are determined under hardware constraints during the design stage of the architecture.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170820T003643Z" creationid="Heromyth" creationdate="20170820T003643Z">
@@ -6847,6 +7119,14 @@ LANGUAGE=chinese</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="大处着手小处着眼" changedate="20160715T035023Z" creationid="大处着手小处着眼" creationdate="20160715T035023Z">
         <seg>这种排序需要在一个假设的大字母表中让每个字符的 Unicode 编码找到它的位置。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>This produced program is responsible for the execution of the instructions that were written by the programmer.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170820T004745Z" creationid="Heromyth" creationdate="20170820T004745Z">
+        <seg>而后，这个被生成的程序负责执行程序员写就的指令。</seg>
       </tuv>
     </tu>
     <tu>
