@@ -1172,8 +1172,8 @@ There are three mistakes (bugs) in this program.</seg>
       <tuv lang="EN-US">
         <seg>$(LINK2 /ders/d.en/inheritance.html, Polymorphism) is for abstracting parts of programs from each other and is achieved by class $(I interfaces).</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170819T123135Z" creationid="Heromyth" creationdate="20170819T122822Z">
-        <seg>$(LINK2 /ders/d.en/inheritance.html, 多态性) 是从类之间抽象出部分代码，通过 $(I 接口) 实现的。</seg>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170820T013450Z" creationid="Heromyth" creationdate="20170819T122822Z">
+        <seg>$(LINK2 /ders/d.cn/inheritance.html, 多态性) 是从类之间抽象出部分代码，通过 $(I 接口) 实现的。</seg>
       </tuv>
     </tu>
     <tu>
@@ -1530,6 +1530,16 @@ $(LINK_DOWNLOAD /ders/d.en/Programming_in_D_code_samples.zip, 点击此处可下
     <tu>
       <tuv lang="EN-US">
         <seg>$(P
+A class variable on the other hand is a language feature for accessing class objects.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170820T013346Z" creationid="Heromyth" creationdate="20170820T013346Z">
+        <seg>$(P
+另一方面，类变量一种访问类对象的语言功能。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
 A compiler is another tool that reads the instructions of a program from source code.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170820T004725Z" creationid="Heromyth" creationdate="20170820T004725Z">
@@ -1762,9 +1772,9 @@ As an example, let's write the function above with a $(C scope(failure)) stateme
         <seg>$(P
 As it has been mentioned briefly in $(LINK2 /ders/d.en/null_is.html, The $(CH4 null) Value and the $(CH4 is) Operator chapter), class variables can be $(C null).</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170819T124929Z" creationid="Heromyth" creationdate="20170819T124929Z">
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170820T013535Z" creationid="Heromyth" creationdate="20170819T124929Z">
         <seg>$(P
-在 $(LINK2 /ders/d.en/null_is.html, $(CH4 null) 值和 $(CH4 is) 运算符一章)已提到过，类变量可以为 $(C null)。</seg>
+在 $(LINK2 /ders/d.cn/null_is.html, $(CH4 null) 值和 $(CH4 is) 运算符一章)已提到过，类变量可以为 $(C null)。</seg>
       </tuv>
     </tu>
     <tu>
@@ -2090,9 +2100,9 @@ Defining dynamic arrays is simpler than defining fixed-length arrays because omi
         <seg>$(P
 Encapsulation is achieved by $(I protection attributes), which we will see in $(LINK2 /ders/d.en/encapsulation.html, a later chapter).</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170819T122633Z" creationid="Heromyth" creationdate="20170819T122633Z">
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170820T013433Z" creationid="Heromyth" creationdate="20170819T122633Z">
         <seg>$(P
-封装是通过 $(I 保护属性) 来实现的，关于这一点在 $(LINK2 /ders/d.en/encapsulation.html, 后面章节) 会看到。</seg>
+封装是通过 $(I 保护属性) 来实现的，关于这一点在 $(LINK2 /ders/d.cn/encapsulation.html, 后面章节) 会看到。</seg>
       </tuv>
     </tu>
     <tu>
@@ -2431,9 +2441,9 @@ Let's consider the following code that we have seen previously in the $(LINK2 /d
 Let's consider the following code that we saw previously in the $(LINK2 /ders/d.en/value_vs_reference.html, Value Types and Reference Types chapter):
 )</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170819T131840Z" creationid="Heromyth" creationdate="20170819T131840Z">
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170820T013414Z" creationid="Heromyth" creationdate="20170819T131840Z">
         <seg>$(P
-一起来看看下面这段代码，之前在 $(LINK2 /ders/d.en/value_vs_reference.html, 值类型和引用类型一章)已见过，如下所示：
+一起来看看下面这段代码，之前在 $(LINK2 /ders/d.cn/value_vs_reference.html, 值类型和引用类型一章)已见过，如下所示：
 )</seg>
       </tuv>
     </tu>
@@ -4181,13 +4191,13 @@ $(LI $(LINK2 /ders/d.en/special_functions.html, Constructor and Other Special Fu
 $(LI $(LINK2 /ders/d.en/operator_overloading.html, Operator Overloading))
 )</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170819T123920Z" creationid="Heromyth" creationdate="20170819T123920Z">
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170820T013521Z" creationid="Heromyth" creationdate="20170819T123920Z">
         <seg>$(UL
-$(LI $(LINK2 /ders/d.en/struct.html, 结构))
-$(LI $(LINK2 /ders/d.en/member_functions.html, 成员函数))
-$(LI $(LINK2 /ders/d.en/const_member_functions.html, $(CH4 const ref) 参数和 $(CH4 const) 成员函数))
-$(LI $(LINK2 /ders/d.en/special_functions.html, 构造函数和其它特殊函数))
-$(LI $(LINK2 /ders/d.en/operator_overloading.html, 运算符重载))
+$(LI $(LINK2 /ders/d.cn/struct.html, 结构))
+$(LI $(LINK2 /ders/d.cn/member_functions.html, 成员函数))
+$(LI $(LINK2 /ders/d.cn/const_member_functions.html, $(CH4 const ref) 参数和 $(CH4 const) 成员函数))
+$(LI $(LINK2 /ders/d.cn/special_functions.html, 构造函数和其它特殊函数))
+$(LI $(LINK2 /ders/d.cn/operator_overloading.html, 运算符重载))
 )</seg>
       </tuv>
     </tu>
@@ -5387,8 +5397,8 @@ COZUMLER_METIN=答案</seg>
       <tuv lang="EN-US">
         <seg>DESCRIPTION=The basic object oriented programming (OOP) feature of the D programming language.</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Hipter" changedate="20160707T020838Z" creationid="Hipter" creationdate="20160707T020838Z">
-        <seg>DESCRIPTION=D语言基本的面向对象编程 (OOP) 功能。</seg>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170820T013728Z" creationid="Hipter" creationdate="20160707T020838Z">
+        <seg>DESCRIPTION=基本的 D 语言面向对象编程（OOP） 功能。</seg>
       </tuv>
     </tu>
     <tu>
@@ -6281,8 +6291,8 @@ $(LINK2 /ders/d.cn/index.html,
       <tuv lang="EN-US">
         <seg>KEYWORDS=d programming lesson book tutorial class</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Hipter" changedate="20160707T050241Z" creationid="Hipter" creationdate="20160707T020932Z">
-        <seg>KEYWORDS=D 语言编程教程 class</seg>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170820T013649Z" creationid="Hipter" creationdate="20160707T020932Z">
+        <seg>KEYWORDS=D 语言 编程 教程 书籍 教程 类</seg>
       </tuv>
     </tu>
     <tu>
@@ -7243,8 +7253,8 @@ LANGUAGE=chinese</seg>
       <tuv lang="EN-US">
         <seg>We will cover the $(C pure) keyword in $(LINK2 /ders/d.en/functions_more.html, a later chapter).</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170819T134146Z" creationid="Heromyth" creationdate="20170819T134146Z">
-        <seg>我们会在$(LINK2 /ders/d.en/functions_more.html, 后面章节)对关键字 $(C pure) 进行讲解。</seg>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170820T013623Z" creationid="Heromyth" creationdate="20170819T134146Z">
+        <seg>我们会在$(LINK2 /ders/d.cn/functions_more.html, 后面章节)对关键字 $(C pure) 进行讲解。</seg>
       </tuv>
     </tu>
     <tu>
