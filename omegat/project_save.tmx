@@ -5207,6 +5207,22 @@ $(LI $(LINK2 /ders/d.cn/slices.html, 分片与其他数组功能) $(INDEX_KEYWOR
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>BREADCRUMBS_FULL=$(LINK2 /index.html, Main Page) &amp;gt; $(LINK2 /ders/index.html, Books) &amp;gt; $(LINK2 /ders/d.en/index.html, Prg in D)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170820T014719Z" creationid="Heromyth" creationdate="20170820T014719Z">
+        <seg>BREADCRUMBS_FULL=$(LINK2 /index.html, Main Page) &amp;gt; $(LINK2 /ders/index.html, Books) &amp;gt; $(LINK2 /ders/d.en/index.html, D 语言编程)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>BREADCRUMBS_INDEX=$(LINK2 /index.html, Main Page) &amp;gt; $(LINK2 /ders/index.html, Books) &amp;gt; Prg in D</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170820T014714Z" creationid="Heromyth" creationdate="20170820T014714Z">
+        <seg>BREADCRUMBS_INDEX=$(LINK2 /index.html, Main Page) &amp;gt; $(LINK2 /ders/index.html, Books) &amp;gt; D 语言编程</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Because array elements are stored side-by-side in memory, index values are implicitly the relative positions of elements from the beginning of the array.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Hipter" changedate="20160709T093155Z" creationid="Hipter" creationdate="20160708T093357Z">
@@ -6358,12 +6374,12 @@ LANG=en
 LANGUAGE=english
 SUB_AUTHOR=</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170718T105755Z" creationid="Heromyth" creationdate="20170718T104957Z">
-        <seg>MAIN_TITLE=D 语言解答
-CLASS=solution
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170820T014830Z" creationid="Heromyth" creationdate="20170718T104957Z">
+        <seg>MAIN_TITLE=D 语言答案
+CLASS=答案
 COZUM_BOLUMU = $(H4 $0)
-LANG=en
-LANGUAGE=english
+LANG=zh-cn
+LANGUAGE=chinese
 SUB_AUTHOR=</seg>
       </tuv>
     </tu>
