@@ -1,4 +1,4 @@
 
 BREADCRUMBS_INDEX=$(LINK2 /index.html, Main Page) &gt; $(LINK2 /ders/index.html, Books) &gt; D 语言编程
 
-BREADCRUMBS_FULL=$(LINK2 /index.html, Main Page) &gt; $(LINK2 /ders/index.html, Books) &gt; $(LINK2 /ders/d.en/index.html, D 语言编程)
+BREADCRUMBS_FULL=$(LINK2 /index.html, Main Page) &gt; $(LINK2 /ders/index.html, Books) &gt; $(LINK2 /ders/d.cn/index.html, D 语言编程)
