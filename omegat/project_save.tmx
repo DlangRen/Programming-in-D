@@ -5209,8 +5209,8 @@ $(LI $(LINK2 /ders/d.cn/slices.html, 分片与其他数组功能) $(INDEX_KEYWOR
       <tuv lang="EN-US">
         <seg>BREADCRUMBS_FULL=$(LINK2 /index.html, Main Page) &amp;gt; $(LINK2 /ders/index.html, Books) &amp;gt; $(LINK2 /ders/d.en/index.html, Prg in D)</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170820T014719Z" creationid="Heromyth" creationdate="20170820T014719Z">
-        <seg>BREADCRUMBS_FULL=$(LINK2 /index.html, Main Page) &amp;gt; $(LINK2 /ders/index.html, Books) &amp;gt; $(LINK2 /ders/d.en/index.html, D 语言编程)</seg>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170823T010647Z" creationid="Heromyth" creationdate="20170820T014719Z">
+        <seg>BREADCRUMBS_FULL=$(LINK2 /index.html, Main Page) &amp;gt; $(LINK2 /ders/index.html, Books) &amp;gt; $(LINK2 /ders/d.cn/index.html, D 语言编程)</seg>
       </tuv>
     </tu>
     <tu>
