@@ -3408,6 +3408,18 @@ The output indicates that the values 0 and 1 correspond to keys "Monday" and "Tu
     <tu>
       <tuv lang="EN-US">
         <seg>$(P
+The output of one of the threads is highlighted:
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T055331Z" creationid="Heromyth" creationdate="20170824T055331Z">
+        <seg>$(P
+其中一个线程的输出被高亮了：
+)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
 The output of the program lists all attributes of all members of $(C Person):
 )</seg>
       </tuv>
@@ -3451,6 +3463,26 @@ The output:
         <seg>$(P
 输出：
 )</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
+The parameters that the thread function takes are passed to $(C spawn()) as its second and later arguments.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T055237Z" creationid="Heromyth" creationdate="20170824T055237Z">
+        <seg>$(P
+线程函数需要的参数应通过 $(C spawn()) 的二个参数传入。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
+The program automatically waits for all of the threads to finish executing.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T054954Z" creationid="Heromyth" creationdate="20170824T054954Z">
+        <seg>$(P
+程序在所有线程执行完毕后才会退出。</seg>
       </tuv>
     </tu>
     <tu>
@@ -7237,6 +7269,16 @@ LANGUAGE=chinese</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>The output of the program shows that the two threads, one that runs $(C main()) and the other that has been started by $(C spawn()), execute independently at the same time:
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T054941Z" creationid="Heromyth" creationdate="20170824T054941Z">
+        <seg>这个程序的输出表明有两个线程：一个用于运行 $(C main())，另一个则由 $(C spawn()) 启动。它们同时相互独立地执行：
+)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>The program above would require a single change: replacing 5 with 20.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="大处着手小处着眼" changedate="20160725T081214Z" creationid="大处着手小处着眼" creationdate="20160725T081214Z">
@@ -7311,6 +7353,14 @@ LANGUAGE=chinese</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>The two worker threads in the following program print four numbers each.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T055246Z" creationid="Heromyth" creationdate="20170824T055246Z">
+        <seg>下面程序中的两个工作线程分别打印四个数字。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>The value of the member is encrypted if it has that attribute.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170815T042355Z" creationid="Heromyth" creationdate="20170815T042355Z">
@@ -7371,6 +7421,16 @@ LANGUAGE=chinese</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Hipter" changedate="20160708T085824Z" creationid="Hipter" creationdate="20160708T085824Z">
         <seg>它们映射一种类型的值到另一种类型的值上。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>They take the starting number as the thread function parameter:
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T055311Z" creationid="Heromyth" creationdate="20170824T055311Z">
+        <seg>线程函数的参数为初始数字：
+)</seg>
       </tuv>
     </tu>
     <tu>
@@ -7588,6 +7648,16 @@ LANGUAGE=chinese</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="大处着手小处着眼" changedate="20160720T022850Z" creationid="大处着手小处着眼" creationdate="20160720T022850Z">
         <seg>我们可以对比两种定义如下：
+)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>We can see this in the output above by the fact that $(C worker()) continues executing even after $(C main()) exits after printing "main is done."
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T055208Z" creationid="Heromyth" creationdate="20170824T055208Z">
+        <seg>从上面的输出中我们可以看到，在函数 $(C main()) 输出 “main is done.” 并退出之后，$(C worker()) 仍然在继续执行。
 )</seg>
       </tuv>
     </tu>
