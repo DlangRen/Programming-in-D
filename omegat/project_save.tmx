@@ -374,6 +374,14 @@ $(LI $(LINK2 /ders/d.cn/struct.html, 结构) $(INDEX_KEYWORDS struct .</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>$(H5 $(IX spawn) Starting threads)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T054229Z" creationid="Heromyth" creationdate="20170824T054229Z">
+        <seg>$(H5 $(IX spawn) 启动线程)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>$(H5 $(IX string) $(IX wstring) $(IX dstring) $(IX char[]) $(IX wchar[]) $(IX dchar[]) $(IX immutable) $(C string), $(C wstring), and $(C dstring) are immutable)</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="大处着手小处着眼" changedate="20160718T144832Z" creationid="Hipter" creationdate="20160712T080114Z">
@@ -1363,6 +1371,16 @@ $(C scope) 语句也可以像块一样使用：
     <tu>
       <tuv lang="EN-US">
         <seg>$(P
+$(C spawn()) takes a function pointer as a parameter and starts a new thread from that function.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T054244Z" creationid="Heromyth" creationdate="20170824T054244Z">
+        <seg>$(P
+$(C spawn()) 需要一个函数指针，新线程将会从指定的函数启动。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
 $(C std.algorithm.reverse) reverses the elements in place (the first element becomes the last element, etc.):
 )</seg>
       </tuv>
@@ -1553,6 +1571,26 @@ $(IX hasUDA, std.traits) 另一个有用的工具是 $(C std.traits.hasUDA)，�
     <tu>
       <tuv lang="EN-US">
         <seg>$(P
+$(IX message) $(B Message): Data that is passed between threads are called messages.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T054058Z" creationid="Heromyth" creationdate="20170824T054058Z">
+        <seg>$(P
+$(IX message) $(B 消息)：在线程间传递的数据叫做消息。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
+$(IX owner) $(B Owner): Any thread that starts another thread is called the owner of the new thread.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T054156Z" creationid="Heromyth" creationdate="20170824T054156Z">
+        <seg>$(P
+$(IX owner) $(B 所有者)：启动线程的线程即为被启动线程的所有者。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
 $(IX parallelism vs. concurrency) $(IX concurrency vs. parallelism) The following are the differences between parallelism and concurrency:
 )</seg>
       </tuv>
@@ -1575,11 +1613,31 @@ $(IX 标量) 这个定义可以理解为 $(I 5 个 double 值)。</seg>
     <tu>
       <tuv lang="EN-US">
         <seg>$(P
+$(IX thread id) $(B Thread identifier): Every thread has an id, which is used for specifying recipients of messages.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T054136Z" creationid="Heromyth" creationdate="20170824T054136Z">
+        <seg>$(P
+$(IX thread id) $(B 线程 ID)：每一个线程都有一个 ID，你可以使用它们指定消息的接收者。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
 $(IX thread) $(B Thread): Operating systems execute programs as work units called $(I threads).</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T012434Z" creationid="Heromyth" creationdate="20170824T012434Z">
         <seg>$(P
 $(IX thread) $(B 线程)：操作系统执行程序的工作单元叫做 $(I 线程)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
+$(IX worker) $(B Worker): Any thread that is started by an owner is called a worker.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T054216Z" creationid="Heromyth" creationdate="20170824T054216Z">
+        <seg>$(P
+$(IX worker) $(B 工作线程)：被所有者启动的线叫做工作线程。</seg>
       </tuv>
     </tu>
     <tu>
@@ -1873,6 +1931,18 @@ As seen in the outputs, the blocks of the $(C scope) statements are executed in 
       <tuv lang="ZH-CN" changeid="Hipter" changedate="20160707T045137Z" creationid="Hipter" creationdate="20160707T035844Z">
         <seg>$(P
 在输出中我们看到，$(C scope) 语句块是按相反的顺序执行的。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
+As soon as a new thread is started, the owner and the worker start executing separately as if they were independent programs:
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T054625Z" creationid="Heromyth" creationdate="20170824T054625Z">
+        <seg>$(P
+新线程启动后，所有者和工作线程将会独立执行，看上去它们就像是独立的程序：
+)</seg>
       </tuv>
     </tu>
     <tu>
@@ -3119,6 +3189,16 @@ The element at index 0 has the value 31 (number of days in January); the element
         <seg>$(P
 索引 0 处元素的值为 31（一月的天数）；索引1 处元素的值为 28（二月的天数）依次类推。
 )</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
+The examples in this chapter call $(C Thread.sleep) to slow down threads to demonstrate that they run at the same time.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T054704Z" creationid="Heromyth" creationdate="20170824T054704Z">
+        <seg>$(P
+本章中的例子调用 $(C Thread.sleep) 减慢线程执行的速度来更方便的展示线程运行的情况。</seg>
       </tuv>
     </tu>
     <tu>
@@ -5237,6 +5317,14 @@ $(LI $(LINK2 /ders/d.cn/slices.html, 分片与其他数组功能) $(INDEX_KEYWOR
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Any operations that are carried out by that function, including other functions that it may call, would be executed on the new thread.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T054254Z" creationid="Heromyth" creationdate="20170824T054254Z">
+        <seg>函数中进行的包括函数调用在内的所有操作都将在新线程中执行。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Any value that is entered outside of the &lt;span style="white-space: nowrap"&gt;1-12&lt;/span&gt; range would cause the program to be terminated with an error.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="大处着手小处着眼" changedate="20160726T011653Z" creationid="大处着手小处着眼" creationdate="20160726T011653Z">
@@ -6625,6 +6713,14 @@ LANGUAGE=chinese</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Messages may be composed of any type and any number of variables.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T054103Z" creationid="Heromyth" creationdate="20170824T054103Z">
+        <seg>任何类型任何长短的数据都可以被称为消息。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>More features will be introduced later in $(LINK2 /ders/d.en/slices.html, the Slices and Other Array Features chapter).</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170820T014118Z" creationid="大处着手小处着眼" creationdate="20160720T022422Z">
@@ -7109,6 +7205,14 @@ LANGUAGE=chinese</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>The main difference between a thread that is started with $(C spawn()) and a thread that is started with $(LINK2 /ders/d.en/parallelism.html, $(C task())) is the fact that $(C spawn()) makes it possible for threads to send messages to each other.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T054618Z" creationid="Heromyth" creationdate="20170824T054618Z">
+        <seg>使用 $(C spawn()) 启动的线程和使用 $(LINK2 /ders/d.en/parallelism.html, $(C task())) 启动的线程之间最大的差异在于，$(C spawn()) 允许线程间消息传递。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>The number of elements of an array is called the $(I length) of the array.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="大处着手小处着眼" changedate="20160723T143218Z" creationid="大处着手小处着眼" creationdate="20160723T142830Z">
@@ -7187,6 +7291,14 @@ LANGUAGE=chinese</seg>
       <tuv lang="ZH-CN" changeid="大处着手小处着眼" changedate="20160726T032827Z" creationid="大处着手小处着眼" creationdate="20160726T032827Z">
         <seg>解决办法就是在第二个 $(C while) 循环前重设 $(C i) 为 0，比如使用语句 $(C i = 0;)
 )</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>The thread may be paused at any point between these steps to be continued after an unpredictable time.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T054031Z" creationid="Heromyth" creationdate="20170824T054031Z">
+        <seg>线程可能会暂停在这三步中的任何一步上，停顿一段时间后才会继续。</seg>
       </tuv>
     </tu>
     <tu>
