@@ -198,6 +198,14 @@ $(LI $(LINK2 /ders/d.cn/struct.html, 结构) $(INDEX_KEYWORDS struct .</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>$(DERS_BOLUMU $(IX concurrency, message passing) $(IX message passing concurrency) Message Passing Concurrency)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T011541Z" creationid="Heromyth" creationdate="20170824T011541Z">
+        <seg>$(DERS_BOLUMU $(IX concurrency, message passing) $(IX message passing concurrency) 基于消息传递的并发)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>$(DERS_BOLUMU $(IX user defined attributes) $(IX UDA) User Defined Attributes (UDA))</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170719T105356Z" creationid="Heromyth" creationdate="20170719T054011Z">
@@ -410,6 +418,14 @@ $(LI $(LINK2 /ders/d.cn/struct.html, 结构) $(INDEX_KEYWORDS struct .</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170819T123652Z" creationid="Heromyth" creationdate="20170819T123652Z">
         <seg>$(H5 与结构对比)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(H5 Concepts)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T012345Z" creationid="Heromyth" creationdate="20170824T012345Z">
+        <seg>$(H5 相关概念)</seg>
       </tuv>
     </tu>
     <tu>
@@ -729,6 +745,16 @@ $(B 多态性：) 能够使用较特定的类型取代较通用的类型
     <tu>
       <tuv lang="EN-US">
         <seg>$(LI
+Although both programming models use operating system threads, in parallelism threads are encapsulated by the concept of task.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T012201Z" creationid="Heromyth" creationdate="20170824T012154Z">
+        <seg>$(LI
+虽然两者都涉及线程操作，但并行用 task 对线程做了包装。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(LI
 Although some of the functions in Phobos modules will be easy to use with strings, library documentations are usually terse compared to tutorials.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="大处着手小处着眼" changedate="20160720T070344Z" creationid="大处着手小处着眼" creationdate="20160714T093404Z">
@@ -749,11 +775,31 @@ Another solution is to assign an empty array:</seg>
     <tu>
       <tuv lang="EN-US">
         <seg>$(LI
+In parallelism, tasks are independent from each other.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T012119Z" creationid="Heromyth" creationdate="20170824T012119Z">
+        <seg>$(LI
+在并行中，任务之间相互独立。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(LI
 Many other functions may be chained as well:</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="大处着手小处着眼" changedate="20160715T151035Z" creationid="大处着手小处着眼" creationdate="20160714T095132Z">
         <seg>$(LI
 许多别的函数可以嵌套使用：</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(LI
+Parallelism is easy to use, and as long as tasks are independent it is easy to produce programs that work correctly.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T012219Z" creationid="Heromyth" creationdate="20170824T012219Z">
+        <seg>$(LI
+并行上手容易，由于任务相互独立的缘故我们写出的程序很少出错。</seg>
       </tuv>
     </tu>
     <tu>
@@ -804,6 +850,16 @@ The goal is to store multiple grades per student.</seg>
       <tuv lang="ZH-CN" changeid="Hipter" changedate="20160711T013837Z" creationid="Hipter" creationdate="20160711T013837Z">
         <seg>$(LI
 目标是存储每个学生的多个成绩。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(LI
+The main purpose of parallelism is to take advantage of microprocessor cores to improve the performance of programs.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T011955Z" creationid="Heromyth" creationdate="20170824T011955Z">
+        <seg>$(LI
+并行的主要目的是利用多核心的运算能力提高程序的性能。</seg>
       </tuv>
     </tu>
     <tu>
@@ -1497,11 +1553,33 @@ $(IX hasUDA, std.traits) 另一个有用的工具是 $(C std.traits.hasUDA)，�
     <tu>
       <tuv lang="EN-US">
         <seg>$(P
+$(IX parallelism vs. concurrency) $(IX concurrency vs. parallelism) The following are the differences between parallelism and concurrency:
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T011639Z" creationid="Heromyth" creationdate="20170824T011639Z">
+        <seg>$(P
+$(IX parallelism vs. concurrency) $(IX concurrency vs. parallelism) 下面是并发和并行的区别：
+)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
 $(IX scalar) That definition can be read as $(I 5 double values).</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="大处着手小处着眼" changedate="20160726T044231Z" creationid="大处着手小处着眼" creationdate="20160720T030622Z">
         <seg>$(P
 $(IX 标量) 这个定义可以理解为 $(I 5 个 double 值)。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
+$(IX thread) $(B Thread): Operating systems execute programs as work units called $(I threads).</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T012434Z" creationid="Heromyth" creationdate="20170824T012434Z">
+        <seg>$(P
+$(IX thread) $(B 线程)：操作系统执行程序的工作单元叫做 $(I 线程)</seg>
       </tuv>
     </tu>
     <tu>
@@ -2066,11 +2144,31 @@ Classes are defined by the $(C class) keyword instead of the $(C struct) keyword
     <tu>
       <tuv lang="EN-US">
         <seg>$(P
+Concurrency is similar to but different from the topic of the previous chapter, parallelism.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T011602Z" creationid="Heromyth" creationdate="20170824T011602Z">
+        <seg>$(P
+虽然并发（concurrency）与并行（parallelism）很相似，但我们不能将其混为一谈。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
 Copying affects only the variables, not the object.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Hipter" changedate="20160706T011948Z" creationid="Hipter" creationdate="20160706T011948Z">
         <seg>$(P
 复制只影响变量，而不是对象。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
+D supports both models of concurrency: message passing and data sharing.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T012320Z" creationid="Heromyth" creationdate="20170824T012320Z">
+        <seg>$(P
+D 语言支持两种并发模型：消息传递和数据共享。</seg>
       </tuv>
     </tu>
     <tu>
@@ -3181,6 +3279,26 @@ The number of an element is called its $(I index) and the act of accessing an el
       <tuv lang="ZH-CN" changeid="大处着手小处着眼" changedate="20160725T020218Z" creationid="大处着手小处着眼" creationdate="20160725T020218Z">
         <seg>$(P
 元素的位置数称为 $(I index)，访问元素的行为称为$(I 索引)。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
+The operating system can pause threads at unpredictable times for unpredictable durations.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T012545Z" creationid="Heromyth" creationdate="20170824T012545Z">
+        <seg>$(P
+操作系统会不定期的将线程暂停一段时间。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
+The operation above involves three steps: Reading the value of the variable, incrementing the value, and assigning the new value back to the variable.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T054020Z" creationid="Heromyth" creationdate="20170824T054020Z">
+        <seg>$(P
+上面这个看似简单的操作实际上包含三个步骤：读取变量的值、将其加一、将结果写回变量所在的内存。</seg>
       </tuv>
     </tu>
     <tu>
@@ -5053,6 +5171,14 @@ $(LI $(LINK2 /ders/d.cn/slices.html, 分片与其他数组功能) $(INDEX_KEYWOR
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>All of the operations of the program are normally executed on that thread.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T012510Z" creationid="Heromyth" creationdate="20170824T012510Z">
+        <seg>通常情况下程序的所有操作都将在这个线程中完成。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Also note that the number of the month, which is in the range &lt;span style="white-space: nowrap"&gt;1-12&lt;/span&gt;, is converted to a valid array index in the range &lt;span style="white-space: nowrap"&gt;0-11&lt;/span&gt;.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="大处着手小处着眼" changedate="20160726T011231Z" creationid="大处着手小处着眼" creationdate="20160726T010435Z">
@@ -5103,6 +5229,14 @@ $(LI $(LINK2 /ders/d.cn/slices.html, 分片与其他数组功能) $(INDEX_KEYWOR
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>An example of a concurrent program would be a server program that is responding to requests of more than one client at the same time.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T012047Z" creationid="Heromyth" creationdate="20170824T012047Z">
+        <seg>比如说服务器程序就是并发的，它需要在同一时间处理多个客户端的请求。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Any value that is entered outside of the &lt;span style="white-space: nowrap"&gt;1-12&lt;/span&gt; range would cause the program to be terminated with an error.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="大处着手小处着眼" changedate="20160726T011653Z" creationid="大处着手小处着眼" creationdate="20160726T011653Z">
@@ -5115,6 +5249,16 @@ $(LI $(LINK2 /ders/d.cn/slices.html, 分片与其他数组功能) $(INDEX_KEYWOR
       </tuv>
       <tuv lang="ZH-CN" changeid="大处着手小处着眼" changedate="20160722T110916Z" creationid="Hipter" creationdate="20160711T092039Z">
         <seg>这些字符类型的数组对应着三种独立的字符串类型，其中一些可能会在一些字符串操作上有出人意料的结果。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>As a result, even operations as simple as incrementing a variable may be paused mid operation:
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T012558Z" creationid="Heromyth" creationdate="20170824T012558Z">
+        <seg>也就是说，即使是一个简单的自增操作也可能会在执行到一半时被操作系统暂停：
+)</seg>
       </tuv>
     </tu>
     <tu>
@@ -5141,6 +5285,14 @@ $(LI $(LINK2 /ders/d.cn/slices.html, 分片与其他数组功能) $(INDEX_KEYWOR
       <tuv lang="ZH-CN" changeid="大处着手小处着眼" changedate="20160725T080800Z" creationid="大处着手小处着眼" creationdate="20160725T080744Z">
         <seg>在每个迭代结束时该变量值都会递增，$(C values[counter]) 表达式指的是数组的逐个元素：$(C values[0])、$(C values[1]) 等等。
 )</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>As these two concepts both involve executing programs on threads, and as parallelism is based on concurrency, they are sometimes confused with each other.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T011615Z" creationid="Heromyth" creationdate="20170824T011615Z">
+        <seg>这两个概念都涉及多线程，且并行是基于并发的，在刚接触它们时有些迷惑也是正常的。</seg>
       </tuv>
     </tu>
     <tu>
@@ -5331,6 +5483,38 @@ COZUMLER_METIN=答案</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Concurrency is about making a program run on more than one thread at a time.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T012106Z" creationid="Heromyth" creationdate="20170824T012037Z">
+        <seg>并发即程序同时运行多个线程。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Concurrency is easy only when it is based on $(I message passing).</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T012251Z" creationid="Heromyth" creationdate="20170824T012251Z">
+        <seg>并发则只有在基于 $(I 消息传递) 时才比较简单。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Concurrency makes use of threads explicitly.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T012205Z" creationid="Heromyth" creationdate="20170824T012205Z">
+        <seg>而并发则需要显式调用线程。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Concurrency on the other hand, is a concept that may be needed even on a single-core environment.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T012004Z" creationid="Heromyth" creationdate="20170824T012004Z">
+        <seg>而并发这个概念在单核心系统中也有用到。并发即程序同时运行多个线程。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Contents</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="ZXP" changedate="20080919T151013Z" creationid="ZXP" creationdate="20080919T151013Z">
@@ -5343,6 +5527,14 @@ COZUMLER_METIN=答案</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170820T003147Z" creationid="Heromyth" creationdate="20170820T003147Z">
         <seg>D 程序需要在文本编辑器里编写。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>D programs start executing with $(C main()) on a thread that has been assigned to that program by the operating system.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T012459Z" creationid="Heromyth" creationdate="20170824T012459Z">
+        <seg>D 语言程序在操作系统指定的线程上执行 $(C main()) 函数。</seg>
       </tuv>
     </tu>
     <tu>
@@ -5979,6 +6171,30 @@ $(LINK2 /ders/d.cn/index.html,
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>In concurrency, it is normal for threads to depend on results of other threads.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T012141Z" creationid="Heromyth" creationdate="20170824T012141Z">
+        <seg>而对于并发，线程间的相互依赖是很常见的。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>In fact, it would be a bug if they did depend on results of other tasks that are running at the same time.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T012132Z" creationid="Heromyth" creationdate="20170824T012132Z">
+        <seg>事实上如果同时运行的任务依赖其他任务的结果就可能会引发程序的 bug。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>In fact, tasks that have been covered in the previous chapter are based on threads that are started automatically by $(C std.parallelism).</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T012537Z" creationid="Heromyth" creationdate="20170824T012537Z">
+        <seg>实际上上一章我们学习的 task 就是基于线程的，只不过这些线程是由 $(C std.parallelism) 自动维护的。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>In order to copy class objects, the type must have a special function likely named $(C dup()).</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Hipter" changedate="20160707T020430Z" creationid="Hipter" creationdate="20160707T020335Z">
@@ -6177,6 +6393,14 @@ $(LINK2 /ders/d.cn/index.html,
       <tuv lang="ZH-CN" changeid="Hipter" changedate="20160712T015633Z" creationid="Hipter" creationdate="20160712T015506Z">
         <seg>不同的是没有 $(STRING " %s") 格式字符串并且不需要 $(C &amp;) 运算符：
 )</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>It is very difficult to write correct concurrent programs if they are based on the traditional model of concurrency that involves lock-based data sharing.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T012308Z" creationid="Heromyth" creationdate="20170824T012308Z">
+        <seg>若使用传统的基于锁的数据共享模型，则很难写出正确的程序。</seg>
       </tuv>
     </tu>
     <tu>
@@ -6917,6 +7141,14 @@ LANGUAGE=chinese</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>The program is free to start other threads to be able to work on multiple tasks at the same time.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T012518Z" creationid="Heromyth" creationdate="20170824T012518Z">
+        <seg>程序也可以自由地创建线程以实现在同一时间执行多个任务的功能。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>The program is written to read five numbers from the input and to place the squares of those numbers into an array.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="大处着手小处着眼" changedate="20160726T024424Z" creationid="大处着手小处着眼" creationdate="20160726T024424Z">
@@ -7263,6 +7495,14 @@ LANGUAGE=chinese</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Hipter" changedate="20160711T011230Z" creationid="Hipter" creationdate="20160711T011230Z">
         <seg>在下一章我们将</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>We will cover message passing in this chapter and data sharing in the next chapter.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T012330Z" creationid="Heromyth" creationdate="20170824T012330Z">
+        <seg>我们将会在本章中学习到消息传递，在下一章中学习数据共享。</seg>
       </tuv>
     </tu>
     <tu>
