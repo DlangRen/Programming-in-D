@@ -590,6 +590,14 @@ $(LI $(LINK2 /ders/d.cn/struct.html, 结构) $(INDEX_KEYWORDS struct .</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>$(H5 Sharing is not automatic)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T143933Z" creationid="Heromyth" creationdate="20170825T143933Z">
+        <seg>$(H5 共享不是自动的)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>$(H5 Summary)</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170804T054023Z" creationid="Hipter" creationdate="20160707T015616Z">
@@ -1778,6 +1786,16 @@ $(C thisTid()) returns the identifier of the $(I current) thread.</seg>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T232250Z" creationid="Heromyth" creationdate="20170824T232250Z">
         <seg>$(P
 $(C thisTid()) 返回$(I 当前)线程的 ID。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
+$(C variable) that is modified inside $(C worker()) is not the same $(C variable) that is seen by $(C main()).</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T144845Z" creationid="Heromyth" creationdate="20170825T144845Z">
+        <seg>$(P
+$(C worker()) 中修改的 $(C variable) 与 $(C main()) 访问的 $(C variable) 是不同的。</seg>
       </tuv>
     </tu>
     <tu>
@@ -3340,6 +3358,16 @@ Once a line is read from the input or from any other source, it is possible to p
     <tu>
       <tuv lang="EN-US">
         <seg>$(P
+One of the reasons why data sharing is not safe is $(I race conditions).</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T143616Z" creationid="Heromyth" creationdate="20170825T143616Z">
+        <seg>$(P
+$(I 竞态条件)是数据共享不够安全的原因之一。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
 One thing that the worker can do is to catch the exception explicitly and to send it as a special error message.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T045106Z" creationid="Heromyth" creationdate="20170825T045106Z">
@@ -3913,6 +3941,16 @@ The examples in this chapter call $(C Thread.sleep) to slow down threads to demo
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T054704Z" creationid="Heromyth" creationdate="20170824T054704Z">
         <seg>$(P
 本章中的例子调用 $(C Thread.sleep) 减慢线程执行的速度来更方便的展示线程运行的情况。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
+The examples in this chapter may look simplistic.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T143738Z" creationid="Heromyth" creationdate="20170825T143738Z">
+        <seg>$(P
+本章中的例子看起来都很简单。</seg>
       </tuv>
     </tu>
     <tu>
@@ -4797,6 +4835,16 @@ Unlike an interpreter, the compiler reads and understands the source code only o
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170820T004834Z" creationid="Heromyth" creationdate="20170820T004834Z">
         <seg>$(P
 不像解释器，编译器一次性地在编译期读入和理解源码。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
+Unlike most other programming languages, data is not automatically shared in D; data is thread-local by default.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T144801Z" creationid="Heromyth" creationdate="20170825T144003Z">
+        <seg>$(P
+与其他大部分编程语言的不同之处在于，D 语言里的数据不会自动共享（默认情况下，数据仅限于线程本地。</seg>
       </tuv>
     </tu>
     <tu>
@@ -6519,6 +6567,14 @@ $(LI $(LINK2 /ders/d.cn/slices.html, 分片与其他数组功能) $(INDEX_KEYWOR
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>A race condition occurs when more than one thread accesses the same mutable data in an uncontrolled order.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T143635Z" creationid="Heromyth" creationdate="20170825T143635Z">
+        <seg>当多个线程以无法控制的顺序访问同一块数据时就会引发竞态条件。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>A thread that is busily working at a given time is said to be $(I CPU bound) at that point in time.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T232048Z" creationid="Heromyth" creationdate="20170824T232048Z">
@@ -6601,6 +6657,14 @@ $(LI $(LINK2 /ders/d.cn/slices.html, 分片与其他数组功能) $(INDEX_KEYWOR
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Also, although these examples use the $(C std.concurrency) module, the concepts of this chapter apply to the $(C core.thread) module as well.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T143811Z" creationid="Heromyth" creationdate="20170825T143811Z">
+        <seg>除此之外，虽然本章的例子使用的都是 $(C std.concurrency) 模块，但它们所包含的概念同样适用于 $(C core.thread) 模块。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Also, unlike arrays, the elements of hash tables are not stored side-by-side.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Hipter" changedate="20160711T131420Z" creationid="Hipter" creationdate="20160708T092324Z">
@@ -6613,6 +6677,16 @@ $(LI $(LINK2 /ders/d.cn/slices.html, 分片与其他数组功能) $(INDEX_KEYWOR
       </tuv>
       <tuv lang="ZH-CN" changeid="Hipter" changedate="20160706T010501Z" creationid="Hipter" creationdate="20160706T010501Z">
         <seg>虽然语法上看起来是在类 $(I 变量) 上执行，但实际上调度了一个类 $(I object)。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Although module-level variables may give the impression of being accessible by all threads, each thread actually gets its own copy:
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T144819Z" creationid="Heromyth" creationdate="20170825T144819Z">
+        <seg>虽然每个线程都可以访问模块级的变量，但实际上它们访问的都是对应变量在自己线程中的副本：
+)</seg>
       </tuv>
     </tu>
     <tu>
@@ -6647,6 +6721,14 @@ $(LI $(LINK2 /ders/d.cn/slices.html, 分片与其他数组功能) $(INDEX_KEYWOR
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T012047Z" creationid="Heromyth" creationdate="20170824T012047Z">
         <seg>比如说服务器程序就是并发的，它需要在同一时间处理多个客户端的请求。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Another example would be where the owner starts multiple workers with the address of the same variable so that the variable gets modified by more than one worker.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T143555Z" creationid="Heromyth" creationdate="20170825T143555Z">
+        <seg>或者所有者线程将同一个变量地址发给多个工作线程，这些工作线程可通过修改或读取这个变量来从其他线程获取信息。</seg>
       </tuv>
     </tu>
     <tu>
@@ -7635,6 +7717,14 @@ $(LINK2 /ders/d.cn/index.html,
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>However, the issues that they convey appear in real programs at greater scales.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T143807Z" creationid="Heromyth" creationdate="20170825T143807Z">
+        <seg>但是在实际编程中它们代表的问题通常规模很大。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>However, warnings almost always indicate an actual error or bad style, so it is a common practice to consider most or all warnings as errors.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170820T005229Z" creationid="Heromyth" creationdate="20170820T005229Z">
@@ -8539,6 +8629,14 @@ LANGUAGE=chinese</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Hipter" changedate="20160709T033921Z" creationid="Hipter" creationdate="20160709T033921Z">
         <seg>由于键已不存在于容器中， 因而第二行将引发一个异常，如果异常没有被捕获，程序将终止。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Since the operating system pauses and starts individual threads in unspecified ways, the behavior of a program that has race conditions is unpredictable.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T143649Z" creationid="Heromyth" creationdate="20170825T143649Z">
+        <seg>由于操作系统会无法预期地暂停和继续线程的执行，含有竞态条件的程序的行为是无法预期的。</seg>
       </tuv>
     </tu>
     <tu>
