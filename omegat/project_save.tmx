@@ -1052,10 +1052,42 @@ There are three mistakes (bugs) in this program.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>$(LI $(C Variant) matches any type of message.)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T140545Z" creationid="Heromyth" creationdate="20170825T140545Z">
+        <seg>$(LI $(C Variant) 用来匹配所有类型的消息。)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>$(LI $(C catch) and $(C finally) cannot be used without a $(C try) block.)</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Hipter" changedate="20160707T022354Z" creationid="Hipter" creationdate="20160707T022354Z">
         <seg>$(LI 没有一个 $(C try) 块， $(C catch) 和 $(C finally) 不能使用。)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(LI $(C ownerTid) is the thread id of the owner of the current thread.)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T140505Z" creationid="Heromyth" creationdate="20170825T140505Z">
+        <seg>$(LI $(C ownerTid) 为当前线程所有者的线程 ID。)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(LI $(C receiveOnly()), $(C receive()), and $(C receiveTimeout()) wait for messages.)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T140531Z" creationid="Heromyth" creationdate="20170825T140531Z">
+        <seg>$(LI $(C receiveOnly())、$(C receive()) 和 $(C receiveTimeout()) 用于等待消息。)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(LI $(C register()), $(C unregister()), and $(C locate()) allow referring to threads by name.)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T140728Z" creationid="Heromyth" creationdate="20170825T140728Z">
+        <seg>$(LI $(C register())、$(C unregister()) 和 $(C locate()) 允许程序员通过线程名访问线程。)</seg>
       </tuv>
     </tu>
     <tu>
@@ -1074,6 +1106,38 @@ There are three mistakes (bugs) in this program.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Hipter" changedate="20160707T025415Z" creationid="Hipter" creationdate="20160707T025415Z">
         <seg>$(LI $(C scope(success))：表达式只在成功退出作用域时被执行。)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(LI $(C send()) and $(C prioritySend()) send messages.)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T140516Z" creationid="Heromyth" creationdate="20170825T140516Z">
+        <seg>$(LI $(C send()) 和 $(C prioritySend()) 用于发送消息。)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(LI $(C setMaxMailboxSize()) limits the size of mailboxes.)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T140715Z" creationid="Heromyth" creationdate="20170825T140715Z">
+        <seg>$(LI $(C setMaxMailboxSize()) 用来限制邮箱大小。)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(LI $(C spawn()) and $(C spawnLinked()) start threads.)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T135838Z" creationid="Heromyth" creationdate="20170825T135838Z">
+        <seg>$(LI $(C spawn()) 和 $(C spawnLinked()) 用于启动线程。)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(LI $(C thisTid) is the thread id of the current thread.)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T135851Z" creationid="Heromyth" creationdate="20170825T135851Z">
+        <seg>$(LI $(C thisTid) 为当前线程的线程 ID。)</seg>
       </tuv>
     </tu>
     <tu>
@@ -1270,6 +1334,14 @@ There are three mistakes (bugs) in this program.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>$(LI Because concurrency by data sharing is hard to implement correctly, prefer concurrency by message passing, which is the subject of this chapter.)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T135826Z" creationid="Heromyth" creationdate="20170825T135826Z">
+        <seg>$(LI 基于数据共享的并行难以编写出正确的代码，所以推荐使用本章讲解的消息传递并行。)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>$(LI Class variables that are not associated with any object are $(C null).</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Hipter" changedate="20160707T020015Z" creationid="Hipter" creationdate="20160707T020015Z">
@@ -1298,6 +1370,14 @@ There are three mistakes (bugs) in this program.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170815T042259Z" creationid="Heromyth" creationdate="20170815T042259Z">
         <seg>$(LI 每个成员都使用 $(C hasUDA) 来测试，以便确定它是否拥有 $(C Encrypted) 特性。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(LI Exceptions may be thrown during message passing: $(C MessageMismatch), $(C OwnerTerminated), $(C LinkTerminated), $(C MailboxFull), and $(C PriorityMessageException).)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T140807Z" creationid="Heromyth" creationdate="20170825T140807Z">
+        <seg>$(LI 消息传递的过程中也可能会抛出异常：$(C MessageMismatch)、$(C OwnerTerminated)、$(C LinkTerminated)、$(C MailboxFull) 以及 $(C PriorityMessageException)。)</seg>
       </tuv>
     </tu>
     <tu>
@@ -1370,6 +1450,14 @@ There are three mistakes (bugs) in this program.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T234259Z" creationid="Heromyth" creationdate="20170824T234259Z">
         <seg>$(LI 起点：机器人的初始位置。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(LI The owner cannot automatically catch exceptions that are thrown from the worker.)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T140819Z" creationid="Heromyth" creationdate="20170825T140819Z">
+        <seg>$(LI 所有者无法自动捕获工作线程中的异常。)</seg>
       </tuv>
     </tu>
     <tu>
@@ -6847,6 +6935,14 @@ COZUMLER_METIN=答案</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Consider $(I concurrency) only when threads depend on operations of other threads.)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T135814Z" creationid="Heromyth" creationdate="20170825T135814Z">
+        <seg>只有线程间有相互依赖的操作时再考虑 $(I concurrency)。)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Contents</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="ZXP" changedate="20080919T151013Z" creationid="ZXP" creationdate="20080919T151013Z">
@@ -6923,6 +7019,14 @@ COZUMLER_METIN=答案</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="大处着手小处着眼" changedate="20160718T134924Z" creationid="大处着手小处着眼" creationdate="20160714T095637Z">
         <seg>DESCRIPTION=D 语言编程习题解答：字符串</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>DESCRIPTION=Starting multiple threads in the D programming language and the interactions of threads by message passing.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T141037Z" creationid="Heromyth" creationdate="20170825T141037Z">
+        <seg>DESCRIPTION=在 D 语言中启动多个线程并通过消息传递实现多线程交互。</seg>
       </tuv>
     </tu>
     <tu>
@@ -7949,6 +8053,14 @@ $(LINK2 /ders/d.cn/index.html,
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>KEYWORDS=d programming language tutorial book concurrency thread</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T141223Z" creationid="Heromyth" creationdate="20170825T141223Z">
+        <seg>KEYWORDS=d programming language tutorial book concurrency thread 编程 语言 教程 书籍 并发 线程</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>KEYWORDS=d programming language tutorial book novice beginner</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170802T045729Z" creationid="Heromyth" creationdate="20170801T100406Z">
@@ -8319,6 +8431,14 @@ LANGUAGE=chinese</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170820T005319Z" creationid="Heromyth" creationdate="20170820T005319Z">
         <seg>SUBTITLE=编译器</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>SUBTITLE=Message Passing Concurrency</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T140855Z" creationid="Heromyth" creationdate="20170825T140855Z">
+        <seg>SUBTITLE=基于消息传递的并发</seg>
       </tuv>
     </tu>
     <tu>
