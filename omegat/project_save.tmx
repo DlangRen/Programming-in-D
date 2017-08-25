@@ -486,6 +486,14 @@ $(LI $(LINK2 /ders/d.cn/struct.html, 结构) $(INDEX_KEYWORDS struct .</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>$(H5 A race condition example)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T235137Z" creationid="Heromyth" creationdate="20170825T235137Z">
+        <seg>$(H5 竞态条件示例)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>$(H5 Adding key-value pairs)</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Hipter" changedate="20160709T080331Z" creationid="Hipter" creationdate="20160708T144521Z">
@@ -2264,6 +2272,16 @@ Also available as $(LINK2 https://gumroad.com/l/PinD, $(I pay-what-you-want) eBo
     <tu>
       <tuv lang="EN-US">
         <seg>$(P
+Also observe that total number of swaps is 10 times 10 thousand.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T235313Z" creationid="Heromyth" creationdate="20170825T235313Z">
+        <seg>$(P
+除此之外我们还可以看到程序一共启动了 10 个线程，每个线程执行 1 万次交换。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
 Although "résumé" contains six $(I letters), the length of the $(C string) is the number of UTF-8 code units that it contains:
 )</seg>
       </tuv>
@@ -2276,11 +2294,33 @@ Although "résumé" contains six $(I letters), the length of the $(C string) is 
     <tu>
       <tuv lang="EN-US">
         <seg>$(P
+Although it is possible that the program can indeed produce that result, most of the time the actual outcome would be one of the following:
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T235430Z" creationid="Heromyth" creationdate="20170825T235430Z">
+        <seg>$(P
+虽然程序的确可以得到我们预期的那种结果，但是实际上大多数情况下程序的输出都是下面这样的：
+)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
 Although member functions are defined and used the same way as structs, there is an important difference: Class member functions can be and by-default are $(I overridable).</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Hipter" changedate="20160707T005644Z" creationid="Hipter" creationdate="20160707T005311Z">
         <seg>$(P
 虽然成员函数的定义与用法与结构相同，有个重要的不同：类成员函数默认是 $(I 可重写的) 。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
+Although the program above gets compiled successfully, in most cases it would work incorrectly.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T235238Z" creationid="Heromyth" creationdate="20170825T235238Z">
+        <seg>$(P
+虽然上面这个程序顺利通过了编译，但在大多数情况下它并不能正确工作。</seg>
       </tuv>
     </tu>
     <tu>
@@ -4008,6 +4048,16 @@ The concept of compilation and the function of the compiler must also be underst
     <tu>
       <tuv lang="EN-US">
         <seg>$(P
+The correctness of the program requires extra attention when mutable data is shared between threads.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T235147Z" creationid="Heromyth" creationdate="20170825T235147Z">
+        <seg>$(P
+为了保证程序的正确性，我们需要为那些在线程间共享的可变数据付出额外的精力。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
 The definition of array variables is very similar to the definition of normal variables.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="大处着手小处着眼" changedate="20160720T022547Z" creationid="大处着手小处着眼" creationdate="20160720T022547Z">
@@ -4922,6 +4972,16 @@ Threads can detect that the receiver of a message has terminated.</seg>
     <tu>
       <tuv lang="EN-US">
         <seg>$(P
+To see an example of a race condition let's consider multiple threads sharing the same mutable variable.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T235159Z" creationid="Heromyth" creationdate="20170825T235159Z">
+        <seg>$(P
+下面这个竞态条件的例子就是多个线程共享同一个可变变量。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
 To see how this program is better than the previous one, imagine needing to read 20 values.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="大处着手小处着眼" changedate="20160726T134911Z" creationid="大处着手小处着眼" creationdate="20160725T081024Z">
@@ -5512,6 +5572,48 @@ After : re�sueé    $(SHELL_NOTE_WRONG INCORRECT)
         <seg>$(SHELL
 Before: résumé
 After : re�sueé    $(SHELL_NOTE_WRONG 不正确)
+)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(SHELL
+before: 1 and 2
+after : 1 and 1    $(SHELL_NOTE_WRONG incorrect result)
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T235442Z" creationid="Heromyth" creationdate="20170825T235442Z">
+        <seg>$(SHELL
+before: 1 and 2
+after : 1 and 1    $(SHELL_NOTE_WRONG 错误结果)
+)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(SHELL
+before: 1 and 2
+after : 1 and 2    $(SHELL_NOTE expected result)
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T235419Z" creationid="Heromyth" creationdate="20170825T235357Z">
+        <seg>$(SHELL
+before: 1 and 2
+after : 1 and 2    $(SHELL_NOTE 期望的结果)
+)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(SHELL
+before: 1 and 2
+after : 2 and 2    $(SHELL_NOTE_WRONG incorrect result)
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T235449Z" creationid="Heromyth" creationdate="20170825T235449Z">
+        <seg>$(SHELL
+before: 1 and 2
+after : 2 and 2    $(SHELL_NOTE_WRONG 错误结果)
 )</seg>
       </tuv>
     </tu>
@@ -6463,6 +6565,14 @@ auto encrypted(string value) {</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>// Wait for all threads to finish their tasks</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T235226Z" creationid="Heromyth" creationdate="20170825T235226Z">
+        <seg>// 等待所有线程完成它们的任务</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>// associates value 0 with key "Monday"</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Hipter" changedate="20160709T090946Z" creationid="Hipter" creationdate="20160708T145014Z">
@@ -6883,6 +6993,14 @@ $(LI $(LINK2 /ders/d.cn/slices.html, 分片与其他数组功能) $(INDEX_KEYWOR
       </tuv>
       <tuv lang="ZH-CN" changeid="大处着手小处着眼" changedate="20160722T110916Z" creationid="Hipter" creationdate="20160711T092039Z">
         <seg>这些字符类型的数组对应着三种独立的字符串类型，其中一些可能会在一些字符串操作上有出人意料的结果。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>As a result of the $(I race conditions) that they are in, they inadvertently spoil the operations of other threads.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T235257Z" creationid="Heromyth" creationdate="20170825T235257Z">
+        <seg>由于它们处在$(I 竞态条件)，这些线程会在不经意间破坏其他线程的操作。</seg>
       </tuv>
     </tu>
     <tu>
@@ -8549,6 +8667,14 @@ LANGUAGE=chinese</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Observe that it starts ten threads that all access the same two variables $(C i) and $(C j).</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T235247Z" creationid="Heromyth" creationdate="20170825T235247Z">
+        <seg>你看它启动了 10 个线程，这些线程都要去访问变量 $(C i) 和 $(C j)。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>On the other hand, a program that did not use an array would have to have 20 variable definitions.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="大处着手小处着眼" changedate="20160725T081416Z" creationid="大处着手小处着眼" creationdate="20160725T081416Z">
@@ -8775,6 +8901,16 @@ LANGUAGE=chinese</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Since that amount is an even number, it is natural to expect that the variables end up having values 1 and 2, their initial values:
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T235321Z" creationid="Heromyth" creationdate="20170825T235321Z">
+        <seg>由于交换总次数一样，我们会很自然的认为交换后的值与初始值相同，即 1 和 2：
+)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Since that key is not in the container anymore, the second line would cause an exception to be thrown and the program to be terminated if that exception is not caught.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Hipter" changedate="20160709T033921Z" creationid="Hipter" creationdate="20160709T033921Z">
@@ -8909,6 +9045,14 @@ LANGUAGE=chinese</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170804T043355Z" creationid="Heromyth" creationdate="20170804T043355Z">
         <seg>编译时可以通过 $(C __traits(getAttributes)) 来判定属性，而相应代码则会根据那些属性来编译。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>The call to $(C core.thread.thread_joinAll) above is to make a thread wait for all of its child threads to terminate.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T235121Z" creationid="Heromyth" creationdate="20170825T235121Z">
+        <seg>所以，我们调用 $(C core.thread.thread_joinAll) 函数阻塞主线程来等待子线程执行完毕。</seg>
       </tuv>
     </tu>
     <tu>
@@ -9267,6 +9411,16 @@ LANGUAGE=chinese</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T233003Z" creationid="Heromyth" creationdate="20170824T233003Z">
         <seg>工作线程会不停地返回消息直到线程所有者发送一个负的 $(C int)。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>The threads in the following program receive the addresses as two variables and swap their values a large number of times:
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T235211Z" creationid="Heromyth" creationdate="20170825T235211Z">
+        <seg>这些线程将会收到两个变量的地址，并将它们的值对调。对调过程将执行多次：
+)</seg>
       </tuv>
     </tu>
     <tu>
