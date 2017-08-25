@@ -112,6 +112,14 @@ $(LI $(LINK2 /ders/d.cn/struct.html, 结构) $(INDEX_KEYWORDS struct .</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>$(C OnCrowding.block) causes the sender to wait until there is room in the mailbox.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T135024Z" creationid="Heromyth" creationdate="20170825T135024Z">
+        <seg>$(C OnCrowding.block) 会阻塞消息发送者的线程直到邮箱中有空闲空间。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>$(C readf()) continues to wait for more characters to add to the string:
 )</seg>
       </tuv>
@@ -390,6 +398,14 @@ $(LI $(LINK2 /ders/d.cn/struct.html, 结构) $(INDEX_KEYWORDS struct .</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>$(H5 $(IX prioritySend) $(IX PriorityMessageException) Priority messages)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T135118Z" creationid="Heromyth" creationdate="20170825T135118Z">
+        <seg>$(H5 $(IX prioritySend) $(IX PriorityMessageException) 消息优先级)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>$(H5 $(IX programming language) Programming language)</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170820T004025Z" creationid="Heromyth" creationdate="20170820T004025Z">
@@ -578,6 +594,14 @@ $(LI $(LINK2 /ders/d.cn/struct.html, 结构) $(INDEX_KEYWORDS struct .</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170815T121738Z" creationid="Heromyth" creationdate="20170815T121738Z">
         <seg>$(H5 自定义属性的好处)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(H5 Thread names)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T135208Z" creationid="Heromyth" creationdate="20170825T135208Z">
+        <seg>$(H5 线程名)</seg>
       </tuv>
     </tu>
     <tu>
@@ -1020,6 +1044,14 @@ There are three mistakes (bugs) in this program.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>$(LI $(C OnCrowding.ignore): The message is discarded.)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T134644Z" creationid="Heromyth" creationdate="20170825T134644Z">
+        <seg>$(LI $(C OnCrowding.ignore)：多余的消息将被抛弃。)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>$(LI $(C catch) and $(C finally) cannot be used without a $(C try) block.)</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Hipter" changedate="20160707T022354Z" creationid="Hipter" creationdate="20160707T022354Z">
@@ -1142,6 +1174,22 @@ There are three mistakes (bugs) in this program.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>$(LI $(IX MailboxFull) $(C OnCrowding.throwException): A $(C MailboxFull) exception is thrown when sending the message.)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T134702Z" creationid="Heromyth" creationdate="20170825T134702Z">
+        <seg>$(LI $(IX MailboxFull) $(C OnCrowding.throwException)：向发送者线程中抛出$(C MailboxFull) 异常。)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(LI $(IX OnCrowding) $(C OnCrowding.block): The sender waits until there is room in the mailbox.)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T134502Z" creationid="Heromyth" creationdate="20170825T134502Z">
+        <seg>$(LI $(IX OnCrowding) $(C OnCrowding.block)：阻塞发送者直到邮箱中有空闲空间。)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>$(LI $(IX allMembers) $(C __traits(allMembers)) produces the members of a type (or a module) as strings.)</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170804T053356Z" creationid="Heromyth" creationdate="20170804T053356Z">
@@ -1158,6 +1206,30 @@ There are three mistakes (bugs) in this program.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>$(LI $(IX locate) $(C locate()): Returns the thread that is associated with the specified name.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T135412Z" creationid="Heromyth" creationdate="20170825T135340Z">
+        <seg>$(LI $(IX locate) $(C locate())：返回线程名关联的线程。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(LI $(IX register, concurrency) $(C register()): Associates a thread with a name.)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T135326Z" creationid="Heromyth" creationdate="20170825T135326Z">
+        <seg>$(LI $(IX register, concurrency) $(C register())：给线程关联一个名字。)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(LI $(IX unregister) $(C unregister()): Breaks the association between the specified name and the thread.)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T135430Z" creationid="Heromyth" creationdate="20170825T135430Z">
+        <seg>$(LI $(IX unregister) $(C unregister())：解除线程和线程名之间的关联。)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>$(LI A class destructor must not access a member that is managed by the garbage collector.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170820T001816Z" creationid="Heromyth" creationdate="20170820T001647Z">
@@ -1170,6 +1242,14 @@ There are three mistakes (bugs) in this program.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170820T001802Z" creationid="Heromyth" creationdate="20170820T001723Z">
         <seg>$(LI 类的析构函数一定不要分配由垃圾回收器管理的新内存。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(LI A function pointer of type $(C bool function(Tid)): The specified function is called.)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T134737Z" creationid="Heromyth" creationdate="20170825T134737Z">
+        <seg>$(LI 类型为 $(C bool function(Tid) 的函数指针)：调用指定的函数。)</seg>
       </tuv>
     </tu>
     <tu>
@@ -1342,6 +1422,14 @@ There are three mistakes (bugs) in this program.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170815T053114Z" creationid="Heromyth" creationdate="20170815T053114Z">
         <seg>$(LI 自定义属性可以是类型名，也可以是具体值。)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(LI When threads do not depend on other threads, prefer $(I parallelism), which has been the topic of the previous chapter.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T135802Z" creationid="Heromyth" creationdate="20170825T135802Z">
+        <seg>$(LI 如果线程相互独立，推荐使用上一章的 $(I parallelism)。</seg>
       </tuv>
     </tu>
     <tu>
@@ -1841,6 +1929,16 @@ $(IX 标量) 这个定义可以理解为 $(I 5 个 double 值)。</seg>
     <tu>
       <tuv lang="EN-US">
         <seg>$(P
+$(IX setMaxMailboxSize) $(C setMaxMailboxSize()) is used for limiting the number of messages that a mailbox can hold.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T134421Z" creationid="Heromyth" creationdate="20170825T134421Z">
+        <seg>$(P
+$(IX setMaxMailboxSize) $(C setMaxMailboxSize()) 可以限制邮箱保存的消息数量。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
 $(IX thread id) $(B Thread identifier): Every thread has an id, which is used for specifying recipients of messages.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T054136Z" creationid="Heromyth" creationdate="20170824T054136Z">
@@ -1856,6 +1954,16 @@ $(IX thread) $(B Thread): Operating systems execute programs as work units calle
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T012434Z" creationid="Heromyth" creationdate="20170824T012434Z">
         <seg>$(P
 $(IX thread) $(B 线程)：操作系统执行程序的工作单元叫做 $(I 线程)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
+$(IX thread_joinAll) The $(C thread_joinAll()) call that is seen at the end of $(C main()) is for making the owner to wait for all of its workers to terminate.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T135734Z" creationid="Heromyth" creationdate="20170825T135734Z">
+        <seg>$(P
+$(IX thread_joinAll) $(C main()) 末尾处的  $(C thread_joinAll()) 会阻塞所有者线程，等待所有工作线程终止。</seg>
       </tuv>
     </tu>
     <tu>
@@ -2390,6 +2498,26 @@ Because strings are arrays (and as a corollary, $(I ranges)), the functions of t
     <tu>
       <tuv lang="EN-US">
         <seg>$(P
+Because the consumer is slower than the producer, the memory that the program above uses would grow continuously.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T134927Z" creationid="Heromyth" creationdate="20170825T134927Z">
+        <seg>$(P
+因为消费者处理消息的速度远低于生产者产生消息的速度，程序的内存占用会持续增长。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
+Before seeing an example of $(C setMaxMailboxSize()), let's first cause a mailbox to grow continuously.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T134800Z" creationid="Heromyth" creationdate="20170825T134800Z">
+        <seg>$(P
+在接触 $(C setMaxMailboxSize()) 的例子之前，我们先来创建一个消息数量会持续增长的邮箱。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
 Being character arrays, strings can contain control characters like $(STRING '\n') as well.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Hipter" changedate="20160711T092733Z" creationid="Hipter" creationdate="20160711T092733Z">
@@ -2546,9 +2674,9 @@ Encapsulation is achieved by $(I protection attributes), which we will see in $(
         <seg>$(P
 Every thread has a private mailbox that holds the messages that are sent to that thread.</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T134253Z" creationid="Heromyth" creationdate="20170825T134253Z">
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T134333Z" creationid="Heromyth" creationdate="20170825T134253Z">
         <seg>$(P
-每一个线程都有一个用来保存消息的收件箱。</seg>
+每一个线程都有一个用来保存消息的邮箱。</seg>
       </tuv>
     </tu>
     <tu>
@@ -2778,6 +2906,18 @@ If the array sizes are not equal, the program is terminated with an error during
     <tu>
       <tuv lang="EN-US">
         <seg>$(P
+If the receiver does not have a message handler that matches the type of the priority message, then a $(C PriorityMessageException) is thrown:
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T135158Z" creationid="Heromyth" creationdate="20170825T135158Z">
+        <seg>$(P
+如果消息接收者没有能与优先级消息匹配的处理函数，它会抛出一个 $(C PriorityMessageException) 异常：
+)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
 If there is no other class variable that still provides access to the object that has been disassociated from, then that object is going to be destroyed some time in the future by the garbage collector.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Hipter" changedate="20160706T031054Z" creationid="Hipter" creationdate="20160706T031054Z">
@@ -2845,6 +2985,16 @@ In the code above, $(C variable2) is being initialized by $(C variable1).</seg>
       <tuv lang="ZH-CN" changeid="Hipter" changedate="20160706T021450Z" creationid="Hipter" creationdate="20160706T021450Z">
         <seg>$(P
 在上面的代码中， $(C variable2) 由 $(C variable1) 初始化。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
+In the simple programs that we have used above, it was easy to pass the thread ids of owners and workers.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T135221Z" creationid="Heromyth" creationdate="20170825T135221Z">
+        <seg>$(P
+之前我们看到的程序都很简单，所以在线程间传递线程 ID 还是比较方便的。</seg>
       </tuv>
     </tu>
     <tu>
@@ -2997,6 +3147,16 @@ Like every variable in D, the elements of arrays are automatically initialized.<
       <tuv lang="ZH-CN" changeid="大处着手小处着眼" changedate="20160725T082520Z" creationid="大处着手小处着眼" creationdate="20160725T082520Z">
         <seg>$(P
 像在 D 语言中的每个变量，数组的元素自动初始化。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
+Messages can be sent with higher priority than regular messages by $(C prioritySend()).</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T135130Z" creationid="Heromyth" creationdate="20170825T135130Z">
+        <seg>$(P
+可以使用 $(C prioritySend()) 发送高标准优先级的消息。</seg>
       </tuv>
     </tu>
     <tu>
@@ -3438,6 +3598,16 @@ $(C scope) 语句与 $(C catch) 和 $(C finally) 有相似功能，但在许多�
     <tu>
       <tuv lang="EN-US">
         <seg>$(P
+The $(C setMaxMailboxSize()) call above sets the main thread's mailbox size to 1000.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T135011Z" creationid="Heromyth" creationdate="20170825T135011Z">
+        <seg>$(P
+$(C setMaxMailboxSize()) 将邮箱大小限制为 1000。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
 The $(C strip()) expression above returns a new string that does not contain the trailing control characters.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="大处着手小处着眼" changedate="20160719T150826Z" creationid="Hipter" creationdate="20160712T020830Z">
@@ -3726,11 +3896,45 @@ The following code shows how the attributes of a specific $(C struct) member (e.
     <tu>
       <tuv lang="EN-US">
         <seg>$(P
+The following example uses $(C OnCrowding.throwException), which causes a $(C MailboxFull) exception to be thrown when sending a message to a mailbox that is full:
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T135050Z" creationid="Heromyth" creationdate="20170825T135050Z">
+        <seg>$(P
+下面这个例子使用了 $(C OnCrowding.throwException)。它将在邮箱满时抛出 $(C MailboxFull) 异常：
+)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
 The following program simulates independent robots moving around randomly in a two dimensional space.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T234125Z" creationid="Heromyth" creationdate="20170824T234125Z">
         <seg>$(P
 下面这个程序模拟的是两个互不相关的机器人在二维空间中随机移动。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
+The following program starts two threads that find each other by their names.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T135509Z" creationid="Heromyth" creationdate="20170825T135443Z">
+        <seg>$(P
+下面这个程序启动了两个线程。它们会通过线程名找到对方。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
+The following three functions define an interface to an associative array that every thread has access to:
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T135311Z" creationid="Heromyth" creationdate="20170825T135311Z">
+        <seg>$(P
+下面这三个函数定义了一个接口。通过这个接口每个线程都可以访问一个关联线程与线程名的数组：
+)</seg>
       </tuv>
     </tu>
     <tu>
@@ -5365,6 +5569,14 @@ $(LI 左手侧的 $(C char[]) 是一个切片，这意味着，一旦代码编�
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>*          program is running.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T134844Z" creationid="Heromyth" creationdate="20170825T134844Z">
+        <seg>*          失去响应。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>* The default color is Color.black.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170815T120021Z" creationid="Heromyth" creationdate="20170815T120021Z">
@@ -5514,6 +5726,16 @@ auto encrypted(string value) {</seg>
     <tu>
       <tuv lang="EN-US">
         <seg>---
+/* WARNING: Your system may become unresponsive when this</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T134831Z" creationid="Heromyth" creationdate="20170825T134831Z">
+        <seg>---
+/* 注意：在运行这个程序时你的系统可能会</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>---
 // ... at the worker ...</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T051905Z" creationid="Heromyth" creationdate="20170825T051905Z">
@@ -5535,6 +5757,14 @@ auto encrypted(string value) {</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T043409Z" creationid="Heromyth" creationdate="20170825T043409Z">
         <seg>/* ... 可在此处执行其他操作... */</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>/* Failed to send; will try again later.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T135105Z" creationid="Heromyth" creationdate="20170825T135105Z">
+        <seg>/* 无法发送消息；稍候会重新发送。</seg>
       </tuv>
     </tu>
     <tu>
@@ -5755,6 +5985,22 @@ auto encrypted(string value) {</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>// A thread whose partner is named "first"</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T135624Z" creationid="Heromyth" creationdate="20170825T135624Z">
+        <seg>// 兄弟线程为 "first"</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>// A thread whose partner is named "second"</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T135608Z" creationid="Heromyth" creationdate="20170825T135608Z">
+        <seg>// 兄弟线程为 "second"</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>// Adding to the corresponding array, depending on</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="大处着手小处着眼" changedate="20160726T030303Z" creationid="大处着手小处着眼" creationdate="20160726T030303Z">
@@ -5787,6 +6033,14 @@ auto encrypted(string value) {</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>// For the unregister() calls to succeed, main() must wait</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T135629Z" creationid="Heromyth" creationdate="20170825T135629Z">
+        <seg>// 为了能成功调用 unregister()，main() 需要等待</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>// Information about the students of a school</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="大处着手小处着眼" changedate="20160720T033532Z" creationid="大处着手小处着眼" creationdate="20160720T033532Z">
@@ -5815,6 +6069,14 @@ auto encrypted(string value) {</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="大处着手小处着眼" changedate="20160726T025423Z" creationid="大处着手小处着眼" creationdate="20160725T073220Z">
         <seg>// 在循环中从输入流读取元素值</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>// Spends time for each message</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T134915Z" creationid="Heromyth" creationdate="20170825T134915Z">
+        <seg>// 每条消息都要花费一点时间来处理</seg>
       </tuv>
     </tu>
     <tu>
@@ -6007,6 +6269,14 @@ auto encrypted(string value) {</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>// until the workers terminate.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T135642Z" creationid="Heromyth" creationdate="20170825T135642Z">
+        <seg>// 工作线程终止。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>// values are going to be read from the input</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="大处着手小处着眼" changedate="20160726T030041Z" creationid="大处着手小处着眼" creationdate="20160726T030041Z">
@@ -6111,6 +6381,14 @@ $(LI $(LINK2 /ders/d.cn/slices.html, 分片与其他数组功能) $(INDEX_KEYWOR
       </tuv>
       <tuv lang="ZH-CN" changeid="Hipter" changedate="20160707T034926Z" creationid="Hipter" creationdate="20160707T034511Z">
         <seg>$(C scope(failure)) 的好处是靠近它的表达式可以还原已写的另一个表达式。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>A continuously growing mailbox puts stress on the entire system and may point to a design flaw in the program.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T134354Z" creationid="Heromyth" creationdate="20170825T134354Z">
+        <seg>邮箱中持续增加的消息不仅会加重整个系统的负担，还会成为程序设计的瑕疵。</seg>
       </tuv>
     </tu>
     <tu>
@@ -7235,6 +7513,14 @@ $(LINK2 /ders/d.cn/index.html,
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>If there is no thread associated with that name, then $(C Tid.init) is returned.)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T135416Z" creationid="Heromyth" creationdate="20170825T135416Z">
+        <seg>如果没有线程关联到这个名字，则返回 $(C Tid.init)。)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Illegal instructions are the ones that are outside the specifications of the language.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170820T005132Z" creationid="Heromyth" creationdate="20170820T005132Z">
@@ -7539,6 +7825,14 @@ $(LINK2 /ders/d.cn/index.html,
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>It may also mean that the thread may never get to the most recent messages.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T134405Z" creationid="Heromyth" creationdate="20170825T134405Z">
+        <seg>这也意味着线程永远只能拿到许久之前接收的消息。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>It may be one</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T235325Z" creationid="Heromyth" creationdate="20170824T235325Z">
@@ -7619,6 +7913,14 @@ $(LINK2 /ders/d.cn/index.html,
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T043357Z" creationid="Heromyth" creationdate="20170825T043357Z">
         <seg>如果在指定时间内接收到了消息，函数返回值为 $(C true) ；如果超时则返回 $(C false)。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Its three parameters specify the mailbox, the maximum number of messages that it can hold, and what should happen when the mailbox is full, in that order.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T134431Z" creationid="Heromyth" creationdate="20170825T134431Z">
+        <seg>它的三个参数分别指代的是邮箱、最大保存消息数量和邮箱被填满之后需要进行的操作。</seg>
       </tuv>
     </tu>
     <tu>
@@ -7903,6 +8205,14 @@ LANGUAGE=chinese</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170819T131523Z" creationid="Heromyth" creationdate="20170819T131523Z">
         <seg>另一方面，类变量是用于访问类对象的一种语言特性。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Passing thread ids from thread to thread may be overly complicated in programs that use more than a couple of threads.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T135231Z" creationid="Heromyth" creationdate="20170825T135231Z">
+        <seg>一旦线程数增加，它将会大大增加程序的复杂度。</seg>
       </tuv>
     </tu>
     <tu>
@@ -8405,6 +8715,14 @@ LANGUAGE=chinese</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>The number of messages in a mailbox may increase or decrease depending on how long it takes for the thread to receive and respond to each message.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T134343Z" creationid="Heromyth" creationdate="20170825T134343Z">
+        <seg>邮箱中的消息个数会随着程序接收和处理消息的速度而有所变化。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>The only difference is that the number of values associated with the variable is specified in square brackets.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="大处着手小处着眼" changedate="20160726T043657Z" creationid="大处着手小处着眼" creationdate="20160720T022710Z">
@@ -8581,6 +8899,16 @@ LANGUAGE=chinese</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>The worker in the following program sends messages back to back but the owner spends some time for each message:
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T134814Z" creationid="Heromyth" creationdate="20170825T134814Z">
+        <seg>下面这个工作线程会不停地向主线程发送消息，但主线程处理消息的速度就没有工作线程这么快了，每条消息主线程都会花费一点时间来处理：
+)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>The worker thread above can be tested by the following program:
 )</seg>
       </tuv>
@@ -8596,6 +8924,16 @@ LANGUAGE=chinese</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T000641Z" creationid="Heromyth" creationdate="20170825T000641Z">
         <seg>它们的花括号已被高亮：
+)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>There are four choices for the last parameter:
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T134443Z" creationid="Heromyth" creationdate="20170825T134443Z">
+        <seg>最后一个参数有四个选项：
 )</seg>
       </tuv>
     </tu>
@@ -8621,6 +8959,26 @@ LANGUAGE=chinese</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170820T003643Z" creationid="Heromyth" creationdate="20170820T003643Z">
         <seg>而这些机器码指令取决于底层架构设计阶段时的硬件约束。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>These messages are handled before the other messages that are already in the mailbox:
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T135141Z" creationid="Heromyth" creationdate="20170825T135141Z">
+        <seg>这些高优先级消息会比其他邮箱中的消息先被处理：
+)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>These threads continuously send messages to each other until instructed to terminate by an $(C Exit) message:
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T135519Z" creationid="Heromyth" creationdate="20170825T135519Z">
+        <seg>线程会不停地互相发送信息，只有在收到 $(C Exit) 消息后它们才会终止：
+)</seg>
       </tuv>
     </tu>
     <tu>
@@ -8843,6 +9201,24 @@ LANGUAGE=chinese</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="大处着手小处着眼" changedate="20160725T033354Z" creationid="大处着手小处着眼" creationdate="20160725T033229Z">
         <seg>要修改长度，就必须修改源代码，而且程序必须重新编译。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>To prevent that, the owner may limit the size of its mailbox before starting the worker:
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T134940Z" creationid="Heromyth" creationdate="20170825T134940Z">
+        <seg>为了防止出现这样的情况，线程所有者会在启动工作线程前限制邮箱大小：
+)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>To reduce this complexity, it is possible to assign names to threads, which are globally accessible from any thread.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T135258Z" creationid="Heromyth" creationdate="20170825T135258Z">
+        <seg>为了降低这种复杂度，我们可以为线程命名。所有线程都可以通过线程名访问这个线程。</seg>
       </tuv>
     </tu>
     <tu>
@@ -9379,6 +9755,14 @@ LANGUAGE=chinese</seg>
         <seg>ownerTid.send(20);
 }  // ← 发送两条消息后立刻终止
 ---</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>ownerTid.send(42);    // ← Produces messages continuously</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T134901Z" creationid="Heromyth" creationdate="20170825T134901Z">
+        <seg>ownerTid.send(42);    // ← 持续产生消息</seg>
       </tuv>
     </tu>
     <tu>
