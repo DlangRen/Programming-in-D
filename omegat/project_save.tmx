@@ -230,6 +230,14 @@ $(LI $(LINK2 /ders/d.cn/struct.html, 结构) $(INDEX_KEYWORDS struct .</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>$(DERS_BOLUMU $(IX data sharing concurrency) $(IX concurrency, data sharing) Data Sharing Concurrency)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T143318Z" creationid="Heromyth" creationdate="20170825T143318Z">
+        <seg>$(DERS_BOLUMU $(IX data sharing concurrency) $(IX concurrency, data sharing) 数据共享式并发)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>$(DERS_BOLUMU $(IX user defined attributes) $(IX UDA) User Defined Attributes (UDA))</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170719T105356Z" creationid="Heromyth" creationdate="20170719T054011Z">
@@ -2253,6 +2261,16 @@ Another difference from structs is that some member functions are automatically 
       <tuv lang="ZH-CN" changeid="Hipter" changedate="20160707T012709Z" creationid="Hipter" creationdate="20160707T012709Z">
         <seg>$(P
 与结构不同的是一些成员函数自动继承自 $(C Object) 类。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
+Another method involves more than one thread reading from and writing to the same data.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T143403Z" creationid="Heromyth" creationdate="20170825T143403Z">
+        <seg>$(P
+另外一种共享消息的方法是多个线程读写同一块数据。</seg>
       </tuv>
     </tu>
     <tu>
@@ -4321,6 +4339,16 @@ The parameters that the thread function takes are passed to $(C spawn()) as its 
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T055237Z" creationid="Heromyth" creationdate="20170824T055237Z">
         <seg>$(P
 线程函数需要的参数应通过 $(C spawn()) 的二个参数传入。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
+The previous chapter was about threads sharing information through message passing.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T143338Z" creationid="Heromyth" creationdate="20170825T143338Z">
+        <seg>$(P
+在上一章中，我们使用消息传递实现线程间的信息共享。</seg>
       </tuv>
     </tu>
     <tu>
@@ -6673,6 +6701,14 @@ $(LI $(LINK2 /ders/d.cn/slices.html, 分片与其他数组功能) $(INDEX_KEYWOR
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>As it has been mentioned in that chapter, message passing is a safe method of concurrency.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T143348Z" creationid="Heromyth" creationdate="20170825T143348Z">
+        <seg>消息传递是并发中相对安全的概念，这点我们已经提到了多次。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>As it should be in every design decision that concerns program performance, one must take actual measurements to be exactly sure whether that really is the case.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T232153Z" creationid="Heromyth" creationdate="20170824T232153Z">
@@ -7347,6 +7383,14 @@ $(LI $(LINK2 http://dlang.org/phobos/index.html, $(IMG bullet_black.png) 标准�
       <tuv lang="ZH-CN" changeid="大处着手小处着眼" changedate="20160725T021651Z" creationid="大处着手小处着眼" creationdate="20160725T021651Z">
         <seg>例如，下面通过变量 $(C monthIndex) 的值来确定该月：
 )</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>For example, the owner thread can start the worker with the address of a $(C bool) variable and the worker can determine whether to terminate or not by reading the current value of that variable.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T143550Z" creationid="Heromyth" creationdate="20170825T143550Z">
+        <seg>例如，所有者线程在启动工作线程的同时向其传递了一个 $(C bool) 值的地址，工作线程可通过读取这个值来判断是否需要终止。</seg>
       </tuv>
     </tu>
     <tu>
