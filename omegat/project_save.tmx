@@ -534,6 +534,14 @@ $(LI $(LINK2 /ders/d.cn/struct.html, 结构) $(INDEX_KEYWORDS struct .</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>$(H5 Mailbox management)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T052558Z" creationid="Heromyth" creationdate="20170825T052558Z">
+        <seg>$(H5 邮箱管理)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>$(H5 Online version)</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170801T052519Z" creationid="Heromyth" creationdate="20170801T052519Z">
@@ -754,6 +762,14 @@ $(LI $(LINK2 /ders/d.cn/struct.html, 结构) $(INDEX_KEYWORDS struct .</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T000705Z" creationid="Heromyth" creationdate="20170825T000705Z">
         <seg>$(H6 接收任意类型的消息)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(H6 Receiving exceptions as messages)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T052506Z" creationid="Heromyth" creationdate="20170825T052506Z">
+        <seg>$(H6 接收异常消息)</seg>
       </tuv>
     </tu>
     <tu>
@@ -2528,6 +2544,16 @@ Encapsulation is achieved by $(I protection attributes), which we will see in $(
     <tu>
       <tuv lang="EN-US">
         <seg>$(P
+Every thread has a private mailbox that holds the messages that are sent to that thread.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T134253Z" creationid="Heromyth" creationdate="20170825T134253Z">
+        <seg>$(P
+每一个线程都有一个用来保存消息的收件箱。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
 Fix the bugs of this program and make it work as expected:
 )</seg>
       </tuv>
@@ -3316,6 +3342,16 @@ That solution may be slow especially for large arrays.</seg>
     <tu>
       <tuv lang="EN-US">
         <seg>$(P
+The $(C OwnerTerminated) and $(C LinkTerminated) exceptions can be received as messages as well.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T052517Z" creationid="Heromyth" creationdate="20170825T052517Z">
+        <seg>$(P
+$(C OwnerTerminated) 和 $(C LinkTerminated) 都可以作为消息在线程间传递。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
 The $(C calculate()) function below receives $(C string) messages, converts them to $(C double), adds 0.5, and sends the result back as a message:
 )</seg>
       </tuv>
@@ -3944,6 +3980,18 @@ The owner above waits for a message for up to 600 milliseconds.</seg>
     <tu>
       <tuv lang="EN-US">
         <seg>$(P
+The owner can catch the exception to do something special like terminating gracefully:
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T052442Z" creationid="Heromyth" creationdate="20170825T052442Z">
+        <seg>$(P
+所有者线程可以捕获这个异常并执行某些操作，比如优雅地退出：
+)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
 The owner in the following program sends its worker a message of type $(C int) and waits for a message from the worker of type $(C double).</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T232941Z" creationid="Heromyth" creationdate="20170824T232941Z">
@@ -4170,6 +4218,16 @@ The variables of a container are called $(I elements).</seg>
     <tu>
       <tuv lang="EN-US">
         <seg>$(P
+The worker above terminates after sending two messages.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T052413Z" creationid="Heromyth" creationdate="20170825T052413Z">
+        <seg>$(P
+发送两条消息后工作线程立刻终止。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
 The worker can catch that exception to exit gracefully:
 )</seg>
       </tuv>
@@ -4303,6 +4361,16 @@ This chapter will introduce classes at a high level, underlining the fact that t
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170819T123555Z" creationid="Heromyth" creationdate="20170819T123555Z">
         <seg>$(P
 本章将深入介绍类，特别强调一点，类是引用类型。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
+This exception can be received as a message as well.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T052456Z" creationid="Heromyth" creationdate="20170825T052456Z">
+        <seg>$(P
+这个异常也可以被当作消息发送。</seg>
       </tuv>
     </tu>
     <tu>
@@ -8001,6 +8069,16 @@ LANGUAGE=chinese</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Since the worker has been started by $(C spawnLinked()), the owner is notified of the worker's termination by a $(C LinkTerminated) exception:
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T052425Z" creationid="Heromyth" creationdate="20170825T052425Z">
+        <seg>由于工作线程是通过 $(C spawnLinked()) 启动的，它将通过向所有者线程抛出 $(C LinkTerminated) 异常以通知其工作线程已终止。
+)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Since there is no other variable for $(C variable1)'s original object, that object will be destroyed by the garbage collector.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Hipter" changedate="20160706T031538Z" creationid="Hipter" creationdate="20160706T031538Z">
@@ -8200,6 +8278,16 @@ LANGUAGE=chinese</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170810T104459Z" creationid="Heromyth" creationdate="20170810T104459Z">
         <seg>下面的 $(C static assert) 会顺利通过，因为 $(C Person.name) 拥有 $(C Encrypted) 属性：
+)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>The following code demonstrates this for the $(C OwnerTerminated) exception:
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T052534Z" creationid="Heromyth" creationdate="20170825T052534Z">
+        <seg>下面的代码演示了如何传递 $(C OwnerTerminated) 异常：
 )</seg>
       </tuv>
     </tu>
@@ -9279,6 +9367,18 @@ LANGUAGE=chinese</seg>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T233731Z" creationid="Heromyth" creationdate="20170824T233731Z">
         <seg>ownerTid.send("hello");    $(CODE_NOTE 发送 $(HILITE string))
 }</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>ownerTid.send(20);
+}  // ← Terminates after sending two messages
+---</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T052401Z" creationid="Heromyth" creationdate="20170825T052401Z">
+        <seg>ownerTid.send(20);
+}  // ← 发送两条消息后立刻终止
+---</seg>
       </tuv>
     </tu>
     <tu>
