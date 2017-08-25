@@ -502,6 +502,14 @@ $(LI $(LINK2 /ders/d.cn/struct.html, 结构) $(INDEX_KEYWORDS struct .</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>$(H5 Detecting thread termination)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T051954Z" creationid="Heromyth" creationdate="20170825T051954Z">
+        <seg>$(H5 检测线程终止)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>$(H5 Example)</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Hipter" changedate="20160709T083417Z" creationid="Hipter" creationdate="20160709T083417Z">
@@ -562,6 +570,22 @@ $(LI $(LINK2 /ders/d.cn/struct.html, 结构) $(INDEX_KEYWORDS struct .</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170815T121738Z" creationid="Heromyth" creationdate="20170815T121738Z">
         <seg>$(H5 自定义属性的好处)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(H6 $(IX LinkTerminated) $(IX spawnLinked) $(C LinkTerminated) exception)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T052242Z" creationid="Heromyth" creationdate="20170825T052242Z">
+        <seg>$(H6 $(IX LinkTerminated) $(IX spawnLinked) $(C LinkTerminated) 异常)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(H6 $(IX OwnerTerminated) $(C OwnerTerminated) exception)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T052019Z" creationid="Heromyth" creationdate="20170825T052019Z">
+        <seg>$(H6 $(IX OwnerTerminated) $(C OwnerTerminated) 异常)</seg>
       </tuv>
     </tu>
     <tu>
@@ -1507,6 +1531,16 @@ $(C spawn()) 需要一个函数指针，新线程将会从指定的函数启动�
     <tu>
       <tuv lang="EN-US">
         <seg>$(P
+$(C spawnLinked()) is used in the same way as $(C spawn()).</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T052301Z" creationid="Heromyth" creationdate="20170825T052301Z">
+        <seg>$(P
+$(C spawnLinked()) 与 $(C spawn()) 用法相同。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
 $(C std.algorithm.reverse) reverses the elements in place (the first element becomes the last element, etc.):
 )</seg>
       </tuv>
@@ -2007,6 +2041,16 @@ Another difference from structs is that some member functions are automatically 
       <tuv lang="ZH-CN" changeid="Hipter" changedate="20160707T012709Z" creationid="Hipter" creationdate="20160707T012709Z">
         <seg>$(P
 与结构不同的是一些成员函数自动继承自 $(C Object) 类。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
+Another method would be to send the actual exception object itself to the owner.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T051841Z" creationid="Heromyth" creationdate="20170825T051841Z">
+        <seg>$(P
+另外一种方法是直接将将异常对象发送回所有者。</seg>
       </tuv>
     </tu>
     <tu>
@@ -3998,6 +4042,16 @@ The reason is that, the $(C ==) operator may need to consult the values of the m
     <tu>
       <tuv lang="EN-US">
         <seg>$(P
+The reason why the $(C shared) specifiers are necessary is explained in the next chapter.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T051942Z" creationid="Heromyth" creationdate="20170825T051942Z">
+        <seg>$(P
+我们会在下一章解释为什么此处必须使用 $(C shared) 说明符。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
 The return type of $(C thisTid()) is $(C Tid), which has no significance for the program.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T232512Z" creationid="Heromyth" creationdate="20170824T232512Z">
@@ -4111,6 +4165,18 @@ The variables of a container are called $(I elements).</seg>
       <tuv lang="ZH-CN" changeid="大处着手小处着眼" changedate="20160723T143213Z" creationid="大处着手小处着眼" creationdate="20160723T142747Z">
         <seg>$(P
 容器的变量称为 $(I 元素)。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
+The worker can catch that exception to exit gracefully:
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T052215Z" creationid="Heromyth" creationdate="20170825T052215Z">
+        <seg>$(P
+工作线程也可以通过捕获这个异常来优雅地退出：
+)</seg>
       </tuv>
     </tu>
     <tu>
@@ -4242,6 +4308,16 @@ This chapter will introduce classes at a high level, underlining the fact that t
     <tu>
       <tuv lang="EN-US">
         <seg>$(P
+This exception is thrown when receiving a message from the owner if the owner has been terminated.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T052036Z" creationid="Heromyth" creationdate="20170825T052036Z">
+        <seg>$(P
+如果所有者线程已被终止，工作线程在接收消息时就会抛出这个异常。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
 This method of defining variables individually does not scale to cases where even more variables are needed.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="大处着手小处着眼" changedate="20160720T020639Z" creationid="大处着手小处着眼" creationdate="20160720T020639Z">
@@ -4291,6 +4367,16 @@ This time the reason of the failure is printed by the owner:
         <seg>$(P
 这次错误的原因会被所有者输出：
 )</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
+Threads can detect that the receiver of a message has terminated.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T052007Z" creationid="Heromyth" creationdate="20170825T052007Z">
+        <seg>$(P
+线程可以检测消息的接收者是否已经终止。</seg>
       </tuv>
     </tu>
     <tu>
@@ -4461,6 +4547,16 @@ We saw in the $(LINK2 /ders/d.en/arrays.html, Arrays chapter) that plain arrays 
       <tuv lang="ZH-CN" changeid="Hipter" changedate="20160711T151814Z" creationid="Hipter" creationdate="20160708T081001Z">
         <seg>$(P
 在 $(LINK2 /ders/d.cn/arrays.html, 数组) 一章中我们已经看到简单数组作为容器逐个存储元素，按索引访问它们。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
+We will see below that this exception can be received as a message as well.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T052231Z" creationid="Heromyth" creationdate="20170825T052231Z">
+        <seg>$(P
+之后我们会看到也可以将这个异常当作消息发送。</seg>
       </tuv>
     </tu>
     <tu>
@@ -5349,6 +5445,16 @@ auto encrypted(string value) {</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>---
+// ... at the worker ...</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T051905Z" creationid="Heromyth" creationdate="20170825T051905Z">
+        <seg>---
+// ... 工作线程中 ...</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>/* 'foreach' is similar but superior to 'for'.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Hipter" changedate="20160711T115742Z" creationid="Hipter" creationdate="20160711T011155Z">
@@ -5541,10 +5647,42 @@ auto encrypted(string value) {</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>//   has terminated.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T052144Z" creationid="Heromyth" creationdate="20170825T052144Z">
+        <seg>//   它将抛出异常。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>//   thrown if the owner</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T052149Z" creationid="Heromyth" creationdate="20170825T052134Z">
+        <seg>//   拥有者线程已经终止，</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>//   thrown if the worker</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T052348Z" creationid="Heromyth" creationdate="20170825T052348Z">
+        <seg>//   工作线程已经终止，</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>//   true : sunny</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="大处着手小处着眼" changedate="20160720T033338Z" creationid="大处着手小处着眼" creationdate="20160720T033338Z">
         <seg>//   true ：晴天</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>// ... at the owner ...</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T051928Z" creationid="Heromyth" creationdate="20170825T051928Z">
+        <seg>// ... 所有者线程 ...</seg>
       </tuv>
     </tu>
     <tu>
@@ -8137,6 +8275,14 @@ LANGUAGE=chinese</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>The intermediate owner thread below simply exits after sending two messages to its worker.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T052047Z" creationid="Heromyth" creationdate="20170825T052047Z">
+        <seg>下方程序中处在中间层的线程所有者在发送两条消息后就立即退出。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>The lengths of those arrays cannot be changed during the execution of the program.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="大处着手小处着眼" changedate="20160725T033144Z" creationid="大处着手小处着眼" creationdate="20160725T033144Z">
@@ -8201,6 +8347,16 @@ LANGUAGE=chinese</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T232021Z" creationid="Heromyth" creationdate="20170824T232021Z">
         <seg>如果忙碌的工作线程数量比系统中处理器核心数多，系统的整体性能就有可能下降。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>The owner can use the exception object or simply rethrow it:
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T051851Z" creationid="Heromyth" creationdate="20170825T051851Z">
+        <seg>所有者既可以处理异常对象也可以重新抛出：
+)</seg>
       </tuv>
     </tu>
     <tu>
@@ -8446,6 +8602,16 @@ LANGUAGE=chinese</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Hipter" changedate="20160708T145930Z" creationid="Hipter" creationdate="20160708T145930Z">
         <seg>这可以通过打印整个表来验证：
+)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>This causes an $(C OwnerTerminated) exception to be thrown at the worker thread:
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T052101Z" creationid="Heromyth" creationdate="20170825T052101Z">
+        <seg>这会导致工作线程抛出 $(C OwnerTerminated) 异常：
 )</seg>
       </tuv>
     </tu>
@@ -8797,6 +8963,16 @@ LANGUAGE=chinese</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>When a worker that has been started by $(C spawnLinked()) terminates, a $(C LinkTerminated) exception is thrown at the owner:
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T052327Z" creationid="Heromyth" creationdate="20170825T052327Z">
+        <seg>当由 $(C spawnLinked()) 创建的线程终止时，拥有者线程将会抛出 $(C LinkTerminated) 异常。
+)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>When accessing elements, the $(C []) characters are written after the name of the array and specify the number of the element that is being accessed:</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="大处着手小处着眼" changedate="20160724T025224Z" creationid="大处着手小处着眼" creationdate="20160724T025224Z">
@@ -8965,6 +9141,14 @@ LANGUAGE=chinese</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T233528Z" creationid="Heromyth" creationdate="20170824T233528Z">
         <seg>auto integer  = message[1];    // int 类型</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>auto m = receiveOnly!int(); // ← An exception is</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T052125Z" creationid="Heromyth" creationdate="20170825T052125Z">
+        <seg>auto m = receiveOnly!int(); // ← 如果</seg>
       </tuv>
     </tu>
     <tu>
@@ -9141,6 +9325,16 @@ LANGUAGE=chinese</seg>
         <seg>worker.send(-1);        // ← 终止工作线程
 }
 ---</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>worker.send(2);
+}  // ← Terminates after sending two messages</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T052113Z" creationid="Heromyth" creationdate="20170825T052113Z">
+        <seg>worker.send(2);
+}  // ← 发送两条消息后立刻终止</seg>
       </tuv>
     </tu>
     <tu>
