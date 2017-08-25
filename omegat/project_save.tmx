@@ -122,6 +122,14 @@ $(LI $(LINK2 /ders/d.cn/struct.html, 结构) $(INDEX_KEYWORDS struct .</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>$(C receive()) on the other hand can wait for more than one type of message.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T235851Z" creationid="Heromyth" creationdate="20170824T235851Z">
+        <seg>而 $(C receive()) 可以接收多种类型的消息。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>$(C variable1) and $(C variable2) above merely provide access to that anonymous object:
 )</seg>
       </tuv>
@@ -246,6 +254,14 @@ $(LI $(LINK2 /ders/d.cn/struct.html, 结构) $(INDEX_KEYWORDS struct .</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>$(H5 $(IX Tid) $(IX thisTid) $(IX ownerTid) Thread identifiers)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T232217Z" creationid="Heromyth" creationdate="20170824T232217Z">
+        <seg>$(H5 $(IX Tid) $(IX thisTid) $(IX ownerTid) 线程 ID)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>$(H5 $(IX []) Accessing the elements)</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="大处着手小处着眼" changedate="20160723T142855Z" creationid="大处着手小处着眼" creationdate="20160723T142855Z">
@@ -274,6 +290,14 @@ $(LI $(LINK2 /ders/d.cn/struct.html, 结构) $(INDEX_KEYWORDS struct .</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="大处着手小处着眼" changedate="20160720T033618Z" creationid="大处着手小处着眼" creationdate="20160720T033618Z">
         <seg>$(H5 $(IX container) $(IX element) 容器和元素)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(H5 $(IX delegate, message passing) Expecting different types of messages)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T235801Z" creationid="Heromyth" creationdate="20170824T235801Z">
+        <seg>$(H5 $(IX delegate, message passing) 接收不同类型的消息)</seg>
       </tuv>
     </tu>
     <tu>
@@ -370,6 +394,14 @@ $(LI $(LINK2 /ders/d.cn/struct.html, 结构) $(INDEX_KEYWORDS struct .</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Hipter" changedate="20160709T080331Z" creationid="Hipter" creationdate="20160709T032109Z">
         <seg>$(H5 $(IX remove) 移除键值对)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(H5 $(IX send) $(IX receiveOnly) Message Passing)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T232728Z" creationid="Heromyth" creationdate="20170824T232728Z">
+        <seg>$(H5 $(IX send) $(IX receiveOnly) 消息传递)</seg>
       </tuv>
     </tu>
     <tu>
@@ -638,6 +670,14 @@ $(LI $(LINK2 /ders/d.cn/struct.html, 结构) $(INDEX_KEYWORDS struct .</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>$(H6 Example)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T233909Z" creationid="Heromyth" creationdate="20170824T233909Z">
+        <seg>$(H6 示例)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>$(H6 Member access)</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170820T002524Z" creationid="Heromyth" creationdate="20170820T002524Z">
@@ -658,6 +698,14 @@ $(LI $(LINK2 /ders/d.cn/struct.html, 结构) $(INDEX_KEYWORDS struct .</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Hipter" changedate="20160707T004731Z" creationid="Hipter" creationdate="20160707T004731Z">
         <seg>$(H6 运算符重载)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(H6 Receiving any type of message)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T000705Z" creationid="Heromyth" creationdate="20170825T000705Z">
+        <seg>$(H6 接收任意类型的消息)</seg>
       </tuv>
     </tu>
     <tu>
@@ -1150,10 +1198,34 @@ There are three mistakes (bugs) in this program.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>$(LI The duration between each step: This information is used for determining when the robot's next step will be.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T234324Z" creationid="Heromyth" creationdate="20170824T234324Z">
+        <seg>$(LI 每一步的间隔时间：决定机器人何时走下一步。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>$(LI The members of the type are determined by $(C __traits(allMembers)).)</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170814T110101Z" creationid="Heromyth" creationdate="20170814T110101Z">
         <seg>$(LI 该类型的所有成员可以通过 $(C __traits(allMembers)) 获得。)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(LI The number (id) of the robot: This information is sent back to the owner to identify the robot that the message is related to.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T234234Z" creationid="Heromyth" creationdate="20170824T234234Z">
+        <seg>$(LI 机器人的编号 (id)：这个参数会随着消息传回线程所有者，这样我们就可以通过它确认消息的来源。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(LI The origin: This is where the robot starts moving from.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T234259Z" creationid="Heromyth" creationdate="20170824T234259Z">
+        <seg>$(LI 起点：机器人的初始位置。</seg>
       </tuv>
     </tu>
     <tu>
@@ -1329,6 +1401,16 @@ $(C is) 确定两个类变量是否提供对同一对象的访问。</seg>
     <tu>
       <tuv lang="EN-US">
         <seg>$(P
+$(C main()) stores the return value of $(C spawn()) under the name $(C worker) and uses that variable when sending messages to the worker.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T233209Z" creationid="Heromyth" creationdate="20170824T233209Z">
+        <seg>$(P
+$(C main()) 将 $(C spawn()) 的返回值储存在 $(C worker) 变量中并通过它来给工作线程发送消息。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
 $(C readln()) can be used without a parameter.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Hipter" changedate="20160712T021213Z" creationid="Hipter" creationdate="20160712T021213Z">
@@ -1359,6 +1441,16 @@ $(C readln()) 也存储换行符。</seg>
     <tu>
       <tuv lang="EN-US">
         <seg>$(P
+$(C receiveOnly()) can expect only one type of message.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T235822Z" creationid="Heromyth" creationdate="20170824T235822Z">
+        <seg>$(P
+$(C receiveOnly()) 只能接收指定的那一个类型的消息。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
 $(C scope) statements can be specified as blocks as well:
 )</seg>
       </tuv>
@@ -1366,6 +1458,16 @@ $(C scope) statements can be specified as blocks as well:
         <seg>$(P
 $(C scope) 语句也可以像块一样使用：
 )</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
+$(C send()) sends messages and $(C receiveOnly()) waits for a message of a particular type.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T232755Z" creationid="Heromyth" creationdate="20170824T232755Z">
+        <seg>$(P
+D 语言使用 $(C send()) 发送消息，使用 $(C receiveOnly()) 等待指定类型的消息。</seg>
       </tuv>
     </tu>
     <tu>
@@ -1398,6 +1500,16 @@ $(C std.algorithm.sort) can sort the elements of many types of collections.</seg
       <tuv lang="ZH-CN" changeid="大处着手小处着眼" changedate="20160726T051323Z" creationid="大处着手小处着眼" creationdate="20160726T021228Z">
         <seg>$(P
 $(C std.algorithm.sort) 可以对许多类型集合中的元素进行排序。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
+$(C thisTid()) returns the identifier of the $(I current) thread.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T232250Z" creationid="Heromyth" creationdate="20170824T232250Z">
+        <seg>$(P
+$(C thisTid()) 返回$(I 当前)线程的 ID。</seg>
       </tuv>
     </tu>
     <tu>
@@ -1499,11 +1611,33 @@ $(IX @)自定义属性的语法格式：符号 $(C @)  的后面紧跟属性名�
     <tu>
       <tuv lang="EN-US">
         <seg>$(P
+$(IX CPU bound) $(IX I/O bound) $(IX thread performance) Every operating system puts limits on the number of threads that can exist at one time.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T231837Z" creationid="Heromyth" creationdate="20170824T231837Z">
+        <seg>$(P
+$(IX CPU bound) $(IX I/O bound) $(IX thread performance) 每个操作系统都有对同时运行线程个数的限制。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
 $(IX CPU) $(IX microprocessor) The brain of the computer is the microprocessor (or the CPU, short for $(I central processing unit)).</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170820T003419Z" creationid="Heromyth" creationdate="20170820T003419Z">
         <seg>$(P
 $(IX CPU) $(IX microprocessor) 计算机的大脑是微处理器（CPU，即 $(I 中央处理单元) 的简称)。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
+$(IX MessageMismatch) If the types do not match, a $(C MessageMismatch) exception is thrown:
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T233608Z" creationid="Heromyth" creationdate="20170824T233608Z">
+        <seg>$(P
+$(IX MessageMismatch) 如果类型不匹配，程序将会抛出一个 $(C MessageMismatch) 异常：
+)</seg>
       </tuv>
     </tu>
     <tu>
@@ -1727,6 +1861,16 @@ All of the elements of the $(C values) array above are initialized to $(C double
         <seg>$(P
 上面 $(C values) 数组的所有元素都初始化为 $(C double.nan)：
 )</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
+All of the messages in this simple program go from the worker to the owner.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T234607Z" creationid="Heromyth" creationdate="20170824T234607Z">
+        <seg>$(P
+本例中的所有消息都是从工作线程向线程所有者传递的。</seg>
       </tuv>
     </tu>
     <tu>
@@ -2224,6 +2368,16 @@ Concurrency is similar to but different from the topic of the previous chapter, 
     <tu>
       <tuv lang="EN-US">
         <seg>$(P
+Conversely, the owner of a worker thread is obtained by the $(C ownerTid()) function.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T232630Z" creationid="Heromyth" creationdate="20170824T232630Z">
+        <seg>$(P
+与之相对的是在工作线程中使用 $(C ownerTid()) 获取其所有者的 ID。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
 Copying affects only the variables, not the object.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Hipter" changedate="20160706T011948Z" creationid="Hipter" creationdate="20160706T011948Z">
@@ -2304,6 +2458,18 @@ For example, an associative array that maps day names of type $(C string) to day
       <tuv lang="ZH-CN" changeid="Hipter" changedate="20160708T095549Z" creationid="Hipter" creationdate="20160708T095549Z">
         <seg>$(P
 例如，下面这个关联数组这样定义，它把日期名的类型 $(C string) 映射到日期的数字类型 $(C int) ：
+)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
+For example, the following $(C receive()) call specifies two message handlers that handle messages of types $(C int) and $(C string), respectively:
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T000100Z" creationid="Heromyth" creationdate="20170825T000100Z">
+        <seg>$(P
+例如，下面这个 $(C receive()) 使用了两个委托分别用来处理类型为 $(C int) 和 $(C string) 的消息：
 )</seg>
       </tuv>
     </tu>
@@ -2394,6 +2560,18 @@ Here is another function that tests all three of these statements:
       <tuv lang="ZH-CN" changeid="Hipter" changedate="20160707T035222Z" creationid="Hipter" creationdate="20160707T035222Z">
         <seg>$(P
 这儿是另一个函数，来测试全部三个语句：
+)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
+Here is the complete program:
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T234706Z" creationid="Heromyth" creationdate="20170824T234706Z">
+        <seg>$(P
+下面是完整的程序：
 )</seg>
       </tuv>
     </tu>
@@ -2528,6 +2706,16 @@ In summary, the definition of an array variable consists of the type of the valu
     <tu>
       <tuv lang="EN-US">
         <seg>$(P
+In summary, the owner is identified by $(C ownerTid) and the worker is identified by the return value of $(C spawn()).</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T232710Z" creationid="Heromyth" creationdate="20170824T232710Z">
+        <seg>$(P
+总之，调用 $(C ownerTid) 获取其所有者 ID，通过 $(C spawn()) 的返回值获取工作线程 ID。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
 In the code above, $(C variable2) is being initialized by $(C variable1).</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Hipter" changedate="20160706T021450Z" creationid="Hipter" creationdate="20160706T021450Z">
@@ -2572,6 +2760,16 @@ It is possible to define variables with the $(C auto) keyword, which we will see
     <tu>
       <tuv lang="EN-US">
         <seg>$(P
+It is possible to send more than one value as a part of the same message.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T233324Z" creationid="Heromyth" creationdate="20170824T233324Z">
+        <seg>$(P
+也可以在一次消息中发送多个值，这些值都会成为这次消息的一部分。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
 Just like copying, assignment affects only the variables.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Hipter" changedate="20160706T024635Z" creationid="Hipter" creationdate="20160706T024635Z">
@@ -2589,6 +2787,16 @@ Key-value pairs can be removed by using $(C .remove()):
         <seg>$(P
 通过 $(C .remove()) 可以移除键值对：
 )</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
+Lambda functions and objects of types that define the $(C opCall()) member function can also be passed to $(C receive()) as message handlers.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T000506Z" creationid="Heromyth" creationdate="20170825T000429Z">
+        <seg>$(P
+lambda 函数和定义了 $(C opCall()) 成员函数的对象都可以传递给 $(C receive()) 作为消息处理器。</seg>
       </tuv>
     </tu>
     <tu>
@@ -2640,11 +2848,31 @@ Let's now revisit the exercise with the five values and write it again by using 
     <tu>
       <tuv lang="EN-US">
         <seg>$(P
+Let's use what we have seen so far in a simulation program.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T234055Z" creationid="Heromyth" creationdate="20170824T234055Z">
+        <seg>$(P
+现在我们在一个模拟程序里实践一下刚了解到的内容。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
 Like every variable in D, the elements of arrays are automatically initialized.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="大处着手小处着眼" changedate="20160725T082520Z" creationid="大处着手小处着眼" creationdate="20160725T082520Z">
         <seg>$(P
 像在 D 语言中的每个变量，数组的元素自动初始化。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
+Messages of type $(C int) would match $(C intHandler()) and messages of type $(C string) would match $(C stringHandler()).</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T000129Z" creationid="Heromyth" creationdate="20170825T000129Z">
+        <seg>$(P
+$(C int) 消息匹配 $(C intHandler())，而 $(C string) 消息匹配 $(C stringHandler())。</seg>
       </tuv>
     </tu>
     <tu>
@@ -2685,6 +2913,18 @@ On the other hand, associative arrays do store both the keys and the values of e
       <tuv lang="ZH-CN" changeid="Hipter" changedate="20160708T093619Z" creationid="Hipter" creationdate="20160708T093619Z">
         <seg>$(P
 另一方面，关联数组既存储键又存储元素值。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
+On the other side, the worker receives the message that it needs as an $(C int), uses that value in a calculation, and sends the result as type $(C double) to its owner:
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T233236Z" creationid="Heromyth" creationdate="20170824T233236Z">
+        <seg>$(P
+另一方面，工作线程需要 $(C int) 类型的消息并对其进行计算，之后将计算得到的 $(C double) 类型的结果返回给其所有者：
+)</seg>
       </tuv>
     </tu>
     <tu>
@@ -2931,6 +3171,18 @@ That function first modifies the reference parameter and then reverts this modif
       <tuv lang="ZH-CN" changeid="Hipter" changedate="20160707T022649Z" creationid="Hipter" creationdate="20160707T022649Z">
         <seg>$(P
 上面这个函数首先修改引用参数，当出现异常时再恢复修改。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
+That information can be stored in the following $(C Job) struct:
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T234348Z" creationid="Heromyth" creationdate="20170824T234348Z">
+        <seg>$(P
+这些信息可以储存在下面这个 $(C Job) 结构中：
+)</seg>
       </tuv>
     </tu>
     <tu>
@@ -3204,6 +3456,16 @@ The examples in this chapter call $(C Thread.sleep) to slow down threads to demo
     <tu>
       <tuv lang="EN-US">
         <seg>$(P
+The exceptions that the worker may throw cannot be caught by the owner.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T233756Z" creationid="Heromyth" creationdate="20170824T233756Z">
+        <seg>$(P
+所有者无法捕获由工作线程抛出的异常。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
 The exclamation mark appears after those characters instead of being printed right after the name.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="大处着手小处着眼" changedate="20160718T135758Z" creationid="Hipter" creationdate="20160712T015039Z">
@@ -3263,6 +3525,16 @@ The following code shows how the attributes of a specific $(C struct) member (e.
         <seg>$(P
 下面代码展示的是如何使用使用$(C __traits(getAttributes))来访问某个特定 $(C struct) 成员（如 $(C Person.name)）的属性：
 )</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
+The following program simulates independent robots moving around randomly in a two dimensional space.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T234125Z" creationid="Heromyth" creationdate="20170824T234125Z">
+        <seg>$(P
+下面这个程序模拟的是两个互不相关的机器人在二维空间中随机移动。</seg>
       </tuv>
     </tu>
     <tu>
@@ -3337,6 +3609,28 @@ The length of such an array can increase or decrease during the execution of the
       <tuv lang="ZH-CN" changeid="大处着手小处着眼" changedate="20160725T033816Z" creationid="大处着手小处着眼" creationdate="20160725T033816Z">
         <seg>$(P
 在程序的执行过程中这种数组的长度可以增加或减少。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
+The lines of the output may be different at different times depending on how the threads are paused and resumed by the operating system.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T231803Z" creationid="Heromyth" creationdate="20170824T231803Z">
+        <seg>$(P
+程序的输出顺序可能会和上面有所不同，具体情况取决于操作系统对线程的调度。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
+The main thread reports the messages that it sends and the messages that it receives:
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T233258Z" creationid="Heromyth" creationdate="20170824T233258Z">
+        <seg>$(P
+主线程会将它发送的和接收的消息一起输出：
+)</seg>
       </tuv>
     </tu>
     <tu>
@@ -3420,6 +3714,18 @@ The output of one of the threads is highlighted:
     <tu>
       <tuv lang="EN-US">
         <seg>$(P
+The output of the program indicates that the messages are handled by matching functions on the receiver's side:
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T000358Z" creationid="Heromyth" creationdate="20170825T000358Z">
+        <seg>$(P
+程序的输出表明了接收端的函数是如何匹配和处理消息的：
+)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
 The output of the program lists all attributes of all members of $(C Person):
 )</seg>
       </tuv>
@@ -3463,6 +3769,26 @@ The output:
         <seg>$(P
 输出：
 )</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
+The owner in the following program sends its worker a message of type $(C int) and waits for a message from the worker of type $(C double).</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T232941Z" creationid="Heromyth" creationdate="20170824T232941Z">
+        <seg>$(P
+下面这个程序中，线程所有者会向工作线程发送 $(C int) 类型的消息并等待工作线程返回 $(C double) 类型的消息。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
+The owner simply waits for these messages in an infinite loop.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T234434Z" creationid="Heromyth" creationdate="20170824T234434Z">
+        <seg>$(P
+线程所有者仅仅通过一个死循环等待消息。</seg>
       </tuv>
     </tu>
     <tu>
@@ -3512,11 +3838,45 @@ The program is terminated with an exception:
     <tu>
       <tuv lang="EN-US">
         <seg>$(P
+The program prints every movement until terminated:
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T235641Z" creationid="Heromyth" creationdate="20170824T235641Z">
+        <seg>$(P
+程序会不停地显示所有机器人的运动信息，除非手动终止：
+)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
 The reason is that, the $(C ==) operator may need to consult the values of the members of the objects and that attempting to access the members through a potentially $(C null) variable would cause a memory access error.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170819T130649Z" creationid="Heromyth" creationdate="20170819T130649Z">
         <seg>$(P
 原因是，运算符 $(C ==) 会查询对象成员的值，并尝试通过一个潜在的 $(C null) 变量访问成员，这将引发一个内存访问错误。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
+The return type of $(C thisTid()) is $(C Tid), which has no significance for the program.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T232512Z" creationid="Heromyth" creationdate="20170824T232512Z">
+        <seg>$(P
+$(C thisTid()) 返回的类型为 $(C Tid)，它对这个程序没有什么作用。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
+The return value of $(C spawn()), which I have been ignoring until this point, is the id of the worker thread:
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T232612Z" creationid="Heromyth" creationdate="20170824T232612Z">
+        <seg>$(P
+我们之前一直没有用到的 $(C spawn()) 的返回值即为工作线程的 ID：
+)</seg>
       </tuv>
     </tu>
     <tu>
@@ -3549,6 +3909,18 @@ The table grows automatically with each association.</seg>
       <tuv lang="ZH-CN" changeid="Hipter" changedate="20160711T132057Z" creationid="Hipter" creationdate="20160708T145054Z">
         <seg>$(P
 随着每次的关联，该表会自动增长。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
+The thread function that moves each robot sends the id of the robot and its movement to the owner thread continuously:
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T234407Z" creationid="Heromyth" creationdate="20170824T234407Z">
+        <seg>$(P
+移动机器人的线程会不断地将对应机器人的 ID 和它的移动情况发送给所有者线程：
+)</seg>
       </tuv>
     </tu>
     <tu>
@@ -3621,6 +3993,16 @@ There are three $(I aliases) of the $(I immutable) versions of those types: $(C 
       <tuv lang="ZH-CN" changeid="大处着手小处着眼" changedate="20160716T082950Z" creationid="Hipter" creationdate="20160712T081640Z">
         <seg>$(P
 这些类型的 $(I immutable) 版本有三个$(I 别名)：$(C string)、$(C wstring) 和 $(C dstring)。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
+There are three anonymous functions below that are passed to $(C receive()) as message handlers.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T000621Z" creationid="Heromyth" creationdate="20170825T000621Z">
+        <seg>$(P
+有 3 个匿名函数被传递给了 $(C receive()) 来作为消息处理器。</seg>
       </tuv>
     </tu>
     <tu>
@@ -3732,6 +4114,16 @@ This method of defining variables individually does not scale to cases where eve
     <tu>
       <tuv lang="EN-US">
         <seg>$(P
+This program demonstrates how helpful message passing concurrency can be: Movements of robots are calculated independently by separate threads without knowledge of each other.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T235707Z" creationid="Heromyth" creationdate="20170824T235707Z">
+        <seg>$(P
+这个程序展现了并发的强大之处：机器人的移动可以在单独的线程中独立计算，而且它们之间无需相互交换信息。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
 This simple definition may be misleading.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Hipter" changedate="20160711T091239Z" creationid="Hipter" creationdate="20160711T091239Z">
@@ -3805,6 +4197,16 @@ Using the assignment operator is sufficient to build the association between a k
         <seg>$(P
 使用赋值运算符就足以构建键与值的关联：
 )</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
+Values that are passed as parts of a single message appear as a tuple on the receiver's side.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T233401Z" creationid="Heromyth" creationdate="20170824T233401Z">
+        <seg>$(P
+如果在一次消息中传递多个值的话，接收者会将它们看作一个 tuple。</seg>
       </tuv>
     </tu>
     <tu>
@@ -4573,6 +4975,16 @@ $(LI $(LINK2 /ders/d.cn/logical_expressions.html, 逻辑表达式) $(INDEX_KEYWO
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>(There is also $(C prioritySend()), $(C receive()), and $(C receiveTimeout()), which will be explained later below.)
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T232913Z" creationid="Heromyth" creationdate="20170824T232913Z">
+        <seg>除了它们，标准库还提供了其他实用函数，像 $(C prioritySend())、$(C receive())、$(C receiveTimeout()) 。后面章节会对它们进行解释。
+)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>(Warning: Caesar cipher is a very weak encryption</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170815T121011Z" creationid="Heromyth" creationdate="20170815T121011Z">
@@ -4695,6 +5107,30 @@ auto encrypted(string value) {</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>* of the neighbors at eight directions, or the specified</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T235342Z" creationid="Heromyth" creationdate="20170824T235342Z">
+        <seg>* 八个方向中的一个，也可能是</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>* position itself.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T235411Z" creationid="Heromyth" creationdate="20170824T235411Z">
+        <seg>* 指定那个位置本身。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>* robots.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T235540Z" creationid="Heromyth" creationdate="20170824T235540Z">
+        <seg>* 的信息。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>* see the 'foreach' loop in the next chapter.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Hipter" changedate="20160711T011359Z" creationid="Hipter" creationdate="20160711T011324Z">
@@ -4715,6 +5151,14 @@ auto encrypted(string value) {</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170815T120911Z" creationid="Heromyth" creationdate="20170815T120911Z">
         <seg>* 版本。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>* terminates.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T233148Z" creationid="Heromyth" creationdate="20170824T233148Z">
+        <seg>*使其终止</seg>
       </tuv>
     </tu>
     <tu>
@@ -4753,6 +5197,14 @@ auto encrypted(string value) {</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>/* Print the movement of this robot.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T235618Z" creationid="Heromyth" creationdate="20170824T235618Z">
+        <seg>/* 输出机器人的运动情况。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>/* Printing the grades of "emre": */</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Hipter" changedate="20160711T021258Z" creationid="Hipter" creationdate="20160711T021258Z">
@@ -4765,6 +5217,38 @@ auto encrypted(string value) {</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170815T121156Z" creationid="Heromyth" creationdate="20170815T121156Z">
         <seg>/* 根据指定对象的各个成员的属性</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>/* Ready to collect information about the movements of the</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T235522Z" creationid="Heromyth" creationdate="20170824T235522Z">
+        <seg>/* 准备好接收有关机器人的移动情况</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>/* Returns a neighbor of the specified Position.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T235307Z" creationid="Heromyth" creationdate="20170824T235307Z">
+        <seg>/* 返回指定位置周围的坐标。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>/* Returns a random position around 0,0.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T235044Z" creationid="Heromyth" creationdate="20170824T234849Z">
+        <seg>/* 返回一个坐标在 0,0 周边的随机位置。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>/* Returns at most one step from the specified coordinate.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T235236Z" creationid="Heromyth" creationdate="20170824T234940Z">
+        <seg>/* 返回一个坐标，它相对从指定坐标最多变化一步。</seg>
       </tuv>
     </tu>
     <tu>
@@ -4785,6 +5269,22 @@ auto encrypted(string value) {</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>/* Robots with various restDurations.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T235435Z" creationid="Heromyth" creationdate="20170824T235435Z">
+        <seg>/* 不同移动时间间隔的机器人。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>/* Sending a negative value to the worker so that it</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T233138Z" creationid="Heromyth" creationdate="20170824T233138Z">
+        <seg>/* 向工作线程发送一个负数</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>/* Specifies that the symbol that it is assigned to should be</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170815T120233Z" creationid="Heromyth" creationdate="20170815T115215Z">
@@ -4797,6 +5297,14 @@ auto encrypted(string value) {</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170815T120216Z" creationid="Heromyth" creationdate="20170815T115939Z">
         <seg>/* 特别指定应用此自定义属性的那个符号的颜色。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>/* Start a mover thread for each robot.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T235453Z" creationid="Heromyth" creationdate="20170824T235453Z">
+        <seg>/* 为每一个机器人启动一个移动线程。</seg>
       </tuv>
     </tu>
     <tu>
@@ -4837,6 +5345,14 @@ auto encrypted(string value) {</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170816T041920Z" creationid="Heromyth" creationdate="20170815T120529Z">
         <seg>/* 此成员被特定要求输出为红色。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>/* Wait for a message composed of Tid, int, and double.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T233458Z" creationid="Heromyth" creationdate="20170824T233458Z">
+        <seg>/* 等待一个包含 Tid、int 和 double 类型的消息。</seg>
       </tuv>
     </tu>
     <tu>
@@ -5235,6 +5751,14 @@ $(LI $(LINK2 /ders/d.cn/slices.html, 分片与其他数组功能) $(INDEX_KEYWOR
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>A thread that is busily working at a given time is said to be $(I CPU bound) at that point in time.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T232048Z" creationid="Heromyth" creationdate="20170824T232048Z">
+        <seg>在指定运行时间消耗大量 CPU 资源的线程叫做 $(I CPU 密集型)。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Accessing an array with an invalid index causes the program to be terminated with an error.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="大处着手小处着眼" changedate="20160725T023148Z" creationid="大处着手小处着眼" creationdate="20160725T023148Z">
@@ -5395,6 +5919,14 @@ $(LI $(LINK2 /ders/d.cn/slices.html, 分片与其他数组功能) $(INDEX_KEYWOR
       </tuv>
       <tuv lang="ZH-CN" changeid="大处着手小处着眼" changedate="20160726T031254Z" creationid="大处着手小处着眼" creationdate="20160726T031254Z">
         <seg>结果是，程序使用无效的索引，试图访问不在数组中的元素。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>As it should be in every design decision that concerns program performance, one must take actual measurements to be exactly sure whether that really is the case.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T232153Z" creationid="Heromyth" creationdate="20170824T232153Z">
+        <seg>基于对性能设计的考量，我们需要谨慎分析并确定线程的类型。</seg>
       </tuv>
     </tu>
     <tu>
@@ -5806,6 +6338,16 @@ $(LI $(LINK2 http://dlang.org/phobos/index.html, $(IMG bullet_black.png) 标准�
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170819T120242Z" creationid="Heromyth" creationdate="20170819T120242Z">
         <seg>不同于结构的是，D 语言中的类提供的是 $(I 面向对象编程) （OOP）模型。OOP 的主要内容有以下几个方面：
+)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Even its $(C toString()) function is not overloaded:
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T232544Z" creationid="Heromyth" creationdate="20170824T232544Z">
+        <seg>它甚至连 $(C toString()) 都没重载：
 )</seg>
       </tuv>
     </tu>
@@ -6265,6 +6807,14 @@ $(LINK2 /ders/d.cn/index.html,
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>If the majority of its threads are I/O bound, then a program can afford to start more threads than the number of cores without any degradation of performance.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T232138Z" creationid="Heromyth" creationdate="20170824T232138Z">
+        <seg>如果大部分线程都是 I/O 密集型的，那程序就不需要担心由于线程数多余核心数而造成的性能下降的问题。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>If the user eventually terminates the input that way, we see that the new-line characters have been read as parts of the string as well:
 )</seg>
       </tuv>
@@ -6379,6 +6929,16 @@ $(LINK2 /ders/d.cn/index.html,
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>In such cases the template parameters of $(C receiveOnly()) must match the types of the tuple members:
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T233435Z" creationid="Heromyth" creationdate="20170824T233435Z">
+        <seg>此时，$(C receiveOnly()) 的模版参数的类型要与每一个 tuple 成员的类型对应：
+)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>In such cases, the $(C .idup) property can be used to produce an immutable $(C string) variable from a mutable $(C char[]) variable.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="大处着手小处着眼" changedate="20160718T151939Z" creationid="Hipter" creationdate="20160713T030418Z">
@@ -6489,10 +7049,36 @@ $(LINK2 /ders/d.cn/index.html,
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>It dispatches messages to message handling delegates.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T235908Z" creationid="Heromyth" creationdate="20170824T235908Z">
+        <seg>它通过消息处理委托来处理消息。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>It identifies the robots by the robot ids that are sent as parts of the messages.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T234512Z" creationid="Heromyth" creationdate="20170824T234449Z">
+        <seg>它通过消息中的机器人 ID 来识别机器人。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>It is an even</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="大处着手小处着眼" changedate="20160726T030417Z" creationid="大处着手小处着眼" creationdate="20160726T030417Z">
         <seg>如果值被 2 </seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>It is commonly called without the function parentheses:
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T232316Z" creationid="Heromyth" creationdate="20170824T232316Z">
+        <seg>通常调用它的时候不需要带圆括号：
+)</seg>
       </tuv>
     </tu>
     <tu>
@@ -6503,6 +7089,14 @@ $(LINK2 /ders/d.cn/index.html,
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170820T002034Z" creationid="Heromyth" creationdate="20170820T002034Z">
         <seg>尝试在类的析构函数中分配一个对象，通过这种方式可以轻易地重现这种的问题：
 )</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>It is the owner thread that $(I serializes) the printing process simply by receiving messages from its message box one by one.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T235730Z" creationid="Heromyth" creationdate="20170824T235730Z">
+        <seg>所有者线程仅仅是将收件箱中的消息一个一个取出来并$(I 按顺序)输出。</seg>
       </tuv>
     </tu>
     <tu>
@@ -6521,6 +7115,14 @@ $(LINK2 /ders/d.cn/index.html,
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T012308Z" creationid="Heromyth" creationdate="20170824T012308Z">
         <seg>若使用传统的基于锁的数据共享模型，则很难写出正确的程序。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>It may be one</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T235325Z" creationid="Heromyth" creationdate="20170824T235325Z">
+        <seg>它既可能是</seg>
       </tuv>
     </tu>
     <tu>
@@ -6745,6 +7347,14 @@ LANGUAGE=chinese</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Message passing normally involves more complicated communication in many kinds of programs.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T234629Z" creationid="Heromyth" creationdate="20170824T234629Z">
+        <seg>当然在许多程序中消息传递不止这么简单。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Messages may be composed of any type and any number of variables.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T054103Z" creationid="Heromyth" creationdate="20170824T054103Z">
@@ -6815,6 +7425,22 @@ LANGUAGE=chinese</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170820T004905Z" creationid="Heromyth" creationdate="20170820T004905Z">
         <seg>另一方面，每次改变代码都必须重新编译，既复杂又易引起人为错误。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>On the other hand, some threads spend considerable amount of their time waiting for some event to occur like input from a user, data from a network connection, the completion of a $(C Thread.sleep) call, etc.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T232105Z" creationid="Heromyth" creationdate="20170824T232105Z">
+        <seg>与之相对的是消耗大量时间等待事件、用户输入、来自互联网的数据或调用了 $(C Thread.sleep) 等情况的线程。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>One solution is to have the worker catch the exception to be sent as a message.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T233821Z" creationid="Heromyth" creationdate="20170824T233821Z">
+        <seg>一种解决方案是在工作线程中捕获潜在的由接收信息引发的异常。</seg>
       </tuv>
     </tu>
     <tu>
@@ -7029,6 +7655,14 @@ LANGUAGE=chinese</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Such threads are said to be $(I I/O bound) at those times.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T232121Z" creationid="Heromyth" creationdate="20170824T232121Z">
+        <seg>这种线程被称作 $(I I/O 密集型)。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Telling the CPU what to do is called $(I coding), and the instructions that are used when doing so are called $(I machine code).</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170820T003607Z" creationid="Heromyth" creationdate="20170820T003607Z">
@@ -7155,6 +7789,14 @@ LANGUAGE=chinese</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>The delegate that matches the type of the particular message handles it.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T235938Z" creationid="Heromyth" creationdate="20170824T235938Z">
+        <seg>如果委托参数的类型与消息类型相同，它就会把消息交由对应的委托处理。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>The difference is that it is the type of the key that is specified within the square brackets, not the length of the array:
 )</seg>
       </tuv>
@@ -7203,10 +7845,36 @@ LANGUAGE=chinese</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>The following message consists of three parts:
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T233343Z" creationid="Heromyth" creationdate="20170824T233343Z">
+        <seg>下面这个消息就是由三个部分组成：
+)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>The following methods would empty the array in a single step.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Hipter" changedate="20160711T120214Z" creationid="Hipter" creationdate="20160711T012406Z">
         <seg>而下面的方法将用一步清空数组。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>The following program also defines a special type named $(C Exit) used for communicating to the thread that it is time for it to exit.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T000525Z" creationid="Heromyth" creationdate="20170825T000525Z">
+        <seg>程序还定义了一个 $(C Exit) 类型来通知线程退出。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>The following worker handles messages by lambda functions.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T000458Z" creationid="Heromyth" creationdate="20170825T000458Z">
+        <seg>下面这个工作线程使用 lambda 函数处理消息。</seg>
       </tuv>
     </tu>
     <tu>
@@ -7245,6 +7913,16 @@ LANGUAGE=chinese</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>The movement of each robot is handled by a separate thread that takes three pieces of information when started:
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T234136Z" creationid="Heromyth" creationdate="20170824T234136Z">
+        <seg>每个机器人的移动都是由一个独立的线程控制的。线程在启动时需要传入三个参数：
+)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>The number of elements of an array is called the $(I length) of the array.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="大处着手小处着眼" changedate="20160723T143218Z" creationid="大处着手小处着眼" creationdate="20160723T142830Z">
@@ -7274,6 +7952,24 @@ LANGUAGE=chinese</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T054941Z" creationid="Heromyth" creationdate="20170824T054941Z">
         <seg>这个程序的输出表明有两个线程：一个用于运行 $(C main())，另一个则由 $(C spawn()) 启动。它们同时相互独立地执行：
+)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>The overall performance of the system can be reduced if there are more threads that are busily working than the number of cores in the system.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T232021Z" creationid="Heromyth" creationdate="20170824T232021Z">
+        <seg>如果忙碌的工作线程数量比系统中处理器核心数多，系统的整体性能就有可能下降。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>The owner simply prints every movement:
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T234549Z" creationid="Heromyth" creationdate="20170824T234549Z">
+        <seg>所有者会简单地将其运动情况输出：
 )</seg>
       </tuv>
     </tu>
@@ -7345,6 +8041,14 @@ LANGUAGE=chinese</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>The threads continue sending messages back and forth until the owner sends a negative $(C int).</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T233003Z" creationid="Heromyth" creationdate="20170824T233003Z">
+        <seg>工作线程会不停地返回消息直到线程所有者发送一个负的 $(C int)。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>The two variables start providing access to the same object.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170819T132015Z" creationid="Hipter" creationdate="20160706T021711Z">
@@ -7385,10 +8089,38 @@ LANGUAGE=chinese</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>The worker thread above can be tested by the following program:
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T000304Z" creationid="Heromyth" creationdate="20170825T000304Z">
+        <seg>上面的工作线程可以用下面程序来测试：
+)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Their curly brackets are highlighted:
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T000641Z" creationid="Heromyth" creationdate="20170825T000641Z">
+        <seg>它们的花括号已被高亮：
+)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>These languages have traditionally been used with an interpreter.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170820T004705Z" creationid="Heromyth" creationdate="20170820T004705Z">
         <seg>因此，这些语言传统上就需使用解释器。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>These limits can be set for each user, for the whole system, or for something else.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T231902Z" creationid="Heromyth" creationdate="20170824T231902Z">
+        <seg>这种限制可能是对用户的，也可能是对整个操作系统的，当然也可能是对其他某些级别。</seg>
       </tuv>
     </tu>
     <tu>
@@ -7537,6 +8269,16 @@ LANGUAGE=chinese</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>This is the owner thread:
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T233119Z" creationid="Heromyth" creationdate="20170824T233119Z">
+        <seg>这个就是所有者线程，如下所示：
+)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>This may be seen as a limitation for some applications.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Hipter" changedate="20160709T085053Z" creationid="Hipter" creationdate="20160709T085053Z">
@@ -7631,6 +8373,14 @@ LANGUAGE=chinese</seg>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170820T002426Z" creationid="Heromyth" creationdate="20170820T002426Z">
         <seg>用这种方式使用一个数组，那将需要为未定义行为的元素分配一个新的内存块：
 )</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Using such a specific type is more expressive than sending the arbitrary value of -1 like it was done in the previous example.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T000550Z" creationid="Heromyth" creationdate="20170825T000550Z">
+        <seg>相对于使用像 -1 这样的任意值，用一个特定的类型来传递特定的消息会让程序更易读。</seg>
       </tuv>
     </tu>
     <tu>
@@ -7739,6 +8489,14 @@ LANGUAGE=chinese</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>We will see this below.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T233855Z" creationid="Heromyth" creationdate="20170824T233855Z">
+        <seg>随后就会看到这个。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>We will see this concept later in $(LINK2 /ders/d.en/inheritance.html, the Inheritance chapter).</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Hipter" changedate="20160707T011019Z" creationid="Hipter" creationdate="20160707T005801Z">
@@ -7769,6 +8527,14 @@ LANGUAGE=chinese</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Hipter" changedate="20160708T141603Z" creationid="Hipter" creationdate="20160708T141603Z">
         <seg>在下面的例子中我们将使用 $(C dayNumbers) 关联数组。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>When a message arrives, it is compared to the message type of each delegate.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T235924Z" creationid="Heromyth" creationdate="20170824T235924Z">
+        <seg>当它接收到消息时，它会比较消息类型与委托的参数类型。</seg>
       </tuv>
     </tu>
     <tu>
@@ -7927,6 +8693,44 @@ LANGUAGE=chinese</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>auto floating = message[2];    // of type double
+---</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T233539Z" creationid="Heromyth" creationdate="20170824T233539Z">
+        <seg>auto floating = message[2];    // double 类型
+---</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>auto integer  = message[1];    // of type int</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T233528Z" creationid="Heromyth" creationdate="20170824T233528Z">
+        <seg>auto integer  = message[1];    // int 类型</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>auto message = receiveOnly!double();    $(CODE_NOTE Expecting $(HILITE double))
+}
+---</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T233709Z" creationid="Heromyth" creationdate="20170824T233709Z">
+        <seg>auto message = receiveOnly!double();    $(CODE_NOTE 期望 $(HILITE double))
+}
+---</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>auto sender   = message[0];    // of type Tid</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T233520Z" creationid="Heromyth" creationdate="20170824T233520Z">
+        <seg>auto sender   = message[0];    // Tid 类型</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>break;</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="ZXP" changedate="20070307T072716Z" creationid="ZXP" creationdate="20070307T072716Z">
@@ -8019,6 +8823,16 @@ LANGUAGE=chinese</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>ownerTid.send("hello");    $(CODE_NOTE Sending $(HILITE string))
+}</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T233731Z" creationid="Heromyth" creationdate="20170824T233731Z">
+        <seg>ownerTid.send("hello");    $(CODE_NOTE 发送 $(HILITE string))
+}</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>return;</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="ZXP" changedate="20070307T073114Z" creationid="ZXP" creationdate="20070307T073114Z">
@@ -8049,6 +8863,18 @@ LANGUAGE=chinese</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Tradoser" changedate="20070103T042255Z" creationid="Tradoser" creationdate="20070103T042255Z">
         <seg>变数</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>worker.send(-1);        // ← to terminate the worker
+}
+---</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T000336Z" creationid="Heromyth" creationdate="20170825T000336Z">
+        <seg>worker.send(-1);        // ← 终止工作线程
+}
+---</seg>
       </tuv>
     </tu>
     <tu>
