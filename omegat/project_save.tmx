@@ -310,6 +310,14 @@ $(LI $(LINK2 /ders/d.cn/struct.html, 结构) $(INDEX_KEYWORDS struct .</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>$(H5 $(IX exception, concurrency) Exceptions during the execution of the worker)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T044616Z" creationid="Heromyth" creationdate="20170825T044616Z">
+        <seg>$(H5 $(IX exception, concurrency) 工作线程中的异常)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>$(H5 $(IX fixed-length array) $(IX dynamic array) $(IX static array) Fixed-length arrays vs. dynamic arrays)</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="大处着手小处着眼" changedate="20160725T031444Z" creationid="大处着手小处着眼" creationdate="20160725T031444Z">
@@ -1521,6 +1529,16 @@ $(C std.algorithm.sort) 可以对许多类型集合中的元素进行排序。</
     <tu>
       <tuv lang="EN-US">
         <seg>$(P
+$(C std.concurrency) does not provide such a convenience for general exception types.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T044657Z" creationid="Heromyth" creationdate="20170825T044657Z">
+        <seg>$(P
+$(C std.concurrency) 并未提供这种捕获异常的方法。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
 $(C thisTid()) returns the identifier of the $(I current) thread.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T232250Z" creationid="Heromyth" creationdate="20170824T232250Z">
@@ -2133,6 +2151,16 @@ As we have seen in the previous chapter, expressions that must always be execute
       <tuv lang="ZH-CN" changeid="Hipter" changedate="20160707T021804Z" creationid="Hipter" creationdate="20160707T021608Z">
         <seg>$(P
 在前面的章节我们已经看到，写在 $(C finally) 块里的表达式一定总被执行。当有错误条件的时候，写在 $(C catch) 块里的表达式总被执行。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
+As we have seen in the previous chapter, the facilities of the $(C std.parallelism) module automatically catch exceptions that have been thrown during the execution of tasks and rethrow them in the context of the owner.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T044635Z" creationid="Heromyth" creationdate="20170825T044635Z">
+        <seg>$(P
+上一章的 $(C std.parallelism) 自动捕获 task 执行中抛出的异常并在所有者的线程中重新抛出。</seg>
       </tuv>
     </tu>
     <tu>
@@ -2976,6 +3004,16 @@ Once a line is read from the input or from any other source, it is possible to p
     <tu>
       <tuv lang="EN-US">
         <seg>$(P
+One thing that the worker can do is to catch the exception explicitly and to send it as a special error message.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T045106Z" creationid="Heromyth" creationdate="20170825T045106Z">
+        <seg>$(P
+工作线程能做的就是手动捕获异常并将其作为特殊的错误信息发送给所有者。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
 One way of terminating the standard input stream in a terminal is pressing Ctrl-D under Unix-based systems and Ctrl-Z under Windows systems.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Hipter" changedate="20160712T005431Z" creationid="Hipter" creationdate="20160712T004913Z">
@@ -3234,6 +3272,18 @@ That solution may be slow especially for large arrays.</seg>
     <tu>
       <tuv lang="EN-US">
         <seg>$(P
+The $(C calculate()) function below receives $(C string) messages, converts them to $(C double), adds 0.5, and sends the result back as a message:
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T044801Z" creationid="Heromyth" creationdate="20170825T044801Z">
+        <seg>$(P
+下面这个 $(C calculate()) 接收一个 $(C string) 消息，将其转换为 $(C double) 并加 0.5，之后将运算的结果作为消息传递回去：
+)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
 The $(C colorAttributeOf()) function template can be implemented as in the following code:
 )</seg>
       </tuv>
@@ -3313,6 +3363,16 @@ The $(C strip()) expression above returns a new string that does not contain the
       <tuv lang="ZH-CN" changeid="大处着手小处着眼" changedate="20160719T150826Z" creationid="Hipter" creationdate="20160712T020830Z">
         <seg>$(P
 上面的 $(C strip()) 表达式返回一个不包含尾随控制符的新字符串。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
+The $(C to!double()) call above would throw an exception if the string cannot be converted to a $(C double) value.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T044939Z" creationid="Heromyth" creationdate="20170825T044827Z">
+        <seg>$(P
+如果该字符串不能转换为一个 $(C double) 值，则调用 $(C to!double()) 会抛出异常。</seg>
       </tuv>
     </tu>
     <tu>
@@ -3850,6 +3910,18 @@ The owner in the following program sends its worker a message of type $(C int) a
     <tu>
       <tuv lang="EN-US">
         <seg>$(P
+The owner receives the response for "1.2" as 1.7 but because the worker has been terminated, the owner would be blocked waiting for a message that would never arrive:
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T045039Z" creationid="Heromyth" creationdate="20170825T045039Z">
+        <seg>$(P
+由于工作线程已被终止，所有者只会收到将“1.2”变为 1.7 的消息的反馈。而它并不知道工作线程已经终止，所有者线程会被阻塞来等待永远不会到达的消息：
+)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
 The owner simply waits for these messages in an infinite loop.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T234434Z" creationid="Heromyth" creationdate="20170824T234434Z">
@@ -4206,6 +4278,18 @@ This time the compilation error is due to the combination of two factors:
       <tuv lang="ZH-CN" changeid="大处着手小处着眼" changedate="20160718T150238Z" creationid="Hipter" creationdate="20160713T023816Z">
         <seg>$(P
 这次的编译错误是因为两个因素的联合作用：
+)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
+This time the reason of the failure is printed by the owner:
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T051831Z" creationid="Heromyth" creationdate="20170825T051831Z">
+        <seg>$(P
+这次错误的原因会被所有者输出：
 )</seg>
       </tuv>
     </tu>
@@ -4810,6 +4894,16 @@ After : re�sueé    $(SHELL_NOTE_WRONG 不正确)
       </tuv>
       <tuv lang="ZH-CN" changeid="大处着手小处着眼" changedate="20160718T140423Z" creationid="Hipter" creationdate="20160712T021122Z">
         <seg>$(SHELL_NOTE 没有换行符)
+)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(SHELL_NOTE waiting for a message that will never arrive)
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T045053Z" creationid="Heromyth" creationdate="20170825T045053Z">
+        <seg>$(SHELL_NOTE 等待永远不会到达的消息)
 )</seg>
       </tuv>
     </tu>
@@ -5873,6 +5967,16 @@ $(LI $(LINK2 /ders/d.cn/slices.html, 分片与其他数组功能) $(INDEX_KEYWOR
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Additionally, this program takes advantage of a special message type to signal to the worker when it is time to exit:
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T045140Z" creationid="Heromyth" creationdate="20170825T045140Z">
+        <seg>此外，这个程序还使用了特殊的消息类型来通知工作线程退出：
+)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>All members may have already been finalized when the destructor is executing.)</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170820T001709Z" creationid="Heromyth" creationdate="20170820T001709Z">
@@ -6039,6 +6143,14 @@ $(LI $(LINK2 /ders/d.cn/slices.html, 分片与其他数组功能) $(INDEX_KEYWOR
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>As we will see below, it is also possible to receive $(C OwnerTerminated) and $(C LinkTerminated) exceptions as messages.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T044720Z" creationid="Heromyth" creationdate="20170825T044720Z">
+        <seg>就像我们下面看到的那样，可以将 $(C OwnerTerminated) 和 $(C LinkTerminated) 当作消息传递。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Assigning that return value back to $(C name) produces the intended output:
 )</seg>
       </tuv>
@@ -6105,6 +6217,16 @@ $(LI $(LINK2 /ders/d.cn/slices.html, 分片与其他数组功能) $(INDEX_KEYWOR
       </tuv>
       <tuv lang="ZH-CN" changeid="Hipter" changedate="20160709T093155Z" creationid="Hipter" creationdate="20160708T093357Z">
         <seg>因为在内存中数组元素是逐个存储的，索引值就是元素位置与数组的起始位置的相对值。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Because such an exception would terminate the worker thread right away, the owner in the following program can receive a response only for the first message:
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T044959Z" creationid="Heromyth" creationdate="20170825T044959Z">
+        <seg>由于异常会立刻终止工作线程，所有者只能收到第一条消息的反馈：
+)</seg>
       </tuv>
     </tu>
     <tu>
@@ -6863,6 +6985,14 @@ $(LINK2 /ders/d.cn/index.html,
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>However, the exceptions can be caught and sent explicitly by the worker.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T044707Z" creationid="Heromyth" creationdate="20170825T044707Z">
+        <seg>但你也可以在工作线程中手动捕获异常并将其发送给所有者。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>However, the grades cannot be inserted as in the following code because each grade would overwrite the previous one:
 )</seg>
       </tuv>
@@ -7111,6 +7241,16 @@ $(LINK2 /ders/d.cn/index.html,
       </tuv>
       <tuv lang="ZH-CN" changeid="大处着手小处着眼" changedate="20160725T014519Z" creationid="大处着手小处着眼" creationdate="20160725T014519Z">
         <seg>它访问对应于</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>It can continue working on other things if a message does not arrive within that time:
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T044525Z" creationid="Heromyth" creationdate="20170825T044525Z">
+        <seg>如果消息超时它还会继续执行其他操作：
+)</seg>
       </tuv>
     </tu>
     <tu>
@@ -7963,6 +8103,14 @@ LANGUAGE=chinese</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>The following program sends the reason of the failure as a $(C CalculationFailure) message.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T045116Z" creationid="Heromyth" creationdate="20170825T045116Z">
+        <seg>下面这个程序就把出错的原因封装在 $(C CalculationFailure) 消息中传递回去。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>The following worker handles messages by lambda functions.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T000458Z" creationid="Heromyth" creationdate="20170825T000458Z">
@@ -8262,6 +8410,16 @@ LANGUAGE=chinese</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T055311Z" creationid="Heromyth" creationdate="20170824T055311Z">
         <seg>线程函数的参数为初始数字：
+)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>This allows the owner to catch such exceptions:
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T044642Z" creationid="Heromyth" creationdate="20170825T044642Z">
+        <seg>它使得所有者线程可以捕获工作线程的异常：
 )</seg>
       </tuv>
     </tu>
@@ -8835,6 +8993,14 @@ LANGUAGE=chinese</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="ZXP" changedate="20070307T072716Z" creationid="ZXP" creationdate="20070307T072716Z">
         <seg>break;</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>calculator.send("hello");  // ← incorrect input</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T045011Z" creationid="Heromyth" creationdate="20170825T045011Z">
+        <seg>calculator.send("hello");  // ← 错误的输入</seg>
       </tuv>
     </tu>
     <tu>
