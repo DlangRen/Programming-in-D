@@ -120,6 +120,14 @@ $(LI $(LINK2 /ders/d.cn/struct.html, 结构) $(INDEX_KEYWORDS struct .</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>$(C __gshared) is necessary when interacting with libraries of languages like C and C++ where data sharing is automatic by default.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T233527Z" creationid="Heromyth" creationdate="20170825T233527Z">
+        <seg>在与像 C 和 C++ 这样默认自动数据共享的语言编写的库交互时，$(C __gshared) 是必须的。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>$(C readf()) continues to wait for more characters to add to the string:
 )</seg>
       </tuv>
@@ -232,8 +240,8 @@ $(LI $(LINK2 /ders/d.cn/struct.html, 结构) $(INDEX_KEYWORDS struct .</seg>
       <tuv lang="EN-US">
         <seg>$(DERS_BOLUMU $(IX data sharing concurrency) $(IX concurrency, data sharing) Data Sharing Concurrency)</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T143318Z" creationid="Heromyth" creationdate="20170825T143318Z">
-        <seg>$(DERS_BOLUMU $(IX data sharing concurrency) $(IX concurrency, data sharing) 数据共享式并发)</seg>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T233449Z" creationid="Heromyth" creationdate="20170825T143318Z">
+        <seg>$(DERS_BOLUMU $(IX data sharing concurrency) $(IX concurrency, data sharing) 并发与数据共享)</seg>
       </tuv>
     </tu>
     <tu>
@@ -450,6 +458,14 @@ $(LI $(LINK2 /ders/d.cn/struct.html, 结构) $(INDEX_KEYWORDS struct .</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T232728Z" creationid="Heromyth" creationdate="20170824T232728Z">
         <seg>$(H5 $(IX send) $(IX receiveOnly) 消息传递)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(H5 $(IX shared) $(C shared) to share mutable data between threads)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T233547Z" creationid="Heromyth" creationdate="20170825T233547Z">
+        <seg>$(H5 $(IX shared) 用 $(C shared) 在线程间共享数据))</seg>
       </tuv>
     </tu>
     <tu>
@@ -1821,6 +1837,18 @@ $(I $(B 注：) 在上面的代码中，一般不这样直接访问成员。</se
     <tu>
       <tuv lang="EN-US">
         <seg>$(P
+$(I $(B Note:) Prefer message-passing to signal a thread.)
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T233735Z" creationid="Heromyth" creationdate="20170825T233735Z">
+        <seg>$(P
+$(I $(B 注意：) 推荐使用消息传递向线程发送控制信号。)
+)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
 $(I $(B Note:) The indexes above are for demonstration purposes only; they are not stored in the computer's memory.)
 )</seg>
       </tuv>
@@ -1961,6 +1989,18 @@ $(IX Variant, concurrency) $(C std.variant.Variant) 类型可以封装任意类�
     <tu>
       <tuv lang="EN-US">
         <seg>$(P
+$(IX __gshared) An exception of this rule is a variable that is defined as $(C __gshared):
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T145219Z" creationid="Heromyth" creationdate="20170825T145219Z">
+        <seg>$(P
+$(IX __gshared) 除非使用 $(C __gshared) 定义变量：
+)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
 $(IX __traits) $(IX getAttributes) The meaning of attributes is solely determined by the programmer for the needs of the program.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170804T043110Z" creationid="Heromyth" creationdate="20170803T110205Z">
@@ -1996,6 +2036,16 @@ $(IX hasUDA, std.traits) Another useful tool is $(C std.traits.hasUDA), which de
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170810T104354Z" creationid="Heromyth" creationdate="20170810T104354Z">
         <seg>$(P
 $(IX hasUDA, std.traits) 另一个有用的工具是 $(C std.traits.hasUDA)，它可检测某个符号是否拥有某个特定的属性。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
+$(IX immutable, concurrency) On the other hand, since $(C immutable) variables cannot be modified, there is no problem with sharing them directly.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T233747Z" creationid="Heromyth" creationdate="20170825T233747Z">
+        <seg>$(P
+$(IX immutable, concurrency) 另一方面，由于 $(C immutable) 变量无法被修改，它们可以直接共享。</seg>
       </tuv>
     </tu>
     <tu>
@@ -2110,6 +2160,18 @@ $(LINK_DOWNLOAD /ders/d.en/Programming_in_D_code_samples.zip, Click here to down
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170801T052452Z" creationid="Heromyth" creationdate="20170801T052326Z">
         <seg>$(P
 $(LINK_DOWNLOAD /ders/d.en/Programming_in_D_code_samples.zip, 点击此处可下载 $(C .zip) 文件形式的示例代码。)
+)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
+A $(C static assert) inside the $(C std.concurrency) module prevents accessing $(I mutable) data from another thread:
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T145145Z" creationid="Heromyth" creationdate="20170825T145145Z">
+        <seg>$(P
+$(C std.concurrency) 模块中的 $(C static assert) 阻止线程访问其他线程中的$(I 可变)数据：
 )</seg>
       </tuv>
     </tu>
@@ -3316,6 +3378,28 @@ Multiple attributes can be specified separately or as a parenthesized list of at
     <tu>
       <tuv lang="EN-US">
         <seg>$(P
+Mutable variables that need to be shared must be defined with the $(C shared) keyword:
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T233602Z" creationid="Heromyth" creationdate="20170825T233602Z">
+        <seg>$(P
+需要共享的可变变量必须使用 $(C shared) 关键自定义：
+)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
+Note that since the lifetime of $(C i) is defined by the scope of $(C main()), it is important that $(C main()) does not terminate before the worker thread.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T235056Z" creationid="Heromyth" creationdate="20170825T235056Z">
+        <seg>$(P
+请注意：$(C i) 的生命期即为 $(C main()) 函数作用域，所以为了防止出现错误应确保 $(C main()) 函数在工作线程终止后才返回。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
 Obviously, the values of the elements can be changed later during the execution of the program.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="大处着手小处着眼" changedate="20160725T083134Z" creationid="大处着手小处着眼" creationdate="20160725T083134Z">
@@ -3483,6 +3567,16 @@ Since $(C char[]) is mutable and $(C string) is not, there is a mismatch.</seg>
       <tuv lang="ZH-CN" changeid="Hipter" changedate="20160713T024802Z" creationid="Hipter" creationdate="20160713T024802Z">
         <seg>$(P
 由于 $(C char[]) 可变而 $(C string) 不可变，两者不批配。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
+Since each thread gets its own copy of data, $(C spawn()) does not allow passing references to thread-local variables.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T145059Z" creationid="Heromyth" creationdate="20170825T145059Z">
+        <seg>$(P
+由于每个线程都有一份单独的数据拷贝，$(C spawn()) 不允许以引用的形式传递线程内的值。</seg>
       </tuv>
     </tu>
     <tu>
@@ -3801,6 +3895,16 @@ The Enter key that the user presses after the name does not terminate the input.
       <tuv lang="ZH-CN" changeid="Hipter" changedate="20160712T004459Z" creationid="Hipter" creationdate="20160712T004052Z">
         <seg>$(P
 用户在名字之后按的 Enter 键并没有结束输入。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
+The address of the mutable variable $(C isDone) cannot be passed between threads.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T145201Z" creationid="Heromyth" creationdate="20170825T145201Z">
+        <seg>$(P
+可变变量 $(C isDone) 的地址无法在线程间传递：</seg>
       </tuv>
     </tu>
     <tu>
@@ -4667,6 +4771,16 @@ There can be only one value per key.</seg>
       <tuv lang="ZH-CN" changeid="Hipter" changedate="20160711T132156Z" creationid="Hipter" creationdate="20160709T025550Z">
         <seg>$(P
 每个键有且仅有一个对应值。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
+There is only one copy of such a variable in the entire program and all threads can share that variable.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T233513Z" creationid="Heromyth" creationdate="20170825T233513Z">
+        <seg>$(P
+这样的话，程序中只会有一 $(C globallyShared)，它会在所有线程间共享。</seg>
       </tuv>
     </tu>
     <tu>
@@ -6205,6 +6319,14 @@ auto encrypted(string value) {</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>// Hoping to signal the worker to terminate:</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T145123Z" creationid="Heromyth" creationdate="20170825T145123Z">
+        <seg>// 希望通知工作线程终止：</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>// Information about the students of a school</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="大处着手小处着眼" changedate="20160720T033532Z" creationid="大处着手小处着眼" creationdate="20160720T033532Z">
@@ -6233,6 +6355,14 @@ auto encrypted(string value) {</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="大处着手小处着眼" changedate="20160726T025423Z" creationid="大处着手小处着眼" creationdate="20160725T073220Z">
         <seg>// 在循环中从输入流读取元素值</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>// Signalling the worker to terminate:</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T233631Z" creationid="Heromyth" creationdate="20170825T233631Z">
+        <seg>// 通知工作线程终止：</seg>
       </tuv>
     </tu>
     <tu>
@@ -7459,6 +7589,16 @@ $(LI $(LINK2 http://dlang.org/phobos/index.html, $(IMG bullet_black.png) 标准�
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>For example, the following program that tries to pass the address of a $(C bool) variable to another thread cannot be compiled:
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T145110Z" creationid="Heromyth" creationdate="20170825T145110Z">
+        <seg>例如，下面这个程序，试图传递 $(C bool) 值的地址只会导致编译错误：
+)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>For example, the month can be determined by the value of the $(C monthIndex) variable below:
 )</seg>
       </tuv>
@@ -7545,6 +7685,16 @@ $(LI $(LINK2 http://dlang.org/phobos/index.html, $(IMG bullet_black.png) 标准�
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170820T004843Z" creationid="Heromyth" creationdate="20170820T004843Z">
         <seg>出于这个原因，通常情况下被编译的程序较被解释器所执行的程序运行更快。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>For that reason, $(C immutable) implies $(C shared):
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T233817Z" creationid="Heromyth" creationdate="20170825T233817Z">
+        <seg>因此，$(C immutable) 隐含了 $(C shared)：
+)</seg>
       </tuv>
     </tu>
     <tu>
@@ -9333,6 +9483,16 @@ LANGUAGE=chinese</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>This fact can be observed by printing both the values and the addresses of the variables:
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T145046Z" creationid="Heromyth" creationdate="20170825T145046Z">
+        <seg>这一点你可以从输出的变量值和地址看出来：
+)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>This fact is reflected in the $(C .length) property of strings:
 )</seg>
       </tuv>
@@ -10033,6 +10193,14 @@ LANGUAGE=chinese</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="ZXP" changedate="20070307T073114Z" creationid="ZXP" creationdate="20070307T073114Z">
         <seg>return;</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>spawn(&amp;worker, &amp;i);         // ← compiles</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T233836Z" creationid="Heromyth" creationdate="20170825T233836Z">
+        <seg>spawn(&amp;worker, &amp;i);         // ← 编译正常</seg>
       </tuv>
     </tu>
     <tu>
