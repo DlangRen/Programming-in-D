@@ -130,6 +130,14 @@ $(LI $(LINK2 /ders/d.cn/struct.html, 结构) $(INDEX_KEYWORDS struct .</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>$(C receiveTimeout()) prevents blocking the receiving thread indefinitely.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T043248Z" creationid="Heromyth" creationdate="20170825T043248Z">
+        <seg>$(C receiveTimeout()) 可以防止出现无限等待消息这样的情况。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>$(C variable1) and $(C variable2) above merely provide access to that anonymous object:
 )</seg>
       </tuv>
@@ -386,6 +394,14 @@ $(LI $(LINK2 /ders/d.cn/struct.html, 结构) $(INDEX_KEYWORDS struct .</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="大处着手小处着眼" changedate="20160722T111020Z" creationid="Hipter" creationdate="20160711T092224Z">
         <seg>$(H5 $(IX readln) $(IX strip) 使用 $(C readln) 和 $(C strip)，而非 $(C readf))</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(H5 $(IX receiveTimeout) Waiting for messages up to a certain time)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T043213Z" creationid="Heromyth" creationdate="20170825T043213Z">
+        <seg>$(H5 $(IX receiveTimeout) 在指定的时间内等待消息)</seg>
       </tuv>
     </tu>
     <tu>
@@ -1665,6 +1681,16 @@ $(IX OOP) $(IX 面向对象编程) 与结构相似， $(C class) 具有定义新
     <tu>
       <tuv lang="EN-US">
         <seg>$(P
+$(IX Variant, concurrency) $(C std.variant.Variant) is a type that can encapsulate any type of data.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T042428Z" creationid="Heromyth" creationdate="20170825T042428Z">
+        <seg>$(P
+$(IX Variant, concurrency) $(C std.variant.Variant) 类型可以封装任意类型的数据。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
 $(IX __traits) $(IX getAttributes) The meaning of attributes is solely determined by the programmer for the needs of the program.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170804T043110Z" creationid="Heromyth" creationdate="20170803T110205Z">
@@ -2770,6 +2796,16 @@ It is possible to send more than one value as a part of the same message.</seg>
     <tu>
       <tuv lang="EN-US">
         <seg>$(P
+It may not make sense to wait for messages beyond a certain time.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T043226Z" creationid="Heromyth" creationdate="20170825T043226Z">
+        <seg>$(P
+可能经过一段时间后就不再需要继续等待消息了。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
 Just like copying, assignment affects only the variables.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Hipter" changedate="20160706T024635Z" creationid="Hipter" creationdate="20160706T024635Z">
@@ -3434,6 +3470,16 @@ The definition of array variables is very similar to the definition of normal va
     <tu>
       <tuv lang="EN-US">
         <seg>$(P
+The details of $(C Variant) are outside of the scope of this chapter.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T043202Z" creationid="Heromyth" creationdate="20170825T043202Z">
+        <seg>$(P
+有关 $(C Variant) 的详细内容已超出本章范围。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
 The element at index 0 has the value 31 (number of days in January); the element at index 1 has the value of 28 (number of days in February), etc.
 )</seg>
       </tuv>
@@ -3501,6 +3547,16 @@ The first line above removes the key-value pair "Tuesday" / $(C 1).</seg>
       <tuv lang="ZH-CN" changeid="Hipter" changedate="20160709T080331Z" creationid="Hipter" creationdate="20160709T032313Z">
         <seg>$(P
 上面第一行移除了键值对 "Tuesday" / $(C 1).</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
+The first parameter of $(C receiveTimeout()) determines how long the message should be waited for.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T043309Z" creationid="Heromyth" creationdate="20170825T043309Z">
+        <seg>$(P
+$(C receiveTimeout()) 的第一个参数决定等待消息时要等待多长时间。</seg>
       </tuv>
     </tu>
     <tu>
@@ -3769,6 +3825,16 @@ The output:
         <seg>$(P
 输出：
 )</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
+The owner above waits for a message for up to 600 milliseconds.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T044510Z" creationid="Heromyth" creationdate="20170825T044510Z">
+        <seg>$(P
+上面的线程所有者将等待消息 600 毫秒。</seg>
       </tuv>
     </tu>
     <tu>
@@ -5193,6 +5259,14 @@ auto encrypted(string value) {</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Hipter" changedate="20160711T115742Z" creationid="Hipter" creationdate="20160711T011155Z">
         <seg>/* ‘foreach’类似于‘for’，但比它更有优势。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>/* ... other operations may be executed here ... */</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T043409Z" creationid="Heromyth" creationdate="20170825T043409Z">
+        <seg>/* ... 可在此处执行其他操作... */</seg>
       </tuv>
     </tu>
     <tu>
@@ -7195,6 +7269,14 @@ $(LINK2 /ders/d.cn/index.html,
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Its return value is $(C true) if a message has been received within that time, $(C false) otherwise.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T043357Z" creationid="Heromyth" creationdate="20170825T043357Z">
+        <seg>如果在指定时间内接收到了消息，函数返回值为 $(C true) ；如果超时则返回 $(C false)。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>KEYWORDS=d programming language tutorial book</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170820T005402Z" creationid="Heromyth" creationdate="20170820T005402Z">
@@ -7359,6 +7441,16 @@ LANGUAGE=chinese</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T054103Z" creationid="Heromyth" creationdate="20170824T054103Z">
         <seg>任何类型任何长短的数据都可以被称为消息。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Messages that do not match the handlers that are specified earlier in the argument list always match a $(C Variant) handler:
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T043113Z" creationid="Heromyth" creationdate="20170825T043113Z">
+        <seg>如果消息无法与参数列表前面指定的各个处理函数相匹配，那么它们将会与一个 $(C Variant) 类型的处理函数匹配：
+)</seg>
       </tuv>
     </tu>
     <tu>
@@ -8019,6 +8111,14 @@ LANGUAGE=chinese</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="大处着手小处着眼" changedate="20160720T023429Z" creationid="大处着手小处着眼" creationdate="20160720T023429Z">
         <seg>第二行定义了一个存储连续十个值的变量。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>The sender may have been busy temporarily or may have terminated with an exception.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T043234Z" creationid="Heromyth" creationdate="20170825T043234Z">
+        <seg>消息的发送者可能正在忙碌或因异常终止。</seg>
       </tuv>
     </tu>
     <tu>
