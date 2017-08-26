@@ -238,8 +238,8 @@ $(LI $(LINK2 /ders/d.cn/struct.html, 结构) $(INDEX_KEYWORDS struct .</seg>
       <tuv lang="EN-US">
         <seg>$(C workForce()) can be called when starting other tasks is preferred over suspending the current thread.</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T145447Z" creationid="Heromyth" creationdate="20170826T045627Z">
-        <seg>$(C workForce()) 则适合用需要在启动任务的同时当前线程的情况。</seg>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T150428Z" creationid="Heromyth" creationdate="20170826T045627Z">
+        <seg>$(C workForce()) 则适合用需要优先启动其他任务，而不是先考虑将当前线程挂起的情况。</seg>
       </tuv>
     </tu>
     <tu>
@@ -1710,8 +1710,8 @@ There are three mistakes (bugs) in this program.</seg>
       <tuv lang="EN-US">
         <seg>$(LI $(IX workForce) $(C workForce()): Works similarly to $(C yieldForce()), except that it starts a new task in the current thread while waiting for the task to be completed.)</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T145405Z" creationid="Heromyth" creationdate="20170826T045536Z">
-        <seg>$(LI $(IX workForce) $(C workForce())：与 $(C yieldForce()) 功能相似。不同的是在等待任务完成时它将在当前线程中启动一个新的任务。)</seg>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T150523Z" creationid="Heromyth" creationdate="20170826T045536Z">
+        <seg>$(LI $(IX workForce) $(C workForce())：与 $(C yieldForce()) 功能相似。不同的是，它在等待当前任务完成时会将启动一个新的任务。)</seg>
       </tuv>
     </tu>
     <tu>
@@ -2216,9 +2216,9 @@ $(C asyncBuf()) 也可以在 $(C foreach) 外使用。</seg>
 $(C asyncBuf()) takes a range and an optional $(I buffer size) that determines how many elements to be made available during each wave:
 )</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T045824Z" creationid="Heromyth" creationdate="20170826T045824Z">
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T151111Z" creationid="Heromyth" creationdate="20170826T045824Z">
         <seg>$(P
-$(C asyncBuf()) 有两个形参：一个是 range，另一个是可选的$(I 缓冲区大小)。缓冲区大小决定了每轮将有多少元素被加载到缓冲区。
+$(C asyncBuf()) 有两个形参：一个是范围；另一个是可选的$(I 缓冲区大小)。缓冲区大小决定了每轮将有多少元素被加载到缓冲区。
 )</seg>
       </tuv>
     </tu>
@@ -2895,9 +2895,9 @@ $(IX parallelism vs. concurrency) $(IX concurrency vs. parallelism) 并发和并
         <seg>$(P
 $(IX reduce, std.algorithm) As with $(C map()), it helps to explain $(C reduce()) from the $(C std.algorithm) module first.</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T075153Z" creationid="Heromyth" creationdate="20170826T075153Z">
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T151212Z" creationid="Heromyth" creationdate="20170826T075153Z">
         <seg>$(P
-$(IX reduce, std.algorithm)与 $(C map()) 一样，先来了解下 $(C std.algorithm) 模块的 $(C reduce()) 有助于本节的我们讲解的知识。</seg>
+$(IX reduce, std.algorithm)与 $(C map()) 一样，先来了解下 $(C std.algorithm) 模块里的 $(C reduce())。</seg>
       </tuv>
     </tu>
     <tu>
@@ -4338,9 +4338,9 @@ In most cases, the features of the $(C core.atomic) module can be several times 
         <seg>$(P
 In order to avoid making a potentially fully-lazy input range a fully-eager range, it iterates the elements in $(I waves).</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T045737Z" creationid="Heromyth" creationdate="20170826T045737Z">
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T150731Z" creationid="Heromyth" creationdate="20170826T045737Z">
         <seg>$(P
-为了防止将输入的可能为延迟取值（fully-lazy）的范围转换为即时取值（fully-eager）的 range，它会$(I 轮)的方式进行迭代。</seg>
+为了防止将输入的可能为延迟取值的范围转换为即时取值的范围，它会以$(I 轮动)的方式迭代这些元素。</seg>
       </tuv>
     </tu>
     <tu>
@@ -9471,8 +9471,8 @@ $(LI $(LINK2 /ders/d.cn/slices.html, 分片与其他数组功能) $(INDEX_KEYWOR
       <tuv lang="EN-US">
         <seg>Although $(C spinForce()) makes the microprocessor busy while waiting, it is suitable when the task is expected to be completed in a very short time.</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T145412Z" creationid="Heromyth" creationdate="20170826T045604Z">
-        <seg>虽然在等待时 $(C spinForce()) 会使处理器忙绿，但它非常适合等待耗时短的任务。</seg>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T150104Z" creationid="Heromyth" creationdate="20170826T045604Z">
+        <seg>虽然在等待时 $(C spinForce()) 会使处理器忙碌，但它非常适合等待耗时短的任务。</seg>
       </tuv>
     </tu>
     <tu>
