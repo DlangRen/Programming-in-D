@@ -194,10 +194,26 @@ $(LI $(LINK2 /ders/d.cn/struct.html, 结构) $(INDEX_KEYWORDS struct .</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>$(C std.algorithm.map) is an algorithm commonly found in many functional languages.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T073418Z" creationid="Heromyth" creationdate="20170826T073418Z">
+        <seg>在大多数函数式编程语言中你都能找到 $(C std.algorithm.map) 这样的算法。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>$(C task()) constructs, $(C executeInNewThread()) starts, and $(C yieldForce()) waits for a task object.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T022411Z" creationid="Heromyth" creationdate="20170826T022411Z">
         <seg>使用 $(C task()) 创建 task，使用 $(C executeInNewThread()) 启动 task，使用 $(C yieldForce()) 等待 task 完成。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(C taskPool.map()) and $(C taskPool.amap()) from the $(C std.parallelism) module take advantage of multiple cores and run faster in many cases.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T073801Z" creationid="Heromyth" creationdate="20170826T073554Z">
+        <seg>$(C std.parallelism) 模块里的 $(C taskPool.map()) 和 $(C taskPool.amap()) 会充分利用多核，并在大部分情况下加快程序的运行速度。</seg>
       </tuv>
     </tu>
     <tu>
@@ -1126,6 +1142,26 @@ In parallelism, tasks are independent from each other.</seg>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T012119Z" creationid="Heromyth" creationdate="20170824T012119Z">
         <seg>$(LI
 在并行中，任务之间相互独立。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(LI
+It is fully eager.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T074744Z" creationid="Heromyth" creationdate="20170826T074744Z">
+        <seg>$(LI
+它是即时求值的。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(LI
+It works with $(C RandomAccessRange) ranges.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T074821Z" creationid="Heromyth" creationdate="20170826T074821Z">
+        <seg>$(LI
+它适用于 $(C RandomAccessRange) 范围。</seg>
       </tuv>
     </tu>
     <tu>
@@ -2181,6 +2217,16 @@ $(C spawnLinked()) 与 $(C spawn()) 用法相同。</seg>
     <tu>
       <tuv lang="EN-US">
         <seg>$(P
+$(C std.algorithm.map) takes the function as its template parameter, and the range as its function parameter.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T073904Z" creationid="Heromyth" creationdate="20170826T073904Z">
+        <seg>$(P
+$(C std.algorithm.map) 有一个模版参数用来接收函数，有一个函数形参用来接收范围。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
 $(C std.algorithm.reverse) reverses the elements in place (the first element becomes the last element, etc.):
 )</seg>
       </tuv>
@@ -2208,6 +2254,16 @@ $(C std.concurrency) does not provide such a convenience for general exception t
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T044657Z" creationid="Heromyth" creationdate="20170825T044657Z">
         <seg>$(P
 $(C std.concurrency) 并未提供这种捕获异常的方法。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
+$(C taskPool.map()) from the $(C std.parallelism) module works essentially the same as $(C std.algorithm.map).</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T074112Z" creationid="Heromyth" creationdate="20170826T074112Z">
+        <seg>$(P
+$(C std.parallelism) 模块中的 $(C taskPool.map()) 和 $(C std.algorithm.map) 的功能相同。</seg>
       </tuv>
     </tu>
     <tu>
@@ -2316,6 +2372,16 @@ $(I $(B Note:) The execution time of the program may be different on other syste
         <seg>$(P
 $(I $(B 注意：)在不同的系统上运行上面的程序可能会有不同的执行时间，但大致都是“4 秒除以核心数”这样的结果。)
 )</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
+$(I $(B Note:) The free-standing $(C averageGrade()) function above is needed due to a limitation that involves using local delegates with member function templates like $(C TaskPool.map).</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T074526Z" creationid="Heromyth" creationdate="20170826T074526Z">
+        <seg>$(P
+$(I $(B 注意：)之所以上面的代码需要一个独立的 $(C averageGrade()) 函数是因为像 $(C TaskPool.map) 这样的成员模版函数存在无法使用局部委托的限制。</seg>
       </tuv>
     </tu>
     <tu>
@@ -2578,6 +2644,16 @@ $(IX lock) The effect of $(C synchronized) is to create a lock behind the scenes
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T000021Z" creationid="Heromyth" creationdate="20170826T000021Z">
         <seg>$(P
 $(IX lock) $(C synchronized) 会在后台创建一个锁，同一时间只有一个线程能持有这个锁。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
+$(IX map, std.algorithm) It helps to explain $(C map()) from the $(C std.algorithm) module before explaining $(C taskPool.map()).</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T073408Z" creationid="Heromyth" creationdate="20170826T073408Z">
+        <seg>$(P
+$(IX map, std.algorithm)在介绍 $(C taskPool.map()) 之前，先了解一下 $(C std.algorithm) 模块的 $(C map()) 对理解本节的内容是非常有帮助的。</seg>
       </tuv>
     </tu>
     <tu>
@@ -3842,6 +3918,16 @@ I will start using that form after introducing the $(C string) type below.</seg>
     <tu>
       <tuv lang="EN-US">
         <seg>$(P
+If $(C std.algorithm.map) were an eager algorithm, the messages about the starts and finishes of the operations would be printed altogether at the top.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T074057Z" creationid="Heromyth" creationdate="20170826T074057Z">
+        <seg>$(P
+如果 $(C std.algorithm.map) 是一个即时取值的算法，那表示操作开始和操作结束的信息应该在程序最开始的时候一下全部显示出来。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
 If an exception is thrown, the output includes the $(C scope(exit)) and $(C scope(failure)) expressions:
 )</seg>
       </tuv>
@@ -4162,6 +4248,16 @@ lambda 函数和定义了 $(C opCall()) 成员函数的对象都可以传递给 
     <tu>
       <tuv lang="EN-US">
         <seg>$(P
+Let's compare these three algorithms using the $(C Student) example.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T073817Z" creationid="Heromyth" creationdate="20170826T073817Z">
+        <seg>$(P
+我们会用 $(C Student) 作为例子来比较个三个算法。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
 Let's consider the following code that we have seen previously in the $(LINK2 /ders/d.en/value_vs_reference.html, Value Types and Reference Types chapter):
 )</seg>
       </tuv>
@@ -4427,6 +4523,18 @@ Other than the fact that $(C opAssign) cannot be overloaded for classes, operato
       <tuv lang="ZH-CN" changeid="Hipter" changedate="20160707T005026Z" creationid="Hipter" creationdate="20160707T005026Z">
         <seg>$(P
 虽然 $(C opAssign) 不能被类重载，但与结构一样，可以实现运算符重载。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
+Parallel $(C amap()) works the same as parallel $(C map()) with two differences:
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T074736Z" creationid="Heromyth" creationdate="20170826T074736Z">
+        <seg>$(P
+并行 $(C amap()) 与并行 $(C map()) 作用基本相似，但有以下两点不同：
+)</seg>
       </tuv>
     </tu>
     <tu>
@@ -5174,6 +5282,16 @@ The execution time of the program can be measured in a terminal by $(C time):
     <tu>
       <tuv lang="EN-US">
         <seg>$(P
+The fact that $(C std.algorithm.map) operates lazily is very powerful in many programs.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T073526Z" creationid="Heromyth" creationdate="20170826T073526Z">
+        <seg>$(P
+实际上对很多程序来说，$(C std.algorithm.map) 的延迟取值是非常有用的。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
 The fact that plain arrays provide access to their values through index numbers can be described as an $(I association) of indexes with values.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Hipter" changedate="20160711T023126Z" creationid="Hipter" creationdate="20160708T084434Z">
@@ -5309,6 +5427,16 @@ The following three functions define an interface to an associative array that e
         <seg>$(P
 下面这三个函数定义了一个接口。通过这个接口每个线程都可以访问一个关联线程与线程名的数组：
 )</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
+The function may be specified by the $(C =&gt;) syntax as a $(I lambda expression) as we have seen in earlier chapters.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T073927Z" creationid="Heromyth" creationdate="20170826T073927Z">
+        <seg>$(P
+这个函数也可以是由 $(C =&gt;) 语法声明的 $(I lambda 表达式)。</seg>
       </tuv>
     </tu>
     <tu>
@@ -5524,6 +5652,18 @@ The output of one of the threads is highlighted:
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T055331Z" creationid="Heromyth" creationdate="20170824T055331Z">
         <seg>$(P
 其中一个线程的输出被高亮了：
+)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
+The output of the program demonstrates that $(C map()) operates lazily; $(C averageGrade()) is called for each result as the $(C foreach) loop iterates:
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T074012Z" creationid="Heromyth" creationdate="20170826T074012Z">
+        <seg>$(P
+从程序的输出可以看出 $(C map()) 是延迟取值的；它调用 $(C averageGrade()) 的行为与 $(C foreach) 循环相似：
 )</seg>
       </tuv>
     </tu>
@@ -5801,6 +5941,16 @@ The scenario above is just one example that is sufficient to explain the incorre
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T235828Z" creationid="Heromyth" creationdate="20170825T235828Z">
         <seg>$(P
 上面那种情况只是为了解释程序得出错误结果的原因而创建的例子。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
+The second parameter of $(C map()) has the same meaning as $(C asyncBuf()): It determines the size of the buffer that $(C map()) uses to store the results in.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T074631Z" creationid="Heromyth" creationdate="20170826T074631Z">
+        <seg>$(P
+$(C map()) 的第二个参数与 $(C asyncBuf()) 的第二个参数含义相同：它决定了 $(C map()) 储存结果的缓冲区的大小。</seg>
       </tuv>
     </tu>
     <tu>
@@ -6212,6 +6362,18 @@ This time the exception is caught by the main thread instead of terminating the 
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T045240Z" creationid="Heromyth" creationdate="20170826T045240Z">
         <seg>$(P
 这次异常将会被主线程捕获而不是终止程序：
+)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
+This time the operations are executed in waves of three elements:
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T074549Z" creationid="Heromyth" creationdate="20170826T074549Z">
+        <seg>$(P
+这次每轮将会对三个元素进行操作：
 )</seg>
       </tuv>
     </tu>
@@ -6924,6 +7086,104 @@ Write a program that reads numbers from the input, and prints the odd and even o
     <tu>
       <tuv lang="EN-US">
         <seg>$(SHELL
+$ time ./deneme
+$(SHELL_OBSERVED
+Started working on student 0
+Finished working on student 0
+85                   $(SHELL_NOTE calculated as foreach iterates)
+Started working on student 1
+Finished working on student 1
+86
+...</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T074030Z" creationid="Heromyth" creationdate="20170826T074030Z">
+        <seg>$(SHELL
+$ time ./deneme
+$(SHELL_OBSERVED
+Started working on student 0
+Finished working on student 0
+85                   $(SHELL_NOTE 像 foreach 一样迭代元素)
+Started working on student 1
+Finished working on student 1
+86
+...</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(SHELL
+$ time ./deneme
+$(SHELL_OBSERVED
+Started working on student 1  $(SHELL_NOTE in parallel)
+Started working on student 2  $(SHELL_NOTE but in unpredictable order)
+Started working on student 0
+Finished working on student 1
+Finished working on student 2
+Finished working on student 0
+85
+86
+87
+Started working on student 4
+Started working on student 5
+Started working on student 3
+Finished working on student 4
+Finished working on student 3
+Finished working on student 5
+88
+89
+90
+Started working on student 7
+Started working on student 8
+Started working on student 6
+Finished working on student 7
+Finished working on student 6
+Finished working on student 8
+91
+92
+93
+Started working on student 9
+Finished working on student 9
+94</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T074610Z" creationid="Heromyth" creationdate="20170826T074610Z">
+        <seg>$(SHELL
+$ time ./deneme
+$(SHELL_OBSERVED
+Started working on student 1  $(SHELL_NOTE 并行)
+Started working on student 2  $(SHELL_NOTE 但是顺序不确定)
+Started working on student 0
+Finished working on student 1
+Finished working on student 2
+Finished working on student 0
+85
+86
+87
+Started working on student 4
+Started working on student 5
+Started working on student 3
+Finished working on student 4
+Finished working on student 3
+Finished working on student 5
+88
+89
+90
+Started working on student 7
+Started working on student 8
+Started working on student 6
+Finished working on student 7
+Finished working on student 6
+Finished working on student 8
+91
+92
+93
+Started working on student 9
+Finished working on student 9
+94</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(SHELL
 Before: résumé
 After : re�sueé    $(SHELL_NOTE_WRONG INCORRECT)
 )</seg>
@@ -7370,6 +7630,16 @@ $(LI $(LINK2 /ders/d.cn/logical_expressions.html, 逻辑表达式) $(INDEX_KEYWO
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T232913Z" creationid="Heromyth" creationdate="20170824T232913Z">
         <seg>除了它们，标准库还提供了其他实用函数，像 $(C prioritySend())、$(C receive())、$(C receiveTimeout()) 。后面章节会对它们进行解释。
+)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>(There is also $(C std.algorithm.each), which is for generating side effects for each element, as opposed to producing a result from it.)
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T073509Z" creationid="Heromyth" creationdate="20170826T073509Z">
+        <seg>（标准库中还有一个与之相似的 $(C std.algorithm.each)。但不同的是它并不会返回新的范围来储存结果，而是直接将结果应用到传入的范围的元素上。）
 )</seg>
       </tuv>
     </tu>
@@ -7961,6 +8231,14 @@ immutable int b;    // 所有线程共享</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170816T041920Z" creationid="Heromyth" creationdate="20170815T120529Z">
         <seg>/* 此成员被特定要求输出为红色。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>/* Two grades for each student */</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T073953Z" creationid="Heromyth" creationdate="20170826T073953Z">
+        <seg>/* 每个学生有两个成绩 */</seg>
       </tuv>
     </tu>
     <tu>
@@ -9523,6 +9801,26 @@ $(LI $(LINK2 http://dlang.org/phobos/index.html, $(IMG bullet_black.png) 标准�
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>For example, the following code uses the return value of $(C asyncBuf()) as an $(C InputRange) which operates semi-eagerly:
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T073339Z" creationid="Heromyth" creationdate="20170826T073339Z">
+        <seg>例如，下面这个例子就将 $(C asyncBuf()) 的返回值作为一个半延迟取值的 $(C InputRange)：
+)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>For example, the following code would make ready the results of the function calls for three elements at a time:
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T074507Z" creationid="Heromyth" creationdate="20170826T074507Z">
+        <seg>例如，下面的代码每次都会为三个元素准备好函数调用的结果：
+)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>For example, the following program that tries to pass the address of a $(C bool) variable to another thread cannot be compiled:
 )</seg>
       </tuv>
@@ -9805,6 +10103,14 @@ $(LINK2 /ders/d.cn/index.html,
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170803T043559Z" creationid="Heromyth" creationdate="20170803T043559Z">
         <seg>不过，因为它们的含义可能不是很清楚，因此不赞成大家使用文字量值（如 $(C 42) ）构成的属性：
 )</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>However, if the function needs to be called with every element anyway and the operations on each element are independent from each other, laziness may be unnecessarily slower than parallel execution.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T073540Z" creationid="Heromyth" creationdate="20170826T073540Z">
+        <seg>但如果范围中的每个元素都注定要被作为实参传递给函数而且每次操作又都是独立的的话，我们根本就没必要使用速度较慢的延迟取值而不是并行操作。</seg>
       </tuv>
     </tu>
     <tu>
@@ -10197,6 +10503,14 @@ $(LINK2 /ders/d.cn/index.html,
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>It calls a function with the elements of a range one-by-one and returns a range that consists of the results of calling that function with each element.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T073427Z" creationid="Heromyth" creationdate="20170826T073427Z">
+        <seg>它会对范围中的每一个元素应用指定的函数，并将函数的返回值组合为范围返回。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>It can continue working on other things if a message does not arrive within that time:
 )</seg>
       </tuv>
@@ -10227,6 +10541,14 @@ $(LINK2 /ders/d.cn/index.html,
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T234512Z" creationid="Heromyth" creationdate="20170824T234449Z">
         <seg>它通过消息中的机器人 ID 来识别机器人。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>It is a lazy algorithm: It calls the function as needed.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T073437Z" creationid="Heromyth" creationdate="20170826T073437Z">
+        <seg>这是一个延迟求值的算法，只有在返回的结果被使用时它才会调用指定的函数进行运算。</seg>
       </tuv>
     </tu>
     <tu>
@@ -10355,6 +10677,16 @@ $(LINK2 /ders/d.cn/index.html,
       </tuv>
       <tuv lang="ZH-CN" changeid="Hipter" changedate="20160707T014719Z" creationid="Hipter" creationdate="20160707T014719Z">
         <seg>如果是同一对象，返回 $(C true) ，否则为 $(C false) 。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>It returns a range that consists of the results of applying that function to the elements of the range:
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T073914Z" creationid="Heromyth" creationdate="20170826T073914Z">
+        <seg>它会返回一个新的范围来储存应用函数后得到的结果：
+)</seg>
       </tuv>
     </tu>
     <tu>
@@ -10544,6 +10876,14 @@ $(LINK2 /ders/d.cn/index.html,
       </tuv>
       <tuv lang="ZH-CN" changeid="大处着手小处着眼" changedate="20160715T151258Z" creationid="大处着手小处着眼" creationdate="20160714T100248Z">
         <seg>KEYWORDS=D 语言教程 字符串 习题解答</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Let's assume that $(C Student) has a member function that returns the average grade of the student.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T073839Z" creationid="Heromyth" creationdate="20170826T073839Z">
+        <seg>我们假设 $(C Student) 有一个计算并返回学生平均分的成员函数。</seg>
       </tuv>
     </tu>
     <tu>
@@ -11448,6 +11788,16 @@ LANGUAGE=chinese</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>The following program uses $(C map()) to call the $(C averageGrade()) member function on each element:
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T073940Z" creationid="Heromyth" creationdate="20170826T073940Z">
+        <seg>下面这个程序使用 $(C map()) 来调用每一个元素的成员函数 $(C averageGrade())：
+)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>The following worker handles messages by lambda functions.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T000458Z" creationid="Heromyth" creationdate="20170825T000458Z">
@@ -11528,6 +11878,14 @@ LANGUAGE=chinese</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T134343Z" creationid="Heromyth" creationdate="20170825T134343Z">
         <seg>邮箱中的消息个数会随着程序接收和处理消息的速度而有所变化。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>The only difference is that it executes the function calls semi-eagerly and stores the results in a buffer to be served from as needed.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T074143Z" creationid="Heromyth" creationdate="20170826T074128Z">
+        <seg>唯一不同的是 $(C taskPool.map()) 是以半延迟取值的方式调用函数操作元素，并将结果储存在缓冲区中。</seg>
       </tuv>
     </tu>
     <tu>
@@ -11704,6 +12062,14 @@ LANGUAGE=chinese</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>The size of this buffer is determined by the second parameter.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T074139Z" creationid="Heromyth" creationdate="20170826T074139Z">
+        <seg>缓冲区的大小由第二个形参决定。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>The solution is to reset $(C i) to 0 before the second $(C while) loop, for example with the statement $(C i = 0;)
 )</seg>
       </tuv>
@@ -11727,6 +12093,16 @@ LANGUAGE=chinese</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T003049Z" creationid="Heromyth" creationdate="20170826T003049Z">
         <seg>它的模版参数必须是一个$(I 二元运算符)，如 $(STRING "+")、$(STRING "+=") 等。
+)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>The third parameter is the work unit size as in $(C parallel()); the difference being its default value, which is $(C size_t.max):
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T074645Z" creationid="Heromyth" creationdate="20170826T074645Z">
+        <seg>第三个参数为工作单元大小，与 $(C parallel()) 中对应的参数作用相同但默认值不同；此处它的默认值为 $(C size_t.max)：
 )</seg>
       </tuv>
     </tu>
@@ -11844,6 +12220,16 @@ LANGUAGE=chinese</seg>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T134443Z" creationid="Heromyth" creationdate="20170825T134443Z">
         <seg>最后一个参数有四个选项：
 )</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>There would be a compilation error without that free-standing function:
+))</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T074534Z" creationid="Heromyth" creationdate="20170826T074534Z">
+        <seg>如果不使用独立的函数的话，程序将不能通过编译：
+))</seg>
       </tuv>
     </tu>
     <tu>
@@ -12228,6 +12614,14 @@ LANGUAGE=chinese</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="大处着手小处着眼" changedate="20160725T033354Z" creationid="大处着手小处着眼" creationdate="20160725T033229Z">
         <seg>要修改长度，就必须修改源代码，而且程序必须重新编译。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>To demonstrate how parallel algorithms are faster, let's again slow this function down with $(C Thread.sleep()).</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T073849Z" creationid="Heromyth" creationdate="20170826T073849Z">
+        <seg>为了能够突出并行算法的速度，我们还是使用 $(C Thread.sleep()) 让整个过程消耗更多的时间。</seg>
       </tuv>
     </tu>
     <tu>
@@ -12854,6 +13248,20 @@ sys     0m0.004s)
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>real    0m10.006s    $(SHELL_NOTE 10 seconds total)
+user    0m0.000s
+sys     0m0.004s)
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T074045Z" creationid="Heromyth" creationdate="20170826T074045Z">
+        <seg>real    0m10.006s    $(SHELL_NOTE 共 10 秒)
+user    0m0.000s
+sys     0m0.004s)
+)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>real    0m10.007s    $(SHELL_NOTE 10 seconds total)
 user    0m0.004s
 sys     0m0.000s)
@@ -12879,6 +13287,20 @@ sys     0m0.000s
 user    0m0.004s
 sys     0m0.000s
 )
+)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>real    0m4.007s    $(SHELL_NOTE 4 seconds total)
+user    0m0.000s
+sys     0m0.004s)
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T074621Z" creationid="Heromyth" creationdate="20170826T074621Z">
+        <seg>real    0m4.007s    $(SHELL_NOTE 共 4 秒)
+user    0m0.000s
+sys     0m0.004s)
 )</seg>
       </tuv>
     </tu>
