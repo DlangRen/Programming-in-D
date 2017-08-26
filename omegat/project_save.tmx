@@ -2945,9 +2945,9 @@ $(IX thread id) $(B 线程 ID)：每一个线程都有一个 ID，你可以使�
         <seg>$(P
 $(IX thread) $(B Thread): Operating systems execute programs as work units called $(I threads).</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T012434Z" creationid="Heromyth" creationdate="20170824T012434Z">
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T222736Z" creationid="Heromyth" creationdate="20170824T012434Z">
         <seg>$(P
-$(IX thread) $(B 线程)：操作系统执行程序的工作单元叫做 $(I 线程)</seg>
+$(IX thread) $(B 线程)：操作系统执行程序的工作单元叫做 $(I 线程)。</seg>
       </tuv>
     </tu>
     <tu>
