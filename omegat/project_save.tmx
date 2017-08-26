@@ -1322,10 +1322,26 @@ There are three mistakes (bugs) in this program.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>$(LI $(C amap()) calls functions with the elements of a $(C RandomAccessRange) fully-eagerly in parallel.)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T091304Z" creationid="Heromyth" creationdate="20170826T091304Z">
+        <seg>$(LI $(C amap())：以并行即时（fully-eagerly）取值的方式对 $(C RandomAccessRange) 中的元素应用指定的函数。)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>$(LI $(C amap): Calls functions with the elements of a $(C RandomAccessRange) fully-eagerly in parallel.)</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T012754Z" creationid="Heromyth" creationdate="20170826T012754Z">
         <seg>$(LI $(C amap)：以并行即时取值的方式对 $(C RandomAccessRange) 中的元素应用指定的函数。)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(LI $(C asyncBuf()) iterates the elements of an $(C InputRange) semi-eagerly in parallel.)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T091243Z" creationid="Heromyth" creationdate="20170826T091243Z">
+        <seg>$(LI $(C asyncBuf())：以并行半延时（semi-eagerly）取值的方式迭代 $(C InputRange) 中的元素。)</seg>
       </tuv>
     </tu>
     <tu>
@@ -1370,6 +1386,22 @@ There are three mistakes (bugs) in this program.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>$(LI $(C map()) calls functions with the elements of an $(C InputRange) semi-eagerly in parallel.)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T091254Z" creationid="Heromyth" creationdate="20170826T091254Z">
+        <seg>$(LI $(C map())：以并行半延时（semi-eagerly）取值的方式对 $(C InputRange) 中的每一个元素应用指定的函数。)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(LI $(C map()), $(C amap()), and $(C reduce()) can take multiple functions and return the results as tuples.)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T091357Z" creationid="Heromyth" creationdate="20170826T091357Z">
+        <seg>$(LI $(C map())、$(C amap()) 或 $(C reduce()) 可以传入多个函数并返回元组类型的结果。)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>$(LI $(C map): Calls functions with the elements of an $(C InputRange) semi-eagerly in parallel.)</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T012737Z" creationid="Heromyth" creationdate="20170826T012737Z">
@@ -1386,6 +1418,14 @@ There are three mistakes (bugs) in this program.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>$(LI $(C parallel()) accesses the elements of a range in parallel.)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T091134Z" creationid="Heromyth" creationdate="20170826T091134Z">
+        <seg>$(LI $(C parallel()) 并行访问范围中的元素。)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>$(LI $(C parallel): Accesses the elements of a range in parallel.)</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T012649Z" creationid="Heromyth" creationdate="20170826T012649Z">
@@ -1398,6 +1438,14 @@ There are three mistakes (bugs) in this program.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T140531Z" creationid="Heromyth" creationdate="20170825T140531Z">
         <seg>$(LI $(C receiveOnly())、$(C receive()) 和 $(C receiveTimeout()) 用于等待消息。)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(LI $(C reduce()) makes calculations over the elements of a $(C RandomAccessRange) in parallel.)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T091314Z" creationid="Heromyth" creationdate="20170826T091314Z">
+        <seg>$(LI $(C reduce())：使用指定的函数并行归约计算 $(C RandomAccessRange) 中的元素。)</seg>
       </tuv>
     </tu>
     <tu>
@@ -1788,6 +1836,14 @@ There are three mistakes (bugs) in this program.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>$(LI It is an error to execute operations in parallel unless those operations are independent from each other.)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T091121Z" creationid="Heromyth" creationdate="20170826T091121Z">
+        <seg>$(LI 只有在操作相互独立时才可以将它们并行化。否则将出错。)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>$(LI Only $(C shared) data can be shared; $(C immutable) is implicitly $(C shared).)</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T004436Z" creationid="Heromyth" creationdate="20170826T004436Z">
@@ -1828,6 +1884,14 @@ There are three mistakes (bugs) in this program.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>$(LI Tasks can explicitly be created, started, and waited for by $(C task()), $(C executeInNewThread()), and $(C yieldForce()), respectively.)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T091212Z" creationid="Heromyth" creationdate="20170826T091212Z">
+        <seg>$(LI 任务可手动通过 $(C task()) 创建、通过 $(C executeInNewThread()) 启动、通过 $(C yieldForce()) 等待完成。)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>$(LI The $(C core.atomic) module enables safe data sharing that can be multiple times faster than $(C synchronized).)</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T004612Z" creationid="Heromyth" creationdate="20170826T004612Z">
@@ -1864,6 +1928,14 @@ There are three mistakes (bugs) in this program.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T234324Z" creationid="Heromyth" creationdate="20170824T234324Z">
         <seg>$(LI 每一步的间隔时间：决定机器人何时走下一步。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(LI The exceptions that are escaped from tasks can be caught later by most of the parallelism functions like $(C yieldForce()).)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T091228Z" creationid="Heromyth" creationdate="20170826T091228Z">
+        <seg>$(LI 任务中操作抛出的异常可在之后调用类似 $(C yieldForce()) 这样的并行函数时捕获。)</seg>
       </tuv>
     </tu>
     <tu>
@@ -1972,6 +2044,14 @@ There are three mistakes (bugs) in this program.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T021739Z" creationid="Heromyth" creationdate="20170826T021739Z">
         <seg>$(LI 在迭代 $(C asyncBuf()) 或 $(C map()) 返回的范围时（稍后本章会介绍这两个函数）：</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(LI When needed, $(C TaskPool) objects other than $(C taskPool) can be used.)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T091409Z" creationid="Heromyth" creationdate="20170826T091409Z">
+        <seg>$(LI 如果需要的话，可以使用 $(C TaskPool) 对象而不是 $(C taskPool) 进行操作。)</seg>
       </tuv>
     </tu>
     <tu>
@@ -2098,6 +2178,16 @@ $(C .clear) removes all elements:
         <seg>$(P
 $(C .clear) 移除全部元素：
 )</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
+$(C TaskPool.finish()) tells the object to stop processing when all of its current tasks are completed.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T091100Z" creationid="Heromyth" creationdate="20170826T091100Z">
+        <seg>$(P
+$(C TaskPool.finish()) 会在所有任务完成后停止程序进程。</seg>
       </tuv>
     </tu>
     <tu>
@@ -5080,6 +5170,16 @@ $(C OwnerTerminated) 和 $(C LinkTerminated) 都可以作为消息在线程间�
     <tu>
       <tuv lang="EN-US">
         <seg>$(P
+The $(C TaskPool) constructor takes the number of threads to use during the parallel operations that are later started through it.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T090320Z" creationid="Heromyth" creationdate="20170826T090320Z">
+        <seg>$(P
+$(C TaskPool) 构造函数有一个参数。通过指定这个参数就可以控制之后并行执行的线程个数。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
 The $(C anOperation()) function is started twice in the following program.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T022434Z" creationid="Heromyth" creationdate="20170826T022434Z">
@@ -5622,6 +5722,18 @@ The following code shows how the attributes of a specific $(C struct) member (e.
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170804T043714Z" creationid="Heromyth" creationdate="20170804T043714Z">
         <seg>$(P
 下面代码展示的是如何使用使用$(C __traits(getAttributes))来访问某个特定 $(C struct) 成员（如 $(C Person.name)）的属性：
+)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
+The following example calls $(C parallel()) on a local $(C TaskPool) object:
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T091043Z" creationid="Heromyth" creationdate="20170826T091043Z">
+        <seg>$(P
+下面这个例子使用了一个局部 $(C TaskPool) 对象来调用 $(C parallel())。
 )</seg>
       </tuv>
     </tu>
@@ -9317,6 +9429,14 @@ $(LI $(LINK2 /ders/d.cn/slices.html, 分片与其他数组功能) $(INDEX_KEYWOR
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>All of the features that we have seen in this chapter can be applied to a separate $(C TaskPool) object.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T091026Z" creationid="Heromyth" creationdate="20170826T091026Z">
+        <seg>本章介绍的所有功能都可以通过使用一个单独的 $(C TaskPool) 来调用。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>All of the operations of the program are normally executed on that thread.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T012510Z" creationid="Heromyth" creationdate="20170824T012510Z">
@@ -9905,6 +10025,14 @@ COZUMLER_METIN=答案</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T004846Z" creationid="Heromyth" creationdate="20170826T004846Z">
         <seg>DESCRIPTION=执行多条共享数据的线程</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>DESCRIPTION=Parallel programming that enables taking advantage of microprocessor cores</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T091429Z" creationid="Heromyth" creationdate="20170826T091429Z">
+        <seg>DESCRIPTION=并行编程来利用多核心微处理器的运算能力</seg>
       </tuv>
     </tu>
     <tu>
@@ -11390,6 +11518,14 @@ $(LINK2 /ders/d.cn/index.html,
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>KEYWORDS=d programming language tutorial book parallel programming</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T091539Z" creationid="Heromyth" creationdate="20170826T091539Z">
+        <seg>KEYWORDS=d programming language tutorial book parallel programming 编程 语言 教程 书籍 并行</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>KEYWORDS=d programming language tutorial book scope</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Hipter" changedate="20160707T050130Z" creationid="Hipter" creationdate="20160707T045824Z">
@@ -11896,6 +12032,14 @@ LANGUAGE=chinese</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>SUBTITLE=Parallelism</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T091418Z" creationid="Heromyth" creationdate="20170826T091418Z">
+        <seg>SUBTITLE=并行</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>SUBTITLE=Programming in D</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170726T011119Z" creationid="Heromyth" creationdate="20170726T011119Z">
@@ -12220,6 +12364,14 @@ LANGUAGE=chinese</seg>
       <tuv lang="ZH-CN" changeid="Hipter" changedate="20160709T042602Z" creationid="Hipter" creationdate="20160709T042602Z">
         <seg>默认值被指定为 $(C .get()) 的第2个参数：
 )</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>The default value of the number of threads is one less than the number of cores on the system.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T090327Z" creationid="Heromyth" creationdate="20170826T090327Z">
+        <seg>参数的默认值不会比处理器核心数大。</seg>
       </tuv>
     </tu>
     <tu>
