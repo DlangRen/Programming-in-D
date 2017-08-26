@@ -232,8 +232,8 @@ $(LI $(LINK2 /ders/d.cn/struct.html, 结构) $(INDEX_KEYWORDS struct .</seg>
       <tuv lang="EN-US">
         <seg>$(DERS_BOLUMU $(IX concurrency, message passing) $(IX message passing concurrency) Message Passing Concurrency)</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T011541Z" creationid="Heromyth" creationdate="20170824T011541Z">
-        <seg>$(DERS_BOLUMU $(IX concurrency, message passing) $(IX message passing concurrency) 基于消息传递的并发)</seg>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T005240Z" creationid="Heromyth" creationdate="20170824T011541Z">
+        <seg>$(DERS_BOLUMU $(IX concurrency, message passing) $(IX message passing concurrency) 消息传递与并发)</seg>
       </tuv>
     </tu>
     <tu>
@@ -1164,6 +1164,14 @@ There are three mistakes (bugs) in this program.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>$(LI $(C __gshared) provides data sharing as in C and C++ languages.)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T004446Z" creationid="Heromyth" creationdate="20170826T004446Z">
+        <seg>$(LI $(C __gshared) 提供了与 C 和 C++ 共享数据的能力。)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>$(LI $(C catch) and $(C finally) cannot be used without a $(C try) block.)</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Hipter" changedate="20160707T022354Z" creationid="Hipter" creationdate="20160707T022354Z">
@@ -1234,6 +1242,22 @@ There are three mistakes (bugs) in this program.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T135838Z" creationid="Heromyth" creationdate="20170825T135838Z">
         <seg>$(LI $(C spawn()) 和 $(C spawnLinked()) 用于启动线程。)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(LI $(C static this()) is executed once for each thread; $(C shared static this()) is executed once for the entire program.)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T004554Z" creationid="Heromyth" creationdate="20170826T004554Z">
+        <seg>$(LI $(C static this()) 会为每个线程执行一次；$(C shared static this()) 则只会在整个程序中执行一次。)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(LI $(C synchronized) is for preventing other threads from intervening when a thread is executing a certain piece of code.)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T004459Z" creationid="Heromyth" creationdate="20170826T004459Z">
+        <seg>$(LI $(C synchronized) 可防止其他线程在当前现成的操作执行到一半时横插一脚致使结果错误。)</seg>
       </tuv>
     </tu>
     <tu>
@@ -1398,6 +1422,14 @@ There are three mistakes (bugs) in this program.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>$(LI A class can be defined as $(C synchronized) so that only one member function can be executed on a given object at a given time.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T004510Z" creationid="Heromyth" creationdate="20170826T004510Z">
+        <seg>$(LI 类也可以被定义为 $(C synchronized)，这样同一时间只能有一个线程调用这个类实例对象的成员函数。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>$(LI A class destructor must not access a member that is managed by the garbage collector.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170820T001816Z" creationid="Heromyth" creationdate="20170820T001647Z">
@@ -1478,10 +1510,26 @@ There are three mistakes (bugs) in this program.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>$(LI Even then, prefer $(I message passing concurrency), which has been the topic of the previous chapter.)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T004420Z" creationid="Heromyth" creationdate="20170826T004420Z">
+        <seg>$(LI 若要使用并发，优先选择上一章的 $(I 基于消息传递的并发) 模型。)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>$(LI Exceptions may be thrown during message passing: $(C MessageMismatch), $(C OwnerTerminated), $(C LinkTerminated), $(C MailboxFull), and $(C PriorityMessageException).)</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T140807Z" creationid="Heromyth" creationdate="20170825T140807Z">
         <seg>$(LI 消息传递的过程中也可能会抛出异常：$(C MessageMismatch)、$(C OwnerTerminated)、$(C LinkTerminated)、$(C MailboxFull) 以及 $(C PriorityMessageException)。)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(LI Only $(C shared) data can be shared; $(C immutable) is implicitly $(C shared).)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T004436Z" creationid="Heromyth" creationdate="20170826T004436Z">
+        <seg>$(LI 只有用 $(C shared) 定义的变量才能共享；$(C immutable) 隐含了 $(C shared)。)</seg>
       </tuv>
     </tu>
     <tu>
@@ -1506,6 +1554,22 @@ There are three mistakes (bugs) in this program.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Hipter" changedate="20160707T022405Z" creationid="Hipter" creationdate="20160707T022405Z">
         <seg>$(LI 属于块的某些变量，块范围内有可能访问不到：</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(LI The $(C core.atomic) module enables safe data sharing that can be multiple times faster than $(C synchronized).)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T004612Z" creationid="Heromyth" creationdate="20170826T004612Z">
+        <seg>$(LI $(C core.atomic) 模块提供安全的数据共享方案，而且还比 $(C synchronized) 快很多倍。)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(LI The $(C core.sync) package includes many other concurrency primitives.)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T004712Z" creationid="Heromyth" creationdate="20170826T004624Z">
+        <seg>$(LI $(C core.sync) 包包含了许多其他经典的并发基本操作。)</seg>
       </tuv>
     </tu>
     <tu>
@@ -1622,6 +1686,14 @@ There are three mistakes (bugs) in this program.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T135802Z" creationid="Heromyth" creationdate="20170825T135802Z">
         <seg>$(LI 如果线程相互独立，推荐使用上一章的 $(I parallelism)。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(LI When threads do not depend on other threads, prefer $(I parallelism).</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T004319Z" creationid="Heromyth" creationdate="20170826T004240Z">
+        <seg>$(LI 如果线程相互独立，优先选择$(I 并行)。</seg>
       </tuv>
     </tu>
     <tu>
@@ -2222,9 +2294,9 @@ $(IX owner) $(B 所有者)：启动线程的线程即为被启动线程的所有
 $(IX parallelism vs. concurrency) $(IX concurrency vs. parallelism) The following are the differences between parallelism and concurrency:
 )</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T011639Z" creationid="Heromyth" creationdate="20170824T011639Z">
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T005423Z" creationid="Heromyth" creationdate="20170824T011639Z">
         <seg>$(P
-$(IX parallelism vs. concurrency) $(IX concurrency vs. parallelism) 下面是并发和并行的区别：
+$(IX parallelism vs. concurrency) $(IX concurrency vs. parallelism) 并发和并行的区别主要有以下几点：
 )</seg>
       </tuv>
     </tu>
@@ -3030,9 +3102,9 @@ Classes are defined by the $(C class) keyword instead of the $(C struct) keyword
         <seg>$(P
 Concurrency is similar to but different from the topic of the previous chapter, parallelism.</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T011602Z" creationid="Heromyth" creationdate="20170824T011602Z">
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T005322Z" creationid="Heromyth" creationdate="20170824T011602Z">
         <seg>$(P
-虽然并发（concurrency）与并行（parallelism）很相似，但我们不能将其混为一谈。</seg>
+并发（concurrency）与上一章的并行（parallelism）很相似，但还是存在较多差异。</seg>
       </tuv>
     </tu>
     <tu>
@@ -5763,9 +5835,9 @@ When the variables provide access to the same object, $(C is) returns $(C true):
 You may also want to investigate the $(C core.sync) package, which contains classic concurrency primitives in the following modules:
 )</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T004216Z" creationid="Heromyth" creationdate="20170826T004216Z">
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T004732Z" creationid="Heromyth" creationdate="20170826T004216Z">
         <seg>$(P
-你也可以深入看看 $(C core.sync) 包中，在它的以下模块中包含了很多经典的并发操作：
+你也可以深入看看 $(C core.sync) 包中，在它的以下模块中包含了很多经典的并发基本操作：
 )</seg>
       </tuv>
     </tu>
@@ -7681,8 +7753,8 @@ $(LI $(LINK2 /ders/d.cn/slices.html, 分片与其他数组功能) $(INDEX_KEYWOR
       <tuv lang="EN-US">
         <seg>As these two concepts both involve executing programs on threads, and as parallelism is based on concurrency, they are sometimes confused with each other.</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T011615Z" creationid="Heromyth" creationdate="20170824T011615Z">
-        <seg>这两个概念都涉及多线程，且并行是基于并发的，在刚接触它们时有些迷惑也是正常的。</seg>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T005405Z" creationid="Heromyth" creationdate="20170824T011615Z">
+        <seg>这两个概念都涉及多线程，且并行是基于并发的，刚接触它们时感到有些迷惑也属正常。</seg>
       </tuv>
     </tu>
     <tu>
@@ -7935,8 +8007,8 @@ COZUMLER_METIN=答案</seg>
       <tuv lang="EN-US">
         <seg>Consider $(I concurrency) only when threads depend on operations of other threads.)</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T135814Z" creationid="Heromyth" creationdate="20170825T135814Z">
-        <seg>只有线程间有相互依赖的操作时再考虑 $(I concurrency)。)</seg>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T004332Z" creationid="Heromyth" creationdate="20170825T135814Z">
+        <seg>只有线程间有相互依赖的操作时再考虑 $(I 并发)。)</seg>
       </tuv>
     </tu>
     <tu>
@@ -7993,6 +8065,14 @@ COZUMLER_METIN=答案</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170726T032110Z" creationid="Heromyth" creationdate="20170726T032110Z">
         <seg>DESCRIPTION=全新编写的 D 编程语言教程。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>DESCRIPTION=Executing multiple threads that share data.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T004846Z" creationid="Heromyth" creationdate="20170826T004846Z">
+        <seg>DESCRIPTION=执行多条共享数据的线程</seg>
       </tuv>
     </tu>
     <tu>
@@ -8787,6 +8867,14 @@ $(LINK2 /ders/d.cn/index.html,
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>In other words, a thread can execute a member function only if no other thread is executing a member function on the same object.)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T004519Z" creationid="Heromyth" creationdate="20170826T004519Z">
+        <seg>换句话说，线程只能在没有其他线程调用这个类的实例的成员函数的情况下才能操作它。)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>In other words, arrays map indexes to values.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Hipter" changedate="20160708T084530Z" creationid="Hipter" creationdate="20160708T084530Z">
@@ -9189,6 +9277,15 @@ $(LINK2 /ders/d.cn/index.html,
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T141223Z" creationid="Heromyth" creationdate="20170825T141223Z">
         <seg>KEYWORDS=d programming language tutorial book concurrency thread 编程 语言 教程 书籍 并发 线程</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>KEYWORDS=d programming language tutorial book concurrency thread data sharing</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T004949Z" creationid="Heromyth" creationdate="20170826T004949Z">
+        <seg>KEYWORDS=d programming language tutorial book concurrency thread data sharing 编程 语言 教程 书籍 并发 线程 数据 共享
+</seg>
       </tuv>
     </tu>
     <tu>
@@ -9621,6 +9718,14 @@ LANGUAGE=chinese</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170820T005319Z" creationid="Heromyth" creationdate="20170820T005319Z">
         <seg>SUBTITLE=编译器</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>SUBTITLE=Data Sharing Concurrency</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T004748Z" creationid="Heromyth" creationdate="20170826T004748Z">
+        <seg>SUBTITLE=数据共享与并发</seg>
       </tuv>
     </tu>
     <tu>
