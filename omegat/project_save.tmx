@@ -7125,6 +7125,22 @@ $(LI 左手侧的 $(C char[]) 是一个切片，这意味着，一旦代码编�
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>* been started directly from within main has been</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T033559Z" creationid="Heromyth" creationdate="20170826T033559Z">
+        <seg>* 直接在 main 函数中启动的操作</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>* being called again, this time directly in main.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T025916Z" creationid="Heromyth" creationdate="20170826T025916Z">
+        <seg>* ‘anOperation()’一次。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>* blue.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170815T120350Z" creationid="Heromyth" creationdate="20170815T120350Z">
@@ -7327,6 +7343,14 @@ immutable int b;    // 所有线程共享</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T025846Z" creationid="Heromyth" creationdate="20170826T025846Z">
         <seg>/* 在‘theTask’执行的时候，main 函数会直接调用</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>/* At this point we are sure that the operation that has</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T025947Z" creationid="Heromyth" creationdate="20170826T025947Z">
+        <seg>/* 此处我们可以确认</seg>
       </tuv>
     </tu>
     <tu>
