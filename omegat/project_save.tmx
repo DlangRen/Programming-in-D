@@ -774,6 +774,14 @@ $(LI $(LINK2 /ders/d.cn/struct.html, 结构) $(INDEX_KEYWORDS struct .</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>$(H6 $(IX exception, parallelism) Exceptions)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T034813Z" creationid="Heromyth" creationdate="20170826T034813Z">
+        <seg>$(H6 $(IX exception, parallelism) 异常处理)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>$(H6 $(IX is, operator) $(IX !is) The $(C is) and $(C !is) operators)</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Hipter" changedate="20160707T013714Z" creationid="Hipter" creationdate="20160707T013714Z">
@@ -2139,6 +2147,16 @@ $(C worker()) 中修改的 $(C variable) 与 $(C main()) 访问的 $(C variable)
     <tu>
       <tuv lang="EN-US">
         <seg>$(P
+$(C yieldForce()) can be called in a $(C try-catch) block to catch the exceptions that are thrown by the task.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T035111Z" creationid="Heromyth" creationdate="20170826T035111Z">
+        <seg>$(P
+可以在 $(C try-catch) 语句块中调用 $(C yieldForce()) 来捕获由 task 抛出的异常。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
 $(HILITE $(I $(B Note:) This feature is not supported by dmd 2.074.0.))
 )</seg>
       </tuv>
@@ -2658,6 +2676,16 @@ A compiler is another tool that reads the instructions of a program from source 
     <tu>
       <tuv lang="EN-US">
         <seg>$(P
+A lambda function or an object of a type that defines the $(C opCall) member can also be used as the task function.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T034707Z" creationid="Heromyth" creationdate="20170826T034707Z">
+        <seg>$(P
+lambda 函数和定义了 $(C opCall) 的对象都可以被当作任务函数使用。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
 A well known example of this problem is a function that tries to transfer money from one bank account to another.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T001220Z" creationid="Heromyth" creationdate="20170826T001220Z">
@@ -2888,6 +2916,18 @@ Another method would be to send the actual exception object itself to the owner.
     <tu>
       <tuv lang="EN-US">
         <seg>$(P
+Another overload of $(C task()) takes the function as its first function parameter instead:
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T034617Z" creationid="Heromyth" creationdate="20170826T034617Z">
+        <seg>$(P
+$(C task()) 函数的另一个重载将函数作为其第一个形参：
+)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
 Another way of ensuring that only one thread mutates a certain variable is by using atomic operations, functionality of which are provided by the microprocessor, the compiler, or the operating system.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T002846Z" creationid="Heromyth" creationdate="20170826T002846Z">
@@ -3044,11 +3084,33 @@ As soon as a new thread is started, the owner and the worker start executing sep
     <tu>
       <tuv lang="EN-US">
         <seg>$(P
+As tasks are executed on separate threads, the exceptions that they throw cannot be caught by the thread that started them.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T034848Z" creationid="Heromyth" creationdate="20170826T034848Z">
+        <seg>$(P
+因为 task 是执行在另外一个线程上的，所以它们抛出的异常并不能被启动任务的线程捕捉到。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
 As the compiler compiles a program according to the rules of the language, it stops the compilation as soon as it comes across $(I illegal) instructions.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170820T005114Z" creationid="Heromyth" creationdate="20170820T005114Z">
         <seg>$(P
 当编译器按照语言规则编译程序时，一旦碰到 $(I 非法) 指令就会停止编译。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
+As this method does not involve different instantiations of the $(C Task) template, it makes it possible to put such objects in the same array:
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T034645Z" creationid="Heromyth" creationdate="20170826T034645Z">
+        <seg>$(P
+这种方法并不会产生不同类型的 $(C Task) 模版实例，这样你就可以把它们放在同一个数组里：
+)</seg>
       </tuv>
     </tu>
     <tu>
@@ -3491,6 +3553,16 @@ Fixed-length arrays are also known as static arrays.</seg>
       <tuv lang="ZH-CN" changeid="大处着手小处着眼" changedate="20160725T033913Z" creationid="大处着手小处着眼" creationdate="20160725T033844Z">
         <seg>$(P
 定长数组也被称为静态数组。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
+For example, although the following two functions have the same signature, the two $(C Task) instantiations that are produced through calls to the $(C task()) function template would have different types.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T034452Z" creationid="Heromyth" creationdate="20170826T034452Z">
+        <seg>$(P
+例如，虽然两个函数有相同的函数签名，但两个通过 $(C task()) 函数模版创建的 $(C Task) 示例类型是不同的。</seg>
       </tuv>
     </tu>
     <tu>
@@ -5352,6 +5424,18 @@ The output of the program shows that the members have the correct color and that
     <tu>
       <tuv lang="EN-US">
         <seg>$(P
+The output of the program shows that the uncaught exception that has been thrown by the task does not terminate the entire program right away (it terminates only the task):
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T035015Z" creationid="Heromyth" creationdate="20170826T035015Z">
+        <seg>$(P
+程序的输出显示由 task 抛出的异常并不会立刻导致整个程序终止运行（它只终止了对应的 task）：
+)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
 The output:
 )</seg>
       </tuv>
@@ -5595,6 +5679,16 @@ The table grows automatically with each association.</seg>
       <tuv lang="ZH-CN" changeid="Hipter" changedate="20160711T132057Z" creationid="Hipter" creationdate="20160708T145054Z">
         <seg>$(P
 随着每次的关联，该表会自动增长。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
+The task function above has been specified as a template parameter to $(C task()) as $(C task!anOperation).</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T034401Z" creationid="Heromyth" creationdate="20170826T034401Z">
+        <seg>$(P
+上面的任务函数是 $(C task()) 的一个参数模版 $(C task!anOperation) 的实参。</seg>
       </tuv>
     </tu>
     <tu>
@@ -6734,6 +6828,26 @@ after : 2 and 2    $(SHELL_NOTE_WRONG incorrect result)
         <seg>$(SHELL
 before: 1 and 2
 after : 2 and 2    $(SHELL_NOTE_WRONG 错误结果)
+)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(SHELL
+main is continuing
+mayThrow() is started
+mayThrow() is throwing an exception                 $(SHELL_NOTE thrown)
+main is waiting for the task
+object.Exception@deneme.d(10): Error message        $(SHELL_NOTE terminated)
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T035030Z" creationid="Heromyth" creationdate="20170826T035030Z">
+        <seg>$(SHELL
+main is continuing
+mayThrow() is started
+mayThrow() is throwing an exception                 $(SHELL_NOTE 抛出)
+main is waiting for the task
+object.Exception@deneme.d(10): Error message        $(SHELL_NOTE 终止)
 )</seg>
       </tuv>
     </tu>
@@ -8301,6 +8415,14 @@ $(LI $(LINK2 /ders/d.cn/slices.html, 分片与其他数组功能) $(INDEX_KEYWOR
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Although this method works well in most cases, as we have seen in $(LINK2 /ders/d.en/templates.html, the Templates chapter), each different instantiation of a template is a different type.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T034416Z" creationid="Heromyth" creationdate="20170826T034416Z">
+        <seg>虽然这种方法在大多数情况下都工作的很好，但就如我们在 $(LINK2 /ders/d.cn/templates.html, 模版) 一章中看到的那样：每个不同的模版实例都是一个不同的类型。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>An array that stores the names of the days of the week can be defined like this:
 )</seg>
       </tuv>
@@ -8389,6 +8511,16 @@ $(LI $(LINK2 /ders/d.cn/slices.html, 分片与其他数组功能) $(INDEX_KEYWOR
       </tuv>
       <tuv lang="ZH-CN" changeid="大处着手小处着眼" changedate="20160726T031254Z" creationid="大处着手小处着眼" creationdate="20160726T031254Z">
         <seg>结果是，程序使用无效的索引，试图访问不在数组中的元素。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>As a result, they cannot be members of the same array:
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T034551Z" creationid="Heromyth" creationdate="20170826T034551Z">
+        <seg>因此，它们不能被放在同一个数组里：
+)</seg>
       </tuv>
     </tu>
     <tu>
@@ -9261,6 +9393,14 @@ $(LI $(LINK2 http://dlang.org/phobos/index.html, $(IMG bullet_black.png) 标准�
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>For that reason, the exceptions that are thrown are automatically caught by the tasks themselves, to be rethrown later when $(C Task) member functions like $(C yieldForce()) are called.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T034914Z" creationid="Heromyth" creationdate="20170826T034914Z">
+        <seg>因此，task 抛出的异常将会被 task 自动捕获。当调用像 $(C yieldForce()) 这样的 $(C Task) 的成员函数时，异常将会被重新抛出。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>For that reason, the result of the remove operation must be assigned back to the same array variable.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170817T144130Z" creationid="Heromyth" creationdate="20170817T144130Z">
@@ -9651,6 +9791,16 @@ $(LINK2 /ders/d.cn/index.html,
       </tuv>
       <tuv lang="ZH-CN" changeid="大处着手小处着眼" changedate="20160720T024436Z" creationid="大处着手小处着眼" creationdate="20160720T023707Z">
         <seg>换句话说，它是一个可存储十个整数值的数组。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>In parallelism, it wraps $(C yieldForce()):
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T045226Z" creationid="Heromyth" creationdate="20170826T045226Z">
+        <seg>而在并行中，它只封装了 $(C yieldForce())：
+)</seg>
       </tuv>
     </tu>
     <tu>
@@ -10290,6 +10440,14 @@ LANGUAGE=chinese</seg>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T003448Z" creationid="Heromyth" creationdate="20170826T003448Z">
         <seg>请注意，现在不再需要 $(C Lock) 类：
 )</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Note that this is different from single threads: In single-threaded programs like the samples that we have been writing until this chapter, $(C try-catch) wraps the code that may throw.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T035145Z" creationid="Heromyth" creationdate="20170826T035145Z">
+        <seg>这与单线程有着极大的不同：像本章上面的程序如果写成单线程的话，应该将 $(C try-catch) 包裹住可能会抛出异常的代码。</seg>
       </tuv>
     </tu>
     <tu>
@@ -10936,6 +11094,16 @@ LANGUAGE=chinese</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>The following example starts a task that executes a lambda:
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T034723Z" creationid="Heromyth" creationdate="20170826T034723Z">
+        <seg>下面这个例子就是让任务执行了一个 lambda 函数：
+)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>The following function considers the $(C Encrypted) and $(C Colored) attributes of each member when producing the output:
 )</seg>
       </tuv>
@@ -11552,6 +11720,14 @@ LANGUAGE=chinese</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>This distinction may be undesirable in certain situations where seemingly $(I equivalent) task objects would actually have different types.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T034427Z" creationid="Heromyth" creationdate="20170826T034427Z">
+        <seg>两个看起来$(I 相同)的 task 对象实际上不是同一个类型，在某些特定的情况下这种差别可能是我们不想看到的。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>This fact can be observed by printing both the values and the addresses of the variables:
 )</seg>
       </tuv>
@@ -11636,6 +11812,14 @@ LANGUAGE=chinese</seg>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T233119Z" creationid="Heromyth" creationdate="20170824T233119Z">
         <seg>这个就是所有者线程，如下所示：
 )</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>This makes it possible for the main thread to catch exceptions that are thrown by a task.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T034947Z" creationid="Heromyth" creationdate="20170826T034947Z">
+        <seg>这样我们就可以在主线程中捕获 task 中抛出的异常了。</seg>
       </tuv>
     </tu>
     <tu>
