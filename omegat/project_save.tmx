@@ -2429,6 +2429,16 @@ $(IX finalizer versus destructor) 不过，与结构有所不同的是，类的�
     <tu>
       <tuv lang="EN-US">
         <seg>$(P
+$(IX flush, std.stdio) $(I $(B Note:) Normally, the characters that are printed to output streams like $(C stdout) do not appear on the output right away.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T023819Z" creationid="Heromyth" creationdate="20170826T023819Z">
+        <seg>$(P
+$(IX flush, std.stdio) $(I $(B 注意：)正常情况下向类似 $(C stdout) 这样的输出流直接输出的字符并不会立刻显示出来。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
 $(IX foreach, parallel) $(C parallel()) accesses the elements of a range in parallel.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T013644Z" creationid="Heromyth" creationdate="20170826T013644Z">
@@ -11212,6 +11222,14 @@ LANGUAGE=chinese</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T022421Z" creationid="Heromyth" creationdate="20170826T022421Z">
         <seg>在下方程序的注释中有对这三个函数详细的解释。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>They are instead stored in an output buffer until a line of output is completed.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T024011Z" creationid="Heromyth" creationdate="20170826T024011Z">
+        <seg>它们将会被储存在输出缓冲区中，一直到整行输出完成为止都会显示。</seg>
       </tuv>
     </tu>
     <tu>
