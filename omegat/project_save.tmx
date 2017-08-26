@@ -486,6 +486,14 @@ $(LI $(LINK2 /ders/d.cn/struct.html, 结构) $(INDEX_KEYWORDS struct .</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>$(H5 $(IX synchronized) $(C synchronized) to avoid race conditions)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T235849Z" creationid="Heromyth" creationdate="20170825T235849Z">
+        <seg>$(H5 $(IX synchronized) $(C synchronized) 避免竞态条件)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>$(H5 A race condition example)</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T235137Z" creationid="Heromyth" creationdate="20170825T235137Z">
@@ -862,12 +870,52 @@ $(LI $(LINK2 /ders/d.cn/struct.html, 结构) $(INDEX_KEYWORDS struct .</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>$(HILITE synchronized) { // ← This lock is different from the one above.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T000546Z" creationid="Heromyth" creationdate="20170826T000546Z">
+        <seg>$(HILITE synchronized) { // ← 此处的锁与上方的锁不同。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(HILITE synchronized) { // ← This lock is different from the one below.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T000529Z" creationid="Heromyth" creationdate="20170826T000529Z">
+        <seg>$(HILITE synchronized) { // ← 此处的锁与下方的锁不同。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>$(I ($(B Note:) This is related to name scopes, as well as object lifetimes, which will be explained in $(LINK2 /ders/d.en/lifetimes.html, a later chapter.)))
 )</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Hipter" changedate="20160707T025009Z" creationid="Hipter" creationdate="20160707T022842Z">
         <seg>$(I ($(B 注：) 这与命名作用域，以及对象生存期有关，这将在 $(LINK2 /ders/d.cn/lifetimes.html, 后面的章节) 中解释。))
 )</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(I (Assume that A is paused and B is restarted at this point))</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T235752Z" creationid="Heromyth" creationdate="20170825T235752Z">
+        <seg>$(I (假设此处 A 暂停 B 继续))</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(I (Assume that A is paused and B is started at this point))</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T235727Z" creationid="Heromyth" creationdate="20170825T235727Z">
+        <seg>$(I (假设此处 A 暂停 B 启动))</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(I (Assume that B is paused and A is restarted at this point))</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T235740Z" creationid="Heromyth" creationdate="20170825T235740Z">
+        <seg>$(I (假设此处 B 暂停 A 继续))</seg>
       </tuv>
     </tu>
     <tu>
@@ -1606,6 +1654,18 @@ $(B
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>$(MONO
+$(B Operation        Thread A                             Thread B)
+────────────────────────────────────────────────────────────────────────────</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T235714Z" creationid="Heromyth" creationdate="20170825T235714Z">
+        <seg>$(MONO
+$(B 操作        线程 A                             线程 B)
+────────────────────────────────────────────────────────────────────────────</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>$(OL
 $(LI
 Providing the index of the element to remove.</seg>
@@ -1825,11 +1885,45 @@ $(C worker()) 中修改的 $(C variable) 与 $(C main()) 访问的 $(C variable)
     <tu>
       <tuv lang="EN-US">
         <seg>$(P
+$(HILITE $(I $(B Note:) This feature is not supported by dmd 2.074.0.))
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T000802Z" creationid="Heromyth" creationdate="20170826T000745Z">
+        <seg>$(P
+$(HILITE $(I $(B 注意：) dmd 2.074.0 并不支持此功能。))
+)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
 $(I $(B Note:) An associative array that is defined without any element is $(LINK2 /ders/d.en/null_is.html, $(C null)), not empty.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Hipter" changedate="20160708T143323Z" creationid="Hipter" creationdate="20160708T081001Z">
         <seg>$(P
 $(I $(B 注：) 已定义的没有任何元素的关联数组是 $(LINK2 /ders/d.cn/null_is.html, $(C null))，而不是空。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
+$(I $(B Note:) If the shorter equivalents of the expression above are used (i.e. $(C ++(*value)) and $(C &amp;#8209;&amp;#8209;(*value))), then the compiler warns that such read-modify-write operations on $(C shared) variables are deprecated.)
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T000435Z" creationid="Heromyth" creationdate="20170826T000435Z">
+        <seg>$(P
+$(I $(B 注意：) 如果将上方的等式换成自增或自检（例如， $(C ++(*value)) 和 $(C &amp;#8209;&amp;#8209;(*value))），编译器会警告：对 $(C shared) 变量执行的读取-修改-写入操作已被弃用。)
+)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
+$(I $(B Note:) It is a relatively expensive operation for a thread to wait for a lock, which may slow down the execution of the program noticeably.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T000141Z" creationid="Heromyth" creationdate="20170826T000141Z">
+        <seg>$(P
+$(I $(B 注意：) 等待锁是一个相对昂贵的操作，它可能会显著降低程序的执行速度。</seg>
       </tuv>
     </tu>
     <tu>
@@ -2054,6 +2148,16 @@ $(IX immutable, concurrency) On the other hand, since $(C immutable) variables c
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T233747Z" creationid="Heromyth" creationdate="20170825T233747Z">
         <seg>$(P
 $(IX immutable, concurrency) 另一方面，由于 $(C immutable) 变量无法被修改，它们可以直接共享。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
+$(IX lock) The effect of $(C synchronized) is to create a lock behind the scenes and to allow only one thread hold that lock at a given time.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T000021Z" creationid="Heromyth" creationdate="20170826T000021Z">
+        <seg>$(P
+$(IX lock) $(C synchronized) 会在后台创建一个锁，同一时间只有一个线程能持有这个锁。</seg>
       </tuv>
     </tu>
     <tu>
@@ -2488,6 +2592,16 @@ As an example, let's write the function above with a $(C scope(failure)) stateme
     <tu>
       <tuv lang="EN-US">
         <seg>$(P
+As can be seen, at the end of the previous scenario both $(C i) and $(C j) end up having the value 1.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T235803Z" creationid="Heromyth" creationdate="20170825T235803Z">
+        <seg>$(P
+经过这种情况的执行后 $(C i) 和 $(C j) 的值最后都变成了 1。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
 As it has been mentioned briefly in $(LINK2 /ders/d.en/null_is.html, The $(CH4 null) Value and the $(CH4 is) Operator chapter), class variables can be $(C null).</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170820T013535Z" creationid="Heromyth" creationdate="20170819T124929Z">
@@ -2734,6 +2848,18 @@ Because the consumer is slower than the producer, the memory that the program ab
     <tu>
       <tuv lang="EN-US">
         <seg>$(P
+Because this time both $(C synchronized) blocks are connected by the same lock, only one of them is executed at a given time and the result is zero as expected:
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T001026Z" creationid="Heromyth" creationdate="20170826T001026Z">
+        <seg>$(P
+这次两个 $(C synchronized) 块使用了同一个锁，因此在同一时间它们当中只有一个可以执行。
+)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
 Before seeing an example of $(C setMaxMailboxSize()), let's first cause a mailbox to grow continuously.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T134800Z" creationid="Heromyth" creationdate="20170825T134800Z">
@@ -2972,6 +3098,18 @@ For example, when the following numbers are entered,
       <tuv lang="ZH-CN" changeid="大处着手小处着眼" changedate="20160726T023108Z" creationid="大处着手小处着眼" creationdate="20160726T023000Z">
         <seg>$(P
 例如，当输入了下面的数字，
+)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
+For more than one block to use the same lock or locks, the lock objects must be specified within the $(C synchronized) parentheses:
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T000701Z" creationid="Heromyth" creationdate="20170826T000701Z">
+        <seg>$(P
+为了能够给多个代码块套上同样的锁，你必须在 $(C synchronized) 后加一个圆括号并在其中指定锁对象：
 )</seg>
       </tuv>
     </tu>
@@ -3248,6 +3386,16 @@ It is not possible to add elements to fixed-length arrays:
     <tu>
       <tuv lang="EN-US">
         <seg>$(P
+It is possible but highly unlikely that the result may even end up being "2 and 1" as well.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T235501Z" creationid="Heromyth" creationdate="20170825T235501Z">
+        <seg>$(P
+当然最终结果也有可能是“2 and 1”，只不过这种情况的可能性比较小而已。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
 It is possible to define variables with the $(C auto) keyword, which we will see in a later chapter:
 )</seg>
       </tuv>
@@ -3336,6 +3484,16 @@ Let's consider the following code that we saw previously in the $(LINK2 /ders/d.
     <tu>
       <tuv lang="EN-US">
         <seg>$(P
+Let's consider the state where $(C i) is 1 and $(C j) is 2.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T235535Z" creationid="Heromyth" creationdate="20170825T235535Z">
+        <seg>$(P
+先来看下 $(C i) 为 1 $(C j) 为 2 的情况。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
 Let's design a function template that prints the values of all members of a $(C struct) object in XML format.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170814T103704Z" creationid="Heromyth" creationdate="20170814T103704Z">
@@ -3353,6 +3511,16 @@ Let's now revisit the exercise with the five values and write it again by using 
         <seg>$(P
 现在我们重温一下使用五个值的例子，用数组重写一下它：
 )</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
+Let's see an example of this in the following program that has two separate code blocks that access the same shared variable.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T000347Z" creationid="Heromyth" creationdate="20170826T000347Z">
+        <seg>$(P
+下面的例子包含两个独立的访问共享变量的代码块。</seg>
       </tuv>
     </tu>
     <tu>
@@ -3659,6 +3827,16 @@ Since the objects of $(C myKing) and $(C yourKing) variables are different, the 
       <tuv lang="ZH-CN" changeid="Hipter" changedate="20160707T015100Z" creationid="Hipter" creationdate="20160707T015100Z">
         <seg>$(P
 由于 $(C myKing) 和 $(C yourKing) 变量来自不同的对象，$(C !is) 运算符返回 $(C true)。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
+Since there are equal number of threads that increment and decrement the same variable equal number of times, one would expect the final value of $(C number) to be zero.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T000557Z" creationid="Heromyth" creationdate="20170826T000557Z">
+        <seg>$(P
+线程数相同且加减次数相同，可能有人就会认为 $(C number) 的最终结果是 0。</seg>
       </tuv>
     </tu>
     <tu>
@@ -4014,6 +4192,16 @@ The biggest difference from structs is that structs are $(I value types) and cla
     <tu>
       <tuv lang="EN-US">
         <seg>$(P
+The chart below demonstrates how the 3-line code inside the $(C for) loop may be executed by each thread over time, from top to bottom, operation 1 being the first operation and operation 6 being the last operation.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T235616Z" creationid="Heromyth" creationdate="20170825T235616Z">
+        <seg>$(P
+下面这个表格展示了 $(C for) 循环中的 3 行语句是如何执行的。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
 The compiler may also emit a $(I compilation warning) when it sees a suspicious piece of code that may cause concern but not necessarily an error.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170820T005224Z" creationid="Heromyth" creationdate="20170820T005224Z">
@@ -4267,6 +4455,16 @@ The highlighted parts of the code are explained below:
         <seg>$(P
 下面来解释一下这段代码的高亮部分：
 )</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
+The incorrect program behavior above is due to more than one thread accessing the same mutable data (and at least one of them modifying it).</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T235901Z" creationid="Heromyth" creationdate="20170825T235901Z">
+        <seg>$(P
+程序出错的原因是多个线程访问同一块可变数据（并且其中至少有一条线程修改了数据）。</seg>
       </tuv>
     </tu>
     <tu>
@@ -4612,6 +4810,16 @@ The reason why the $(C shared) specifiers are necessary is explained in the next
     <tu>
       <tuv lang="EN-US">
         <seg>$(P
+The reason why the program works incorrectly can be explained by the following scenario between just two threads that are in a race condition.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T235512Z" creationid="Heromyth" creationdate="20170825T235512Z">
+        <seg>$(P
+下面这两个处在竞态条件的线程可以用来解释为什么之前的程序不能得到正确的结果。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
 The return type of $(C thisTid()) is $(C Tid), which has no significance for the program.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T232512Z" creationid="Heromyth" creationdate="20170824T232512Z">
@@ -4629,6 +4837,16 @@ The return value of $(C spawn()), which I have been ignoring until this point, i
         <seg>$(P
 我们之前一直没有用到的 $(C spawn()) 的返回值即为工作线程的 ID：
 )</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
+The scenario above is just one example that is sufficient to explain the incorrect results of the program.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T235828Z" creationid="Heromyth" creationdate="20170825T235828Z">
+        <seg>$(P
+上面那种情况只是为了解释程序得出错误结果的原因而创建的例子。</seg>
       </tuv>
     </tu>
     <tu>
@@ -4826,6 +5044,16 @@ There can be only one value per key.</seg>
     <tu>
       <tuv lang="EN-US">
         <seg>$(P
+There is no need for a special lock type in D because any class object can be used as a $(C synchronized) lock.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T000857Z" creationid="Heromyth" creationdate="20170826T000857Z">
+        <seg>$(P
+D 语言中没有专门的锁类型，任何类型都可以作为 $(C synchronized) 锁。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
 There is only one copy of such a variable in the entire program and all threads can share that variable.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T233513Z" creationid="Heromyth" creationdate="20170825T233513Z">
@@ -4999,6 +5227,16 @@ Two other $(C __traits) expressions are useful when dealing with user defined at
         <seg>$(P
 在处理自定义属性时，还有其他两个 $(C __traits) 表达式可以使用：
 )</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
+Unfortunately, marking those blocks individually with $(C synchronized) is not sufficient, because the anonymous locks of the two blocks would be independent.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T000500Z" creationid="Heromyth" creationdate="20170826T000500Z">
+        <seg>$(P
+很可惜，直接使用 $(C synchronized) 并不能起到我们预期的效果，因为两个代码块的匿名锁是相互独立的。</seg>
       </tuv>
     </tu>
     <tu>
@@ -5189,6 +5427,16 @@ When initializing arrays, it is possible to use a single value on the right-hand
       <tuv lang="ZH-CN" changeid="大处着手小处着眼" changedate="20160726T011926Z" creationid="大处着手小处着眼" creationdate="20160726T011926Z">
         <seg>$(P
 当初始化数组时，也可以在右手侧使用单个值。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
+When it is needed to synchronize more than one block of code, it is possible to specify one or more locks with the $(C synchronized) keyword.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T000322Z" creationid="Heromyth" creationdate="20170826T000322Z">
+        <seg>$(P
+当需要 synchronize 多个代码块时，最好是使用多个 $(C synchronized) 关键字指定多个锁。</seg>
       </tuv>
     </tu>
     <tu>
@@ -5578,6 +5826,18 @@ After : re�sueé    $(SHELL_NOTE_WRONG 不正确)
     <tu>
       <tuv lang="EN-US">
         <seg>$(SHELL
+Final value: -672    $(SHELL_NOTE_WRONG not zero)
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T000645Z" creationid="Heromyth" creationdate="20170826T000645Z">
+        <seg>$(SHELL
+Final value: -672    $(SHELL_NOTE_WRONG 不是 0)
+)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(SHELL
 before: 1 and 2
 after : 1 and 1    $(SHELL_NOTE_WRONG incorrect result)
 )</seg>
@@ -5586,6 +5846,20 @@ after : 1 and 1    $(SHELL_NOTE_WRONG incorrect result)
         <seg>$(SHELL
 before: 1 and 2
 after : 1 and 1    $(SHELL_NOTE_WRONG 错误结果)
+)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(SHELL
+before: 1 and 2
+after : 1 and 2      $(SHELL_NOTE correct result)
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T000008Z" creationid="Heromyth" creationdate="20170826T000008Z">
+        <seg>$(SHELL
+before: 1 and 2
+after : 1 and 2      $(SHELL_NOTE 正确结果)
 )</seg>
       </tuv>
     </tu>
@@ -6437,6 +6711,14 @@ auto encrypted(string value) {</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>// Note: dmd 2.074.0 does not support this feature.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T000813Z" creationid="Heromyth" creationdate="20170826T000813Z">
+        <seg>// 注意：dmd 2.074.0 并不支持此功能。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>// Printing the array elements in a loop</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="大处着手小处着眼" changedate="20160726T030650Z" creationid="大处着手小处着眼" creationdate="20160726T030650Z">
@@ -6939,6 +7221,14 @@ $(LI $(LINK2 /ders/d.cn/slices.html, 分片与其他数组功能) $(INDEX_KEYWOR
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Although the two threads execute the same $(C swapper()) function, remember that the local variable $(C temp) is separate for each thread and it is independent from the other $(C temp) variables of other threads.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T235546Z" creationid="Heromyth" creationdate="20170825T235546Z">
+        <seg>虽然两个线程执行的都是 $(C swapper()) 函数，但别忘了由于 $(C temp) 是是个局部变量，每个线程都会拥有一个独立的 $(C temp) 副本。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Although this difference makes associative arrays use more memory, it also allows them to use $(I sparse) key values.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Hipter" changedate="20160711T233339Z" creationid="Hipter" creationdate="20160708T093947Z">
@@ -7043,6 +7333,14 @@ $(LI $(LINK2 /ders/d.cn/slices.html, 分片与其他数组功能) $(INDEX_KEYWOR
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T232153Z" creationid="Heromyth" creationdate="20170824T232153Z">
         <seg>基于对性能设计的考量，我们需要谨慎分析并确定线程的类型。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>As the operating system pauses and restarts the threads at indeterminate times, the following order of execution of the operations of the two threads is likely as well.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T235524Z" creationid="Heromyth" creationdate="20170825T235524Z">
+        <seg>由于操作系统暂停和继续线程的不确定性，这两个线程操作的执行顺序也是不确定的。</seg>
       </tuv>
     </tu>
     <tu>
@@ -7871,6 +8169,16 @@ $(LI $(LINK2 http://dlang.org/phobos/index.html, $(IMG bullet_black.png) 标准�
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Fortunately, in some cases program correctness can be ensured without the use of a $(C synchronized) block, by taking advantage of $(I atomic operations) that will be explained below.)
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T000305Z" creationid="Heromyth" creationdate="20170826T000234Z">
+        <seg>幸运的是大多数程序可以使用 $(I 原子操作) 替代 $(C synchronized) 块（随后会介绍它）。)
+)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>From the point of view of the programmer, executing with a compiler involves three steps: writing the source code, compiling it, and running the produced program.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170820T004821Z" creationid="Heromyth" creationdate="20170820T004821Z">
@@ -7962,6 +8270,16 @@ $(LINK2 /ders/d.cn/index.html,
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170803T043559Z" creationid="Heromyth" creationdate="20170803T043559Z">
         <seg>不过，因为它们的含义可能不是很清楚，因此不赞成大家使用文字量值（如 $(C 42) ）构成的属性：
+)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>However, that is almost never the case:
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T000626Z" creationid="Heromyth" creationdate="20170826T000626Z">
+        <seg>但是，这个程序几乎不会得出这个结果：
 )</seg>
       </tuv>
     </tu>
@@ -8301,6 +8619,14 @@ $(LINK2 /ders/d.cn/index.html,
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170820T002034Z" creationid="Heromyth" creationdate="20170820T002034Z">
         <seg>尝试在类的析构函数中分配一个对象，通过这种方式可以轻易地重现这种的问题：
 )</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>It is not possible that they can ever have any other value after that point.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T235816Z" creationid="Heromyth" creationdate="20170825T235816Z">
+        <seg>此处不可能会再有其他的值。</seg>
       </tuv>
     </tu>
     <tu>
@@ -8675,6 +9001,14 @@ LANGUAGE=chinese</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Obviously, the race conditions would be much more complicated in the case of the ten threads of this example.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T235837Z" creationid="Heromyth" creationdate="20170825T235837Z">
+        <seg>10 条线程的实际情况要比例子复杂得多。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>On the other hand, a program that did not use an array would have to have 20 variable definitions.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="大处着手小处着眼" changedate="20160725T081416Z" creationid="大处着手小处着眼" creationdate="20160725T081416Z">
@@ -8703,6 +9037,22 @@ LANGUAGE=chinese</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T233821Z" creationid="Heromyth" creationdate="20170824T233821Z">
         <seg>一种解决方案是在工作线程中捕获潜在的由接收信息引发的异常。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>One way of avoiding these race conditions is to mark the common code with the $(C synchronized) keyword.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T235928Z" creationid="Heromyth" creationdate="20170825T235912Z">
+        <seg>一种解决方案是使用关键字 $(C synchronized) 标记公共代码以消除竞态条件。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Only the thread that holds the lock can be executed and the others wait until the lock becomes available again when the executing thread completes its $(C synchronized) block.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T000032Z" creationid="Heromyth" creationdate="20170826T000032Z">
+        <seg>只有持有锁的那个线程才可以执行，其他线程都需要等待持有锁的线程执行完成并释放 $(C synchronized) 锁。</seg>
       </tuv>
     </tu>
     <tu>
@@ -8901,6 +9251,14 @@ LANGUAGE=chinese</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Since one thread executes the $(I synchronized) code at a time, each thread would now swap the values safely before another thread does the same.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T000041Z" creationid="Heromyth" creationdate="20170826T000041Z">
+        <seg>由于同一时间只有一个执行 $(I synchronized) 代码的线程，我们就可以安全的进行交换。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Since that amount is an even number, it is natural to expect that the variables end up having values 1 and 2, their initial values:
 )</seg>
       </tuv>
@@ -8941,6 +9299,16 @@ LANGUAGE=chinese</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Hipter" changedate="20160706T031538Z" creationid="Hipter" creationdate="20160706T031538Z">
         <seg>由于 $(C variable1) 的原始对象没有别的变量，该对象将由垃圾回收器销毁。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>So, the two code blocks would still be accessing the same variable concurrently:
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T000518Z" creationid="Heromyth" creationdate="20170826T000518Z">
+        <seg>因此 ，这两块代码还是会同时访问那个变量：
+)</seg>
       </tuv>
     </tu>
     <tu>
@@ -9195,6 +9563,16 @@ LANGUAGE=chinese</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>The following program defines an empty class named $(C Lock) to use its objects as locks:
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T000939Z" creationid="Heromyth" creationdate="20170826T000939Z">
+        <seg>下面这个程序定义了一个空的 $(C Lock) 类作为锁：
+)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>The following program sends the reason of the failure as a $(C CalculationFailure) message.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T045116Z" creationid="Heromyth" creationdate="20170825T045116Z">
@@ -9341,6 +9719,16 @@ LANGUAGE=chinese</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>The program calls two functions with the address of the same variable, one function incrementing and the other function decrementing it equal number of times:
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T000410Z" creationid="Heromyth" creationdate="20170826T000410Z">
+        <seg>程序会将同一个变量的地址传递给这两个函数，一个函数对其加 1，一个函数对其减 1，加减次数相同：
+)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>The program is free to start other threads to be able to work on multiple tasks at the same time.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T012518Z" creationid="Heromyth" creationdate="20170824T012518Z">
@@ -9361,6 +9749,16 @@ LANGUAGE=chinese</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="大处着手小处着眼" changedate="20160726T024527Z" creationid="大处着手小处着眼" creationdate="20160726T024527Z">
         <seg>然后程序会输出这些平方。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>The program would work correctly with the following change:
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T235958Z" creationid="Heromyth" creationdate="20170825T235921Z">
+        <seg>经过下面的修改之后程序能正确执行：
+)</seg>
       </tuv>
     </tu>
     <tu>
@@ -9395,6 +9793,14 @@ LANGUAGE=chinese</seg>
       <tuv lang="ZH-CN" changeid="大处着手小处着眼" changedate="20160726T032827Z" creationid="大处着手小处着眼" creationdate="20160726T032827Z">
         <seg>解决办法就是在第二个 $(C while) 循环前重设 $(C i) 为 0，比如使用语句 $(C i = 0;)
 )</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>The state of the variables $(C i) and $(C j) would always be either "1 and 2" or "2 and 1" at the end of processing the synchronized block.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T000107Z" creationid="Heromyth" creationdate="20170826T000107Z">
+        <seg>在同步块执行后 $(C i) 与 $(C j) 只会有种情况：要么是“1 and 2”，要么是“2 and 1”。</seg>
       </tuv>
     </tu>
     <tu>
@@ -9781,6 +10187,14 @@ LANGUAGE=chinese</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>To identify those separate variables, they are renamed as $(C tempA) and $(C tempB) below.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T235558Z" creationid="Heromyth" creationdate="20170825T235558Z">
+        <seg>为了区分这两个 $(C temp)，我们将其分别称为 $(C tempA) 和 $(C tempB)。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>To prevent that, the owner may limit the size of its mailbox before starting the worker:
 )</seg>
       </tuv>
@@ -10051,6 +10465,16 @@ LANGUAGE=chinese</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="大处着手小处着眼" changedate="20160726T085342Z" creationid="大处着手小处着眼" creationdate="20160725T032258Z">
         <seg>当长度可以在程序的执行过程中进行修改时，该数组就是一个$(I 动态数组)。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Whether $(C i) or $(C j) is modified at each step is indicated by highlighting that variable:
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T235652Z" creationid="Heromyth" creationdate="20170825T235652Z">
+        <seg>按照从上到下的顺序，操作 1 第一个执行，操作 6 最后一个执行。高亮的步骤修改了 $(C i) 和 $(C j)：
+)</seg>
       </tuv>
     </tu>
     <tu>
