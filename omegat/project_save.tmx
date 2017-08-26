@@ -7085,6 +7085,22 @@ $(LI 左手侧的 $(C char[]) 是一个切片，这意味着，一旦代码编�
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>* anOperation().</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T024732Z" creationid="Heromyth" creationdate="20170826T024732Z">
+        <seg>* anOperation() 的 task。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>* arbitrarily returns the value 1 to simulate functions that</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T024344Z" creationid="Heromyth" creationdate="20170826T024124Z">
+        <seg>* 会随意返回值 1，以便模拟函数正在</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>* associative array is being defined with an extra</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Hipter" changedate="20160711T122913Z" creationid="Hipter" creationdate="20160711T020244Z">
@@ -7117,10 +7133,26 @@ $(LI 左手侧的 $(C char[]) 是一个切片，这意味着，一旦代码编�
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>* do calculations.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T024513Z" creationid="Heromyth" creationdate="20170826T024513Z">
+        <seg>* 进行计算。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>* encrypted.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170815T115828Z" creationid="Heromyth" creationdate="20170815T115236Z">
         <seg>* 的那个符号。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>* function parameters.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T024757Z" creationid="Heromyth" creationdate="20170826T024757Z">
+        <seg>* 传递给任务函数。</seg>
       </tuv>
     </tu>
     <tu>
@@ -7179,6 +7211,14 @@ auto encrypted(string value) {</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Hipter" changedate="20160711T122942Z" creationid="Hipter" creationdate="20160711T020350Z">
         <seg>* 以易于区分值类型： */</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>* specified here are passed to the task function as its</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T024745Z" creationid="Heromyth" creationdate="20170826T024745Z">
+        <seg>* 将会被作为将要并行执行的任务函数的实参</seg>
       </tuv>
     </tu>
     <tu>
@@ -7283,6 +7323,22 @@ immutable int b;    // 所有线程共享</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>/* As 'theTask' continues executing, 'anOperation()' is</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T025846Z" creationid="Heromyth" creationdate="20170826T025846Z">
+        <seg>/* 在‘theTask’执行的时候，main 函数会直接调用</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>/* Construct a task object that will execute</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T024710Z" creationid="Heromyth" creationdate="20170826T024710Z">
+        <seg>/* 构建一个将要执行</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>/* Failed to send; will try again later.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T135105Z" creationid="Heromyth" creationdate="20170825T135105Z">
@@ -7303,6 +7359,14 @@ immutable int b;    // 所有线程共享</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Hipter" changedate="20160711T021258Z" creationid="Hipter" creationdate="20160711T021258Z">
         <seg>/* 打印“emre”的成绩： */</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>/* Prints the first letter of 'id' every half a second.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T024048Z" creationid="Heromyth" creationdate="20170826T024048Z">
+        <seg>/* 每半秒打印一次‘id’的首字母函数。</seg>
       </tuv>
     </tu>
     <tu>
@@ -7399,6 +7463,14 @@ immutable int b;    // 所有线程共享</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T235453Z" creationid="Heromyth" creationdate="20170824T235453Z">
         <seg>/* 为每一个机器人启动一个移动线程。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>/* Start the task object */</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T024827Z" creationid="Heromyth" creationdate="20170826T024827Z">
+        <seg>/* 启动任务对象 */</seg>
       </tuv>
     </tu>
     <tu>
@@ -9605,6 +9677,14 @@ $(LINK2 /ders/d.cn/index.html,
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>It</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T024113Z" creationid="Heromyth" creationdate="20170826T024113Z">
+        <seg>它</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>It accesses the element that</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="大处着手小处着眼" changedate="20160725T014519Z" creationid="大处着手小处着眼" creationdate="20160725T014519Z">
@@ -10398,6 +10478,16 @@ LANGUAGE=chinese</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Since $(C write) does not output a new-line character, in order to observe the parallel execution of the following program, $(C stdout.flush()) is called to send the contents of the buffer to $(C stdout) even before reaching the end of a line.)
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T024025Z" creationid="Heromyth" creationdate="20170826T024025Z">
+        <seg>因为 $(C write) 并不会输出换行符，而为了能够在下面的程序中观察并行执行的情况，我们使用 $(C stdout.flush()) 使缓冲区中的数据能在未到达行尾时就被发送至 $(C stdout)。)
+)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Since multiple grades can be stored in a dynamic array, an associative array that maps from $(C string) to $(C int[]) would work here.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170818T142319Z" creationid="Hipter" creationdate="20160711T014051Z">
@@ -10788,6 +10878,14 @@ LANGUAGE=chinese</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T000458Z" creationid="Heromyth" creationdate="20170825T000458Z">
         <seg>下面这个工作线程使用 lambda 函数处理消息。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>The function parameters that are</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T024737Z" creationid="Heromyth" creationdate="20170826T024737Z">
+        <seg>在此处被指定的函数实参</seg>
       </tuv>
     </tu>
     <tu>
@@ -11460,6 +11558,14 @@ LANGUAGE=chinese</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>This result will be used later in main.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T024538Z" creationid="Heromyth" creationdate="20170826T024144Z">
+        <seg>稍后会在 main 函数中使用这个结果。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>This situation is called a $(I deadlock).</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T001400Z" creationid="Heromyth" creationdate="20170826T001400Z">
@@ -11480,6 +11586,14 @@ LANGUAGE=chinese</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="大处着手小处着眼" changedate="20160726T104312Z" creationid="大处着手小处着眼" creationdate="20160724T024418Z">
         <seg>这种变化可能会让编程新手感到困惑。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Thread.sleep(500.msecs);  /* half a second */</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T024654Z" creationid="Heromyth" creationdate="20170826T024654Z">
+        <seg>Thread.sleep(500.msecs);  /* 半秒 */</seg>
       </tuv>
     </tu>
     <tu>
