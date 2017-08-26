@@ -1059,8 +1059,8 @@ $(LI $(LINK2 /ders/d.cn/struct.html, 结构) $(INDEX_KEYWORDS struct .</seg>
         <seg>$(I In parallel) means that operations are executed on multiple cores at the same time:
 )</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T012636Z" creationid="Heromyth" creationdate="20170826T012636Z">
-        <seg>$(I 并行) 意味着将要执行的一组操作可以被分派到多个核心同时执行。
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T124753Z" creationid="Heromyth" creationdate="20170826T012636Z">
+        <seg>$(I 并行) 意味着将要执行的一组操作可以被分派到多个内核同时执行。
 )</seg>
       </tuv>
     </tu>
@@ -1428,8 +1428,8 @@ There are three mistakes (bugs) in this program.</seg>
       <tuv lang="EN-US">
         <seg>$(LI $(C parallel): Accesses the elements of a range in parallel.)</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T012649Z" creationid="Heromyth" creationdate="20170826T012649Z">
-        <seg>$(LI $(C parallel)：并行访问 range 中的元素。)</seg>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T124836Z" creationid="Heromyth" creationdate="20170826T012649Z">
+        <seg>$(LI $(C parallel)：并行访问范围中的元素。)</seg>
       </tuv>
     </tu>
     <tu>
@@ -2753,9 +2753,9 @@ $(IX __traits) $(IX getAttributes) 属性的实际含义完全由程序员根据
         <seg>$(P
 $(IX core) Most modern microprocessors consist of more than one $(I core), each of which can operate as an individual processing unit.</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T012532Z" creationid="Heromyth" creationdate="20170826T012532Z">
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T124655Z" creationid="Heromyth" creationdate="20170826T012532Z">
         <seg>$(P
-$(IX core) 大多数现代微处理器架构都包含一个以上的$(I 核心)，而其中的每一个核心都可以作为单独的运算单元使用。</seg>
+$(IX core) 大多数现代的微处理器都包含一个以上的$(I 内核)，其中的每一个内核都可以当作单独的处理单元使用。</seg>
       </tuv>
     </tu>
     <tu>
@@ -4277,9 +4277,9 @@ If there is no other class variable that still provides access to the object tha
 In a loop, the elements of a range are normally processed one after the other, operations of each element following the operations of previous elements:
 )</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T012942Z" creationid="Heromyth" creationdate="20170826T012942Z">
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T125249Z" creationid="Heromyth" creationdate="20170826T012942Z">
         <seg>$(P
-对于循环，range 中的元素通常是一个一个按顺序被处理的，即上一个循环的操作结束后才会进行下一次循环：
+对于循环，范围中的元素通常是一个一个按顺序被处理的，即上一个循环的操作结束后才会进行下一次循环：
 )</seg>
       </tuv>
     </tu>
@@ -4708,9 +4708,9 @@ Mutable variables that need to be shared must be defined with the $(C shared) ke
         <seg>$(P
 Normally, a program would be executed on one of the cores of the microprocessor, which has been assigned by the operating system to execute the program.</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T012957Z" creationid="Heromyth" creationdate="20170826T012957Z">
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T132331Z" creationid="Heromyth" creationdate="20170826T012957Z">
         <seg>$(P
-正常情况下程序将会在某个操作系统指派的用于运行程序的处理器核心上运行。</seg>
+正常情况下程序将会在某个操作系统指派的用于运行程序的处理器内核上运行。</seg>
       </tuv>
     </tu>
     <tu>
@@ -6686,9 +6686,9 @@ This chapter covers only some of the features of arrays.</seg>
         <seg>$(P
 This chapter covers the following range algorithms.</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T123849Z" creationid="Heromyth" creationdate="20170826T012609Z">
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T124929Z" creationid="Heromyth" creationdate="20170826T012609Z">
         <seg>$(P
-本章涉及以下操作范围的算法。</seg>
+本章涉及以下范围（range）算法。</seg>
       </tuv>
     </tu>
     <tu>
@@ -12424,8 +12424,8 @@ LANGUAGE=chinese</seg>
       <tuv lang="EN-US">
         <seg>The features of the $(C std.parallelism) module make it possible for programs to take advantage of all of the cores in order to run faster.</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T012554Z" creationid="Heromyth" creationdate="20170826T012554Z">
-        <seg>灵活使用模块 $(C std.parallelism) 中的功能来尽可能地利用所有核心的运算能力，使程序能以更快的速度运行。</seg>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T124740Z" creationid="Heromyth" creationdate="20170826T012554Z">
+        <seg>灵活使用模块 $(C std.parallelism) 中的功能来尽可能地利用所有内核的运算能力，使程序能以更快的速度运行。</seg>
       </tuv>
     </tu>
     <tu>
@@ -13088,8 +13088,8 @@ LANGUAGE=chinese</seg>
       <tuv lang="EN-US">
         <seg>They can execute different parts of different programs at the same time.</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T012542Z" creationid="Heromyth" creationdate="20170826T012542Z">
-        <seg>它们可在同时执行不同程序的不同片段。</seg>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T124715Z" creationid="Heromyth" creationdate="20170826T012542Z">
+        <seg>它们可同时执行不同程序的不同部分。</seg>
       </tuv>
     </tu>
     <tu>
