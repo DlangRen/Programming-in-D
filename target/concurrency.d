@@ -1,13 +1,13 @@
 Ddoc
 
-$(DERS_BOLUMU $(IX concurrency, message passing) $(IX message passing concurrency) 基于消息传递的并发)
+$(DERS_BOLUMU $(IX concurrency, message passing) $(IX message passing concurrency) 消息传递与并发)
 
 $(P
-虽然并发（concurrency）与并行（parallelism）很相似，但我们不能将其混为一谈。这两个概念都涉及多线程，且并行是基于并发的，在刚接触它们时有些迷惑也是正常的。
+并发（concurrency）与上一章的并行（parallelism）很相似，但还是存在较多差异。这两个概念都涉及多线程，且并行是基于并发的，刚接触它们时感到有些迷惑也属正常。
 )
 
 $(P
-$(IX parallelism vs. concurrency) $(IX concurrency vs. parallelism) 下面是并发和并行的区别：
+$(IX parallelism vs. concurrency) $(IX concurrency vs. parallelism) 并发和并行的区别主要有以下几点：
 )
 
 $(UL
@@ -1307,7 +1307,7 @@ $(H5 小结)
 
 $(UL
 
-$(LI 如果线程相互独立，推荐使用上一章的 $(I parallelism)。只有线程间有相互依赖的操作时再考虑 $(I concurrency)。)
+$(LI 如果线程相互独立，推荐使用上一章的 $(I parallelism)。只有线程间有相互依赖的操作时再考虑 $(I 并发)。)
 
 $(LI 基于数据共享的并行难以编写出正确的代码，所以推荐使用本章讲解的消息传递并行。)
 

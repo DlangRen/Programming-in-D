@@ -1,27 +1,27 @@
 Ddoc
 
-$(DERS_BOLUMU $(IX data sharing concurrency) $(IX concurrency, data sharing) Data Sharing Concurrency)
+$(DERS_BOLUMU $(IX data sharing concurrency) $(IX concurrency, data sharing) 并发与数据共享)
 
 $(P
-The previous chapter was about threads sharing information through message passing. As it has been mentioned in that chapter, message passing is a safe method of concurrency.
+在上一章中，我们使用消息传递实现线程间的信息共享。消息传递是并发中相对安全的概念，这点我们已经提到了多次。
 )
 
 $(P
-Another method involves more than one thread reading from and writing to the same data. For example, the owner thread can start the worker with the address of a $(C bool) variable and the worker can determine whether to terminate or not by reading the current value of that variable. Another example would be where the owner starts multiple workers with the address of the same variable so that the variable gets modified by more than one worker.
+另外一种共享消息的方法是多个线程读写同一块数据。例如，所有者线程在启动工作线程的同时向其传递了一个 $(C bool) 值的地址，工作线程可通过读取这个值来判断是否需要终止。或者所有者线程将同一个变量地址发给多个工作线程，这些工作线程可通过修改或读取这个变量来从其他线程获取信息。
 )
 
 $(P
-One of the reasons why data sharing is not safe is $(I race conditions). A race condition occurs when more than one thread accesses the same mutable data in an uncontrolled order. Since the operating system pauses and starts individual threads in unspecified ways, the behavior of a program that has race conditions is unpredictable.
+$(I 竞态条件)是数据共享不够安全的原因之一。当多个线程以无法控制的顺序访问同一块数据时就会引发竞态条件。由于操作系统会无法预期地暂停和继续线程的执行，含有竞态条件的程序的行为是无法预期的。
 )
 
 $(P
-The examples in this chapter may look simplistic. However, the issues that they convey appear in real programs at greater scales. Also, although these examples use the $(C std.concurrency) module, the concepts of this chapter apply to the $(C core.thread) module as well.
+本章中的例子看起来都很简单。但是在实际编程中它们代表的问题通常规模很大。除此之外，虽然本章的例子使用的都是 $(C std.concurrency) 模块，但它们所包含的概念同样适用于 $(C core.thread) 模块。
 )
 
-$(H5 Sharing is not automatic)
+$(H5 共享不是自动的)
 
 $(P
-Unlike most other programming languages, data is not automatically shared in D; data is thread-local by default. Although module-level variables may give the impression of being accessible by all threads, each thread actually gets its own copy:
+与其他大部分编程语言的不同之处在于，D 语言里的数据不会自动共享（默认情况下，数据仅限于线程本地。虽然每个线程都可以访问模块级的变量，但实际上它们访问的都是对应变量在自己线程中的副本：
 )
 
 ---
@@ -48,7 +48,7 @@ void main() {
 ---
 
 $(P
-$(C variable) that is modified inside $(C worker()) is not the same $(C variable) that is seen by $(C main()). This fact can be observed by printing both the values and the addresses of the variables:
+$(C worker()) 中修改的 $(C variable) 与 $(C main()) 访问的 $(C variable) 是不同的。这一点你可以从输出的变量值和地址看出来：
 )
 
 $(SHELL
@@ -57,7 +57,7 @@ After the worker is terminated: 0 (@7F26C68127D0)
 )
 
 $(P
-Since each thread gets its own copy of data, $(C spawn()) does not allow passing references to thread-local variables. For example, the following program that tries to pass the address of a $(C bool) variable to another thread cannot be compiled:
+由于每个线程都有一份单独的数据拷贝，$(C spawn()) 不允许以引用的形式传递线程内的值。例如，下面这个程序，试图传递 $(C bool) 值的地址只会导致编译错误：
 )
 
 ---
@@ -75,7 +75,7 @@ void main() {
 
     // ...
 
-    // Hoping to signal the worker to terminate:
+    // 希望通知工作线程终止：
     isDone = true;
 
     // ...
@@ -83,7 +83,7 @@ void main() {
 ---
 
 $(P
-A $(C static assert) inside the $(C std.concurrency) module prevents accessing $(I mutable) data from another thread:
+$(C std.concurrency) 模块中的 $(C static assert) 阻止线程访问其他线程中的$(I 可变)数据：
 )
 
 $(SHELL
@@ -92,11 +92,11 @@ src/phobos/std/concurrency.d(329): Error: static assert
 )
 
 $(P
-The address of the mutable variable $(C isDone) cannot be passed between threads.
+可变变量 $(C isDone) 的地址无法在线程间传递：
 )
 
 $(P
-$(IX __gshared) An exception of this rule is a variable that is defined as $(C __gshared):
+$(IX __gshared) 除非使用 $(C __gshared) 定义变量：
 )
 
 ---
@@ -104,13 +104,13 @@ __gshared int globallyShared;
 ---
 
 $(P
-There is only one copy of such a variable in the entire program and all threads can share that variable. $(C __gshared) is necessary when interacting with libraries of languages like C and C++ where data sharing is automatic by default.
+这样的话，程序中只会有一 $(C globallyShared)，它会在所有线程间共享。在与像 C 和 C++ 这样默认自动数据共享的语言编写的库交互时，$(C __gshared) 是必须的。
 )
 
-$(H5 $(IX shared) $(C shared) to share mutable data between threads)
+$(H5 $(IX shared) 用 $(C shared) 在线程间共享数据))
 
 $(P
-Mutable variables that need to be shared must be defined with the $(C shared) keyword:
+需要共享的可变变量必须使用 $(C shared) 关键自定义：
 )
 
 ---
@@ -128,7 +128,7 @@ void main() {
 
     // ...
 
-    // Signalling the worker to terminate:
+    // 通知工作线程终止：
     isDone = true;
 
     // ...
@@ -136,11 +136,11 @@ void main() {
 ---
 
 $(P
-$(I $(B Note:) Prefer message-passing to signal a thread.)
+$(I $(B 注意：) 推荐使用消息传递向线程发送控制信号。)
 )
 
 $(P
-$(IX immutable, concurrency) On the other hand, since $(C immutable) variables cannot be modified, there is no problem with sharing them directly. For that reason, $(C immutable) implies $(C shared):
+$(IX immutable, concurrency) 另一方面，由于 $(C immutable) 变量无法被修改，它们可以直接共享。因此，$(C immutable) 隐含了 $(C shared)：
 )
 
 ---
@@ -154,7 +154,7 @@ void worker($(HILITE immutable(int)) * data) {
 
 void main() {
     $(HILITE immutable(int)) i = 42;
-    spawn(&worker, &i);         // ← compiles
+    spawn(&worker, &i);         // ← 编译正常
 
     thread_joinAll();
 }
@@ -169,17 +169,17 @@ data: 42
 )
 
 $(P
-Note that since the lifetime of $(C i) is defined by the scope of $(C main()), it is important that $(C main()) does not terminate before the worker thread. The call to $(C core.thread.thread_joinAll) above is to make a thread wait for all of its child threads to terminate.
+请注意：$(C i) 的生命期即为 $(C main()) 函数作用域，所以为了防止出现错误应确保 $(C main()) 函数在工作线程终止后才返回。所以，我们调用 $(C core.thread.thread_joinAll) 函数阻塞主线程来等待子线程执行完毕。
 )
 
-$(H5 A race condition example)
+$(H5 竞态条件示例)
 
 $(P
-The correctness of the program requires extra attention when mutable data is shared between threads.
+为了保证程序的正确性，我们需要为那些在线程间共享的可变数据付出额外的精力。
 )
 
 $(P
-To see an example of a race condition let's consider multiple threads sharing the same mutable variable. The threads in the following program receive the addresses as two variables and swap their values a large number of times:
+下面这个竞态条件的例子就是多个线程共享同一个可变变量。这些线程将会收到两个变量的地址，并将它们的值对调。对调过程将执行多次：
 )
 
 ---
@@ -205,7 +205,7 @@ void main() {
         spawn(&swapper, &i, &j);
     }
 
-    // Wait for all threads to finish their tasks
+    // 等待所有线程完成它们的任务
     thread_joinAll();
 
     writefln("after : %s and %s", i, j);
@@ -213,81 +213,81 @@ void main() {
 ---
 
 $(P
-Although the program above gets compiled successfully, in most cases it would work incorrectly. Observe that it starts ten threads that all access the same two variables $(C i) and $(C j). As a result of the $(I race conditions) that they are in, they inadvertently spoil the operations of other threads.
+虽然上面这个程序顺利通过了编译，但在大多数情况下它并不能正确工作。你看它启动了 10 个线程，这些线程都要去访问变量 $(C i) 和 $(C j)。由于它们处在$(I 竞态条件)，这些线程会在不经意间破坏其他线程的操作。
 )
 
 $(P
-Also observe that total number of swaps is 10 times 10 thousand. Since that amount is an even number, it is natural to expect that the variables end up having values 1 and 2, their initial values:
+除此之外我们还可以看到程序一共启动了 10 个线程，每个线程执行 1 万次交换。由于交换总次数一样，我们会很自然的认为交换后的值与初始值相同，即 1 和 2：
 )
 
 $(SHELL
 before: 1 and 2
-after : 1 and 2    $(SHELL_NOTE expected result)
+after : 1 and 2    $(SHELL_NOTE 期望的结果)
 )
 
 $(P
-Although it is possible that the program can indeed produce that result, most of the time the actual outcome would be one of the following:
+虽然程序的确可以得到我们预期的那种结果，但是实际上大多数情况下程序的输出都是下面这样的：
 )
 
 $(SHELL
 before: 1 and 2
-after : 1 and 1    $(SHELL_NOTE_WRONG incorrect result)
+after : 1 and 1    $(SHELL_NOTE_WRONG 错误结果)
 )
 
 $(SHELL
 before: 1 and 2
-after : 2 and 2    $(SHELL_NOTE_WRONG incorrect result)
+after : 2 and 2    $(SHELL_NOTE_WRONG 错误结果)
 )
 
 $(P
-It is possible but highly unlikely that the result may even end up being "2 and 1" as well.
+当然最终结果也有可能是“2 and 1”，只不过这种情况的可能性比较小而已。
 )
 
 $(P
-The reason why the program works incorrectly can be explained by the following scenario between just two threads that are in a race condition. As the operating system pauses and restarts the threads at indeterminate times, the following order of execution of the operations of the two threads is likely as well.
+下面这两个处在竞态条件的线程可以用来解释为什么之前的程序不能得到正确的结果。由于操作系统暂停和继续线程的不确定性，这两个线程操作的执行顺序也是不确定的。
 )
 
 $(P
-Let's consider the state where $(C i) is 1 and $(C j) is 2. Although the two threads execute the same $(C swapper()) function, remember that the local variable $(C temp) is separate for each thread and it is independent from the other $(C temp) variables of other threads. To identify those separate variables, they are renamed as $(C tempA) and $(C tempB) below.
+先来看下 $(C i) 为 1 $(C j) 为 2 的情况。虽然两个线程执行的都是 $(C swapper()) 函数，但别忘了由于 $(C temp) 是是个局部变量，每个线程都会拥有一个独立的 $(C temp) 副本。为了区分这两个 $(C temp)，我们将其分别称为 $(C tempA) 和 $(C tempB)。
 )
 
 $(P
-The chart below demonstrates how the 3-line code inside the $(C for) loop may be executed by each thread over time, from top to bottom, operation 1 being the first operation and operation 6 being the last operation. Whether $(C i) or $(C j) is modified at each step is indicated by highlighting that variable:
+下面这个表格展示了 $(C for) 循环中的 3 行语句是如何执行的。按照从上到下的顺序，操作 1 第一个执行，操作 6 最后一个执行。高亮的步骤修改了 $(C i) 和 $(C j)：
 )
 
 $(MONO
-$(B Operation        Thread A                             Thread B)
+$(B 操作        线程 A                             线程 B)
 ────────────────────────────────────────────────────────────────────────────
 
   1:   int temp = *second; (tempA==2)
   2:   *second = *first;   (i==1, $(HILITE j==1))
 
-          $(I (Assume that A is paused and B is started at this point))
+          $(I (假设此处 A 暂停 B 启动))
 
   3:                                        int temp = *second; (tempB==1)
   4:                                        *second = *first;   (i==1, $(HILITE j==1))
 
-          $(I (Assume that B is paused and A is restarted at this point))
+          $(I (假设此处 B 暂停 A 继续))
 
   5:   *first = temp;    ($(HILITE i==2), j==1)
 
-          $(I (Assume that A is paused and B is restarted at this point))
+          $(I (假设此处 A 暂停 B 继续))
 
   6:                                        *first = temp;    ($(HILITE i==1), j==1)
 )
 
 $(P
-As can be seen, at the end of the previous scenario both $(C i) and $(C j) end up having the value 1. It is not possible that they can ever have any other value after that point.
+经过这种情况的执行后 $(C i) 和 $(C j) 的值最后都变成了 1。此处不可能会再有其他的值。
 )
 
 $(P
-The scenario above is just one example that is sufficient to explain the incorrect results of the program. Obviously, the race conditions would be much more complicated in the case of the ten threads of this example.
+上面那种情况只是为了解释程序得出错误结果的原因而创建的例子。10 条线程的实际情况要比例子复杂得多。
 )
 
-$(H5 $(IX synchronized) $(C synchronized) to avoid race conditions)
+$(H5 $(IX synchronized) $(C synchronized) 避免竞态条件)
 
 $(P
-The incorrect program behavior above is due to more than one thread accessing the same mutable data (and at least one of them modifying it). One way of avoiding these race conditions is to mark the common code with the $(C synchronized) keyword. The program would work correctly with the following change:
+程序出错的原因是多个线程访问同一块可变数据（并且其中至少有一条线程修改了数据）。一种解决方案是使用关键字 $(C synchronized) 标记公共代码以消除竞态条件。经过下面的修改之后程序能正确执行：
 )
 
 ---
@@ -306,23 +306,23 @@ $(P
 
 $(SHELL
 before: 1 and 2
-after : 1 and 2      $(SHELL_NOTE correct result)
+after : 1 and 2      $(SHELL_NOTE 正确结果)
 )
 
 $(P
-$(IX lock) The effect of $(C synchronized) is to create a lock behind the scenes and to allow only one thread hold that lock at a given time. Only the thread that holds the lock can be executed and the others wait until the lock becomes available again when the executing thread completes its $(C synchronized) block. Since one thread executes the $(I synchronized) code at a time, each thread would now swap the values safely before another thread does the same. The state of the variables $(C i) and $(C j) would always be either "1 and 2" or "2 and 1" at the end of processing the synchronized block.
+$(IX lock) $(C synchronized) 会在后台创建一个锁，同一时间只有一个线程能持有这个锁。只有持有锁的那个线程才可以执行，其他线程都需要等待持有锁的线程执行完成并释放 $(C synchronized) 锁。由于同一时间只有一个执行 $(I synchronized) 代码的线程，我们就可以安全的进行交换。在同步块执行后 $(C i) 与 $(C j) 只会有种情况：要么是“1 and 2”，要么是“2 and 1”。
 )
 
 $(P
-$(I $(B Note:) It is a relatively expensive operation for a thread to wait for a lock, which may slow down the execution of the program noticeably. Fortunately, in some cases program correctness can be ensured without the use of a $(C synchronized) block, by taking advantage of $(I atomic operations) that will be explained below.)
+$(I $(B 注意：) 等待锁是一个相对昂贵的操作，它可能会显著降低程序的执行速度。幸运的是大多数程序可以使用 $(I 原子操作) 替代 $(C synchronized) 块（随后会介绍它）。)
 )
 
 $(P
-When it is needed to synchronize more than one block of code, it is possible to specify one or more locks with the $(C synchronized) keyword.
+当需要 synchronize 多个代码块时，最好是使用多个 $(C synchronized) 关键字指定多个锁。
 )
 
 $(P
-Let's see an example of this in the following program that has two separate code blocks that access the same shared variable. The program calls two functions with the address of the same variable, one function incrementing and the other function decrementing it equal number of times:
+下面的例子包含两个独立的访问共享变量的代码块。程序会将同一个变量的地址传递给这两个函数，一个函数对其加 1，一个函数对其减 1，加减次数相同：
 )
 
 ---
@@ -340,11 +340,11 @@ void decrementer(shared(int) * value) {
 ---
 
 $(P
-$(I $(B Note:) If the shorter equivalents of the expression above are used (i.e. $(C ++(*value)) and $(C &#8209;&#8209;(*value))), then the compiler warns that such read-modify-write operations on $(C shared) variables are deprecated.)
+$(I $(B 注意：) 如果将上方的等式换成自增或自检（例如， $(C ++(*value)) 和 $(C &#8209;&#8209;(*value))），编译器会警告：对 $(C shared) 变量执行的读取-修改-写入操作已被弃用。)
 )
 
 $(P
-Unfortunately, marking those blocks individually with $(C synchronized) is not sufficient, because the anonymous locks of the two blocks would be independent. So, the two code blocks would still be accessing the same variable concurrently:
+很可惜，直接使用 $(C synchronized) 并不能起到我们预期的效果，因为两个代码块的匿名锁是相互独立的。因此 ，这两块代码还是会同时访问那个变量：
 )
 
 ---
@@ -356,7 +356,7 @@ enum count = 1000;
 
 void incrementer(shared(int) * value) {
     foreach (i; 0 .. count) {
-        $(HILITE synchronized) { // ← This lock is different from the one below.
+        $(HILITE synchronized) { // ← 此处的锁与下方的锁不同。
             *value = *value + 1;
         }
     }
@@ -364,7 +364,7 @@ void incrementer(shared(int) * value) {
 
 void decrementer(shared(int) * value) {
     foreach (i; 0 .. count) {
-        $(HILITE synchronized) { // ← This lock is different from the one above.
+        $(HILITE synchronized) { // ← 此处的锁与上方的锁不同。
             *value = *value - 1;
         }
     }
@@ -384,28 +384,28 @@ void main() {
 ---
 
 $(P
-Since there are equal number of threads that increment and decrement the same variable equal number of times, one would expect the final value of $(C number) to be zero. However, that is almost never the case:
+线程数相同且加减次数相同，可能有人就会认为 $(C number) 的最终结果是 0。但是，这个程序几乎不会得出这个结果：
 )
 
 $(SHELL
-Final value: -672    $(SHELL_NOTE_WRONG not zero)
+Final value: -672    $(SHELL_NOTE_WRONG 不是 0)
 )
 
 $(P
-For more than one block to use the same lock or locks, the lock objects must be specified within the $(C synchronized) parentheses:
+为了能够给多个代码块套上同样的锁，你必须在 $(C synchronized) 后加一个圆括号并在其中指定锁对象：
 )
 
 $(P
-$(HILITE $(I $(B Note:) This feature is not supported by dmd 2.074.0.))
+$(HILITE $(I $(B 注意：) dmd 2.074.0 并不支持此功能。))
 )
 
 ---
-    // Note: dmd 2.074.0 does not support this feature.
+    // 注意：dmd 2.074.0 并不支持此功能。
     synchronized ($(I lock_object), $(I another_lock_object), ...)
 ---
 
 $(P
-There is no need for a special lock type in D because any class object can be used as a $(C synchronized) lock. The following program defines an empty class named $(C Lock) to use its objects as locks:
+D 语言中没有专门的锁类型，任何类型都可以作为 $(C synchronized) 锁。下面这个程序定义了一个空的 $(C Lock) 类作为锁：
 )
 
 ---
@@ -449,15 +449,15 @@ void main() {
 ---
 
 $(P
-Because this time both $(C synchronized) blocks are connected by the same lock, only one of them is executed at a given time and the result is zero as expected:
+这次两个 $(C synchronized) 块使用了同一个锁，因此在同一时间它们当中只有一个可以执行。
 )
 
 $(SHELL
-Final value: 0       $(SHELL_NOTE correct result)
+Final value: 0       $(SHELL_NOTE 正确结果)
 )
 
 $(P
-Class types can be defined as $(C synchronized) as well. This means that all of the non-static member functions of that type are synchronized on a given object of that class:
+类也可以定义为 $(C synchronized)。即表示同一时间只能有一个线程调用类的示例对象的非静态成员函数：
 )
 
 ---
@@ -473,7 +473,7 @@ $(HILITE synchronized) class Class {
 ---
 
 $(P
-The following is the equivalent of the class definition above:
+下面的类和上面的是等价的：
 )
 
 ---
@@ -493,17 +493,17 @@ class Class {
 ---
 
 $(P
-When blocks of code need to be synchronized on more than one object, those objects must be specified together. Otherwise, it is possible that more than one thread may have locked objects that other threads are waiting for, in which case the program may be $(I deadlocked).
+如果几块代码需要锁住多个对象来同步，指定在一个 $(C synchronized) 中。不然的话就可能出现几个线程分别拿到了不同的锁，而它们又在等待其他线程手中的锁的情况，即$(I 死锁)。
 )
 
 $(P
-A well known example of this problem is a function that tries to transfer money from one bank account to another. For this function to work correctly in a multi-threaded environment, both of the accounts must first be locked. However, the following attempt would be incorrect:
+这个问题有一个著名的例子：想要编写一个函数将某个银行账户中的资金转到另一个账户。为了能让函数在多线程环境中正确运行，每个账户都要先被锁锁住。但下面这个程序并不能实现我们的要求：
 )
 
 ---
 void transferMoney(shared BankAccount from,
                    shared BankAccount to) {
-    synchronized (from) {           $(CODE_NOTE_WRONG INCORRECT)
+    synchronized (from) {           $(CODE_NOTE_WRONG 错误)
         synchronized (to) {
             // ...
         }
@@ -512,31 +512,31 @@ void transferMoney(shared BankAccount from,
 ---
 
 $(P
-$(IX deadlock) The error can be explained by an example where one thread attempting to transfer money from account A to account to B while another thread attempting to transfer money in the reverse direction. It is possible that each thread may have just locked its respective $(C from) object, hoping next to lock its $(C to) object. Since the $(C from) objects correspond to A and B in the two threads respectively, the objects would be in locked state in separate threads, making it impossible for the other thread to ever lock its $(C to) object. This situation is called a $(I deadlock).
+$(IX deadlock) 我们会用一个例子来解释程序为什么出错。示例中有一个线程想要将账户 A 中的资金转到账户 B，而另一个线程想要将账户 B 中的资金转到账户 A。每个线程都会先锁住各自的 $(C from) 对象，然后再尝试去锁 $(C to) 对象。由于代表 A 和 B 的 $(C from) 对象已分别被两个线程锁住，它们将无法获取另一个线程的 $(C to) 对象（即刚刚被锁住的 B 和 A）。这个现象就是$(I 死锁)。
 )
 
 $(P
-The solution to this problem is to define an ordering relation between the objects and to lock them in that order, which is handled automatically by the $(C synchronized) statement. In D, it is sufficient to specify the objects in the same $(C synchronized) statement for the code to avoid such deadlocks:
+解决方法是为对象定义一个顺序并按照这个顺序锁住对象。如果使用 $(C synchronized) 语句这个过程将被自动实现。对于 D 语言，在同一个 $(C synchronized) 中指定这些对象即可有效避免死锁的情况：
 )
 
 $(P
-$(HILITE $(I $(B Note:) This feature is not supported by dmd 2.074.0.))
+$(HILITE $(I $(B 注意：) dmd 2.074.0 并不支持此功能。))
 )
 
 ---
 void transferMoney(shared BankAccount from,
                    shared BankAccount to) {
-    // Note: dmd 2.074.0 does not support this feature.
-    synchronized (from, to) {       $(CODE_NOTE correct)
+    // 注意：dmd 2.074.0 并不支持此功能。
+    synchronized (from, to) {       $(CODE_NOTE 正确)
         // ...
     }
 }
 ---
 
-$(H5 $(IX shared static this) $(IX static this, shared) $(IX shared static ~this) $(IX static ~this, shared) $(IX this, shared static) $(IX ~this, shared static) $(IX module constructor, shared) $(C shared static this()) for single initialization and $(C shared static ~this()) for single finalization)
+$(H5 $(IX shared static this) $(IX static this, shared) $(IX shared static ~this) $(IX static ~this, shared) $(IX this, shared static) $(IX ~this, shared static) $(IX module constructor, shared)$(C shared static this()) 可用于单个初始化；$(C shared static ~this()) 可用于单个析构)
 
 $(P
-We have already seen that $(C static this()) can be used for initializing modules, including their variables. Because data is thread-local by default, $(C static this()) must be executed by every thread so that module-level variables are initialized for all threads:
+我们已经见到过 $(C static this())，它是用来初始化模块和模块中包含的变量的。由于默认情况下每个线程都会有一个数据的副本，$(C static this()) 需要在每个线程中执行一次来初始化对应线程中的模块级变量：
 )
 
 ---
@@ -559,7 +559,7 @@ void main() {
 ---
 
 $(P
-The $(C static this()) block above would be executed once for the main thread and once for the worker thread:
+上面这个 $(C static this()) 会为主线程执行一次，为工作线程执行一次：
 )
 
 $(SHELL
@@ -568,12 +568,12 @@ executing static this()
 )
 
 $(P
-This would cause problems for $(C shared) module variables because initializing a variable more than once would be wrong especially in concurrency due to race conditions. (That applies to $(C immutable) variables as well because they are implicitly $(C shared).) The solution is to use $(C shared static this()) blocks, which are executed only once per program:
+对于指定了 $(C shared) 的模块变量来说，重复初始化有可能导致并发中的竞态条件而造成程序出错。（这也适用于 $(C immutable) 因为它已隐含 $(C shared)。）解决方案是使用 $(C shared static this()) 块，它只会在程序中执行一次：
 )
 
 ---
-int a;              // thread-local
-immutable int b;    // shared by all threads
+int a;              // 仅限线程本地
+immutable int b;    // 所有线程共享
 
 static this() {
     writeln("Initializing per-thread variable at ", &a);
@@ -591,29 +591,29 @@ $(P
 )
 
 $(SHELL
-Initializing per-program variable at 6B0120    $(SHELL_NOTE only once)
+Initializing per-program variable at 6B0120    $(SHELL_NOTE 只有一次)
 Initializing per-thread variable at 7FBDB36557D0
 Initializing per-thread variable at 7FBDB3554670
 )
 
 $(P
-Similarly, $(C shared static ~this()) is for final operations that must be executed only once per program.
+同样地，$(C shared static ~this()) 适用于结束操作——每个程序只会执行一次来释放资源。.
 )
 
-$(H5 $(IX atomic operation) Atomic operations)
+$(H5 $(IX atomic operation) 原子操作)
 
 $(P
-Another way of ensuring that only one thread mutates a certain variable is by using atomic operations, functionality of which are provided by the microprocessor, the compiler, or the operating system.
+另一种确保同一时间只有一个线程能修改变量的方法是原子操作。这个功能是由处理器、编译器或操作系统提供的。
 )
 
 $(P
-The atomic operations of D are in the $(C core.atomic) module. We will see only two of its functions in this chapter:
+D 语言中的原子操作都在 $(C core.atomic) 模块里。本章我们只会接触到其中两种：
 )
 
 $(H6 $(IX atomicOp, core.atomic) $(C atomicOp))
 
 $(P
-This function applies its template parameter to its two function parameters. The template parameter must be a $(I binary operator) like $(STRING "+"), $(STRING "+="), etc.
+这个函数会将它的模版参数应用到两个函数参数上。它的模版参数必须是一个$(I 二元运算符)，如 $(STRING "+")、$(STRING "+=") 等。
 )
 
 ---
@@ -621,19 +621,19 @@ import core.atomic;
 
 // ...
 
-        atomicOp!"+="(*value, 1);    // atomic
+        atomicOp!"+="(*value, 1);    // 原子的
 ---
 
 $(P
-The line above is the equivalent of the following line, with the difference that the $(C +=) operation would be executed without interruptions by other threads (i.e. it would be executed $(I atomically)):
+上面这一行和下面这一行功能相同，但原子操作会使 $(C +=) 不被其他线程打断（或者说它们$(I 像原子一样)不可拆分）：
 )
 
 ---
-        *value += 1;                 // NOT atomic
+        *value += 1;                 // 非原子的
 ---
 
 $(P
-Consequently, when it is only a binary operation that needs to be synchronized, then there is no need for a $(C synchronized) block, which is known to be slow because of needing to acquire a lock. The following equivalents of the $(C incrementer()) and $(C decrementer()) functions that use $(C atomicOp) are correct as well. Note that there is no need for the $(C Lock) class anymore either:
+如果只是一个二元运算的话，我们没必要使用会影响效率的 $(C synchronized) 块。下面是$(C incrementer()) 和 $(C decrementer()) 函数使用 $(C atomicOp) 之后的等效情况。请注意，现在不再需要 $(C Lock) 类：
 )
 
 ---
@@ -655,13 +655,13 @@ void decrementer(shared(int) * value) {
 ---
 
 $(P
-$(C atomicOp) can be used with other binary operators as well.
+$(C atomicOp) 也可以用在其他二元操作符上。
 )
 
 $(H6 $(IX cas, core.atomic) $(C cas))
 
 $(P
-The name of this function is the abbreviation of "compare and swap". Its behavior can be described as $(I mutate the variable if it still has its currently known value). It is used by specifying the current and the desired values of the variable at the same time:
+这个函数的名字是“比较并交换（compare and swap）”的缩写。它的操作的理念是：$(I 如果变量的值与已知当前值相同，则修改变量)。使用方法是同时指定当前值和期望值：
 )
 
 ---
@@ -669,11 +669,11 @@ The name of this function is the abbreviation of "compare and swap". Its behavio
 ---
 
 $(P
-The fact that the value of the variable still equals $(C currentValue) when $(C cas()) is operating is an indication that no other thread has mutated the variable since it has last been read by this thread. If so, $(C cas()) assigns $(C newValue) to the variable and returns $(C true). On the other hand, if the variable's value is different from $(C currentValue) then $(C cas()) does not mutate the variable and returns $(C false).
+在 $(C cas()) 开始执行时，如果变量的值还是等于 $(C currentValue)，则说明自当前线程读入后这个变量没有被其他线程修改。这样的话 $(C cas()) 会将 $(C newValue) 赋给这个变量并返回 $(C true)。另一方面，如果 $(C cas()) 发现变量的值不再等于 $(C currentValue) ，那么它将直接返回 $(C false)，不再修改变量的值。
 )
 
 $(P
-The following functions re-read the current value and call $(C cas()) until the operation succeeds. Again, these calls can be described as $(I if the value of the variable equals this old value, replace with this new value):
+下面这个函数使用将重新读取当前值并调用 $(C cas()) 直到操作成功。你可以这样描述这种调用：$(I 如果变量值没有被其它线程改变则将新值赋给它)：
 )
 
 ---
@@ -699,19 +699,19 @@ void decrementer(shared(int) * value) {
 ---
 
 $(P
-The functions above work correctly without the need for $(C synchronized) blocks.
+上面这个程序在不使用 $(C synchronized) 块的情况下也能正确工作。
 )
 
 $(P
-In most cases, the features of the $(C core.atomic) module can be several times faster than using $(C synchronized) blocks. I recommend that you consider this module as long as the operations that need synchronization are less than a block of code.
+在大多数情况下 $(C core.atomic) 模块中的功能要比 $(C synchronized) 块执行速度快。所以如果需要同步的只是一些简单操作而不是一块代码的话，我建议你优先考虑这个模块。
 )
 
 $(P
-Atomic operations enable $(I lock-free data structures) as well, which are beyond the scope of this book.
+原子操作还能让我们实现$(I 无锁数据结构)，但这已经超出了本书的范围。
 )
 
 $(P
-You may also want to investigate the $(C core.sync) package, which contains classic concurrency primitives in the following modules:
+你也可以深入看看 $(C core.sync) 包中，在它的以下模块中包含了很多经典的并发基本操作：
 )
 
 $(UL
@@ -726,33 +726,34 @@ $(LI $(C core.sync.semaphore))
 
 )
 
-$(H5 摘要)
+$(H5 小结)
 
 $(UL
 
-$(LI When threads do not depend on other threads, prefer $(I parallelism). Consider $(I concurrency) only when threads depend on operations of other threads.)
+$(LI 如果线程相互独立，优先选择$(I 并行)。只有线程间有相互依赖的操作时再考虑 $(I 并发)。)
 
-$(LI Even then, prefer $(I message passing concurrency), which has been the topic of the previous chapter.)
+$(LI 若要使用并发，优先选择上一章的 $(I 基于消息传递的并发) 模型。)
 
-$(LI Only $(C shared) data can be shared; $(C immutable) is implicitly $(C shared).)
+$(LI 只有用 $(C shared) 定义的变量才能共享；$(C immutable) 隐含了 $(C shared)。)
 
-$(LI $(C __gshared) provides data sharing as in C and C++ languages.)
+$(LI $(C __gshared) 提供了与 C 和 C++ 共享数据的能力。)
 
-$(LI $(C synchronized) is for preventing other threads from intervening when a thread is executing a certain piece of code.)
+$(LI $(C synchronized) 可防止其他线程在当前现成的操作执行到一半时横插一脚致使结果错误。)
 
-$(LI A class can be defined as $(C synchronized) so that only one member function can be executed on a given object at a given time. In other words, a thread can execute a member function only if no other thread is executing a member function on the same object.)
+$(LI 类也可以被定义为 $(C synchronized)，这样同一时间只能有一个线程调用这个类实例对象的成员函数。换句话说，线程只能在没有其他线程调用这个类的实例的成员函数的情况下才能操作它。)
 
-$(LI $(C static this()) is executed once for each thread; $(C shared static this()) is executed once for the entire program.)
+$(LI $(C static this()) 会为每个线程执行一次；$(C shared static this()) 则只会在整个程序中执行一次。)
 
-$(LI The $(C core.atomic) module enables safe data sharing that can be multiple times faster than $(C synchronized).)
+$(LI $(C core.atomic) 模块提供安全的数据共享方案，而且还比 $(C synchronized) 快很多倍。)
 
-$(LI The $(C core.sync) package includes many other concurrency primitives.)
+$(LI $(C core.sync) 包包含了许多其他经典的并发基本操作。)
 
 )
 
 macros:
-        SUBTITLE=Data Sharing Concurrency
+        SUBTITLE=数据共享与并发
 
-        DESCRIPTION=Executing multiple threads that share data.
+        DESCRIPTION=执行多条共享数据的线程
 
-        KEYWORDS=d programming language tutorial book concurrency thread data sharing
+        KEYWORDS=d programming language tutorial book concurrency thread data sharing 编程 语言 教程 书籍 并发 线程 数据 共享
+
