@@ -2560,9 +2560,9 @@ $(I $(B 注意：) 推荐使用消息传递向线程发送控制信号。)
 $(I $(B Note:) The execution time of the program may be different on other systems but it is expected to be roughly "4 seconds divided by the number of cores".)
 )</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T014221Z" creationid="Heromyth" creationdate="20170826T014221Z">
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T133258Z" creationid="Heromyth" creationdate="20170826T014221Z">
         <seg>$(P
-$(I $(B 注意：)在不同的系统上运行上面的程序可能会有不同的执行时间，但大致都是“4 秒除以核心数”这样的结果。)
+$(I $(B 注意：)在不同的系统上运行上面的程序可能会有不同的执行时间，但大致都是“4 秒除以内核数”的结果。)
 )</seg>
       </tuv>
     </tu>
@@ -2813,9 +2813,9 @@ $(IX fold, std.algorithm) $(C reduce()) 与 $(C std.algorithm.fold) 相同。我
         <seg>$(P
 $(IX foreach, parallel) $(C parallel()) accesses the elements of a range in parallel.</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T013644Z" creationid="Heromyth" creationdate="20170826T013644Z">
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T133320Z" creationid="Heromyth" creationdate="20170826T013644Z">
         <seg>$(P
-$(IX foreach, parallel) $(C parallel()) 以并行的方式访问 range 中的元素。</seg>
+$(IX foreach, parallel) $(C parallel()) 以并行的方式访问范围中的元素。</seg>
       </tuv>
     </tu>
     <tu>
@@ -6736,9 +6736,9 @@ This function applies its template parameter to its two function parameters.</se
         <seg>$(P
 This function can also be called simply as $(C parallel()).</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T013532Z" creationid="Heromyth" creationdate="20170826T013532Z">
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T133841Z" creationid="Heromyth" creationdate="20170826T013532Z">
         <seg>$(P
-还可以使用一种简单的方法使用这个函数：直接以 $(C parallel()) 的形式调用。</seg>
+此函数可以简单地使用 $(C parallel()) 来调用。</seg>
       </tuv>
     </tu>
     <tu>
@@ -7810,9 +7810,9 @@ Initializing per-thread variable at 7FBDB3554670
         <seg>$(SHELL
 There are 4 cores on this system.</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T013622Z" creationid="Heromyth" creationdate="20170826T013521Z">
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T132855Z" creationid="Heromyth" creationdate="20170826T013521Z">
         <seg>$(SHELL
-这个系统有 4 核。</seg>
+此系统里有 4 个内核。</seg>
       </tuv>
     </tu>
     <tu>
@@ -9935,8 +9935,8 @@ COZUMLER_METIN=答案</seg>
       <tuv lang="EN-US">
         <seg>Concurrency is the topic of the next chapter.</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T014517Z" creationid="Heromyth" creationdate="20170826T014517Z">
-        <seg>并发性是下一章的话题。</seg>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T134126Z" creationid="Heromyth" creationdate="20170826T014517Z">
+        <seg>关于并发，下一章会主要讲解它。</seg>
       </tuv>
     </tu>
     <tu>
@@ -12792,8 +12792,8 @@ LANGUAGE=chinese</seg>
       <tuv lang="EN-US">
         <seg>The programming model that supports threads that depend on other threads is called $(I concurrency).</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T014430Z" creationid="Heromyth" creationdate="20170826T014430Z">
-        <seg>支持线程的编程模型依赖线程的$(I 并发)调用。</seg>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T134030Z" creationid="Heromyth" creationdate="20170826T014430Z">
+        <seg>支持线程依赖的编程模型叫做$(I 并发（concurrency）)。</seg>
       </tuv>
     </tu>
     <tu>
