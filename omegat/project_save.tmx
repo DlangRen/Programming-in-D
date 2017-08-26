@@ -1125,9 +1125,9 @@ $(B 多态性：) 能够使用较特定的类型取代较通用的类型
         <seg>$(LI
 Although both programming models use operating system threads, in parallelism threads are encapsulated by the concept of task.</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T012201Z" creationid="Heromyth" creationdate="20170824T012154Z">
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T221132Z" creationid="Heromyth" creationdate="20170824T012154Z">
         <seg>$(LI
-虽然两者都涉及线程操作，但并行用 task 对线程做了包装。</seg>
+虽然两者都涉及线程操作，但并行线程被封装成了任务。</seg>
       </tuv>
     </tu>
     <tu>
@@ -1195,9 +1195,9 @@ Many other functions may be chained as well:</seg>
         <seg>$(LI
 Parallelism is easy to use, and as long as tasks are independent it is easy to produce programs that work correctly.</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T012219Z" creationid="Heromyth" creationdate="20170824T012219Z">
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T221355Z" creationid="Heromyth" creationdate="20170824T012219Z">
         <seg>$(LI
-并行上手容易，由于任务相互独立的缘故我们写出的程序很少出错。</seg>
+并行易于使用，并且只要任务相互独立，便可以轻松地生成可正常工作的程序。</seg>
       </tuv>
     </tu>
     <tu>
@@ -1255,9 +1255,9 @@ The goal is to store multiple grades per student.</seg>
         <seg>$(LI
 The main purpose of parallelism is to take advantage of microprocessor cores to improve the performance of programs.</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T011955Z" creationid="Heromyth" creationdate="20170824T011955Z">
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T220601Z" creationid="Heromyth" creationdate="20170824T011955Z">
         <seg>$(LI
-并行的主要目的是利用多核心的运算能力提高程序的性能。</seg>
+并行的主要目的是利用微处理器的多核提高程序的性能。</seg>
       </tuv>
     </tu>
     <tu>
@@ -9555,8 +9555,8 @@ $(LI $(LINK2 /ders/d.cn/slices.html, 分片与其他数组功能) $(INDEX_KEYWOR
       <tuv lang="EN-US">
         <seg>An example of a concurrent program would be a server program that is responding to requests of more than one client at the same time.</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T012047Z" creationid="Heromyth" creationdate="20170824T012047Z">
-        <seg>比如说服务器程序就是并发的，它需要在同一时间处理多个客户端的请求。</seg>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T221021Z" creationid="Heromyth" creationdate="20170824T012047Z">
+        <seg>比如说服务器程序就是并发的，它需要同时处理多个客户端的请求。</seg>
       </tuv>
     </tu>
     <tu>
@@ -9919,16 +9919,16 @@ COZUMLER_METIN=答案</seg>
       <tuv lang="EN-US">
         <seg>Concurrency is about making a program run on more than one thread at a time.</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T012106Z" creationid="Heromyth" creationdate="20170824T012037Z">
-        <seg>并发即程序同时运行多个线程。</seg>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T220948Z" creationid="Heromyth" creationdate="20170824T012037Z">
+        <seg>并发可以让一个程序同时在多个线程上运行。</seg>
       </tuv>
     </tu>
     <tu>
       <tuv lang="EN-US">
         <seg>Concurrency is easy only when it is based on $(I message passing).</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T012251Z" creationid="Heromyth" creationdate="20170824T012251Z">
-        <seg>并发则只有在基于 $(I 消息传递) 时才比较简单。</seg>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T221504Z" creationid="Heromyth" creationdate="20170824T012251Z">
+        <seg>并发只有在基于 $(I 消息传递) 实现时才比较简单。</seg>
       </tuv>
     </tu>
     <tu>
@@ -9943,16 +9943,16 @@ COZUMLER_METIN=答案</seg>
       <tuv lang="EN-US">
         <seg>Concurrency makes use of threads explicitly.</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T012205Z" creationid="Heromyth" creationdate="20170824T012205Z">
-        <seg>而并发则需要显式调用线程。</seg>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T221157Z" creationid="Heromyth" creationdate="20170824T012205Z">
+        <seg>而并发则需要显式利用线程。</seg>
       </tuv>
     </tu>
     <tu>
       <tuv lang="EN-US">
         <seg>Concurrency on the other hand, is a concept that may be needed even on a single-core environment.</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T012004Z" creationid="Heromyth" creationdate="20170824T012004Z">
-        <seg>而并发这个概念在单核心系统中也有用到。并发即程序同时运行多个线程。</seg>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T220813Z" creationid="Heromyth" creationdate="20170824T012004Z">
+        <seg>而并发则是一个在单核环境里也可以使用的概念。</seg>
       </tuv>
     </tu>
     <tu>
@@ -10931,8 +10931,8 @@ $(LINK2 /ders/d.cn/index.html,
       <tuv lang="EN-US">
         <seg>In fact, it would be a bug if they did depend on results of other tasks that are running at the same time.</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T012132Z" creationid="Heromyth" creationdate="20170824T012132Z">
-        <seg>事实上如果同时运行的任务依赖其他任务的结果就可能会引发程序的 bug。</seg>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T221043Z" creationid="Heromyth" creationdate="20170824T012132Z">
+        <seg>事实上如果同时运行的任务依赖其他任务的结果就可能会引发程序错误。</seg>
       </tuv>
     </tu>
     <tu>
@@ -11313,8 +11313,8 @@ $(LINK2 /ders/d.cn/index.html,
       <tuv lang="EN-US">
         <seg>It is very difficult to write correct concurrent programs if they are based on the traditional model of concurrency that involves lock-based data sharing.</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T012308Z" creationid="Heromyth" creationdate="20170824T012308Z">
-        <seg>若使用传统的基于锁的数据共享模型，则很难写出正确的程序。</seg>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T221955Z" creationid="Heromyth" creationdate="20170824T012308Z">
+        <seg>若使用传统的基于锁的数据共享实现的并发模型，则很难写出正确的并发程序。</seg>
       </tuv>
     </tu>
     <tu>
