@@ -312,8 +312,8 @@ $(LI $(LINK2 /ders/d.cn/struct.html, 结构) $(INDEX_KEYWORDS struct .</seg>
       <tuv lang="EN-US">
         <seg>$(DERS_BOLUMU $(IX concurrency, message passing) $(IX message passing concurrency) Message Passing Concurrency)</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T005240Z" creationid="Heromyth" creationdate="20170824T011541Z">
-        <seg>$(DERS_BOLUMU $(IX concurrency, message passing) $(IX message passing concurrency) 消息传递与并发)</seg>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T222051Z" creationid="Heromyth" creationdate="20170824T011541Z">
+        <seg>$(DERS_BOLUMU $(IX concurrency, message passing) $(IX message passing concurrency) 基于消息传递的并发)</seg>
       </tuv>
     </tu>
     <tu>
@@ -10939,8 +10939,8 @@ $(LINK2 /ders/d.cn/index.html,
       <tuv lang="EN-US">
         <seg>In fact, tasks that have been covered in the previous chapter are based on threads that are started automatically by $(C std.parallelism).</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T012537Z" creationid="Heromyth" creationdate="20170824T012537Z">
-        <seg>实际上上一章我们学习的 task 就是基于线程的，只不过这些线程是由 $(C std.parallelism) 自动维护的。</seg>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T222226Z" creationid="Heromyth" creationdate="20170824T012537Z">
+        <seg>实际上，上一章讲解的任务是基于线程的，只不过这些线程是由 $(C std.parallelism) 自动启动。</seg>
       </tuv>
     </tu>
     <tu>
@@ -13534,8 +13534,8 @@ LANGUAGE=chinese</seg>
       <tuv lang="EN-US">
         <seg>We will cover message passing in this chapter and data sharing in the next chapter.</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T012330Z" creationid="Heromyth" creationdate="20170824T012330Z">
-        <seg>我们将会在本章中学习到消息传递，在下一章中学习数据共享。</seg>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T222401Z" creationid="Heromyth" creationdate="20170824T012330Z">
+        <seg>本章主要讲解消息传递，而数据共享则被放置到下一章。</seg>
       </tuv>
     </tu>
     <tu>
