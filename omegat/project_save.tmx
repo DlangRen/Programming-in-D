@@ -320,8 +320,8 @@ $(LI $(LINK2 /ders/d.cn/struct.html, 结构) $(INDEX_KEYWORDS struct .</seg>
       <tuv lang="EN-US">
         <seg>$(DERS_BOLUMU $(IX data sharing concurrency) $(IX concurrency, data sharing) Data Sharing Concurrency)</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T233449Z" creationid="Heromyth" creationdate="20170825T143318Z">
-        <seg>$(DERS_BOLUMU $(IX data sharing concurrency) $(IX concurrency, data sharing) 并发与数据共享)</seg>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T222528Z" creationid="Heromyth" creationdate="20170825T143318Z">
+        <seg>$(DERS_BOLUMU $(IX data sharing concurrency) $(IX concurrency, data sharing) 基于数据共享的并发)</seg>
       </tuv>
     </tu>
     <tu>
@@ -9639,8 +9639,8 @@ $(LI $(LINK2 /ders/d.cn/slices.html, 分片与其他数组功能) $(INDEX_KEYWOR
       <tuv lang="EN-US">
         <seg>As it has been mentioned in that chapter, message passing is a safe method of concurrency.</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T143348Z" creationid="Heromyth" creationdate="20170825T143348Z">
-        <seg>消息传递是并发中相对安全的概念，这点我们已经提到了多次。</seg>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T222627Z" creationid="Heromyth" creationdate="20170825T143348Z">
+        <seg>前面章节已提到，消息传递是一种比较安全的并发方法。</seg>
       </tuv>
     </tu>
     <tu>
