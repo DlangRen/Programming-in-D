@@ -1708,6 +1708,14 @@ There are three mistakes (bugs) in this program.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>$(LI Assigns the initial value to $(C result))</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T082208Z" creationid="Heromyth" creationdate="20170826T082208Z">
+        <seg>$(LI 把初始值赋给 $(C result))</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>$(LI Because concurrency by data sharing is hard to implement correctly, prefer concurrency by message passing, which is the subject of this chapter.)</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T135826Z" creationid="Heromyth" creationdate="20170825T135826Z">
@@ -1764,6 +1772,14 @@ There are three mistakes (bugs) in this program.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>$(LI Executes the expression $(C result = func(result, element)) for every element)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T082221Z" creationid="Heromyth" creationdate="20170826T082221Z">
+        <seg>$(LI 对每一个元素执行 $(C result = func(result, element)) 这样的表达式)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>$(LI Only $(C shared) data can be shared; $(C immutable) is implicitly $(C shared).)</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T004436Z" creationid="Heromyth" creationdate="20170826T004436Z">
@@ -1776,6 +1792,14 @@ There are three mistakes (bugs) in this program.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Hipter" changedate="20160709T084106Z" creationid="Hipter" creationdate="20160709T084106Z">
         <seg>$(LI 从关联数组中逐个移除它们。)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(LI Returns the final value of $(C result))</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T082232Z" creationid="Heromyth" creationdate="20170826T082232Z">
+        <seg>$(LI 返回最终 $(C result) 的值)</seg>
       </tuv>
     </tu>
     <tu>
@@ -2198,6 +2222,18 @@ $(C reduce()) is another high-level algorithm commonly found in many functional 
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T075327Z" creationid="Heromyth" creationdate="20170826T075327Z">
         <seg>$(P
 $(C reduce()) 也是一个经常在函数式编程中使用的高阶函数。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
+$(C reduce()) uses the elements in sequence to reach the final value of the result:
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T083004Z" creationid="Heromyth" creationdate="20170826T083004Z">
+        <seg>$(P
+$(C reduce()) 将按照顺序使用元素：
+)</seg>
       </tuv>
     </tu>
     <tu>
@@ -3282,6 +3318,16 @@ As it is indicated in their documentation, the return types of $(C indexOf()) an
     <tu>
       <tuv lang="EN-US">
         <seg>$(P
+As obvious from its behavior, $(C reduce()) uses a loop in its implementation.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T082338Z" creationid="Heromyth" creationdate="20170826T082338Z">
+        <seg>$(P
+就像我们看到的那样，$(C reduce()) 使用一个循环来实现其功能。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
 As seen in the outputs, the blocks of the $(C scope) statements are executed in reverse order.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Hipter" changedate="20160707T045137Z" creationid="Hipter" creationdate="20160707T035844Z">
@@ -3830,6 +3876,18 @@ For example, the following code that tries to capitalize the first letter of a $
       <tuv lang="ZH-CN" changeid="大处着手小处着眼" changedate="20160720T134044Z" creationid="Hipter" creationdate="20160712T082540Z">
         <seg>$(P
 例如，下面这段代码尝试着修改 $(C string) 的首字母为大写，这将引发一个编译错误： 
+)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
+For example, the sum of the squares of the elements of an array can be calculated as in the following program:
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T082250Z" creationid="Heromyth" creationdate="20170826T082250Z">
+        <seg>$(P
+例如，下面这个计算数组元素的平方和的程序：
 )</seg>
       </tuv>
     </tu>
@@ -5956,6 +6014,18 @@ The program is terminated with an exception:
     <tu>
       <tuv lang="EN-US">
         <seg>$(P
+The program outputs the sum of 25 and 100, the squares of 5 and 10:
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T082324Z" creationid="Heromyth" creationdate="20170826T082324Z">
+        <seg>$(P
+这个程序将输出 5 和 10 的平方的和：
+)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
 The program prints every movement until terminated:
 )</seg>
       </tuv>
@@ -6518,6 +6588,18 @@ To see an example of a race condition let's consider multiple threads sharing th
     <tu>
       <tuv lang="EN-US">
         <seg>$(P
+To see an example of this let's use $(C reduce()) with a function that is slowed down again artificially:
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T082948Z" creationid="Heromyth" creationdate="20170826T082948Z">
+        <seg>$(P
+下面来看一个示例，将 $(C reduce()) 与一个人为减慢的函数一起使用作：
+)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
 To see how this program is better than the previous one, imagine needing to read 20 values.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="大处着手小处着眼" changedate="20160726T134911Z" creationid="大处着手小处着眼" creationdate="20160725T081024Z">
@@ -6817,6 +6899,16 @@ When the compile-time evaluations are completed, the $(C printAsXML()) function 
         <seg>$(P
 当编译时计算完成时，函数模板 $(C printAsXML()) 会根据 $(C Person) 类型实例化，并与下面这个函数相似：
 )</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
+When the function is specified by the $(C =&gt;) syntax as in the program above, the first parameter (here $(C a)) represents the current value of the result (initialized by the parameter $(C 0) above) and the second parameter (here $(C b)) represents the current element.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T082303Z" creationid="Heromyth" creationdate="20170826T082303Z">
+        <seg>$(P
+如果传入的函数是以 $(C =&gt;) 声明的，那它的第一个参数（即上方程序中的 $(C a)）代表当前运算结果（使用 reduce 的参数 $(C 0) 初始化），第二个参数（即上方程序中的 $(C b)）代表当前元素。</seg>
       </tuv>
     </tu>
     <tu>
@@ -9399,6 +9491,14 @@ $(LI $(LINK2 /ders/d.cn/slices.html, 分片与其他数组功能) $(INDEX_KEYWOR
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Because that loop is normally executed on a single core, it may be unnecessarily slow when the function calls for each element are independent from each other.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T082347Z" creationid="Heromyth" creationdate="20170826T082347Z">
+        <seg>因为通常情况下这个操作时运行在一个处理器核心上的，那么如果对每个元素的操作是独立的，这将造成不必要的执行速度的降低。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Because the ease of coding is not a primary consideration at this level, writing programs directly in the form of the machine code of the CPU is a very difficult task.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170820T003705Z" creationid="Heromyth" creationdate="20170820T003705Z">
@@ -10549,6 +10649,14 @@ $(LINK2 /ders/d.cn/index.html,
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T045226Z" creationid="Heromyth" creationdate="20170826T045226Z">
         <seg>而在并行中，它只封装了 $(C yieldForce())：
 )</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>In such cases $(C taskPool.reduce()) from the $(C std.parallelism) module can be used for taking advantage of all of the cores.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T082358Z" creationid="Heromyth" creationdate="20170826T082358Z">
+        <seg>在这种情况下你就可以使用 $(C std.parallelism) 模块中的 $(C taskPool.reduce()) 来利用多核心的运算能力。</seg>
       </tuv>
     </tu>
     <tu>
@@ -13503,6 +13611,20 @@ sys     0m0.004s)
         <seg>real    0m3.005s    $(SHELL_NOTE 共 3 秒)
 user    0m0.000s
 sys     0m0.004s)
+)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>real    0m4.003s    $(SHELL_NOTE 4 seconds total)
+user    0m0.000s
+sys     0m0.000s)
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T083559Z" creationid="Heromyth" creationdate="20170826T083559Z">
+        <seg>real    0m4.003s    $(SHELL_NOTE 共 4 秒)
+user    0m0.000s
+sys     0m0.000s)
 )</seg>
       </tuv>
     </tu>
