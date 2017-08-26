@@ -1788,6 +1788,14 @@ There are three mistakes (bugs) in this program.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>$(LI When iterating over non-$(C RandomAccessRange) ranges:</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T020519Z" creationid="Heromyth" creationdate="20170826T020519Z">
+        <seg>$(LI 在迭代非 $(C RandomAccessRange) 范围时：</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>$(LI When threads do not depend on other threads, prefer $(I parallelism), which has been the topic of the previous chapter.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T135802Z" creationid="Heromyth" creationdate="20170825T135802Z">
@@ -1950,6 +1958,16 @@ $(C main()) stores the return value of $(C spawn()) under the name $(C worker) a
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T233209Z" creationid="Heromyth" creationdate="20170824T233209Z">
         <seg>$(P
 $(C main()) 将 $(C spawn()) 的返回值储存在 $(C worker) 变量中并通过它来给工作线程发送消息。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
+$(C parallel()) does not start parallel executions until $(I work unit size) number of elements of a non-$(C RandomAccessRange) have been executed serially first.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T020925Z" creationid="Heromyth" creationdate="20170826T020925Z">
+        <seg>$(P
+只有在非 $(C RandomAccessRange) 中的与$(I 工作单元大小)数目相同的元素被顺序处理后，$(C parallel()) 才会开始并行执行。</seg>
       </tuv>
     </tu>
     <tu>
@@ -4722,6 +4740,16 @@ The correctness of the program requires extra attention when mutable data is sha
     <tu>
       <tuv lang="EN-US">
         <seg>$(P
+The default value of work unit size is 100 and is suitable for most cases.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T020457Z" creationid="Heromyth" creationdate="20170826T020457Z">
+        <seg>$(P
+工作单元大小的默认值是 100。在大多数情况下这个大小是合适的。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
 The definition of array variables is very similar to the definition of normal variables.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="大处着手小处着眼" changedate="20160720T022547Z" creationid="大处着手小处着眼" creationdate="20160720T022547Z">
@@ -4737,6 +4765,16 @@ The details of $(C Variant) are outside of the scope of this chapter.</seg>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T043202Z" creationid="Heromyth" creationdate="20170825T043202Z">
         <seg>$(P
 有关 $(C Variant) 的详细内容已超出本章范围。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
+The distribution of threads to cores has some minimal cost.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T015659Z" creationid="Heromyth" creationdate="20170826T015659Z">
+        <seg>$(P
+虽然将线程分派给核心的开销极小。</seg>
       </tuv>
     </tu>
     <tu>
@@ -9357,6 +9395,14 @@ $(LINK2 /ders/d.cn/index.html,
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>In such cases, it may be faster to have each thread execute more than one iteration of the loop.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T020151Z" creationid="Heromyth" creationdate="20170826T020151Z">
+        <seg>在这种情况下，让一个线程去执行多个迭代反而会使处理速度加快。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>In such cases, the $(C .idup) property can be used to produce an immutable $(C string) variable from a mutable $(C char[]) variable.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="大处着手小处着眼" changedate="20160718T151939Z" creationid="Hipter" creationdate="20160713T030418Z">
@@ -10946,6 +10992,16 @@ LANGUAGE=chinese</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>The work unit size determines the number of elements that each thread should execute at each of its iterations:
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T020333Z" creationid="Heromyth" creationdate="20170826T020333Z">
+        <seg>工作单元大小决定了线程在其迭代中要处理元素的个数。
+)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>The worker in the following program sends messages back to back but the owner spends some time for each message:
 )</seg>
       </tuv>
@@ -11122,6 +11178,14 @@ LANGUAGE=chinese</seg>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T052101Z" creationid="Heromyth" creationdate="20170825T052101Z">
         <seg>这会导致工作线程抛出 $(C OwnerTerminated) 异常：
 )</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>This cost may sometimes be significant especially when the operations of the loop are completed in a very short time.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T015851Z" creationid="Heromyth" creationdate="20170826T015851Z">
+        <seg>虽然将线程分派给核心的开销极小。但在某些情况下这个开销会显得极其昂贵，尤其是在每次循环的操作耗时都非常短的时候。</seg>
       </tuv>
     </tu>
     <tu>
