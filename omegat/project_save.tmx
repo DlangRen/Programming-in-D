@@ -2027,6 +2027,16 @@ $(C .clear) 移除全部元素：
     <tu>
       <tuv lang="EN-US">
         <seg>$(P
+$(C asyncBuf()) can be used outside of $(C foreach) loops as well.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T073322Z" creationid="Heromyth" creationdate="20170826T073322Z">
+        <seg>$(P
+$(C asyncBuf()) 也可以在 $(C foreach) 外使用。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
 $(C asyncBuf()) takes a range and an optional $(I buffer size) that determines how many elements to be made available during each wave:
 )</seg>
       </tuv>
@@ -2767,6 +2777,16 @@ A well known example of this problem is a function that tries to transfer money 
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T001220Z" creationid="Heromyth" creationdate="20170826T001220Z">
         <seg>$(P
 这个问题有一个著名的例子：想要编写一个函数将某个银行账户中的资金转到另一个账户。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
+According to that output, the elements are produced and used sequentially.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T073058Z" creationid="Heromyth" creationdate="20170826T073058Z">
+        <seg>$(P
+从输出结果来看，这些元素都被依次生成和使用。</seg>
       </tuv>
     </tu>
     <tu>
@@ -3984,6 +4004,16 @@ In summary, the owner is identified by $(C ownerTid) and the worker is identifie
     <tu>
       <tuv lang="EN-US">
         <seg>$(P
+In the call above, $(C asyncBuf()) makes two elements ready in its buffer.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T073206Z" creationid="Heromyth" creationdate="20170826T073206Z">
+        <seg>$(P
+通过上面 $(C asyncBuf()) 的调用，缓冲区中已经准备好了两个元素。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
 In the code above, $(C variable2) is being initialized by $(C variable1).</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Hipter" changedate="20160706T021450Z" creationid="Hipter" creationdate="20160706T021450Z">
@@ -4305,6 +4335,16 @@ On the other hand, associative arrays do store both the keys and the values of e
       <tuv lang="ZH-CN" changeid="Hipter" changedate="20160708T093619Z" creationid="Hipter" creationdate="20160708T093619Z">
         <seg>$(P
 另一方面，关联数组既存储键又存储元素值。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
+On the other hand, it may not be necessary to wait for preceding elements to be processed before starting to produce the successive elements.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T073109Z" creationid="Heromyth" creationdate="20170826T073109Z">
+        <seg>$(P
+但我们并不需要严格的按照顺序等待上一个元素被处理完后才开始计算下一个元素的值。</seg>
       </tuv>
     </tu>
     <tu>
@@ -5010,6 +5050,16 @@ The correctness of the program requires extra attention when mutable data is sha
     <tu>
       <tuv lang="EN-US">
         <seg>$(P
+The default value of buffer size is 100.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T073241Z" creationid="Heromyth" creationdate="20170826T073241Z">
+        <seg>$(P
+缓冲区的默认大小为 100。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
 The default value of work unit size is 100 and is suitable for most cases.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T020457Z" creationid="Heromyth" creationdate="20170826T020457Z">
@@ -5057,6 +5107,16 @@ The element at index 0 has the value 31 (number of days in January); the element
         <seg>$(P
 索引 0 处元素的值为 31（一月的天数）；索引1 处元素的值为 28（二月的天数）依次类推。
 )</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
+The elements are produced and used lazily.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T072831Z" creationid="Heromyth" creationdate="20170826T072831Z">
+        <seg>$(P
+这些元素都是采用惰性方式生成和使用的。</seg>
       </tuv>
     </tu>
     <tu>
@@ -9231,6 +9291,16 @@ $(LI $(LINK2 http://dlang.org/phobos/index.html, $(IMG bullet_black.png) 标准�
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Elements are produced in parallel while they are being used:
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T073216Z" creationid="Heromyth" creationdate="20170826T073216Z">
+        <seg>在元素被使用时，剩下的元素也在被并行求值
+)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Even its $(C toString()) function is not overloaded:
 )</seg>
       </tuv>
@@ -10954,6 +11024,16 @@ LANGUAGE=chinese</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Since it takes one second for each element, the whole range takes ten seconds to process in this program:
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T072945Z" creationid="Heromyth" creationdate="20170826T072945Z">
+        <seg>因为处理一个元素耗时 1 秒，整个程序总共花费 10 秒。
+)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Since multiple grades can be stored in a dynamic array, an associative array that maps from $(C string) to $(C int[]) would work here.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170818T142319Z" creationid="Hipter" creationdate="20160711T014051Z">
@@ -11148,6 +11228,14 @@ LANGUAGE=chinese</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170804T043355Z" creationid="Heromyth" creationdate="20170804T043355Z">
         <seg>编译时可以通过 $(C __traits(getAttributes)) 来判定属性，而相应代码则会根据那些属性来编译。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>The buffer size that produces the best performance would be different under different situations.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T073252Z" creationid="Heromyth" creationdate="20170826T073252Z">
+        <seg>能使程序获得最大性能的缓冲区大小会随着使用情况的不同而有所不同。</seg>
       </tuv>
     </tu>
     <tu>
@@ -11560,6 +11648,16 @@ LANGUAGE=chinese</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="大处着手小处着眼" changedate="20160726T024527Z" creationid="大处着手小处着眼" creationdate="20160726T024527Z">
         <seg>然后程序会输出这些平方。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>The program would take less time if other elements could be produced while the front element is in use:
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T073121Z" creationid="Heromyth" creationdate="20170826T073121Z">
+        <seg>如果能在上一个元素被使用时就开始计算下一个元素，那程序消耗的时间就会大大减小。
+)</seg>
       </tuv>
     </tu>
     <tu>
@@ -12056,6 +12154,16 @@ LANGUAGE=chinese</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170820T004745Z" creationid="Heromyth" creationdate="20170820T004745Z">
         <seg>而后，这个被生成的程序负责执行程序员写就的指令。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>This range simply produces integers up to the specified limit:
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T072622Z" creationid="Heromyth" creationdate="20170826T072622Z">
+        <seg>这个范围的作用就是提供一个不高于指定上限的整数。
+)</seg>
       </tuv>
     </tu>
     <tu>
@@ -12746,6 +12854,20 @@ sys     0m0.004s)
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>real    0m10.007s    $(SHELL_NOTE 10 seconds total)
+user    0m0.004s
+sys     0m0.000s)
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T072954Z" creationid="Heromyth" creationdate="20170826T072954Z">
+        <seg>real    0m10.007s    $(SHELL_NOTE 共 10 秒)
+user    0m0.004s
+sys     0m0.000s)
+)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>real    0m4.005s    $(SHELL_NOTE 4 seconds total)
 user    0m0.004s
 sys     0m0.000s
@@ -12757,6 +12879,20 @@ sys     0m0.000s
 user    0m0.004s
 sys     0m0.000s
 )
+)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>real    0m6.007s    $(SHELL_NOTE now 6 seconds)
+user    0m0.000s
+sys     0m0.004s)
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T073231Z" creationid="Heromyth" creationdate="20170826T073231Z">
+        <seg>real    0m6.007s    $(SHELL_NOTE 现在耗时 6 秒)
+user    0m0.000s
+sys     0m0.004s)
 )</seg>
       </tuv>
     </tu>
