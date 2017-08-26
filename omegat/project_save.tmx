@@ -194,6 +194,14 @@ $(LI $(LINK2 /ders/d.cn/struct.html, 结构) $(INDEX_KEYWORDS struct .</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>$(C reduce()) calls the functions with the current value of the result and each element of the range.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T075401Z" creationid="Heromyth" creationdate="20170826T075401Z">
+        <seg>$(C reduce()) 将传入的函数作为运算方法对每个元素进行计算并按照合并到结果中。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>$(C std.algorithm.map) is an algorithm commonly found in many functional languages.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T073418Z" creationid="Heromyth" creationdate="20170826T073418Z">
@@ -1149,9 +1157,9 @@ In parallelism, tasks are independent from each other.</seg>
         <seg>$(LI
 It is fully eager.</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T074744Z" creationid="Heromyth" creationdate="20170826T074744Z">
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T074913Z" creationid="Heromyth" creationdate="20170826T074744Z">
         <seg>$(LI
-它是即时求值的。</seg>
+它是即时计算。</seg>
       </tuv>
     </tu>
     <tu>
@@ -2063,6 +2071,16 @@ $(C .clear) 移除全部元素：
     <tu>
       <tuv lang="EN-US">
         <seg>$(P
+$(C amap()) works faster than $(C map()) at the expense of using an array that is large enough to store all of the results.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T075020Z" creationid="Heromyth" creationdate="20170826T075020Z">
+        <seg>$(P
+$(C amap()) 的确比 $(C map()) 的速度快。但相应的代价是它需要提前准备好一个足够大的数组来储存结果。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
 $(C asyncBuf()) can be used outside of $(C foreach) loops as well.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T073322Z" creationid="Heromyth" creationdate="20170826T073322Z">
@@ -2170,6 +2188,16 @@ $(C receiveOnly()) can expect only one type of message.</seg>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T235822Z" creationid="Heromyth" creationdate="20170824T235822Z">
         <seg>$(P
 $(C receiveOnly()) 只能接收指定的那一个类型的消息。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
+$(C reduce()) is another high-level algorithm commonly found in many functional languages.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T075327Z" creationid="Heromyth" creationdate="20170826T075327Z">
+        <seg>$(P
+$(C reduce()) 也是一个经常在函数式编程中使用的高阶函数。</seg>
       </tuv>
     </tu>
     <tu>
@@ -2609,6 +2637,16 @@ $(IX flush, std.stdio) $(I $(B 注意：)正常情况下向类似 $(C stdout) �
     <tu>
       <tuv lang="EN-US">
         <seg>$(P
+$(IX fold, std.algorithm) $(C reduce()) is the equivalent of $(C std.algorithm.fold), which we have seen before in the $(LINK2 /ders/d.en/ranges.html, Ranges chapter).</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T075251Z" creationid="Heromyth" creationdate="20170826T075225Z">
+        <seg>$(P
+$(IX fold, std.algorithm) $(C reduce()) 与 $(C std.algorithm.fold) 相同。我们已经在 $(LINK2 /ders/d.cn/ranges.html, Ranges) 一章中学习到了相关知识。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
 $(IX foreach, parallel) $(C parallel()) accesses the elements of a range in parallel.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T013644Z" creationid="Heromyth" creationdate="20170826T013644Z">
@@ -2686,6 +2724,16 @@ $(IX parallelism vs. concurrency) $(IX concurrency vs. parallelism) The followin
         <seg>$(P
 $(IX parallelism vs. concurrency) $(IX concurrency vs. parallelism) 并发和并行的区别主要有以下几点：
 )</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
+$(IX reduce, std.algorithm) As with $(C map()), it helps to explain $(C reduce()) from the $(C std.algorithm) module first.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T075153Z" creationid="Heromyth" creationdate="20170826T075153Z">
+        <seg>$(P
+$(IX reduce, std.algorithm)与 $(C map()) 一样，先来了解下 $(C std.algorithm) 模块的 $(C reduce()) 有助于本节的我们讲解的知识。</seg>
       </tuv>
     </tu>
     <tu>
@@ -3417,6 +3465,18 @@ Assume that an associative array is used for storing student grades.</seg>
       <tuv lang="ZH-CN" changeid="Hipter" changedate="20160709T085200Z" creationid="Hipter" creationdate="20160709T085200Z">
         <seg>$(P
 假设使用关联数组来存储学生成绩。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
+Assuming that it defines a variable named $(C result) in its implementation, the way that $(C reduce()) works can be described by the following steps:
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T082153Z" creationid="Heromyth" creationdate="20170826T082153Z">
+        <seg>$(P
+假设它在执行过程中定义了一个名为 $(C result) 的变量，那 $(C reduce()) 就是按照下面这几步运作的：
+)</seg>
       </tuv>
     </tu>
     <tu>
@@ -4660,6 +4720,18 @@ Since each thread gets its own copy of data, $(C spawn()) does not allow passing
     <tu>
       <tuv lang="EN-US">
         <seg>$(P
+Since it is eager, all of the results are ready by the time $(C amap()) returns:
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T074905Z" creationid="Heromyth" creationdate="20170826T074905Z">
+        <seg>$(P
+因为它是即时计算，所以在 $(C amap()) 返回时所有元素都已被运算完成：
+)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
 Since it is more beneficial for you to debug the third mistake yourself, I would like you to first run the program after fixing the previous two bugs.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="大处着手小处着眼" changedate="20160726T084348Z" creationid="大处着手小处着眼" creationdate="20160726T031903Z">
@@ -5634,6 +5706,18 @@ The optional character that is specified after string literals determines the ty
     <tu>
       <tuv lang="EN-US">
         <seg>$(P
+The optional second parameter of $(C amap()) is the work unit size as well:
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T075110Z" creationid="Heromyth" creationdate="20170826T075110Z">
+        <seg>$(P
+$(C amap()) 的第二个参数也是工作单元大小，也同样是可选的：
+)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
 The output indicates that the values 0 and 1 correspond to keys "Monday" and "Tuesday", respectively:
 )</seg>
       </tuv>
@@ -5909,6 +5993,18 @@ The reason why the program works incorrectly can be explained by the following s
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T235512Z" creationid="Heromyth" creationdate="20170825T235512Z">
         <seg>$(P
 下面这两个处在竞态条件的线程可以用来解释为什么之前的程序不能得到正确的结果。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
+The results can also be stored in a $(C RandomAccessRange) that is passed to $(C amap()) as its third parameter:
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T075125Z" creationid="Heromyth" creationdate="20170826T075125Z">
+        <seg>$(P
+还可以通过 $(C amap()) 的第三个参数传递一个 $(C RandomAccessRange) 进去来储存运算结果：
+)</seg>
       </tuv>
     </tu>
     <tu>
@@ -7114,6 +7210,78 @@ Finished working on student 1
         <seg>$(SHELL
 $ time ./deneme
 $(SHELL_OBSERVED
+Started working on student 1    $(SHELL_NOTE all are executed up front)
+Started working on student 0
+Started working on student 2
+Started working on student 3
+Finished working on student 1
+Started working on student 4
+Finished working on student 2
+Finished working on student 3
+Started working on student 6
+Finished working on student 0
+Started working on student 7
+Started working on student 5
+Finished working on student 4
+Started working on student 8
+Finished working on student 6
+Started working on student 9
+Finished working on student 7
+Finished working on student 5
+Finished working on student 8
+Finished working on student 9
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T074935Z" creationid="Heromyth" creationdate="20170826T074935Z">
+        <seg>$(SHELL
+$ time ./deneme
+$(SHELL_OBSERVED
+Started working on student 1    $(SHELL_NOTE 所有元素已被提前准备好)
+Started working on student 0
+Started working on student 2
+Started working on student 3
+Finished working on student 1
+Started working on student 4
+Finished working on student 2
+Finished working on student 3
+Started working on student 6
+Finished working on student 0
+Started working on student 7
+Started working on student 5
+Finished working on student 4
+Started working on student 8
+Finished working on student 6
+Started working on student 9
+Finished working on student 7
+Finished working on student 5
+Finished working on student 8
+Finished working on student 9
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(SHELL
+$ time ./deneme
+$(SHELL_OBSERVED
 Started working on student 1  $(SHELL_NOTE in parallel)
 Started working on student 2  $(SHELL_NOTE but in unpredictable order)
 Started working on student 0
@@ -7603,6 +7771,16 @@ $(LI $(LINK2 /ders/d.cn/logical_expressions.html, 逻辑表达式) $(INDEX_KEYWO
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170819T135044Z" creationid="Heromyth" creationdate="20170819T135044Z">
         <seg>（基于此点差异，类的析构函数被叫作 $(I 终结函数) 会更加确切）。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>(For that reason, I recommend that you prefer $(C fold()) for non-parallel code as it can take advantage of $(LINK2 /ders/d.en/ufcs.html, UFCS) in chained range expressions.)
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T075315Z" creationid="Heromyth" creationdate="20170826T075315Z">
+        <seg>（因此，我建议你最好在非并行代码中使用 $(C fold())。因为它可以利用链式范围表达式的 $(LINK2 /ders/d.cn/ufcs.html, UFCS)。
+)</seg>
       </tuv>
     </tu>
     <tu>
@@ -9065,6 +9243,14 @@ $(LI $(LINK2 /ders/d.cn/slices.html, 分片与其他数组功能) $(INDEX_KEYWOR
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>As its function parameters, it takes a value to be used as the initial value of the result, and a range.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T075353Z" creationid="Heromyth" creationdate="20170826T075353Z">
+        <seg>除了用于接收函数的模版形参，它需要传入一个运算结果的初始值和一个范围。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>As the $(C foreach) loop normally operates on elements one after the other, $(C aSlowOperation()) would be called for each student sequentially.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T013006Z" creationid="Heromyth" creationdate="20170826T013006Z">
@@ -10521,6 +10707,14 @@ $(LINK2 /ders/d.cn/index.html,
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>It consumes more memory to gain speed.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T075055Z" creationid="Heromyth" creationdate="20170826T075055Z">
+        <seg>它是通过消耗更多的内存来获得更快速度的。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>It defines an array that consists</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="大处着手小处着眼" changedate="20160724T025506Z" creationid="大处着手小处着眼" creationdate="20160724T025431Z">
@@ -10771,6 +10965,14 @@ $(LINK2 /ders/d.cn/index.html,
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T134431Z" creationid="Heromyth" creationdate="20170825T134431Z">
         <seg>它的三个参数分别指代的是邮箱、最大保存消息数量和邮箱被填满之后需要进行的操作。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Just like $(C map()), it takes one or more functions as template parameters.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T075337Z" creationid="Heromyth" creationdate="20170826T075337Z">
+        <seg>和 $(C map()) 一样，它也可以接收一个或多个函数作为模版实参。</seg>
       </tuv>
     </tu>
     <tu>
@@ -11856,6 +12058,14 @@ LANGUAGE=chinese</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>The main difference between the two is that their function parameters are reversed.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T075302Z" creationid="Heromyth" creationdate="20170826T075302Z">
+        <seg>两者的不同点在于它们的形参顺序正好相反。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>The movement of each robot is handled by a separate thread that takes three pieces of information when started:
 )</seg>
       </tuv>
@@ -12892,6 +13102,14 @@ LANGUAGE=chinese</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>When no initial value is specified, the first element of the range is used instead.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T075410Z" creationid="Heromyth" creationdate="20170826T075410Z">
+        <seg>$(C reduce()) 将传入的函数作为运算方法对每个元素进行计算并按照合并到结果中。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>When reading strings from the input, the control character that corresponds to the Enter key that is pressed at the end of the input becomes a part of the string as well.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="大处着手小处着眼" changedate="20160715T144811Z" creationid="Hipter" creationdate="20160711T092900Z">
@@ -13271,6 +13489,20 @@ sys     0m0.000s)
         <seg>real    0m10.007s    $(SHELL_NOTE 共 10 秒)
 user    0m0.004s
 sys     0m0.000s)
+)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>real    0m3.005s    $(SHELL_NOTE 3 seconds total)
+user    0m0.000s
+sys     0m0.004s)
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T074946Z" creationid="Heromyth" creationdate="20170826T074946Z">
+        <seg>real    0m3.005s    $(SHELL_NOTE 共 3 秒)
+user    0m0.000s
+sys     0m0.004s)
 )</seg>
       </tuv>
     </tu>
