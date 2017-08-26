@@ -6855,9 +6855,9 @@ To see an example of a race condition let's consider multiple threads sharing th
 To see an example of this let's use $(C reduce()) with a function that is slowed down again artificially:
 )</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T082948Z" creationid="Heromyth" creationdate="20170826T082948Z">
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T151557Z" creationid="Heromyth" creationdate="20170826T082948Z">
         <seg>$(P
-下面来看一个示例，将 $(C reduce()) 与一个人为减慢的函数一起使用作：
+下面来看一个示例，将 $(C reduce()) 与一个人为减慢的函数一起使用：
 )</seg>
       </tuv>
     </tu>
@@ -13678,8 +13678,8 @@ LANGUAGE=chinese</seg>
       <tuv lang="EN-US">
         <seg>When no initial value is specified, the first element of the range is used instead.</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T075410Z" creationid="Heromyth" creationdate="20170826T075410Z">
-        <seg>$(C reduce()) 将传入的函数作为运算方法对每个元素进行计算并按照合并到结果中。</seg>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T151455Z" creationid="Heromyth" creationdate="20170826T075410Z">
+        <seg>如果没有指定初始值，它会把范围的第一个元素作为初始值。</seg>
       </tuv>
     </tu>
     <tu>
