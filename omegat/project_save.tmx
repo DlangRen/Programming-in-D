@@ -302,6 +302,14 @@ $(LI $(LINK2 /ders/d.cn/struct.html, 结构) $(INDEX_KEYWORDS struct .</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>$(H5 $(IX atomic operation) Atomic operations)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T002826Z" creationid="Heromyth" creationdate="20170826T002826Z">
+        <seg>$(H5 $(IX atomic operation) 原子操作)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>$(H5 $(IX compiler) Compiler)</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170820T004712Z" creationid="Heromyth" creationdate="20170820T004712Z">
@@ -1729,6 +1737,16 @@ $(C .clear) 移除全部元素：
     <tu>
       <tuv lang="EN-US">
         <seg>$(P
+$(C atomicOp) can be used with other binary operators as well.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T003500Z" creationid="Heromyth" creationdate="20170826T003500Z">
+        <seg>$(P
+$(C atomicOp) 也可以用在其他二元操作符上。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
 $(C hasUDA) can be used with an attribute type as well as a specific value of that type.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170810T104724Z" creationid="Heromyth" creationdate="20170810T104724Z">
@@ -2538,6 +2556,16 @@ Another method would be to send the actual exception object itself to the owner.
     <tu>
       <tuv lang="EN-US">
         <seg>$(P
+Another way of ensuring that only one thread mutates a certain variable is by using atomic operations, functionality of which are provided by the microprocessor, the compiler, or the operating system.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T002846Z" creationid="Heromyth" creationdate="20170826T002846Z">
+        <seg>$(P
+另一种确保同一时间只有一个线程能修改变量的方法是原子操作。这个功能是由处理器、编译器或操作系统提供的。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
 Any declaration (e.g. struct type, class type, variable, etc.) can be assigned attributes, which can then be accessed at compile time to alter the way the code is compiled.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170719T105759Z" creationid="Heromyth" creationdate="20170719T105759Z">
@@ -2816,6 +2844,16 @@ Assume that an associative array is used for storing student grades.</seg>
     <tu>
       <tuv lang="EN-US">
         <seg>$(P
+Atomic operations enable $(I lock-free data structures) as well, which are beyond the scope of this book.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T003935Z" creationid="Heromyth" creationdate="20170826T003935Z">
+        <seg>$(P
+原子操作还能让我们实现$(I 无锁数据结构)，但这已经超出了本书的范围。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
 Because Unicode adopts the letters of the basic Latin alphabet from the ASCII table, the strings that contain only the letters of the ASCII table will always be ordered correctly.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="大处着手小处着眼" changedate="20160718T153844Z" creationid="大处着手小处着眼" creationdate="20160715T035730Z">
@@ -2995,6 +3033,16 @@ Concurrency is similar to but different from the topic of the previous chapter, 
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T011602Z" creationid="Heromyth" creationdate="20170824T011602Z">
         <seg>$(P
 虽然并发（concurrency）与并行（parallelism）很相似，但我们不能将其混为一谈。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
+Consequently, when it is only a binary operation that needs to be synchronized, then there is no need for a $(C synchronized) block, which is known to be slow because of needing to acquire a lock.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T003130Z" creationid="Heromyth" creationdate="20170826T003130Z">
+        <seg>$(P
+如果只是一个二元运算的话，我们没必要使用会影响效率的 $(C synchronized) 块。</seg>
       </tuv>
     </tu>
     <tu>
@@ -3345,6 +3393,16 @@ In general, classes are very similar to structs.</seg>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170819T123716Z" creationid="Heromyth" creationdate="20170819T123716Z">
         <seg>$(P
 一般情况下，类与结构非常相似。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
+In most cases, the features of the $(C core.atomic) module can be several times faster than using $(C synchronized) blocks.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T003914Z" creationid="Heromyth" creationdate="20170826T003914Z">
+        <seg>$(P
+在大多数情况下 $(C core.atomic) 模块中的功能要比 $(C synchronized) 块执行速度快。</seg>
       </tuv>
     </tu>
     <tu>
@@ -3786,6 +3844,16 @@ Similarly, $(C char[]) cannot be used where a $(C string) is needed.</seg>
     <tu>
       <tuv lang="EN-US">
         <seg>$(P
+Similarly, $(C shared static ~this()) is for final operations that must be executed only once per program.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T002817Z" creationid="Heromyth" creationdate="20170826T002817Z">
+        <seg>$(P
+同样地，$(C shared static ~this()) 适用于结束操作——每个程序只会执行一次来释放资源。.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
 Similarly, an $(C immutable) copy of an object can be provided by a member function appropriately named $(C idup()).</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170819T133836Z" creationid="Heromyth" creationdate="20170819T132306Z">
@@ -4202,6 +4270,16 @@ The assignment operator copies all of the elements from the right-hand side to t
     <tu>
       <tuv lang="EN-US">
         <seg>$(P
+The atomic operations of D are in the $(C core.atomic) module.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T002921Z" creationid="Heromyth" creationdate="20170826T002921Z">
+        <seg>$(P
+D 语言中的原子操作都在 $(C core.atomic) 模块里。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
 The attributes of $(C a) and $(C b) above are of different kinds: The attribute of $(C a) is the type $(C Encrypted) itself, while the attribute of $(C b) is an $(I object) of type $(C Encrypted).</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170803T054610Z" creationid="Heromyth" creationdate="20170803T054610Z">
@@ -4378,6 +4456,16 @@ The fact that plain arrays provide access to their values through index numbers 
     <tu>
       <tuv lang="EN-US">
         <seg>$(P
+The fact that the value of the variable still equals $(C currentValue) when $(C cas()) is operating is an indication that no other thread has mutated the variable since it has last been read by this thread.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T003709Z" creationid="Heromyth" creationdate="20170826T003557Z">
+        <seg>$(P
+在 $(C cas()) 开始执行时，如果变量的值还是等于 $(C currentValue)，则说明自当前线程读入后这个变量没有被其他线程修改。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
 The first line above is the definition of a variable which stores a single value, just like the variables that we have defined so far.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="大处着手小处着眼" changedate="20160720T023154Z" creationid="大处着手小处着眼" creationdate="20160720T023154Z">
@@ -4444,6 +4532,16 @@ The following example uses $(C OnCrowding.throwException), which causes a $(C Ma
     <tu>
       <tuv lang="EN-US">
         <seg>$(P
+The following functions re-read the current value and call $(C cas()) until the operation succeeds.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T003831Z" creationid="Heromyth" creationdate="20170826T003831Z">
+        <seg>$(P
+下面这个函数使用将重新读取当前值并调用 $(C cas()) 直到操作成功。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
 The following is the equivalent of the class definition above:
 )</seg>
       </tuv>
@@ -4483,6 +4581,16 @@ The following three functions define an interface to an associative array that e
         <seg>$(P
 下面这三个函数定义了一个接口。通过这个接口每个线程都可以访问一个关联线程与线程名的数组：
 )</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
+The functions above work correctly without the need for $(C synchronized) blocks.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T003902Z" creationid="Heromyth" creationdate="20170826T003902Z">
+        <seg>$(P
+上面这个程序在不使用 $(C synchronized) 块的情况下也能正确工作。</seg>
       </tuv>
     </tu>
     <tu>
@@ -4572,6 +4680,18 @@ The length of such an array can increase or decrease during the execution of the
     <tu>
       <tuv lang="EN-US">
         <seg>$(P
+The line above is the equivalent of the following line, with the difference that the $(C +=) operation would be executed without interruptions by other threads (i.e. it would be executed $(I atomically)):
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T003109Z" creationid="Heromyth" creationdate="20170826T003109Z">
+        <seg>$(P
+上面这一行和下面这一行功能相同，但原子操作会使 $(C +=) 不被其他线程打断（或者说它们$(I 像原子一样)不可拆分）：
+)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
 The lines of the output may be different at different times depending on how the threads are paused and resumed by the operating system.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T231803Z" creationid="Heromyth" creationdate="20170824T231803Z">
@@ -4601,6 +4721,16 @@ The name of a specific day can be accessed by its index in that array:
         <seg>$(P
 在数组里通过索引访问特定的英文日期名：
 )</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
+The name of this function is the abbreviation of "compare and swap".</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T003518Z" creationid="Heromyth" creationdate="20170826T003518Z">
+        <seg>$(P
+这个函数的名字是“比较并交换（compare and swap）”的缩写。</seg>
       </tuv>
     </tu>
     <tu>
@@ -5208,6 +5338,16 @@ This exception is thrown when receiving a message from the owner if the owner ha
     <tu>
       <tuv lang="EN-US">
         <seg>$(P
+This function applies its template parameter to its two function parameters.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T002942Z" creationid="Heromyth" creationdate="20170826T002942Z">
+        <seg>$(P
+这个函数会将它的模版参数应用到两个函数参数上。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
 This method of defining variables individually does not scale to cases where even more variables are needed.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="大处着手小处着眼" changedate="20160720T020639Z" creationid="大处着手小处着眼" creationdate="20160720T020639Z">
@@ -5620,6 +5760,18 @@ When the variables provide access to the same object, $(C is) returns $(C true):
     <tu>
       <tuv lang="EN-US">
         <seg>$(P
+You may also want to investigate the $(C core.sync) package, which contains classic concurrency primitives in the following modules:
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T004216Z" creationid="Heromyth" creationdate="20170826T004216Z">
+        <seg>$(P
+你也可以深入看看 $(C core.sync) 包中，在它的以下模块中包含了很多经典的并发操作：
+)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
 You may find the $(C indexOf()) and $(C lastIndexOf()) functions useful to get the two indexes needed to produce a slice.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="大处着手小处着眼" changedate="20160718T154350Z" creationid="大处着手小处着眼" creationdate="20160715T144100Z">
@@ -5946,6 +6098,22 @@ Final value: 0       $(SHELL_NOTE correct result)
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T001034Z" creationid="Heromyth" creationdate="20170826T001034Z">
         <seg>$(SHELL
 Final value: 0       $(SHELL_NOTE 正确结果)
+)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(SHELL
+Initializing per-program variable at 6B0120    $(SHELL_NOTE only once)
+Initializing per-thread variable at 7FBDB36557D0
+Initializing per-thread variable at 7FBDB3554670
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T002703Z" creationid="Heromyth" creationdate="20170826T002703Z">
+        <seg>$(SHELL
+Initializing per-program variable at 6B0120    $(SHELL_NOTE 只有一次)
+Initializing per-thread variable at 7FBDB36557D0
+Initializing per-thread variable at 7FBDB3554670
 )</seg>
       </tuv>
     </tu>
@@ -6493,6 +6661,16 @@ auto encrypted(string value) {</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>*value += 1;                 // NOT atomic
+---</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T003117Z" creationid="Heromyth" creationdate="20170826T003117Z">
+        <seg>*value += 1;                 // 非原子的
+---</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>---
 /* The equivalent of the printAsXML!Person instance.</seg>
       </tuv>
@@ -6519,6 +6697,18 @@ auto encrypted(string value) {</seg>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T051905Z" creationid="Heromyth" creationdate="20170825T051905Z">
         <seg>---
 // ... 工作线程中 ...</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>---
+int a;              // thread-local
+immutable int b;    // shared by all threads</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T002646Z" creationid="Heromyth" creationdate="20170826T002646Z">
+        <seg>---
+int a;              // 仅限线程本地
+immutable int b;    // 所有线程共享</seg>
       </tuv>
     </tu>
     <tu>
@@ -7274,6 +7464,16 @@ $(LI $(LINK2 /ders/d.cn/slices.html, 分片与其他数组功能) $(INDEX_KEYWOR
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T045140Z" creationid="Heromyth" creationdate="20170825T045140Z">
         <seg>此外，这个程序还使用了特殊的消息类型来通知工作线程退出：
+)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Again, these calls can be described as $(I if the value of the variable equals this old value, replace with this new value):
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T003849Z" creationid="Heromyth" creationdate="20170826T003849Z">
+        <seg>你可以这样描述这种调用：$(I 如果变量值没有被其它线程改变则将新值赋给它)：
 )</seg>
       </tuv>
     </tu>
@@ -8471,6 +8671,22 @@ $(LINK2 /ders/d.cn/index.html,
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>I recommend that you consider this module as long as the operations that need synchronization are less than a block of code.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T003923Z" creationid="Heromyth" creationdate="20170826T003923Z">
+        <seg>所以如果需要同步的只是一些简单操作而不是一块代码的话，我建议你优先考虑这个模块。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>If so, $(C cas()) assigns $(C newValue) to the variable and returns $(C true).</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T003723Z" creationid="Heromyth" creationdate="20170826T003723Z">
+        <seg>这样的话 $(C cas()) 会将 $(C newValue) 赋给这个变量并返回 $(C true)。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>If the majority of its threads are I/O bound, then a program can afford to start more threads than the number of cores without any degradation of performance.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T232138Z" creationid="Heromyth" creationdate="20170824T232138Z">
@@ -8809,6 +9025,16 @@ $(LINK2 /ders/d.cn/index.html,
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>It is used by specifying the current and the desired values of the variable at the same time:
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T003539Z" creationid="Heromyth" creationdate="20170826T003539Z">
+        <seg>使用方法是同时指定当前值和期望值：
+)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>It is used differently because the $(STRING " %s") format string and the $(C &amp;) operator are not needed:
 )</seg>
       </tuv>
@@ -8889,6 +9115,14 @@ $(LINK2 /ders/d.cn/index.html,
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170817T150131Z" creationid="大处着手小处着眼" creationdate="20160726T015640Z">
         <seg>$(C ~=) 将两边的数组连接起来，并把结果赋给左边那个数组：
 )</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Its behavior can be described as $(I mutate the variable if it still has its currently known value).</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T003529Z" creationid="Heromyth" creationdate="20170826T003529Z">
+        <seg>它的操作的理念是：$(I 如果变量的值与已知当前值相同，则修改变量)。</seg>
       </tuv>
     </tu>
     <tu>
@@ -9163,6 +9397,16 @@ LANGUAGE=chinese</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Note that there is no need for the $(C Lock) class anymore either:
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T003448Z" creationid="Heromyth" creationdate="20170826T003448Z">
+        <seg>请注意，现在不再需要 $(C Lock) 类：
+)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Observe that it starts ten threads that all access the same two variables $(C i) and $(C j).</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T235247Z" creationid="Heromyth" creationdate="20170825T235247Z">
@@ -9191,6 +9435,14 @@ LANGUAGE=chinese</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170820T004905Z" creationid="Heromyth" creationdate="20170820T004905Z">
         <seg>另一方面，每次改变代码都必须重新编译，既复杂又易引起人为错误。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>On the other hand, if the variable's value is different from $(C currentValue) then $(C cas()) does not mutate the variable and returns $(C false).</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T003748Z" creationid="Heromyth" creationdate="20170826T003748Z">
+        <seg>另一方面，如果 $(C cas()) 发现变量的值不再等于 $(C currentValue) ，那么它将直接返回 $(C false)，不再修改变量的值。</seg>
       </tuv>
     </tu>
     <tu>
@@ -9713,6 +9965,14 @@ LANGUAGE=chinese</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>The following equivalents of the $(C incrementer()) and $(C decrementer()) functions that use $(C atomicOp) are correct as well.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T003418Z" creationid="Heromyth" creationdate="20170826T003138Z">
+        <seg>下面是$(C incrementer()) 和 $(C decrementer()) 函数使用 $(C atomicOp) 之后的等效情况。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>The following function considers the $(C Encrypted) and $(C Colored) attributes of each member when producing the output:
 )</seg>
       </tuv>
@@ -9987,6 +10247,16 @@ LANGUAGE=chinese</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T000107Z" creationid="Heromyth" creationdate="20170826T000107Z">
         <seg>在同步块执行后 $(C i) 与 $(C j) 只会有种情况：要么是“1 and 2”，要么是“2 and 1”。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>The template parameter must be a $(I binary operator) like $(STRING "+"), $(STRING "+="), etc.
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T003049Z" creationid="Heromyth" creationdate="20170826T003049Z">
+        <seg>它的模版参数必须是一个$(I 二元运算符)，如 $(STRING "+")、$(STRING "+=") 等。
+)</seg>
       </tuv>
     </tu>
     <tu>
@@ -10571,6 +10841,16 @@ LANGUAGE=chinese</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>We will see only two of its functions in this chapter:
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T002932Z" creationid="Heromyth" creationdate="20170826T002932Z">
+        <seg>本章我们只会接触到其中两种：
+)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>We will see this below.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T233855Z" creationid="Heromyth" creationdate="20170824T233855Z">
@@ -10774,6 +11054,16 @@ LANGUAGE=chinese</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="大处着手小处着眼" changedate="20160725T072325Z" creationid="大处着手小处着眼" creationdate="20160725T072325Z">
         <seg>array.length = 5;       // 现在有 5 个元素
+---</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>atomicOp!"+="(*value, 1);    // atomic
+---</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T003057Z" creationid="Heromyth" creationdate="20170826T003057Z">
+        <seg>atomicOp!"+="(*value, 1);    // 原子的
 ---</seg>
       </tuv>
     </tu>
