@@ -212,8 +212,8 @@ $(LI $(LINK2 /ders/d.cn/struct.html, 结构) $(INDEX_KEYWORDS struct .</seg>
       <tuv lang="EN-US">
         <seg>$(C task()) constructs, $(C executeInNewThread()) starts, and $(C yieldForce()) waits for a task object.</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T022411Z" creationid="Heromyth" creationdate="20170826T022411Z">
-        <seg>使用 $(C task()) 创建 task，使用 $(C executeInNewThread()) 启动 task，使用 $(C yieldForce()) 等待 task 完成。</seg>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T142722Z" creationid="Heromyth" creationdate="20170826T022411Z">
+        <seg>使用 $(C task()) 来创建任务对象；使用 $(C executeInNewThread()) 来启动任务对象；使用 $(C yieldForce()) 来等待任务对象。</seg>
       </tuv>
     </tu>
     <tu>
@@ -2925,9 +2925,9 @@ $(IX setMaxMailboxSize) $(C setMaxMailboxSize()) 可以限制邮箱保存的消�
         <seg>$(P
 $(IX task) $(IX executeInNewThread) $(IX yieldForce) When tasks do not correspond to or cannot be represented by elements of a range, these three steps can be handled explicitly by the programmer.</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T022400Z" creationid="Heromyth" creationdate="20170826T022323Z">
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T142522Z" creationid="Heromyth" creationdate="20170826T022323Z">
         <seg>$(P
-$(IX task) $(IX executeInNewThread) $(IX yieldForce) 如果要在处理范围中元素之外的地方使用 task，程序员需要按照以下三步手动处理任务：</seg>
+$(IX task) $(IX executeInNewThread) $(IX yieldForce) 当任务无法与范围元素相对应或者无法通过它们来表示时，程序员可以自己按照以下三步手动处理：</seg>
       </tuv>
     </tu>
     <tu>
@@ -4820,9 +4820,9 @@ Only the index values between zero and one less than the length of the array are
         <seg>$(P
 Operations that are executed in parallel with other operations of a program are called $(I tasks).</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T022038Z" creationid="Heromyth" creationdate="20170826T022038Z">
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T142055Z" creationid="Heromyth" creationdate="20170826T022038Z">
         <seg>$(P
-程序中以并行的方式执行的操作叫$(I 任务)。</seg>
+程序中以并行的方式执行的操作叫做$(I 任务（task）)。</seg>
       </tuv>
     </tu>
     <tu>
@@ -5542,9 +5542,9 @@ The details of $(C Variant) are outside of the scope of this chapter.</seg>
         <seg>$(P
 The distribution of threads to cores has some minimal cost.</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T015659Z" creationid="Heromyth" creationdate="20170826T015659Z">
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T141446Z" creationid="Heromyth" creationdate="20170826T015659Z">
         <seg>$(P
-虽然将线程分派给核心的开销极小。</seg>
+虽然将线程分派给内核的开销极小。</seg>
       </tuv>
     </tu>
     <tu>
@@ -8299,8 +8299,8 @@ $(LI 左手侧的 $(C char[]) 是一个切片，这意味着，一旦代码编�
       <tuv lang="EN-US">
         <seg>* anOperation().</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T024732Z" creationid="Heromyth" creationdate="20170826T024732Z">
-        <seg>* anOperation() 的 task。</seg>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T142825Z" creationid="Heromyth" creationdate="20170826T024732Z">
+        <seg>* anOperation() 的任务。</seg>
       </tuv>
     </tu>
     <tu>
@@ -11047,8 +11047,8 @@ $(LINK2 /ders/d.cn/index.html,
       <tuv lang="EN-US">
         <seg>In such cases, it may be faster to have each thread execute more than one iteration of the loop.</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T020151Z" creationid="Heromyth" creationdate="20170826T020151Z">
-        <seg>在这种情况下，让一个线程去执行多个迭代反而会使处理速度加快。</seg>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T141731Z" creationid="Heromyth" creationdate="20170826T020151Z">
+        <seg>此时，让每个线程去执行循环的多个迭代反而会更快些。</seg>
       </tuv>
     </tu>
     <tu>
@@ -12212,8 +12212,8 @@ LANGUAGE=chinese</seg>
       <tuv lang="EN-US">
         <seg>Tasks are represented by the type $(C std.parallelism.Task).</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T022050Z" creationid="Heromyth" creationdate="20170826T022050Z">
-        <seg>标准库中的 $(C std.parallelism.Task) 表示的就是我们所说的任务。</seg>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T142118Z" creationid="Heromyth" creationdate="20170826T022050Z">
+        <seg>任务的表示类型为 $(C std.parallelism.Task)。</seg>
       </tuv>
     </tu>
     <tu>
@@ -12945,8 +12945,8 @@ LANGUAGE=chinese</seg>
         <seg>The work unit size determines the number of elements that each thread should execute at each of its iterations:
 )</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T020333Z" creationid="Heromyth" creationdate="20170826T020333Z">
-        <seg>工作单元大小决定了线程在其迭代中要处理元素的个数。
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T142012Z" creationid="Heromyth" creationdate="20170826T020333Z">
+        <seg>工作单元大小决定了每个线程在每次迭代时应该执行的元素个数。
 )</seg>
       </tuv>
     </tu>
@@ -13168,8 +13168,8 @@ LANGUAGE=chinese</seg>
       <tuv lang="EN-US">
         <seg>This cost may sometimes be significant especially when the operations of the loop are completed in a very short time.</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T015851Z" creationid="Heromyth" creationdate="20170826T015851Z">
-        <seg>虽然将线程分派给核心的开销极小。但在某些情况下这个开销会显得极其昂贵，尤其是在每次循环的操作耗时都非常短的时候。</seg>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T141542Z" creationid="Heromyth" creationdate="20170826T015851Z">
+        <seg>但在某些情况下这种开销会显得极其昂贵，尤其是在每次循环的操作耗时都非常短的时候。</seg>
       </tuv>
     </tu>
     <tu>
