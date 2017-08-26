@@ -238,8 +238,8 @@ $(LI $(LINK2 /ders/d.cn/struct.html, 结构) $(INDEX_KEYWORDS struct .</seg>
       <tuv lang="EN-US">
         <seg>$(C workForce()) can be called when starting other tasks is preferred over suspending the current thread.</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T045627Z" creationid="Heromyth" creationdate="20170826T045627Z">
-        <seg>$(C workForce()) 则适合用需要在启动 task 的同时当前线程的情况。</seg>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T145447Z" creationid="Heromyth" creationdate="20170826T045627Z">
+        <seg>$(C workForce()) 则适合用需要在启动任务的同时当前线程的情况。</seg>
       </tuv>
     </tu>
     <tu>
@@ -1364,24 +1364,24 @@ There are three mistakes (bugs) in this program.</seg>
       <tuv lang="EN-US">
         <seg>$(LI $(C done): Specifies whether the task has been completed; rethrows the exception if the task has been terminated with an exception.</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T045340Z" creationid="Heromyth" creationdate="20170826T045340Z">
-        <seg>$(LI $(C done)：指明 task 是否完成；如果任务中有捕获异常，此处将重新抛出。</seg>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T145142Z" creationid="Heromyth" creationdate="20170826T045340Z">
+        <seg>$(LI $(C done)：指明任务是否已完成；如果任务已经因为异常而中止，则重新抛出该异常。</seg>
       </tuv>
     </tu>
     <tu>
       <tuv lang="EN-US">
         <seg>$(LI $(C executeInNewThread()): Starts the task in a new thread.)</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T045355Z" creationid="Heromyth" creationdate="20170826T045355Z">
-        <seg>$(LI $(C executeInNewThread())：在新线程中启动 task。)</seg>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T145149Z" creationid="Heromyth" creationdate="20170826T045355Z">
+        <seg>$(LI $(C executeInNewThread())：在新线程中启动任务。)</seg>
       </tuv>
     </tu>
     <tu>
       <tuv lang="EN-US">
         <seg>$(LI $(C executeInNewThread(int priority)): Starts the task in a new thread with the specified priority.</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T045411Z" creationid="Heromyth" creationdate="20170826T045411Z">
-        <seg>$(LI $(C executeInNewThread(int priority))：在新线程中启动 task，并指定线程优先级。</seg>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T145211Z" creationid="Heromyth" creationdate="20170826T045411Z">
+        <seg>$(LI $(C executeInNewThread(int priority))：在新线程中启动任务，并指定线程优先级。</seg>
       </tuv>
     </tu>
     <tu>
@@ -1542,8 +1542,8 @@ There are three mistakes (bugs) in this program.</seg>
       <tuv lang="EN-US">
         <seg>$(LI $(C yieldForce()): Starts the task if it has not been started yet; if it has already been completed, returns its return value; if it is still running, waits for its completion without making the microprocessor busy; if an exception has been thrown, rethrows that exception.)</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T045504Z" creationid="Heromyth" creationdate="20170826T045504Z">
-        <seg>$(LI $(C yieldForce())：如果 task 没有启动，则启动 task；如果 task 已经完成，则返回任务函数的返回值；如果 task 正在执行，则以不耗费处理器资源的方式等待 task 完成；如果 task 在执行中抛出了一个异常，它将在此处重新抛出那个异常。)</seg>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T145524Z" creationid="Heromyth" creationdate="20170826T045504Z">
+        <seg>$(LI $(C yieldForce())：如果任务没有启动，则启动它；如果任务已经完成，则返回任务函数的返回值；如果任务正在执行，则以不占用微处理器的方式等待该任务完成；如果任务在执行中抛出了一个异常，它将在此处重新抛出那个异常。)</seg>
       </tuv>
     </tu>
     <tu>
@@ -1694,8 +1694,8 @@ There are three mistakes (bugs) in this program.</seg>
       <tuv lang="EN-US">
         <seg>$(LI $(IX spinForce) $(C spinForce()): Works similarly to $(C yieldForce()), except that it makes the microprocessor busy while waiting, in order to catch the completion as early as possible.)</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T045523Z" creationid="Heromyth" creationdate="20170826T045523Z">
-        <seg>$(LI $(IX spinForce) $(C spinForce())：与 $(C yieldForce()) 功能相似。不同的是在等待时它将以消耗更多处理器资源为代价换取更快的检测 task 完成的速度。)</seg>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T145650Z" creationid="Heromyth" creationdate="20170826T045523Z">
+        <seg>$(LI $(IX spinForce) $(C spinForce())：与 $(C yieldForce()) 功能相似。不同的是在等待时它将以占用微处理器为代价换取更快的检测任务完成的速度。)</seg>
       </tuv>
     </tu>
     <tu>
@@ -1710,8 +1710,8 @@ There are three mistakes (bugs) in this program.</seg>
       <tuv lang="EN-US">
         <seg>$(LI $(IX workForce) $(C workForce()): Works similarly to $(C yieldForce()), except that it starts a new task in the current thread while waiting for the task to be completed.)</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T045536Z" creationid="Heromyth" creationdate="20170826T045536Z">
-        <seg>$(LI $(IX workForce) $(C workForce())：与 $(C yieldForce()) 功能相似。不同的是在等待任务完成时它将在当前线程中启动一个新的 task。)</seg>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T145405Z" creationid="Heromyth" creationdate="20170826T045536Z">
+        <seg>$(LI $(IX workForce) $(C workForce())：与 $(C yieldForce()) 功能相似。不同的是在等待任务完成时它将在当前线程中启动一个新的任务。)</seg>
       </tuv>
     </tu>
     <tu>
@@ -4318,9 +4318,9 @@ In general, classes are very similar to structs.</seg>
         <seg>$(P
 In most cases $(C yieldForce()) is the most suitable function to call when waiting for a task to complete; it suspends the thread that calls $(C yieldForce()) until the task is completed.</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T045552Z" creationid="Heromyth" creationdate="20170826T045552Z">
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T150029Z" creationid="Heromyth" creationdate="20170826T045552Z">
         <seg>$(P
-在大多数情况下 $(C yieldForce()) 都是最适合用来等待任务完成的函数，$(C yieldForce()) 将阻塞调用它的线程直到任务完成。</seg>
+在大多数情况下，$(C yieldForce()) 是最适合用来等待任务完成的函数；$(C yieldForce()) 会将调用它的线程挂起，一直到任务完成为止。</seg>
       </tuv>
     </tu>
     <tu>
@@ -6149,9 +6149,9 @@ The output of the program shows that the members have the correct color and that
 The output of the program shows that the uncaught exception that has been thrown by the task does not terminate the entire program right away (it terminates only the task):
 )</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T035015Z" creationid="Heromyth" creationdate="20170826T035015Z">
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T144839Z" creationid="Heromyth" creationdate="20170826T035015Z">
         <seg>$(P
-程序的输出显示由 task 抛出的异常并不会立刻导致整个程序终止运行（它只终止了对应的 task）：
+这个程序的输出表明由任务抛出的异常并不会立刻导致整个程序终止运行（它只终止了那个任务）：
 )</seg>
       </tuv>
     </tu>
@@ -6569,9 +6569,9 @@ There are three anonymous functions below that are passed to $(C receive()) as m
 There are three functions to wait for the completion of a task:
 )</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T045437Z" creationid="Heromyth" creationdate="20170826T045437Z">
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T145219Z" creationid="Heromyth" creationdate="20170826T045437Z">
         <seg>$(P
-有三个用来等待 task 完成的函数：
+有三个用来等待任务完成的函数：
 )</seg>
       </tuv>
     </tu>
@@ -9471,8 +9471,8 @@ $(LI $(LINK2 /ders/d.cn/slices.html, 分片与其他数组功能) $(INDEX_KEYWOR
       <tuv lang="EN-US">
         <seg>Although $(C spinForce()) makes the microprocessor busy while waiting, it is suitable when the task is expected to be completed in a very short time.</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T045604Z" creationid="Heromyth" creationdate="20170826T045604Z">
-        <seg>虽然在等待时 $(C spinForce()) 会使处理器忙绿，但它非常适合等待耗时短的 task。</seg>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T145412Z" creationid="Heromyth" creationdate="20170826T045604Z">
+        <seg>虽然在等待时 $(C spinForce()) 会使处理器忙绿，但它非常适合等待耗时短的任务。</seg>
       </tuv>
     </tu>
     <tu>
@@ -10593,8 +10593,8 @@ $(LI $(LINK2 http://dlang.org/phobos/index.html, $(IMG bullet_black.png) 标准�
       <tuv lang="EN-US">
         <seg>For that reason, the exceptions that are thrown are automatically caught by the tasks themselves, to be rethrown later when $(C Task) member functions like $(C yieldForce()) are called.</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T144424Z" creationid="Heromyth" creationdate="20170826T034914Z">
-        <seg>因此，所有抛出的异常会自动被任务自已捕获到，然后在调用类似 $(C yieldForce()) 这样的 $(C Task) 的成员函数时，再重新抛出。</seg>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T144454Z" creationid="Heromyth" creationdate="20170826T034914Z">
+        <seg>因此，所有抛出的异常会自动被任务自已捕获到，然后在调用类似 $(C yieldForce()) 那样的 $(C Task) 成员函数时，再重新抛出。</seg>
       </tuv>
     </tu>
     <tu>
@@ -13280,8 +13280,8 @@ LANGUAGE=chinese</seg>
       <tuv lang="EN-US">
         <seg>This makes it possible for the main thread to catch exceptions that are thrown by a task.</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T034947Z" creationid="Heromyth" creationdate="20170826T034947Z">
-        <seg>这样我们就可以在主线程中捕获 task 中抛出的异常了。</seg>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T144601Z" creationid="Heromyth" creationdate="20170826T034947Z">
+        <seg>这样便可以在主线程里捕获任务中抛出的各种异常。</seg>
       </tuv>
     </tu>
     <tu>
