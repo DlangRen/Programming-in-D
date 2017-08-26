@@ -2333,6 +2333,16 @@ $(C std.parallelism) 模块中的 $(C taskPool.map()) 和 $(C std.algorithm.map)
     <tu>
       <tuv lang="EN-US">
         <seg>$(P
+$(C taskPool.reduce()) should be used only under these considerations.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T084035Z" creationid="Heromyth" creationdate="20170826T084035Z">
+        <seg>$(P
+只有在满足以上条件的情况下才可以使用 $(C taskPool.reduce())。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
 $(C thisTid()) returns the identifier of the $(I current) thread.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T232250Z" creationid="Heromyth" creationdate="20170824T232250Z">
@@ -2974,6 +2984,16 @@ Additionally, as a consequence of their ASCII code values, all of the latin uppe
     <tu>
       <tuv lang="EN-US">
         <seg>$(P
+Additionally, as the results are used by the same functions one last time in the sequential calculations, the types of the parameters that the functions take must be compatible with the types of the values that the functions return.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T084021Z" creationid="Heromyth" creationdate="20170826T084021Z">
+        <seg>$(P
+除此之外，由于在最后串行运算的时候使用的函数与之前相同，函数的返回值必须与函数的参数类型相同或可以相互转换。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
 Additionally, the length of dynamic arrays can be changed by assigning a value to this property:
 )</seg>
       </tuv>
@@ -3293,6 +3313,18 @@ As can be seen, at the end of the previous scenario both $(C i) and $(C j) end u
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T235803Z" creationid="Heromyth" creationdate="20170825T235803Z">
         <seg>$(P
 经过这种情况的执行后 $(C i) 和 $(C j) 的值最后都变成了 1。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
+As in the $(C parallel()) and $(C map()) examples, importing the $(C std.parallelism) module and calling $(C taskPool.reduce()) is sufficient to take advantage of all of the cores:
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T083610Z" creationid="Heromyth" creationdate="20170826T083610Z">
+        <seg>$(P
+与之前 $(C parallel()) 和 $(C map()) 的例子一样，只需要导入 $(C std.parallelism) 模块并调用 $(C taskPool.reduce()) 就可以利用多核心的资源了：
+)</seg>
       </tuv>
     </tu>
     <tu>
@@ -4026,6 +4058,16 @@ However, there are important differences between classes and structs.</seg>
     <tu>
       <tuv lang="EN-US">
         <seg>$(P
+However, there are important differences in the way $(C taskPool.reduce()) works.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T083646Z" creationid="Heromyth" creationdate="20170826T083646Z">
+        <seg>$(P
+不过，与之前的函数相比，$(C taskPool.reduce()) 的行为有一个非常重要的不同点。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
 I will start using that form after introducing the $(C string) type below.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="大处着手小处着眼" changedate="20160720T131706Z" creationid="Hipter" creationdate="20160712T021829Z">
@@ -4457,6 +4499,16 @@ Like every variable in D, the elements of arrays are automatically initialized.<
       <tuv lang="ZH-CN" changeid="大处着手小处着眼" changedate="20160725T082520Z" creationid="大处着手小处着眼" creationdate="20160725T082520Z">
         <seg>$(P
 像在 D 语言中的每个变量，数组的元素自动初始化。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
+Like the other parallel algorithms, $(C taskPool.reduce()) executes the functions in parallel by using elements in different tasks.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T083700Z" creationid="Heromyth" creationdate="20170826T083700Z">
+        <seg>$(P
+$(C taskPool.reduce()) 在不同的任务中并行执行函数，这与其它的并行算法相同。</seg>
       </tuv>
     </tu>
     <tu>
@@ -5432,11 +5484,31 @@ The fact that plain arrays provide access to their values through index numbers 
     <tu>
       <tuv lang="EN-US">
         <seg>$(P
+The fact that the same initial value is used for all of the tasks, effectively being used in the calculations multiple times, $(C taskPool.reduce()) may calculate a result that is different from what $(C std.algorithm.reduce()) calculates.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T084000Z" creationid="Heromyth" creationdate="20170826T084000Z">
+        <seg>$(P
+又由于所有任务都是用相同的初始值，这些初始值会被多次使用，因此 $(C taskPool.reduce()) 的运算结果可能和 $(C std.algorithm.reduce()) 不同。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
 The fact that the value of the variable still equals $(C currentValue) when $(C cas()) is operating is an indication that no other thread has mutated the variable since it has last been read by this thread.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T003709Z" creationid="Heromyth" creationdate="20170826T003557Z">
         <seg>$(P
 在 $(C cas()) 开始执行时，如果变量的值还是等于 $(C currentValue)，则说明自当前线程读入后这个变量没有被其他线程修改。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
+The final values of the results that each task produces are themselves used in the same $(C result) calculation one last time.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T083756Z" creationid="Heromyth" creationdate="20170826T083756Z">
+        <seg>$(P
+每个任务都会得到一个结果，这些最终结果将会按照与计算元素相同的方法计算，得到最终的 $(C result)。</seg>
       </tuv>
     </tu>
     <tu>
@@ -5819,6 +5891,16 @@ The output of the program in the environment that this chapter has been written 
         <seg>$(P
 在本章编写时使用的环境上运行上面的代码将会输出这样的结果：
 )</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
+The output of the program indicates that first the calculations are performed in parallel, and then their results are calculated sequentially.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T084046Z" creationid="Heromyth" creationdate="20170826T084046Z">
+        <seg>$(P
+程序的输出信息表明起初对元素的计算是并行的，而之后对结果的计算是串行的。</seg>
       </tuv>
     </tu>
     <tu>
@@ -7439,6 +7521,52 @@ Finished working on student 8
 Started working on student 9
 Finished working on student 9
 94</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(SHELL
+$ time ./deneme
+$(SHELL_OBSERVED
+started  - element: 3, result: 0 $(SHELL_NOTE first, the tasks in parallel)
+started  - element: 2, result: 0
+started  - element: 1, result: 0
+started  - element: 4, result: 0
+finished - element: 3, result: 3
+finished - element: 1, result: 1
+$(HILITE started  - element: 1, result: 0) $(SHELL_NOTE then, their results sequentially)
+finished - element: 4, result: 4
+finished - element: 2, result: 2
+$(HILITE finished - element: 1, result: 1)
+$(HILITE started  - element: 2, result: 1)
+$(HILITE finished - element: 2, result: 3)
+$(HILITE started  - element: 3, result: 3)
+$(HILITE finished - element: 3, result: 6)
+$(HILITE started  - element: 4, result: 6)
+$(HILITE finished - element: 4, result: 10)
+Result: 10</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T084823Z" creationid="Heromyth" creationdate="20170826T084823Z">
+        <seg>$(SHELL
+$ time ./deneme
+$(SHELL_OBSERVED
+started  - element: 3, result: 0 $(SHELL_NOTE 首先，使用任务并行计算)
+started  - element: 2, result: 0
+started  - element: 1, result: 0
+started  - element: 4, result: 0
+finished - element: 3, result: 3
+finished - element: 1, result: 1
+$(HILITE started  - element: 1, result: 0) $(SHELL_NOTE 接着，顺序计算结果)
+finished - element: 4, result: 4
+finished - element: 2, result: 2
+$(HILITE finished - element: 1, result: 1)
+$(HILITE started  - element: 2, result: 1)
+$(HILITE finished - element: 2, result: 3)
+$(HILITE started  - element: 3, result: 3)
+$(HILITE finished - element: 3, result: 6)
+$(HILITE started  - element: 4, result: 6)
+$(HILITE finished - element: 4, result: 10)
+Result: 10</seg>
       </tuv>
     </tu>
     <tu>
@@ -9855,6 +9983,14 @@ $(LI $(LINK2 http://dlang.org/phobos/index.html, $(IMG bullet_black.png) 标准�
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Each task works on the elements that it is assigned to and calculates a $(C result) that corresponds to the elements of that task.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T083709Z" creationid="Heromyth" creationdate="20170826T083709Z">
+        <seg>但每一个任务都会去计算分派给它的元素并最终得出一个对应的 $(C result)。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Elements are produced in parallel while they are being used:
 )</seg>
       </tuv>
@@ -10217,6 +10353,14 @@ $(LI $(LINK2 http://dlang.org/phobos/index.html, $(IMG bullet_black.png) 标准�
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>For that reason, $(C taskPool.reduce()) may execute slower in short examples as in this chapter as will be observed in the following output.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T083947Z" creationid="Heromyth" creationdate="20170826T083947Z">
+        <seg>因此，在某些耗时少的例子（例如本章中的某些例子）中 $(C taskPool.reduce()) 可能会比非并行版本执行速度慢。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>For that reason, class variables must always be compared by the $(C is) and $(C !is) operators.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170819T130731Z" creationid="Heromyth" creationdate="20170819T130731Z">
@@ -10237,6 +10381,14 @@ $(LI $(LINK2 http://dlang.org/phobos/index.html, $(IMG bullet_black.png) 标准�
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T034914Z" creationid="Heromyth" creationdate="20170826T034914Z">
         <seg>因此，task 抛出的异常将会被 task 自动捕获。当调用像 $(C yieldForce()) 这样的 $(C Task) 的成员函数时，异常将会被重新抛出。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>For that reason, the initial value must be the $(I identity value) for the calculation that is being performed, e.g. the $(C 0) in this example which does not have any effect in addition.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T084010Z" creationid="Heromyth" creationdate="20170826T084010Z">
+        <seg>所以指定的初始值应为$(I 恒等值)。例如本例中的 $(C 0) 就不会产生任何副作用。</seg>
       </tuv>
     </tu>
     <tu>
@@ -11664,6 +11816,14 @@ LANGUAGE=chinese</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Since $(C reduce()) is called with only a single initial value, every task must use that same initial value to initialize its own $(C result) (the parameter $(C 0) above).</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T083717Z" creationid="Heromyth" creationdate="20170826T083717Z">
+        <seg>因为 $(C reduce()) 只有一个初始值，所以每个任务都会使用相同的初始值来初始化 $(C result)（就是之前代码中我们的参数 $(C 0)）。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Since $(C write) does not output a new-line character, in order to observe the parallel execution of the following program, $(C stdout.flush()) is called to send the contents of the buffer to $(C stdout) even before reaching the end of a line.)
 )</seg>
       </tuv>
@@ -11886,6 +12046,16 @@ LANGUAGE=chinese</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T073252Z" creationid="Heromyth" creationdate="20170826T073252Z">
         <seg>能使程序获得最大性能的缓冲区大小会随着使用情况的不同而有所不同。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>The calculations that are performed sequentially are highlighted:
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T084054Z" creationid="Heromyth" creationdate="20170826T084054Z">
+        <seg>被高亮的部分为串行运算的输出：
+)</seg>
       </tuv>
     </tu>
     <tu>
@@ -12556,6 +12726,14 @@ LANGUAGE=chinese</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T012621Z" creationid="Heromyth" creationdate="20170826T012621Z">
         <seg>只有当元素操作之间没有相互依赖时，它们才能被$(I 并行)执行。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>These final calculations are executed sequentially, not in parallel.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T083925Z" creationid="Heromyth" creationdate="20170826T083925Z">
+        <seg>这个最终的计算是顺序执行的，而非并行。</seg>
       </tuv>
     </tu>
     <tu>
