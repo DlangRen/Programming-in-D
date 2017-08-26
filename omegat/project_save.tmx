@@ -212,6 +212,14 @@ $(LI $(LINK2 /ders/d.cn/struct.html, 结构) $(INDEX_KEYWORDS struct .</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>$(C workForce()) can be called when starting other tasks is preferred over suspending the current thread.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T045627Z" creationid="Heromyth" creationdate="20170826T045627Z">
+        <seg>$(C workForce()) 则适合用需要在启动 task 的同时当前线程的情况。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>$(C ~) concatenates two strings and $(C ~=) appends to an existing string:
 )</seg>
       </tuv>
@@ -902,6 +910,14 @@ $(LI $(LINK2 /ders/d.cn/struct.html, 结构) $(INDEX_KEYWORDS struct .</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>$(H6 Member functions of $(C Task))</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T045320Z" creationid="Heromyth" creationdate="20170826T045320Z">
+        <seg>$(H6 $(C Task)) 的成员函数</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>$(H6 Member functions)</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Hipter" changedate="20160707T005242Z" creationid="Hipter" creationdate="20160707T005242Z">
@@ -1278,6 +1294,30 @@ There are three mistakes (bugs) in this program.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>$(LI $(C done): Specifies whether the task has been completed; rethrows the exception if the task has been terminated with an exception.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T045340Z" creationid="Heromyth" creationdate="20170826T045340Z">
+        <seg>$(LI $(C done)：指明 task 是否完成；如果任务中有捕获异常，此处将重新抛出。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(LI $(C executeInNewThread()): Starts the task in a new thread.)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T045355Z" creationid="Heromyth" creationdate="20170826T045355Z">
+        <seg>$(LI $(C executeInNewThread())：在新线程中启动 task。)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(LI $(C executeInNewThread(int priority)): Starts the task in a new thread with the specified priority.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T045411Z" creationid="Heromyth" creationdate="20170826T045411Z">
+        <seg>$(LI $(C executeInNewThread(int priority))：在新线程中启动 task，并指定线程优先级。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>$(LI $(C map): Calls functions with the elements of an $(C InputRange) semi-eagerly in parallel.)</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T012737Z" creationid="Heromyth" creationdate="20170826T012737Z">
@@ -1396,6 +1436,14 @@ There are three mistakes (bugs) in this program.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T135851Z" creationid="Heromyth" creationdate="20170825T135851Z">
         <seg>$(LI $(C thisTid) 为当前线程的线程 ID。)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(LI $(C yieldForce()): Starts the task if it has not been started yet; if it has already been completed, returns its return value; if it is still running, waits for its completion without making the microprocessor busy; if an exception has been thrown, rethrows that exception.)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T045504Z" creationid="Heromyth" creationdate="20170826T045504Z">
+        <seg>$(LI $(C yieldForce())：如果 task 没有启动，则启动 task；如果 task 已经完成，则返回任务函数的返回值；如果 task 正在执行，则以不耗费处理器资源的方式等待 task 完成；如果 task 在执行中抛出了一个异常，它将在此处重新抛出那个异常。)</seg>
       </tuv>
     </tu>
     <tu>
@@ -1544,10 +1592,26 @@ There are three mistakes (bugs) in this program.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>$(LI $(IX spinForce) $(C spinForce()): Works similarly to $(C yieldForce()), except that it makes the microprocessor busy while waiting, in order to catch the completion as early as possible.)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T045523Z" creationid="Heromyth" creationdate="20170826T045523Z">
+        <seg>$(LI $(IX spinForce) $(C spinForce())：与 $(C yieldForce()) 功能相似。不同的是在等待时它将以消耗更多处理器资源为代价换取更快的检测 task 完成的速度。)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>$(LI $(IX unregister) $(C unregister()): Breaks the association between the specified name and the thread.)</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T135430Z" creationid="Heromyth" creationdate="20170825T135430Z">
         <seg>$(LI $(IX unregister) $(C unregister())：解除线程和线程名之间的关联。)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(LI $(IX workForce) $(C workForce()): Works similarly to $(C yieldForce()), except that it starts a new task in the current thread while waiting for the task to be completed.)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T045536Z" creationid="Heromyth" creationdate="20170826T045536Z">
+        <seg>$(LI $(IX workForce) $(C workForce())：与 $(C yieldForce()) 功能相似。不同的是在等待任务完成时它将在当前线程中启动一个新的 task。)</seg>
       </tuv>
     </tu>
     <tu>
@@ -1957,6 +2021,18 @@ $(C .clear) removes all elements:
       <tuv lang="ZH-CN" changeid="Hipter" changedate="20160709T034400Z" creationid="Hipter" creationdate="20160709T034400Z">
         <seg>$(P
 $(C .clear) 移除全部元素：
+)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
+$(C asyncBuf()) takes a range and an optional $(I buffer size) that determines how many elements to be made available during each wave:
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T045824Z" creationid="Heromyth" creationdate="20170826T045824Z">
+        <seg>$(P
+$(C asyncBuf()) 有两个形参：一个是 range，另一个是可选的$(I 缓冲区大小)。缓冲区大小决定了每轮将有多少元素被加载到缓冲区。
 )</seg>
       </tuv>
     </tu>
@@ -3846,11 +3922,31 @@ In general, classes are very similar to structs.</seg>
     <tu>
       <tuv lang="EN-US">
         <seg>$(P
+In most cases $(C yieldForce()) is the most suitable function to call when waiting for a task to complete; it suspends the thread that calls $(C yieldForce()) until the task is completed.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T045552Z" creationid="Heromyth" creationdate="20170826T045552Z">
+        <seg>$(P
+在大多数情况下 $(C yieldForce()) 都是最适合用来等待任务完成的函数，$(C yieldForce()) 将阻塞调用它的线程直到任务完成。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
 In most cases, the features of the $(C core.atomic) module can be several times faster than using $(C synchronized) blocks.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T003914Z" creationid="Heromyth" creationdate="20170826T003914Z">
         <seg>$(P
 在大多数情况下 $(C core.atomic) 模块中的功能要比 $(C synchronized) 块执行速度快。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
+In order to avoid making a potentially fully-lazy input range a fully-eager range, it iterates the elements in $(I waves).</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T045737Z" creationid="Heromyth" creationdate="20170826T045737Z">
+        <seg>$(P
+为了防止将输入的可能为延迟取值（fully-lazy）的范围转换为即时取值（fully-eager）的 range，它会$(I 轮)的方式进行迭代。</seg>
       </tuv>
     </tu>
     <tu>
@@ -4312,6 +4408,16 @@ $(LI 字符串的类型是 $(C dchar[])。</seg>
     <tu>
       <tuv lang="EN-US">
         <seg>$(P
+Please see the online documentation of Phobos for the other member functions of $(C Task).</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T045653Z" creationid="Heromyth" creationdate="20170826T045653Z">
+        <seg>$(P
+要获得更多有关成 $(C Task) 员函数的信息请参见 Phobos 在线文档。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
 Programming languages are designed as efficient ways of programming a CPU, capable of representing higher-level concepts.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170820T004037Z" creationid="Heromyth" creationdate="20170820T004037Z">
@@ -4329,6 +4435,16 @@ Same as structs, the members are accessed by the $(I dot) operator:
         <seg>$(P
 与结构一样，可以使用 $(I 点) 运算符来访问成员：
 )</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
+Similarly to $(C parallel()), $(C asyncBuf()) iterates $(C InputRange) ranges in parallel.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T045708Z" creationid="Heromyth" creationdate="20170826T045708Z">
+        <seg>$(P
+$(C asyncBuf()) 与 $(C parallel()) 相似，都是用来并行迭代 $(C InputRange) 的。</seg>
       </tuv>
     </tu>
     <tu>
@@ -5810,6 +5926,18 @@ There are three anonymous functions below that are passed to $(C receive()) as m
     <tu>
       <tuv lang="EN-US">
         <seg>$(P
+There are three functions to wait for the completion of a task:
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T045437Z" creationid="Heromyth" creationdate="20170826T045437Z">
+        <seg>$(P
+有三个用来等待 task 完成的函数：
+)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
 There are three string types that correspond to the three character types: $(C char[]), $(C wchar[]), and $(C dchar[]).</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="大处着手小处着眼" changedate="20160719T145013Z" creationid="Hipter" creationdate="20160712T080418Z">
@@ -6018,6 +6146,18 @@ This time the compilation error is due to the combination of two factors:
     <tu>
       <tuv lang="EN-US">
         <seg>$(P
+This time the exception is caught by the main thread instead of terminating the program:
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T045240Z" creationid="Heromyth" creationdate="20170826T045240Z">
+        <seg>$(P
+这次异常将会被主线程捕获而不是终止程序：
+)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
 This time the reason of the failure is printed by the owner:
 )</seg>
       </tuv>
@@ -6065,6 +6205,16 @@ To see how this program is better than the previous one, imagine needing to read
       <tuv lang="ZH-CN" changeid="大处着手小处着眼" changedate="20160726T134911Z" creationid="大处着手小处着眼" creationdate="20160725T081024Z">
         <seg>$(P
 要看一看这个程序怎样才能比以前的更好，让我们设想需要读取 20 个值。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
+To see the effects of $(C asyncBuf()), let's use a range that takes half a second to iterate and half a second to process each element.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T072606Z" creationid="Heromyth" creationdate="20170826T072606Z">
+        <seg>$(P
+为了能突出 $(C asyncBuf()) 的作用，示例中的范围与之前的范围有些不同：遍历一次要耗时半秒，处理一个元素也要耗费半秒。</seg>
       </tuv>
     </tu>
     <tu>
@@ -6838,6 +6988,26 @@ main is continuing
 mayThrow() is started
 mayThrow() is throwing an exception                 $(SHELL_NOTE thrown)
 main is waiting for the task
+Detected an error in the task: 'Error message'      $(SHELL_NOTE caught)
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T045302Z" creationid="Heromyth" creationdate="20170826T045302Z">
+        <seg>$(SHELL
+main is continuing
+mayThrow() is started
+mayThrow() is throwing an exception                 $(SHELL_NOTE 抛出)
+main is waiting for the task
+Detected an error in the task: 'Error message'      $(SHELL_NOTE 捕获)
+)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(SHELL
+main is continuing
+mayThrow() is started
+mayThrow() is throwing an exception                 $(SHELL_NOTE thrown)
+main is waiting for the task
 object.Exception@deneme.d(10): Error message        $(SHELL_NOTE terminated)
 )</seg>
       </tuv>
@@ -7113,6 +7283,14 @@ $(LI $(LINK2 /ders/d.cn/logical_expressions.html, 逻辑表达式) $(INDEX_KEYWO
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170819T135044Z" creationid="Heromyth" creationdate="20170819T135044Z">
         <seg>（基于此点差异，类的析构函数被叫作 $(I 终结函数) 会更加确切）。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>(Priority is an operating system concept that determines execution priorities of threads.))</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T045422Z" creationid="Heromyth" creationdate="20170826T045422Z">
+        <seg>（优先级是一个操作系统概念，它决定了线程执行的优先次序。）)</seg>
       </tuv>
     </tu>
     <tu>
@@ -8361,6 +8539,14 @@ $(LI $(LINK2 /ders/d.cn/slices.html, 分片与其他数组功能) $(INDEX_KEYWOR
       </tuv>
       <tuv lang="ZH-CN" changeid="Hipter" changedate="20160711T131420Z" creationid="Hipter" creationdate="20160708T092324Z">
         <seg>不像数组，hash 表的元素不是逐个排列存储的。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Although $(C spinForce()) makes the microprocessor busy while waiting, it is suitable when the task is expected to be completed in a very short time.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T045604Z" creationid="Heromyth" creationdate="20170826T045604Z">
+        <seg>虽然在等待时 $(C spinForce()) 会使处理器忙绿，但它非常适合等待耗时短的 task。</seg>
       </tuv>
     </tu>
     <tu>
@@ -10103,6 +10289,14 @@ $(LINK2 /ders/d.cn/index.html,
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>It stores the elements in a buffer as they are produced by the range, and serves the elements from that buffer to its user.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T045722Z" creationid="Heromyth" creationdate="20170826T045722Z">
+        <seg>它将范围中的元素储存在缓冲区中，需要时用户再从缓冲区中获取元素。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Iterating over this slice and removing the element for each key by calling $(C .remove) would result in an empty associative array:</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170818T142255Z" creationid="Hipter" creationdate="20160711T005658Z">
@@ -10496,6 +10690,14 @@ LANGUAGE=chinese</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T232105Z" creationid="Heromyth" creationdate="20170824T232105Z">
         <seg>与之相对的是消耗大量时间等待事件、用户输入、来自互联网的数据或调用了 $(C Thread.sleep) 等情况的线程。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Once it prepares certain number of elements in parallel, it waits until those elements are consumed by $(C popFront()) before producing the elements of the next wave.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T045757Z" creationid="Heromyth" creationdate="20170826T045757Z">
+        <seg>每轮在缓冲区中载入一定数量的元素用于并行迭代。只有当上一轮缓冲的元素被 $(C popFront()) 消耗完后，它才会开始为下一轮迭代缓冲元素。</seg>
       </tuv>
     </tu>
     <tu>
