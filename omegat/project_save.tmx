@@ -702,6 +702,14 @@ $(LI $(LINK2 /ders/d.cn/struct.html, 结构) $(INDEX_KEYWORDS struct .</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>$(H5 Multiple functions and tuple results)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T085024Z" creationid="Heromyth" creationdate="20170826T085024Z">
+        <seg>$(H5 多个函数和元组结果)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>$(H5 Online version)</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170801T052519Z" creationid="Heromyth" creationdate="20170801T052519Z">
@@ -2281,6 +2289,16 @@ $(C spawnLinked()) 与 $(C spawn()) 用法相同。</seg>
     <tu>
       <tuv lang="EN-US">
         <seg>$(P
+$(C std.algorithm.map()), $(C taskPool.map()), $(C taskPool.amap()), and $(C taskPool.reduce()) can all take more than one function, in which case the results are returned as a $(C Tuple).</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T085039Z" creationid="Heromyth" creationdate="20170826T085039Z">
+        <seg>$(P
+$(C std.algorithm.map())、$(C taskPool.map())、$(C taskPool.amap()) 和 $(C taskPool.reduce()) 都允许传入多个函数处理元素，并返回类型为 $(C Tuple) 的结果。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
 $(C std.algorithm.map) takes the function as its template parameter, and the range as its function parameter.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T073904Z" creationid="Heromyth" creationdate="20170826T073904Z">
@@ -2318,6 +2336,16 @@ $(C std.concurrency) does not provide such a convenience for general exception t
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T044657Z" creationid="Heromyth" creationdate="20170825T044657Z">
         <seg>$(P
 $(C std.concurrency) 并未提供这种捕获异常的方法。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
+$(C taskPool) contains appropriate number of tasks depending on the environment that the program runs under.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T090259Z" creationid="Heromyth" creationdate="20170826T090224Z">
+        <seg>$(P
+$(C taskPool) 包含的 task 的个数取决于程序运行的环境。</seg>
       </tuv>
     </tu>
     <tu>
@@ -3652,6 +3680,16 @@ Before seeing an example of $(C setMaxMailboxSize()), let's first cause a mailbo
     <tu>
       <tuv lang="EN-US">
         <seg>$(P
+Behind the scenes, the parallel algorithms from the $(C std.parallelism) module all use task objects that are elements of a $(C TaskPool) container.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T090201Z" creationid="Heromyth" creationdate="20170826T090201Z">
+        <seg>$(P
+当我们享受 $(C std.parallelism) 模块带来的便利时，标准库在后台默默地维护着 $(C TaskPool) 容器中的任务对象。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
 Being character arrays, strings can contain control characters like $(STRING '\n') as well.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Hipter" changedate="20160711T092733Z" creationid="Hipter" creationdate="20160711T092733Z">
@@ -4260,6 +4298,18 @@ In the call above, $(C asyncBuf()) makes two elements ready in its buffer.</seg>
     <tu>
       <tuv lang="EN-US">
         <seg>$(P
+In the case of $(C taskPool.reduce()), the initial values of the results must be specified as a tuple:
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T085847Z" creationid="Heromyth" creationdate="20170826T085847Z">
+        <seg>$(P
+如果向 $(C taskPool.reduce()) 传入多个函数，那为其指定的初始值也需要改为元组类型：
+)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
 In the code above, $(C variable2) is being initialized by $(C variable1).</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Hipter" changedate="20160706T021450Z" creationid="Hipter" creationdate="20160706T021450Z">
@@ -4705,6 +4755,16 @@ Parallel $(C amap()) works the same as parallel $(C map()) with two differences:
         <seg>$(P
 并行 $(C amap()) 与并行 $(C map()) 作用基本相似，但有以下两点不同：
 )</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
+Parallel $(C reduce()) is faster in many other calculations like the calculation of the math constant $(I pi) (π) by quadrature.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T084958Z" creationid="Heromyth" creationdate="20170826T084958Z">
+        <seg>$(P
+不过对于许多算法来说并行 $(C reduce()) 要比其串行版本快，例如计算 $(I pi) （π）的算法。</seg>
       </tuv>
     </tu>
     <tu>
@@ -5597,6 +5657,16 @@ The following is the equivalent of the class definition above:
         <seg>$(P
 下面的类和上面的是等价的：
 )</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
+The following program demonstrates multiple functions with $(C std.algorithm.map).</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T085251Z" creationid="Heromyth" creationdate="20170826T085251Z">
+        <seg>$(P
+下面这个例子演示如何向 $(C std.algorithm.map) 传入多个函数并使用其返回的结果。</seg>
       </tuv>
     </tu>
     <tu>
@@ -10011,6 +10081,14 @@ $(LI $(LINK2 http://dlang.org/phobos/index.html, $(IMG bullet_black.png) 标准�
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Even so, explicit $(C TaskPool) objects may be created and used as needed.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T090241Z" creationid="Heromyth" creationdate="20170826T090241Z">
+        <seg>即便如此我们还是可以在需要的时候显示创建 $(C TaskPool) 对象。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Even though the two objects are constructed by the same character $(C'♔'), they are still two separate objects.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Hipter" changedate="20160707T015411Z" creationid="Hipter" creationdate="20160707T015411Z">
@@ -10271,6 +10349,14 @@ $(LI $(LINK2 http://dlang.org/phobos/index.html, $(IMG bullet_black.png) 标准�
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>For example, the result of the first function is the first member of the tuple.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T085239Z" creationid="Heromyth" creationdate="20170826T085239Z">
+        <seg>例如，第一个函数的结果即为元组的第一个元素。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>For example, the special value of -1 can be used as the code for colors that are not in $(C colorCodes).</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Hipter" changedate="20160709T035915Z" creationid="Hipter" creationdate="20160709T035915Z">
@@ -10397,6 +10483,14 @@ $(LI $(LINK2 http://dlang.org/phobos/index.html, $(IMG bullet_black.png) 标准�
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170817T144130Z" creationid="Heromyth" creationdate="20170817T144130Z">
         <seg>基于此，删除操作的结果必须回赋给同一个数组变量。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>For that reason, usually there is no need to create any other $(C TaskPool) object.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T090302Z" creationid="Heromyth" creationdate="20170826T090232Z">
+        <seg>因此通常我们不需要手动创建 $(C TaskPool) 对象。</seg>
       </tuv>
     </tu>
     <tu>
@@ -10861,6 +10955,16 @@ $(LINK2 /ders/d.cn/index.html,
       </tuv>
       <tuv lang="ZH-CN" changeid="大处着手小处着眼" changedate="20160720T063005Z" creationid="Hipter" creationdate="20160712T021418Z">
         <seg>在这种情况下它$(I 返回)刚刚读入的行。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>In that case, the types of the members of the tuples would be different as well:
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T085826Z" creationid="Heromyth" creationdate="20170826T085826Z">
+        <seg>此时，元组成员的类型也不一定相同：
+)</seg>
       </tuv>
     </tu>
     <tu>
@@ -11484,6 +11588,14 @@ LANGUAGE=chinese</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Normally, all of the algorithms use the same container object named $(C taskPool).</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T090211Z" creationid="Heromyth" creationdate="20170826T090211Z">
+        <seg>正常情况下，所有算法使用的都是一个容器，即 $(C taskPool)。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Note that I have chosen the name of the array variable as plural to avoid confusing it with a single-valued variable.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="大处着手小处着眼" changedate="20160720T030859Z" creationid="大处着手小处着眼" creationdate="20160720T030859Z">
@@ -11496,6 +11608,14 @@ LANGUAGE=chinese</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Hipter" changedate="20160706T023408Z" creationid="Hipter" creationdate="20160706T023408Z">
         <seg>注意，构造函数通过数组的  $(C .dup) 属性显式复制 $(C s) 成员。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Note that the return types of the functions need not be the same, as seen in the $(C quarterOf()) and $(C tenTimes()) functions below.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T085627Z" creationid="Heromyth" creationdate="20170826T085627Z">
+        <seg>注意，这些函数的返回类型不一定相同，如下面示例中的 $(C quarterOf()) 和 $(C tenTimes()) 函数。</seg>
       </tuv>
     </tu>
     <tu>
@@ -12526,6 +12646,14 @@ LANGUAGE=chinese</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>The results of individual functions correspond to the elements of the tuple in the order that the functions are specified.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T085104Z" creationid="Heromyth" creationdate="20170826T085104Z">
+        <seg>传入函数的顺序将决定 tuple 中与之对应的结果的顺序。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>The same operators can be used with strings as well, but with a different meaning: strings are ordered $(I lexicographically).</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="大处着手小处着眼" changedate="20160720T063719Z" creationid="大处着手小处着眼" creationdate="20160715T034841Z">
@@ -13236,6 +13364,14 @@ LANGUAGE=chinese</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>We have seen the $(C Tuple) type in the $(LINK2 /ders/d.en/tuples.html, Tuples chapter) before.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T085050Z" creationid="Heromyth" creationdate="20170826T085050Z">
+        <seg>我们之前已经在 $(LINK2 /ders/d.cn/tuples.html, Tuples) 一章中了解过 $(C Tuple)。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>We will</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Hipter" changedate="20160711T011230Z" creationid="Hipter" creationdate="20160711T011230Z">
@@ -13833,6 +13969,20 @@ sys     0m0.004s)
         <seg>real    0m4.007s    $(SHELL_NOTE 共 4 秒)
 user    0m0.000s
 sys     0m0.004s)
+)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>real    0m5.006s    $(SHELL_NOTE parallel reduce is slower in this example)
+user    0m0.004s
+sys     0m0.000s)
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T084902Z" creationid="Heromyth" creationdate="20170826T084902Z">
+        <seg>real    0m5.006s    $(SHELL_NOTE 在本例中并行 reduce 更慢一点)
+user    0m0.004s
+sys     0m0.000s)
 )</seg>
       </tuv>
     </tu>
