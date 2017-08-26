@@ -462,6 +462,14 @@ $(LI $(LINK2 /ders/d.cn/struct.html, 结构) $(INDEX_KEYWORDS struct .</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>$(H5 $(IX shared static this) $(IX static this, shared) $(IX shared static ~this) $(IX static ~this, shared) $(IX this, shared static) $(IX ~this, shared static) $(IX module constructor, shared) $(C shared static this()) for single initialization and $(C shared static ~this()) for single finalization)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T002306Z" creationid="Heromyth" creationdate="20170826T002306Z">
+        <seg>$(H5 $(IX shared static this) $(IX static this, shared) $(IX shared static ~this) $(IX static ~this, shared) $(IX this, shared static) $(IX ~this, shared static) $(IX module constructor, shared)$(C shared static this()) 可用于单个初始化；$(C shared static ~this()) 可用于单个析构)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>$(H5 $(IX shared) $(C shared) to share mutable data between threads)</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T233547Z" creationid="Heromyth" creationdate="20170825T233547Z">
@@ -2113,6 +2121,16 @@ $(IX __traits) $(IX getAttributes) 属性的实际含义完全由程序员根据
     <tu>
       <tuv lang="EN-US">
         <seg>$(P
+$(IX deadlock) The error can be explained by an example where one thread attempting to transfer money from account A to account to B while another thread attempting to transfer money in the reverse direction.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T001318Z" creationid="Heromyth" creationdate="20170826T001318Z">
+        <seg>$(P
+$(IX deadlock) 我们会用一个例子来解释程序为什么出错。示例中有一个线程想要将账户 A 中的资金转到账户 B，而另一个线程想要将账户 B 中的资金转到账户 A。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
 $(IX final) As overridable member functions have a runtime performance cost, without going into more detail, I recommend that you define all $(C class) functions that do not need to be overridden with the $(C final) keyword.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Hipter" changedate="20160707T012042Z" creationid="Hipter" creationdate="20160707T012042Z">
@@ -2305,6 +2323,16 @@ A compiler is another tool that reads the instructions of a program from source 
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170820T004725Z" creationid="Heromyth" creationdate="20170820T004725Z">
         <seg>$(P
 编译器是另一种从源码中读取程序指令的工具。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
+A well known example of this problem is a function that tries to transfer money from one bank account to another.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T001220Z" creationid="Heromyth" creationdate="20170826T001220Z">
+        <seg>$(P
+这个问题有一个著名的例子：想要编写一个函数将某个银行账户中的资金转到另一个账户。</seg>
       </tuv>
     </tu>
     <tu>
@@ -2925,6 +2953,16 @@ Class objects are constructed by the $(C new) keyword; they do not have names.</
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170819T131126Z" creationid="Heromyth" creationdate="20170819T131126Z">
         <seg>$(P
 类对象由关键字 $(C new) 构造；它们没有名字。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
+Class types can be defined as $(C synchronized) as well.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T001051Z" creationid="Heromyth" creationdate="20170826T001051Z">
+        <seg>$(P
+类也可以定义为 $(C synchronized)。</seg>
       </tuv>
     </tu>
     <tu>
@@ -4054,6 +4092,18 @@ $(C setMaxMailboxSize()) 将邮箱大小限制为 1000。</seg>
     <tu>
       <tuv lang="EN-US">
         <seg>$(P
+The $(C static this()) block above would be executed once for the main thread and once for the worker thread:
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T002346Z" creationid="Heromyth" creationdate="20170826T002346Z">
+        <seg>$(P
+上面这个 $(C static this()) 会为主线程执行一次，为工作线程执行一次：
+)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
 The $(C strip()) expression above returns a new string that does not contain the trailing control characters.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="大处着手小处着眼" changedate="20160719T150826Z" creationid="Hipter" creationdate="20160712T020830Z">
@@ -4388,6 +4438,18 @@ The following example uses $(C OnCrowding.throwException), which causes a $(C Ma
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T135050Z" creationid="Heromyth" creationdate="20170825T135050Z">
         <seg>$(P
 下面这个例子使用了 $(C OnCrowding.throwException)。它将在邮箱满时抛出 $(C MailboxFull) 异常：
+)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
+The following is the equivalent of the class definition above:
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T001144Z" creationid="Heromyth" creationdate="20170826T001144Z">
+        <seg>$(P
+下面的类和上面的是等价的：
 )</seg>
       </tuv>
     </tu>
@@ -4864,6 +4926,16 @@ The solution here is to take a copy of the immutable string by using the $(C .du
     <tu>
       <tuv lang="EN-US">
         <seg>$(P
+The solution to this problem is to define an ordering relation between the objects and to lock them in that order, which is handled automatically by the $(C synchronized) statement.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T002057Z" creationid="Heromyth" creationdate="20170826T001414Z">
+        <seg>$(P
+解决方法是为对象定义一个顺序并按照这个顺序锁住对象。如果使用 $(C synchronized) 语句这个过程将被自动实现。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
 The syntax of associative arrays is similar to the array syntax.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Hipter" changedate="20160708T094902Z" creationid="Hipter" creationdate="20160708T094902Z">
@@ -5190,6 +5262,16 @@ This time the reason of the failure is printed by the owner:
     <tu>
       <tuv lang="EN-US">
         <seg>$(P
+This would cause problems for $(C shared) module variables because initializing a variable more than once would be wrong especially in concurrency due to race conditions.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T002443Z" creationid="Heromyth" creationdate="20170826T002356Z">
+        <seg>$(P
+对于指定了 $(C shared) 的模块变量来说，重复初始化有可能导致并发中的竞态条件而造成程序出错。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
 Threads can detect that the receiver of a message has terminated.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T052007Z" creationid="Heromyth" creationdate="20170825T052007Z">
@@ -5318,6 +5400,16 @@ We can make the following observations about the use of these blocks:
     <tu>
       <tuv lang="EN-US">
         <seg>$(P
+We have already seen that $(C static this()) can be used for initializing modules, including their variables.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T002318Z" creationid="Heromyth" creationdate="20170826T002318Z">
+        <seg>$(P
+我们已经见到过 $(C static this())，它是用来初始化模块和模块中包含的变量的。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
 We have defined five variables in one of the exercises of the last chapter, and used them in certain calculations.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="大处着手小处着眼" changedate="20160726T043538Z" creationid="大处着手小处着眼" creationdate="20160716T144940Z">
@@ -5405,6 +5497,16 @@ We will see below that this exception can be received as a message as well.</seg
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T052231Z" creationid="Heromyth" creationdate="20170825T052231Z">
         <seg>$(P
 之后我们会看到也可以将这个异常当作消息发送。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
+When blocks of code need to be synchronized on more than one object, those objects must be specified together.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T001155Z" creationid="Heromyth" creationdate="20170826T001155Z">
+        <seg>$(P
+如果几块代码需要锁住多个对象来同步，指定在一个 $(C synchronized) 中。</seg>
       </tuv>
     </tu>
     <tu>
@@ -5838,6 +5940,18 @@ Final value: -672    $(SHELL_NOTE_WRONG 不是 0)
     <tu>
       <tuv lang="EN-US">
         <seg>$(SHELL
+Final value: 0       $(SHELL_NOTE correct result)
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T001034Z" creationid="Heromyth" creationdate="20170826T001034Z">
+        <seg>$(SHELL
+Final value: 0       $(SHELL_NOTE 正确结果)
+)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(SHELL
 before: 1 and 2
 after : 1 and 1    $(SHELL_NOTE_WRONG incorrect result)
 )</seg>
@@ -6153,6 +6267,16 @@ $(LI $(LINK2 /ders/d.cn/logical_expressions.html, 逻辑表达式) $(INDEX_KEYWO
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170819T135044Z" creationid="Heromyth" creationdate="20170819T135044Z">
         <seg>（基于此点差异，类的析构函数被叫作 $(I 终结函数) 会更加确切）。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>(That applies to $(C immutable) variables as well because they are implicitly $(C shared).) The solution is to use $(C shared static this()) blocks, which are executed only once per program:
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T002506Z" creationid="Heromyth" creationdate="20170826T002506Z">
+        <seg>（这也适用于 $(C immutable) 因为它已隐含 $(C shared)。）解决方案是使用 $(C shared static this()) 块，它只会在程序中执行一次：
+)</seg>
       </tuv>
     </tu>
     <tu>
@@ -7457,6 +7581,16 @@ $(LI $(LINK2 /ders/d.cn/slices.html, 分片与其他数组功能) $(INDEX_KEYWOR
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Because data is thread-local by default, $(C static this()) must be executed by every thread so that module-level variables are initialized for all threads:
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T002330Z" creationid="Heromyth" creationdate="20170826T002330Z">
+        <seg>由于默认情况下每个线程都会有一个数据的副本，$(C static this()) 需要在每个线程中执行一次来初始化对应线程中的模块级变量：
+)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Because such an exception would terminate the worker thread right away, the owner in the following program can receive a response only for the first message:
 )</seg>
       </tuv>
@@ -8169,6 +8303,14 @@ $(LI $(LINK2 http://dlang.org/phobos/index.html, $(IMG bullet_black.png) 标准�
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>For this function to work correctly in a multi-threaded environment, both of the accounts must first be locked.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T001229Z" creationid="Heromyth" creationdate="20170826T001229Z">
+        <seg>为了能让函数在多线程环境中正确运行，每个账户都要先被锁锁住。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Fortunately, in some cases program correctness can be ensured without the use of a $(C synchronized) block, by taking advantage of $(I atomic operations) that will be explained below.)
 )</seg>
       </tuv>
@@ -8293,6 +8435,16 @@ $(LINK2 /ders/d.cn/index.html,
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>However, the following attempt would be incorrect:
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T001239Z" creationid="Heromyth" creationdate="20170826T001239Z">
+        <seg>但下面这个程序并不能实现我们的要求：
+)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>However, the grades cannot be inserted as in the following code because each grade would overwrite the previous one:
 )</seg>
       </tuv>
@@ -8357,6 +8509,16 @@ $(LINK2 /ders/d.cn/index.html,
       </tuv>
       <tuv lang="ZH-CN" changeid="大处着手小处着眼" changedate="20160720T021233Z" creationid="大处着手小处着眼" creationdate="20160720T021233Z">
         <seg>想象一下，需要一千个值；定义从 $(C value_1) 到 $(C value_1000) 一千个变量，这几乎是不可能的。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>In D, it is sufficient to specify the objects in the same $(C synchronized) statement for the code to avoid such deadlocks:
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T002046Z" creationid="Heromyth" creationdate="20170826T002025Z">
+        <seg>对于 D 语言，在同一个 $(C synchronized) 中指定这些对象即可有效避免死锁的情况：
+)</seg>
       </tuv>
     </tu>
     <tu>
@@ -8627,6 +8789,14 @@ $(LINK2 /ders/d.cn/index.html,
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T235816Z" creationid="Heromyth" creationdate="20170825T235816Z">
         <seg>此处不可能会再有其他的值。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>It is possible that each thread may have just locked its respective $(C from) object, hoping next to lock its $(C to) object.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T001332Z" creationid="Heromyth" creationdate="20170826T001332Z">
+        <seg>每个线程都会先锁住各自的 $(C from) 对象，然后再尝试去锁 $(C to) 对象。</seg>
       </tuv>
     </tu>
     <tu>
@@ -9065,6 +9235,14 @@ LANGUAGE=chinese</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Otherwise, it is possible that more than one thread may have locked objects that other threads are waiting for, in which case the program may be $(I deadlocked).</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T001207Z" creationid="Heromyth" creationdate="20170826T001207Z">
+        <seg>不然的话就可能出现几个线程分别拿到了不同的锁，而它们又在等待其他线程手中的锁的情况，即$(I 死锁)。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>PROBLEM_COK_COZUMSUZ_METIN=the solutions will be posted later...</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170718T105604Z" creationid="Heromyth" creationdate="20170718T105604Z">
@@ -9273,6 +9451,14 @@ LANGUAGE=chinese</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Hipter" changedate="20160709T033921Z" creationid="Hipter" creationdate="20160709T033921Z">
         <seg>由于键已不存在于容器中， 因而第二行将引发一个异常，如果异常没有被捕获，程序将终止。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Since the $(C from) objects correspond to A and B in the two threads respectively, the objects would be in locked state in separate threads, making it impossible for the other thread to ever lock its $(C to) object.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T001348Z" creationid="Heromyth" creationdate="20170826T001348Z">
+        <seg>由于代表 A 和 B 的 $(C from) 对象已分别被两个线程锁住，它们将无法获取另一个线程的 $(C to) 对象（即刚刚被锁住的 B 和 A）。</seg>
       </tuv>
     </tu>
     <tu>
@@ -10139,6 +10325,16 @@ LANGUAGE=chinese</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>This means that all of the non-static member functions of that type are synchronized on a given object of that class:
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T001131Z" creationid="Heromyth" creationdate="20170826T001131Z">
+        <seg>即表示同一时间只能有一个线程调用类的示例对象的非静态成员函数：
+)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>This ordering takes each character's Unicode code to be its place in a hypothetical grand Unicode alphabet.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="大处着手小处着眼" changedate="20160715T035023Z" creationid="大处着手小处着眼" creationdate="20160715T035023Z">
@@ -10151,6 +10347,14 @@ LANGUAGE=chinese</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170820T004745Z" creationid="Heromyth" creationdate="20170820T004745Z">
         <seg>而后，这个被生成的程序负责执行程序员写就的指令。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>This situation is called a $(I deadlock).</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T001400Z" creationid="Heromyth" creationdate="20170826T001400Z">
+        <seg>这个现象就是$(I 死锁)。</seg>
       </tuv>
     </tu>
     <tu>
@@ -10797,6 +11001,22 @@ LANGUAGE=chinese</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="大处着手小处着眼" changedate="20160715T031247Z" creationid="大处着手小处着眼" creationdate="20160715T031247Z">
         <seg>string s = "résumé"c;   // 与“résumé”一样</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>synchronized (from) {           $(CODE_NOTE_WRONG INCORRECT)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T001250Z" creationid="Heromyth" creationdate="20170826T001250Z">
+        <seg>synchronized (from) {           $(CODE_NOTE_WRONG 错误)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>synchronized (from, to) {       $(CODE_NOTE correct)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T002122Z" creationid="Heromyth" creationdate="20170826T002122Z">
+        <seg>synchronized (from, to) {       $(CODE_NOTE 正确)</seg>
       </tuv>
     </tu>
     <tu>
