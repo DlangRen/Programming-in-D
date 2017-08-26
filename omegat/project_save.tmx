@@ -3313,9 +3313,9 @@ Another method would be to send the actual exception object itself to the owner.
 Another overload of $(C task()) takes the function as its first function parameter instead:
 )</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T034617Z" creationid="Heromyth" creationdate="20170826T034617Z">
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T143749Z" creationid="Heromyth" creationdate="20170826T034617Z">
         <seg>$(P
-$(C task()) 函数的另一个重载将函数作为其第一个形参：
+$(C task()) 函数的另一个重载形式是将函数作为其第一个形参：
 )</seg>
       </tuv>
     </tu>
@@ -3502,9 +3502,9 @@ As soon as a new thread is started, the owner and the worker start executing sep
         <seg>$(P
 As tasks are executed on separate threads, the exceptions that they throw cannot be caught by the thread that started them.</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T034848Z" creationid="Heromyth" creationdate="20170826T034848Z">
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T144133Z" creationid="Heromyth" creationdate="20170826T034848Z">
         <seg>$(P
-因为 task 是执行在另外一个线程上的，所以它们抛出的异常并不能被启动任务的线程捕捉到。</seg>
+因为任务都是在一个单独的线程上执行的，所以启动它们的那个线程并不能捕捉到它们抛出的异常。</seg>
       </tuv>
     </tu>
     <tu>
@@ -3523,9 +3523,9 @@ As the compiler compiles a program according to the rules of the language, it st
 As this method does not involve different instantiations of the $(C Task) template, it makes it possible to put such objects in the same array:
 )</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T034645Z" creationid="Heromyth" creationdate="20170826T034645Z">
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T143826Z" creationid="Heromyth" creationdate="20170826T034645Z">
         <seg>$(P
-这种方法并不会产生不同类型的 $(C Task) 模版实例，这样你就可以把它们放在同一个数组里：
+采用这种方法不会产生不同类型的 $(C Task) 模版实例，因此可以把它们放在同一个数组里：
 )</seg>
       </tuv>
     </tu>
@@ -6126,9 +6126,9 @@ The output of the program lists the attributes of $(C Person.name):
         <seg>$(P
 The output of the program should be similar to the following.</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T034211Z" creationid="Heromyth" creationdate="20170826T034211Z">
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T143336Z" creationid="Heromyth" creationdate="20170826T034211Z">
         <seg>$(P
-程序的输出和下面这样差不多：</seg>
+程序的输出类似下面这个样子：</seg>
       </tuv>
     </tu>
     <tu>
@@ -8299,8 +8299,8 @@ $(LI 左手侧的 $(C char[]) 是一个切片，这意味着，一旦代码编�
       <tuv lang="EN-US">
         <seg>* anOperation().</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T142825Z" creationid="Heromyth" creationdate="20170826T024732Z">
-        <seg>* anOperation() 的任务。</seg>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T142835Z" creationid="Heromyth" creationdate="20170826T024732Z">
+        <seg>* anOperation() 的任务对象。</seg>
       </tuv>
     </tu>
     <tu>
@@ -8395,8 +8395,8 @@ $(LI 左手侧的 $(C char[]) 是一个切片，这意味着，一旦代码编�
       <tuv lang="EN-US">
         <seg>* function call, not as a task.</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T033622Z" creationid="Heromyth" creationdate="20170826T033622Z">
-        <seg>* 函数调用，而不是 task。</seg>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T143004Z" creationid="Heromyth" creationdate="20170826T033622Z">
+        <seg>* 函数调用，而不是一个任务。</seg>
       </tuv>
     </tu>
     <tu>
@@ -8625,8 +8625,8 @@ immutable int b;    // 所有线程共享</seg>
       <tuv lang="EN-US">
         <seg>/* Construct a task object that will execute</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T024710Z" creationid="Heromyth" creationdate="20170826T024710Z">
-        <seg>/* 构建一个将要执行</seg>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T142854Z" creationid="Heromyth" creationdate="20170826T024710Z">
+        <seg>/* 构建一个用于执行</seg>
       </tuv>
     </tu>
     <tu>
@@ -10593,8 +10593,8 @@ $(LI $(LINK2 http://dlang.org/phobos/index.html, $(IMG bullet_black.png) 标准�
       <tuv lang="EN-US">
         <seg>For that reason, the exceptions that are thrown are automatically caught by the tasks themselves, to be rethrown later when $(C Task) member functions like $(C yieldForce()) are called.</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T034914Z" creationid="Heromyth" creationdate="20170826T034914Z">
-        <seg>因此，task 抛出的异常将会被 task 自动捕获。当调用像 $(C yieldForce()) 这样的 $(C Task) 的成员函数时，异常将会被重新抛出。</seg>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T144424Z" creationid="Heromyth" creationdate="20170826T034914Z">
+        <seg>因此，所有抛出的异常会自动被任务自已捕获到，然后在调用类似 $(C yieldForce()) 这样的 $(C Task) 的成员函数时，再重新抛出。</seg>
       </tuv>
     </tu>
     <tu>
@@ -12415,8 +12415,8 @@ LANGUAGE=chinese</seg>
         <seg>The fact that the $(C m) and $(C t) letters are printed in mixed order indicates that the operations are executed in parallel:
 )</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T034325Z" creationid="Heromyth" creationdate="20170826T034325Z">
-        <seg>字符 $(C m) 和字符 $(C t) 无序的输出顺序表明这些操作是并行的：
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T143510Z" creationid="Heromyth" creationdate="20170826T034325Z">
+        <seg>字符 $(C m) 和字符 $(C t) 交替输出表明这些操作是并行执行的：
 )</seg>
       </tuv>
     </tu>
@@ -13184,8 +13184,8 @@ LANGUAGE=chinese</seg>
       <tuv lang="EN-US">
         <seg>This distinction may be undesirable in certain situations where seemingly $(I equivalent) task objects would actually have different types.</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T034427Z" creationid="Heromyth" creationdate="20170826T034427Z">
-        <seg>两个看起来$(I 相同)的 task 对象实际上不是同一个类型，在某些特定的情况下这种差别可能是我们不想看到的。</seg>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T143531Z" creationid="Heromyth" creationdate="20170826T034427Z">
+        <seg>两个看起来 $(I 相同) 的任务对象实际上不是同一个类型，在某些特定的情况下这种差别可能是我们不想看到的。</seg>
       </tuv>
     </tu>
     <tu>
@@ -14204,6 +14204,18 @@ sys     0m0.004s)
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>task($(HILITE &amp;)bar, 2) ];    $(CODE_NOTE compiles)
+}
+---</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T143842Z" creationid="Heromyth" creationdate="20170826T143842Z">
+        <seg>task($(HILITE &amp;)bar, 2) ];    $(CODE_NOTE 编译通过)
+}
+---</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>variable</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Tradoser" changedate="20070103T042255Z" creationid="Tradoser" creationdate="20070103T042255Z">
@@ -14286,8 +14298,8 @@ sys     0m0.004s)
       <tuv lang="EN-US">
         <seg>yieldForce() waits for the task to complete its</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T033816Z" creationid="Heromyth" creationdate="20170826T033816Z">
-        <seg>yieldForce() 会等待 task 完成</seg>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T143256Z" creationid="Heromyth" creationdate="20170826T033816Z">
+        <seg>yieldForce() 会等待该任务完成</seg>
       </tuv>
     </tu>
     <tu>
