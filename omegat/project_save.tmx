@@ -144,10 +144,26 @@ $(LI $(LINK2 /ders/d.cn/struct.html, 结构) $(INDEX_KEYWORDS struct .</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>$(C parallel()) is very convenient as it $(I constructs), $(I starts), and $(I waits for) the tasks automatically.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T022257Z" creationid="Heromyth" creationdate="20170826T022257Z">
+        <seg>$(C parallel()) 用起来非常方便，因为无论是$(I 构建)、$(I 启动)还是$(I 等待任务执行完成)都是自动进行的。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>$(C parallel()) returns a range object that knows how to distribute the execution of the $(C delegate) to a separate core for each element.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T015021Z" creationid="Heromyth" creationdate="20170826T013748Z">
         <seg>$(C parallel()) 返回一个范围对象，它将决定如何将处理元素的 $(C delegate) 分发给独立的处理器核心执行。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(C parallel()) then waits for all of the tasks to be completed before finally exiting the loop.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T022246Z" creationid="Heromyth" creationdate="20170826T022246Z">
+        <seg>之后 $(C parallel()) 会等待所有任务都完成后再退出循环。</seg>
       </tuv>
     </tu>
     <tu>
@@ -174,6 +190,14 @@ $(LI $(LINK2 /ders/d.cn/struct.html, 结构) $(INDEX_KEYWORDS struct .</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T043248Z" creationid="Heromyth" creationdate="20170825T043248Z">
         <seg>$(C receiveTimeout()) 可以防止出现无限等待消息这样的情况。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(C task()) constructs, $(C executeInNewThread()) starts, and $(C yieldForce()) waits for a task object.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T022411Z" creationid="Heromyth" creationdate="20170826T022411Z">
+        <seg>使用 $(C task()) 创建 task，使用 $(C executeInNewThread()) 启动 task，使用 $(C yieldForce()) 等待 task 完成。</seg>
       </tuv>
     </tu>
     <tu>
@@ -1796,6 +1820,14 @@ There are three mistakes (bugs) in this program.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>$(LI When iterating over the result ranges of $(C asyncBuf()) or parallel $(C map()) (both are explained later in this chapter):</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T021739Z" creationid="Heromyth" creationdate="20170826T021739Z">
+        <seg>$(LI 在迭代 $(C asyncBuf()) 或 $(C map()) 返回的范围时（稍后本章会介绍这两个函数）：</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>$(LI When threads do not depend on other threads, prefer $(I parallelism), which has been the topic of the previous chapter.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T135802Z" creationid="Heromyth" creationdate="20170825T135802Z">
@@ -1965,9 +1997,9 @@ $(C main()) 将 $(C spawn()) 的返回值储存在 $(C worker) 变量中并通�
         <seg>$(P
 $(C parallel()) does not start parallel executions until $(I work unit size) number of elements of a non-$(C RandomAccessRange) have been executed serially first.</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T020925Z" creationid="Heromyth" creationdate="20170826T020925Z">
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T021638Z" creationid="Heromyth" creationdate="20170826T020925Z">
         <seg>$(P
-只有在非 $(C RandomAccessRange) 中的与$(I 工作单元大小)数目相同的元素被顺序处理后，$(C parallel()) 才会开始并行执行。</seg>
+只有在非 $(C RandomAccessRange) 中与$(I 工作单元大小)相同数量的元素被顺序处理时，$(C parallel()) 才会开始并行执行。</seg>
       </tuv>
     </tu>
     <tu>
@@ -2484,6 +2516,16 @@ $(IX setMaxMailboxSize) $(C setMaxMailboxSize()) is used for limiting the number
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T134421Z" creationid="Heromyth" creationdate="20170825T134421Z">
         <seg>$(P
 $(IX setMaxMailboxSize) $(C setMaxMailboxSize()) 可以限制邮箱保存的消息数量。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
+$(IX task) $(IX executeInNewThread) $(IX yieldForce) When tasks do not correspond to or cannot be represented by elements of a range, these three steps can be handled explicitly by the programmer.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T022400Z" creationid="Heromyth" creationdate="20170826T022323Z">
+        <seg>$(P
+$(IX task) $(IX executeInNewThread) $(IX yieldForce) 如果要在处理范围中元素之外的地方使用 task，程序员需要按照以下三步手动处理任务：</seg>
       </tuv>
     </tu>
     <tu>
@@ -3702,6 +3744,16 @@ In any case, keep in mind that the use of $(C dchar[]) and $(C dstring) does not
     <tu>
       <tuv lang="EN-US">
         <seg>$(P
+In fact, $(C parallel()) constructs a new $(C Task) object for every worker thread and starts that task automatically.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T022235Z" creationid="Heromyth" creationdate="20170826T022235Z">
+        <seg>$(P
+实际上，$(C parallel()) 为每个工作线程构建并自动启动了一个 $(C Task)。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
 In general, classes are very similar to structs.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170819T123716Z" creationid="Heromyth" creationdate="20170819T123716Z">
@@ -4142,6 +4194,16 @@ Only the index values between zero and one less than the length of the array are
     <tu>
       <tuv lang="EN-US">
         <seg>$(P
+Operations that are executed in parallel with other operations of a program are called $(I tasks).</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T022038Z" creationid="Heromyth" creationdate="20170826T022038Z">
+        <seg>$(P
+程序中以并行的方式执行的操作叫$(I 任务)。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
 Other than the fact that $(C opAssign) cannot be overloaded for classes, operator overloading is the same as structs.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Hipter" changedate="20160707T005026Z" creationid="Hipter" creationdate="20160707T005026Z">
@@ -4425,6 +4487,16 @@ The $(C OwnerTerminated) and $(C LinkTerminated) exceptions can be received as m
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T052517Z" creationid="Heromyth" creationdate="20170825T052517Z">
         <seg>$(P
 $(C OwnerTerminated) 和 $(C LinkTerminated) 都可以作为消息在线程间传递。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
+The $(C anOperation()) function is started twice in the following program.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T022434Z" creationid="Heromyth" creationdate="20170826T022434Z">
+        <seg>$(P
+在下方的程序中 $(C anOperation()) 函数被调用两次。</seg>
       </tuv>
     </tu>
     <tu>
@@ -6089,6 +6161,16 @@ We will see below that this exception can be received as a message as well.</seg
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T052231Z" creationid="Heromyth" creationdate="20170825T052231Z">
         <seg>$(P
 之后我们会看到也可以将这个异常当作消息发送。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
+When $(C parallel()) works on the results of $(C asyncBuf()) or $(C map()), it ignores the work unit size parameter.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T021751Z" creationid="Heromyth" creationdate="20170826T021751Z">
+        <seg>$(P
+若使用 $(C parallel()) 处理 $(C asyncBuf()) 或 $(C map()) 的返回值时，它将忽略工作单元大小参数。</seg>
       </tuv>
     </tu>
     <tu>
@@ -8643,6 +8725,14 @@ $(LI $(LINK2 http://dlang.org/phobos/index.html, $(IMG bullet_black.png) 标准�
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Due to the relatively high value of 100, $(C parallel()) may give the wrong impression that it is not effective when tried on short non-$(C RandomAccessRange) ranges.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T021711Z" creationid="Heromyth" creationdate="20170826T021711Z">
+        <seg>由于提供的默认值 100 相对较高，$(C parallel()) 会给人一种错觉：在处理较短的非 $(C RandomAccessRange) 范围时效率不高。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Even its $(C toString()) function is not overloaded:
 )</seg>
       </tuv>
@@ -9469,6 +9559,14 @@ $(LINK2 /ders/d.cn/index.html,
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Instead, $(C parallel()) reuses the internal buffer of the result range.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T021921Z" creationid="Heromyth" creationdate="20170826T021921Z">
+        <seg>$(C parallel()) 将会使用这两个函数返回的范围中的缓冲区。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Instead, the comparison must be done by the $(C is) or the $(C !is) operator, accordingly:
 )</seg>
       </tuv>
@@ -9639,6 +9737,14 @@ $(LINK2 /ders/d.cn/index.html,
       </tuv>
       <tuv lang="ZH-CN" changeid="大处着手小处着眼" changedate="20160718T152728Z" creationid="大处着手小处着眼" creationdate="20160715T013340Z">
         <seg>如果至少其中一个‘é’字符没有做为单个编码点编码，而是一个‘e’与一个组合重音符的组合，那么它就可能会更长。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>It prints the first letter of $(C id) to indicate which task it is working for.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T023737Z" creationid="Heromyth" creationdate="20170826T023737Z">
+        <seg>它将打印出 $(C id) 的第一个字符，这样我们就可以通过这个字符来判断程序正在等待哪一个任务执行完成。</seg>
       </tuv>
     </tu>
     <tu>
@@ -10384,6 +10490,14 @@ LANGUAGE=chinese</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Tasks are represented by the type $(C std.parallelism.Task).</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T022050Z" creationid="Heromyth" creationdate="20170826T022050Z">
+        <seg>标准库中的 $(C std.parallelism.Task) 表示的就是我们所说的任务。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Telling the CPU what to do is called $(I coding), and the instructions that are used when doing so are called $(I machine code).</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170820T003607Z" creationid="Heromyth" creationdate="20170820T003607Z">
@@ -11090,6 +11204,14 @@ LANGUAGE=chinese</seg>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T135519Z" creationid="Heromyth" creationdate="20170825T135519Z">
         <seg>线程会不停地互相发送信息，只有在收到 $(C Exit) 消息后它们才会终止：
 )</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>These three functions are explained further in the comments of the following program.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T022421Z" creationid="Heromyth" creationdate="20170826T022421Z">
+        <seg>在下方程序的注释中有对这三个函数详细的解释。</seg>
       </tuv>
     </tu>
     <tu>
