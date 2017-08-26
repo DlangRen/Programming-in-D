@@ -10777,8 +10777,8 @@ $(LINK2 /ders/d.cn/index.html,
       <tuv lang="EN-US">
         <seg>However, if these operations were executed in an environment that had 4 cores, they could be operated on at the same time and the total time would be reduced to about 1 second.</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T013448Z" creationid="Heromyth" creationdate="20170826T013400Z">
-        <seg>然而如果把这 4 个操作分配给 4 个核心执行，它们将会被同时处理。那么处理完这 4 个学生总共耗时 1 秒。</seg>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T132344Z" creationid="Heromyth" creationdate="20170826T013400Z">
+        <seg>然而如果把这 4 个操作分配给 4 个内核执行，它们将会被同时处理。那么处理完这 4 个学生总共耗时 1 秒。</seg>
       </tuv>
     </tu>
     <tu>
