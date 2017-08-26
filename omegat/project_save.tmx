@@ -120,10 +120,34 @@ $(LI $(LINK2 /ders/d.cn/struct.html, 结构) $(INDEX_KEYWORDS struct .</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>$(C Thread.sleep()) suspends the operations for the specified amount of time.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T013206Z" creationid="Heromyth" creationdate="20170826T013206Z">
+        <seg>$(C Thread.sleep()) 会将操作挂起一段时间，其时间长短可在代码中指定。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(C Thread.sleep) is admittedly an artifical method to use in the following examples because it takes time without ever busying any core.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T013246Z" creationid="Heromyth" creationdate="20170826T013234Z">
+        <seg>当然在下面的例子中 $(C Thread.sleep) 只是用来模拟长耗时的任务，因为它并不需要处理器核心处理实际的工作，它只是占用时间。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>$(C __gshared) is necessary when interacting with libraries of languages like C and C++ where data sharing is automatic by default.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T233527Z" creationid="Heromyth" creationdate="20170825T233527Z">
         <seg>在与像 C 和 C++ 这样默认自动数据共享的语言编写的库交互时，$(C __gshared) 是必须的。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(C parallel()) returns a range object that knows how to distribute the execution of the $(C delegate) to a separate core for each element.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T013818Z" creationid="Heromyth" creationdate="20170826T013748Z">
+        <seg>$(C parallel()) 返回一个 range 对象，它将决定如何将处理元素的 $(C delegate) 分发给独立的处理器核心执行。</seg>
       </tuv>
     </tu>
     <tu>
@@ -242,6 +266,14 @@ $(LI $(LINK2 /ders/d.cn/struct.html, 结构) $(INDEX_KEYWORDS struct .</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T233449Z" creationid="Heromyth" creationdate="20170825T143318Z">
         <seg>$(DERS_BOLUMU $(IX data sharing concurrency) $(IX concurrency, data sharing) 并发与数据共享)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(DERS_BOLUMU $(IX parallelism) Parallelism)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T012513Z" creationid="Heromyth" creationdate="20170826T012513Z">
+        <seg>$(DERS_BOLUMU $(IX parallelism) 并行)</seg>
       </tuv>
     </tu>
     <tu>
@@ -936,6 +968,16 @@ $(LI $(LINK2 /ders/d.cn/struct.html, 结构) $(INDEX_KEYWORDS struct .</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>$(I In parallel) means that operations are executed on multiple cores at the same time:
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T012636Z" creationid="Heromyth" creationdate="20170826T012636Z">
+        <seg>$(I 并行) 意味着将要执行的一组操作可以被分派到多个核心同时执行。
+)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>$(I type_name)[$(I value_count)] $(I variable_name);
 ---</seg>
       </tuv>
@@ -1172,10 +1214,34 @@ There are three mistakes (bugs) in this program.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>$(LI $(C amap): Calls functions with the elements of a $(C RandomAccessRange) fully-eagerly in parallel.)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T012754Z" creationid="Heromyth" creationdate="20170826T012754Z">
+        <seg>$(LI $(C amap)：以并行即时取值的方式对 $(C RandomAccessRange) 中的元素应用指定的函数。)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(LI $(C asyncBuf): Iterates the elements of an $(C InputRange) semi-eagerly in parallel.)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T012717Z" creationid="Heromyth" creationdate="20170826T012717Z">
+        <seg>$(LI $(C asyncBuf)：以并行半延时取值的方式迭代 $(C InputRange) 中的元素。)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>$(LI $(C catch) and $(C finally) cannot be used without a $(C try) block.)</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Hipter" changedate="20160707T022354Z" creationid="Hipter" creationdate="20160707T022354Z">
         <seg>$(LI 没有一个 $(C try) 块， $(C catch) 和 $(C finally) 不能使用。)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(LI $(C map): Calls functions with the elements of an $(C InputRange) semi-eagerly in parallel.)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T012737Z" creationid="Heromyth" creationdate="20170826T012737Z">
+        <seg>$(LI $(C map)：以并行半延时取值的方式对 $(C InputRange) 中的每一个元素应用指定的函数。)</seg>
       </tuv>
     </tu>
     <tu>
@@ -1188,10 +1254,26 @@ There are three mistakes (bugs) in this program.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>$(LI $(C parallel): Accesses the elements of a range in parallel.)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T012649Z" creationid="Heromyth" creationdate="20170826T012649Z">
+        <seg>$(LI $(C parallel)：并行访问 range 中的元素。)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>$(LI $(C receiveOnly()), $(C receive()), and $(C receiveTimeout()) wait for messages.)</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T140531Z" creationid="Heromyth" creationdate="20170825T140531Z">
         <seg>$(LI $(C receiveOnly())、$(C receive()) 和 $(C receiveTimeout()) 用于等待消息。)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(LI $(C reduce): Makes calculations over the elements of a $(C RandomAccessRange) in parallel.)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T012808Z" creationid="Heromyth" creationdate="20170826T012808Z">
+        <seg>$(LI $(C reduce)：使用指定的函数并行归约计算 $(C RandomAccessRange) 中的元素。)</seg>
       </tuv>
     </tu>
     <tu>
@@ -1258,6 +1340,14 @@ There are three mistakes (bugs) in this program.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T004459Z" creationid="Heromyth" creationdate="20170826T004459Z">
         <seg>$(LI $(C synchronized) 可防止其他线程在当前现成的操作执行到一半时横插一脚致使结果错误。)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(LI $(C task): Creates tasks that are executed in parallel.)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T012658Z" creationid="Heromyth" creationdate="20170826T012658Z">
+        <seg>$(LI $(C task)：创建并行执行的任务。)</seg>
       </tuv>
     </tu>
     <tu>
@@ -2179,6 +2269,16 @@ $(IX OOP) $(IX 面向对象编程) 与结构相似， $(C class) 具有定义新
     <tu>
       <tuv lang="EN-US">
         <seg>$(P
+$(IX Thread.sleep) To simulate long-lasting operations, the following examples call $(C Thread.sleep()) from the $(C core.thread) module.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T013149Z" creationid="Heromyth" creationdate="20170826T013041Z">
+        <seg>$(P
+$(IX Thread.sleep) 下面的例子使用了 $(C core.thread)  模块中的 $(C Thread.sleep()) 来模拟长耗时操作。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
 $(IX Variant, concurrency) $(C std.variant.Variant) is a type that can encapsulate any type of data.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T042428Z" creationid="Heromyth" creationdate="20170825T042428Z">
@@ -2211,6 +2311,16 @@ $(IX __traits) $(IX getAttributes) 属性的实际含义完全由程序员根据
     <tu>
       <tuv lang="EN-US">
         <seg>$(P
+$(IX core) Most modern microprocessors consist of more than one $(I core), each of which can operate as an individual processing unit.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T012532Z" creationid="Heromyth" creationdate="20170826T012532Z">
+        <seg>$(P
+$(IX core) 大多数现代微处理器架构都包含一个以上的$(I 核心)，而其中的每一个核心都可以作为单独的运算单元使用。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
 $(IX deadlock) The error can be explained by an example where one thread attempting to transfer money from account A to account to B while another thread attempting to transfer money in the reverse direction.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T001318Z" creationid="Heromyth" creationdate="20170826T001318Z">
@@ -2236,6 +2346,16 @@ $(IX finalizer versus destructor) However, different from structs, class destruc
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170819T134503Z" creationid="Heromyth" creationdate="20170819T134503Z">
         <seg>$(P
 $(IX finalizer versus destructor) 不过，与结构有所不同的是，类的析构函数在类对象的生命期结束时并不会被执行。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
+$(IX foreach, parallel) $(C parallel()) accesses the elements of a range in parallel.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T013644Z" creationid="Heromyth" creationdate="20170826T013644Z">
+        <seg>$(P
+$(IX foreach, parallel) $(C parallel()) 以并行的方式访问 range 中的元素。</seg>
       </tuv>
     </tu>
     <tu>
@@ -2348,6 +2468,18 @@ $(IX thread_joinAll) The $(C thread_joinAll()) call that is seen at the end of $
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T135734Z" creationid="Heromyth" creationdate="20170825T135734Z">
         <seg>$(P
 $(IX thread_joinAll) $(C main()) 末尾处的  $(C thread_joinAll()) 会阻塞所有者线程，等待所有工作线程终止。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
+$(IX totalCPUs) Before seeing how this is done, let's first determine the number of cores that are available on the system by $(C std.parallelism.totalCPUs):
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T013441Z" creationid="Heromyth" creationdate="20170826T013413Z">
+        <seg>$(P
+$(IX totalCPUs) 在了解实现方法之前，我们先来看下如何通过使用 $(C std.parallelism.totalCPUs) 来获取系统可用的处理器核心数：
+)</seg>
       </tuv>
     </tu>
     <tu>
@@ -2558,6 +2690,16 @@ Although the syntax makes it look as if a member of the $(I variable) is being a
     <tu>
       <tuv lang="EN-US">
         <seg>$(P
+Although these optimizations are effective, they cannot be applied automatically to layers higher than the very low-level operations.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T012917Z" creationid="Heromyth" creationdate="20170826T012917Z">
+        <seg>$(P
+虽然这些优化效果显著，但是它们通常只能自动应用在非常低级别的操作上。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
 Although these statements are closely related to exceptions, they can be used without a $(C try-catch) block.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Hipter" changedate="20160707T025855Z" creationid="Hipter" creationdate="20160707T025855Z">
@@ -2693,6 +2835,18 @@ Arrays provide convenience operations that apply to all of their elements.</seg>
       <tuv lang="ZH-CN" changeid="大处着手小处着眼" changedate="20160726T012802Z" creationid="大处着手小处着眼" creationdate="20160726T012802Z">
         <seg>$(P
 数组提供了适用于所有元素的方便操作。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
+As a result, passing the $(C Student) range through $(C parallel()) makes the program above finish in 1 second on a system that has 4 cores:
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T014155Z" creationid="Heromyth" creationdate="20170826T013909Z">
+        <seg>$(P
+最后，在一个有 4 核的系统上，将$(C Student) range 传递给 $(C parallel()) 可以使上面的程序在 1 秒之内完成：
+)</seg>
       </tuv>
     </tu>
     <tu>
@@ -3450,6 +3604,18 @@ If there is no other class variable that still provides access to the object tha
     <tu>
       <tuv lang="EN-US">
         <seg>$(P
+In a loop, the elements of a range are normally processed one after the other, operations of each element following the operations of previous elements:
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T012942Z" creationid="Heromyth" creationdate="20170826T012942Z">
+        <seg>$(P
+对于循环，range 中的元素通常是一个一个按顺序被处理的，即上一个循环的操作结束后才会进行下一次循环：
+)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
 In any case, keep in mind that the use of $(C dchar[]) and $(C dstring) does not solve all of the problems of manipulating Unicode characters.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="大处着手小处着眼" changedate="20160714T021458Z" creationid="大处着手小处着眼" creationdate="20160714T021458Z">
@@ -3517,6 +3683,28 @@ In the code above, $(C variable2) is being initialized by $(C variable1).</seg>
       <tuv lang="ZH-CN" changeid="Hipter" changedate="20160706T021450Z" creationid="Hipter" creationdate="20160706T021450Z">
         <seg>$(P
 在上面的代码中， $(C variable2) 由 $(C variable1) 初始化。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
+In the code above, we expect that the value of $(C i) is incremented before the value of $(C j) is incremented.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T012843Z" creationid="Heromyth" creationdate="20170826T012843Z">
+        <seg>$(P
+对于上面的代码我们认为 $(C i) 将在 $(C j) 之前自增 1。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
+In the programs that we have written so far we have been assuming that the expressions of a program are executed in a certain order, at least in general line-by-line:
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T012822Z" creationid="Heromyth" creationdate="20170826T012822Z">
+        <seg>$(P
+对于之前我们写过的程序，我们都假定程序中的表达式都是按照确定的顺序执行的，或者说至少通常情况下它们是顺序执行的。
+)</seg>
       </tuv>
     </tu>
     <tu>
@@ -3766,6 +3954,16 @@ Mutable variables that need to be shared must be defined with the $(C shared) ke
     <tu>
       <tuv lang="EN-US">
         <seg>$(P
+Normally, a program would be executed on one of the cores of the microprocessor, which has been assigned by the operating system to execute the program.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T012957Z" creationid="Heromyth" creationdate="20170826T012957Z">
+        <seg>$(P
+正常情况下程序将会在某个操作系统指派的用于运行程序的处理器核心上运行。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
 Note that since the lifetime of $(C i) is defined by the scope of $(C main()), it is important that $(C main()) does not terminate before the worker thread.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T235056Z" creationid="Heromyth" creationdate="20170825T235056Z">
@@ -4005,6 +4203,16 @@ Since the objects of $(C myKing) and $(C yourKing) variables are different, the 
       <tuv lang="ZH-CN" changeid="Hipter" changedate="20160707T015100Z" creationid="Hipter" creationdate="20160707T015100Z">
         <seg>$(P
 由于 $(C myKing) 和 $(C yourKing) 变量来自不同的对象，$(C !is) 运算符返回 $(C true)。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
+Since the students are iterated over in sequence and since the work of each student takes 1 second, the total execution time comes out to be 4 seconds.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T013351Z" creationid="Heromyth" creationdate="20170826T013351Z">
+        <seg>$(P
+如果处理每个学生需要花费 1 秒，那按照顺序迭代学生总共需要花费 4 秒。</seg>
       </tuv>
     </tu>
     <tu>
@@ -4518,6 +4726,18 @@ The exclamation mark appears after those characters instead of being printed rig
     <tu>
       <tuv lang="EN-US">
         <seg>$(P
+The execution time of the program can be measured in a terminal by $(C time):
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T013327Z" creationid="Heromyth" creationdate="20170826T013327Z">
+        <seg>$(P
+可以使用终端中的 $(C time) 来测量程序的执行时间。
+)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
 The fact that plain arrays provide access to their values through index numbers can be described as an $(I association) of indexes with values.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Hipter" changedate="20160711T023126Z" creationid="Hipter" creationdate="20160708T084434Z">
@@ -4868,6 +5088,18 @@ The output of one of the threads is highlighted:
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T055331Z" creationid="Heromyth" creationdate="20170824T055331Z">
         <seg>$(P
 其中一个线程的输出被高亮了：
+)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
+The output of the program in the environment that this chapter has been written is the following:
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T013459Z" creationid="Heromyth" creationdate="20170826T013459Z">
+        <seg>$(P
+在本章编写时使用的环境上运行上面的代码将会输出这样的结果：
 )</seg>
       </tuv>
     </tu>
@@ -5380,6 +5612,16 @@ This chapter covers only some of the features of arrays.</seg>
     <tu>
       <tuv lang="EN-US">
         <seg>$(P
+This chapter covers the following range algorithms.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T012609Z" creationid="Heromyth" creationdate="20170826T012609Z">
+        <seg>$(P
+本章涉及以下操作 range 的算法。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
 This chapter will introduce classes at a high level, underlining the fact that they are reference types.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170819T123555Z" creationid="Heromyth" creationdate="20170819T123555Z">
@@ -5415,6 +5657,16 @@ This function applies its template parameter to its two function parameters.</se
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T002942Z" creationid="Heromyth" creationdate="20170826T002942Z">
         <seg>$(P
 这个函数会将它的模版参数应用到两个函数参数上。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
+This function can also be called simply as $(C parallel()).</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T013532Z" creationid="Heromyth" creationdate="20170826T013532Z">
+        <seg>$(P
+还可以使用一种简单的方法使用这个函数：直接以 $(C parallel()) 的形式调用。</seg>
       </tuv>
     </tu>
     <tu>
@@ -5627,6 +5879,16 @@ We have defined five variables in one of the exercises of the last chapter, and 
       <tuv lang="ZH-CN" changeid="大处着手小处着眼" changedate="20160726T043538Z" creationid="大处着手小处着眼" creationdate="20160716T144940Z">
         <seg>$(P
 在上一章的一个练习中我们定义过五个变量，并用它们做过特定计算。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
+We have seen earlier in the $(LINK2 /ders/d.en/foreach_opapply.html, $(C foreach) for structs and classes chapter) that the expressions that are in $(C foreach) blocks are passed to $(C opApply()) member functions as delegates.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T013733Z" creationid="Heromyth" creationdate="20170826T013733Z">
+        <seg>$(P
+在之前 $(LINK2 /ders/d.cn/foreach_opapply.html, $(C foreach) 结构体和类) 一章中我们了解到： $(C foreach)  块中的表达式将会被包装成委托传递给对象的 $(C opApply()) 成员函数。</seg>
       </tuv>
     </tu>
     <tu>
@@ -6187,6 +6449,16 @@ Initializing per-program variable at 6B0120    $(SHELL_NOTE 只有一次)
 Initializing per-thread variable at 7FBDB36557D0
 Initializing per-thread variable at 7FBDB3554670
 )</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(SHELL
+There are 4 cores on this system.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T013622Z" creationid="Heromyth" creationdate="20170826T013521Z">
+        <seg>$(SHELL
+这个系统有 4 核。</seg>
       </tuv>
     </tu>
     <tu>
@@ -7233,6 +7505,14 @@ immutable int b;    // 所有线程共享</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>// Wait for a while to simulate a long-lasting operation</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T013311Z" creationid="Heromyth" creationdate="20170826T013311Z">
+        <seg>// 在此处暂停一会以模拟耗时长的操作</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>// Wait for all threads to finish their tasks</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T235226Z" creationid="Heromyth" creationdate="20170825T235226Z">
@@ -7617,6 +7897,14 @@ $(LI $(LINK2 /ders/d.cn/slices.html, 分片与其他数组功能) $(INDEX_KEYWOR
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Although that is semantically correct, it is rarely the case in reality: microprocessors and compilers use optimization techniques to have some variables reside in microprocessor's registers that are independent from each other.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T012854Z" creationid="Heromyth" creationdate="20170826T012854Z">
+        <seg>虽然从语义上看这种判断是正确的，但实际上我们预计的这种情况很少发生：微处理器和编译器使用的优化技术会将彼此独立的值储存在处理器寄存器中。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Although the two threads execute the same $(C swapper()) function, remember that the local variable $(C temp) is separate for each thread and it is independent from the other $(C temp) variables of other threads.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T235546Z" creationid="Heromyth" creationdate="20170825T235546Z">
@@ -7639,6 +7927,14 @@ $(LI $(LINK2 /ders/d.cn/slices.html, 分片与其他数组功能) $(INDEX_KEYWOR
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170818T143411Z" creationid="Hipter" creationdate="20160708T083910Z">
         <seg>一个存储一周当中每天的英文名称的数组可以定义下面这样：
 )</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>An effective usage is with $(C foreach) loops.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T013653Z" creationid="Heromyth" creationdate="20170826T013653Z">
+        <seg>它可以在 $(C foreach) 循环中起到非常大的作用。</seg>
       </tuv>
     </tu>
     <tu>
@@ -7729,6 +8025,14 @@ $(LI $(LINK2 /ders/d.cn/slices.html, 分片与其他数组功能) $(INDEX_KEYWOR
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T232153Z" creationid="Heromyth" creationdate="20170824T232153Z">
         <seg>基于对性能设计的考量，我们需要谨慎分析并确定线程的类型。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>As the $(C foreach) loop normally operates on elements one after the other, $(C aSlowOperation()) would be called for each student sequentially.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T013006Z" creationid="Heromyth" creationdate="20170826T013006Z">
+        <seg>因为 $(C foreach) 循环通常是顺序操作元素的，学生的 $(C aSlowOperation()) 也会被顺序调用。</seg>
       </tuv>
     </tu>
     <tu>
@@ -8183,6 +8487,14 @@ $(LI $(LINK2 http://dlang.org/phobos/index.html, $(IMG bullet_black.png) 标准�
       </tuv>
       <tuv lang="ZH-CN" changeid="Hipter" changedate="20160709T092617Z" creationid="Hipter" creationdate="20160709T092617Z">
         <seg>定义一个能存储每个学生的多个成绩的关联数组。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Despite being an unrealistic tool, it is still useful in this chapter to demonstrate the power of parallelism.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T013258Z" creationid="Heromyth" creationdate="20170826T013258Z">
+        <seg>虽然使用了一个和真实任务有差别的工具，但本章的示例还是能很好的展现出并行编程的威力。</seg>
       </tuv>
     </tu>
     <tu>
@@ -8697,6 +9009,22 @@ $(LINK2 /ders/d.cn/index.html,
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>However, if these operations were executed in an environment that had 4 cores, they could be operated on at the same time and the total time would be reduced to about 1 second.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T013448Z" creationid="Heromyth" creationdate="20170826T013400Z">
+        <seg>然而如果把这 4 个操作分配给 4 个核心执行，它们将会被同时处理。那么处理完这 4 个学生总共耗时 1 秒。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>However, in many cases it is not necessary for the operations of preceding students to be completed before starting the operations of successive students.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T013014Z" creationid="Heromyth" creationdate="20170826T013014Z">
+        <seg>然而大部分时候这种处理的顺序并不是必须的。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>However, that is almost never the case:
 )</seg>
       </tuv>
@@ -8771,6 +9099,14 @@ $(LINK2 /ders/d.cn/index.html,
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T232138Z" creationid="Heromyth" creationdate="20170824T232138Z">
         <seg>如果大部分线程都是 I/O 密集型的，那程序就不需要担心由于线程数多余核心数而造成的性能下降的问题。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>If the operations on the $(C Student) objects were truly independent, it would be wasteful to ignore the other microprocessor cores, which might potentially be waiting idle on the system.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T013027Z" creationid="Heromyth" creationdate="20170826T013027Z">
+        <seg>如果 $(C Student) 对象相互独立，不去使用那些可能处在空闲状态的微处理器核心是非常浪费的。</seg>
       </tuv>
     </tu>
     <tu>
@@ -9418,6 +9754,16 @@ LANGUAGE=chinese</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Merely importing the $(C std.parallelism) module and replacing $(C students) with $(C parallel(students)) in the program above is sufficient to take advantage of all of the cores of the system:
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T013706Z" creationid="Heromyth" creationdate="20170826T013706Z">
+        <seg>只需要导入 $(C std.parallelism) 模块并将上面代码中的 $(C students) 换为 $(C parallel(students)) 即可充分利用系统中全部核心的运算能力。
+)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Message passing normally involves more complicated communication in many kinds of programs.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T234629Z" creationid="Heromyth" creationdate="20170824T234629Z">
@@ -9564,6 +9910,14 @@ LANGUAGE=chinese</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T235928Z" creationid="Heromyth" creationdate="20170825T235912Z">
         <seg>一种解决方案是使用关键字 $(C synchronized) 标记公共代码以消除竞态条件。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Only the programmer can determine that certain high-level operations are independent and that they can be executed in parallel.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T012928Z" creationid="Heromyth" creationdate="20170826T012928Z">
+        <seg>只有程序员才能判断哪些高级别的操作是互相独立、可以并行化的。</seg>
       </tuv>
     </tu>
     <tu>
@@ -10032,6 +10386,14 @@ LANGUAGE=chinese</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>The features of the $(C std.parallelism) module make it possible for programs to take advantage of all of the cores in order to run faster.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T012554Z" creationid="Heromyth" creationdate="20170826T012554Z">
+        <seg>灵活使用模块 $(C std.parallelism) 中的功能来尽可能地利用所有核心的运算能力，使程序能以更快的速度运行。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>The first two are with the $(C while) loops: Both of the loop conditions use the $(C &lt;=) operator instead of the $(C &lt;) operator.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="大处着手小处着眼" changedate="20160726T084426Z" creationid="大处着手小处着眼" creationdate="20160726T031012Z">
@@ -10472,6 +10834,14 @@ LANGUAGE=chinese</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>These algorithms should be used only when the operations that are to be executed $(I in parallel) are truly independent from each other.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T012621Z" creationid="Heromyth" creationdate="20170826T012621Z">
+        <seg>只有当元素操作之间没有相互依赖时，它们才能被$(I 并行)执行。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>These languages have traditionally been used with an interpreter.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170820T004705Z" creationid="Heromyth" creationdate="20170820T004705Z">
@@ -10520,6 +10890,14 @@ LANGUAGE=chinese</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Hipter" changedate="20160711T233259Z" creationid="Hipter" creationdate="20160708T015014Z">
         <seg>它们是高速的数据结构，如迷你数据库一样地运作，在很多程序里都用到了。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>They can execute different parts of different programs at the same time.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T012542Z" creationid="Heromyth" creationdate="20170826T012542Z">
+        <seg>它们可在同时执行不同程序的不同片段。</seg>
       </tuv>
     </tu>
     <tu>
@@ -11050,6 +11428,14 @@ LANGUAGE=chinese</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>When that is the case, the microprocessor would execute operations like the increments above in parallel.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T012903Z" creationid="Heromyth" creationdate="20170826T012903Z">
+        <seg>当出现这种情况时，微处理器会并行处理上面那样的自增操作。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>When the length can change during the execution of the program, that array is a $(I dynamic array).</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="大处着手小处着眼" changedate="20160726T085342Z" creationid="大处着手小处着眼" creationdate="20160725T032258Z">
@@ -11362,6 +11748,22 @@ LANGUAGE=chinese</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T134901Z" creationid="Heromyth" creationdate="20170825T134901Z">
         <seg>ownerTid.send(42);    // ← 持续产生消息</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>real    0m4.005s    $(SHELL_NOTE 4 seconds total)
+user    0m0.004s
+sys     0m0.000s
+)
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T013339Z" creationid="Heromyth" creationdate="20170826T013339Z">
+        <seg>real    0m4.005s    $(SHELL_NOTE 共 4 秒)
+user    0m0.004s
+sys     0m0.000s
+)
+)</seg>
       </tuv>
     </tu>
     <tu>
