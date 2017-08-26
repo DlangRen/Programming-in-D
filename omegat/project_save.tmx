@@ -5330,6 +5330,16 @@ The output of the program lists the attributes of $(C Person.name):
     <tu>
       <tuv lang="EN-US">
         <seg>$(P
+The output of the program should be similar to the following.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T034211Z" creationid="Heromyth" creationdate="20170826T034211Z">
+        <seg>$(P
+程序的输出和下面这样差不多：</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
 The output of the program shows that the members have the correct color and that the $(C name) member is encrypted:
 )</seg>
       </tuv>
@@ -7149,6 +7159,22 @@ $(LI 左手侧的 $(C char[]) 是一个切片，这意味着，一旦代码编�
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>* completed, because it has been started by a regular</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T033611Z" creationid="Heromyth" creationdate="20170826T033611Z">
+        <seg>* 已经执行完成，因为它是一个常规</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>* completed.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T033858Z" creationid="Heromyth" creationdate="20170826T033858Z">
+        <seg>* 返回。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>* do calculations.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T024513Z" creationid="Heromyth" creationdate="20170826T024513Z">
@@ -7161,6 +7187,14 @@ $(LI 左手侧的 $(C char[]) 是一个切片，这意味着，一旦代码编�
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170815T115828Z" creationid="Heromyth" creationdate="20170815T115236Z">
         <seg>* 的那个符号。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>* function call, not as a task.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T033622Z" creationid="Heromyth" creationdate="20170826T033622Z">
+        <seg>* 函数调用，而不是 task。</seg>
       </tuv>
     </tu>
     <tu>
@@ -7195,6 +7229,14 @@ auto encrypted(string value) {</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T235342Z" creationid="Heromyth" creationdate="20170824T235342Z">
         <seg>* 八个方向中的一个，也可能是</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>* operations; it returns only when the task has been</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T033847Z" creationid="Heromyth" creationdate="20170826T033847Z">
+        <seg>* 操作，只有在任务完成时它才会</seg>
       </tuv>
     </tu>
     <tu>
@@ -7255,6 +7297,14 @@ auto encrypted(string value) {</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>* the task function, i.e. anOperation().</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T034154Z" creationid="Heromyth" creationdate="20170826T034154Z">
+        <seg>* 任务执行的函数的返回值，如 anOperation()。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>* the value type is int[], i.e. an array of ints.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Hipter" changedate="20160711T120729Z" creationid="Hipter" creationdate="20160711T014929Z">
@@ -7267,6 +7317,22 @@ auto encrypted(string value) {</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Hipter" changedate="20160711T021222Z" creationid="Hipter" creationdate="20160711T021222Z">
         <seg>* 将用于附加新成绩：*/</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>* whether 'theTask' has completed its operations</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T033755Z" creationid="Heromyth" creationdate="20170826T033755Z">
+        <seg>* ‘theTask’执行的操作是否已经</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>* yet.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T033812Z" creationid="Heromyth" creationdate="20170826T033812Z">
+        <seg>* 完成。</seg>
       </tuv>
     </tu>
     <tu>
@@ -7367,6 +7433,14 @@ immutable int b;    // 所有线程共享</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T135105Z" creationid="Heromyth" creationdate="20170825T135105Z">
         <seg>/* 无法发送消息；稍候会重新发送。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>/* On the other hand, it is not certain at this point</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T033643Z" creationid="Heromyth" creationdate="20170826T033643Z">
+        <seg>/* 另一方面，但在此处我们无法确定</seg>
       </tuv>
     </tu>
     <tu>
@@ -9939,6 +10013,14 @@ $(LINK2 /ders/d.cn/index.html,
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Its return value is the return value of</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T033903Z" creationid="Heromyth" creationdate="20170826T033903Z">
+        <seg>它的返回值即为</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Its three parameters specify the mailbox, the maximum number of messages that it can hold, and what should happen when the mailbox is full, in that order.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T134431Z" creationid="Heromyth" creationdate="20170825T134431Z">
@@ -10786,6 +10868,16 @@ LANGUAGE=chinese</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T014307Z" creationid="Heromyth" creationdate="20170826T014307Z">
         <seg>每个线程的执行都可能包含多轮启动和挂起。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>The fact that the $(C m) and $(C t) letters are printed in mixed order indicates that the operations are executed in parallel:
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T034325Z" creationid="Heromyth" creationdate="20170826T034325Z">
+        <seg>字符 $(C m) 和字符 $(C t) 无序的输出顺序表明这些操作是并行的：
+)</seg>
       </tuv>
     </tu>
     <tu>
@@ -12410,6 +12502,14 @@ sys     0m0.000s
         <seg>writeln(result.length);     // 输出 30
 }
 ---</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>yieldForce() waits for the task to complete its</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T033816Z" creationid="Heromyth" creationdate="20170826T033816Z">
+        <seg>yieldForce() 会等待 task 完成</seg>
       </tuv>
     </tu>
     <tu>
