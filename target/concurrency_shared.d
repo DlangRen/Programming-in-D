@@ -1,9 +1,9 @@
 Ddoc
 
-$(DERS_BOLUMU $(IX data sharing concurrency) $(IX concurrency, data sharing) 并发与数据共享)
+$(DERS_BOLUMU $(IX data sharing concurrency) $(IX concurrency, data sharing) 基于数据共享的并发)
 
 $(P
-在上一章中，我们使用消息传递实现线程间的信息共享。消息传递是并发中相对安全的概念，这点我们已经提到了多次。
+在上一章中，我们使用消息传递实现线程间的信息共享。前面章节已提到，消息传递是一种比较安全的并发方法。
 )
 
 $(P
