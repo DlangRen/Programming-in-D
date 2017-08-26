@@ -6686,9 +6686,9 @@ This chapter covers only some of the features of arrays.</seg>
         <seg>$(P
 This chapter covers the following range algorithms.</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T012609Z" creationid="Heromyth" creationdate="20170826T012609Z">
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T123849Z" creationid="Heromyth" creationdate="20170826T012609Z">
         <seg>$(P
-本章涉及以下操作 range 的算法。</seg>
+本章涉及以下操作范围的算法。</seg>
       </tuv>
     </tu>
     <tu>
@@ -13004,8 +13004,8 @@ LANGUAGE=chinese</seg>
       <tuv lang="EN-US">
         <seg>These algorithms should be used only when the operations that are to be executed $(I in parallel) are truly independent from each other.</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T012621Z" creationid="Heromyth" creationdate="20170826T012621Z">
-        <seg>只有当元素操作之间没有相互依赖时，它们才能被$(I 并行)执行。</seg>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T124259Z" creationid="Heromyth" creationdate="20170826T012621Z">
+        <seg>只有当元素操作之间没有相互依赖时，它们才能被 $(I 并行) 执行。</seg>
       </tuv>
     </tu>
     <tu>
