@@ -15,7 +15,7 @@ $(I 竞态条件)是数据共享不够安全的原因之一。当多个线程以
 )
 
 $(P
-本章中的例子看起来都很简单。但是在实际编程中它们代表的问题通常规模很大。除此之外，虽然本章的例子使用的都是 $(C std.concurrency) 模块，但它们所包含的概念同样适用于 $(C core.thread) 模块。
+本章中的例子看起来都很简单。但是在实际编程中它们代表的问题通常规模很大。此外，虽然本章的示例都在使用 $(C std.concurrency) 模块，但这些概念同样适用于 $(C core.thread) 模块。
 )
 
 $(H5 共享不是自动的)
@@ -48,7 +48,7 @@ void main() {
 ---
 
 $(P
-$(C worker()) 中修改的 $(C variable) 与 $(C main()) 访问的 $(C variable) 是不同的。这一点你可以从输出的变量值和地址看出来：
+$(C worker()) 修改的 $(C variable) 与 $(C main()) 访问的 $(C variable) 并不相同。从这些变量的值和地址输出可以看出来：
 )
 
 $(SHELL
@@ -104,7 +104,7 @@ __gshared int globallyShared;
 ---
 
 $(P
-这样的话，程序中只会有一 $(C globallyShared)，它会在所有线程间共享。在与像 C 和 C++ 这样默认自动数据共享的语言编写的库交互时，$(C __gshared) 是必须的。
+这样的话，程序中只会有一 $(C globallyShared)，它会在所有线程间共享。在与 C 和 C++ 这样的语言编写的库（它们默认自动共享数据）交互时，$(C __gshared) 必不可少。
 )
 
 $(H5 $(IX shared) 用 $(C shared) 在线程间共享数据))
@@ -322,7 +322,7 @@ $(P
 )
 
 $(P
-下面的例子包含两个独立的访问共享变量的代码块。程序会将同一个变量的地址传递给这两个函数，一个函数对其加 1，一个函数对其减 1，加减次数相同：
+下面的例子包含两个独立的访问共享变量的代码块。程序会将同一个变量的地址传递给这两个函数：一个函数将其加 1，一个函数将其减 1，加减次数相同：
 )
 
 ---
@@ -344,7 +344,7 @@ $(I $(B 注意：) 如果将上方的等式换成自增或自检（例如， $(C
 )
 
 $(P
-很可惜，直接使用 $(C synchronized) 并不能起到我们预期的效果，因为两个代码块的匿名锁是相互独立的。因此 ，这两块代码还是会同时访问那个变量：
+很可惜，直接使用 $(C synchronized) 并不能起到我们预期的效果，因为两个代码块的匿名锁是相互独立的。因此，这两块代码还是会同时访问那个变量：
 )
 
 ---
@@ -392,7 +392,7 @@ Final value: -672    $(SHELL_NOTE_WRONG 不是 0)
 )
 
 $(P
-为了能够给多个代码块套上同样的锁，你必须在 $(C synchronized) 后加一个圆括号并在其中指定锁对象：
+为了能够给多个代码块加上同一个锁，必须在 $(C synchronized) 后加一个圆括号，并在其中指定锁对象：
 )
 
 $(P
@@ -533,10 +533,10 @@ void transferMoney(shared BankAccount from,
 }
 ---
 
-$(H5 $(IX shared static this) $(IX static this, shared) $(IX shared static ~this) $(IX static ~this, shared) $(IX this, shared static) $(IX ~this, shared static) $(IX module constructor, shared)$(C shared static this()) 可用于单个初始化；$(C shared static ~this()) 可用于单个析构)
+$(H5 $(IX shared static this) $(IX static this, shared) $(IX shared static ~this) $(IX static ~this, shared) $(IX this, shared static) $(IX ~this, shared static) $(IX module constructor, shared)$(C shared static this()) 用于单次初始化；$(C shared static ~this()) 用于单次析构)
 
 $(P
-我们已经见到过 $(C static this())，它是用来初始化模块和模块中包含的变量的。由于默认情况下每个线程都会有一个数据的副本，$(C static this()) 需要在每个线程中执行一次来初始化对应线程中的模块级变量：
+我们已经见到过 $(C static this())，它是用来初始化模块和模块中包含的变量的。因为默认情况下数据都是本地线程所有，因此每个线程都必须执行一次 $(C static this())，以便为所有线程初始化模块级的变量：
 )
 
 ---
@@ -597,7 +597,7 @@ Initializing per-thread variable at 7FBDB3554670
 )
 
 $(P
-同样地，$(C shared static ~this()) 适用于结束操作——每个程序只会执行一次来释放资源。.
+同样地，$(C shared static ~this()) 适用于结束操作——每个程序只会执行一次来释放资源。
 )
 
 $(H5 $(IX atomic operation) 原子操作)
@@ -730,7 +730,7 @@ $(H5 小结)
 
 $(UL
 
-$(LI 如果线程相互独立，优先选择$(I 并行)。只有线程间有相互依赖的操作时再考虑 $(I 并发)。)
+$(LI 如果线程相互独立，优先选择$(I 并行)。只有在线程间有相互依赖的操作时才考虑 $(I 并发)。)
 
 $(LI 若要使用并发，优先选择上一章的 $(I 基于消息传递的并发) 模型。)
 
