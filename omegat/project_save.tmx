@@ -114,8 +114,8 @@ $(LI $(LINK2 /ders/d.cn/struct.html, 结构) $(INDEX_KEYWORDS struct .</seg>
       <tuv lang="EN-US">
         <seg>$(C OnCrowding.block) causes the sender to wait until there is room in the mailbox.</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T135024Z" creationid="Heromyth" creationdate="20170825T135024Z">
-        <seg>$(C OnCrowding.block) 会阻塞消息发送者的线程直到邮箱中有空闲空间。</seg>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170827T024621Z" creationid="Heromyth" creationdate="20170825T135024Z">
+        <seg>$(C OnCrowding.block) 会使得发送者线程等待，一直到邮箱中有足够空间为止。</seg>
       </tuv>
     </tu>
     <tu>
@@ -2915,9 +2915,9 @@ $(IX 标量) 这个定义可以理解为 $(I 5 个 double 值)。</seg>
         <seg>$(P
 $(IX setMaxMailboxSize) $(C setMaxMailboxSize()) is used for limiting the number of messages that a mailbox can hold.</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T134421Z" creationid="Heromyth" creationdate="20170825T134421Z">
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170827T023919Z" creationid="Heromyth" creationdate="20170825T134421Z">
         <seg>$(P
-$(IX setMaxMailboxSize) $(C setMaxMailboxSize()) 可以限制邮箱保存的消息数量。</seg>
+$(IX setMaxMailboxSize)$(C setMaxMailboxSize()) 可以限制邮箱保存的消息数量。</seg>
       </tuv>
     </tu>
     <tu>
@@ -3302,9 +3302,9 @@ Another method involves more than one thread reading from and writing to the sam
         <seg>$(P
 Another method would be to send the actual exception object itself to the owner.</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T051841Z" creationid="Heromyth" creationdate="20170825T051841Z">
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170827T023407Z" creationid="Heromyth" creationdate="20170825T051841Z">
         <seg>$(P
-另外一种方法是直接将将异常对象发送回所有者。</seg>
+另外一种方法是直接将异常对象发送回所有者。</seg>
       </tuv>
     </tu>
     <tu>
@@ -3762,9 +3762,9 @@ Because this time both $(C synchronized) blocks are connected by the same lock, 
         <seg>$(P
 Before seeing an example of $(C setMaxMailboxSize()), let's first cause a mailbox to grow continuously.</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T134800Z" creationid="Heromyth" creationdate="20170825T134800Z">
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170827T023949Z" creationid="Heromyth" creationdate="20170825T134800Z">
         <seg>$(P
-在接触 $(C setMaxMailboxSize()) 的例子之前，我们先来创建一个消息数量会持续增长的邮箱。</seg>
+在展示 $(C setMaxMailboxSize()) 示例之前，我们先来创建一个消息数量会持续增长的邮箱。</seg>
       </tuv>
     </tu>
     <tu>
@@ -6314,9 +6314,9 @@ The reason is that, the $(C ==) operator may need to consult the values of the m
         <seg>$(P
 The reason why the $(C shared) specifiers are necessary is explained in the next chapter.</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T051942Z" creationid="Heromyth" creationdate="20170825T051942Z">
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170827T023609Z" creationid="Heromyth" creationdate="20170825T051942Z">
         <seg>$(P
-我们会在下一章解释为什么此处必须使用 $(C shared) 说明符。</seg>
+下一章会解释为什么此处必须使用 $(C shared) 说明符。</seg>
       </tuv>
     </tu>
     <tu>
@@ -6716,9 +6716,9 @@ This exception can be received as a message as well.</seg>
         <seg>$(P
 This exception is thrown when receiving a message from the owner if the owner has been terminated.</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T052036Z" creationid="Heromyth" creationdate="20170825T052036Z">
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170827T023800Z" creationid="Heromyth" creationdate="20170825T052036Z">
         <seg>$(P
-如果所有者线程已被终止，工作线程在接收消息时就会抛出这个异常。</seg>
+如果所有者线程已被终止，工作线程在接收消息时会抛出这个异常。</seg>
       </tuv>
     </tu>
     <tu>
@@ -13427,8 +13427,8 @@ LANGUAGE=chinese</seg>
         <seg>To prevent that, the owner may limit the size of its mailbox before starting the worker:
 )</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T134940Z" creationid="Heromyth" creationdate="20170825T134940Z">
-        <seg>为了防止出现这样的情况，线程所有者会在启动工作线程前限制邮箱大小：
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170827T024437Z" creationid="Heromyth" creationdate="20170825T134940Z">
+        <seg>为了防止出现这种情况，所有者线程会在启动工作线程之前限制其邮箱的大小：
 )</seg>
       </tuv>
     </tu>
