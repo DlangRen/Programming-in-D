@@ -6091,9 +6091,9 @@ The output of the program indicates that first the calculations are performed in
 The output of the program indicates that the messages are handled by matching functions on the receiver's side:
 )</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T000358Z" creationid="Heromyth" creationdate="20170825T000358Z">
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170827T021002Z" creationid="Heromyth" creationdate="20170825T000358Z">
         <seg>$(P
-程序的输出表明了接收端的函数是如何匹配和处理消息的：
+程序的输出说明了接收端的函数是如何匹配和处理消息的：
 )</seg>
       </tuv>
     </tu>
@@ -12402,8 +12402,8 @@ LANGUAGE=chinese</seg>
       <tuv lang="EN-US">
         <seg>The delegate that matches the type of the particular message handles it.</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T235938Z" creationid="Heromyth" creationdate="20170824T235938Z">
-        <seg>如果委托参数的类型与消息类型相同，它就会把消息交由对应的委托处理。</seg>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170827T020307Z" creationid="Heromyth" creationdate="20170824T235938Z">
+        <seg>如果委托参数的类型与消息类型相同，则把消息交由对应的委托处理。</seg>
       </tuv>
     </tu>
     <tu>
@@ -13658,8 +13658,8 @@ LANGUAGE=chinese</seg>
       <tuv lang="EN-US">
         <seg>When a message arrives, it is compared to the message type of each delegate.</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T235924Z" creationid="Heromyth" creationdate="20170824T235924Z">
-        <seg>当它接收到消息时，它会比较消息类型与委托的参数类型。</seg>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170827T020143Z" creationid="Heromyth" creationdate="20170824T235924Z">
+        <seg>当接收到消息时，它会将消息类型与每个委托的类型进行比较。</seg>
       </tuv>
     </tu>
     <tu>
