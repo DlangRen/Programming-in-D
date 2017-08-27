@@ -1412,8 +1412,8 @@ There are three mistakes (bugs) in this program.</seg>
       <tuv lang="EN-US">
         <seg>$(LI $(C ownerTid) is the thread id of the owner of the current thread.)</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T140505Z" creationid="Heromyth" creationdate="20170825T140505Z">
-        <seg>$(LI $(C ownerTid) 为当前线程所有者的线程 ID。)</seg>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170827T024909Z" creationid="Heromyth" creationdate="20170825T140505Z">
+        <seg>$(LI $(C ownerTid) 为当前线程的所有者的 ID。)</seg>
       </tuv>
     </tu>
     <tu>
@@ -1534,8 +1534,8 @@ There are three mistakes (bugs) in this program.</seg>
       <tuv lang="EN-US">
         <seg>$(LI $(C thisTid) is the thread id of the current thread.)</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T135851Z" creationid="Heromyth" creationdate="20170825T135851Z">
-        <seg>$(LI $(C thisTid) 为当前线程的线程 ID。)</seg>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170827T024833Z" creationid="Heromyth" creationdate="20170825T135851Z">
+        <seg>$(LI $(C thisTid) 为当前线程的 ID。)</seg>
       </tuv>
     </tu>
     <tu>
@@ -1774,8 +1774,8 @@ There are three mistakes (bugs) in this program.</seg>
       <tuv lang="EN-US">
         <seg>$(LI Because concurrency by data sharing is hard to implement correctly, prefer concurrency by message passing, which is the subject of this chapter.)</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T135826Z" creationid="Heromyth" creationdate="20170825T135826Z">
-        <seg>$(LI 基于数据共享的并行难以编写出正确的代码，所以推荐使用本章讲解的消息传递并行。)</seg>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170827T025118Z" creationid="Heromyth" creationdate="20170825T135826Z">
+        <seg>$(LI 基于数据共享的并发难以正确实现，因此推荐使用本章讲解的基于消息传递的并发。)</seg>
       </tuv>
     </tu>
     <tu>
@@ -1966,8 +1966,8 @@ There are three mistakes (bugs) in this program.</seg>
       <tuv lang="EN-US">
         <seg>$(LI The owner cannot automatically catch exceptions that are thrown from the worker.)</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T140819Z" creationid="Heromyth" creationdate="20170825T140819Z">
-        <seg>$(LI 所有者无法自动捕获工作线程中的异常。)</seg>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170827T025143Z" creationid="Heromyth" creationdate="20170825T140819Z">
+        <seg>$(LI 所有者线程无法自动捕获工作线程中的异常。)</seg>
       </tuv>
     </tu>
     <tu>
@@ -2058,8 +2058,8 @@ There are three mistakes (bugs) in this program.</seg>
       <tuv lang="EN-US">
         <seg>$(LI When threads do not depend on other threads, prefer $(I parallelism), which has been the topic of the previous chapter.</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T135802Z" creationid="Heromyth" creationdate="20170825T135802Z">
-        <seg>$(LI 如果线程相互独立，推荐使用上一章的 $(I parallelism)。</seg>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170827T025613Z" creationid="Heromyth" creationdate="20170825T135802Z">
+        <seg>$(LI 如果线程间相互独立，推荐使用上一章的 $(I 并行)。</seg>
       </tuv>
     </tu>
     <tu>
@@ -2473,9 +2473,9 @@ $(C thisTid()) 返回$(I 当前)线程的 ID。</seg>
         <seg>$(P
 $(C variable) that is modified inside $(C worker()) is not the same $(C variable) that is seen by $(C main()).</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T144845Z" creationid="Heromyth" creationdate="20170825T144845Z">
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170827T030104Z" creationid="Heromyth" creationdate="20170825T144845Z">
         <seg>$(P
-$(C worker()) 中修改的 $(C variable) 与 $(C main()) 访问的 $(C variable) 是不同的。</seg>
+$(C worker()) 修改的 $(C variable) 与 $(C main()) 访问的 $(C variable) 并不相同。</seg>
       </tuv>
     </tu>
     <tu>
@@ -9469,8 +9469,8 @@ $(LI $(LINK2 /ders/d.cn/slices.html, 分片与其他数组功能) $(INDEX_KEYWOR
       <tuv lang="EN-US">
         <seg>Also, although these examples use the $(C std.concurrency) module, the concepts of this chapter apply to the $(C core.thread) module as well.</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T143811Z" creationid="Heromyth" creationdate="20170825T143811Z">
-        <seg>除此之外，虽然本章的例子使用的都是 $(C std.concurrency) 模块，但它们所包含的概念同样适用于 $(C core.thread) 模块。</seg>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170827T030015Z" creationid="Heromyth" creationdate="20170825T143811Z">
+        <seg>此外，虽然本章的示例都在使用 $(C std.concurrency) 模块，但这些概念同样适用于 $(C core.thread) 模块。</seg>
       </tuv>
     </tu>
     <tu>
@@ -9973,8 +9973,8 @@ COZUMLER_METIN=答案</seg>
       <tuv lang="EN-US">
         <seg>Consider $(I concurrency) only when threads depend on operations of other threads.)</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T004332Z" creationid="Heromyth" creationdate="20170825T135814Z">
-        <seg>只有线程间有相互依赖的操作时再考虑 $(I 并发)。)</seg>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170827T025215Z" creationid="Heromyth" creationdate="20170825T135814Z">
+        <seg>只有在线程间有相互依赖的操作时才考虑 $(I 并发)。)</seg>
       </tuv>
     </tu>
     <tu>
@@ -13436,8 +13436,8 @@ LANGUAGE=chinese</seg>
       <tuv lang="EN-US">
         <seg>To reduce this complexity, it is possible to assign names to threads, which are globally accessible from any thread.</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T135258Z" creationid="Heromyth" creationdate="20170825T135258Z">
-        <seg>为了降低这种复杂度，我们可以为线程命名。所有线程都可以通过线程名访问这个线程。</seg>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170827T024819Z" creationid="Heromyth" creationdate="20170825T135258Z">
+        <seg>为了降低复杂度，可以为线程分配一个命名——所有线程都可以通过名字访问该线程。</seg>
       </tuv>
     </tu>
     <tu>
