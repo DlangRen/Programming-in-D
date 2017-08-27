@@ -560,8 +560,8 @@ $(LI $(LINK2 /ders/d.cn/struct.html, 结构) $(INDEX_KEYWORDS struct .</seg>
       <tuv lang="EN-US">
         <seg>$(H5 $(IX shared static this) $(IX static this, shared) $(IX shared static ~this) $(IX static ~this, shared) $(IX this, shared static) $(IX ~this, shared static) $(IX module constructor, shared) $(C shared static this()) for single initialization and $(C shared static ~this()) for single finalization)</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T002306Z" creationid="Heromyth" creationdate="20170826T002306Z">
-        <seg>$(H5 $(IX shared static this) $(IX static this, shared) $(IX shared static ~this) $(IX static ~this, shared) $(IX this, shared static) $(IX ~this, shared static) $(IX module constructor, shared)$(C shared static this()) 可用于单个初始化；$(C shared static ~this()) 可用于单个析构)</seg>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170827T044006Z" creationid="Heromyth" creationdate="20170826T002306Z">
+        <seg>$(H5 $(IX shared static this) $(IX static this, shared) $(IX shared static ~this) $(IX static ~this, shared) $(IX this, shared static) $(IX ~this, shared static) $(IX module constructor, shared)$(C shared static this()) 用于单次初始化；$(C shared static ~this()) 用于单次析构)</seg>
       </tuv>
     </tu>
     <tu>
@@ -4069,9 +4069,9 @@ For example, when the following numbers are entered,
 For more than one block to use the same lock or locks, the lock objects must be specified within the $(C synchronized) parentheses:
 )</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T000701Z" creationid="Heromyth" creationdate="20170826T000701Z">
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170827T043455Z" creationid="Heromyth" creationdate="20170826T000701Z">
         <seg>$(P
-为了能够给多个代码块套上同样的锁，你必须在 $(C synchronized) 后加一个圆括号并在其中指定锁对象：
+为了能够给多个代码块加上同一个锁，必须在 $(C synchronized) 后加一个圆括号，并在其中指定锁对象：
 )</seg>
       </tuv>
     </tu>
@@ -4930,9 +4930,9 @@ Similarly, $(C char[]) cannot be used where a $(C string) is needed.</seg>
         <seg>$(P
 Similarly, $(C shared static ~this()) is for final operations that must be executed only once per program.</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T002817Z" creationid="Heromyth" creationdate="20170826T002817Z">
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170827T044050Z" creationid="Heromyth" creationdate="20170826T002817Z">
         <seg>$(P
-同样地，$(C shared static ~this()) 适用于结束操作——每个程序只会执行一次来释放资源。.</seg>
+同样地，$(C shared static ~this()) 适用于结束操作——每个程序只会执行一次来释放资源。</seg>
       </tuv>
     </tu>
     <tu>
@@ -9806,8 +9806,8 @@ $(LI $(LINK2 /ders/d.cn/slices.html, 分片与其他数组功能) $(INDEX_KEYWOR
         <seg>Because data is thread-local by default, $(C static this()) must be executed by every thread so that module-level variables are initialized for all threads:
 )</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T002330Z" creationid="Heromyth" creationdate="20170826T002330Z">
-        <seg>由于默认情况下每个线程都会有一个数据的副本，$(C static this()) 需要在每个线程中执行一次来初始化对应线程中的模块级变量：
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170827T043938Z" creationid="Heromyth" creationdate="20170826T002330Z">
+        <seg>因为默认情况下数据都是本地线程所有，因此每个线程都必须执行一次 $(C static this())，以便为所有线程初始化模块级的变量：
 )</seg>
       </tuv>
     </tu>
