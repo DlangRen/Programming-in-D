@@ -2307,9 +2307,9 @@ $(C readln()) 也存储换行符。</seg>
         <seg>$(P
 $(C receiveOnly()) can expect only one type of message.</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T235822Z" creationid="Heromyth" creationdate="20170824T235822Z">
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170827T020011Z" creationid="Heromyth" creationdate="20170824T235822Z">
         <seg>$(P
-$(C receiveOnly()) 只能接收指定的那一个类型的消息。</seg>
+$(C receiveOnly()) 只能接收一种类型的消息。</seg>
       </tuv>
     </tu>
     <tu>
@@ -2678,9 +2678,9 @@ $(IX CPU) $(IX microprocessor) 计算机的大脑是微处理器（CPU，即 $(I
 $(IX MessageMismatch) If the types do not match, a $(C MessageMismatch) exception is thrown:
 )</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T233608Z" creationid="Heromyth" creationdate="20170824T233608Z">
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170827T015951Z" creationid="Heromyth" creationdate="20170824T233608Z">
         <seg>$(P
-$(IX MessageMismatch) 如果类型不匹配，程序将会抛出一个 $(C MessageMismatch) 异常：
+$(IX MessageMismatch) 如果类型不匹配，则程序将会抛出一个 $(C MessageMismatch) 异常：
 )</seg>
       </tuv>
     </tu>
@@ -4488,9 +4488,9 @@ It is possible to define variables with the $(C auto) keyword, which we will see
         <seg>$(P
 It is possible to send more than one value as a part of the same message.</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T233324Z" creationid="Heromyth" creationdate="20170824T233324Z">
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170827T015327Z" creationid="Heromyth" creationdate="20170824T233324Z">
         <seg>$(P
-也可以在一次消息中发送多个值，这些值都会成为这次消息的一部分。</seg>
+也可以在消息中一次发送多个值，这些值都会成为同一消息的一部分。</seg>
       </tuv>
     </tu>
     <tu>
@@ -6952,9 +6952,9 @@ Using the assignment operator is sufficient to build the association between a k
         <seg>$(P
 Values that are passed as parts of a single message appear as a tuple on the receiver's side.</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T233401Z" creationid="Heromyth" creationdate="20170824T233401Z">
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170827T015551Z" creationid="Heromyth" creationdate="20170824T233401Z">
         <seg>$(P
-如果在一次消息中传递多个值的话，接收者会将它们看作一个 tuple。</seg>
+如果在一次消息中传递多个值的话，接收者会将它们看作一个元组。</seg>
       </tuv>
     </tu>
     <tu>
@@ -11052,8 +11052,8 @@ $(LINK2 /ders/d.cn/index.html,
         <seg>In such cases the template parameters of $(C receiveOnly()) must match the types of the tuple members:
 )</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T233435Z" creationid="Heromyth" creationdate="20170824T233435Z">
-        <seg>此时，$(C receiveOnly()) 的模版参数的类型要与每一个 tuple 成员的类型对应：
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170827T015646Z" creationid="Heromyth" creationdate="20170824T233435Z">
+        <seg>此时，$(C receiveOnly()) 的模版参数的类型要与每一个元组成员的类型对应：
 )</seg>
       </tuv>
     </tu>
@@ -11231,8 +11231,8 @@ $(LINK2 /ders/d.cn/index.html,
       <tuv lang="EN-US">
         <seg>It dispatches messages to message handling delegates.</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T235908Z" creationid="Heromyth" creationdate="20170824T235908Z">
-        <seg>它通过消息处理委托来处理消息。</seg>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170827T020058Z" creationid="Heromyth" creationdate="20170824T235908Z">
+        <seg>它会把这些消息分发给各个消息处理委托。</seg>
       </tuv>
     </tu>
     <tu>
@@ -12900,8 +12900,8 @@ LANGUAGE=chinese</seg>
       <tuv lang="EN-US">
         <seg>The threads continue sending messages back and forth until the owner sends a negative $(C int).</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T233003Z" creationid="Heromyth" creationdate="20170824T233003Z">
-        <seg>工作线程会不停地返回消息直到线程所有者发送一个负的 $(C int)。</seg>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170827T014838Z" creationid="Heromyth" creationdate="20170824T233003Z">
+        <seg>工作线程会不停地返回消息，一直到所有者线程发送一个 $(C int) 型的负数为止。</seg>
       </tuv>
     </tu>
     <tu>
@@ -13285,8 +13285,8 @@ LANGUAGE=chinese</seg>
         <seg>This is the owner thread:
 )</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T233119Z" creationid="Heromyth" creationdate="20170824T233119Z">
-        <seg>这个就是所有者线程，如下所示：
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170827T015230Z" creationid="Heromyth" creationdate="20170824T233119Z">
+        <seg>下面是所有者线程：
 )</seg>
       </tuv>
     </tu>
