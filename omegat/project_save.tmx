@@ -2351,9 +2351,9 @@ $(C scope) 语句也可以像块一样使用：
         <seg>$(P
 $(C send()) sends messages and $(C receiveOnly()) waits for a message of a particular type.</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T232755Z" creationid="Heromyth" creationdate="20170824T232755Z">
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170827T013958Z" creationid="Heromyth" creationdate="20170824T232755Z">
         <seg>$(P
-D 语言使用 $(C send()) 发送消息，使用 $(C receiveOnly()) 等待指定类型的消息。</seg>
+$(C send()) 可用于发送消息，而 $(C receiveOnly()) 可用于等待待定类型的消息。</seg>
       </tuv>
     </tu>
     <tu>
@@ -6194,9 +6194,9 @@ The owner can catch the exception to do something special like terminating grace
         <seg>$(P
 The owner in the following program sends its worker a message of type $(C int) and waits for a message from the worker of type $(C double).</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T232941Z" creationid="Heromyth" creationdate="20170824T232941Z">
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170827T014656Z" creationid="Heromyth" creationdate="20170824T232941Z">
         <seg>$(P
-下面这个程序中，线程所有者会向工作线程发送 $(C int) 类型的消息并等待工作线程返回 $(C double) 类型的消息。</seg>
+在下面程序里，所有者线程会向工作线程发送 $(C int) 类型的消息，并等待工作线程返回 $(C double) 类型的消息。</seg>
       </tuv>
     </tu>
     <tu>
@@ -8222,8 +8222,8 @@ $(LI $(LINK2 /ders/d.cn/logical_expressions.html, 逻辑表达式) $(INDEX_KEYWO
         <seg>(There is also $(C prioritySend()), $(C receive()), and $(C receiveTimeout()), which will be explained later below.)
 )</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T232913Z" creationid="Heromyth" creationdate="20170824T232913Z">
-        <seg>除了它们，标准库还提供了其他实用函数，像 $(C prioritySend())、$(C receive())、$(C receiveTimeout()) 。后面章节会对它们进行解释。
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170827T014333Z" creationid="Heromyth" creationdate="20170824T232913Z">
+        <seg>（此外还有 $(C prioritySend())、$(C receive()) 和 $(C receiveTimeout()) ——在后面章节介绍它们。）
 )</seg>
       </tuv>
     </tu>
