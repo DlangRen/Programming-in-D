@@ -2361,9 +2361,9 @@ D 语言使用 $(C send()) 发送消息，使用 $(C receiveOnly()) 等待指定
         <seg>$(P
 $(C spawn()) takes a function pointer as a parameter and starts a new thread from that function.</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T054244Z" creationid="Heromyth" creationdate="20170824T054244Z">
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170827T001948Z" creationid="Heromyth" creationdate="20170824T054244Z">
         <seg>$(P
-$(C spawn()) 需要一个函数指针，新线程将会从指定的函数启动。</seg>
+$(C spawn()) 需要一个函数指针作为参数，并且会从该函数启动一个新线程。</seg>
       </tuv>
     </tu>
     <tu>
@@ -2873,9 +2873,9 @@ $(IX message) $(B 消息)：在线程间传递的数据叫做消息。</seg>
         <seg>$(P
 $(IX owner) $(B Owner): Any thread that starts another thread is called the owner of the new thread.</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T054156Z" creationid="Heromyth" creationdate="20170824T054156Z">
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170827T001433Z" creationid="Heromyth" creationdate="20170824T054156Z">
         <seg>$(P
-$(IX owner) $(B 所有者)：启动线程的线程即为被启动线程的所有者。</seg>
+$(IX owner) $(B 所有者)：任何启动另一个线程的线程即为该新线程的所有者。</seg>
       </tuv>
     </tu>
     <tu>
@@ -2935,9 +2935,9 @@ $(IX task) $(IX executeInNewThread) $(IX yieldForce) 当任务无法与范围元
         <seg>$(P
 $(IX thread id) $(B Thread identifier): Every thread has an id, which is used for specifying recipients of messages.</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T054136Z" creationid="Heromyth" creationdate="20170824T054136Z">
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170827T001343Z" creationid="Heromyth" creationdate="20170824T054136Z">
         <seg>$(P
-$(IX thread id) $(B 线程 ID)：每一个线程都有一个 ID，你可以使用它们指定消息的接收者。</seg>
+$(IX thread id) $(B 线程 ID)：每个线程都有一个 ID，你可以用它来指定消息的接收者。</seg>
       </tuv>
     </tu>
     <tu>
@@ -2987,9 +2987,9 @@ $(IX totalCPUs) 在了解实现方法之前，我们先来看下如何通过使�
         <seg>$(P
 $(IX worker) $(B Worker): Any thread that is started by an owner is called a worker.</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T054216Z" creationid="Heromyth" creationdate="20170824T054216Z">
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170827T001831Z" creationid="Heromyth" creationdate="20170824T054216Z">
         <seg>$(P
-$(IX worker) $(B 工作线程)：被所有者启动的线叫做工作线程。</seg>
+$(IX worker) $(B 工作线程)：由所有者启动的任何线种都叫做工作线程。</seg>
       </tuv>
     </tu>
     <tu>
@@ -6226,9 +6226,9 @@ The owner simply waits for these messages in an infinite loop.</seg>
         <seg>$(P
 The parameters that the thread function takes are passed to $(C spawn()) as its second and later arguments.</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T055237Z" creationid="Heromyth" creationdate="20170824T055237Z">
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170827T002512Z" creationid="Heromyth" creationdate="20170824T055237Z">
         <seg>$(P
-线程函数需要的参数应通过 $(C spawn()) 的二个参数传入。</seg>
+线程函数所需的参数可以通过 $(C spawn()) 的第二个及以后面的参数传入。</seg>
       </tuv>
     </tu>
     <tu>
@@ -9571,8 +9571,8 @@ $(LI $(LINK2 /ders/d.cn/slices.html, 分片与其他数组功能) $(INDEX_KEYWOR
       <tuv lang="EN-US">
         <seg>Any operations that are carried out by that function, including other functions that it may call, would be executed on the new thread.</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T054254Z" creationid="Heromyth" creationdate="20170824T054254Z">
-        <seg>函数中进行的包括函数调用在内的所有操作都将在新线程中执行。</seg>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170827T002357Z" creationid="Heromyth" creationdate="20170824T054254Z">
+        <seg>该函数（包括它可能调用的其他函数）包含的所有操作都会在新线程中执行。</seg>
       </tuv>
     </tu>
     <tu>
