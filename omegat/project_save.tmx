@@ -2657,9 +2657,9 @@ $(IX @)自定义属性的语法格式：符号 $(C @)  的后面紧跟属性名�
         <seg>$(P
 $(IX CPU bound) $(IX I/O bound) $(IX thread performance) Every operating system puts limits on the number of threads that can exist at one time.</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T231837Z" creationid="Heromyth" creationdate="20170824T231837Z">
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170827T002717Z" creationid="Heromyth" creationdate="20170824T231837Z">
         <seg>$(P
-$(IX CPU bound) $(IX I/O bound) $(IX thread performance) 每个操作系统都有对同时运行线程个数的限制。</seg>
+$(IX CPU bound) $(IX I/O bound) $(IX thread performance) 每个操作系统都会限制线程同时运行的个数。</seg>
       </tuv>
     </tu>
     <tu>
@@ -3904,9 +3904,9 @@ Consequently, when it is only a binary operation that needs to be synchronized, 
         <seg>$(P
 Conversely, the owner of a worker thread is obtained by the $(C ownerTid()) function.</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T232630Z" creationid="Heromyth" creationdate="20170824T232630Z">
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170827T013900Z" creationid="Heromyth" creationdate="20170824T232630Z">
         <seg>$(P
-与之相对的是在工作线程中使用 $(C ownerTid()) 获取其所有者的 ID。</seg>
+相应地，使用 $(C ownerTid()) 可以获得工作线程的所有者的 ID。</seg>
       </tuv>
     </tu>
     <tu>
@@ -6346,9 +6346,9 @@ The results can also be stored in a $(C RandomAccessRange) that is passed to $(C
         <seg>$(P
 The return type of $(C thisTid()) is $(C Tid), which has no significance for the program.</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T232512Z" creationid="Heromyth" creationdate="20170824T232512Z">
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170827T003240Z" creationid="Heromyth" creationdate="20170824T232512Z">
         <seg>$(P
-$(C thisTid()) 返回的类型为 $(C Tid)，它对这个程序没有什么作用。</seg>
+$(C thisTid()) 返回的类型为 $(C Tid)，它对程序没有意义。</seg>
       </tuv>
     </tu>
     <tu>
@@ -7802,6 +7802,20 @@ Initializing per-thread variable at 7FBDB3554670
 Initializing per-program variable at 6B0120    $(SHELL_NOTE 只有一次)
 Initializing per-thread variable at 7FBDB36557D0
 Initializing per-thread variable at 7FBDB3554670
+)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(SHELL
+Owner : Tid(std.concurrency.MessageBox)
+Worker: Tid(std.concurrency.MessageBox)
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170827T003557Z" creationid="Heromyth" creationdate="20170827T003557Z">
+        <seg>$(SHELL
+Owner : Tid(22310e53100)
+Worker: Tid(22310e53000)
 )</seg>
       </tuv>
     </tu>
@@ -9647,8 +9661,8 @@ $(LI $(LINK2 /ders/d.cn/slices.html, 分片与其他数组功能) $(INDEX_KEYWOR
       <tuv lang="EN-US">
         <seg>As it should be in every design decision that concerns program performance, one must take actual measurements to be exactly sure whether that really is the case.</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T232153Z" creationid="Heromyth" creationdate="20170824T232153Z">
-        <seg>基于对性能设计的考量，我们需要谨慎分析并确定线程的类型。</seg>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170827T003112Z" creationid="Heromyth" creationdate="20170824T232153Z">
+        <seg>出于性能设计的考量，我们需要谨慎分析并确定线程的类型。</seg>
       </tuv>
     </tu>
     <tu>
@@ -10202,8 +10216,8 @@ $(LI $(LINK2 http://dlang.org/phobos/index.html, $(IMG bullet_black.png) 标准�
         <seg>Even its $(C toString()) function is not overloaded:
 )</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T232544Z" creationid="Heromyth" creationdate="20170824T232544Z">
-        <seg>它甚至连 $(C toString()) 都没重载：
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170827T003440Z" creationid="Heromyth" creationdate="20170824T232544Z">
+        <seg>它甚至没重载 $(C toString())：
 )</seg>
       </tuv>
     </tu>
@@ -10863,8 +10877,8 @@ $(LINK2 /ders/d.cn/index.html,
       <tuv lang="EN-US">
         <seg>If the majority of its threads are I/O bound, then a program can afford to start more threads than the number of cores without any degradation of performance.</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T232138Z" creationid="Heromyth" creationdate="20170824T232138Z">
-        <seg>如果大部分线程都是 I/O 密集型的，那程序就不需要担心由于线程数多余核心数而造成的性能下降的问题。</seg>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170827T003009Z" creationid="Heromyth" creationdate="20170824T232138Z">
+        <seg>如果大部分线程都是 I/O 密集型的，那么程序不需要担心由于线程数超过内核数而造成性能下降的问题。</seg>
       </tuv>
     </tu>
     <tu>
@@ -12694,8 +12708,8 @@ LANGUAGE=chinese</seg>
       <tuv lang="EN-US">
         <seg>The overall performance of the system can be reduced if there are more threads that are busily working than the number of cores in the system.</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T232021Z" creationid="Heromyth" creationdate="20170824T232021Z">
-        <seg>如果忙碌的工作线程数量比系统中处理器核心数多，系统的整体性能就有可能下降。</seg>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170827T002913Z" creationid="Heromyth" creationdate="20170824T232021Z">
+        <seg>如果处于忙碌中的工作线程的数量超过系统内核的数量，那么系统的整体性能有可能下降。</seg>
       </tuv>
     </tu>
     <tu>
@@ -12912,8 +12926,8 @@ LANGUAGE=chinese</seg>
       <tuv lang="EN-US">
         <seg>The two worker threads in the following program print four numbers each.</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T055246Z" creationid="Heromyth" creationdate="20170824T055246Z">
-        <seg>下面程序中的两个工作线程分别打印四个数字。</seg>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170827T002637Z" creationid="Heromyth" creationdate="20170824T055246Z">
+        <seg>下面程序中的两个工作线程分别输出四个数字。</seg>
       </tuv>
     </tu>
     <tu>
