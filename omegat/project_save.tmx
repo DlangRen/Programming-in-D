@@ -13207,8 +13207,8 @@ LANGUAGE=chinese</seg>
         <seg>This fact can be observed by printing both the values and the addresses of the variables:
 )</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T145046Z" creationid="Heromyth" creationdate="20170825T145046Z">
-        <seg>这一点你可以从输出的变量值和地址看出来：
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170827T042057Z" creationid="Heromyth" creationdate="20170825T145046Z">
+        <seg>从这些变量的值和地址输出可以看出来：
 )</seg>
       </tuv>
     </tu>
