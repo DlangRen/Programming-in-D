@@ -2433,9 +2433,9 @@ $(C std.concurrency) 并未提供这种捕获异常的方法。</seg>
         <seg>$(P
 $(C taskPool) contains appropriate number of tasks depending on the environment that the program runs under.</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T090259Z" creationid="Heromyth" creationdate="20170826T090224Z">
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170827T142150Z" creationid="Heromyth" creationdate="20170826T090224Z">
         <seg>$(P
-$(C taskPool) 包含的 task 的个数取决于程序运行的环境。</seg>
+$(C taskPool) 需要容纳的任务总数取决于程序运行的具体环境。</seg>
       </tuv>
     </tu>
     <tu>
@@ -3772,9 +3772,9 @@ Before seeing an example of $(C setMaxMailboxSize()), let's first cause a mailbo
         <seg>$(P
 Behind the scenes, the parallel algorithms from the $(C std.parallelism) module all use task objects that are elements of a $(C TaskPool) container.</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T090201Z" creationid="Heromyth" creationdate="20170826T090201Z">
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170827T141926Z" creationid="Heromyth" creationdate="20170826T090201Z">
         <seg>$(P
-当我们享受 $(C std.parallelism) 模块带来的便利时，标准库在后台默默地维护着 $(C TaskPool) 容器中的任务对象。</seg>
+在这些场景的背后，源自 $(C std.parallelism) 模块的所有并行算法使用的任务对象都是 $(C TaskPool) 容器里的元素。</seg>
       </tuv>
     </tu>
     <tu>
@@ -10225,8 +10225,8 @@ $(LI $(LINK2 http://dlang.org/phobos/index.html, $(IMG bullet_black.png) 标准�
       <tuv lang="EN-US">
         <seg>Even so, explicit $(C TaskPool) objects may be created and used as needed.</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T090241Z" creationid="Heromyth" creationdate="20170826T090241Z">
-        <seg>即便如此我们还是可以在需要的时候显示创建 $(C TaskPool) 对象。</seg>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170827T142257Z" creationid="Heromyth" creationdate="20170826T090241Z">
+        <seg>即便如此，也可以在需要的时候显示创建和使用 $(C TaskPool) 对象。</seg>
       </tuv>
     </tu>
     <tu>
@@ -10631,8 +10631,8 @@ $(LI $(LINK2 http://dlang.org/phobos/index.html, $(IMG bullet_black.png) 标准�
       <tuv lang="EN-US">
         <seg>For that reason, usually there is no need to create any other $(C TaskPool) object.</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T090302Z" creationid="Heromyth" creationdate="20170826T090232Z">
-        <seg>因此通常我们不需要手动创建 $(C TaskPool) 对象。</seg>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170827T142224Z" creationid="Heromyth" creationdate="20170826T090232Z">
+        <seg>因此，通常不需要创建其他的 $(C TaskPool) 对象。</seg>
       </tuv>
     </tu>
     <tu>
@@ -11740,8 +11740,8 @@ LANGUAGE=chinese</seg>
       <tuv lang="EN-US">
         <seg>Normally, all of the algorithms use the same container object named $(C taskPool).</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T090211Z" creationid="Heromyth" creationdate="20170826T090211Z">
-        <seg>正常情况下，所有算法使用的都是一个容器，即 $(C taskPool)。</seg>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170827T142019Z" creationid="Heromyth" creationdate="20170826T090211Z">
+        <seg>一般情况下，所有算法都会使用同一个名为 $(C taskPool) 的容器对象。</seg>
       </tuv>
     </tu>
     <tu>
@@ -12384,8 +12384,8 @@ LANGUAGE=chinese</seg>
       <tuv lang="EN-US">
         <seg>The default value of the number of threads is one less than the number of cores on the system.</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T090327Z" creationid="Heromyth" creationdate="20170826T090327Z">
-        <seg>参数的默认值不会比处理器核心数大。</seg>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170827T142500Z" creationid="Heromyth" creationdate="20170826T090327Z">
+        <seg>默认的线程数量比系统内核数少 1。</seg>
       </tuv>
     </tu>
     <tu>
