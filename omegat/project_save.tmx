@@ -138,8 +138,8 @@ $(LI $(LINK2 /ders/d.cn/struct.html, 结构) $(INDEX_KEYWORDS struct .</seg>
       <tuv lang="EN-US">
         <seg>$(C __gshared) is necessary when interacting with libraries of languages like C and C++ where data sharing is automatic by default.</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T233527Z" creationid="Heromyth" creationdate="20170825T233527Z">
-        <seg>在与像 C 和 C++ 这样默认自动数据共享的语言编写的库交互时，$(C __gshared) 是必须的。</seg>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170827T042413Z" creationid="Heromyth" creationdate="20170825T233527Z">
+        <seg>在与 C 和 C++ 这样的语言编写的库（它们默认自动共享数据）交互时，$(C __gshared) 必不可少。</seg>
       </tuv>
     </tu>
     <tu>
@@ -12193,8 +12193,8 @@ LANGUAGE=chinese</seg>
         <seg>So, the two code blocks would still be accessing the same variable concurrently:
 )</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T000518Z" creationid="Heromyth" creationdate="20170826T000518Z">
-        <seg>因此 ，这两块代码还是会同时访问那个变量：
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170827T043111Z" creationid="Heromyth" creationdate="20170826T000518Z">
+        <seg>因此，这两块代码还是会同时访问那个变量：
 )</seg>
       </tuv>
     </tu>
@@ -12745,8 +12745,8 @@ LANGUAGE=chinese</seg>
         <seg>The program calls two functions with the address of the same variable, one function incrementing and the other function decrementing it equal number of times:
 )</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T000410Z" creationid="Heromyth" creationdate="20170826T000410Z">
-        <seg>程序会将同一个变量的地址传递给这两个函数，一个函数对其加 1，一个函数对其减 1，加减次数相同：
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170827T042537Z" creationid="Heromyth" creationdate="20170826T000410Z">
+        <seg>程序会将同一个变量的地址传递给这两个函数：一个函数将其加 1，一个函数将其减 1，加减次数相同：
 )</seg>
       </tuv>
     </tu>
