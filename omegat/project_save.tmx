@@ -1324,8 +1324,8 @@ There are three mistakes (bugs) in this program.</seg>
       <tuv lang="EN-US">
         <seg>$(LI $(C amap()) calls functions with the elements of a $(C RandomAccessRange) fully-eagerly in parallel.)</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T091304Z" creationid="Heromyth" creationdate="20170826T091304Z">
-        <seg>$(LI $(C amap())：以并行即时（fully-eagerly）取值的方式对 $(C RandomAccessRange) 中的元素应用指定的函数。)</seg>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170831T115730Z" creationid="Heromyth" creationdate="20170826T091304Z">
+        <seg>$(LI $(C amap())：以即时取值的方式对 $(C RandomAccessRange) 中的元素并行调用指定的函数。)</seg>
       </tuv>
     </tu>
     <tu>
@@ -1340,8 +1340,8 @@ There are three mistakes (bugs) in this program.</seg>
       <tuv lang="EN-US">
         <seg>$(LI $(C asyncBuf()) iterates the elements of an $(C InputRange) semi-eagerly in parallel.)</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T091243Z" creationid="Heromyth" creationdate="20170826T091243Z">
-        <seg>$(LI $(C asyncBuf())：以并行半延时（semi-eagerly）取值的方式迭代 $(C InputRange) 中的元素。)</seg>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170831T115520Z" creationid="Heromyth" creationdate="20170826T091243Z">
+        <seg>$(LI $(C asyncBuf())：以半延时取值的方式并行迭代 $(C InputRange) 中的元素。)</seg>
       </tuv>
     </tu>
     <tu>
@@ -1388,16 +1388,16 @@ There are three mistakes (bugs) in this program.</seg>
       <tuv lang="EN-US">
         <seg>$(LI $(C map()) calls functions with the elements of an $(C InputRange) semi-eagerly in parallel.)</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T091254Z" creationid="Heromyth" creationdate="20170826T091254Z">
-        <seg>$(LI $(C map())：以并行半延时（semi-eagerly）取值的方式对 $(C InputRange) 中的每一个元素应用指定的函数。)</seg>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170831T115700Z" creationid="Heromyth" creationdate="20170826T091254Z">
+        <seg>$(LI $(C map())：以半延时取值的方式对 $(C InputRange) 中的元素并行调用指定的函数。)</seg>
       </tuv>
     </tu>
     <tu>
       <tuv lang="EN-US">
         <seg>$(LI $(C map()), $(C amap()), and $(C reduce()) can take multiple functions and return the results as tuples.)</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T091357Z" creationid="Heromyth" creationdate="20170826T091357Z">
-        <seg>$(LI $(C map())、$(C amap()) 或 $(C reduce()) 可以传入多个函数并返回元组类型的结果。)</seg>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170831T115905Z" creationid="Heromyth" creationdate="20170826T091357Z">
+        <seg>$(LI $(C map())、$(C amap()) 或 $(C reduce()) 可以传入多个函数并以元组方式让出返回结果。)</seg>
       </tuv>
     </tu>
     <tu>
@@ -1420,8 +1420,8 @@ There are three mistakes (bugs) in this program.</seg>
       <tuv lang="EN-US">
         <seg>$(LI $(C parallel()) accesses the elements of a range in parallel.)</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T091134Z" creationid="Heromyth" creationdate="20170826T091134Z">
-        <seg>$(LI $(C parallel()) 并行访问范围中的元素。)</seg>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170831T115149Z" creationid="Heromyth" creationdate="20170826T091134Z">
+        <seg>$(LI $(C parallel()) 可以并行访问范围中的元素。)</seg>
       </tuv>
     </tu>
     <tu>
@@ -1444,8 +1444,8 @@ There are three mistakes (bugs) in this program.</seg>
       <tuv lang="EN-US">
         <seg>$(LI $(C reduce()) makes calculations over the elements of a $(C RandomAccessRange) in parallel.)</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T091314Z" creationid="Heromyth" creationdate="20170826T091314Z">
-        <seg>$(LI $(C reduce())：使用指定的函数并行归约计算 $(C RandomAccessRange) 中的元素。)</seg>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170831T115833Z" creationid="Heromyth" creationdate="20170826T091314Z">
+        <seg>$(LI $(C reduce())：并行归约计算 $(C RandomAccessRange) 中的元素。)</seg>
       </tuv>
     </tu>
     <tu>
@@ -1838,8 +1838,8 @@ There are three mistakes (bugs) in this program.</seg>
       <tuv lang="EN-US">
         <seg>$(LI It is an error to execute operations in parallel unless those operations are independent from each other.)</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T091121Z" creationid="Heromyth" creationdate="20170826T091121Z">
-        <seg>$(LI 只有在操作相互独立时才可以将它们并行化。否则将出错。)</seg>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170831T115259Z" creationid="Heromyth" creationdate="20170826T091121Z">
+        <seg>$(LI 操作只有在相互独立时才能并行执行；否则会出错。)</seg>
       </tuv>
     </tu>
     <tu>
@@ -1886,8 +1886,8 @@ There are three mistakes (bugs) in this program.</seg>
       <tuv lang="EN-US">
         <seg>$(LI Tasks can explicitly be created, started, and waited for by $(C task()), $(C executeInNewThread()), and $(C yieldForce()), respectively.)</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T091212Z" creationid="Heromyth" creationdate="20170826T091212Z">
-        <seg>$(LI 任务可手动通过 $(C task()) 创建、通过 $(C executeInNewThread()) 启动、通过 $(C yieldForce()) 等待完成。)</seg>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170831T115136Z" creationid="Heromyth" creationdate="20170826T091212Z">
+        <seg>$(LI 任务可以显示地用 $(C task()) 创建、用 $(C executeInNewThread()) 启动，以及用 $(C yieldForce()) 来等待完成。)</seg>
       </tuv>
     </tu>
     <tu>
@@ -1934,8 +1934,8 @@ There are three mistakes (bugs) in this program.</seg>
       <tuv lang="EN-US">
         <seg>$(LI The exceptions that are escaped from tasks can be caught later by most of the parallelism functions like $(C yieldForce()).)</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T091228Z" creationid="Heromyth" creationdate="20170826T091228Z">
-        <seg>$(LI 任务中操作抛出的异常可在之后调用类似 $(C yieldForce()) 这样的并行函数时捕获。)</seg>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170831T115455Z" creationid="Heromyth" creationdate="20170826T091228Z">
+        <seg>$(LI 任务执行过程中抛出的异常可以在随后被类似 $(C yieldForce()) 的并行函数捕获。)</seg>
       </tuv>
     </tu>
     <tu>
@@ -2050,8 +2050,8 @@ There are three mistakes (bugs) in this program.</seg>
       <tuv lang="EN-US">
         <seg>$(LI When needed, $(C TaskPool) objects other than $(C taskPool) can be used.)</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T091409Z" creationid="Heromyth" creationdate="20170826T091409Z">
-        <seg>$(LI 如果需要的话，可以使用 $(C TaskPool) 对象而不是 $(C taskPool) 进行操作。)</seg>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170831T120030Z" creationid="Heromyth" creationdate="20170826T091409Z">
+        <seg>$(LI 如有必要，也可以使用 $(C TaskPool) 对象来代替 $(C taskPool) 。)</seg>
       </tuv>
     </tu>
     <tu>
