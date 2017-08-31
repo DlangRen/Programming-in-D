@@ -1185,25 +1185,25 @@ $(H5 小结)
 
 $(UL
 
-$(LI 只有在操作相互独立时才可以将它们并行化。否则将出错。)
+$(LI 操作只有在相互独立时才能并行执行；否则会出错。)
 
-$(LI $(C parallel()) 并行访问范围中的元素。)
+$(LI $(C parallel()) 可以并行访问范围中的元素。)
 
-$(LI 任务可手动通过 $(C task()) 创建、通过 $(C executeInNewThread()) 启动、通过 $(C yieldForce()) 等待完成。)
+$(LI 任务可以显示地用 $(C task()) 创建、用 $(C executeInNewThread()) 启动，以及用 $(C yieldForce()) 来等待完成。)
 
-$(LI 任务中操作抛出的异常可在之后调用类似 $(C yieldForce()) 这样的并行函数时捕获。)
+$(LI 任务执行过程中抛出的异常可以在随后被类似 $(C yieldForce()) 的并行函数捕获。)
 
-$(LI $(C asyncBuf())：以并行半延时（semi-eagerly）取值的方式迭代 $(C InputRange) 中的元素。)
+$(LI $(C asyncBuf())：以半延时取值的方式并行迭代 $(C InputRange) 中的元素。)
 
-$(LI $(C map())：以并行半延时（semi-eagerly）取值的方式对 $(C InputRange) 中的每一个元素应用指定的函数。)
+$(LI $(C map())：以半延时取值的方式对 $(C InputRange) 中的元素并行调用指定的函数。)
 
-$(LI $(C amap())：以并行即时（fully-eagerly）取值的方式对 $(C RandomAccessRange) 中的元素应用指定的函数。)
+$(LI $(C amap())：以即时取值的方式对 $(C RandomAccessRange) 中的元素并行调用指定的函数。)
 
-$(LI $(C reduce())：使用指定的函数并行归约计算 $(C RandomAccessRange) 中的元素。)
+$(LI $(C reduce())：并行归约计算 $(C RandomAccessRange) 中的元素。)
 
-$(LI $(C map())、$(C amap()) 或 $(C reduce()) 可以传入多个函数并返回元组类型的结果。)
+$(LI $(C map())、$(C amap()) 或 $(C reduce()) 可以传入多个函数并以元组方式让出返回结果。)
 
-$(LI 如果需要的话，可以使用 $(C TaskPool) 对象而不是 $(C taskPool) 进行操作。)
+$(LI 如有必要，也可以使用 $(C TaskPool) 对象来代替 $(C taskPool) 。)
 
 )
 
