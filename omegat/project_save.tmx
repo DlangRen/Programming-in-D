@@ -334,6 +334,14 @@ $(LI $(LINK2 /ders/d.cn/struct.html, 结构) $(INDEX_KEYWORDS struct .</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>$(DERS_BOLUMU $(IX property) Properties)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170905T043252Z" creationid="Heromyth" creationdate="20170905T043252Z">
+        <seg>$(DERS_BOLUMU $(IX property) 特性)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>$(DERS_BOLUMU $(IX user defined attributes) $(IX UDA) User Defined Attributes (UDA))</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170719T105356Z" creationid="Heromyth" creationdate="20170719T054011Z">
@@ -4176,6 +4184,18 @@ However, programming languages adhere to much more strict and formal rules than 
     <tu>
       <tuv lang="EN-US">
         <seg>$(P
+However, the other functionality of this property proves that it cannot be a member variable: Assigning a new value to the $(C .length) property actually changes the length of the slice, sometimes by adding new elements to the underlying array:
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170905T043504Z" creationid="Heromyth" creationdate="20170905T043504Z">
+        <seg>$(P
+但特性提供了成员变量所不能提供的功能：对 $(C .length) 赋值将会改变分片的真实长度。向数组中添加新元素时就包含这一过程：
+)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
 However, there are important differences between classes and structs.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170819T123940Z" creationid="Heromyth" creationdate="20170819T123940Z">
@@ -4654,6 +4674,18 @@ $(C taskPool.reduce()) 在不同的任务中并行执行函数，这与其它的
     <tu>
       <tuv lang="EN-US">
         <seg>$(P
+Looking merely at that usage, one might think that $(C .length) has been implemented as a member variable:
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170905T043423Z" creationid="Heromyth" creationdate="20170905T043423Z">
+        <seg>$(P
+如果只看它的语法，你可能会认为 $(C .length) 是一个成员变量：
+)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
 Messages can be sent with higher priority than regular messages by $(C prioritySend()).</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T135130Z" creationid="Heromyth" creationdate="20170825T135130Z">
@@ -4891,6 +4923,16 @@ Programming languages are designed as efficient ways of programming a CPU, capab
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170820T004037Z" creationid="Heromyth" creationdate="20170820T004037Z">
         <seg>$(P
 编程语言的设计目标是用来对 CPU 高效编程，且有能力描述高级概念。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
+Properties allow using member functions like member variables.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170905T043310Z" creationid="Heromyth" creationdate="20170905T043310Z">
+        <seg>$(P
+特性能让我们使用像访问成员变量一样的语法调用成员函数。</seg>
       </tuv>
     </tu>
     <tu>
@@ -6970,6 +7012,16 @@ Violating these rules is undefined behavior.</seg>
     <tu>
       <tuv lang="EN-US">
         <seg>$(P
+We are familiar with this feature from slices.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170905T043403Z" creationid="Heromyth" creationdate="20170905T043403Z">
+        <seg>$(P
+在学习分片（slice）的时候我们已经多次用到它。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
 We can make the following observations about the use of these blocks:
 )</seg>
       </tuv>
@@ -7445,6 +7497,16 @@ have the program print the following:
       </tuv>
       <tuv lang="ZH-CN" changeid="大处着手小处着眼" changedate="20160725T074518Z" creationid="大处着手小处着眼" creationdate="20160725T074518Z">
         <seg>$(P $(B 观测：) $(C counter) 的值决定了循环的重复次数（迭代）。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P $(I $(B Note:) The $(C .length) property of fixed-length arrays cannot be modified.)
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170905T043616Z" creationid="Heromyth" creationdate="20170905T043616Z">
+        <seg>$(P $(I $(B 注意：) 无法修改定长数组的 $(C .length) 特性。)
+)</seg>
       </tuv>
     </tu>
     <tu>
@@ -12288,6 +12350,16 @@ LANGUAGE=chinese</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>The $(C length) property of a slice returns the number of elements of that slice:
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170905T043411Z" creationid="Heromyth" creationdate="20170905T043411Z">
+        <seg>分片的 $(C length) 特性返回了其包含元素的个数：
+)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>The $(C new) keyword constructs an anonymous $(I class object) and returns a $(I class variable).</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Hipter" changedate="20160707T015858Z" creationid="Hipter" creationdate="20160707T015858Z">
@@ -14172,6 +14244,14 @@ sys     0m0.004s)
       </tuv>
       <tuv lang="ZH-CN" changeid="ZXP" changedate="20070307T073114Z" creationid="ZXP" creationdate="20070307T073114Z">
         <seg>return;</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>slice$(HILITE .length = 5);    // The slice now has 5 elements</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170905T043553Z" creationid="Heromyth" creationdate="20170905T043553Z">
+        <seg>slice$(HILITE .length = 5);    // slice现在有 5 个元素</seg>
       </tuv>
     </tu>
     <tu>
