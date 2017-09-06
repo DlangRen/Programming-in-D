@@ -638,6 +638,14 @@ $(LI $(LINK2 /ders/d.cn/struct.html, 结构) $(INDEX_KEYWORDS struct .</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>$(H5 Calling functions without parentheses)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170906T044437Z" creationid="Heromyth" creationdate="20170906T044437Z">
+        <seg>$(H5 不使用圆括号的函数调用)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>$(H5 Comparing strings)</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="大处着手小处着眼" changedate="20160715T033521Z" creationid="大处着手小处着眼" creationdate="20160715T033521Z">
@@ -730,6 +738,14 @@ $(LI $(LINK2 /ders/d.cn/struct.html, 结构) $(INDEX_KEYWORDS struct .</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170818T143437Z" creationid="Hipter" creationdate="20160709T042827Z">
         <seg>$(H5 特性)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(H5 Property functions that return values)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170906T044648Z" creationid="Heromyth" creationdate="20170906T044648Z">
+        <seg>$(H5 返回值的特性函数)</seg>
       </tuv>
     </tu>
     <tu>
@@ -2631,6 +2647,18 @@ $(I $(B 注：) 在上面的代码中，一般不这样直接访问成员。若�
     <tu>
       <tuv lang="EN-US">
         <seg>$(P
+$(IX ()) As has been mentioned in the previous chapter, when there is no argument to pass, functions can be called without parentheses:
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170906T044451Z" creationid="Heromyth" creationdate="20170906T044451Z">
+        <seg>$(P
+$(IX ()) 我们在之前的章节中提到过，如果调用函数时不需要传递参数，那我们可以省略圆括号：
+)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
 $(IX .init, clearing a variable) $(I $(B Note:) The $(C .init) property of any variable or type is the initial value of that type:)
 )</seg>
       </tuv>
@@ -2658,6 +2686,16 @@ $(IX @) The user defined attribute syntax consists of the $(C @) sign followed b
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170720T041949Z" creationid="Heromyth" creationdate="20170720T041949Z">
         <seg>$(P
 $(IX @)自定义属性的语法格式：符号 $(C @)  的后面紧跟属性名，并且需要放置在与之相关的那个声明前面。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
+$(IX @property) Properties are member functions that are used like member variables.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170906T044359Z" creationid="Heromyth" creationdate="20170906T044359Z">
+        <seg>$(P
+$(IX @property) 特性实际上就是成员函数，但我们却可以像使用成员变量一样调用它们。</seg>
       </tuv>
     </tu>
     <tu>
@@ -3038,6 +3076,16 @@ $(C std.concurrency) 模块中的 $(C static assert) 阻止线程访问其他线
     <tu>
       <tuv lang="EN-US">
         <seg>$(P
+A better way would be to represent the concept of area as a property.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170906T044908Z" creationid="Heromyth" creationdate="20170906T044908Z">
+        <seg>$(P
+所以我们最好用特性来实现面积。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
 A class variable on the other hand is a language feature for accessing class objects.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170820T013346Z" creationid="Heromyth" creationdate="20170820T013346Z">
@@ -3053,6 +3101,16 @@ A compiler is another tool that reads the instructions of a program from source 
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170820T004725Z" creationid="Heromyth" creationdate="20170820T004725Z">
         <seg>$(P
 编译器是另一种从源码中读取程序指令的工具。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
+A flaw in that design is that the object may easily become inconsistent: Although rectangles must always have the invariant of "width * height == area", this consistency may be broken if the members are allowed to be modified freely and independently.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170906T044741Z" creationid="Heromyth" creationdate="20170906T044741Z">
+        <seg>$(P
+这种设计的缺点是对象很容易出现不一致性：虽然矩形永远都是“长 × 宽 == 面积”，但是如果成员变量能被随意修改的话，对象的一致性将极易被破坏。</seg>
       </tuv>
     </tu>
     <tu>
@@ -3422,12 +3480,36 @@ As a result, the objects that are associated with $(C var1) and $(C var2) are di
     <tu>
       <tuv lang="EN-US">
         <seg>$(P
+As a simple example, let's consider a rectangle struct that consists of two members:
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170906T044702Z" creationid="Heromyth" creationdate="20170906T044702Z">
+        <seg>$(P
+我们使用下面这个包含两个成员的矩形结构体作为示例：
+)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
 As an example, let's write the function above with a $(C scope(failure)) statement:
 )</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Hipter" changedate="20160707T030221Z" creationid="Hipter" creationdate="20160707T030221Z">
         <seg>$(P
 例如，让我们用 $(C scope(failure)) 语句写一下面的函数：
+)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
+As an extreme example, objects may even begin their lives in inconsistent states:
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170906T044827Z" creationid="Heromyth" creationdate="20170906T044827Z">
+        <seg>$(P
+有一个极端例子，对象在其生命期开始时就已经处在不一致的状态：
 )</seg>
       </tuv>
     </tu>
@@ -3977,6 +4059,16 @@ Every thread has a private mailbox that holds the messages that are sent to that
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T134333Z" creationid="Heromyth" creationdate="20170825T134253Z">
         <seg>$(P
 每一个线程都有一个用来保存消息的邮箱。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
+Evidently, the assignment to $(C .length) operates like a function.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170906T044343Z" creationid="Heromyth" creationdate="20170906T044343Z">
+        <seg>$(P
+就像你看到的那样，对 $(C .length) 的赋值就像是调用了一个函数。</seg>
       </tuv>
     </tu>
     <tu>
@@ -4568,6 +4660,18 @@ lambda 函数和定义了 $(C opCall()) 成员函数的对象都可以传递给 
     <tu>
       <tuv lang="EN-US">
         <seg>$(P
+Let's assume that a third property of this type becomes a requirement, which should provide the area of the rectangle:
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170906T044713Z" creationid="Heromyth" creationdate="20170906T044713Z">
+        <seg>$(P
+现在假设我们需要为这个类型添加一个新特性用于表示这个矩形的面积：
+)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
 Let's compare these three algorithms using the $(C Student) example.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T073817Z" creationid="Heromyth" creationdate="20170826T073817Z">
@@ -4825,6 +4929,18 @@ One thing that the worker can do is to catch the exception explicitly and to sen
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T045106Z" creationid="Heromyth" creationdate="20170825T045106Z">
         <seg>$(P
 工作线程能做的就是手动捕获异常并将其作为特殊的错误信息发送给所有者。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
+One way of achieving that requirement is to define a third member:
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170906T044729Z" creationid="Heromyth" creationdate="20170906T044729Z">
+        <seg>$(P
+一种方法是在矩形结构体中定义第三个成员变量：
+)</seg>
       </tuv>
     </tu>
     <tu>
@@ -5192,6 +5308,18 @@ That information can be stored in the following $(C Job) struct:
     <tu>
       <tuv lang="EN-US">
         <seg>$(P
+That property function enables the struct to be used as if it has a third member variable:
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170906T044957Z" creationid="Heromyth" creationdate="20170906T044957Z">
+        <seg>$(P
+特性函数让我们能像使用成员变量一样使用它：
+)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
 That solution may be slow especially for large arrays.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Hipter" changedate="20160711T141716Z" creationid="Hipter" creationdate="20160711T012152Z">
@@ -5433,6 +5561,16 @@ The assignment operator copies all of the elements from the right-hand side to t
 赋值运算符将所有元素从右手侧复制到左手侧：
 )
 ---</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
+The assignment to $(C .length) above involves more complicated operations than a simple value change: Determining whether the array has capacity for the new length, allocating more memory if not, and moving the existing elements to the new place; and finally initializing each additional element by $(C .init).</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170906T044328Z" creationid="Heromyth" creationdate="20170906T044328Z">
+        <seg>$(P
+对 $(C .length) 赋值并不是简单的改变某个变量，实际上语言在后台做了很多复杂的工作：判断数组是否有足够的空间容纳新的元素，如果没有则在内存中分配更大的空间并将已存在的元素移动到新位置；最后再将添加的新元素以 $(C .init) 的方式初始化。</seg>
       </tuv>
     </tu>
     <tu>
@@ -6766,6 +6904,16 @@ This exception is thrown when receiving a message from the owner if the owner ha
     <tu>
       <tuv lang="EN-US">
         <seg>$(P
+This feature is closely related to properties because properties are used almost always without parentheses.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170906T044639Z" creationid="Heromyth" creationdate="20170906T044639Z">
+        <seg>$(P
+这个功能与特性很像，因为在使用特性时都不带圆括号。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
 This function applies its template parameter to its two function parameters.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T002942Z" creationid="Heromyth" creationdate="20170826T002942Z">
@@ -7497,6 +7645,16 @@ have the program print the following:
       </tuv>
       <tuv lang="ZH-CN" changeid="大处着手小处着眼" changedate="20160725T074518Z" creationid="大处着手小处着眼" creationdate="20160725T074518Z">
         <seg>$(P $(B 观测：) $(C counter) 的值决定了循环的重复次数（迭代）。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P $(I $(B Note:) As you would remember from $(LINK2 /ders/d.en/const_member_functions.html, the $(CH4 const ref) Parameters and $(CH4 const) Member Functions chapter), the $(C const) specifier on the function declaration ensures that the object is not modified by this function.)
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170906T044943Z" creationid="Heromyth" creationdate="20170906T044943Z">
+        <seg>$(P $(I $(B 注意：) 如果你还记得我们在 $(LINK2 /ders/d.cn/const_member_functions.html, $(CH4 const ref) 参数和 $(CH4 const) 成员函数) 一章中所讲的，函数声明中的 $(C const) 说明符表示函数不会修改其对象。)
+)</seg>
       </tuv>
     </tu>
     <tu>
@@ -9023,6 +9181,14 @@ immutable int b;    // 所有线程共享</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T145123Z" creationid="Heromyth" creationdate="20170825T145123Z">
         <seg>// 希望通知工作线程终止：</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>// Inconsistent object: The area is not 10 * 20 == 200.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170906T044904Z" creationid="Heromyth" creationdate="20170906T044904Z">
+        <seg>// 不一致的对象：面积不是10 * 20 == 200.</seg>
       </tuv>
     </tu>
     <tu>
@@ -11205,6 +11371,16 @@ $(LINK2 /ders/d.cn/index.html,
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Instead of defining an additional member, the value of that member is calculated by a function named $(C area), the same as the concept that it represents:
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170906T044920Z" creationid="Heromyth" creationdate="20170906T044920Z">
+        <seg>我们要定义一个名为 $(C area) 的函数来计算面积而不是定义成员变量来表示面积：
+)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Instead, $(C parallel()) reuses the internal buffer of the result range.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T021921Z" creationid="Heromyth" creationdate="20170826T021921Z">
@@ -13156,6 +13332,14 @@ LANGUAGE=chinese</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>They are defined by the $(C @property) attribute.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170906T044409Z" creationid="Heromyth" creationdate="20170906T044409Z">
+        <seg>所需的额外工作就是在函数的前面加一个 $(C @property)。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>They are instead stored in an output buffer until a line of output is completed.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T024011Z" creationid="Heromyth" creationdate="20170826T024011Z">
@@ -14385,6 +14569,16 @@ sys     0m0.004s)
       <tuv lang="ZH-CN" changeid="大处着手小处着眼" changedate="20160726T015711Z" creationid="大处着手小处着眼" creationdate="20160726T015711Z">
         <seg>writeln(result.length);     // 输出 30
 }
+---</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>writeln;      // Same as the previous line
+---</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170906T044508Z" creationid="Heromyth" creationdate="20170906T044508Z">
+        <seg>writeln;      // 与上一行相同
 ---</seg>
       </tuv>
     </tu>
