@@ -734,6 +734,14 @@ $(LI $(LINK2 /ders/d.cn/struct.html, 结构) $(INDEX_KEYWORDS struct .</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>$(H5 Properties are not absolutely necessary)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170906T070724Z" creationid="Heromyth" creationdate="20170906T070724Z">
+        <seg>$(H5 特性不是唯一的解决方案)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>$(H5 Properties)</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170818T143437Z" creationid="Hipter" creationdate="20160709T042827Z">
@@ -3461,6 +3469,18 @@ Arrays provide convenience operations that apply to all of their elements.</seg>
       <tuv lang="ZH-CN" changeid="大处着手小处着眼" changedate="20160726T012802Z" creationid="大处着手小处着眼" creationdate="20160726T012802Z">
         <seg>$(P
 数组提供了适用于所有元素的方便操作。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
+As a result, assigning the quarter of its current value to $(C area) ends up halving both sides of the rectangle:
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170906T070708Z" creationid="Heromyth" creationdate="20170906T070708Z">
+        <seg>$(P
+对这个版本的 $(C area) 赋值时矩形两边的长度都会改变：
+)</seg>
       </tuv>
     </tu>
     <tu>
@@ -6222,9 +6242,9 @@ The name of this function is the abbreviation of "compare and swap".</seg>
         <seg>$(P
 The new function takes advantage of the $(C sqrt) function from the $(C std.math) module, which returns the square root of the specified value.</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170906T070617Z" creationid="Heromyth" creationdate="20170906T070617Z">
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170906T070651Z" creationid="Heromyth" creationdate="20170906T070617Z">
         <seg>$(P
-新增的特性函数利用 $(C std.math) 模块中的 $(C sqrt) 函数来开平方根。如果长和宽都是面积的平方根，那它们的乘积就一定是我们指定的面积。</seg>
+新增的特性函数利用 $(C std.math) 模块中的 $(C sqrt) 函数来开平方根。</seg>
       </tuv>
     </tu>
     <tu>
@@ -7271,6 +7291,16 @@ We have defined five variables in one of the exercises of the last chapter, and 
       <tuv lang="ZH-CN" changeid="大处着手小处着眼" changedate="20160726T043538Z" creationid="大处着手小处着眼" creationdate="20160716T144940Z">
         <seg>$(P
 在上一章的一个练习中我们定义过五个变量，并用它们做过特定计算。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
+We have seen above how $(C Rectangle) can be used as if it has a third member variable.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170906T070740Z" creationid="Heromyth" creationdate="20170906T070740Z">
+        <seg>$(P
+之前我们通过定义特性为 $(C Rectangle) 添加了“第三个变量”。</seg>
       </tuv>
     </tu>
     <tu>
@@ -14024,6 +14054,14 @@ LANGUAGE=chinese</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="大处着手小处着眼" changedate="20160724T025224Z" creationid="大处着手小处着眼" creationdate="20160724T025224Z">
         <seg>访问元素时，$(C []) 写在数组名称之后，并指定要访问的元素位置数：</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>When both of the width and the height of the rectangle are scaled by the square root of the ratio, then the area would equal the desired value.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170906T070655Z" creationid="Heromyth" creationdate="20170906T070655Z">
+        <seg>如果长和宽都是面积的平方根，那它们的乘积就一定是我们指定的面积。</seg>
       </tuv>
     </tu>
     <tu>
