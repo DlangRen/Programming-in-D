@@ -6220,6 +6220,16 @@ The name of this function is the abbreviation of "compare and swap".</seg>
     <tu>
       <tuv lang="EN-US">
         <seg>$(P
+The new function takes advantage of the $(C sqrt) function from the $(C std.math) module, which returns the square root of the specified value.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170906T070617Z" creationid="Heromyth" creationdate="20170906T070617Z">
+        <seg>$(P
+新增的特性函数利用 $(C std.math) 模块中的 $(C sqrt) 函数来开平方根。如果长和宽都是面积的平方根，那它们的乘积就一定是我们指定的面积。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
 The number of an element is called its $(I index) and the act of accessing an element is called $(I indexing).</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="大处着手小处着眼" changedate="20160725T020218Z" creationid="大处着手小处着眼" creationdate="20160725T020218Z">
