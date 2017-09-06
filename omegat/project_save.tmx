@@ -806,6 +806,14 @@ $(LI $(LINK2 /ders/d.cn/struct.html, 结构) $(INDEX_KEYWORDS struct .</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>$(H5 When to use)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170906T070822Z" creationid="Heromyth" creationdate="20170906T070822Z">
+        <seg>$(H5 何时使用特性)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>$(H6 $(IX LinkTerminated) $(IX spawnLinked) $(C LinkTerminated) exception)</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T052242Z" creationid="Heromyth" creationdate="20170825T052242Z">
@@ -1092,6 +1100,14 @@ $(LI $(LINK2 /ders/d.cn/struct.html, 结构) $(INDEX_KEYWORDS struct .</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T235740Z" creationid="Heromyth" creationdate="20170825T235740Z">
         <seg>$(I (假设此处 B 暂停 A 继续))</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(I Decorating) the names of member variables is a common practice in object oriented programming.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170906T071035Z" creationid="Heromyth" creationdate="20170906T071035Z">
+        <seg>在面向对象编程中，$(I 修饰)变量名是十分常用的技巧。</seg>
       </tuv>
     </tu>
     <tu>
@@ -3248,6 +3264,16 @@ Also available as $(LINK2 https://gumroad.com/l/PinD, $(I pay-what-you-want) eBo
     <tu>
       <tuv lang="EN-US">
         <seg>$(P
+Also note that to avoid confusing their names with the member functions, the names of the member variables are appended by the $(C _) character.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170906T071023Z" creationid="Heromyth" creationdate="20170906T071023Z">
+        <seg>$(P
+注意不要混淆了变量和函数的名字：成员变量的名字多了一个 $(C _)。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
 Also observe that total number of swaps is 10 times 10 thousand.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T235313Z" creationid="Heromyth" creationdate="20170825T235313Z">
@@ -4270,6 +4296,18 @@ Further, $(C printAsXML()) and the attributes that it considers can be used with
     <tu>
       <tuv lang="EN-US">
         <seg>$(P
+Further, as we have seen in $(LINK2 /ders/d.en/function_overloading.html, the Function Overloading chapter), these two functions could even have the same names:
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170906T070811Z" creationid="Heromyth" creationdate="20170906T070811Z">
+        <seg>$(P
+就像我们在 $(LINK2 /ders/d.cn/function_overloading.html, 函数重载) 一章中提到过的，这两个函数可以有相同的名字。
+)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
 Here is a program that prints the Turkish names of colors that are specified in English:
 )</seg>
       </tuv>
@@ -4311,6 +4349,16 @@ How can you solve this problem?</seg>
       <tuv lang="ZH-CN" changeid="Hipter" changedate="20160709T092601Z" creationid="Hipter" creationdate="20160709T092601Z">
         <seg>$(P
 怎么解决这个问题？</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
+However, as we have seen in $(LINK2 /ders/d.en/encapsulation.html, the Encapsulation and Protection Attributes chapter), it is important to restrict direct access to member variables.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170906T070913Z" creationid="Heromyth" creationdate="20170906T070913Z">
+        <seg>$(P
+我们曾在 $(LINK2 /ders/d.cn/encapsulation.html, 封装和访问控制) 一章中告诉过你：限制外部代码对成员变量的访问是非常重要的。</seg>
       </tuv>
     </tu>
     <tu>
@@ -4668,6 +4716,16 @@ It is the responsibility of the programmer to call $(C parallel()) only when the
     <tu>
       <tuv lang="EN-US">
         <seg>$(P
+It may not be easy to chose between regular member functions and properties.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170906T070833Z" creationid="Heromyth" creationdate="20170906T070833Z">
+        <seg>$(P
+并没有一种简单的方法能帮你快速在常规成员函数和特性间做出选择。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
 It may not make sense to wait for messages beyond a certain time.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T043226Z" creationid="Heromyth" creationdate="20170825T043226Z">
@@ -4705,6 +4763,16 @@ Lambda functions and objects of types that define the $(C opCall()) member funct
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T000506Z" creationid="Heromyth" creationdate="20170825T000429Z">
         <seg>$(P
 lambda 函数和定义了 $(C opCall()) 成员函数的对象都可以传递给 $(C receive()) 作为消息处理器。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
+Leaving members like $(C width) and $(C height) open to $(C public) access is acceptable only for very simple types.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170906T070947Z" creationid="Heromyth" creationdate="20170906T070947Z">
+        <seg>$(P
+像 $(C width) 和 $(C height) 简单类型的成员变量，$(C public) 访问权限也是可以接受的。</seg>
       </tuv>
     </tu>
     <tu>
@@ -4897,6 +4965,16 @@ Normally, a program would be executed on one of the cores of the microprocessor,
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T132331Z" creationid="Heromyth" creationdate="20170826T012957Z">
         <seg>$(P
 正常情况下程序将会在某个操作系统指派的用于运行程序的处理器内核上运行。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
+Note how the members are made $(C private) so that they can only be accessed by corresponding property functions.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170906T071008Z" creationid="Heromyth" creationdate="20170906T071008Z">
+        <seg>$(P
+现在成员变量被封装为 $(C private)，所以只有与之相关联的特性函数可以访问它。</seg>
       </tuv>
     </tu>
     <tu>
@@ -5332,6 +5410,18 @@ That also happened when reading a value from the input:
       <tuv lang="ZH-CN" changeid="大处着手小处着眼" changedate="20160725T083509Z" creationid="大处着手小处着眼" creationdate="20160725T083509Z">
         <seg>$(P
 从输入流中读取值时也发生了：
+)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
+That definition of $(C Rectangle) still presents $(C width) and $(C height) as if they are member variable:
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170906T071049Z" creationid="Heromyth" creationdate="20170906T071049Z">
+        <seg>$(P
+$(C Rectangle) 的定义依旧存在 $(C width) 和 $(C height)，它们也依旧表现的像是成员变量。
 )</seg>
       </tuv>
     </tu>
@@ -7028,6 +7118,16 @@ This function can also be called simply as $(C parallel()).</seg>
     <tu>
       <tuv lang="EN-US">
         <seg>$(P
+This is important for controlled modifications of members.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170906T071111Z" creationid="Heromyth" creationdate="20170906T071111Z">
+        <seg>$(P
+对成员变量的写入控制也是非常重要的。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
 This method of defining variables individually does not scale to cases where even more variables are needed.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="大处着手小处着眼" changedate="20160720T020639Z" creationid="大处着手小处着眼" creationdate="20160720T020639Z">
@@ -7450,6 +7550,16 @@ When it is needed to synchronize more than one block of code, it is possible to 
     <tu>
       <tuv lang="EN-US">
         <seg>$(P
+When it later makes sense that a member variable should be allowed to be modified from the outside, then it is simply a matter of defining another property function for that member.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170906T071133Z" creationid="Heromyth" creationdate="20170906T071133Z">
+        <seg>$(P
+如果将来的某一天这个成员变量需要在外部修改，那我们仅需为其添加一个特性函数。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
 When the actual object needs to be copied, the class must have a member function for that purpose.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Hipter" changedate="20160706T022112Z" creationid="Hipter" creationdate="20160706T021806Z">
@@ -7530,6 +7640,18 @@ When the variables provide access to the same object, $(C is) returns $(C true):
       <tuv lang="ZH-CN" changeid="Hipter" changedate="20160707T015456Z" creationid="Hipter" creationdate="20160707T015456Z">
         <seg>$(P
 当变量提供对同一对象的访问时，$(C is) 返回 $(C true)：
+)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
+When there is no property function that modifies a member variable, then that member is effectively read-only from the outside:
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170906T071101Z" creationid="Heromyth" creationdate="20170906T071101Z">
+        <seg>$(P
+如果成员变量没有写特性，那在对象外部看来它将是只读的：
 )</seg>
       </tuv>
     </tu>
@@ -9791,6 +9913,24 @@ $(LI $(LINK2 /ders/d.cn/slices.html, 分片与其他数组功能) $(INDEX_KEYWOR
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Allowing user code to freely modify member variables always ends up causing issues with code maintenance.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170906T070923Z" creationid="Heromyth" creationdate="20170906T070923Z">
+        <seg>允许外部代码随意修改成员变量可能会对将来的维护工作造成极大的不便。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Almost always a better design is to use property functions:
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170906T070957Z" creationid="Heromyth" creationdate="20170906T070957Z">
+        <seg>但最好还是使用特性函数包装：
+)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Also note that the number of the month, which is in the range &lt;span style="white-space: nowrap"&gt;1-12&lt;/span&gt;, is converted to a valid array index in the range &lt;span style="white-space: nowrap"&gt;0-11&lt;/span&gt;.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="大处着手小处着眼" changedate="20160726T011231Z" creationid="大处着手小处着眼" creationdate="20160726T010435Z">
@@ -10367,6 +10507,14 @@ COZUMLER_METIN=答案</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>DESCRIPTION=Enabling using member functions like member variables.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170906T071200Z" creationid="Heromyth" creationdate="20170906T071200Z">
+        <seg>DESCRIPTION=像访问成员变量一样调用成员函数</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>DESCRIPTION=Executing multiple threads that share data.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T004846Z" creationid="Heromyth" creationdate="20170826T004846Z">
@@ -10929,6 +11077,14 @@ $(LI $(LINK2 http://dlang.org/phobos/index.html, $(IMG bullet_black.png) 标准�
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>For that reason, member variables better be encapsulated either by regular member functions or by property functions.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170906T070932Z" creationid="Heromyth" creationdate="20170906T070932Z">
+        <seg>所以，我们最好将对成员变量的访问封装在常规成员函数或特性函数中。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>For that reason, running a program with an interpreter is usually slower than running the compiled version of the same program.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170820T004518Z" creationid="Heromyth" creationdate="20170820T004518Z">
@@ -11133,6 +11289,16 @@ $(LINK2 /ders/d.cn/index.html,
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T013014Z" creationid="Heromyth" creationdate="20170826T013014Z">
         <seg>然而大部分时候这种处理的顺序并不是必须的。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>However, regular member functions could also be used instead of properties:
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170906T070755Z" creationid="Heromyth" creationdate="20170906T070755Z">
+        <seg>当然，除了特性，普通成员函数也可以实现我们需要的功能：
+)</seg>
       </tuv>
     </tu>
     <tu>
@@ -11914,6 +12080,14 @@ $(LINK2 /ders/d.cn/index.html,
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>KEYWORDS=d programming lesson book tutorial property</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170906T071257Z" creationid="Heromyth" creationdate="20170906T071257Z">
+        <seg>KEYWORDS=d programming lesson book tutorial property 编程 课程 书籍 教程 特性</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>KEYWORDS=programming in d tutorial arrays solution</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="大处着手小处着眼" changedate="20160726T033049Z" creationid="大处着手小处着眼" creationdate="20160726T033032Z">
@@ -12404,6 +12578,14 @@ LANGUAGE=chinese</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>SUBTITLE=Properties</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170906T071142Z" creationid="Heromyth" creationdate="20170906T071142Z">
+        <seg>SUBTITLE=特性</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>SUBTITLE=Strings</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="大处着手小处着眼" changedate="20160715T144233Z" creationid="大处着手小处着眼" creationdate="20160715T144233Z">
@@ -12538,6 +12720,14 @@ LANGUAGE=chinese</seg>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170827T043111Z" creationid="Heromyth" creationdate="20170826T000518Z">
         <seg>因此，这两块代码还是会同时访问那个变量：
 )</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Sometimes regular member functions feel more natural and sometimes properties.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170906T070842Z" creationid="Heromyth" creationdate="20170906T070842Z">
+        <seg>有时常规成员函数更加自然，有时特性更加简洁。</seg>
       </tuv>
     </tu>
     <tu>
@@ -12978,6 +13168,14 @@ LANGUAGE=chinese</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T075302Z" creationid="Heromyth" creationdate="20170826T075302Z">
         <seg>两者的不同点在于它们的形参顺序正好相反。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>The member variables can only be modified by the $(C Rectangle) type itself to ensure the consistency of its objects.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170906T071120Z" creationid="Heromyth" creationdate="20170906T071120Z">
+        <seg>只有 $(C Rectangle) 的成员函数能修改成员变量可以保证对象的一致性。</seg>
       </tuv>
     </tu>
     <tu>
