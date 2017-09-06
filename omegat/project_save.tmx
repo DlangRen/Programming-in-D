@@ -742,6 +742,14 @@ $(LI $(LINK2 /ders/d.cn/struct.html, 结构) $(INDEX_KEYWORDS struct .</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>$(H5 Property functions that are used in assignment)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170906T053007Z" creationid="Heromyth" creationdate="20170906T053007Z">
+        <seg>$(H5 用于赋值的特性函数)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>$(H5 Property functions that return values)</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170906T044648Z" creationid="Heromyth" creationdate="20170906T044648Z">
@@ -3610,6 +3618,18 @@ As the compiler compiles a program according to the rules of the language, it st
     <tu>
       <tuv lang="EN-US">
         <seg>$(P
+As the value of the $(C area) property is calculated by multiplying the width and the height of the rectangle, this time it would always be consistent:
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170906T052759Z" creationid="Heromyth" creationdate="20170906T052759Z">
+        <seg>$(P
+$(C area) 是由矩形的长宽相乘计算得到的，所以这次它将始终与长宽保持一致：
+)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
 As this method does not involve different instantiations of the $(C Task) template, it makes it possible to put such objects in the same array:
 )</seg>
       </tuv>
@@ -4193,6 +4213,16 @@ For reasons like safety and performance, some languages have been designed to be
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170820T005003Z" creationid="Heromyth" creationdate="20170820T005003Z">
         <seg>$(P
 出于对安全及效率等原因的考量，某些语言被设计为可编译的。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
+For that assignment to actually change the area of the rectangle, the two members of the struct must be modified accordingly.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170906T053113Z" creationid="Heromyth" creationdate="20170906T053113Z">
+        <seg>$(P
+改变矩形面积时也要将长和宽修改为对应的值。</seg>
       </tuv>
     </tu>
     <tu>
@@ -5066,6 +5096,18 @@ Same as structs, the members are accessed by the $(I dot) operator:
     <tu>
       <tuv lang="EN-US">
         <seg>$(P
+Similar to the $(C length) property of slices, the properties of user-defined types can be used in assignment operations as well:
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170906T053052Z" creationid="Heromyth" creationdate="20170906T053052Z">
+        <seg>$(P
+与分片的 $(C length) 特性一样，用户定义的特性也可以用于赋值：
+)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
 Similarly to $(C parallel()), $(C asyncBuf()) iterates $(C InputRange) ranges in parallel.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T045708Z" creationid="Heromyth" creationdate="20170826T045708Z">
@@ -5884,6 +5926,18 @@ $(C receiveTimeout()) 的第一个参数决定等待消息时要等待多长时�
     <tu>
       <tuv lang="EN-US">
         <seg>$(P
+The following additional definition of $(C area()) enables using that property in assignment operations and effectively modifying the area of $(C Rectangle) objects:
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170906T054259Z" creationid="Heromyth" creationdate="20170906T053929Z">
+        <seg>$(P
+在下面示例里，新增 $(C area()) 定义之后，我们可以在赋值中使用该特性，并高效地更改 $(C Rectangle) 对象的面积：
+)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
 The following code makes use of $(C dup()) to create a new object:
 )</seg>
       </tuv>
@@ -6001,6 +6055,16 @@ The function may be specified by the $(C =&gt;) syntax as a $(I lambda expressio
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T073927Z" creationid="Heromyth" creationdate="20170826T073927Z">
         <seg>$(P
 这个函数也可以是由 $(C =&gt;) 语法声明的 $(I lambda 表达式)。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
+The function that enables such an assignment syntax is also named as $(C area) and is also marked by $(C @property).</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170906T053826Z" creationid="Heromyth" creationdate="20170906T053658Z">
+        <seg>$(P
+只需你将函数命名为 $(C area) 并将其标记为 $(C @property)，你就能够使用赋值语法调用它。</seg>
       </tuv>
     </tu>
     <tu>
@@ -13188,6 +13252,14 @@ LANGUAGE=chinese</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>The value that is used on the right-hand side of the assignment becomes the only parameter of this function.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170906T053855Z" creationid="Heromyth" creationdate="20170906T053855Z">
+        <seg>等号右侧的值将作为函数唯一的参数传入函数。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>The values of the type that associative arrays $(I map from) are called $(I keys), rather than indexes.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Hipter" changedate="20160711T023157Z" creationid="Hipter" creationdate="20160708T090042Z">
@@ -13668,6 +13740,14 @@ LANGUAGE=chinese</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T073849Z" creationid="Heromyth" creationdate="20170826T073849Z">
         <seg>为了能够突出并行算法的速度，我们还是使用 $(C Thread.sleep()) 让整个过程消耗更多的时间。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>To enable this functionality, we can assume that the rectangle is $(I flexible) so that to maintain the invariant of "width * height == area", the sides of the rectangle can be changed.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170906T053646Z" creationid="Heromyth" creationdate="20170906T053646Z">
+        <seg>为了能够提供这样的功能，我们假设矩形的边长是$(I 可变的)。如此一来，为保持恒等式“长 × 宽 == 面积”成立，可以更改该矩形的各条边。</seg>
       </tuv>
     </tu>
     <tu>
