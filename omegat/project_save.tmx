@@ -326,6 +326,14 @@ $(LI $(LINK2 /ders/d.cn/struct.html, 结构) $(INDEX_KEYWORDS struct .</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>$(DERS_BOLUMU $(IX fiber) Fibers)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170909T003349Z" creationid="Heromyth" creationdate="20170909T003349Z">
+        <seg>$(DERS_BOLUMU $(IX fiber) 纤程)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>$(DERS_BOLUMU $(IX parallelism) Parallelism)</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T012513Z" creationid="Heromyth" creationdate="20170826T012513Z">
@@ -402,6 +410,14 @@ $(LI $(LINK2 /ders/d.cn/struct.html, 结构) $(INDEX_KEYWORDS struct .</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T002826Z" creationid="Heromyth" creationdate="20170826T002826Z">
         <seg>$(H5 $(IX atomic operation) 原子操作)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(H5 $(IX call stack) $(IX program stack) Call stack)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170909T004805Z" creationid="Heromyth" creationdate="20170909T004805Z">
+        <seg>$(H5 $(IX call stack) $(IX program stack) 调用栈)</seg>
       </tuv>
     </tu>
     <tu>
@@ -2839,6 +2855,16 @@ $(IX core) 大多数现代的微处理器都包含一个以上的$(I 内核)，�
     <tu>
       <tuv lang="EN-US">
         <seg>$(P
+$(IX coroutine) $(IX green thread) $(IX thread, green) A fiber is a $(I thread of execution) enabling a single thread achieve multiple tasks.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170909T004416Z" creationid="Heromyth" creationdate="20170909T003654Z">
+        <seg>$(P
+$(IX coroutine) $(IX green thread) $(IX thread, green) 纤程（Fiber）是一个$(I执行线程)，它可以让单个线程完成多个任务。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
 $(IX deadlock) The error can be explained by an example where one thread attempting to transfer money from account A to account to B while another thread attempting to transfer money in the reverse direction.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T001318Z" creationid="Heromyth" creationdate="20170826T001318Z">
@@ -2914,6 +2940,16 @@ $(IX immutable, concurrency) On the other hand, since $(C immutable) variables c
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T233747Z" creationid="Heromyth" creationdate="20170825T233747Z">
         <seg>$(P
 $(IX immutable, concurrency) 另一方面，由于 $(C immutable) 变量无法被修改，它们可以直接共享。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
+$(IX local state) The parameters, non-static local variables, the return value, and temporary expressions of a function, as well as any additional information that may be needed during its execution, comprise the $(I local state) of that function.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170909T005237Z" creationid="Heromyth" creationdate="20170909T005237Z">
+        <seg>$(P
+$(IX local state) 函数的参数、非静态变量、返回值、临时表达式，以及在它执行期间需要的所有附加信息组合成了它的$(I本地状态)。</seg>
       </tuv>
     </tu>
     <tu>
@@ -4135,6 +4171,16 @@ Evidently, the assignment to $(C .length) operates like a function.</seg>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170906T044343Z" creationid="Heromyth" creationdate="20170906T044343Z">
         <seg>$(P
 就像你看到的那样，对 $(C .length) 的赋值就像是调用了一个函数。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
+Fibers enable multiple call stacks per thread.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170909T004601Z" creationid="Heromyth" creationdate="20170909T004601Z">
+        <seg>$(P
+协程可以让每个线程有多个调用栈。</seg>
       </tuv>
     </tu>
     <tu>
@@ -10395,6 +10441,14 @@ COZUMLER_METIN=答案</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Compared to regular threads that are commonly used in parallelism and concurrency, it is more efficient to switch between fibers.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170909T004425Z" creationid="Heromyth" creationdate="20170909T004014Z">
+        <seg>与并行和并发里普遍使用的常规线程相比，纤程之间的切换具有更高的效率</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Compilers usually perform advanced analysis on the code, which help with producing fast programs and catching programming errors before the program even starts running.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170820T004854Z" creationid="Heromyth" creationdate="20170820T004854Z">
@@ -10723,6 +10777,14 @@ $(LI $(LINK2 http://dlang.org/phobos/index.html, $(IMG bullet_black.png) 标准�
       </tuv>
       <tuv lang="ZH-CN" changeid="Hipter" changedate="20160707T045550Z" creationid="Hipter" creationdate="20160707T045428Z">
         <seg>这样按相反顺序执行 $(C scope) 语句，让程序能按一致的顺序撤消前边表达式的副作用。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Fibers are similar to $(I coroutines) and $(I green threads).</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170909T004432Z" creationid="Heromyth" creationdate="20170909T004357Z">
+        <seg>纤程与$(I协程（Coroutine）)和$(I绿色线程)相似。</seg>
       </tuv>
     </tu>
     <tu>
@@ -11113,6 +11175,14 @@ $(LI $(LINK2 http://dlang.org/phobos/index.html, $(IMG bullet_black.png) 标准�
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170817T144130Z" creationid="Heromyth" creationdate="20170817T144130Z">
         <seg>基于此，删除操作的结果必须回赋给同一个数组变量。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>For that reason, to fully understand and appreciate fibers, one must first understand the $(I call stack) of a thread.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170909T004748Z" creationid="Heromyth" creationdate="20170909T004748Z">
+        <seg>因此，想要完全理解和用好纤程，你必须先要理解线程的$(I调用栈（call stack）)。</seg>
       </tuv>
     </tu>
     <tu>
