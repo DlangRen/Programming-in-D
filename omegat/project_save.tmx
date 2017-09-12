@@ -13226,6 +13226,14 @@ LANGUAGE=chinese</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>The local state of a function is allocated and initialized automatically at run time every time that function is called.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170912T052431Z" creationid="Heromyth" creationdate="20170912T052431Z">
+        <seg>函数的本地状态会在该函数每次被调用时自动分配和初始化。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>The main difference between a thread that is started with $(C spawn()) and a thread that is started with $(LINK2 /ders/d.en/parallelism.html, $(C task())) is the fact that $(C spawn()) makes it possible for threads to send messages to each other.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T054618Z" creationid="Heromyth" creationdate="20170824T054618Z">
