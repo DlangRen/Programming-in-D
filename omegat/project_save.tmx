@@ -2200,6 +2200,18 @@ $(B 操作        线程 A                             线程 B)
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>$(MONO
+The call stack grows upward
+as function calls get deeper.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170913T042343Z" creationid="Heromyth" creationdate="20170913T042343Z">
+        <seg>$(MONO
+随着函数调用的深入，
+调用栈会不断往上增长。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>$(OL
 $(LI
 Providing the index of the element to remove.</seg>
@@ -3032,6 +3044,16 @@ $(IX setMaxMailboxSize) $(C setMaxMailboxSize()) is used for limiting the number
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170827T023919Z" creationid="Heromyth" creationdate="20170825T134421Z">
         <seg>$(P
 $(IX setMaxMailboxSize)$(C setMaxMailboxSize()) 可以限制邮箱保存的消息数量。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
+$(IX stack frame) The storage space allocated for the local state of a function call is called a $(I frame) (or $(I stack frame)).</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170913T041204Z" creationid="Heromyth" creationdate="20170913T041204Z">
+        <seg>$(P
+$(IX stack frame) 为函数调用的本地状态分配的存储空间叫$(I帧（frame）) 或$(I栈帧（stack frame）)。</seg>
       </tuv>
     </tu>
     <tu>
@@ -4146,6 +4168,18 @@ Defining dynamic arrays is simpler than defining fixed-length arrays because omi
     <tu>
       <tuv lang="EN-US">
         <seg>$(P
+During the execution of $(C bar()), the call stack would consist of three frames storing the local states of those currently active function calls:
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170913T042237Z" creationid="Heromyth" creationdate="20170913T042237Z">
+        <seg>$(P
+在 $(C bar()) 的执行期间，调用栈里面有 3 帧，分别存储的是那些当前正激活函数调用的本地状态：
+)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
 Encapsulation is achieved by $(I protection attributes), which we will see in $(LINK2 /ders/d.en/encapsulation.html, a later chapter).</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170820T013433Z" creationid="Heromyth" creationdate="20170819T122633Z">
@@ -4224,6 +4258,18 @@ For example, an associative array that maps day names of type $(C string) to day
       <tuv lang="ZH-CN" changeid="Hipter" changedate="20160708T095549Z" creationid="Hipter" creationdate="20160708T095549Z">
         <seg>$(P
 例如，下面这个关联数组这样定义，它把日期名的类型 $(C string) 映射到日期的数字类型 $(C int) ：
+)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
+For example, at the time the main thread of the following program starts executing the $(C bar()) function, there would be three levels of active function calls due to $(C main()) calling $(C foo()) and $(C foo()) calling $(C bar()):
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170913T042051Z" creationid="Heromyth" creationdate="20170913T042051Z">
+        <seg>$(P
+例如，当下面程序的主线程开始执行 $(C bar()) 函数时， 会有 3 层激活的函数调用，即 $(C main()) 调用了 $(C foo())，而 $(C foo()) 又调用了 $(C bar())：
 )</seg>
       </tuv>
     </tu>
@@ -10169,6 +10215,14 @@ $(LI $(LINK2 /ders/d.cn/slices.html, 分片与其他数组功能) $(INDEX_KEYWOR
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>As functions call other functions during the execution of a thread, their frames are conceptually placed on top of each other to form a stack of frames.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170913T041546Z" creationid="Heromyth" creationdate="20170913T041546Z">
+        <seg>在线程执行期间，函数会调用其他函数，因此它们的帧会在概念上重叠在一起，从而形成一堆的帧。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>As it has been mentioned in that chapter, message passing is a safe method of concurrency.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T222627Z" creationid="Heromyth" creationdate="20170825T143348Z">
@@ -13490,6 +13544,14 @@ LANGUAGE=chinese</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>The stack of frames of currently active function calls is the $(I call stack) of that thread.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170913T041720Z" creationid="Heromyth" creationdate="20170913T041720Z">
+        <seg>当前正激活的函数调用的帧构成的栈即为该线程的$(I调用栈)。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>The state of the variables $(C i) and $(C j) would always be either "1 and 2" or "2 and 1" at the end of processing the synchronized block.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T000107Z" creationid="Heromyth" creationdate="20170826T000107Z">
@@ -14090,6 +14152,14 @@ LANGUAGE=chinese</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170827T024819Z" creationid="Heromyth" creationdate="20170825T135258Z">
         <seg>为了降低复杂度，可以为线程分配一个命名——所有线程都可以通过名字访问该线程。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Top of the call stack → ┌──────────────┐</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170913T042359Z" creationid="Heromyth" creationdate="20170913T042359Z">
+        <seg>调用栈的顶部 → ┌──────────────┐</seg>
       </tuv>
     </tu>
     <tu>
@@ -15085,6 +15155,18 @@ $(LI $(LINK2 /ders/d.cn/fibers.html, 纤程) $(INDEX_KEYWORDS call yield))
 $(LI $(LINK2 /ders/d.cn/memory.html, 内存管理) $(INDEX_KEYWORDS calloc realloc emplace destroy .alignof))
 $(LI $(LINK2 /ders/d.cn/uda.html, 自定义属性（UDA）) $(INDEX_KEYWORDS @))
 $(LI $(LINK2 /ders/d.cn/operator_precedence.html, 运算符优先级))
+)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>│ int c        │
+Bottom of the call stack → └──────────────┘
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170913T042419Z" creationid="Heromyth" creationdate="20170913T042419Z">
+        <seg>│ int c        │
+调用栈的底部 → └──────────────┘
 )</seg>
       </tuv>
     </tu>
