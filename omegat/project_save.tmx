@@ -14164,6 +14164,14 @@ LANGUAGE=chinese</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Top of the call stack → ├──────────────┤</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170913T042937Z" creationid="Heromyth" creationdate="20170913T042937Z">
+        <seg>调用栈的顶部 → ├──────────────┤</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Treat the value &lt;span style="white-space: nowrap"&gt;-1&lt;/span&gt; specially to determine the end of the numbers; do not process that value.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="大处着手小处着眼" changedate="20160726T051620Z" creationid="大处着手小处着眼" creationdate="20160726T022945Z">
