@@ -3067,6 +3067,16 @@ $(IX stack frame) 为函数调用的本地状态分配的存储空间叫$(I帧�
     <tu>
       <tuv lang="EN-US">
         <seg>$(P
+$(IX sum, std.algorithm) $(I $(B Note:) The code above is only for demonstration.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170914T020003Z" creationid="Heromyth" creationdate="20170914T020003Z">
+        <seg>$(P
+$(IX sum, std.algorithm) $(I $(B 注意：)上面的代码仅用于演示。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
 $(IX task) $(IX executeInNewThread) $(IX yieldForce) When tasks do not correspond to or cannot be represented by elements of a range, these three steps can be handled explicitly by the programmer.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T142522Z" creationid="Heromyth" creationdate="20170826T022323Z">
@@ -9135,6 +9145,14 @@ auto encrypted(string value) {</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T033755Z" creationid="Heromyth" creationdate="20170826T033755Z">
         <seg>* ‘theTask’执行的操作是否已经</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>* with the remaining elements.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170914T015854Z" creationid="Heromyth" creationdate="20170914T015854Z">
+        <seg>* 用余下的元素调用自己。</seg>
       </tuv>
     </tu>
     <tu>
