@@ -902,6 +902,14 @@ $(LI $(LINK2 /ders/d.cn/struct.html, 结构) $(INDEX_KEYWORDS struct .</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>$(H6 $(IX recursion) Recursion)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170913T120116Z" creationid="Heromyth" creationdate="20170913T120116Z">
+        <seg>$(H6 $(IX recursion) 递归)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>$(H6 $(IX remove, array) Removing elements from dynamic arrays)</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170817T051918Z" creationid="Heromyth" creationdate="20170817T051918Z">
@@ -5284,6 +5292,16 @@ Properties allow using member functions like member variables.</seg>
     <tu>
       <tuv lang="EN-US">
         <seg>$(P
+Recursion is the situation where a function calls itself either directly or indirectly.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170913T120243Z" creationid="Heromyth" creationdate="20170913T120243Z">
+        <seg>$(P
+递归指的是这样一种情况：函数直接或间接地调用自己</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
 Same as structs, the members are accessed by the $(I dot) operator:
 )</seg>
       </tuv>
@@ -7483,6 +7501,16 @@ We have already seen that $(C static this()) can be used for initializing module
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T002318Z" creationid="Heromyth" creationdate="20170826T002318Z">
         <seg>$(P
 我们已经见到过 $(C static this())，它是用来初始化模块和模块中包含的变量的。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
+We have been taking advantage of the call stack in every program that we have written so far.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170913T115944Z" creationid="Heromyth" creationdate="20170913T115926Z">
+        <seg>$(P
+在之前编写的每个程序里，我们都利用了调用栈。</seg>
       </tuv>
     </tu>
     <tu>
@@ -10997,6 +11025,16 @@ $(LI $(LINK2 http://dlang.org/phobos/index.html, $(IMG bullet_black.png) 标准�
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>For example, once $(C bar()) returns, its frame would no longer be needed and its space would later be used for another function call in the future:
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170913T115724Z" creationid="Heromyth" creationdate="20170913T115724Z">
+        <seg>例如，当 $(C bar()) 返回之后，它的帧并不再需要，而其空间随后会被其他函数调用使用：
+)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>For example, the character 'é' (the latin letter 'e' combined with an acute accent) is represented by Unicode encodings using at least two bytes.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="大处着手小处着眼" changedate="20160715T150017Z" creationid="大处着手小处着眼" creationdate="20160714T011821Z">
@@ -12624,6 +12662,14 @@ LANGUAGE=chinese</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Recursion greatly simplifies certain kinds of algorithms like the ones that are classified as $(I divide-and-conquer).</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170914T010608Z" creationid="Heromyth" creationdate="20170913T120932Z">
+        <seg>对于某些类型的算法（如$(I分治法)），使用递归会显得特别简单。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>S      o;  // assume S is a struct type</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Hipter" changedate="20160706T022841Z" creationid="Hipter" creationdate="20160706T022841Z">
@@ -12984,6 +13030,14 @@ LANGUAGE=chinese</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Hipter" changedate="20160706T012852Z" creationid="Hipter" creationdate="20160706T012821Z">
         <seg>实际的对象没有被复制。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>The advantages of the call stack is especially clear for recursive functions.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170913T120106Z" creationid="Heromyth" creationdate="20170913T120106Z">
+        <seg>调用栈对递归函数尤其著显。</seg>
       </tuv>
     </tu>
     <tu>
@@ -15174,6 +15228,14 @@ $(LI $(LINK2 /ders/d.cn/memory.html, 内存管理) $(INDEX_KEYWORDS calloc reall
 $(LI $(LINK2 /ders/d.cn/uda.html, 自定义属性（UDA）) $(INDEX_KEYWORDS @))
 $(LI $(LINK2 /ders/d.cn/operator_precedence.html, 运算符优先级))
 )</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>│ int b        │ ← foo's frame</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170913T115736Z" creationid="Heromyth" creationdate="20170913T115736Z">
+        <seg>│ int b        │ ← foo 的帧</seg>
       </tuv>
     </tu>
     <tu>
