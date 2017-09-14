@@ -4934,6 +4934,16 @@ Let's consider the following code that we saw previously in the $(LINK2 /ders/d.
     <tu>
       <tuv lang="EN-US">
         <seg>$(P
+Let's consider the following function that calculates the sum of the elements of a slice.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170914T012648Z" creationid="Heromyth" creationdate="20170914T012648Z">
+        <seg>$(P
+一起来看看下面这个函数，它会计算一个分片里所有元素的总和。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
 Let's consider the state where $(C i) is 1 and $(C j) is 2.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T235535Z" creationid="Heromyth" creationdate="20170825T235535Z">
@@ -8951,6 +8961,14 @@ $(LI 左手侧的 $(C char[]) 是一个切片，这意味着，一旦代码编�
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>* calculated so far.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170914T013257Z" creationid="Heromyth" creationdate="20170914T013257Z">
+        <seg>* 计算出来。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>* completed, because it has been started by a regular</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T033611Z" creationid="Heromyth" creationdate="20170826T033611Z">
@@ -9197,6 +9215,14 @@ immutable int b;    // 所有线程共享</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>/* Add the front element to the current sum and call self</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170914T015808Z" creationid="Heromyth" creationdate="20170914T015808Z">
+        <seg>/* 将最前面的元素与当前总和相加，然后</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>/* As 'theTask' continues executing, 'anOperation()' is</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T025846Z" creationid="Heromyth" creationdate="20170826T025846Z">
@@ -9225,6 +9251,14 @@ immutable int b;    // 所有线程共享</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T135105Z" creationid="Heromyth" creationdate="20170825T135105Z">
         <seg>/* 无法发送消息；稍候会重新发送。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>/* No element to add.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170914T013220Z" creationid="Heromyth" creationdate="20170914T013220Z">
+        <seg>/* 没有需要添加的元素。</seg>
       </tuv>
     </tu>
     <tu>
@@ -11875,6 +11909,14 @@ $(LINK2 /ders/d.cn/index.html,
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>It achieves this task by calling itself recursively with a slice that is one element shorter than the one that it has received.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170914T012934Z" creationid="Heromyth" creationdate="20170914T012934Z">
+        <seg>它采用递归调用自己的方式（所用的分片是比它所接收到那个分片少一个元素）实现了这一个功能。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>It calls a function with the elements of a range one-by-one and returns a range that consists of the results of calling that function with each element.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T073427Z" creationid="Heromyth" creationdate="20170826T073427Z">
@@ -13102,6 +13144,16 @@ LANGUAGE=chinese</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>The current result is carried over to the next recursion step as the second parameter:
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170914T013202Z" creationid="Heromyth" creationdate="20170914T013202Z">
+        <seg>当前结果则通过下一个递归的第二个参数带回：
+)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>The default value is specified as the second parameter of $(C .get()):
 )</seg>
       </tuv>
@@ -13554,6 +13606,22 @@ LANGUAGE=chinese</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T134030Z" creationid="Heromyth" creationdate="20170826T014430Z">
         <seg>支持线程依赖的编程模型叫做$(I 并发（concurrency）)。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>The recursion continues until the slice becomes empty.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170914T013038Z" creationid="Heromyth" creationdate="20170914T013038Z">
+        <seg>这个递归会一直持续到接收到的分片为空才会结束。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>The result is what has been</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170914T013248Z" creationid="Heromyth" creationdate="20170914T013248Z">
+        <seg>此时，结果已被</seg>
       </tuv>
     </tu>
     <tu>
