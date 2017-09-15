@@ -7658,6 +7658,16 @@ When $(C parallel()) works on the results of $(C asyncBuf()) or $(C map()), it i
     <tu>
       <tuv lang="EN-US">
         <seg>$(P
+When $(C sum()) is eventually called with an empty slice for the initial argument of $(C [1, 2, 3]) above, the relevant parts of the call stack would consist of the following frames.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170915T044411Z" creationid="Heromyth" creationdate="20170915T044411Z">
+        <seg>$(P
+对于上面的初始参数 $(C [1, 2, 3]) ，当最后使用它的空分片调用 $(C sum()) 时，调用栈的相关部分构成了下面这些帧。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
 When blocks of code need to be synchronized on more than one object, those objects must be specified together.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T001155Z" creationid="Heromyth" creationdate="20170826T001155Z">
@@ -12636,6 +12646,16 @@ LANGUAGE=chinese</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T001207Z" creationid="Heromyth" creationdate="20170826T001207Z">
         <seg>不然的话就可能出现几个线程分别拿到了不同的锁，而它们又在等待其他线程手中的锁的情况，即$(I 死锁)。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Otherwise, the sum of the elements of a range should be calculated by $(C std.algorithm.sum), which uses special algorithms to achieve more accurate calculations for floating point types.)
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170915T042051Z" creationid="Heromyth" creationdate="20170915T042051Z">
+        <seg>其实，想要计算某个范围里所有元素的总和，可以使用 $(C std.algorithm.sum)——它针对浮点类型使用了特殊的算法来实现更精确的计算。)
+)</seg>
       </tuv>
     </tu>
     <tu>
