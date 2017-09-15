@@ -12750,6 +12750,16 @@ LANGUAGE=chinese</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Remember to read the frame contents from bottom to top:
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170915T044646Z" creationid="Heromyth" creationdate="20170915T044646Z">
+        <seg>一定要记得从下往上来看帧的内容：
+)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>S      o;  // assume S is a struct type</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Hipter" changedate="20160706T022841Z" creationid="Hipter" creationdate="20160706T022841Z">
@@ -13788,6 +13798,14 @@ LANGUAGE=chinese</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170827T002637Z" creationid="Heromyth" creationdate="20170824T055246Z">
         <seg>下面程序中的两个工作线程分别输出四个数字。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>The value of each parameter is indicated after an $(C ==) sign.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170915T044550Z" creationid="Heromyth" creationdate="20170915T044550Z">
+        <seg>每个参数的值会在 $(C ==) 符号之后标明。</seg>
       </tuv>
     </tu>
     <tu>
@@ -15334,6 +15352,30 @@ $(LI $(LINK2 /ders/d.cn/memory.html, 内存管理) $(INDEX_KEYWORDS calloc reall
 $(LI $(LINK2 /ders/d.cn/uda.html, 自定义属性（UDA）) $(INDEX_KEYWORDS @))
 $(LI $(LINK2 /ders/d.cn/operator_precedence.html, 运算符优先级))
 )</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>│ arr        == [2, 3]    │ ← second call to sum</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170915T044727Z" creationid="Heromyth" creationdate="20170915T044727Z">
+        <seg>│ arr        == [2, 3]    │ ← 第二次调用 sum</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>│ arr        == [3]       │ ← third call to sum</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170915T044718Z" creationid="Heromyth" creationdate="20170915T044718Z">
+        <seg>│ arr        == [3]       │ ← 第三次调用 sum</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>│ arr        == []        │ ← final call to sum</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170915T044701Z" creationid="Heromyth" creationdate="20170915T044701Z">
+        <seg>│ arr        == []        │ ← 最后一次调用 sum</seg>
       </tuv>
     </tu>
     <tu>
