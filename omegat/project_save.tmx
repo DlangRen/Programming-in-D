@@ -15356,6 +15356,22 @@ $(LI $(LINK2 /ders/d.cn/operator_precedence.html, 运算符优先级))
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>│            ...          │ ← main's frame</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170915T044752Z" creationid="Heromyth" creationdate="20170915T044752Z">
+        <seg>│            ...          │ ← 主函数的帧</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>│ arr        == [1, 2, 3] │ ← first call to sum</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170915T044736Z" creationid="Heromyth" creationdate="20170915T044736Z">
+        <seg>│ arr        == [1, 2, 3] │ ← 第一次调用 sum</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>│ arr        == [2, 3]    │ ← second call to sum</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170915T044727Z" creationid="Heromyth" creationdate="20170915T044727Z">
