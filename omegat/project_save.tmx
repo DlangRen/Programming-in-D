@@ -6218,6 +6218,16 @@ The following additional definition of $(C area()) enables using that property i
     <tu>
       <tuv lang="EN-US">
         <seg>$(P
+The following are common operations of fibers.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20171017T055524Z" creationid="Heromyth" creationdate="20171017T055524Z">
+        <seg>$(P
+下面是纤程的几个常用操作。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
 The following code makes use of $(C dup()) to create a new object:
 )</seg>
       </tuv>
