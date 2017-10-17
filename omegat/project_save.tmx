@@ -2617,6 +2617,18 @@ $(I $(B 注意：) 如果将上方的等式换成自增或自检（例如， $(C
     <tu>
       <tuv lang="EN-US">
         <seg>$(P
+$(I $(B Note:) In practice, when the recursive function directly returns the result of calling itself, compilers use a technique called "tail-call optimization", which eliminates separate frames for each recursive call.)
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20171017T052232Z" creationid="Heromyth" creationdate="20171017T052232Z">
+        <seg>$(P
+$(I $(B 注意：)实际上，当新递归函数直接返回调用自己的结果时，编译器会使用一种名叫“尾调用优化”的技术——它可以去除每次递归调用时生成的各个帧。)
+)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
 $(I $(B Note:) It is a relatively expensive operation for a thread to wait for a lock, which may slow down the execution of the program noticeably.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T000141Z" creationid="Heromyth" creationdate="20170826T000141Z">
@@ -4611,6 +4623,16 @@ In a loop, the elements of a range are normally processed one after the other, o
         <seg>$(P
 对于循环，范围中的元素通常是一个一个按顺序被处理的，即上一个循环的操作结束后才会进行下一次循环：
 )</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
+In a multithreaded program, since each thread would be working on its own task, every thread gets it own call stack to maintain its own execution state.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20171017T052513Z" creationid="Heromyth" creationdate="20171017T052513Z">
+        <seg>$(P
+在多线程里，因为每个线程都只负责自己的任务，所以每个线程都会有自己的调用栈，用于维护其执行状态。</seg>
       </tuv>
     </tu>
     <tu>
@@ -6733,6 +6755,16 @@ The parameters that the thread function takes are passed to $(C spawn()) as its 
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170827T002512Z" creationid="Heromyth" creationdate="20170824T055237Z">
         <seg>$(P
 线程函数所需的参数可以通过 $(C spawn()) 的第二个及以后面的参数传入。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
+The power of fibers is based on the fact that although a fiber is not a thread, it gets its own call stack, effectively enabling multiple call stacks per thread.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20171017T052807Z" creationid="Heromyth" creationdate="20171017T052807Z">
+        <seg>$(P
+纤程的厉害之处在于它虽然不是线程，但是它有其自己的调用栈，从而可以高效地让每个线程拥有多个调用栈。</seg>
       </tuv>
     </tu>
     <tu>
@@ -12920,6 +12952,14 @@ LANGUAGE=chinese</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170818T142319Z" creationid="Hipter" creationdate="20160711T014051Z">
         <seg>由于多个成绩可以用一个动态数组存储，从 $(C string) 到 $(C int[]) 映射的关联数组将能用在此处。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Since one call stack maintains the execution state of one task, multiple call stacks enable a thread work on multiple tasks.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20171017T053052Z" creationid="Heromyth" creationdate="20171017T053052Z">
+        <seg>因为一个调用栈可以维护一个任务的执行状态，因此多个调用栈并可以实现一个线程处理多个任务。</seg>
       </tuv>
     </tu>
     <tu>
