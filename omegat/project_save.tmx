@@ -822,6 +822,14 @@ $(LI $(LINK2 /ders/d.cn/struct.html, 结构) $(INDEX_KEYWORDS struct .</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>$(H5 Usage)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20171017T053107Z" creationid="Heromyth" creationdate="20171017T053107Z">
+        <seg>$(H5 用法)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>$(H5 When to use)</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170906T070822Z" creationid="Heromyth" creationdate="20170906T070822Z">
