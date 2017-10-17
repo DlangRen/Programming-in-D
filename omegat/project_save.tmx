@@ -14564,6 +14564,14 @@ LANGUAGE=chinese</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>We will see examples of these later below.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20171017T055622Z" creationid="Heromyth" creationdate="20171017T055622Z">
+        <seg>在后面会看到有关它们的示例。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>We will see exceptions in $(LINK2 /ders/d.en/exceptions.html, a later chapter).</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Hipter" changedate="20160709T034341Z" creationid="Hipter" creationdate="20160708T081001Z">
