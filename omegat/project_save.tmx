@@ -710,6 +710,14 @@ $(LI $(LINK2 /ders/d.cn/struct.html, 结构) $(INDEX_KEYWORDS struct .</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>$(H5 Fibers in range implementations)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20171018T054030Z" creationid="Heromyth" creationdate="20171018T054030Z">
+        <seg>$(H5 范围实现里的纤程)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>$(H5 Initialization)</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Hipter" changedate="20160709T030542Z" creationid="Hipter" creationdate="20160709T030542Z">
@@ -1724,6 +1732,14 @@ There are three mistakes (bugs) in this program.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>$(LI $(IX .state, Fiber) The execution state of a fiber is determined by its $(C .state) property:</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20171018T053622Z" creationid="Heromyth" creationdate="20171018T053622Z">
+        <seg>$(LI $(IX .state, Fiber) 纤程的执行状态可以通过它的 $(C .state) 特性来检测：</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>$(LI $(IX .values) $(C .values) returns a copy of all values as a dynamic array.)</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Hipter" changedate="20160709T081449Z" creationid="Hipter" creationdate="20160709T081449Z">
@@ -1732,10 +1748,26 @@ There are three mistakes (bugs) in this program.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>$(LI $(IX EXEC, Fiber.State) $(C EXEC): The fiber is currently executing.)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20171018T053838Z" creationid="Heromyth" creationdate="20171018T053838Z">
+        <seg>$(LI $(IX EXEC, Fiber.State) $(C EXEC): 纤程当前正在执行。)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>$(LI $(IX Fiber, core.thread) A fiber can be created as an object of class $(C core.thread.Fiber) with a callable entity:</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20171018T052153Z" creationid="Heromyth" creationdate="20171018T052153Z">
         <seg>$(LI $(IX Fiber, core.thread) 纤程可创建为一个 $(C core.thread.Fiber) 对象，同时带上一个可调用实体：</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(LI $(IX HOLD, Fiber.State) $(C HOLD): The fiber is paused, meaning that it can be started or resumed.)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20171018T053814Z" creationid="Heromyth" creationdate="20171018T053814Z">
+        <seg>$(LI $(IX HOLD, Fiber.State) $(C HOLD): 纤程暂停，即表示它可以被开始或继续。)</seg>
       </tuv>
     </tu>
     <tu>
@@ -1752,6 +1784,14 @@ There are three mistakes (bugs) in this program.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T134502Z" creationid="Heromyth" creationdate="20170825T134502Z">
         <seg>$(LI $(IX OnCrowding) $(C OnCrowding.block)：阻塞发送者直到邮箱中有空闲空间。)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(LI $(IX TERM, Fiber.State) $(IX reset, Fiber) $(C TERM): The fiber has terminated.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20171018T053912Z" creationid="Heromyth" creationdate="20171018T053912Z">
+        <seg>$(LI $(IX TERM, Fiber.State) $(IX reset, Fiber) $(C TERM): 纤程已中止。</seg>
       </tuv>
     </tu>
     <tu>
@@ -1824,6 +1864,14 @@ There are three mistakes (bugs) in this program.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T150523Z" creationid="Heromyth" creationdate="20170826T045536Z">
         <seg>$(LI $(IX workForce) $(C workForce())：与 $(C yieldForce()) 功能相似。不同的是，它在等待当前任务完成时会将启动一个新的任务。)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(LI $(IX yield, Fiber) A fiber pauses itself ($(I yields) execution to its caller) by $(C Fiber.yield()):</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20171018T053243Z" creationid="Heromyth" creationdate="20171018T053243Z">
+        <seg>$(LI $(IX yield, Fiber) 纤程通过 $(C Fiber.yield()) 可以将自己暂停（$(I 跳转) 到调用函数）：</seg>
       </tuv>
     </tu>
     <tu>
@@ -2861,6 +2909,18 @@ $(IX OOP) $(IX 面向对象编程) 与结构相似， $(C class) 具有定义新
       <tuv lang="ZH-CN" changeid="Hipter" changedate="20160708T015721Z" creationid="Hipter" creationdate="20160708T015721Z">
         <seg>$(P
 $(IX OOP) $(IX 面向对象编程) 与结构相似， $(C class) 具有定义新类型的功能。不同于结构的是，在D语言中，类提供 $(I 面向对象编程) (OOP) 模型。下面是OOP的主要方面：
+)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
+$(IX State, Fiber) $(C Fiber.State) is an enum with the following values:
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20171018T053717Z" creationid="Heromyth" creationdate="20171018T053717Z">
+        <seg>$(P
+$(IX State, Fiber) $(C Fiber.State) 是一个枚举类型，有下面几种值：
 )</seg>
       </tuv>
     </tu>
@@ -5977,6 +6037,16 @@ The biggest difference from structs is that structs are $(I value types) and cla
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170819T124110Z" creationid="Heromyth" creationdate="20170819T124110Z">
         <seg>$(P
 与结构的最大区别在于结构是 $(I 值类型)  而类是 $(I 引用类型)。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
+The caller's execution resumes when the fiber yields.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20171018T053425Z" creationid="Heromyth" creationdate="20171018T053425Z">
+        <seg>$(P
+当纤程跳转时，调用函数会继续执行。</seg>
       </tuv>
     </tu>
     <tu>
@@ -12215,6 +12285,14 @@ $(LINK2 /ders/d.cn/index.html,
       </tuv>
       <tuv lang="ZH-CN" changeid="大处着手小处着眼" changedate="20160718T152728Z" creationid="大处着手小处着眼" creationdate="20160715T013340Z">
         <seg>如果至少其中一个‘é’字符没有做为单个编码点编码，而是一个‘e’与一个组合重音符的组合，那么它就可能会更长。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>It must be $(C reset()) before it can be used again.)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20171018T054011Z" creationid="Heromyth" creationdate="20171018T054011Z">
+        <seg>通过 $(C reset()) 重置后，它可以被再次使用。)</seg>
       </tuv>
     </tu>
     <tu>
