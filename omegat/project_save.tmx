@@ -1732,6 +1732,14 @@ There are three mistakes (bugs) in this program.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>$(LI $(IX Fiber, core.thread) A fiber can be created as an object of class $(C core.thread.Fiber) with a callable entity:</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20171018T052153Z" creationid="Heromyth" creationdate="20171018T052153Z">
+        <seg>$(LI $(IX Fiber, core.thread) 纤程可创建为一个 $(C core.thread.Fiber) 对象，同时带上一个可调用实体：</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>$(LI $(IX MailboxFull) $(C OnCrowding.throwException): A $(C MailboxFull) exception is thrown when sending the message.)</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T134702Z" creationid="Heromyth" creationdate="20170825T134702Z">
@@ -1752,6 +1760,22 @@ There are three mistakes (bugs) in this program.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170804T053356Z" creationid="Heromyth" creationdate="20170804T053356Z">
         <seg>$(LI $(IX allMembers) $(C __traits(allMembers)) 会以字符串列表的形式生成某个类型（或模块）的所有成员。)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(LI $(IX call, Fiber) A fiber is started and resumed by its $(C call()) member function:</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20171018T052515Z" creationid="Heromyth" creationdate="20171018T052515Z">
+        <seg>$(LI $(IX call, Fiber) 纤程可以通过成员函数 $(C call()) 来开始和继续：</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(LI $(IX fiber function) A fiber starts its execution from a callable entity (function pointer, delegate, etc.) that does not take any parameter and does not return anything.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20171018T051647Z" creationid="Heromyth" creationdate="20171018T051647Z">
+        <seg>$(LI $(IX fiber function) 一个纤程可以执行一个不接受任何参数也不返回任何内容的可调用实例（如函数指针、委托等）。</seg>
       </tuv>
     </tu>
     <tu>
@@ -3375,6 +3399,16 @@ Also observe that total number of swaps is 10 times 10 thousand.</seg>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T235313Z" creationid="Heromyth" creationdate="20170825T235313Z">
         <seg>$(P
 除此之外我们还可以看到程序一共启动了 10 个线程，每个线程执行 1 万次交换。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
+Alternatively, a subclass of $(C Fiber) can be defined and the fiber function can be passed to the constructor of the superclass.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20171018T052325Z" creationid="Heromyth" creationdate="20171018T052325Z">
+        <seg>$(P
+另外，它也可以定义为 $(C Fiber) 的子类，并将纤程函数传递给父类的构造函数。</seg>
       </tuv>
     </tu>
     <tu>
@@ -7512,6 +7546,16 @@ Unlike structs, there is no automatic object construction where the constructor 
     <tu>
       <tuv lang="EN-US">
         <seg>$(P
+Unlike threads, the caller is paused while the fiber is executing.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20171018T052657Z" creationid="Heromyth" creationdate="20171018T052657Z">
+        <seg>$(P
+与线程不同的是，在纤程执行的同时调用函数会被暂停执行。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
 Using the assignment operator is sufficient to build the association between a key and a value:
 )</seg>
       </tuv>
@@ -11219,6 +11263,14 @@ $(LI $(LINK2 http://dlang.org/phobos/index.html, $(IMG bullet_black.png) 标准�
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>For example, the following function can be used as a fiber function:</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20171018T051722Z" creationid="Heromyth" creationdate="20171018T051722Z">
+        <seg>例如，下面这个函数便可以用作纤程函数：</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>For example, the following program that tries to pass the address of a $(C bool) variable to another thread cannot be compiled:
 )</seg>
       </tuv>
@@ -11897,6 +11949,16 @@ $(LINK2 /ders/d.cn/index.html,
       </tuv>
       <tuv lang="ZH-CN" changeid="大处着手小处着眼" changedate="20160726T021258Z" creationid="大处着手小处着眼" creationdate="20160726T021258Z">
         <seg>对于整数，元素按从小到大排序。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>In the following example, the fiber function is a member function:
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20171018T052401Z" creationid="Heromyth" creationdate="20171018T052401Z">
+        <seg>下面的示例里，纤程函数是一个成员函数：
+)</seg>
       </tuv>
     </tu>
     <tu>
