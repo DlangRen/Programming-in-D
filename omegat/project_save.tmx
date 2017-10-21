@@ -5036,9 +5036,9 @@ Let's assume that a third property of this type becomes a requirement, which sho
         <seg>$(P
 Let's compare these three algorithms using the $(C Student) example.</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T073817Z" creationid="Heromyth" creationdate="20170826T073817Z">
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20171021T084934Z" creationid="Heromyth" creationdate="20170826T073817Z">
         <seg>$(P
-我们会用 $(C Student) 作为例子来比较个三个算法。</seg>
+下面用 $(C Student) 作为示例，对这三个算法做个比较。</seg>
       </tuv>
     </tu>
     <tu>
@@ -12546,8 +12546,8 @@ $(LINK2 /ders/d.cn/index.html,
       <tuv lang="EN-US">
         <seg>Let's assume that $(C Student) has a member function that returns the average grade of the student.</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T073839Z" creationid="Heromyth" creationdate="20170826T073839Z">
-        <seg>我们假设 $(C Student) 有一个计算并返回学生平均分的成员函数。</seg>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20171021T084837Z" creationid="Heromyth" creationdate="20170826T073839Z">
+        <seg>假设 $(C Student) 有一个计算并返回学生平均分的成员函数。</seg>
       </tuv>
     </tu>
     <tu>
