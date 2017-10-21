@@ -204,8 +204,8 @@ $(LI $(LINK2 /ders/d.cn/struct.html, 结构) $(INDEX_KEYWORDS struct .</seg>
       <tuv lang="EN-US">
         <seg>$(C std.algorithm.map) is an algorithm commonly found in many functional languages.</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T073418Z" creationid="Heromyth" creationdate="20170826T073418Z">
-        <seg>在大多数函数式编程语言中你都能找到 $(C std.algorithm.map) 这样的算法。</seg>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20171021T083957Z" creationid="Heromyth" creationdate="20170826T073418Z">
+        <seg>在许多函数式编程语言里都能找到与 $(C std.algorithm.map) 类似的算法。</seg>
       </tuv>
     </tu>
     <tu>
@@ -3091,9 +3091,9 @@ $(IX lock) $(C synchronized) 会在后台创建一个锁，同一时间只有一
         <seg>$(P
 $(IX map, std.algorithm) It helps to explain $(C map()) from the $(C std.algorithm) module before explaining $(C taskPool.map()).</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T073408Z" creationid="Heromyth" creationdate="20170826T073408Z">
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20171021T083854Z" creationid="Heromyth" creationdate="20170826T073408Z">
         <seg>$(P
-$(IX map, std.algorithm)在介绍 $(C taskPool.map()) 之前，先了解一下 $(C std.algorithm) 模块的 $(C map()) 对理解本节的内容是非常有帮助的。</seg>
+$(IX map, std.algorithm)在介绍 $(C taskPool.map()) 之前，先了解一下 $(C std.algorithm) 模块里的 $(C map())，这样有助于理解本节的内容。</seg>
       </tuv>
     </tu>
     <tu>
@@ -6232,9 +6232,9 @@ The execution time of the program can be measured in a terminal by $(C time):
         <seg>$(P
 The fact that $(C std.algorithm.map) operates lazily is very powerful in many programs.</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T073526Z" creationid="Heromyth" creationdate="20170826T073526Z">
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20171021T084820Z" creationid="Heromyth" creationdate="20170826T073526Z">
         <seg>$(P
-实际上对很多程序来说，$(C std.algorithm.map) 的延迟取值是非常有用的。</seg>
+在很多程序里，$(C std.algorithm.map) 的懒式操作都会非常有用。</seg>
       </tuv>
     </tu>
     <tu>
@@ -9002,8 +9002,8 @@ $(LI $(LINK2 /ders/d.cn/logical_expressions.html, 逻辑表达式) $(INDEX_KEYWO
         <seg>(There is also $(C std.algorithm.each), which is for generating side effects for each element, as opposed to producing a result from it.)
 )</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T073509Z" creationid="Heromyth" creationdate="20170826T073509Z">
-        <seg>（标准库中还有一个与之相似的 $(C std.algorithm.each)。但不同的是它并不会返回新的范围来储存结果，而是直接将结果应用到传入的范围的元素上。）
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20171021T084350Z" creationid="Heromyth" creationdate="20170826T073509Z">
+        <seg>标准库中还有一个与之相似的 $(C std.algorithm.each)。但不同的是它并不会返回新的范围来储存结果，而是直接将结果应用到传入的范围的元素上。
 )</seg>
       </tuv>
     </tu>
@@ -12129,8 +12129,8 @@ $(LINK2 /ders/d.cn/index.html,
       <tuv lang="EN-US">
         <seg>It calls a function with the elements of a range one-by-one and returns a range that consists of the results of calling that function with each element.</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T073427Z" creationid="Heromyth" creationdate="20170826T073427Z">
-        <seg>它会对范围中的每一个元素应用指定的函数，并将函数的返回值组合为范围返回。</seg>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20171021T084339Z" creationid="Heromyth" creationdate="20170826T073427Z">
+        <seg>它会用范围里元素一个接一个地调用函数，并返回一个范围（其组成元素是每次调用该函数时得到的结果）。</seg>
       </tuv>
     </tu>
     <tu>
@@ -12179,8 +12179,8 @@ $(LINK2 /ders/d.cn/index.html,
       <tuv lang="EN-US">
         <seg>It is a lazy algorithm: It calls the function as needed.</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T073437Z" creationid="Heromyth" creationdate="20170826T073437Z">
-        <seg>这是一个延迟求值的算法，只有在返回的结果被使用时它才会调用指定的函数进行运算。</seg>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20171021T084512Z" creationid="Heromyth" creationdate="20170826T073437Z">
+        <seg>这是个懒式算法：函数只有在需要时才会被调用。</seg>
       </tuv>
     </tu>
     <tu>
