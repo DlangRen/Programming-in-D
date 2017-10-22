@@ -14502,8 +14502,8 @@ LANGUAGE=chinese</seg>
       <tuv lang="EN-US">
         <seg>To demonstrate how parallel algorithms are faster, let's again slow this function down with $(C Thread.sleep()).</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T073849Z" creationid="Heromyth" creationdate="20170826T073849Z">
-        <seg>为了能够突出并行算法的速度，我们还是使用 $(C Thread.sleep()) 让整个过程消耗更多的时间。</seg>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20171022T130755Z" creationid="Heromyth" creationdate="20170826T073849Z">
+        <seg>为了展示并行算法到底有多快，我们需要再次使用 $(C Thread.sleep()) 将这个函数变慢。</seg>
       </tuv>
     </tu>
     <tu>
