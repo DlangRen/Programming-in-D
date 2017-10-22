@@ -22,12 +22,12 @@ $(C writeln) can take more than one argument. It prints them one after the other
 import std.stdio;
 
 void main() {
-    writeln("Hello world!", "Hello fish!");
+    writeln("Hello, World!", "Hello, fish!");
 }
 ---
 
 $(P
-Sometimes, all of the information that is to be printed on the same line may not be readily available to be passed to $(C writeln). In such cases, the first parts of the line may be printed by $(C write) and the last part of the line may be printed by $(C writeln).
+Sometimes, not all of the information that is to be printed on the same line may be readily available to be passed to $(C writeln). In such cases, the first parts of the line may be printed by $(C write) and the last part of the line may be printed by $(C writeln).
 )
 
 $(P
@@ -39,11 +39,11 @@ import std.stdio;
 
 void main() {
     // Let's first print what we have available:
-    write("Hello");
+    write("Hello,");
 
     // ... let's assume more operations at this point ...
 
-    write("world!");
+    write("World!");
 
     // ... and finally:
     writeln();
@@ -62,7 +62,7 @@ $(PROBLEM_COK
 
 $(PROBLEM
 
-Both of the programs in this chapter print the strings without any spaces between them. Change the programs so that there is space between the arguments as in "Hello world!".
+Both of the programs in this chapter print the strings without any spaces between them. Change the programs so that there is space between the arguments as in "Hello, World!".
 
 )
 

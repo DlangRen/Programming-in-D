@@ -74,7 +74,7 @@ There is coffee: false
 )
 
 $(P
-will mean that "there isn't coffee". Note that the fact that "is" appears on the left-hand side does not mean that coffee exists. I use the "...&nbsp;is&nbsp;...:&nbsp;false" construct to mean "is not" or "is false".
+will mean that "there isn't coffee". I use the "...&nbsp;is&nbsp;...:&nbsp;false" construct to mean "is not" or "is false".
 )
 
 $(P

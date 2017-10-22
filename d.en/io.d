@@ -38,7 +38,7 @@ $(C writeln) that we've been using in the previous chapters is actually short fo
 import std.stdio;
 
 void main() {
-    $(HILITE stdout.)writeln("Hello world!");
+    $(HILITE stdout.)writeln("Hello, World!");
 }
 ---
 

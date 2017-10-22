@@ -138,21 +138,21 @@ $(P
 $(C break) works with $(C do-while), $(C for), $(C foreach), and $(C switch) statements as well. We will see these features in later chapters.
 )
 
-$(H5 $(IX loop, infinite) Infinite loop)
+$(H5 $(IX loop, infinite) $(IX loop, unconditional) $(IX infinite loop) $(IX unconditional loop) Unconditional loop)
 
 $(P
-Sometimes the logical expression is intentionally made a constant $(C true). The $(C break) statement is a common way of exiting such $(I infinite loops).
+Sometimes the logical expression is intentionally made a constant $(C true). The $(C break) statement is a common way of exiting such $(I unconditional loops). ($(I Infinite loop) is an alternative but not completely accurate term that means unconditional loop.)
 )
 
 $(P
-The following program prints a menu in an infinite loop; the only way of exiting the loop is a $(C break) statement:
+The following program prints a menu in an unconditional loop; the only way of exiting the loop is a $(C break) statement:
 )
 
 ---
 import std.stdio;
 
 void main() {
-    /* Infinite loop, because the logical expression is always
+    /* Unconditional loop, because the logical expression is always
      * true */
     while ($(HILITE true)) {
         write("0:Exit, 1:Turkish, 2:English - Your choice? ");
@@ -178,7 +178,7 @@ void main() {
 ---
 
 $(P
-$(I $(B Note:)) Exceptions $(I can terminate an infinite loop as well. We will see exceptions in a later chapter.)
+$(I $(B Note:)) Exceptions $(I can terminate an unconditional loop as well. We will see exceptions in a later chapter.)
 )
 
 $(PROBLEM_COK

@@ -362,7 +362,7 @@ Change the program so that the line can be compiled and that $(C amount) equals 
 )
 
 $(PROBLEM
-Write a program that increases the value of a variable and prints it in an infinite loop. Make the value always be printed on the same line, overwriting the previous value:
+Write a program that increases the value of a variable and prints it continuously. Make the value always be printed on the same line, overwriting the previous value:
 
 $(SHELL
 Number: 25774  $(SHELL_NOTE always on the same line)

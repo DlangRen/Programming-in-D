@@ -235,7 +235,7 @@ For example, the $(I hello world) program can be written with a $(C mixin) as we
 import std.stdio;
 
 void main() {
-    mixin (`writeln("hello world");`);
+    mixin (`writeln("Hello, World!");`);
 }
 ---
 
@@ -244,7 +244,7 @@ The string gets inserted as code and the program produces the following output:
 )
 
 $(SHELL
-hello world
+Hello, World!
 )
 
 $(P
@@ -253,7 +253,7 @@ We can go further and insert all of the program as a string mixin:
 
 ---
 mixin (
-`import std.stdio; void main() { writeln("hello world"); }`
+`import std.stdio; void main() { writeln("Hello, World!"); }`
 );
 ---
 
@@ -273,8 +273,8 @@ string printStatement(string message) {
 }
 
 void main() {
-    mixin (printStatement("hello world"));
-    mixin (printStatement("hi world"));
+    mixin (printStatement("Hello, World!"));
+    mixin (printStatement("Hi, World!"));
 }
 ---
 
@@ -283,8 +283,8 @@ The output:
 )
 
 $(SHELL
-hello world
-hi world
+Hello, World!
+Hi, World!
 )
 
 $(P
@@ -295,8 +295,8 @@ Note that the $(STRING "writeln") expressions are not executed inside $(C printS
 import std.stdio;
 
 void main() {
-    writeln("hello world");
-    writeln("hi world");
+    writeln("Hello, World!");
+    writeln("Hi, World!");
 }
 ---
 

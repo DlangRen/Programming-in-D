@@ -37,7 +37,7 @@ The following program cannot be compiled because the semicolon at the end of the
 import std.stdio;
 
 void main() {
-    writeln("Hello world!")    $(DERLEME_HATASI)
+    writeln("Hello, World!")    $(DERLEME_HATASI)
 }
 ---
 )

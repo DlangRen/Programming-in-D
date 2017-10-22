@@ -64,10 +64,6 @@ I will leave one peculiarity about the use of $(C readf) for later; for now, let
 ---
 
 $(P
-$(I $(B Note:) As I explain below, in most cases there must also be a space: $(STRING "&nbsp;%s").)
-)
-
-$(P
 Actually, $(C readf) can work without the $(C &) character as well:
 )
 

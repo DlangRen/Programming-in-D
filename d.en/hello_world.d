@@ -5,7 +5,7 @@ $(DIV_CLASS page_one,
 $(DERS_BOLUMU $(IX hello world) The Hello World Program)
 
 $(P
-The first program to show in most programming language books is the $(I hello world) program. This very short and simple program merely writes "hello world" and finishes. This program is important because it includes some of the essential concepts of that language.
+The first program to show in most programming language books is the $(I hello world) program. This very short and simple program merely writes "Hello, World!" and finishes. This program is important because it includes some of the essential concepts of that language.
 )
 
 $(P
@@ -16,7 +16,7 @@ Here is a $(I hello world) program in D:
 import std.stdio;
 
 void main() {
-    writeln("Hello world!");
+    writeln("Hello, World!");
 }
 ---
 
@@ -31,7 +31,7 @@ $(IX gdc) $(IX ldc) At the time of writing this chapter, there are three D compi
 )
 
 $(P
-$(IX dmd) $(C dmd) is the D compiler that has been used during the design and development of the language over the years. All of the examples in this book have been tested with $(C dmd). For that reason, it would be the easiest for you to start with $(C dmd) and try other compilers only if you have a specific need to. The code samples in this book were compiled with $(C dmd) version 2.074.0.
+$(IX dmd) $(C dmd) is the D compiler that has been used during the design and development of the language over the years. All of the examples in this book have been tested with $(C dmd). For that reason, it would be the easiest for you to start with $(C dmd) and try other compilers only if you have a specific need to. The code samples in this book were compiled with $(C dmd) version 2.076.0.
 )
 
 $(P
@@ -85,12 +85,12 @@ If the compiler has instead printed some messages, you probably have made a mist
 )
 
 $(P
-Once the program has been created successfully, type the name of the executable program to run it. You should see that the program prints "Hello world!":
+Once the program has been created successfully, type the name of the executable program to run it. You should see that the program prints "Hello, World!":
 )
 
 $(SHELL
-$(SHELL_OBSERVED $) ./hello     $(SHELL_NOTE running the program)
-Hello world!  $(SHELL_NOTE the message that it prints)
+$(SHELL_OBSERVED $) ./hello      $(SHELL_NOTE running the program)
+Hello, World!  $(SHELL_NOTE the message that it prints)
 )
 
 $(P
@@ -105,7 +105,7 @@ The compiler has many command line switches that are used for influencing how it
 
 $(SHELL
 $(SHELL_OBSERVED $) dmd    $(SHELL_NOTE enter just the name)
-DMD64 D Compiler v2.074.0
+DMD64 D Compiler v2.076.0
 Copyright (c) 1999-2017 by Digital Mars written by Walter Bright
 ...
   -de            show use of deprecated features as errors (halt compilation)
@@ -134,7 +134,7 @@ One other command line switch that you may find useful is $(C -run). It compiles
 
 $(SHELL
 $(SHELL_OBSERVED $) dmd -de -w -unittest $(HILITE -run) hello.d
-Hello world!  $(SHELL_NOTE the program is automatically executed)
+Hello, World!  $(SHELL_NOTE the program is automatically executed)
 )
 
 $(H5 $(IX IDE) IDE)
@@ -170,7 +170,7 @@ $(C writeln) above is a $(I function) in D's standard $(I library). It is used f
 $(P $(B Module): Library contents are grouped by types of tasks that they intend to help with. Such a group is called a module. The only module that this program uses is $(C std.stdio), which handles data input and output.
 )
 
-$(P $(B Character and string): Expressions like $(STRING "Hello world!") are called $(I strings), and the elements of strings are called $(I characters). The only string in this program contains characters $(STRING 'H'), $(STRING 'e'), $(STRING '!'), and others.
+$(P $(B Character and string): Expressions like $(STRING "Hello, World!") are called $(I strings), and the elements of strings are called $(I characters). The only string in this program contains characters $(STRING 'H'), $(STRING 'e'), $(STRING '!'), and others.
 )
 
 $(P $(B Order of operations): Programs complete their tasks by executing operations in a certain order. These tasks start with the operations that are written in the function named $(C main). The only operation in this program writes "Hello world!".

@@ -8,7 +8,7 @@ $(LI
 One method is to use another parameter in between:
 
 ---
-    writeln("Hello world!", " ", "Hello fish!");
+    writeln("Hello, World!", " ", "Hello, fish!");
 ---
 
 )

@@ -208,7 +208,7 @@ I skipped many rows in the table and indicated the signed and unsigned versions 
 $(H6 Choosing a type)
 
 $(P
-Since a 3-bit type can only have 8 distinct values, it can only represent concepts like the value of a die or the number of the day of the week. (This is just an example; there isn't a 3-bit type in D.)
+D has no 3-bit type. But such a hypothetical type could only have 8 distinct values. It could only represent concepts such as the value of a die, or the week's day number.
 )
 
 $(P

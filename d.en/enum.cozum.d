@@ -19,7 +19,7 @@ void main() {
     }
     writeln();
 
-    // Infinite loop until the user wants to exit
+    // Unconditional loop until the user wants to exit
     while (true) {
         write("Operation? ");
 
