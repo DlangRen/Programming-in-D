@@ -3434,6 +3434,16 @@ All of the threads of all of the programs that are active at a given time are ex
     <tu>
       <tuv lang="EN-US">
         <seg>$(P
+Almost every range needs to store some information to remember its state of iteration.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20171024T052323Z" creationid="Heromyth" creationdate="20171024T052301Z">
+        <seg>$(P
+几乎所有的范围都需要存储某些信息，以便记住迭代状态。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
 Also available as $(LINK2 https://gumroad.com/l/PinD, $(I pay-what-you-want) eBooks at Gumroad) and $(I free) here as $(LINK_DOWNLOAD http://ddili.org/ders/d.en/Programming_in_D.pdf, PDF), $(LINK_DOWNLOAD http://ddili.org/ders/d.en/Programming_in_D.epub, EPUB), $(LINK_DOWNLOAD http://ddili.org/ders/d.en/Programming_in_D.azw3, AZW3), and $(LINK_DOWNLOAD http://ddili.org/ders/d.en/Programming_in_D.mobi, MOBI).</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170803T012601Z" creationid="Heromyth" creationdate="20170801T042848Z">
@@ -4379,6 +4389,18 @@ Fixed-length arrays are also known as static arrays.</seg>
       <tuv lang="ZH-CN" changeid="大处着手小处着眼" changedate="20160725T033913Z" creationid="大处着手小处着眼" creationdate="20160725T033844Z">
         <seg>$(P
 定长数组也被称为静态数组。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
+For example, $(C FibonacciSeries) that we have defined earlier was keeping two member variables to calculate the $(I next next) number in the series:
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20171024T053415Z" creationid="Heromyth" creationdate="20171024T053415Z">
+        <seg>$(P
+例如，我们之前定义的 $(C FibonacciSeries)会一直记住两个变量，以便计算序列里的 $(I 下一个 next) 成员：
+)</seg>
       </tuv>
     </tu>
     <tu>
@@ -12678,6 +12700,14 @@ LANGUAGE=chinese</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Most range examples that we saw in $(LINK2 /ders/d.en/ranges.html, the Ranges) and later chapters have been storing some kind of state to achieve their tasks.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20171024T052838Z" creationid="Heromyth" creationdate="20171024T052838Z">
+        <seg>在 $(LINK2 /ders/d.en/ranges.html, 范围)  及后面章节里看到的大部分范围示例为了完成任务都会存储某些状态。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>MyClass variable;   // does not reference an object</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170819T130525Z" creationid="Heromyth" creationdate="20170819T130525Z">
@@ -14352,6 +14382,14 @@ LANGUAGE=chinese</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Hipter" changedate="20160707T045157Z" creationid="Hipter" creationdate="20160707T045157Z">
         <seg>这是因为后边的代码依赖于前边的变量。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>This is necessary for it to know what to do when its $(C popFront()) is called next time.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20171024T052515Z" creationid="Heromyth" creationdate="20171024T052515Z">
+        <seg>它需要知道当下次调用 $(C popFront()) 时应该做什么。</seg>
       </tuv>
     </tu>
     <tu>
