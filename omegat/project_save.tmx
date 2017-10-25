@@ -4464,6 +4464,16 @@ For example, the following code that tries to capitalize the first letter of a $
     <tu>
       <tuv lang="EN-US">
         <seg>$(P
+For example, the following recursive implementations of $(C insert()) and $(C print()) do not define any variables and are independent of the number of elements contained in the tree.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20171025T005136Z" creationid="Heromyth" creationdate="20171025T005136Z">
+        <seg>$(P
+例如，下面是 $(C insert()) 和 $(C print()) 的递归实现，它们并未定义任何变量，并且与树里包含的元素数量无关。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
 For example, the sum of the squares of the elements of an array can be calculated as in the following program:
 )</seg>
       </tuv>
@@ -7999,6 +8009,16 @@ When there is no property function that modifies a member variable, then that me
         <seg>$(P
 如果成员变量没有写特性，那在对象外部看来它将是只读的：
 )</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
+While maintaining the iteration state is trivial for some ranges like $(C FibonacciSeries), it is surprisingly harder for some others, e.g. recursive data structures like binary search trees.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20171025T004300Z" creationid="Heromyth" creationdate="20171025T004300Z">
+        <seg>$(P
+对于某些类似 $(C FibonacciSeries) 那样的范围，维护迭代状态并非什么难事；但是对于其他的范围（如二叉搜索树那样的递归数据结构）则是困难重重。</seg>
       </tuv>
     </tu>
     <tu>
@@ -13882,6 +13902,14 @@ LANGUAGE=chinese</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T134030Z" creationid="Heromyth" creationdate="20170826T014430Z">
         <seg>支持线程依赖的编程模型叫做$(I 并发（concurrency）)。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>The reason why it is surprising is that for such data structures, the same algorithms are trivial when implemented recursively.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20171025T004913Z" creationid="Heromyth" creationdate="20171025T004913Z">
+        <seg>让人惊讶的是，对于这种数据结构，同样的算法在递归实现时并非什么难事。</seg>
       </tuv>
     </tu>
     <tu>
