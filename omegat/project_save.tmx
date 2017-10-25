@@ -9013,6 +9013,16 @@ $(LI $(LINK2 /ders/d.cn/logical_expressions.html, 逻辑表达式) $(INDEX_KEYWO
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>(Note that $(C insert()) is recursive indirectly through $(C insertOrSet()).)
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20171025T005313Z" creationid="Heromyth" creationdate="20171025T005313Z">
+        <seg>请注意，$(C insert()) 通过 $(C insertOrSet()) 间接实现的递归。
+)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>(Priority is an operating system concept that determines execution priorities of threads.))</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T045422Z" creationid="Heromyth" creationdate="20170826T045422Z">
@@ -9243,6 +9253,14 @@ $(LI 左手侧的 $(C char[]) 是一个切片，这意味着，一旦代码编�
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>* initializing its node.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20171025T010243Z" creationid="Heromyth" creationdate="20171025T010243Z">
+        <seg>* 初始化它的节点。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>* member has that attribute, Color.black otherwise.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170815T120805Z" creationid="Heromyth" creationdate="20170815T120805Z">
@@ -9333,6 +9351,14 @@ auto encrypted(string value) {</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>* the implementation of struct Tree below and should not be</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20171025T005726Z" creationid="Heromyth" creationdate="20171025T005521Z">
+        <seg>*  Tree 结构，而不应该</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>* the task function, i.e. anOperation().</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T034154Z" creationid="Heromyth" creationdate="20170826T034154Z">
@@ -9345,6 +9371,22 @@ auto encrypted(string value) {</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Hipter" changedate="20160711T120729Z" creationid="Hipter" creationdate="20160711T014929Z">
         <seg>* 值类型为 int[] ，即整型数组。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>* tree by means of 'root' being equal to 'null'.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20171025T010546Z" creationid="Heromyth" creationdate="20171025T010546Z">
+        <seg>* 即'root'为'null'时。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>* used directly.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20171025T005737Z" creationid="Heromyth" creationdate="20171025T005737Z">
+        <seg>* 被直接使用。</seg>
       </tuv>
     </tu>
     <tu>
@@ -9489,6 +9531,38 @@ immutable int b;    // 所有线程共享</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>/* First print the elements of the left sub-tree */</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20171025T005951Z" creationid="Heromyth" creationdate="20171025T005951Z">
+        <seg>/* 首先输出左子树里的元素 */</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>/* Inserts the element to the specified sub-tree, potentially</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20171025T010233Z" creationid="Heromyth" creationdate="20171025T010233Z">
+        <seg>/* 将元素插入到指定的子树，同时会根据情况</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>/* Larger elements go under the right sub-tree.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20171025T005915Z" creationid="Heromyth" creationdate="20171025T005915Z">
+        <seg>/* 更大的元素会进入到右子树。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>/* Lastly, print the elements of the right sub-tree */</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20171025T010038Z" creationid="Heromyth" creationdate="20171025T010038Z">
+        <seg>/* 最后，输出右子树里的元素 */</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>/* No element to add.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170914T013220Z" creationid="Heromyth" creationdate="20170914T013220Z">
@@ -9541,6 +9615,14 @@ immutable int b;    // 所有线程共享</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T235522Z" creationid="Heromyth" creationdate="20170824T235522Z">
         <seg>/* 准备好接收有关机器人的移动情况</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>/* Represents the nodes of a binary tree.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20171025T005350Z" creationid="Heromyth" creationdate="20171025T005350Z">
+        <seg>/* 二叉树的节点表示。</seg>
       </tuv>
     </tu>
     <tu>
@@ -9601,6 +9683,14 @@ immutable int b;    // 所有线程共享</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>/* Smaller elements go under the left sub-tree.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20171025T005847Z" creationid="Heromyth" creationdate="20171025T005847Z">
+        <seg>/* 更小的元素会进入到左子树。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>/* Specifies that the symbol that it is assigned to should be</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170815T120233Z" creationid="Heromyth" creationdate="20170815T115215Z">
@@ -9645,6 +9735,30 @@ immutable int b;    // 所有线程共享</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Hipter" changedate="20160711T120710Z" creationid="Hipter" creationdate="20160711T014817Z">
         <seg>/* 该关联数组的键类型为 string，</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>/* Then print this element */</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20171025T010014Z" creationid="Heromyth" creationdate="20171025T010014Z">
+        <seg>/* 然后，输出当前元素 */</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>/* This is the actual Tree representation.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20171025T010351Z" creationid="Heromyth" creationdate="20171025T010351Z">
+        <seg>/* 实际的 Tree 表示。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>/* This is the first element of this sub-tree.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20171025T010320Z" creationid="Heromyth" creationdate="20171025T010320Z">
+        <seg>/* 当前子树的第一个元素。</seg>
       </tuv>
     </tu>
     <tu>
@@ -12169,6 +12283,14 @@ $(LINK2 /ders/d.cn/index.html,
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>It allows an empty</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20171025T010419Z" creationid="Heromyth" creationdate="20171025T010419Z">
+        <seg>它允许为空树，</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>It calls a function with the elements of a range one-by-one and returns a range that consists of the results of calling that function with each element.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20171021T084339Z" creationid="Heromyth" creationdate="20170826T073427Z">
@@ -12732,6 +12854,22 @@ LANGUAGE=chinese</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170819T130525Z" creationid="Heromyth" creationdate="20170819T130525Z">
         <seg>MyClass variable;   // 没有引用对象</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Node * left;     // Left sub-tree</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20171025T005749Z" creationid="Heromyth" creationdate="20171025T005749Z">
+        <seg>Node * left;     // 左子树</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Node * right;    // Right sub-tree</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20171025T005801Z" creationid="Heromyth" creationdate="20171025T005801Z">
+        <seg>Node * right;    // 右子树</seg>
       </tuv>
     </tu>
     <tu>
@@ -13922,6 +14060,14 @@ LANGUAGE=chinese</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>The recursive calls are highlighted.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20171025T005202Z" creationid="Heromyth" creationdate="20171025T005202Z">
+        <seg>其中的递归调用是亮点。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>The result is what has been</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170914T013248Z" creationid="Heromyth" creationdate="20170914T013248Z">
@@ -14514,6 +14660,14 @@ LANGUAGE=chinese</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T001400Z" creationid="Heromyth" creationdate="20170826T001400Z">
         <seg>这个现象就是$(I 死锁)。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>This type is used in</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20171025T005707Z" creationid="Heromyth" creationdate="20171025T005417Z">
+        <seg>此类型只适用于下面的</seg>
       </tuv>
     </tu>
     <tu>
