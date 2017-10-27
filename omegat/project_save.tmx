@@ -1239,6 +1239,16 @@ $(IX iota, std.range) $(C std.range.iota) 懒式生成给定范围里的元素�
     <tu>
       <tuv lang="EN-US">
         <seg>$(LI
+$(IX randomSample, std.random) $(C std.random.randomSample) picks a random sampling of elements from a given range without changing their order.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20171027T042710Z" creationid="Heromyth" creationdate="20171027T042710Z">
+        <seg>$(LI
+$(IX randomSample, std.random) $(C std.random.randomSample) 会从给定的范围里随机选取一些样本元素，但不会更改它们的顺序。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(LI
 Although both programming models use operating system threads, in parallelism threads are encapsulated by the concept of task.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T221132Z" creationid="Heromyth" creationdate="20170824T012154Z">
