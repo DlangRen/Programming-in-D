@@ -1249,6 +1249,16 @@ $(IX randomSample, std.random) $(C std.random.randomSample) 会从给定的范�
     <tu>
       <tuv lang="EN-US">
         <seg>$(LI
+$(IX randomShuffle, std.random) $(C std.random.randomShuffle) shuffles the elements of a range randomly.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20171027T042904Z" creationid="Heromyth" creationdate="20171027T042904Z">
+        <seg>$(LI
+$(IX randomShuffle, std.random) $(C std.random.randomShuffle) 会随机选取范围里的元素，顺序不确定。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(LI
 Although both programming models use operating system threads, in parallelism threads are encapsulated by the concept of task.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T221132Z" creationid="Heromyth" creationdate="20170824T012154Z">
