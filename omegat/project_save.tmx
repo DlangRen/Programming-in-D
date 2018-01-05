@@ -3580,6 +3580,16 @@ Although the $(C print()) member function above essentially achieves the same ta
     <tu>
       <tuv lang="EN-US">
         <seg>$(P
+Although the benefits of fibers would not be apparent on a simple task like generating the Fibonacci series, for simplicity let's cover common fiber operations on a fiber implementation of one.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20180105T141930Z" creationid="Heromyth" creationdate="20180105T141930Z">
+        <seg>$(P
+虽然像生成 Fibonacci 序列这样的简单任务并不能突显出纤程的优势，但是为了简化说明，我们还是会实现一个纤程版本，并通过它来了解一下常用的纤程操作。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
 Although the program above gets compiled successfully, in most cases it would work incorrectly.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T235238Z" creationid="Heromyth" creationdate="20170825T235238Z">
@@ -4424,6 +4434,16 @@ Evidently, the assignment to $(C .length) operates like a function.</seg>
     <tu>
       <tuv lang="EN-US">
         <seg>$(P
+Fibers are useful for similar cases where using a call stack is much easier than maintaining state explicitly.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20180105T141042Z" creationid="Heromyth" creationdate="20180105T141042Z">
+        <seg>$(P
+对于使用调用栈比显示维护状态更容易实现的情形，也同样可以使用纤程。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
 Fibers enable multiple call stacks per thread.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170909T004601Z" creationid="Heromyth" creationdate="20170909T004601Z">
@@ -4551,9 +4571,9 @@ For example, the sum of the squares of the elements of an array can be calculate
 For example, when a recursive call to $(C left.print()) returns after printing the elements of the left sub-tree, the local state of the current $(C print()) call already implies that it is now time to print a space character:
 )</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20180105T135840Z" creationid="Heromyth" creationdate="20180105T135840Z">
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20180105T140042Z" creationid="Heromyth" creationdate="20180105T135840Z">
         <seg>$(P
-例如，当 $(C left.print()) 的某个递归调用在输出左子树的所有元素之后返回时，当前 $(C print()) 调用的本地状态已表明需要输出一个空格字符了：
+例如，当 $(C left.print()) 的某个递归调用在输出左子树的所有元素之后返回时，当前 $(C print()) 调用的本地状态已表明需要输出一个空格字符：
 )</seg>
       </tuv>
     </tu>
@@ -13738,8 +13758,8 @@ LANGUAGE=chinese</seg>
       <tuv lang="EN-US">
         <seg>The call stack implicitly contains information not only about what the current element is, but also how the execution of the program arrived at that element (e.g. at what nodes did the execution follow the left node versus the right node).</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20180105T135433Z" creationid="Heromyth" creationdate="20180105T135433Z">
-        <seg>调用栈隐形不仅包含当前元素是什么的信息，而且还包含了程序的执行过程是如何到达该元素的信息（例如，执行过程接下来会在什么节点，是左节点还是右节点？）</seg>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20180105T140801Z" creationid="Heromyth" creationdate="20180105T135433Z">
+        <seg>调用栈隐形不仅包含当前元素是什么的信息，而且还包含了程序的执行过程是如何到达该元素的信息（例如，执行过程在处理完左节点或右节点之后，接下来会到达什么节点。）</seg>
       </tuv>
     </tu>
     <tu>
@@ -15842,6 +15862,14 @@ sys     0m0.004s)
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T052113Z" creationid="Heromyth" creationdate="20170825T052113Z">
         <seg>worker.send(2);
 }  // ← 发送两条消息后立刻终止</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>write(' ');   // ← Call stack implies this is next</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20180105T135949Z" creationid="Heromyth" creationdate="20180105T135949Z">
+        <seg>write(' ');   // ← 调用栈表明这就是下一步</seg>
       </tuv>
     </tu>
     <tu>
