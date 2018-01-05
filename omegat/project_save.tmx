@@ -4548,6 +4548,18 @@ For example, the sum of the squares of the elements of an array can be calculate
     <tu>
       <tuv lang="EN-US">
         <seg>$(P
+For example, when a recursive call to $(C left.print()) returns after printing the elements of the left sub-tree, the local state of the current $(C print()) call already implies that it is now time to print a space character:
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20180105T135840Z" creationid="Heromyth" creationdate="20180105T135840Z">
+        <seg>$(P
+例如，当 $(C left.print()) 的某个递归调用在输出左子树的所有元素之后返回时，当前 $(C print()) 调用的本地状态已表明需要输出一个空格字符了：
+)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
 For example, when the following numbers are entered,
 )</seg>
       </tuv>
@@ -13720,6 +13732,14 @@ LANGUAGE=chinese</seg>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T084054Z" creationid="Heromyth" creationdate="20170826T084054Z">
         <seg>被高亮的部分为串行运算的输出：
 )</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>The call stack implicitly contains information not only about what the current element is, but also how the execution of the program arrived at that element (e.g. at what nodes did the execution follow the left node versus the right node).</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20180105T135433Z" creationid="Heromyth" creationdate="20180105T135433Z">
+        <seg>调用栈隐形不仅包含当前元素是什么的信息，而且还包含了程序的执行过程是如何到达该元素的信息（例如，执行过程接下来会在什么节点，是左节点还是右节点？）</seg>
       </tuv>
     </tu>
     <tu>
