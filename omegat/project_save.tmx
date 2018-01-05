@@ -3570,6 +3570,16 @@ Although member functions are defined and used the same way as structs, there is
     <tu>
       <tuv lang="EN-US">
         <seg>$(P
+Although the $(C print()) member function above essentially achieves the same task of visiting every element in sorted order, it is not easy to implement an $(C InputRange) for a tree.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20180105T133706Z" creationid="Heromyth" creationdate="20180105T133706Z">
+        <seg>$(P
+由于上面的成员函数 $(C print()) 实际上已经可以顺序访问每个元素，因此没必要再去为树实现一个 $(C InputRange)。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
 Although the program above gets compiled successfully, in most cases it would work incorrectly.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T235238Z" creationid="Heromyth" creationdate="20170825T235238Z">
@@ -5219,6 +5229,16 @@ Like every variable in D, the elements of arrays are automatically initialized.<
       <tuv lang="ZH-CN" changeid="大处着手小处着眼" changedate="20160725T082520Z" creationid="大处着手小处着眼" creationdate="20160725T082520Z">
         <seg>$(P
 像在 D 语言中的每个变量，数组的元素自动初始化。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
+Like most containers, one would like this tree to provide a range interface so that its elements can be used with existing range algorithms.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20180105T133020Z" creationid="Heromyth" creationdate="20180105T133020Z">
+        <seg>$(P
+与大部分容器一样，大家也会想要这个树提供范围接口，以便其中的元素可以与已有的范围算法一起使用。</seg>
       </tuv>
     </tu>
     <tu>
@@ -7049,6 +7069,16 @@ The reason is that, the $(C ==) operator may need to consult the values of the m
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170819T130649Z" creationid="Heromyth" creationdate="20170819T130649Z">
         <seg>$(P
 原因是，运算符 $(C ==) 会查询对象成员的值，并尝试通过一个潜在的 $(C null) 变量访问成员，这将引发一个内存访问错误。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
+The reason why recursive tree algorithms like $(C print()) are trivial is due to the automatic management of the call stack.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20180105T134449Z" creationid="Heromyth" creationdate="20180105T134449Z">
+        <seg>$(P
+为何像 $(C print()) 那样的树递归算法无关紧要，主要归因于调用栈的自动管理。</seg>
       </tuv>
     </tu>
     <tu>
@@ -9091,6 +9121,16 @@ $(LI $(LINK2 /ders/d.cn/logical_expressions.html, 逻辑表达式) $(INDEX_KEYWO
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>(Some implementations require that tree nodes have an additional $(C Node*) to point at each node's parent.)
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20180105T134010Z" creationid="Heromyth" creationdate="20180105T134010Z">
+        <seg>（有些实现要求树节点拥有一个附加的 $(C Node*)，让其指向每个节点的父节点。）
+)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>(That applies to $(C immutable) variables as well because they are implicitly $(C shared).) The solution is to use $(C shared static this()) blocks, which are executed only once per program:
 )</seg>
       </tuv>
@@ -9351,6 +9391,14 @@ auto encrypted(string value) {</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T033847Z" creationid="Heromyth" creationdate="20170826T033847Z">
         <seg>* 操作，只有在任务完成时它才会</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>* order.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20180105T133303Z" creationid="Heromyth" creationdate="20180105T133303Z">
+        <seg>* 的接口。</seg>
       </tuv>
     </tu>
     <tu>
@@ -9707,6 +9755,14 @@ immutable int b;    // 所有线程共享</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170815T121156Z" creationid="Heromyth" creationdate="20170815T121156Z">
         <seg>/* 根据指定对象的各个成员的属性</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>/* Provides access to the elements of the tree in sorted</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20180105T133247Z" creationid="Heromyth" creationdate="20180105T133247Z">
+        <seg>/* 提供顺序访问树里的各个元素</seg>
       </tuv>
     </tu>
     <tu>
@@ -12039,6 +12095,14 @@ $(LINK2 /ders/d.cn/index.html,
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T003923Z" creationid="Heromyth" creationdate="20170826T003923Z">
         <seg>所以如果需要同步的只是一些简单操作而不是一块代码的话，我建议你优先考虑这个模块。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>I will not attempt to implement $(C InOrderRange) here but I encourage you to implement or at least research tree iterators.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20180105T133843Z" creationid="Heromyth" creationdate="20180105T133843Z">
+        <seg>这里不会去实现 $(C InOrderRange)，但是鼓励大家去实现或者试着研究一下树的迭代方法。</seg>
       </tuv>
     </tu>
     <tu>
@@ -14582,6 +14646,16 @@ LANGUAGE=chinese</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>This can be done by defining an $(C opSlice()) member function:
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20180105T133120Z" creationid="Heromyth" creationdate="20180105T133120Z">
+        <seg>通过定义一个 $(C opSlice()) 成员函数可以达到这一目的功能：
+)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>This causes an $(C OwnerTerminated) exception to be thrown at the worker thread:
 )</seg>
       </tuv>
@@ -15112,6 +15186,14 @@ LANGUAGE=chinese</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Hipter" changedate="20160708T141603Z" creationid="Hipter" creationdate="20160708T141603Z">
         <seg>在下面的例子中我们将使用 $(C dayNumbers) 关联数组。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>What should the implementation be?</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20180105T133333Z" creationid="Heromyth" creationdate="20180105T133333Z">
+        <seg>具体的实现应该是什么呢？</seg>
       </tuv>
     </tu>
     <tu>
