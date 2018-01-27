@@ -9181,6 +9181,14 @@ $(LI $(LINK2 /ders/d.cn/logical_expressions.html, 逻辑表达式) $(INDEX_KEYWO
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>(The parameter could be qualified as $(C out) instead of $(C ref) as well).)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20180127T140958Z" creationid="Heromyth" creationdate="20180127T140958Z">
+        <seg>（这个参数除了使用 $(C ref) 来修饰以外，还可以使用 $(C out) ）。)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>(There is also $(C prioritySend()), $(C receive()), and $(C receiveTimeout()), which will be explained later below.)
 )</seg>
       </tuv>
