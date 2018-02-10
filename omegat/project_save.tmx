@@ -5349,9 +5349,9 @@ Multiple attributes can be specified separately or as a parenthesized list of at
 Mutable variables that need to be shared must be defined with the $(C shared) keyword:
 )</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T233602Z" creationid="Heromyth" creationdate="20170825T233602Z">
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20180210T144832Z" creationid="Heromyth" creationdate="20170825T233602Z">
         <seg>$(P
-需要共享的可变变量必须使用 $(C shared) 关键自定义：
+需要共享的可变变量必须使用关键字 $(C shared) 来定义：
 )</seg>
       </tuv>
     </tu>
