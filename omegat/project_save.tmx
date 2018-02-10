@@ -14893,8 +14893,8 @@ LANGUAGE=chinese</seg>
         <seg>This means that all of the non-static member functions of that type are synchronized on a given object of that class:
 )</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T001131Z" creationid="Heromyth" creationdate="20170826T001131Z">
-        <seg>即表示同一时间只能有一个线程调用类的示例对象的非静态成员函数：
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20180210T145503Z" creationid="Heromyth" creationdate="20170826T001131Z">
+        <seg>即表示：当给定了该类的某个对象时，它的所有非静态成员函数的类型都是 synchronized：
 )</seg>
       </tuv>
     </tu>
