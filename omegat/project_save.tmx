@@ -1103,8 +1103,8 @@ $(LI $(LINK2 /ders/d.cn/struct.html, 结构) $(INDEX_KEYWORDS struct .
       <tuv lang="EN-US">
         <seg>$(H6 Member functions of $(C Task))</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T045320Z" creationid="Heromyth" creationdate="20170826T045320Z">
-        <seg>$(H6 $(C Task)) 的成员函数</seg>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20180213T234010Z" creationid="Heromyth" creationdate="20170826T045320Z">
+        <seg>$(H6 $(C Task) 的成员函数) </seg>
       </tuv>
     </tu>
     <tu>
@@ -4019,9 +4019,9 @@ As soon as a new thread is started, the owner and the worker start executing sep
         <seg>$(P
 As tasks are executed on separate threads, the exceptions that they throw cannot be caught by the thread that started them.</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T144133Z" creationid="Heromyth" creationdate="20170826T034848Z">
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20180213T233231Z" creationid="Heromyth" creationdate="20170826T034848Z">
         <seg>$(P
-因为任务都是在一个单独的线程上执行的，所以启动它们的那个线程并不能捕捉到它们抛出的异常。</seg>
+因为所有任务都执行在一个独立线程上，所以启动它们的那个线程并不能捕捉到这些任务抛出的异常。</seg>
       </tuv>
     </tu>
     <tu>
@@ -12002,8 +12002,8 @@ $(LI $(LINK2 http://dlang.org/phobos/index.html, $(IMG bullet_black.png) 标准�
       <tuv lang="EN-US">
         <seg>For that reason, the exceptions that are thrown are automatically caught by the tasks themselves, to be rethrown later when $(C Task) member functions like $(C yieldForce()) are called.</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T144454Z" creationid="Heromyth" creationdate="20170826T034914Z">
-        <seg>因此，所有抛出的异常会自动被任务自已捕获到，然后在调用类似 $(C yieldForce()) 那样的 $(C Task) 成员函数时，再重新抛出。</seg>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20180213T233620Z" creationid="Heromyth" creationdate="20170826T034914Z">
+        <seg>因此，所有抛出的异常都会自动地由任务自已来捕获，然后在调用类似 $(C yieldForce()) 的 $(C Task) 成员函数时，重新抛出。</seg>
       </tuv>
     </tu>
     <tu>
@@ -14993,8 +14993,8 @@ LANGUAGE=chinese</seg>
       <tuv lang="EN-US">
         <seg>This makes it possible for the main thread to catch exceptions that are thrown by a task.</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T144601Z" creationid="Heromyth" creationdate="20170826T034947Z">
-        <seg>这样便可以在主线程里捕获任务中抛出的各种异常。</seg>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20180213T233708Z" creationid="Heromyth" creationdate="20170826T034947Z">
+        <seg>如此一来，主线程便可以捕获任务中抛出的各种异常。</seg>
       </tuv>
     </tu>
     <tu>
