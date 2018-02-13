@@ -110,7 +110,7 @@ $(P
 $(H5 $(IX shared) 用 $(C shared) 在线程间共享数据))
 
 $(P
-需要共享的可变变量必须使用 $(C shared) 关键自定义：
+需要共享的可变变量必须使用关键字 $(C shared) 来定义：
 )
 
 ---
@@ -396,11 +396,11 @@ $(P
 )
 
 $(P
-$(HILITE $(I $(B 注意：) dmd 2.074.0 并不支持此功能。))
+$(HILITE $(I $(B 注意：)  dmd 2.078.0 不支持此功能。))
 )
 
 ---
-    // 注意：dmd 2.074.0 并不支持此功能。
+    // 注意：dmd 2.078.0 不支持此功能。
     synchronized ($(I lock_object), $(I another_lock_object), ...)
 ---
 
@@ -457,7 +457,7 @@ Final value: 0       $(SHELL_NOTE 正确结果)
 )
 
 $(P
-类也可以定义为 $(C synchronized)。即表示同一时间只能有一个线程调用类的示例对象的非静态成员函数：
+类也可以定义为 $(C synchronized)。即表示：当给定了该类的某个对象时，它的所有非静态成员函数的类型都是 synchronized：
 )
 
 ---
@@ -520,13 +520,13 @@ $(P
 )
 
 $(P
-$(HILITE $(I $(B 注意：) dmd 2.074.0 并不支持此功能。))
+$(HILITE $(I $(B 注意：)  dmd 2.078.0 不支持此功能。))
 )
 
 ---
 void transferMoney(shared BankAccount from,
                    shared BankAccount to) {
-    // 注意：dmd 2.074.0 并不支持此功能。
+    // 注意：dmd 2.078.0 不支持此功能。
     synchronized (from, to) {       $(CODE_NOTE 正确)
         // ...
     }

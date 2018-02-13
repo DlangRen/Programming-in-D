@@ -384,7 +384,7 @@ void robotMover(Job job) {
 ---
 
 $(P
-线程所有者仅仅通过一个死循环等待消息。它通过消息中的机器人 ID 来识别机器人。所有者会简单地将其运动情况输出：
+The owner simply waits for these messages in an unconditional loop. 它通过消息中的机器人 ID 来识别机器人。所有者会简单地将其运动情况输出：
 )
 
 ---

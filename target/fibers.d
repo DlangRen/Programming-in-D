@@ -1,27 +1,27 @@
 Ddoc
 
-$(DERS_BOLUMU $(IX fiber) Fibers)
+$(DERS_BOLUMU $(IX fiber) 纤程)
 
 $(P
-$(IX coroutine) $(IX green thread) $(IX thread, green) A fiber is a $(I thread of execution) enabling a single thread achieve multiple tasks. Compared to regular threads that are commonly used in parallelism and concurrency, it is more efficient to switch between fibers. Fibers are similar to $(I coroutines) and $(I green threads).
+$(IX coroutine) $(IX green thread) $(IX thread, green) 纤程（Fiber）是一个$(I执行线程)，它可以让单个线程完成多个任务。与并行和并发里普遍使用的常规线程相比，纤程之间的切换具有更高的效率纤程与$(I协程（Coroutine）)和$(I绿色线程)相似。
 )
 
 $(P
-Fibers enable multiple call stacks per thread. For that reason, to fully understand and appreciate fibers, one must first understand the $(I call stack) of a thread.
+协程可以让每个线程有多个调用栈。因此，想要完全理解和用好纤程，你必须先要理解线程的$(I调用栈（call stack）)。
 )
 
-$(H5 $(IX call stack) $(IX program stack) Call stack)
+$(H5 $(IX call stack) $(IX program stack) 调用栈)
 
 $(P
-$(IX local state) The parameters, non-static local variables, the return value, and temporary expressions of a function, as well as any additional information that may be needed during its execution, comprise the $(I local state) of that function. The local state of a function is allocated and initialized automatically at run time every time that function is called.
-)
-
-$(P
-$(IX stack frame) The storage space allocated for the local state of a function call is called a $(I frame) (or $(I stack frame)). As functions call other functions during the execution of a thread, their frames are conceptually placed on top of each other to form a stack of frames. The stack of frames of currently active function calls is the $(I call stack) of that thread.
+$(IX local state) 函数的参数、非静态变量、返回值、临时表达式，以及在它执行期间需要的所有附加信息组合成了它的$(I本地状态)。函数的本地状态会在该函数每次被调用时自动分配和初始化。
 )
 
 $(P
-For example, at the time the main thread of the following program starts executing the $(C bar()) function, there would be three levels of active function calls due to $(C main()) calling $(C foo()) and $(C foo()) calling $(C bar()):
+$(IX stack frame) 为函数调用的本地状态分配的存储空间叫$(I帧（frame）) 或$(I栈帧（stack frame）)。在线程执行期间，函数会调用其他函数，因此它们的帧会在概念上重叠在一起，从而形成一堆的帧。当前正激活的函数调用的帧构成的栈即为该线程的$(I调用栈)。
+)
+
+$(P
+例如，当下面程序的主线程开始执行 $(C bar()) 函数时， 会有 3 层激活的函数调用，即 $(C main()) 调用了 $(C foo())，而 $(C foo()) 又调用了 $(C bar())：
 )
 
 ---
@@ -44,58 +44,58 @@ void bar(int param) {
 ---
 
 $(P
-During the execution of $(C bar()), the call stack would consist of three frames storing the local states of those currently active function calls:
+在 $(C bar()) 的执行期间，调用栈里面有 3 帧，分别存储的是那些当前正激活函数调用的本地状态：
 )
 
 $(MONO
-The call stack grows upward
-as function calls get deeper.    ▲  ▲
+随着函数调用的深入，
+调用栈会不断往上增长。▲  ▲
                                  │  │
-   Top of the call stack → ┌──────────────┐
-                           │ int param    │ ← bar's frame
+   调用栈的顶部 → ┌──────────────┐
+                           │ int param    │ ← bar 的帧
                            │ string[] arr │
                            ├──────────────┤
                            │ int x        │
-                           │ int y        │ ← foo's frame
+                           │ int y        │ ← foo 的帧
                            │ return value │
                            ├──────────────┤
                            │ int a        │
-                           │ int b        │ ← main's frame
+                           │ int b        │ ← main 的帧
                            │ int c        │
-Bottom of the call stack → └──────────────┘
+调用栈的底部 → └──────────────┘
 )
 
 $(P
-As layers of function calls get deeper when functions call other functions and shallower when functions return, the size of the call stack increases and decreases accordingly. For example, once $(C bar()) returns, its frame would no longer be needed and its space would later be used for another function call in the future:
+函数的调用层次会在函数调用其他函数时变得更深，而在函数返回时变浅，因此调用栈的大小也会相应地增大和减小。例如，当 $(C bar()) 返回之后，它的帧并不再需要，而其空间随后会被其他函数调用使用：
 )
 
 $(MONO
 $(LIGHT_GRAY                            ┌──────────────┐)
 $(LIGHT_GRAY                            │ int param    │)
 $(LIGHT_GRAY                            │ string[] arr │)
-   Top of the call stack → ├──────────────┤
+   调用栈的顶部 → ├──────────────┤
                            │ int a        │
-                           │ int b        │ ← foo's frame
+                           │ int b        │ ← foo 的帧
                            │ return value │
                            ├──────────────┤
                            │ int a        │
-                           │ int b        │ ← main's frame
+                           │ int b        │ ← main 的帧
                            │ int c        │
-Bottom of the call stack → └──────────────┘
+调用栈的底部 → └──────────────┘
 )
 
 $(P
-We have been taking advantage of the call stack in every program that we have written so far. The advantages of the call stack is especially clear for recursive functions.
+在之前编写的每个程序里，我们都利用了调用栈。调用栈对递归函数尤其著显。
 )
 
-$(H6 $(IX recursion) Recursion)
+$(H6 $(IX recursion) 递归)
 
 $(P
-Recursion is the situation where a function calls itself either directly or indirectly. Recursion greatly simplifies certain kinds of algorithms like the ones that are classified as $(I divide-and-conquer).
+递归指的是这样一种情况：函数直接或间接地调用自己对于某些类型的算法（如$(I分治法)），使用递归会显得特别简单。
 )
 
 $(P
-Let's consider the following function that calculates the sum of the elements of a slice. It achieves this task by calling itself recursively with a slice that is one element shorter than the one that it has received. The recursion continues until the slice becomes empty. The current result is carried over to the next recursion step as the second parameter:
+一起来看看下面这个函数，它会计算一个分片里所有元素的总和。它采用递归调用自己的方式（所用的分片是比它所接收到那个分片少一个元素）实现了这一个功能。这个递归会一直持续到接收到的分片为空才会结束。当前结果则通过下一个递归的第二个参数带回：
 )
 
 ---
@@ -103,13 +103,13 @@ import std.array;
 
 int sum(int[] arr, int currentSum = 0) {
     if (arr.empty) {
-        /* No element to add. The result is what has been
-         * calculated so far. */
+        /* 没有需要添加的元素。此时，结果已被
+         * 计算出来。*/
         return currentSum;
     }
 
-    /* Add the front element to the current sum and call self
-     * with the remaining elements. */
+    /* 将最前面的元素与当前总和相加，然后
+     * 用余下的元素调用自己。*/
     return $(HILITE sum)(arr[1..$], currentSum + arr.front);
 }
 
@@ -119,52 +119,52 @@ void main() {
 ---
 
 $(P
-$(IX sum, std.algorithm) $(I $(B Note:) The code above is only for demonstration. Otherwise, the sum of the elements of a range should be calculated by $(C std.algorithm.sum), which uses special algorithms to achieve more accurate calculations for floating point types.)
+$(IX sum, std.algorithm) $(I $(B 注意：)上面的代码仅用于演示。其实，想要计算某个范围里所有元素的总和，可以使用 $(C std.algorithm.sum)——它针对浮点类型使用了特殊的算法来实现更精确的计算。)
 )
 
 $(P
-When $(C sum()) is eventually called with an empty slice for the initial argument of $(C [1, 2, 3]) above, the relevant parts of the call stack would consist of the following frames. The value of each parameter is indicated after an $(C ==) sign. Remember to read the frame contents from bottom to top:
+对于上面的初始参数 $(C [1, 2, 3]) ，当最后使用它的空分片调用 $(C sum()) 时，调用栈的相关部分构成了下面这些帧。每个参数的值会在 $(C ==) 符号之后标明。一定要记得从下往上来看帧的内容：
 )
 
 $(MONO
               ┌─────────────────────────┐
-              │ arr        == []        │ ← final call to sum
+              │ arr        == []        │ ← 最后一次调用 sum
               │ currentSum == 6         │
               ├─────────────────────────┤
-              │ arr        == [3]       │ ← third call to sum
+              │ arr        == [3]       │ ← 第三次调用 sum
               │ currentSum == 3         │
               ├─────────────────────────┤
-              │ arr        == [2, 3]    │ ← second call to sum
+              │ arr        == [2, 3]    │ ← 第二次调用 sum
               │ currentSum == 1         │
               ├─────────────────────────┤
-              │ arr        == [1, 2, 3] │ ← first call to sum
+              │ arr        == [1, 2, 3] │ ← 第一次调用 sum
               │ currentSum == 0         │
               ├─────────────────────────┤
-              │            ...          │ ← main's frame
+              │            ...          │ ← 主函数的帧
               └─────────────────────────┘
 )
 
 $(P
-$(I $(B Note:) In practice, when the recursive function directly returns the result of calling itself, compilers use a technique called "tail-call optimization", which eliminates separate frames for each recursive call.)
+$(I $(B 注意：)实际上，当新递归函数直接返回调用自己的结果时，编译器会使用一种名叫“尾调用优化”的技术——它可以去除每次递归调用时生成的各个帧。)
 )
 
 $(P
-In a multithreaded program, since each thread would be working on its own task, every thread gets it own call stack to maintain its own execution state.
+在多线程里，因为每个线程都只负责自己的任务，所以每个线程都会有自己的调用栈，用于维护其执行状态。
 )
 
 $(P
-The power of fibers is based on the fact that although a fiber is not a thread, it gets its own call stack, effectively enabling multiple call stacks per thread. Since one call stack maintains the execution state of one task, multiple call stacks enable a thread work on multiple tasks.
+纤程的厉害之处在于它虽然不是线程，但是它有其自己的调用栈，从而可以高效地让每个线程拥有多个调用栈。因为一个调用栈可以维护一个任务的执行状态，因此多个调用栈并可以实现一个线程处理多个任务。
 )
 
-$(H5 Usage)
+$(H5 用法)
 
 $(P
-The following are common operations of fibers. We will see examples of these later below.
+下面是纤程的几个常用操作。在后面会看到有关它们的示例。
 )
 
 $(UL
 
-$(LI $(IX fiber function) A fiber starts its execution from a callable entity (function pointer, delegate, etc.) that does not take any parameter and does not return anything. For example, the following function can be used as a fiber function:
+$(LI $(IX fiber function) 一个纤程可以执行一个不接受任何参数也不返回任何内容的可调用实例（如函数指针、委托等）。例如，下面这个函数便可以用作纤程函数：
 
 ---
 void fiberFunction() {
@@ -174,7 +174,7 @@ void fiberFunction() {
 
 )
 
-$(LI $(IX Fiber, core.thread) A fiber can be created as an object of class $(C core.thread.Fiber) with a callable entity:
+$(LI $(IX Fiber, core.thread) 纤程可创建为一个 $(C core.thread.Fiber) 对象，同时带上一个可调用实体：
 
 ---
 import core.thread;
@@ -185,7 +185,7 @@ import core.thread;
 ---
 
 $(P
-Alternatively, a subclass of $(C Fiber) can be defined and the fiber function can be passed to the constructor of the superclass. In the following example, the fiber function is a member function:
+另外，它也可以定义为 $(C Fiber) 的子类，并将纤程函数传递给父类的构造函数。下面的示例里，纤程函数是一个成员函数：
 )
 
 ---
@@ -206,19 +206,19 @@ class MyFiber : $(HILITE Fiber) {
 
 )
 
-$(LI $(IX call, Fiber) A fiber is started and resumed by its $(C call()) member function:
+$(LI $(IX call, Fiber) 纤程可以通过成员函数 $(C call()) 来开始和继续：
 
 ---
     fiber.call();
 ---
 
 $(P
-Unlike threads, the caller is paused while the fiber is executing.
+与线程不同的是，在纤程执行的同时调用函数会被暂停执行。
 )
 
 )
 
-$(LI $(IX yield, Fiber) A fiber pauses itself ($(I yields) execution to its caller) by $(C Fiber.yield()):
+$(LI $(IX yield, Fiber) 纤程通过 $(C Fiber.yield()) 可以将自己暂停（$(I 跳转) 到调用函数）：
 
 ---
 void fiberFunction() {
@@ -231,12 +231,12 @@ void fiberFunction() {
 ---
 
 $(P
-The caller's execution resumes when the fiber yields.
+当纤程跳转时，调用函数会继续执行。
 )
 
 )
 
-$(LI $(IX .state, Fiber) The execution state of a fiber is determined by its $(C .state) property:
+$(LI $(IX .state, Fiber) 纤程的执行状态可以通过它的 $(C .state) 特性来检测：
 
 ---
     if (fiber.state == Fiber.State.TERM) {
@@ -245,31 +245,31 @@ $(LI $(IX .state, Fiber) The execution state of a fiber is determined by its $(C
 ---
 
 $(P
-$(IX State, Fiber) $(C Fiber.State) is an enum with the following values:
+$(IX State, Fiber) $(C Fiber.State) 是一个枚举类型，有下面几种值：
 )
 
 $(UL
 
-$(LI $(IX HOLD, Fiber.State) $(C HOLD): The fiber is paused, meaning that it can be started or resumed.)
+$(LI $(IX HOLD, Fiber.State) $(C HOLD): 纤程暂停，即表示它可以被开始或继续。)
 
-$(LI $(IX EXEC, Fiber.State) $(C EXEC): The fiber is currently executing.)
+$(LI $(IX EXEC, Fiber.State) $(C EXEC): 纤程当前正在执行。)
 
-$(LI $(IX TERM, Fiber.State) $(IX reset, Fiber) $(C TERM): The fiber has terminated. It must be $(C reset()) before it can be used again.)
-
-)
+$(LI $(IX TERM, Fiber.State) $(IX reset, Fiber) $(C TERM): 纤程已中止。通过 $(C reset()) 重置后，它可以被再次使用。)
 
 )
 
 )
 
-$(H5 Fibers in range implementations)
+)
+
+$(H5 范围实现里的纤程)
 
 $(P
-Almost every range needs to store some information to remember its state of iteration. This is necessary for it to know what to do when its $(C popFront()) is called next time. Most range examples that we saw in $(LINK2 /ders/d.en/ranges.html, the Ranges) and later chapters have been storing some kind of state to achieve their tasks.
+几乎所有的范围都需要存储某些信息，以便记住迭代状态。它需要知道当下次调用 $(C popFront()) 时应该做什么。在 $(LINK2 /ders/d.en/ranges.html, 范围)  及后面章节里看到的大部分范围示例为了完成任务都会存储某些状态。
 )
 
 $(P
-For example, $(C FibonacciSeries) that we have defined earlier was keeping two member variables to calculate the $(I next next) number in the series:
+例如，我们之前定义的 $(C FibonacciSeries)会一直记住两个变量，以便计算序列里的 $(I 下一个 next) 成员：
 )
 
 ---
@@ -292,11 +292,11 @@ struct FibonacciSeries {
 ---
 
 $(P
-While maintaining the iteration state is trivial for some ranges like $(C FibonacciSeries), it is surprisingly harder for some others, e.g. recursive data structures like binary search trees. The reason why it is surprising is that for such data structures, the same algorithms are trivial when implemented recursively.
+对于某些类似 $(C FibonacciSeries) 那样的范围，维护迭代状态并非什么难事；但是对于其他的范围（如二叉搜索树那样的递归数据结构）则是困难重重。让人惊讶的是，对于这种数据结构，同样的算法在递归实现时并非什么难事。
 )
 
 $(P
-For example, the following recursive implementations of $(C insert()) and $(C print()) do not define any variables and are independent of the number of elements contained in the tree. The recursive calls are highlighted. (Note that $(C insert()) is recursive indirectly through $(C insertOrSet()).)
+例如，下面是 $(C insert()) 和 $(C print()) 的递归实现，它们并未定义任何变量，并且与树里包含的元素数量无关。其中的递归调用是亮点。请注意，$(C insert()) 通过 $(C insertOrSet()) 间接实现的递归。
 )
 
 ---
@@ -307,21 +307,21 @@ import std.random;
 import std.range;
 import std.algorithm;
 
-/* Represents the nodes of a binary tree. This type is used in
- * the implementation of struct Tree below and should not be
- * used directly. */
+/* 二叉树的节点表示。此类型只适用于下面的
+ *  Tree 结构，而不应该
+ * 被直接使用。*/
 struct Node {
     int element;
-    Node * left;     // Left sub-tree
-    Node * right;    // Right sub-tree
+    Node * left;     // 左子树
+    Node * right;    // 右子树
 
     void $(HILITE insert)(int element) {
         if (element < this.element) {
-            /* Smaller elements go under the left sub-tree. */
+            /* 更小的元素会进入到左子树。*/
             insertOrSet(left, element);
 
         } else if (element > this.element) {
-            /* Larger elements go under the right sub-tree. */
+            /* 更大的元素会进入到右子树。*/
             insertOrSet(right, element);
 
         } else {
@@ -331,16 +331,16 @@ struct Node {
     }
 
     void $(HILITE print)() const {
-        /* First print the elements of the left sub-tree */
+        /* 首先输出左子树里的元素 */
         if (left) {
             left.$(HILITE print)();
             write(' ');
         }
 
-        /* Then print this element */
+        /* 然后，输出当前元素 */
         write(element);
 
-        /* Lastly, print the elements of the right sub-tree */
+        /* 最后，输出右子树里的元素 */
         if (right) {
             write(' ');
             right.$(HILITE print)();
@@ -348,11 +348,11 @@ struct Node {
     }
 }
 
-/* Inserts the element to the specified sub-tree, potentially
- * initializing its node. */
+/* 将元素插入到指定的子树，同时会根据情况
+ * 初始化它的节点。*/
 void insertOrSet(ref Node * node, int element) {
     if (!node) {
-        /* This is the first element of this sub-tree. */
+        /* 当前子树的第一个元素。*/
         node = new Node(element);
 
     } else {
@@ -360,17 +360,17 @@ void insertOrSet(ref Node * node, int element) {
     }
 }
 
-/* This is the actual Tree representation. It allows an empty
- * tree by means of 'root' being equal to 'null'. */
+/* 实际的 Tree 表示。它允许为空树，
+ * 即'root'为'null'时。*/
 struct Tree {
     Node * root;
 
-    /* Inserts the element to this tree. */
+    /* 往树里插入元素。*/
     void insert(int element) {
         insertOrSet(root, element);
     }
 
-    /* Prints the elements in sorted order. */
+    /* 按排序方式输出元素。*/
     void print() const {
         if (root) {
             root.print();
@@ -378,8 +378,8 @@ struct Tree {
     }
 }
 
-/* Populates the tree with 'n' random numbers picked out of a
- * set of '10 * n' numbers. */
+/* 从一组有'10 * n'个数的集合里
+ * 随机选取'n'个数来初始化这个树。*/
 Tree makeRandomTree(size_t n) {
     auto numbers = iota((n * 10).to!int)
                    .randomSample(n, Random(unpredictableSeed))
@@ -387,7 +387,7 @@ Tree makeRandomTree(size_t n) {
 
     randomShuffle(numbers);
 
-    /* Populate the tree with those numbers. */
+    /* 使用这些数来初始化树。*/
     auto tree = Tree();
     numbers.each!(e => tree.insert(e));
 
@@ -401,41 +401,41 @@ void main() {
 ---
 
 $(P
-$(I $(B Note:) The program above uses the following features from Phobos:)
+$(I $(B 请注意：) 上面这个程序使用了下面几个源自 Phobos 库里的功能:)
 )
 
 $(UL
 
 $(LI
-$(IX iota, std.range) $(C std.range.iota) generates the elements of a given value range lazily. (By default, the first element is the $(C .init) value). For example, $(C iota(10)) is a range of $(C int) elements from $(C 0) to $(C 9).
+$(IX iota, std.range) $(C std.range.iota) 懒式生成给定范围里的元素值。默认情况下，第 1 个元素为 $(C .init) 值。例如，$(C iota(10)) 为一个 $(C int) 型元素构成的范围，元素值的范围是 $(C 0) 到 $(C 9)。
 )
 
 $(LI
-$(IX each, std.algorithm) $(IX map, vs. each) $(C std.algorithm.each) is similar to $(C std.algorithm.map). While $(C map()) generates a new result for each element, $(C each()) generates side effects for each element. Additionally, $(C map()) is lazy while $(C each()) is eager.
+$(IX each, std.algorithm) $(IX map, vs. each) $(C std.algorithm.each) 与 $(C std.algorithm.map) 相似。由于 $(C map()) 会为每个元素生成一个新的结果，因此 $(C each()) 也会为每个元素生成新值。另外，$(C map()) 采取的是懒式执行方式，而 $(C each()) 则是立即执行。
 )
 
 $(LI
-$(IX randomSample, std.random) $(C std.random.randomSample) picks a random sampling of elements from a given range without changing their order.
+$(IX randomSample, std.random) $(C std.random.randomSample) 会从给定的范围里随机选取一些样本元素，但不会更改它们的顺序。
 )
 
 $(LI
-$(IX randomShuffle, std.random) $(C std.random.randomShuffle) shuffles the elements of a range randomly.
+$(IX randomShuffle, std.random) $(C std.random.randomShuffle) 会随机选取范围里的元素，顺序不确定。
 )
 
 )
 
 $(P
-Like most containers, one would like this tree to provide a range interface so that its elements can be used with existing range algorithms. This can be done by defining an $(C opSlice()) member function:
+与大部分容器一样，大家也会想要这个树提供范围接口，以便其中的元素可以与已有的范围算法一起使用。通过定义一个 $(C opSlice()) 成员函数可以达到这一目的功能：
 )
 
 ---
 struct Tree {
 // ...
 
-    /* Provides access to the elements of the tree in sorted
-     * order. */
+    /* 提供顺序访问树里的各个元素
+     * 的接口。*/
     struct InOrderRange {
-        $(HILITE ... What should the implementation be? ...)
+        $(HILITE ... 具体的实现应该是什么呢？...)
     }
 
     InOrderRange opSlice() const {
@@ -445,22 +445,22 @@ struct Tree {
 ---
 
 $(P
-Although the $(C print()) member function above essentially achieves the same task of visiting every element in sorted order, it is not easy to implement an $(C InputRange) for a tree. I will not attempt to implement $(C InOrderRange) here but I encourage you to implement or at least research tree iterators. (Some implementations require that tree nodes have an additional $(C Node*) to point at each node's parent.)
+由于上面的成员函数 $(C print()) 实际上已经可以顺序访问每个元素，因此没必要再去为树实现一个 $(C InputRange)。这里不会去实现 $(C InOrderRange)，但是鼓励大家去实现或者试着研究一下树的迭代方法。（有些实现要求树节点拥有一个附加的 $(C Node*)，让其指向每个节点的父节点。）
 )
 
 $(P
-The reason why recursive tree algorithms like $(C print()) are trivial is due to the automatic management of the call stack. The call stack implicitly contains information not only about what the current element is, but also how the execution of the program arrived at that element (e.g. at what nodes did the execution follow the left node versus the right node).
+为何像 $(C print()) 那样的树递归算法无关紧要，主要归因于调用栈的自动管理。调用栈隐形不仅包含当前元素是什么的信息，而且还包含了程序的执行过程是如何到达该元素的信息（例如，执行过程在处理完左节点或右节点之后，接下来会到达什么节点。）
 )
 
 $(P
-For example, when a recursive call to $(C left.print()) returns after printing the elements of the left sub-tree, the local state of the current $(C print()) call already implies that it is now time to print a space character:
+例如，当 $(C left.print()) 的某个递归调用在输出左子树的所有元素之后返回时，当前 $(C print()) 调用的本地状态已表明需要输出一个空格字符：
 )
 
 ---
     void print() const {
         if (left) {
             left.print();
-            write(' ');   // ← Call stack implies this is next
+            write(' ');   // ← 调用栈表明这就是下一步
         }
 
         // ...
@@ -468,25 +468,25 @@ For example, when a recursive call to $(C left.print()) returns after printing t
 ---
 
 $(P
-Fibers are useful for similar cases where using a call stack is much easier than maintaining state explicitly.
+对于使用调用栈比显示维护状态更容易实现的情形，也同样可以使用纤程。
 )
 
 $(P
-Although the benefits of fibers would not be apparent on a simple task like generating the Fibonacci series, for simplicity let's cover common fiber operations on a fiber implementation of one. We will implement a tree range later below.
+虽然像生成 Fibonacci 序列这样的简单任务并不能突显出纤程的优势，但是为了简化说明，我们还是会实现一个纤程版本，并通过它来了解一下常用的纤程操作。下面我们来实现一个树范围.
 )
 
 ---
 import core.thread;
 
-/* This is the fiber function that generates each element and
- * then sets the 'ref' parameter to that element. */
+/* 这个纤程函数会生成每个元素，
+ * 并且会设置一个 'ref' 参数引用该元素。*/
 void fibonacciSeries($(HILITE ref) int current) {                 // (1)
-    current = 0;    // Note that 'current' is the parameter
+    current = 0;    // 请注意，'current' 即为该参数
     int next = 1;
 
     while (true) {
         $(HILITE Fiber.yield());                                  // (2)
-        /* Next call() will continue from this point */ // (3)
+        /* 下一次的 call() 会继续从这个点开始执行 */ // (3)
 
         const nextNext = current + next;
         current = next;
@@ -510,7 +510,7 @@ void main() {
 
 $(OL
 
-$(LI The fiber function above takes a reference to an $(C int). It uses this parameter to communicate the current element to its caller. (The parameter could be qualified as $(C out) instead of $(C ref) as well).)
+$(LI 上面这个函数接收的是一个 $(C int) 型引用参数。它使用此参数来与将当前元素与其调用者联系在一起。（这个参数除了使用 $(C ref) 来修饰以外，还可以使用 $(C out) ）。)
 
 $(LI When the current element is ready for use, the fiber pauses itself by calling $(C Fiber.yield()).)
 
@@ -994,7 +994,7 @@ Instead of terminating the fiber and losing the entire sign-on flow, the fiber c
 ---
 
 $(P
-Wrapping that line with a $(C try-catch) statement inside an infinite loop would be sufficient to keep the fiber alive until there is data that can be converted to a $(C uint):
+Wrapping that line with a $(C try-catch) statement inside an unconditional loop would be sufficient to keep the fiber alive until there is data that can be converted to a $(C uint):
 )
 
 ---
@@ -1010,7 +1010,7 @@ Wrapping that line with a $(C try-catch) statement inside an infinite loop would
 ---
 
 $(P
-This time the fiber remains in an infinite loop until data is valid:
+This time the fiber remains in an unconditional loop until data is valid:
 )
 
 $(SHELL
@@ -1077,7 +1077,7 @@ $(P
 $(IX M:N, threading) One obvious shortcoming of fibers is that only one core of the CPU is used for the caller and its fibers. The other cores of the CPU might be sitting idle, effectively wasting resources. It is possible to use different designs like the $(I M:N threading model (hybrid threading)) that employ other cores as well. I encourage you to research and compare different threading models.
 )
 
-$(H5 摘要)
+$(H5 小结)
 
 $(UL
 
