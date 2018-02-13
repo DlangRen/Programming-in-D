@@ -206,7 +206,7 @@ $(IX manifest constant) $(IX constant, manifest) Such constants are $(LINK2 /der
 )
 
 $(P
-It is possible to create manifest constants of arrays an associative arrays as well. However, as we will see later in $(LINK2 /ders/d.en/const_and_immutable.html, the Immutability chapter), $(C enum) arrays and associative arrays may have hidden costs.
+It is possible to create manifest constants of arrays and associative arrays as well. However, as we will see later in $(LINK2 /ders/d.en/const_and_immutable.html, the Immutability chapter), $(C enum) arrays and associative arrays may have hidden costs.
 )
 
 $(H5 Properties)

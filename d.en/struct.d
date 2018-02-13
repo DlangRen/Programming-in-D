@@ -828,7 +828,7 @@ Card[] newDeck()
 out (result) {
     assert(result.length == 52);
 
-} body {
+} do {
     // ... please define the function body ...
 }
 ---

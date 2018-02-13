@@ -44,7 +44,7 @@ string timeToString(in int hour, in int minute) {
 ---
 
 $(P
-$(IX body) In contract programming, the same checks are written inside the $(C in) blocks of functions. When an $(C in) or $(C out) block is used, the actual body of the function must be specified as a $(C body) block:
+$(IX do, contract programming) In contract programming, the same checks are written inside the $(C in) blocks of functions. When an $(C in) or $(C out) block is used, the actual body of the function must be specified as a $(C do) block:
 )
 
 ---
@@ -56,7 +56,7 @@ $(HILITE in) {
     assert((hour >= 0) && (hour <= 23));
     assert((minute >= 0) && (minute <= 59));
 
-} $(HILITE body) {
+} $(HILITE do) {
     return format("%02s:%02s", hour, minute);
 }
 
@@ -64,6 +64,10 @@ void main() {
     writeln(timeToString(12, 34));
 }
 ---
+
+$(P
+$(IX body) $(I $(B Note:) In earlier versions of D, the $(C body) keyword was used for this purpose instead of $(C do).)
+)
 
 $(P
 A benefit of an $(C in) block is that all of the preconditions can be kept together and separate from the actual body of the function. This way, the function body would be free of $(C assert) checks about the preconditions. As needed, it is still possible and advisable to have other $(C assert) checks inside the function body as unrelated checks that guard against potential programming errors in the function body.
@@ -100,7 +104,7 @@ int daysInFebruary(in int year)
 $(HILITE out (result)) {
     assert((result == 28) || (result == 29));
 
-} body {
+} do {
     return isLeapYear(year) ? 29 : 28;
 }
 ---
@@ -136,7 +140,7 @@ $(LI $(C in): Optional)
 
 $(LI $(C out): Optional)
 
-$(LI $(C body): Mandatory but the $(C body) keyword may be skipped if no $(C in) or $(C out) block is defined.)
+$(LI $(C do): Mandatory but the $(C do) keyword may be skipped if no $(C in) or $(C out) block is defined.)
 
 $(LI $(C unittest): Optional and technically not a part of a function's definition but commonly defined right after the function.)
 )
@@ -160,7 +164,7 @@ in {
 } out {
     assert(sum == (first + second));
 
-} body {
+} do {
     first = (sum >= 7) ? 7 : sum;
     second = sum - first;
 }
@@ -272,7 +276,7 @@ inout(int)[] middle(inout(int)[] originalSlice, size_t width)
 out (result) {
     assert(result.length == width);
 
-} body {
+} do {
     $(HILITE enforce)(originalSlice.length >= width);
 
     immutable start = (originalSlice.length - width) / 2;
@@ -334,7 +338,7 @@ in {
 } out (result) {
     // ...
 
-} body {
+} do {
     int winner;
 
     // ...

@@ -1155,7 +1155,7 @@ LargerOf!(A, B) calculate(A, B)(A a, B b) {
 $(H5 Template specializations)
 
 $(P
-We have seen template specializations in $(LINK2 /ders/d.en/templates.html, the Templates chapter). Like type parameters, other kinds of template parameters can be specialized as well. The following is both the general definition of a template and its specialization for 0:
+We have seen template specializations in $(LINK2 /ders/d.en/templates.html, the Templates chapter). Like type parameters, other kinds of template parameters can be specialized as well. The following is the general definition of a template and its specialization for 0:
 )
 
 ---

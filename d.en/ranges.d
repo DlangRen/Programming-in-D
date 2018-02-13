@@ -233,7 +233,7 @@ Normally, iterating over the elements of a container does not change the contain
 ---
 
 $(P
-Another way of iteration requires a different way of thinking: iteration can be achieved by shortening the range from the beginning. In this method, always the first element is used for element access and the first element is $(I popped) from the beginning in order to get to the next element:
+Another way of iteration requires a different way of thinking: iteration can be achieved by shortening the range from the beginning. In this method, it is always the first element that is used for element access and the first element is $(I popped) from the beginning in order to get to the next element:
 )
 
 ---

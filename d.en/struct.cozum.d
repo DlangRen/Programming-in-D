@@ -35,7 +35,7 @@ Card[] newDeck()
 out (result) {
     assert(result.length == 52);
 
-} body {
+} do {
     Card[] deck;
 
     deck ~= newSuit('♠');
@@ -62,7 +62,7 @@ in {
 } out (result) {
     assert(result.length == 13);
 
-} body {
+} do {
     Card[] suitCards;
 
     foreach (value; "234567890JQKA") {
@@ -148,7 +148,7 @@ in {
 } out (result) {
     assert(result.length == 13);
 
-} body {
+} do {
     Card[] suitCards;
 
     foreach (value; "234567890JQKA") {
@@ -162,7 +162,7 @@ Card[] newDeck()
 out (result) {
     assert(result.length == 52);
 
-} body {
+} do {
     Card[] deck;
 
     deck ~= newSuit('♠');

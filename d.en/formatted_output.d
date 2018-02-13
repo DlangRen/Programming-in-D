@@ -37,6 +37,8 @@ $(B Format Specifiers)
     a,A    floating point in hexadecimal notation
     g,G    as e or f
 
+     ,     digit separators
+
      (     element format start
      )     element format end
      |     element delimiter
@@ -103,11 +105,11 @@ All of the other characters of the format string that are not part of format spe
 )
 
 $(P
-Format specifiers consist of six parts, most of which are optional. The part named $(I position) will be explained later below. The other five are the following: ($(I $(B Note:) The spaces between these parts are inserted here to help with readability; they are not part of the specifiers.))
+Format specifiers consist of several parts, most of which are optional. The part named $(I position) will be explained later below. The others are the following: ($(I $(B Note:) The spaces between these parts are inserted here to help with readability; they are not part of the specifiers.))
 )
 
 $(MONO
-    %  $(I$(C flags  width  precision  format_character))
+    %  $(I$(C flags  width  separator  precision  format_character))
 )
 
 $(P
@@ -120,16 +122,16 @@ Because $(C %) has a special meaning in format strings, when we need to print a 
 
 $(H5 $(I format_character))
 
-$(P $(IX %b) $(C b): An integer parameter is printed in the binary system.
+$(P $(IX %b) $(C b): An integer argument is printed in the binary system.
 )
 
-$(P $(IX %o, output) $(C o): An integer parameter is printed in the octal system.
+$(P $(IX %o, output) $(C o): An integer argument is printed in the octal system.
 )
 
-$(P $(IX %x, output) $(IX %X) $(C x) and $(C X): An integer parameter is printed in the hexadecimal system; with lowercase letters when using $(C x) and with uppercase letters when using $(C X).
+$(P $(IX %x, output) $(IX %X) $(C x) and $(C X): An integer argument is printed in the hexadecimal system; with lowercase letters when using $(C x) and with uppercase letters when using $(C X).
 )
 
-$(P $(IX %d, output) $(C d): An integer parameter is printed in the decimal system; a negative sign is also printed if it is a signed type and the value is less than zero.
+$(P $(IX %d, output) $(C d): An integer argument is printed in the decimal system; a negative sign is also printed if it is a signed type and the value is less than zero.
 )
 
 ---
@@ -148,7 +150,7 @@ Hexadecimal: c
 Decimal    : 12
 )
 
-$(P $(IX %e) $(C e): A floating point parameter is printed according to the following rules.
+$(P $(IX %e) $(C e): A floating point argument is printed according to the following rules.
 )
 
 $(UL
@@ -163,7 +165,7 @@ $(LI the exponent, consisting of at least two digits)
 $(P $(IX %E) $(C E): Same as $(C e), with the exception of outputting the character $(C E) instead of $(C e).
 )
 
-$(P $(IX %f, output) $(IX %F) $(C f) and $(C F): A floating point parameter is printed in the decimal system; there is at least one digit before the decimal mark and the default precision is 6 digits after the decimal mark.
+$(P $(IX %f, output) $(IX %F) $(C f) and $(C F): A floating point argument is printed in the decimal system; there is at least one digit before the decimal mark and the default precision is 6 digits after the decimal mark.
 )
 
 $(P $(IX %g) $(C g): Same as $(C f) if the exponent is between -5 and $(I precision); otherwise same as $(C e). $(I precision) does not specify the number of digits after the decimal mark, but the significant digits of the entire value. If there are no significant digits after the decimal mark, then the decimal mark is not printed. The rightmost zeros after the decimal mark are not printed.
@@ -172,7 +174,7 @@ $(P $(IX %g) $(C g): Same as $(C f) if the exponent is between -5 and $(I precis
 $(P $(IX %G) $(C G): Same as $(C g), with the exception of outputting the characters $(C E) or $(C F).
 )
 
-$(P $(IX %a) $(C a): A floating point parameter is printed in the hexadecimal floating point notation:
+$(P $(IX %a) $(C a): A floating point argument is printed in the hexadecimal floating point notation:
 )
 
 $(UL
@@ -204,7 +206,7 @@ with g: 123.457
 with a: 0x1.edd3c07ee0b0bp+6
 )
 
-$(P $(IX %s, output) $(C s): The value is printed in the same way as in regular output, according to the type of the parameter:
+$(P $(IX %s, output) $(C s): The value is printed in the same way as in regular output, according to the type of the argument:
 )
 
 $(UL
@@ -252,7 +254,7 @@ array : [2, 4, 6, 8]
 $(H5 $(IX width, output) $(I width))
 
 $(P
-$(IX *, formatted output) This part determines the width of the field that the parameter is printed in. If the width is specified as the character $(C *), then the actual width value is read from the next parameter (that parameter must be an $(C int)). If width is a negative value, then the $(C -) flag is assumed.
+$(IX *, formatted output) This part determines the width of the field that the argument is printed in. If the width is specified as the character $(C *), then the actual width value is read from the next argument (that argument must be an $(C int)). If width is a negative value, then the $(C -) flag is assumed.
 )
 
 ---
@@ -267,10 +269,52 @@ In a field of 10 characters:       100
 In a field of 5 characters :  100
 )
 
+$(H5 $(IX separator) $(I separator))
+
+$(P
+The comma character specifies to separate digits of a number in groups. The default number of digits in a group is 3 but it can be specified after the comma:
+)
+
+---
+    writefln("%,f", 1234.5678);        // Groups of 3
+    writefln("%,s", 1000000);          // Groups of 3
+    writefln("%,2s", 1000000);         // Groups of 2
+---
+
+$(SHELL
+1,234.567,800
+1,000,000
+1,00,00,00
+)
+
+$(P
+If the number of digits is specified as the character $(C *), then the actual number of digits is read from the next argument (that argument must be an $(C int)).
+)
+
+---
+    writefln("%,*s", $(HILITE 1), 1000000);      // Groups of 1
+---
+
+$(SHELL
+1,0,0,0,0,0,0
+)
+
+$(P
+Similarly, it is possible to specify the separator character by using a question mark after the comma and providing the character as an additional argument before the number:
+)
+
+---
+    writefln("%,?s", $(HILITE '.'), 1000000);    // The separator is '.'
+---
+
+$(SHELL
+1$(HILITE .)000$(HILITE .)000
+)
+
 $(H5 $(IX precision, output) $(I precision))
 
 $(P
-Precision is specified after a dot in the format specifier. For floating point types, it determines the precision of the printed representation of the values. If the precision is specified as the character $(C *), then the actual precision is read from the next parameter (that parameter must be an $(C int)). Negative precision values are ignored.
+Precision is specified after a dot in the format specifier. For floating point types, it determines the precision of the printed representation of the values. If the precision is specified as the character $(C *), then the actual precision is read from the next argument (that argument must be an $(C int)). Negative precision values are ignored.
 )
 
 ---
@@ -390,7 +434,7 @@ Positive value without space : 56
 $(H5 $(IX %1$) $(IX positional parameter, output) $(IX $, formatted output) Positional parameters)
 
 $(P
-We have seen above that the parameters are associated one by one with the specifiers in the format string. It is also possible to use position numbers within format specifiers. This enables associating the specifiers with specific parameters. Parameters are numbered in increasing fashion, starting with 1. The parameter numbers are specified immediately after the $(C %) character, followed by a $(C $):
+We have seen above that the arguments are associated one by one with the specifiers in the format string. It is also possible to use position numbers within format specifiers. This enables associating the specifiers with specific arguments. Arguments are numbered in increasing fashion, starting with 1. The argument numbers are specified immediately after the $(C %) character, followed by a $(C $):
 )
 
 $(MONO
@@ -398,7 +442,7 @@ $(MONO
 )
 
 $(P
-An advantage of positional parameters is being able to use the same parameter in more than one place in the same format string:
+An advantage of positional parameters is being able to use the same argument in more than one place in the same format string:
 )
 
 ---
@@ -406,7 +450,7 @@ An advantage of positional parameters is being able to use the same parameter in
 ---
 
 $(P
-The format string above uses the parameter numbered 1 within four specifiers to print it in decimal, hexadecimal, octal, and binary formats:
+The format string above uses the argument numbered 1 within four specifiers to print it in decimal, hexadecimal, octal, and binary formats:
 )
 
 $(SHELL
@@ -414,7 +458,7 @@ $(SHELL
 )
 
 $(P
-Another application of positional parameters is supporting multiple natural languages. When referred by position numbers, parameters can be moved anywhere within the specific format string for a given human language. For example, the number of students of a given classroom can be printed as in the following:
+Another application of positional parameters is supporting multiple natural languages. When referred by position numbers, arguments can be moved anywhere within the specific format string for a given human language. For example, the number of students of a given classroom can be printed as in the following:
 )
 
 ---
@@ -438,7 +482,7 @@ Let's assume that the program must also support Turkish. In this case the format
 ---
 
 $(P
-Unfortunately, when the parameters are associated one by one, the classroom and student count information appear in reverse order in the Turkish message; the room information is where the count should be and the count is where the room should be:
+Unfortunately, when the arguments are associated one by one, the classroom and student count information appear in reverse order in the Turkish message; the room information is where the count should be and the count is where the room should be:
 )
 
 $(SHELL
@@ -446,7 +490,7 @@ $(SHELL
 )
 
 $(P
-To avoid this, the parameters can be specified by numbers, such as $(C 1$) and $(C 2$), to associate each specifier with the exact parameter:
+To avoid this, the arguments can be specified by numbers, such as $(C 1$) and $(C 2$), to associate each specifier with the exact argument:
 )
 
 ---
@@ -458,7 +502,7 @@ To avoid this, the parameters can be specified by numbers, such as $(C 1$) and $
 ---
 
 $(P
-Now the parameters appear in the proper order, regardless of the language selected:
+Now the arguments appear in the proper order, regardless of the language selected:
 )
 
 $(SHELL

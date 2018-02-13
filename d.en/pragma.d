@@ -82,7 +82,7 @@ The following program calls a small function from a loop and increments a counte
 
 ---
 import std.stdio;
-import std.datetime;
+import std.datetime.stopwatch;
 
 // A function with a fast body:
 ubyte compute(ubyte i) {
@@ -106,12 +106,12 @@ void main() {
 
     sw.stop();
 
-    writefln("%s milliseconds", sw.peek.msecs);
+    writefln("%s milliseconds", sw.peek.total!"msecs");
 }
 ---
 
 $(P
-$(IX StopWatch, std.datetime) The code takes advantage of $(C std.datetime.StopWatch) to measure the time it takes executing the entire loop:
+$(IX StopWatch, std.datetime.stopwatch) The code takes advantage of $(C std.datetime.stopwatch.StopWatch) to measure the time it takes executing the entire loop:
 )
 
 $(SHELL
@@ -210,20 +210,21 @@ Specifies that a symbol should be $(I name mangled) differently from the default
 )
 
 $(P
-For example, if a C library had a function named $(C body), because $(C body) happens to be a keyword in D, the only way of calling it from D would be through a different name. However, that different name must still be mangled as the actual function name in the library for the linker to be able to identify it:
+For example, if a C library had a function named $(C override), because $(C override) happens to be a keyword in D, the only way of calling it from D would be through a different name. However, that different name must still be mangled as the actual function name in the library for the linker to be able to identify it:
 )
 
 ---
-/* If a C library had a function named 'body', it could only
- * be called from D through a name like 'c_body', mangled as
- * the actual function name: */
-pragma($(HILITE mangle), "body")
-extern(C) string c_body(string);
+/* If a C library had a function named 'override', it could
+ * only be called from D through a name like 'c_override',
+ * mangled as the actual function name: */
+pragma($(HILITE mangle), "override")
+extern(C) string c_override(string);
 
 void main() {
-    /* D code calls the function as c_body() but the linker
-     * would find it by its correct C library name 'body': */
-    auto s = $(HILITE c_body)("hello");
+    /* D code calls the function as c_override() but the
+     * linker would find it by its correct C library name
+     * 'override': */
+    auto s = $(HILITE c_override)("hello");
 }
 ---
 

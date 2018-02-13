@@ -31,7 +31,7 @@ $(IX gdc) $(IX ldc) At the time of writing this chapter, there are three D compi
 )
 
 $(P
-$(IX dmd) $(C dmd) is the D compiler that has been used during the design and development of the language over the years. All of the examples in this book have been tested with $(C dmd). For that reason, it would be the easiest for you to start with $(C dmd) and try other compilers only if you have a specific need to. The code samples in this book were compiled with $(C dmd) version 2.076.0.
+$(IX dmd) $(C dmd) is the D compiler that has been used during the design and development of the language over the years. All of the examples in this book have been tested with $(C dmd). For that reason, it would be the easiest for you to start with $(C dmd) and try other compilers only if you have a specific need to. The code samples in this book were compiled with $(C dmd) version 2.078.0.
 )
 
 $(P
@@ -105,8 +105,8 @@ The compiler has many command line switches that are used for influencing how it
 
 $(SHELL
 $(SHELL_OBSERVED $) dmd    $(SHELL_NOTE enter just the name)
-DMD64 D Compiler v2.076.0
-Copyright (c) 1999-2017 by Digital Mars written by Walter Bright
+DMD64 D Compiler v2.078.0
+Copyright (c) 1999-2017 by The D Language Foundation written by Walter Bright
 ...
   -de            show use of deprecated features as errors (halt compilation)
 ...
@@ -188,7 +188,7 @@ The complete list of D keywords is $(C abstract), $(C alias), $(C align), $(C as
 )
 
 $(P
-$(IX asm) $(IX __vector) $(IX delete) $(IX typedef) $(IX volatile) $(IX macro) We will cover these keywords in the upcoming chapters with the exception of the following ones: $(LINK2 http://dlang.org/statement.html#AsmStatement, $(C asm)) and $(LINK2 http://dlang.org/phobos/core_simd.html#.Vector, $(C __vector)) are outside of the scope of this book; $(C delete), $(C typedef), and $(C volatile) are deprecated; and $(C macro) is unused by D at this time.
+$(IX asm) $(IX body) $(IX __vector) $(IX delete) $(IX typedef) $(IX volatile) $(IX macro) We will cover these keywords in the upcoming chapters with the exception of the following ones: $(LINK2 http://dlang.org/statement.html#AsmStatement, $(C asm)) and $(LINK2 http://dlang.org/phobos/core_simd.html#.Vector, $(C __vector)) are outside of the scope of this book; $(C body), $(C delete), $(C typedef), and $(C volatile) are deprecated; and $(C macro) is unused by D at this time.
 )
 
 $(PROBLEM_COK

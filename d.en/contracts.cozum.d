@@ -20,7 +20,7 @@ in {
 } out (result) {
     assert((result >= 0) && (result <= 2));
 
-} body {
+} do {
     int winner;
 
     if (goals1 > goals2) {

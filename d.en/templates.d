@@ -798,7 +798,7 @@ double random_double()
 out (result) {
     assert((result >= -0.50) && (result < 0.50));
 
-} body {
+} do {
     return (double(uniform(0, 100)) - 50) / 100;
 }
 
@@ -808,7 +808,7 @@ Stack!(Point!double) randomPoints(size_t count)
 out (result) {
     assert(result.length == count);
 
-} body {
+} do {
     auto points = new Stack!(Point!double);
 
     foreach (i; 0 .. count) {

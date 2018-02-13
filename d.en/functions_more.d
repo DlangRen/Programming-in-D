@@ -749,7 +749,7 @@ $(LI Pointers cannot be converted to other pointer types other than $(C void*).)
 
 $(LI A non-pointer expression cannot be converted to a pointer value.)
 
-$(LI Pointers cannot be mutated.)
+$(LI Pointer values cannot be changed (no pointer $(I arithmetic); however, assigning a pointer to another pointer of the same type is safe).)
 
 $(LI Unions that have pointer or reference members cannot be used.)
 

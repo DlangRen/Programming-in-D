@@ -80,7 +80,7 @@ $(LI $(LINK2 /ders/d.en/exceptions.html, Exceptions) $(INDEX_KEYWORDS throw try 
 $(LI $(LINK2 /ders/d.en/scope.html, scope) $(INDEX_KEYWORDS scope(exit) scope(success) scope(failure)))
 $(LI $(LINK2 /ders/d.en/assert.html, assert and enforce) $(INDEX_KEYWORDS assert enforce))
 $(LI $(LINK2 /ders/d.en/unit_testing.html, Unit Testing) $(INDEX_KEYWORDS unittest))
-$(LI $(LINK2 /ders/d.en/contracts.html, Contract Programming) $(INDEX_KEYWORDS in out body))
+$(LI $(LINK2 /ders/d.en/contracts.html, Contract Programming) $(INDEX_KEYWORDS in out))
 $(LI $(LINK2 /ders/d.en/lifetimes.html, Lifetimes and Fundamental Operations))
 $(LI $(LINK2 /ders/d.en/null_is.html, The null Value and the is Operator) $(INDEX_KEYWORDS null is !is))
 $(LI $(LINK2 /ders/d.en/cast.html, Type Conversions) $(INDEX_KEYWORDS to assumeUnique cast))

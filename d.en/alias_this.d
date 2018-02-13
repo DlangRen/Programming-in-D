@@ -75,7 +75,7 @@ $(C alias this) enables using D classes in designs that could benefit from multi
 )
 
 $(P
-$(HILITE $(I $(B Note:) dmd 2.076.0, the compiler that was used last to compile the examples in this chapter, allowed only one $(C alias this) declaration.))
+$(HILITE $(I $(B Note:) dmd 2.078.0, the compiler that was used last to compile the examples in this chapter, allowed only one $(C alias this) declaration.))
 )
 
 $(P
@@ -116,7 +116,7 @@ class TeachingAssistant {
     /* The following two 'alias this' declarations will enable
      * this type to be used both as a Student and as a Teacher.
      *
-     * Note: dmd 2.076.0 did not support multiple 'alias this'
+     * Note: dmd 2.078.0 did not support multiple 'alias this'
      *       declarations. */
     alias $(HILITE teacherIdentity) this;
     $(CODE_COMMENT_OUT compiler limitation)alias $(HILITE studentIdentity) this;
@@ -127,7 +127,7 @@ in {
     assert(teacher !is null);
     assert(students.length > 0);
 
-} body {
+} do {
     writef("%s is teaching %s to the following students:",
            teacher.name, teacher.subject);
 

@@ -40,7 +40,7 @@ in {
 } out (result) {
     assert(result >= 0);
 
-} body {
+} do {
     immutable halfPerimeter = (a + b + c) / 2;
 
     return sqrt(halfPerimeter
@@ -77,7 +77,7 @@ public:
     $(HILITE out (result)) {
         assert(result >= 0);
 
-    } body {
+    } do {
         immutable halfPerimeter = (a + b + c) / 2;
 
         return sqrt(halfPerimeter
@@ -123,7 +123,7 @@ struct Triangle {
         assert(b <= (a + c));
         assert(c <= (a + b));
 
-    } body {
+    } do {
         this.a = a;
         this.b = b;
         this.c = c;
@@ -320,8 +320,8 @@ class Class : Iface {
         assert((result.length != 0) &&
                (result[0] == result[$ - 1]));
 
-    } body {
-        writeln("Class.func.body");
+    } do {
+        writeln("Class.func.do");
 
         /* This is just an artificial implementation to
          * demonstrate how the 'in' and 'out' blocks are
@@ -366,7 +366,7 @@ The $(C in) block of $(C Class) is executed only because the parameters fail to 
 $(SHELL
 Iface.func.in
 Class.func.in  $(SHELL_NOTE would not be executed if Iface.func.in succeeded)
-Class.func.body
+Class.func.do
 Iface.func.out
 Class.func.out
 [42, 1, 2, 2, 3, 42]
@@ -392,7 +392,7 @@ class Protocol {
     in {
         assert($(HILITE d > 42));
 
-    } body {
+    } do {
         // ...
     }
 }
@@ -424,7 +424,7 @@ class SpecialProtocol : Protocol {
     in {
         $(HILITE assert(false));
 
-    } body {
+    } do {
         // ...
     }
 }
