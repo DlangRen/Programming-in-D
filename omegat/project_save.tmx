@@ -1513,6 +1513,14 @@ There are three mistakes (bugs) in this program.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>$(LI $(C Generator) presents a fiber as an $(C InputRange).)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20180218T155233Z" creationid="Heromyth" creationdate="20180218T155233Z">
+        <seg>$(LI $(C Generator) 可以将纤程呈现为一个 $(C InputRange) 类型。)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>$(LI $(C OnCrowding.ignore): The message is discarded.)</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T134644Z" creationid="Heromyth" creationdate="20170825T134644Z">
@@ -2019,6 +2027,22 @@ There are three mistakes (bugs) in this program.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>$(LI A fiber and its caller are executed on the same thread (i.e. not at the same time).)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20180218T154822Z" creationid="Heromyth" creationdate="20180218T154822Z">
+        <seg>$(LI 纤程及其调用函数都在同一个线程里执行（即不会同时执行）。)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(LI A fiber pauses itself by $(I yielding) to its caller and the caller resumes its fiber by $(I calling) it again.)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20180218T155136Z" creationid="Heromyth" creationdate="20180218T155136Z">
+        <seg>$(LI 纤程通过 $(I 跳出) 到调用函数的方式来暂停自己；而调用函数通过再次 $(I 调用) 纤程的方式来恢复它。)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>$(LI A function pointer of type $(C bool function(Tid)): The specified function is called.)</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T134737Z" creationid="Heromyth" creationdate="20170825T134737Z">
@@ -2131,6 +2155,14 @@ There are three mistakes (bugs) in this program.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>$(LI Fibers enable multiple call stacks per thread instead of the default single call stack per thread.)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20180218T154621Z" creationid="Heromyth" creationdate="20180218T154621Z">
+        <seg>$(LI 通过纤程，可以实现每个线程拥有多个调用栈；而默认情况下是单个线程单个调用栈。)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>$(LI It is an error to execute operations in parallel unless those operations are independent from each other.)</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170831T115259Z" creationid="Heromyth" creationdate="20170826T091121Z">
@@ -2211,6 +2243,14 @@ There are three mistakes (bugs) in this program.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>$(LI The call stack enables efficient allocation of local state and simplifies certain algorithms, especially the recursive ones.)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20180218T154343Z" creationid="Heromyth" creationdate="20180218T154343Z">
+        <seg>$(LI 调用栈可以让本地状态获得高效分配，并且可以简化某些算法（尤其是递归算法）。)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>$(LI The caller starts and resumes the fiber by its $(C call()) member function.)</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20180218T153243Z" creationid="Heromyth" creationdate="20180218T153243Z">
@@ -2279,6 +2319,14 @@ There are three mistakes (bugs) in this program.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170827T025143Z" creationid="Heromyth" creationdate="20170825T140819Z">
         <seg>$(LI 所有者线程无法自动捕获工作线程中的异常。)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(LI The solution above does not provide a range interface, making it incompatible with existing range algorithms.)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20180218T153906Z" creationid="Heromyth" creationdate="20180218T153906Z">
+        <seg>$(LI 上面的解决方法并没有提供范围接口，因此它无法与已有的范围算法兼容。)</seg>
       </tuv>
     </tu>
     <tu>
@@ -11464,6 +11512,14 @@ COZUMLER_METIN=答案</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T004846Z" creationid="Heromyth" creationdate="20170826T004846Z">
         <seg>DESCRIPTION=执行多条共享数据的线程</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>DESCRIPTION=Generators and cooperative multitasking by fibers.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20180218T154116Z" creationid="Heromyth" creationdate="20180218T154116Z">
+        <seg>DESCRIPTION=Generators 和基于纤程的协作式多任务.</seg>
       </tuv>
     </tu>
     <tu>
