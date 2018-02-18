@@ -917,6 +917,14 @@ $(LI $(LINK2 /ders/d.cn/struct.html, 结构) $(INDEX_KEYWORDS struct .
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>$(H6 $(IX Generator, std.concurrency) $(C std.concurrency.Generator) for presenting fibers as ranges)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20180218T153627Z" creationid="Heromyth" creationdate="20180218T153627Z">
+        <seg>$(H6 $(IX Generator, std.concurrency) $(C std.concurrency.Generator) 用于将纤程呈现为范围)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>$(H6 $(IX LinkTerminated) $(IX spawnLinked) $(C LinkTerminated) exception)</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T052242Z" creationid="Heromyth" creationdate="20170825T052242Z">
@@ -2019,6 +2027,14 @@ There are three mistakes (bugs) in this program.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>$(LI A later $(C call()) will resume the function right after the fiber's last $(C Fiber.yield()) call.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20180218T152703Z" creationid="Heromyth" creationdate="20180218T152703Z">
+        <seg>$(LI 随后的 $(C call()) 会在纤程最后一次调用 $(C Fiber.yield()) 的那个地方恢复它。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>$(LI Assigning an empty associative array.)</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Hipter" changedate="20160709T084451Z" creationid="Hipter" creationdate="20160709T084139Z">
@@ -2047,6 +2063,14 @@ There are three mistakes (bugs) in this program.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170827T025118Z" creationid="Heromyth" creationdate="20170825T135826Z">
         <seg>$(LI 基于数据共享的并发难以正确实现，因此推荐使用本章讲解的基于消息传递的并发。)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(LI Because fiber functions do not take parameters, $(C fibonacciSeries()) cannot be used directly as a fiber function.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20180218T152926Z" creationid="Heromyth" creationdate="20180218T152926Z">
+        <seg>$(LI 因为纤程函数不接受参数，因此 $(C fibonacciSeries()) 不能被直接用作纤程函数。</seg>
       </tuv>
     </tu>
     <tu>
@@ -2183,6 +2207,14 @@ There are three mistakes (bugs) in this program.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Hipter" changedate="20160707T020218Z" creationid="Hipter" creationdate="20160707T020218Z">
         <seg>$(LI 复制操作将增加一个与对象关联的变量。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(LI The caller starts and resumes the fiber by its $(C call()) member function.)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20180218T153243Z" creationid="Heromyth" creationdate="20180218T153243Z">
+        <seg>$(LI 调用函数通过成员函数 $(C call()) 来开始和恢复纤程。)</seg>
       </tuv>
     </tu>
     <tu>
@@ -2331,6 +2363,14 @@ There are three mistakes (bugs) in this program.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170831T120030Z" creationid="Heromyth" creationdate="20170826T091409Z">
         <seg>$(LI 如有必要，也可以使用 $(C TaskPool) 对象来代替 $(C taskPool) 。)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(LI When the current element is ready for use, the fiber pauses itself by calling $(C Fiber.yield()).)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20180218T152350Z" creationid="Heromyth" creationdate="20180218T152350Z">
+        <seg>$(LI 在当前元素准备好时，纤程会通过调用 $(C Fiber.yield()) 来暂停自己。)</seg>
       </tuv>
     </tu>
     <tu>
@@ -3721,6 +3761,18 @@ Although these statements are closely related to exceptions, they can be used wi
     <tu>
       <tuv lang="EN-US">
         <seg>$(P
+Although we have achieved generating the Fibonacci series with a fiber, that implementation has the following shortcomings:
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20180218T153757Z" creationid="Heromyth" creationdate="20180218T153757Z">
+        <seg>$(P
+虽然我们成功通过纤程生成了 Fibonacci 序列，但是这个实现存在以下几点不足：
+)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
 An attribute can be a type name as well as a value of a user defined or a fundamental type.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170803T043344Z" creationid="Heromyth" creationdate="20170803T043344Z">
@@ -3858,6 +3910,18 @@ Arrays provide convenience operations that apply to all of their elements.</seg>
       <tuv lang="ZH-CN" changeid="大处着手小处着眼" changedate="20160726T012802Z" creationid="大处着手小处着眼" creationdate="20160726T012802Z">
         <seg>$(P
 数组提供了适用于所有元素的方便操作。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
+As a result, $(C main()) receives the elements of the series through $(C current) and prints them:
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20180218T153428Z" creationid="Heromyth" creationdate="20180218T153428Z">
+        <seg>$(P
+最后，$(C main()) 通过 $(C current) 接收序列的各个元素，并输出它们：
+)</seg>
       </tuv>
     </tu>
     <tu>
@@ -9274,6 +9338,14 @@ $(LI $(LINK2 /ders/d.cn/logical_expressions.html, 逻辑表达式) $(INDEX_KEYWO
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>(The first $(C call()) starts the function.))</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20180218T152817Z" creationid="Heromyth" creationdate="20180218T152817Z">
+        <seg>（第一次调用 $(C call()) 会启动该函数。）)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>(The parameter could be qualified as $(C out) instead of $(C ref) as well).)</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20180127T140958Z" creationid="Heromyth" creationdate="20180127T140958Z">
@@ -12594,8 +12666,8 @@ $(LINK2 /ders/d.cn/index.html,
       <tuv lang="EN-US">
         <seg>Instead, a parameter-less $(LINK2 /ders/d.en/lambda.html, delegate) is used as an adaptor to be passed to the $(C Fiber) constructor.)</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20180213T064654Z" creationid="Heromyth" creationdate="20180213T064654Z">
-        <seg>Instead, a parameter-less $(LINK2 /ders/d.cn/lambda.html, delegate) is used as an adaptor to be passed to the $(C Fiber) constructor.)</seg>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20180218T153130Z" creationid="Heromyth" creationdate="20180213T064654Z">
+        <seg>其实，无参的 $(LINK2 /ders/d.cn/lambda.html, 委托) 可被当作适配器传递给 $(C Fiber) 的构造函数。)</seg>
       </tuv>
     </tu>
     <tu>
