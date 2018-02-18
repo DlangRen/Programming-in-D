@@ -2163,6 +2163,30 @@ There are three mistakes (bugs) in this program.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>$(LI Fibers provide cooperative multitasking, which has different trade-offs from preemptive multitasking.)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20180218T155748Z" creationid="Heromyth" creationdate="20180218T155748Z">
+        <seg>$(LI 纤程能够提供协作式的多任务（它与抢占式的多任务相比有不同的好处）。)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(LI Fibers simplify algorithms that rely heavily on the call stack.)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20180218T155341Z" creationid="Heromyth" creationdate="20180218T155341Z">
+        <seg>$(LI 纤程可以大大简化那些严重依赖于调用栈的算。)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(LI Fibers simplify asynchronous input/output operations.)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20180218T155432Z" creationid="Heromyth" creationdate="20180218T155432Z">
+        <seg>$(LI 纤程可以简化异步输入/输出操作。)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>$(LI It is an error to execute operations in parallel unless those operations are independent from each other.)</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170831T115259Z" creationid="Heromyth" creationdate="20170826T091121Z">
