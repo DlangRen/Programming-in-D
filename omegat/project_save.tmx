@@ -3524,6 +3524,16 @@ $(IX worker) $(B 工作线程)：由所有者启动的任何线种都叫做工�
     <tu>
       <tuv lang="EN-US">
         <seg>$(P
+$(IX yield, std.concurrency) Also note that this time it is the $(C std.concurrency.yield) function, not the $(C Fiber.yield) member function that we used above.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20180220T152326Z" creationid="Heromyth" creationdate="20180220T152326Z">
+        <seg>$(P
+$(IX yield, std.concurrency) 还请注意：此时，它是 $(C std.concurrency.yield) 函数，而非我们上面使用的那个 $(C Fiber.yield) 成员函数。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
 $(IX 终结与析构) 然而，不同于结构，在一个类对象的生命期结束时，类的析构函数并不执行。正如上面我们看到的，析构函数在一个垃圾回收周期内的未来某个时候执行。(通过这样的区分，更准确的说，类析构函数应该叫 $(I 终结函数)) 。
 )</seg>
       </tuv>
@@ -4033,6 +4043,18 @@ As a result, passing the $(C Student) range through $(C parallel()) makes the pr
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T015040Z" creationid="Heromyth" creationdate="20170826T013909Z">
         <seg>$(P
 最后，在一个有 4 核的系统上，将 $(C Student) 范围传递给 $(C parallel()) 可以使上面的程序在 1 秒之内完成：
+)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
+As a result, the elements that are produced by a fiber function are used conveniently as an $(C InputRange):
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20180220T152627Z" creationid="Heromyth" creationdate="20180220T152627Z">
+        <seg>$(P
+最后，纤程函数产生所有元素都可以方便地当作 $(C InputRange) 来使用：
 )</seg>
       </tuv>
     </tu>
@@ -9762,6 +9784,14 @@ auto encrypted(string value) {</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>* std.range.Generator.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20180220T152453Z" creationid="Heromyth" creationdate="20180220T152453Z">
+        <seg>* std.range.Generator的名字冲突。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>* string.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170815T120911Z" creationid="Heromyth" creationdate="20170815T120911Z">
@@ -10226,6 +10256,14 @@ immutable int b;    // 所有线程共享</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20171025T010014Z" creationid="Heromyth" creationdate="20171025T010014Z">
         <seg>/* 然后，输出当前元素 */</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>/* This alias is used for resolving the name conflict with</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20180220T152414Z" creationid="Heromyth" creationdate="20180220T152414Z">
+        <seg>/* 这个别名用于解决与</seg>
       </tuv>
     </tu>
     <tu>
@@ -14455,6 +14493,14 @@ LANGUAGE=chinese</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170825T134343Z" creationid="Heromyth" creationdate="20170825T134343Z">
         <seg>邮箱中的消息个数会随着程序接收和处理消息的速度而有所变化。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>The only difference is that instead of returning a single element by $(C return), it can make multiple elements available by $(C yield()) ($(I infinite elements) in this example).</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20180220T152040Z" creationid="Heromyth" creationdate="20180220T152040Z">
+        <seg>唯一的不同之处在于，不是通过 $(C return) 返回一个元素，而是通过 $(C yield()) 返回多个的元素（要本示例里是$(I无限多个元素) ）。</seg>
       </tuv>
     </tu>
     <tu>
