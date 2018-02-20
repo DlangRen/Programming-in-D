@@ -919,8 +919,8 @@ $(LI $(LINK2 /ders/d.cn/struct.html, 结构) $(INDEX_KEYWORDS struct .
       <tuv lang="EN-US">
         <seg>$(H6 $(IX Generator, std.concurrency) $(C std.concurrency.Generator) for presenting fibers as ranges)</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20180218T153627Z" creationid="Heromyth" creationdate="20180218T153627Z">
-        <seg>$(H6 $(IX Generator, std.concurrency) $(C std.concurrency.Generator) 用于将纤程呈现为范围)</seg>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20180220T150301Z" creationid="Heromyth" creationdate="20180218T153627Z">
+        <seg>$(H6 $(IX Generator, std.concurrency) $(C std.concurrency.Generator) 用于将纤程变成范围)</seg>
       </tuv>
     </tu>
     <tu>
@@ -2123,6 +2123,14 @@ There are three mistakes (bugs) in this program.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>$(LI Constructing and using the fiber explicitly through its member functions exposes $(I lower level) implementation details, compared to alternative designs.)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20180220T151450Z" creationid="Heromyth" creationdate="20180220T151320Z">
+        <seg>$(LI 与另外的设计方式相比，通过成员函数的方式构建和使用纤程会暴露$(I底层)的实现细节。)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>$(LI Each member is tested with $(C hasUDA) to determine whether it has the $(C Encrypted) attribute.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170815T042259Z" creationid="Heromyth" creationdate="20170815T042259Z">
@@ -2199,6 +2207,14 @@ There are three mistakes (bugs) in this program.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T004436Z" creationid="Heromyth" creationdate="20170826T004436Z">
         <seg>$(LI 只有用 $(C shared) 定义的变量才能共享；$(C immutable) 隐含了 $(C shared)。)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(LI Presenting the elements by mutating a $(C ref) parameter is less desirable compared to a design where the elements are copied to the caller's context.)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20180220T151510Z" creationid="Heromyth" creationdate="20180220T150813Z">
+        <seg>$(LI 与将元素都复制到调用函数的上下文的设计相比，大家都不太愿意通过 $(C ref) 参数的方式来呈现各个元素。)</seg>
       </tuv>
     </tu>
     <tu>
@@ -6252,6 +6268,16 @@ The $(C static this()) block above would be executed once for the main thread an
         <seg>$(P
 上面这个 $(C static this()) 会为主线程执行一次，为工作线程执行一次：
 )</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
+The $(C std.concurrency.Generator) class addresses all of these issues.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20180220T151614Z" creationid="Heromyth" creationdate="20180220T151359Z">
+        <seg>$(P
+$(C std.concurrency.Generator) 类考虑到了上面的所有问。</seg>
       </tuv>
     </tu>
     <tu>
@@ -13407,6 +13433,14 @@ LANGUAGE=chinese</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170827T142019Z" creationid="Heromyth" creationdate="20170826T090211Z">
         <seg>一般情况下，所有算法都会使用同一个名为 $(C taskPool) 的容器对象。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Note how $(C fibonacciSeries()) below is written as a simple function.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20180220T151710Z" creationid="Heromyth" creationdate="20180220T151710Z">
+        <seg>请注意，下面的 $(C fibonacciSeries()) 是如何被写成为一个函数的。</seg>
       </tuv>
     </tu>
     <tu>
