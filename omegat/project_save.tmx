@@ -8067,9 +8067,9 @@ Unlike threads, the caller is paused while the fiber is executing.</seg>
         <seg>$(P
 Using $(C Generator), we can easily present the elements of a tree as an $(C InputRange) as well.</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20180306T052757Z" creationid="Heromyth" creationdate="20180306T052757Z">
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20180306T092548Z" creationid="Heromyth" creationdate="20180306T052757Z">
         <seg>$(P
-利用 $(C Generator)，我们可以轻易地将树当作一个 $(C InputRange) 遍历它的所有元素。</seg>
+利用 $(C Generator)，我们还可以轻易地将树的元素当作一个 $(C InputRange)。</seg>
       </tuv>
     </tu>
     <tu>
@@ -10202,6 +10202,14 @@ immutable int b;    // 所有线程共享</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T235044Z" creationid="Heromyth" creationdate="20170824T234849Z">
         <seg>/* 返回一个坐标在 0,0 周边的随机位置。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>/* Returns an InputRange to the nodes of the tree.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20180306T122852Z" creationid="Heromyth" creationdate="20180306T122852Z">
+        <seg>/* 返回一个 InputRange 到树的节点。</seg>
       </tuv>
     </tu>
     <tu>
