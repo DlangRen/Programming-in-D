@@ -8057,6 +8057,16 @@ Unlike threads, the caller is paused while the fiber is executing.</seg>
     <tu>
       <tuv lang="EN-US">
         <seg>$(P
+Using $(C Generator), we can easily present the elements of a tree as an $(C InputRange) as well.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20180306T052757Z" creationid="Heromyth" creationdate="20180306T052757Z">
+        <seg>$(P
+利用 $(C Generator)，我们可以轻易地将树当作一个 $(C InputRange) 遍历它的所有元素。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
 Using the assignment operator is sufficient to build the association between a key and a value:
 )</seg>
       </tuv>
@@ -9712,6 +9722,14 @@ auto encrypted(string value) {</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>* not needed anymore.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20180306T053519Z" creationid="Heromyth" creationdate="20180306T053519Z">
+        <seg>* 因为不再需要它了。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>* of the neighbors at eight directions, or the specified</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T235342Z" creationid="Heromyth" creationdate="20170824T235342Z">
@@ -10052,6 +10070,14 @@ immutable int b;    // 所有线程共享</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>/* Note: print() member function is removed because it is</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20180306T053502Z" creationid="Heromyth" creationdate="20180306T053502Z">
+        <seg>/* 请注意：成员函数 print() 被移除了，</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>/* On the other hand, it is not certain at this point</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170826T033643Z" creationid="Heromyth" creationdate="20170826T033643Z">
@@ -10280,6 +10306,14 @@ immutable int b;    // 所有线程共享</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20180127T135451Z" creationid="Heromyth" creationdate="20180127T135451Z">
         <seg>/* 这个纤程函数会生成每个元素，</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>/* This is the fiber function that yields the next tree node</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20180306T063600Z" creationid="Heromyth" creationdate="20180306T063600Z">
+        <seg>/* 这里就是纤程函数，它会按排序方式产生</seg>
       </tuv>
     </tu>
     <tu>
@@ -11782,6 +11816,16 @@ $(LI $(LINK2 http://dlang.org/phobos/index.html, $(IMG bullet_black.png) 标准�
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Especially note how $(C byNode()) is implemented as an adaptor over the recursive function $(C nextNode()):
+)</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20180306T053408Z" creationid="Heromyth" creationdate="20180306T053408Z">
+        <seg>特别需要注意的是，$(C byNode()) 的实现其实就是一个基于递归函数 $(C nextNode()) 的适配器：
+)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Even its $(C toString()) function is not overloaded:
 )</seg>
       </tuv>
@@ -12324,6 +12368,14 @@ $(LI $(LINK2 http://dlang.org/phobos/index.html, $(IMG bullet_black.png) 标准�
       </tuv>
       <tuv lang="ZH-CN" changeid="大处着手小处着眼" changedate="20160715T144815Z" creationid="Hipter" creationdate="20160711T095339Z">
         <seg>另外，因为没有办法告诉 $(C readf()) 要读取多少字符，它持续读，直到整个输入结束。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Further, once the tree has an $(C InputRange) interface, the $(C print()) member function would not be needed anymore; hence it is removed.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20180306T053116Z" creationid="Heromyth" creationdate="20180306T053116Z">
+        <seg>而且，在该树有了 $(C InputRange) 接口之后，其成员函数 $(C print()) 不再需要（因此，完全可以将其删除）。</seg>
       </tuv>
     </tu>
     <tu>
