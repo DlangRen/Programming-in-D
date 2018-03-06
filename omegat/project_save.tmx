@@ -1191,8 +1191,8 @@ $(LI $(LINK2 /ders/d.cn/struct.html, 结构) $(INDEX_KEYWORDS struct .
       <tuv lang="EN-US">
         <seg>$(HILITE yield(node));            // Then, this element</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20180306T063820Z" creationid="Heromyth" creationdate="20180306T063820Z">
-        <seg>$(HILITE yield(node));            // 然后，是当前元素</seg>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20180306T073053Z" creationid="Heromyth" creationdate="20180306T063820Z">
+        <seg>$(HILITE yield(node));            // 接着，是当前元素</seg>
       </tuv>
     </tu>
     <tu>
