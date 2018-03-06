@@ -1189,6 +1189,14 @@ $(LI $(LINK2 /ders/d.cn/struct.html, 结构) $(INDEX_KEYWORDS struct .
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>$(HILITE yield(node));            // Then, this element</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20180306T063820Z" creationid="Heromyth" creationdate="20180306T063820Z">
+        <seg>$(HILITE yield(node));            // 然后，是当前元素</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>$(I ($(B Note:) This is related to name scopes, as well as object lifetimes, which will be explained in $(LINK2 /ders/d.en/lifetimes.html, a later chapter.)))
 )</seg>
       </tuv>
@@ -9696,6 +9704,14 @@ $(LI 左手侧的 $(C char[]) 是一个切片，这意味着，一旦代码编�
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>* in sorted order.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20180306T063624Z" creationid="Heromyth" creationdate="20180306T063613Z">
+        <seg>* 生成下一个树节点。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>* initializing its node.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20171025T010243Z" creationid="Heromyth" creationdate="20171025T010243Z">
@@ -10062,6 +10078,14 @@ immutable int b;    // 所有线程共享</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>/* No element at or under this node */</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20180306T063716Z" creationid="Heromyth" creationdate="20180306T063716Z">
+        <seg>/* 此节点或者其下面没有元素 */</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>/* No element to add.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170914T013220Z" creationid="Heromyth" creationdate="20170914T013220Z">
@@ -10312,8 +10336,8 @@ immutable int b;    // 所有线程共享</seg>
       <tuv lang="EN-US">
         <seg>/* This is the fiber function that yields the next tree node</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20180306T063600Z" creationid="Heromyth" creationdate="20180306T063600Z">
-        <seg>/* 这里就是纤程函数，它会按排序方式产生</seg>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20180306T063617Z" creationid="Heromyth" creationdate="20180306T063600Z">
+        <seg>/* 这里就是纤程函数，它会按排序方式</seg>
       </tuv>
     </tu>
     <tu>
@@ -16057,6 +16081,24 @@ LANGUAGE=chinese</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="大处着手小处着眼" changedate="20160725T072313Z" creationid="大处着手小处着眼" creationdate="20160725T072313Z">
         <seg>int[] array;            // 初始时为空</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>nextNode(node.left);    // First, elements on the left</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20180306T063758Z" creationid="Heromyth" creationdate="20180306T063758Z">
+        <seg>nextNode(node.left);    // 首先，是左边的所有元素</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>nextNode(node.right);   // Finally, elements on the right
+}</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20180306T063843Z" creationid="Heromyth" creationdate="20180306T063843Z">
+        <seg>nextNode(node.right);   // 最后，是左边的所有元素
+}</seg>
       </tuv>
     </tu>
     <tu>
