@@ -9704,6 +9704,14 @@ $(LI 左手侧的 $(C char[]) 是一个切片，这意味着，一旦代码编�
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>* if 'root' is 'null').</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20180306T123154Z" creationid="Heromyth" creationdate="20180306T123154Z">
+        <seg>* （即'root' 为 'null'）。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>* in sorted order.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20180306T063624Z" creationid="Heromyth" creationdate="20180306T063613Z">
@@ -9740,8 +9748,8 @@ auto encrypted(string value) {</seg>
       <tuv lang="EN-US">
         <seg>* not needed anymore.</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20180306T053519Z" creationid="Heromyth" creationdate="20180306T053519Z">
-        <seg>* 因为不再需要它了。</seg>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20180306T122923Z" creationid="Heromyth" creationdate="20180306T053519Z">
+        <seg>* 因为不再需要它。</seg>
       </tuv>
     </tu>
     <tu>
@@ -9774,6 +9782,14 @@ auto encrypted(string value) {</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170824T235411Z" creationid="Heromyth" creationdate="20170824T235411Z">
         <seg>* 指定那个位置本身。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>* returned range is empty if the tree has no elements (i.e.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20180306T123109Z" creationid="Heromyth" creationdate="20180306T123109Z">
+        <seg>* 如果树没有元素，则返回的范围为空</seg>
       </tuv>
     </tu>
     <tu>
@@ -9990,6 +10006,14 @@ immutable int b;    // 所有线程共享</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>/* A translation from the nodes to the elements.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20180306T123001Z" creationid="Heromyth" creationdate="20180306T123001Z">
+        <seg>/* 从节点转换成元素。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>/* Add the front element to the current sum and call self</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170914T015808Z" creationid="Heromyth" creationdate="20170914T015808Z">
@@ -10096,8 +10120,8 @@ immutable int b;    // 所有线程共享</seg>
       <tuv lang="EN-US">
         <seg>/* Note: print() member function is removed because it is</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20180306T053502Z" creationid="Heromyth" creationdate="20180306T053502Z">
-        <seg>/* 请注意：成员函数 print() 被移除了，</seg>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20180306T122915Z" creationid="Heromyth" creationdate="20180306T053502Z">
+        <seg>/* 请注意：成员函数 print() 已被移除，</seg>
       </tuv>
     </tu>
     <tu>
