@@ -7301,6 +7301,16 @@ The owner simply waits for these messages in an infinite loop.</seg>
     <tu>
       <tuv lang="EN-US">
         <seg>$(P
+The owner simply waits for these messages in an unconditional loop.</seg>
+      </tuv>
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20180330T060455Z" creationid="Heromyth" creationdate="20180330T060455Z">
+        <seg>$(P
+所有者线程只是在一个无条件的循环里等待这些消息。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$(P
 The parameters that the thread function takes are passed to $(C spawn()) as its second and later arguments.</seg>
       </tuv>
       <tuv lang="ZH-CN" changeid="Heromyth" changedate="20170827T002512Z" creationid="Heromyth" creationdate="20170824T055237Z">
