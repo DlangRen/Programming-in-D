@@ -31,7 +31,7 @@ $(IX gdc) $(IX ldc) At the time of writing this chapter, there are three D compi
 )
 
 $(P
-$(IX dmd) $(C dmd) is the D compiler that has been used during the design and development of the language over the years. All of the examples in this book have been tested with $(C dmd). For that reason, it would be the easiest for you to start with $(C dmd) and try other compilers only if you have a specific need to. The code samples in this book were compiled with $(C dmd) version 2.078.0.
+$(IX dmd) $(C dmd) is the D compiler that has been used during the design and development of the language over the years. All of the examples in this book have been tested with $(C dmd). For that reason, it would be the easiest for you to start with $(C dmd) and try other compilers only if you have a specific need to. The code samples in this book were compiled with $(C dmd) version $(DVER).
 )
 
 $(P
@@ -105,7 +105,7 @@ The compiler has many command line switches that are used for influencing how it
 
 $(SHELL
 $(SHELL_OBSERVED $) dmd    $(SHELL_NOTE enter just the name)
-DMD64 D Compiler v2.078.0
+DMD64 D Compiler v$(DVER)
 Copyright (c) 1999-2017 by The D Language Foundation written by Walter Bright
 ...
   -de            show use of deprecated features as errors (halt compilation)

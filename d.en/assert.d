@@ -250,7 +250,7 @@ The compiler switch $(C -release) causes the $(C assert) checks to be ignored as
 )
 
 $(SHELL
-dmd deneme.d -release
+$ dmd deneme.d -release
 )
 
 $(P

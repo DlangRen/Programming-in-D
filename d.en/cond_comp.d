@@ -183,7 +183,7 @@ Such lines are included in the program only when the $(C -debug) compiler switch
 )
 
 $(SHELL_SMALL
-dmd deneme.d -ofdeneme -w $(HILITE -debug)
+$ dmd deneme.d -ofdeneme -w $(HILITE -debug)
 )
 
 $(H6 $(C debug($(I tag))))
@@ -201,7 +201,7 @@ The tagged $(C debug) statements are enabled by the $(C -debug=$(I tag)) compile
 )
 
 $(SHELL_SMALL
-dmd deneme.d -ofdeneme -w $(HILITE -debug=binarySearch)
+$ dmd deneme.d -ofdeneme -w $(HILITE -debug=binarySearch)
 )
 
 $(P

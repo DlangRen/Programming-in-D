@@ -305,10 +305,6 @@ void foo(in int value) {
 }
 ---
 
-$(P
-$(C in) is the equivalent of $(C const scope).
-)
-
 $(H6 $(IX out, parameter) $(C out))
 
 $(P

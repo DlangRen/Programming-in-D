@@ -6,6 +6,10 @@ $(P
 Mixins are for $(I mixing in) generated code into the source code. The mixed in code may be generated as a template instance or a $(C string).
 )
 
+$(P
+Code can be inserted into the program as a $(I string import) as well.
+)
+
 $(H5 $(IX template mixin) Template mixins)
 
 $(P
@@ -464,6 +468,90 @@ Actual destructor
 $(P
 Due to a bug as of this writing, the same behavior does not apply to other special functions like constructors. Additionally, a destructor mixed in by a string mixin does conflict with the existing destructor of the type.
 )
+
+$(H5 $(IX text file import) $(IX file import) $(IX import, file) $(IX string import) $(IX import, string) Importing text files)
+
+$(P
+It is possible to insert contents of text files into code at compile time. The contents are treated as $(C string) literals and can be used anywhere strings can be used. For example, they can be mixed in as code.
+)
+
+$(P
+For example, let's assume there are two text files on the file system named $(C file_one) and $(C file_two) having the following contents.
+)
+
+$(UL
+$(LI
+$(C file_one):
+)
+
+$(SHELL
+Hello
+)
+
+$(LI
+$(C file_two):
+)
+
+$(SHELL
+s ~= ", World!";
+import std.stdio;
+writeln(s);
+)
+
+)
+
+$(P
+The two $(C import) directives in the following program would correspond to the contents of those files converted to $(C string) literals at compile time:
+)
+
+---
+void main() {
+    string s = import ("file_one");
+    mixin (import ("file_two"));
+}
+---
+
+$(P
+$(IX -J, compiler switch) Text file imports (a.k.a. string imports) require the $(C -J) compiler switch which tells the compiler where to find the text files. For example, if the two files are in the $(I current directory) (specified with $(C .) in Linux environments), the program can be compiled with the following command:
+)
+
+$(SHELL
+$ dmd $(HILITE -J.) deneme.d
+)
+
+$(P
+The output:
+)
+
+$(SHELL
+Hello, World!
+)
+
+$(P
+Considering the file contents as $(C string) literals, the program is the equivalent of the following one:
+)
+
+---
+void main() {
+    string s = `Hello`;         $(CODE_NOTE Content of file_one as string)
+    mixin (`s ~= ", World!";
+import std.stdio;
+writeln(s);`);                  $(CODE_NOTE Content of file_two as string)
+}
+---
+
+$(P
+Further, considering the mixed-in string as well, the program is the equivalent of the following one:
+)
+
+---
+void main() {
+    string s = `Hello`;
+    s ~= ", World!";
+    import std.stdio;
+    writeln(s);
+}
+---
 
 $(H5 Example)
 

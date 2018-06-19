@@ -271,12 +271,6 @@ $(P
 Wysiwyg string literals can alternatively be specified using double quotes but prepended with the $(C r) character: $(C r"c:\nurten") is also a wysiwyg string literal.
 )
 
-$(H6 $(IX hexadecimal string literal) Hexadecimal string literals)
-
-$(P
-In situations where every character in a string needs to be specified in hexadecimal system, instead of typing $(C \x) before every one of them, a single $(C x) character may be typed before the opening double quote. In that case, every character in the string literal is taken to be hexadecimal. Additionally, the string literal may contain spaces, which are ignored by the compiler. For example, $(C "\x44\x64\x69\x6c\x69") and $(C x"44&nbsp;64&nbsp;69&nbsp;6c&nbsp;69") are the same string literal.
-)
-
 $(H6 $(IX q&quot;&quot;) $(IX delimited string literal) Delimited string literals)
 
 $(P

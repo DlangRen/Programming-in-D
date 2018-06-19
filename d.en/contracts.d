@@ -235,7 +235,7 @@ Contrary to unit testing, contract programming features are enabled by default. 
 )
 
 $(SHELL
-dmd deneme.d -w -release
+$ dmd deneme.d -w -release
 )
 
 $(P

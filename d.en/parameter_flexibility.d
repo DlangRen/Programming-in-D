@@ -221,7 +221,7 @@ $(LI $(IX __TIMESTAMP__) $(C __TIMESTAMP__): Date and time of compilation as $(C
 
 $(LI $(IX __VENDOR__) $(C __VENDOR__): Compiler vendor as $(C string) (e.g. $(STRING "Digital Mars D")))
 
-$(LI $(IX __VERSION__) $(C __VERSION__): Compiler version as $(C long) (e.g. the value $(C 2078L) for version 2.078))
+$(LI $(IX __VERSION__) $(C __VERSION__): Compiler version as $(C long) (e.g. the value $(C 2080L) for version 2.080))
 
 )
 

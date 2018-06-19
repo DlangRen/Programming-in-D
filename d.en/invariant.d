@@ -249,7 +249,7 @@ $(IX -release, compiler switch) As with $(C in) and $(C out) blocks, the checks 
 )
 
 $(SHELL
-dmd deneme.d -w -release
+$ dmd deneme.d -w -release
 )
 
 $(H5 $(IX contract inheritance) $(IX inheritance, contract) $(IX precondition, inherited) $(IX postcondition, inherited) $(IX in, inherited) $(IX out, inherited) Contract inheritance)

@@ -169,7 +169,7 @@ Assuming that the program is written in a single source file named $(C deneme.d)
 )
 
 $(SHELL
-dmd deneme.d -w $(HILITE -unittest)
+$ dmd deneme.d -w $(HILITE -unittest)
 )
 
 $(P

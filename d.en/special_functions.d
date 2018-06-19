@@ -242,6 +242,39 @@ Since hour and minute are now separate parameters, the users simply provide thei
     time.increment(Duration($(HILITE 22, 20)));
 ---
 
+$(H6 First assignment to a member is construction)
+
+$(P
+When setting values of members in a constructor, the first assignment to each member is treated specially: Instead of assigning a new value over the $(C .init) value of that member, the first assignment actually constructs that member. Further assignments to that member are treated regularly as assignment operations.
+)
+
+$(P
+This special behavior is necessary so that $(C immutable) and $(C const) members can in fact be constructed with values known only at run time. Otherwise, they could never be set to desired values as assignment is disallowed for $(C immutable) and $(C const) variables.
+)
+
+$(P
+The following program demonstrates how assigment operation is allowed only once for an $(C immutable) member:
+)
+
+---
+struct S {
+    int m;
+    immutable int i;
+
+    this(int m, int i) {
+        this.m = m;     $(CODE_NOTE construction)
+        this.m = 42;    $(CODE_NOTE assignment (possible for mutable member))
+
+        this.i = i;     $(CODE_NOTE construction)
+        this.i = i;     $(DERLEME_HATASI)
+    }
+}
+
+void main() {
+    auto s = S(1, 2);
+}
+---
+
 $(H6 User-defined constructor disables compiler-generated constructor)
 
 $(P
