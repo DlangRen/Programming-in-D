@@ -148,7 +148,7 @@ $(IX uninitialized array) $(IX array, uninitialized) $(IX = void) $(C buffer) is
 ---
 
 $(P
-$(IX GC.calloc) We will use only $(C GC.calloc) from the $(C core.memory) module to reserve memory in this chapter. That module has many other features that are useful in various situations. Additionally, the memory allocation functions of the C standard library are avaliable in the $(C std.c.stdlib) module.
+$(IX GC.calloc) We will use only $(C GC.calloc) from the $(C core.memory) module to reserve memory in this chapter. That module has many other features that are useful in various situations. Additionally, the memory allocation functions of the C standard library are avaliable in the $(C core.stdc.stdlib) module.
 )
 
 $(P
@@ -275,7 +275,7 @@ void * reallocCleared(
 
     /* Clear the extra bytes if extended. */
     if (newLength > oldLength) {
-        import std.c.string;
+        import core.stdc.string;
 
         auto extendedPart = buffer + oldLength;
         auto extendedLength = newLength - oldLength;
@@ -288,7 +288,7 @@ void * reallocCleared(
 ---
 
 $(P
-$(IX memset, std.c.string) The function above uses $(C memset()) from the $(C std.c.string) module to clear the newly extended bytes. $(C memset()) assigns the specified value to the bytes of a memory area specified by a pointer and a length. In the example, it assigns $(C 0) to $(C extendedLength) number of bytes at $(C extendedPart).
+$(IX memset, core.stdc.string) The function above uses $(C memset()) from the $(C core.stdc.string) module to clear the newly extended bytes. $(C memset()) assigns the specified value to the bytes of a memory area specified by a pointer and a length. In the example, it assigns $(C 0) to $(C extendedLength) number of bytes at $(C extendedPart).
 )
 
 $(P
@@ -367,11 +367,11 @@ $(IX |) The values of $(C enum BlkAttr) are suitable to be used as bit flags tha
 ---
 
 $(P
-Naturally, the GC would be aware only of memory blocks that are reserved by its own functions and scans only those memory blocks. For example, it would not know about a memory block allocated by $(C std.c.stdlib.calloc).
+Naturally, the GC would be aware only of memory blocks that are reserved by its own functions and scans only those memory blocks. For example, it would not know about a memory block allocated by $(C core.stdc.stdlib.calloc).
 )
 
 $(P
-$(IX GC.addRange) $(IX GC.removeRange) $(IX GC.addRoot) $(C GC.addRange) is for introducing unrelated memory blocks to the GC. The complement function $(C GC.removeRange) should be called before freeing a memory block by other means e.g. by $(C std.c.stdlib.free).
+$(IX GC.addRange) $(IX GC.removeRange) $(IX GC.addRoot) $(C GC.addRange) is for introducing unrelated memory blocks to the GC. The complement function $(C GC.removeRange) should be called before freeing a memory block by other means e.g. by $(C core.stdc.stdlib.free).
 )
 
 $(P

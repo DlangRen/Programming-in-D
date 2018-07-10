@@ -478,7 +478,7 @@ There is an exception to this rule both for class variables and for pointers. Ty
 
 ---
     char c;
-    char * p;
+    char * p = &c;
 
     writeln(p.sizeof);  // size of the pointer, not the pointee
 ---

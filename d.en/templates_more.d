@@ -967,6 +967,10 @@ void info(T...)(T args) {
 ---
 
 $(P
+$(I $(B Note:) As seen in the previous chapter, since the arguments are a tuple, the $(C foreach) statement above is a) compile-time $(C foreach).
+)
+
+$(P
 The output:
 )
 

@@ -106,7 +106,6 @@ The compiler has many command line switches that are used for influencing how it
 $(SHELL
 $(SHELL_OBSERVED $) dmd    $(SHELL_NOTE enter just the name)
 DMD64 D Compiler v$(DVER)
-Copyright (c) 1999-2017 by The D Language Foundation written by Walter Bright
 ...
   -de            show use of deprecated features as errors (halt compilation)
 ...

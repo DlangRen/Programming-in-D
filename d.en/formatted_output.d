@@ -269,7 +269,7 @@ In a field of 10 characters:       100
 In a field of 5 characters :  100
 )
 
-$(H5 $(IX separator) $(I separator))
+$(H5 $(IX $(PERCENT),) $(IX separator) $(I separator))
 
 $(P
 The comma character specifies to separate digits of a number in groups. The default number of digits in a group is 3 but it can be specified after the comma:

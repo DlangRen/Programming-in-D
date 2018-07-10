@@ -43,7 +43,7 @@ $(LI $(C __traits))
 )
 
 $(P
-We will see the $(C is) expression in the next chapter and $(C __traits) in a later chapter.
+We will see the $(C is) expression in the next chapter.
 )
 
 $(H5 $(IX debug) debug)

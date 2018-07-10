@@ -22,7 +22,7 @@ $(BR)
 $(BR)
 
 $(P
-Copyleft (ɔ) 2009-2017 Ali Çehreli
+Copyleft (ɔ) 2009-2018 Ali Çehreli
 )
 
 $(BR)

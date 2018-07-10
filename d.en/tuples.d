@@ -210,6 +210,10 @@ $(P
 The reason for the unrolling is the fact that when the tuple members are of different types, the $(C foreach) body has to be compiled differently for each type.
 )
 
+$(P
+We will see $(C static foreach), a more powerful loop unrolling feature, in $(LINK2 /ders/d.en/static_foreach.html, a later chapter).
+)
+
 $(H6 Returning multiple values from functions)
 
 $(P
