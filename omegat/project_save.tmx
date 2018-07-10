@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE tmx SYSTEM "tmx11.dtd">
 <tmx version="1.1">
-  <header creationtool="OmegaT" o-tmf="OmegaT TMX" adminlang="EN-US" datatype="plaintext" creationtoolversion="OmegaT-4.1.3" segtype="sentence" srclang="EN-US"/>
+  <header creationtool="OmegaT" o-tmf="OmegaT TMX" adminlang="EN-US" datatype="plaintext" creationtoolversion="OmegaT-4.1.5" segtype="sentence" srclang="EN-US"/>
   <body>
 <!-- Default translations -->
     <tu>
@@ -16631,7 +16631,7 @@ $(LI $(LINK2 /ders/d.en/uda.html, User Defined Attributes (UDA)) $(INDEX_KEYWORD
 $(LI $(LINK2 /ders/d.en/operator_precedence.html, Operator Precedence))
 )</seg>
       </tuv>
-      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20180710T115220Z" creationid="Heromyth" creationdate="20180710T115220Z">
+      <tuv lang="ZH-CN" changeid="Heromyth" changedate="20180710T152012Z" creationid="Heromyth" creationdate="20180710T115220Z">
         <seg>{} static, static this, static ~this))
 $(LI $(LINK2 /ders/d.cn/parameter_flexibility.html, 不定个数参数) $(INDEX_KEYWORDS T[]... __MODULE__ __FILE__ __LINE__ __FUNCTION__（等）))
 $(LI $(LINK2 /ders/d.cn/function_overloading.html, 函数重载))
@@ -16668,6 +16668,7 @@ $(LI $(LINK2 /ders/d.cn/functions_more.html, 函数的更多内容) $(INDEX_KEYW
 $(LI $(LINK2 /ders/d.cn/mixin.html, 混入) $(INDEX_KEYWORDS mixin))
 $(LI $(LINK2 /ders/d.cn/ranges.html, 范围) $(INDEX_KEYWORDS InputRange ForwardRange BidirectionalRange RandomAccessRange OutputRange))
 $(LI $(LINK2 /ders/d.cn/ranges_more.html, 范围的更多内容) $(INDEX_KEYWORDS isInputRange ElementType hasLength inputRangeObject（等）))
+$(LI $(LINK2 /ders/d.cn/static_foreach.html, static foreach))
 $(LI $(LINK2 /ders/d.cn/parallelism.html, 并行性) $(INDEX_KEYWORDS parallel task asyncBuf map amap reduce))
 $(LI $(LINK2 /ders/d.cn/concurrency.html, 消息传递并发) $(INDEX_KEYWORDS spawn thisTid ownerTid send receive (and more)))
 $(LI $(LINK2 /ders/d.cn/concurrency_shared.html, 数据共享并发) $(INDEX_KEYWORDS synchronized, shared, shared static this, shared static ~this))
