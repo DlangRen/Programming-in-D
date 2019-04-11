@@ -1,0 +1,6 @@
+MAIN_TITLE=D 语言答案
+CLASS=答案
+COZUM_BOLUMU = $(H4 $0)
+LANG=zh-cn
+LANGUAGE=chinese
+SUB_AUTHOR=

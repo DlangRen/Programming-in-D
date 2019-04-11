@@ -1,4 +1,0 @@
-
-BREADCRUMBS_INDEX=$(LINK2 /index.html, Ana Sayfa) &gt; Dersler
-
-BREADCRUMBS_FULL=$(LINK2 /index.html, Ana Sayfa) &gt; $(LINK2 /ders/index.html, Dersler)

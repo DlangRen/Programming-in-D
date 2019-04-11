@@ -1,4 +1,0 @@
-
-BREADCRUMBS_INDEX=$(LINK2 /, Ana Sayfa) &gt; Örnek Kodlar
-
-BREADCRUMBS_FULL=$(LINK2 /, Ana Sayfa) &gt; $(LINK2 /ornek_kod/, Örnek Kodlar)

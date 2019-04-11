@@ -1,3 +1,0 @@
-{
-	'inline_toc' : False,
-}

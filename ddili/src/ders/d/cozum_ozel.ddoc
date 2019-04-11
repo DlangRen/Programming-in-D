@@ -1,6 +1,0 @@
-MAIN_TITLE=D.ershane Çözümleri
-CLASS=solution
-COZUM_BOLUMU = $(H4 $0)
-LANG=tr
-LANGUAGE=turkish
-SUB_AUTHOR=

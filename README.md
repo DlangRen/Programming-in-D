@@ -6,7 +6,7 @@ The Chinese Translation Project of [Programming in D](http://ddili.org/ders/d.en
 ## Why "Programming in D"? 为什么选择此书？
 Instead of falling for getting things done quickly, "Programming in D" focuses on getting things done properly, to the lasting benefit of its reader. -Andrei Alexandrescu
 
-本书注重于如何恰到好处地使用D语言将任务处理得当，而非试图快速地完成一切却有失于代码质量，这使得它的读者能够长久受益。 ——大A
+本书没有急于求成，而是将各方面都处理得恰到好处，让读者受益匪浅。 ——Andrei Alexandrescu
 
 ## How to join us 怎样加入我们
 ### Tencent QQ
@@ -48,104 +48,105 @@ Instead of falling for getting things done quickly, "Programming in D" focuses o
 
 ## Progress 进度
 ### Translated 已完成翻译
-- [编译 Compilation](ddili/src/ders/d.cn/compiler.d) By Lucifer & meatatt
-- [元组 Tuples](ddili/src/ders/d.cn/tuples.d) By meatatt
-- [is 表达式 is Expression](ddili/src/ders/d.cn/is_expr.d) By meatatt
-- [命名作用域 Name Scope](ddili/src/ders/d.cn/name_space.d) By LinGo
-- [从标准输入中读取数据 Reading from the Standard Input](ddili/src/ders/d.cn/input.d) By Lucifer
-- [前言 Preface（合并自：Acknowledgments，Introduction）](ddili/src/ders/d.cn/preface.d) By IceNature
-- [文件 Files](ddili/src/ders/d.cn/files.d) By IceNature
-- [if 语句 if Statement](ddili/src/ders/d.cn/if.d) By IceNature
-- [auto 和 typeof auto and typeof](ddili/src/ders/d.cn/auto_and_typeof.d) By andot
-- [Object](ddili/src/ders/d.cn/object.d) By 大处着手小处着眼
-- [异常 Exceptions](ddili/src/ders/d.cn/exceptions.d) By xmdqvb
-- [scope](ddili/src/ders/d.cn/scope.d) By 大处着手小处着眼
-- [类 Classes](ddili/src/ders/d.cn/class.d) By 大处着手小处着眼
-- [并行 Parallelism](ddili/src/ders/d.cn/parallelism.d) By IceNature
-- [关联数组 Associative Arrays](ddili/src/ders/d.cn/aa.d) By 大处着手小处着眼
-- [do-while 循环 do-while Loop](ddili/src/ders/d.cn/do_while.d) By mogu
-- [alias 与 with alias and with](ddili/src/ders/d.cn/alias.d) By mogu
-- [alias this](ddili/src/ders/d.cn/alias_this.d) By mogu
-- [并发消息传递 Message Passing Concurrency](ddili/src/ders/d.cn/concurrency.d) By IceNature
-- [字符串 Strings](ddili/src/ders/d.cn/strings.d) By 大处着手小处着眼
-- [惰性运算符 Lazy Operators](ddili/src/ders/d.cn/lazy_operators.d) By mogu
-- [左值与右值 Lvalues and Rvalues](ddili/src/ders/d.cn/lvalue_rvalue.d) By mogu
-- [三元运算符 ?: Ternary Operator ?:](ddili/src/ders/d.cn/ternary.d) By IceNature
-- [模板 Templates](ddili/src/ders/d.cn/templates.d) By meatatt
-- [通用函数调用语法 Universal Function Call Syntax (UFCS)](ddili/src/ders/d.cn/ufcs.d) By mogu
-- [属性 Properties](ddili/src/ders/d.cn/property.d) By IceNature
-- [const ref 参数 and const 成员函数 const ref Parameters and const Member Functions](ddili/src/ders/d.cn/const_member_functions.d) By IceNature
-- [格式化输出 Formatted Output](ddili/src/ders/d.cn/formatted_output.d) By IceNature
-- [Pragmas](ddili/src/ders/d.cn/pragma.d) By mogu
+- [数组 Arrays](target/arrays.d) By 大处着手小处着眼
+- [编译 Compilation](target/compiler.d) By Lucifer & meatatt
+- [元组 Tuples](target/tuples.d) By meatatt
+- [is 表达式 is Expression](target/is_expr.d) By meatatt
+- [命名作用域 Name Scope](target/name_space.d) By LinGo
+- [从标准输入中读取数据 Reading from the Standard Input](target/input.d) By Lucifer
+- [前言 Preface（合并自：Acknowledgments，Introduction）](target/preface.d) By IceNature
+- [文件 Files](target/files.d) By IceNature
+- [if 语句 if Statement](target/if.d) By IceNature
+- [auto 和 typeof auto and typeof](target/auto_and_typeof.d) By andot
+- [Object](target/object.d) By 大处着手小处着眼
+- [异常 Exceptions](target/exceptions.d) By xmdqvb
+- [scope](target/scope.d) By 大处着手小处着眼
+- [类 Classes](target/class.d) By 大处着手小处着眼
+- [并行 Parallelism](target/parallelism.d) By IceNature
+- [关联数组 Associative Arrays](target/aa.d) By 大处着手小处着眼
+- [do-while 循环 do-while Loop](target/do_while.d) By mogu
+- [alias 与 with alias and with](target/alias.d) By mogu
+- [alias this](target/alias_this.d) By mogu
+- [并发消息传递 Message Passing Concurrency](target/concurrency.d) By IceNature
+- [字符串 Strings](target/strings.d) By 大处着手小处着眼
+- [惰性运算符 Lazy Operators](target/lazy_operators.d) By mogu
+- [左值与右值 Lvalues and Rvalues](target/lvalue_rvalue.d) By mogu
+- [三元运算符 ?: Ternary Operator ?:](target/ternary.d) By IceNature
+- [模板 Templates](target/templates.d) By meatatt
+- [通用函数调用语法 Universal Function Call Syntax (UFCS)](target/ufcs.d) By mogu
+- [属性 Properties](target/property.d) By IceNature
+- [const ref 参数 and const 成员函数 const ref Parameters and const Member Functions](target/const_member_functions.d) By IceNature
+- [格式化输出 Formatted Output](target/formatted_output.d) By IceNature
+- [Pragmas](target/pragma.d) By mogu
+- [自定义属性 (UDA)](target/uda.d) by Heromyth
 
 ### Reviewing 审核中
-- [Slices and Other Array Features](ddili/src/ders/d.cn/slices.d) By 大处着手小处着眼
-- [More Templates](ddili/src/ders/d.cn/templates_more.d) By meatatt
+- [Slices and Other Array Features](target/slices.d) By 大处着手小处着眼
+- [More Templates](target/templates_more.d) By meatatt
 
 ### Review Delayed 审核搁置
-- [Arrays](ddili/src/ders/d.cn/arrays.d) By 大处着手小处着眼
+
 
 ### Outdated 旧项目待更新
-- [The Hello World Program](ddili/src/ders/d.cn/hello_world.d) By Lucifer
-- [writeln and write](ddili/src/ders/d.cn/writeln.d) By Lucifer
-- [Fundamental Types](ddili/src/ders/d.cn/types.d) By Lucifer
-- [Assignment and Order of Evaluation](ddili/src/ders/d.cn/assignment.d) By Lucifer
-- [Variables](ddili/src/ders/d.cn/variables.d) By Lucifer
-- [Standard Input and Output Streams](ddili/src/ders/d.cn/io.d) By Lucifer
+- [The Hello World Program](target/hello_world.d) By Lucifer
+- [writeln and write](target/writeln.d) By Lucifer
+- [Fundamental Types](target/types.d) By Lucifer
+- [Assignment and Order of Evaluation](target/assignment.d) By Lucifer
+- [Variables](target/variables.d) By Lucifer
+- [Standard Input and Output Streams](target/io.d) By Lucifer
 
 ### Adopted 已被领取
-- [Lifetimes and Fundamental Operations](ddili/src/ders/d.cn/lifetimes.d) By 渡世白玉
-- [Ranges](ddili/src/ders/d.cn/ranges.d) By Lucifer
-- [while Loop](ddili/src/ders/d.cn/while.d) By KimmyLeo
-- [Redirecting Standard Input and Output Streams](ddili/src/ders/d.cn/stream_redirect.d) By mogu
-- [Function Pointers, Delegates, and Lambdas](ddili/src/ders/d.cn/lambda.d) By zhaopuming
-- [Modules and Libraries](ddili/src/ders/d.cn/modules.d) By 大处着手小处着眼
-- [Variable Number of Parameters](ddili/src/ders/d.cn/parameter_flexibility.d) By meatatt
-- [Conditional Compilation](ddili/src/ders/d.cn/cond_comp.d) By IceNature
-- [Immutability](ddili/src/ders/d.cn/const_and_immutable.d) By IceNature
-- [Type Conversions](ddili/src/ders/d.cn/cast.d) By IceNature
-- [Formatted Input](ddili/src/ders/d.cn/formatted_input.d) By IceNature
+- [Lifetimes and Fundamental Operations](target/lifetimes.d) By 渡世白玉
+- [Ranges](target/ranges.d) By Lucifer
+- [while Loop](target/while.d) By KimmyLeo
+- [Redirecting Standard Input and Output Streams](target/stream_redirect.d) By mogu
+- [Function Pointers, Delegates, and Lambdas](target/lambda.d) By zhaopuming
+- [Modules and Libraries](target/modules.d) By 大处着手小处着眼
+- [Variable Number of Parameters](target/parameter_flexibility.d) By meatatt
+- [Conditional Compilation](target/cond_comp.d) By IceNature
+- [Immutability](target/const_and_immutable.d) By IceNature
+- [Type Conversions](target/cast.d) By IceNature
+- [Formatted Input](target/formatted_input.d) By IceNature
 
 ### Orphans 待领取
-- [Foreword by Andrei Alexandrescu](ddili/src/ders/d.cn/foreword2.d)
-- [Logical Expressions](ddili/src/ders/d.cn/logical_expressions.d)
-- [Integers and Arithmetic Operations](ddili/src/ders/d.cn/arithmetic.d)
-- [Floating Point Types](ddili/src/ders/d.cn/floating_point.d)
-- [Characters](ddili/src/ders/d.cn/characters.d)
-- [for Loop](ddili/src/ders/d.cn/for.d)
-- [Literals](ddili/src/ders/d.cn/literals.d)
-- [foreach Loop](ddili/src/ders/d.cn/foreach.d)
-- [switch and case](ddili/src/ders/d.cn/switch_case.d)
-- [enum](ddili/src/ders/d.cn/enum.d)
-- [Functions](ddili/src/ders/d.cn/functions.d)
-- [Value Types and Reference Types](ddili/src/ders/d.cn/value_vs_reference.d)
-- [Function Parameters](ddili/src/ders/d.cn/function_parameters.d)
-- [Program Environment](ddili/src/ders/d.cn/main.d)
-- [assert and enforce](ddili/src/ders/d.cn/assert.d)
-- [Unit Testing](ddili/src/ders/d.cn/unit_testing.d)
-- [Contract Programming](ddili/src/ders/d.cn/contracts.d)
-- [The null Value and the is Operator](ddili/src/ders/d.cn/null_is.d)
-- [Structs](ddili/src/ders/d.cn/struct.d)
-- [Function Overloading](ddili/src/ders/d.cn/function_overloading.d)
-- [Member Functions](ddili/src/ders/d.cn/member_functions.d)
-- [Constructor and Other Special Functions](ddili/src/ders/d.cn/special_functions.d)
-- [Operator Overloading](ddili/src/ders/d.cn/operator_overloading.d)
-- [Inheritance](ddili/src/ders/d.cn/inheritance.d)
-- [Interfaces](ddili/src/ders/d.cn/interface.d)
-- [destroy and scoped](ddili/src/ders/d.cn/destroy.d)
-- [Encapsulation and Protection Attributes](ddili/src/ders/d.cn/encapsulation.d)
-- [Contract Programming for Structs and Classes](ddili/src/ders/d.cn/invariant.d)
-- [Pointers](ddili/src/ders/d.cn/pointers.d)
-- [Bit Operations](ddili/src/ders/d.cn/bit_operations.d)
-- [foreach with Structs and Classes](ddili/src/ders/d.cn/foreach_opapply.d)
-- [Nested Functions, Structs, and Classes](ddili/src/ders/d.cn/nested.d)
-- [Unions](ddili/src/ders/d.cn/union.d)
-- [Labels and goto](ddili/src/ders/d.cn/goto.d)
-- [More Functions](ddili/src/ders/d.cn/functions_more.d)
-- [Mixins](ddili/src/ders/d.cn/mixin.d)
-- [More Ranges](ddili/src/ders/d.cn/ranges_more.d)
-- [Data Sharing Concurrency](ddili/src/ders/d.cn/concurrency_shared.d)
-- [Fibers](ddili/src/ders/d.cn/fibers.d)
-- [Memory Management](ddili/src/ders/d.cn/memory.d)
-- [User Defined Attributes (UDA)](ddili/src/ders/d.cn/uda.d)
-- [Operator Precedence](ddili/src/ders/d.cn/operator_precedence.d)
+- [Foreword by Andrei Alexandrescu](target/foreword2.d)
+- [Logical Expressions](target/logical_expressions.d)
+- [Integers and Arithmetic Operations](target/arithmetic.d)
+- [Floating Point Types](target/floating_point.d)
+- [Characters](target/characters.d)
+- [for Loop](target/for.d)
+- [Literals](target/literals.d)
+- [foreach Loop](target/foreach.d)
+- [switch and case](target/switch_case.d)
+- [enum](target/enum.d)
+- [Functions](target/functions.d)
+- [Value Types and Reference Types](target/value_vs_reference.d)
+- [Function Parameters](target/function_parameters.d)
+- [Program Environment](target/main.d)
+- [assert and enforce](target/assert.d)
+- [Unit Testing](target/unit_testing.d)
+- [Contract Programming](target/contracts.d)
+- [The null Value and the is Operator](target/null_is.d)
+- [Structs](target/struct.d)
+- [Function Overloading](target/function_overloading.d)
+- [Member Functions](target/member_functions.d)
+- [Constructor and Other Special Functions](target/special_functions.d)
+- [Operator Overloading](target/operator_overloading.d)
+- [Inheritance](target/inheritance.d)
+- [Interfaces](target/interface.d)
+- [destroy and scoped](target/destroy.d)
+- [Encapsulation and Protection Attributes](target/encapsulation.d)
+- [Contract Programming for Structs and Classes](target/invariant.d)
+- [Pointers](target/pointers.d)
+- [Bit Operations](target/bit_operations.d)
+- [foreach with Structs and Classes](target/foreach_opapply.d)
+- [Nested Functions, Structs, and Classes](target/nested.d)
+- [Unions](target/union.d)
+- [Labels and goto](target/goto.d)
+- [More Functions](target/functions_more.d)
+- [Mixins](target/mixin.d)
+- [More Ranges](target/ranges_more.d)
+- [Data Sharing Concurrency](target/concurrency_shared.d)
+- [Fibers](target/fibers.d)
+- [Memory Management](target/memory.d)
+- [Operator Precedence](target/operator_precedence.d)
